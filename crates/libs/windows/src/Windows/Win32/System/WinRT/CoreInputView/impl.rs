@@ -19,6 +19,6 @@ impl ICoreFrameworkInputViewInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreFrameworkInputViewInterop as ::windows::core::Interface>::IID
+        iid == &<ICoreFrameworkInputViewInterop as ::windows::core::ComInterface>::IID
     }
 }

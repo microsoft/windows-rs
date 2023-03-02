@@ -36,7 +36,7 @@ impl IUIApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIApplication as ::windows::core::Interface>::IID
+        iid == &<IUIApplication as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"implement\"`*"]
@@ -111,7 +111,7 @@ impl IUICollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUICollection as ::windows::core::Interface>::IID
+        iid == &<IUICollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"implement\"`*"]
@@ -129,7 +129,7 @@ impl IUICollectionChangedEvent_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUICollectionChangedEvent as ::windows::core::Interface>::IID
+        iid == &<IUICollectionChangedEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -166,7 +166,7 @@ impl IUICommandHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUICommandHandler as ::windows::core::Interface>::IID
+        iid == &<IUICommandHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"implement\"`*"]
@@ -184,7 +184,7 @@ impl IUIContextualUI_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ShowAtLocation: ShowAtLocation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIContextualUI as ::windows::core::Interface>::IID
+        iid == &<IUIContextualUI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"implement\"`*"]
@@ -202,7 +202,7 @@ impl IUIEventLogger_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUIEvent: OnUIEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIEventLogger as ::windows::core::Interface>::IID
+        iid == &<IUIEventLogger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"implement\"`*"]
@@ -220,7 +220,7 @@ impl IUIEventingManager_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetEventLogger: SetEventLogger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIEventingManager as ::windows::core::Interface>::IID
+        iid == &<IUIEventingManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -306,7 +306,7 @@ impl IUIFramework_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIFramework as ::windows::core::Interface>::IID
+        iid == &<IUIFramework as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -333,7 +333,7 @@ impl IUIImage_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBitmap: GetBitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIImage as ::windows::core::Interface>::IID
+        iid == &<IUIImage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -360,7 +360,7 @@ impl IUIImageFromBitmap_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateImage: CreateImage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIImageFromBitmap as ::windows::core::Interface>::IID
+        iid == &<IUIImageFromBitmap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -404,7 +404,7 @@ impl IUIRibbon_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIRibbon as ::windows::core::Interface>::IID
+        iid == &<IUIRibbon as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -431,6 +431,6 @@ impl IUISimplePropertySet_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUISimplePropertySet as ::windows::core::Interface>::IID
+        iid == &<IUISimplePropertySet as ::windows::core::ComInterface>::IID
     }
 }

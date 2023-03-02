@@ -10,10 +10,10 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
 #[inline]
 pub unsafe fn WnvRequestNotification<P0>(wnvhandle: P0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "wnvapi.dll""system" fn WnvRequestNotification ( wnvhandle : super::super::Foundation:: HANDLE , notificationparam : *mut WNV_NOTIFICATION_PARAM , overlapped : *mut super::super::System::IO:: OVERLAPPED , bytestransferred : *mut u32 ) -> u32 );
-    WnvRequestNotification(wnvhandle.into(), notificationparam, overlapped, bytestransferred)
+    WnvRequestNotification(wnvhandle.into_param().abi(), notificationparam, overlapped, bytestransferred)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;

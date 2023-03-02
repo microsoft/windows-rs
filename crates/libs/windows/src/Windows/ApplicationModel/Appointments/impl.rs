@@ -53,6 +53,6 @@ impl IAppointmentParticipant_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppointmentParticipant as ::windows::core::Interface>::IID
+        iid == &<IAppointmentParticipant as ::windows::core::ComInterface>::IID
     }
 }

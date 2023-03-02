@@ -53,7 +53,7 @@ impl IAccountingProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccountingProviderConfig as ::windows::core::Interface>::IID
+        iid == &<IAccountingProviderConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -111,7 +111,7 @@ impl IAuthenticationProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAuthenticationProviderConfig as ::windows::core::Interface>::IID
+        iid == &<IAuthenticationProviderConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -170,7 +170,7 @@ impl IEAPProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID
+        iid == &<IEAPProviderConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -201,7 +201,7 @@ impl IEAPProviderConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID
+        iid == &<IEAPProviderConfig2 as ::windows::core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -225,7 +225,7 @@ impl IEAPProviderConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEAPProviderConfig3 as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows::core::Interface>::IID || iid == &<IEAPProviderConfig2 as ::windows::core::Interface>::IID
+        iid == &<IEAPProviderConfig3 as ::windows::core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows::core::ComInterface>::IID || iid == &<IEAPProviderConfig2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -256,6 +256,6 @@ impl IRouterProtocolConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRouterProtocolConfig as ::windows::core::Interface>::IID
+        iid == &<IRouterProtocolConfig as ::windows::core::ComInterface>::IID
     }
 }

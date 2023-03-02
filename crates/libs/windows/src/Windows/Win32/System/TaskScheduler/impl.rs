@@ -33,7 +33,7 @@ impl IAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IAction as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -138,7 +138,7 @@ impl IActionCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActionCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IActionCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -165,7 +165,7 @@ impl IBootTrigger_Vtbl {
         Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBootTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IBootTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -210,7 +210,7 @@ impl IComHandlerAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComHandlerAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
+        iid == &<IComHandlerAction as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -255,7 +255,7 @@ impl IDailyTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDailyTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IDailyTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -418,7 +418,7 @@ impl IEmailAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEmailAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
+        iid == &<IEmailAction as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -466,7 +466,7 @@ impl IEnumWorkItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumWorkItems as ::windows::core::Interface>::IID
+        iid == &<IEnumWorkItems as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -531,7 +531,7 @@ impl IEventTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IEventTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -590,7 +590,7 @@ impl IExecAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IExecAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
+        iid == &<IExecAction as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -621,7 +621,7 @@ impl IExecAction2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IExecAction2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID || iid == &<IExecAction as ::windows::core::Interface>::IID
+        iid == &<IExecAction2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IAction as ::windows::core::ComInterface>::IID || iid == &<IExecAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -694,7 +694,7 @@ impl IIdleSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIdleSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IIdleSettings as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -708,7 +708,7 @@ impl IIdleTrigger_Vtbl {
         Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIdleTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IIdleTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -753,7 +753,7 @@ impl ILogonTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILogonTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<ILogonTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -812,7 +812,7 @@ impl IMaintenanceSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMaintenanceSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMaintenanceSettings as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -899,7 +899,7 @@ impl IMonthlyDOWTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMonthlyDOWTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IMonthlyDOWTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -972,7 +972,7 @@ impl IMonthlyTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMonthlyTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IMonthlyTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1017,7 +1017,7 @@ impl INetworkSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetworkSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<INetworkSettings as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1118,7 +1118,7 @@ impl IPrincipal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrincipal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrincipal as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1170,7 +1170,7 @@ impl IPrincipal2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrincipal2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrincipal2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"implement\"`*"]
@@ -1197,7 +1197,7 @@ impl IProvideTaskPage_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPage: GetPage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvideTaskPage as ::windows::core::Interface>::IID
+        iid == &<IProvideTaskPage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1424,7 +1424,7 @@ impl IRegisteredTask_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegisteredTask as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRegisteredTask as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1480,7 +1480,7 @@ impl IRegisteredTaskCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegisteredTaskCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRegisteredTaskCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1623,7 +1623,7 @@ impl IRegistrationInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegistrationInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRegistrationInfo as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1650,7 +1650,7 @@ impl IRegistrationTrigger_Vtbl {
         Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>(), Delay: Delay::<Identity, Impl, OFFSET>, SetDelay: SetDelay::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegistrationTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IRegistrationTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1709,7 +1709,7 @@ impl IRepetitionPattern_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRepetitionPattern as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRepetitionPattern as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1818,7 +1818,7 @@ impl IRunningTask_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRunningTask as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRunningTask as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1874,7 +1874,7 @@ impl IRunningTaskCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRunningTaskCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRunningTaskCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2166,7 +2166,7 @@ impl IScheduledWorkItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScheduledWorkItem as ::windows::core::Interface>::IID
+        iid == &<IScheduledWorkItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2225,7 +2225,7 @@ impl ISessionStateChangeTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISessionStateChangeTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<ISessionStateChangeTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2270,7 +2270,7 @@ impl IShowMessageAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IShowMessageAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
+        iid == &<IShowMessageAction as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2407,7 +2407,7 @@ impl ITask_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITask as ::windows::core::Interface>::IID || iid == &<IScheduledWorkItem as ::windows::core::Interface>::IID
+        iid == &<ITask as ::windows::core::ComInterface>::IID || iid == &<IScheduledWorkItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2552,7 +2552,7 @@ impl ITaskDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskDefinition as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskDefinition as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2720,7 +2720,7 @@ impl ITaskFolder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskFolder as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskFolder as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2776,7 +2776,7 @@ impl ITaskFolderCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskFolderCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskFolderCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -2824,7 +2824,7 @@ impl ITaskHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskHandler as ::windows::core::Interface>::IID
+        iid == &<ITaskHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -2852,7 +2852,7 @@ impl ITaskHandlerStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskHandlerStatus as ::windows::core::Interface>::IID
+        iid == &<ITaskHandlerStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2929,7 +2929,7 @@ impl ITaskNamedValueCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskNamedValueCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskNamedValueCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2974,7 +2974,7 @@ impl ITaskNamedValuePair_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskNamedValuePair as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskNamedValuePair as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -3068,7 +3068,7 @@ impl ITaskScheduler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskScheduler as ::windows::core::Interface>::IID
+        iid == &<ITaskScheduler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3196,7 +3196,7 @@ impl ITaskService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskService as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskService as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3505,7 +3505,7 @@ impl ITaskSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskSettings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskSettings as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3550,7 +3550,7 @@ impl ITaskSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskSettings2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITaskSettings2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3642,7 +3642,7 @@ impl ITaskSettings3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskSettings3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITaskSettings as ::windows::core::Interface>::IID
+        iid == &<ITaskSettings3 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITaskSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -3683,7 +3683,7 @@ impl ITaskTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskTrigger as ::windows::core::Interface>::IID
+        iid == &<ITaskTrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"implement\"`*"]
@@ -3730,7 +3730,7 @@ impl ITaskVariables_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITaskVariables as ::windows::core::Interface>::IID
+        iid == &<ITaskVariables as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3761,7 +3761,7 @@ impl ITimeTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITimeTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<ITimeTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3875,7 +3875,7 @@ impl ITrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3952,7 +3952,7 @@ impl ITriggerCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITriggerCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITriggerCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4011,6 +4011,6 @@ impl IWeeklyTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWeeklyTrigger as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITrigger as ::windows::core::Interface>::IID
+        iid == &<IWeeklyTrigger as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITrigger as ::windows::core::ComInterface>::IID
     }
 }

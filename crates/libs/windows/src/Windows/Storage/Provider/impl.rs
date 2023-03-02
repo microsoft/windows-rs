@@ -28,7 +28,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderItemPropertySource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderItemPropertySource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -58,7 +58,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderPropertyCapabilities as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderPropertyCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -112,7 +112,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderStatusUISource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -142,7 +142,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -224,7 +224,7 @@ impl IStorageProviderUICommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderUICommand as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderUICommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -254,6 +254,6 @@ impl IStorageProviderUriSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderUriSource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderUriSource as ::windows::core::ComInterface>::IID
     }
 }

@@ -19,7 +19,7 @@ impl IComprehensiveSpellCheckProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ComprehensiveCheck: ComprehensiveCheck::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComprehensiveSpellCheckProvider as ::windows::core::Interface>::IID
+        iid == &<IComprehensiveSpellCheckProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -61,7 +61,7 @@ impl IEnumCodePage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumCodePage as ::windows::core::Interface>::IID
+        iid == &<IEnumCodePage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -103,7 +103,7 @@ impl IEnumRfc1766_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRfc1766 as ::windows::core::Interface>::IID
+        iid == &<IEnumRfc1766 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -145,7 +145,7 @@ impl IEnumScript_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumScript as ::windows::core::Interface>::IID
+        iid == &<IEnumScript as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -169,7 +169,7 @@ impl IEnumSpellingError_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSpellingError as ::windows::core::Interface>::IID
+        iid == &<IEnumSpellingError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -229,7 +229,7 @@ impl IMLangCodePages_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangCodePages as ::windows::core::Interface>::IID
+        iid == &<IMLangCodePages as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -310,7 +310,7 @@ impl IMLangConvertCharset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangConvertCharset as ::windows::core::Interface>::IID
+        iid == &<IMLangConvertCharset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -355,7 +355,7 @@ impl IMLangFontLink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangFontLink as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
+        iid == &<IMLangFontLink as ::windows::core::ComInterface>::IID || iid == &<IMLangCodePages as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -427,7 +427,7 @@ impl IMLangFontLink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangFontLink2 as ::windows::core::Interface>::IID || iid == &<IMLangCodePages as ::windows::core::Interface>::IID
+        iid == &<IMLangFontLink2 as ::windows::core::ComInterface>::IID || iid == &<IMLangCodePages as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -462,7 +462,7 @@ impl IMLangLineBreakConsole_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangLineBreakConsole as ::windows::core::Interface>::IID
+        iid == &<IMLangLineBreakConsole as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -507,7 +507,7 @@ impl IMLangString_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangString as ::windows::core::Interface>::IID
+        iid == &<IMLangString as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -580,7 +580,7 @@ impl IMLangStringAStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringAStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
+        iid == &<IMLangStringAStr as ::windows::core::ComInterface>::IID || iid == &<IMLangString as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -632,7 +632,7 @@ impl IMLangStringBufA_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringBufA as ::windows::core::Interface>::IID
+        iid == &<IMLangStringBufA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -681,7 +681,7 @@ impl IMLangStringBufW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringBufW as ::windows::core::Interface>::IID
+        iid == &<IMLangStringBufW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -754,7 +754,7 @@ impl IMLangStringWStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMLangStringWStr as ::windows::core::Interface>::IID || iid == &<IMLangString as ::windows::core::Interface>::IID
+        iid == &<IMLangStringWStr as ::windows::core::ComInterface>::IID || iid == &<IMLangString as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -909,7 +909,7 @@ impl IMultiLanguage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiLanguage as ::windows::core::Interface>::IID
+        iid == &<IMultiLanguage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1163,7 +1163,7 @@ impl IMultiLanguage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiLanguage2 as ::windows::core::Interface>::IID
+        iid == &<IMultiLanguage2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1194,7 +1194,7 @@ impl IMultiLanguage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiLanguage3 as ::windows::core::Interface>::IID || iid == &<IMultiLanguage2 as ::windows::core::Interface>::IID
+        iid == &<IMultiLanguage3 as ::windows::core::ComInterface>::IID || iid == &<IMultiLanguage2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1263,7 +1263,7 @@ impl IOptionDescription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOptionDescription as ::windows::core::Interface>::IID
+        iid == &<IOptionDescription as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1398,7 +1398,7 @@ impl ISpellCheckProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellCheckProvider as ::windows::core::Interface>::IID
+        iid == &<ISpellCheckProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1454,7 +1454,7 @@ impl ISpellCheckProviderFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellCheckProviderFactory as ::windows::core::Interface>::IID
+        iid == &<ISpellCheckProviderFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1629,7 +1629,7 @@ impl ISpellChecker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellChecker as ::windows::core::Interface>::IID
+        iid == &<ISpellChecker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1650,7 +1650,7 @@ impl ISpellChecker2_Vtbl {
         Self { base__: ISpellChecker_Vtbl::new::<Identity, Impl, OFFSET>(), Remove: Remove::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellChecker2 as ::windows::core::Interface>::IID || iid == &<ISpellChecker as ::windows::core::Interface>::IID
+        iid == &<ISpellChecker2 as ::windows::core::ComInterface>::IID || iid == &<ISpellChecker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -1668,7 +1668,7 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellCheckerChangedEventHandler as ::windows::core::Interface>::IID
+        iid == &<ISpellCheckerChangedEventHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1724,7 +1724,7 @@ impl ISpellCheckerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellCheckerFactory as ::windows::core::Interface>::IID
+        iid == &<ISpellCheckerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -1790,7 +1790,7 @@ impl ISpellingError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpellingError as ::windows::core::Interface>::IID
+        iid == &<ISpellingError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -1818,6 +1818,6 @@ impl IUserDictionariesRegistrar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserDictionariesRegistrar as ::windows::core::Interface>::IID
+        iid == &<IUserDictionariesRegistrar as ::windows::core::ComInterface>::IID
     }
 }

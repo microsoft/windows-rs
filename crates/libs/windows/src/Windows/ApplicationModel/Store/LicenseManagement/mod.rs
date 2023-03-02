@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILicenseManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILicenseManagerStatics {
+unsafe impl ::windows::core::Interface for ILicenseManagerStatics {
     type Vtable = ILicenseManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILicenseManagerStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ILicenseManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILicenseManagerStatics {
+unsafe impl ::windows::core::ComInterface for ILicenseManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
 }
 #[repr(C)]
@@ -28,7 +28,7 @@ pub struct ILicenseManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILicenseManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILicenseManagerStatics2 {
+unsafe impl ::windows::core::Interface for ILicenseManagerStatics2 {
     type Vtable = ILicenseManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for ILicenseManagerStatics2 {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for ILicenseManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILicenseManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for ILicenseManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
 }
 #[repr(C)]
@@ -51,7 +51,7 @@ pub struct ILicenseManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILicenseSatisfactionInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILicenseSatisfactionInfo {
+unsafe impl ::windows::core::Interface for ILicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
 }
 impl ::core::clone::Clone for ILicenseSatisfactionInfo {
@@ -59,7 +59,7 @@ impl ::core::clone::Clone for ILicenseSatisfactionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILicenseSatisfactionInfo {
+unsafe impl ::windows::core::ComInterface for ILicenseSatisfactionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 }
 #[repr(C)]
@@ -77,7 +77,7 @@ pub struct ILicenseSatisfactionInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILicenseSatisfactionResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILicenseSatisfactionResult {
+unsafe impl ::windows::core::Interface for ILicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;
 }
 impl ::core::clone::Clone for ILicenseSatisfactionResult {
@@ -85,7 +85,7 @@ impl ::core::clone::Clone for ILicenseSatisfactionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILicenseSatisfactionResult {
+unsafe impl ::windows::core::ComInterface for ILicenseSatisfactionResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 }
 #[repr(C)]
@@ -103,28 +103,25 @@ pub struct LicenseManager;
 impl LicenseManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AddLicenseAsync<P0, E0>(license: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn AddLicenseAsync<P0>(license: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).AddLicenseAsync)(::windows::core::Vtable::as_raw(this), license.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AddLicenseAsync)(::windows::core::Interface::as_raw(this), license.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSatisfactionInfosAsync<P0, E0, P1, E1>(contentids: P0, keyids: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
+    pub fn GetSatisfactionInfosAsync<P0, P1>(contentids: P0, keyids: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
+        P1: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>();
-            (::windows::core::Vtable::vtable(this).GetSatisfactionInfosAsync)(::windows::core::Vtable::as_raw(this), contentids.try_into().map_err(|e| e.into())?.abi(), keyids.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSatisfactionInfosAsync)(::windows::core::Interface::as_raw(this), contentids.try_into_param()?.abi(), keyids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -132,7 +129,7 @@ impl LicenseManager {
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).RefreshLicensesAsync)(::windows::core::Vtable::as_raw(this), refreshoption, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RefreshLicensesAsync)(::windows::core::Interface::as_raw(this), refreshoption, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -157,49 +154,49 @@ impl LicenseSatisfactionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedByDevice)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedByDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatisfiedByOpenLicense(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedByOpenLicense)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedByOpenLicense)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatisfiedByTrial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedByTrial)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedByTrial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatisfiedByPass(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedByPass)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedByPass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatisfiedByInstallMedia(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedByInstallMedia)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedByInstallMedia)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatisfiedBySignedInUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SatisfiedBySignedInUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SatisfiedBySignedInUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSatisfied(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSatisfied)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSatisfied)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -222,11 +219,11 @@ impl ::core::clone::Clone for LicenseSatisfactionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LicenseSatisfactionInfo {
+unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
-    const IID: ::windows::core::GUID = <ILicenseSatisfactionInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LicenseSatisfactionInfo {
+    const IID: ::windows::core::GUID = <ILicenseSatisfactionInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LicenseSatisfactionInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
@@ -244,14 +241,14 @@ impl LicenseSatisfactionResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>>();
-            (::windows::core::Vtable::vtable(this).LicenseSatisfactionInfos)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LicenseSatisfactionInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -274,11 +271,11 @@ impl ::core::clone::Clone for LicenseSatisfactionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LicenseSatisfactionResult {
+unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
-    const IID: ::windows::core::GUID = <ILicenseSatisfactionResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LicenseSatisfactionResult {
+    const IID: ::windows::core::GUID = <ILicenseSatisfactionResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LicenseSatisfactionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";

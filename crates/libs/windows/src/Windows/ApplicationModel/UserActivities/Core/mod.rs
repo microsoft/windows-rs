@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICoreUserActivityManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICoreUserActivityManagerStatics {
+unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
     type Vtable = ICoreUserActivityManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ICoreUserActivityManagerStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ICoreUserActivityManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
+unsafe impl ::windows::core::ComInterface for ICoreUserActivityManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 }
 #[repr(C)]
@@ -28,7 +28,7 @@ impl CoreUserActivityManager {
     pub fn CreateUserActivitySessionInBackground(activity: &super::UserActivity) -> ::windows::core::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UserActivitySession>();
-            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activity), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activity), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -36,7 +36,7 @@ impl CoreUserActivityManager {
     pub fn DeleteUserActivitySessionsInTimeRangeAsync(channel: &super::UserActivityChannel, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

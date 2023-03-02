@@ -11,11 +11,11 @@ pub unsafe fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: &::windows::
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<P0>(user: P0, privilegeid: u32, scope: &::windows::core::HSTRING, policy: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::BOOL>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn CheckGamingPrivilegeSilentlyForUser ( user : * mut::core::ffi::c_void , privilegeid : u32 , scope : ::std::mem::MaybeUninit <::windows::core::HSTRING > , policy : ::std::mem::MaybeUninit <::windows::core::HSTRING > , hasprivilege : *mut super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Foundation::BOOL>();
-    CheckGamingPrivilegeSilentlyForUser(user.into().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
+    CheckGamingPrivilegeSilentlyForUser(user.into_param().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -27,10 +27,10 @@ pub unsafe fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: &::windows::co
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<P0>(user: P0, privilegeid: u32, scope: &::windows::core::HSTRING, policy: &::windows::core::HSTRING, friendlymessage: &::windows::core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn CheckGamingPrivilegeWithUIForUser ( user : * mut::core::ffi::c_void , privilegeid : u32 , scope : ::std::mem::MaybeUninit <::windows::core::HSTRING > , policy : ::std::mem::MaybeUninit <::windows::core::HSTRING > , friendlymessage : ::std::mem::MaybeUninit <::windows::core::HSTRING > , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CheckGamingPrivilegeWithUIForUser(user.into().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), ::core::mem::transmute_copy(friendlymessage), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    CheckGamingPrivilegeWithUIForUser(user.into_param().abi(), privilegeid, ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(policy), ::core::mem::transmute_copy(friendlymessage), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -59,10 +59,10 @@ pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundatio
 #[inline]
 pub unsafe fn ProcessPendingGameUI<P0>(waitforcompletion: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll""system" fn ProcessPendingGameUI ( waitforcompletion : super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    ProcessPendingGameUI(waitforcompletion.into()).ok()
+    ProcessPendingGameUI(waitforcompletion.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -80,10 +80,10 @@ pub unsafe fn ShowChangeFriendRelationshipUI(targetuserxuid: &::windows::core::H
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<P0>(user: P0, targetuserxuid: &::windows::core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn ShowChangeFriendRelationshipUIForUser ( user : * mut::core::ffi::c_void , targetuserxuid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowChangeFriendRelationshipUIForUser(user.into().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowChangeFriendRelationshipUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -95,10 +95,10 @@ pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRout
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll""system" fn ShowCustomizeUserProfileUIForUser ( user : * mut::core::ffi::c_void , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowCustomizeUserProfileUIForUser(user.into().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowCustomizeUserProfileUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -110,10 +110,10 @@ pub unsafe fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, cont
 #[inline]
 pub unsafe fn ShowFindFriendsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll""system" fn ShowFindFriendsUIForUser ( user : * mut::core::ffi::c_void , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowFindFriendsUIForUser(user.into().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowFindFriendsUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -125,10 +125,10 @@ pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRo
 #[inline]
 pub unsafe fn ShowGameInfoUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll""system" fn ShowGameInfoUIForUser ( user : * mut::core::ffi::c_void , titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowGameInfoUIForUser(user.into().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowGameInfoUIForUser(user.into_param().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -140,10 +140,10 @@ pub unsafe fn ShowGameInviteUI(serviceconfigurationid: &::windows::core::HSTRING
 #[inline]
 pub unsafe fn ShowGameInviteUIForUser<P0>(user: P0, serviceconfigurationid: &::windows::core::HSTRING, sessiontemplatename: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, invitationdisplaytext: &::windows::core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn ShowGameInviteUIForUser ( user : * mut::core::ffi::c_void , serviceconfigurationid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , sessiontemplatename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , sessionid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , invitationdisplaytext : ::std::mem::MaybeUninit <::windows::core::HSTRING > , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowGameInviteUIForUser(user.into().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowGameInviteUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -155,10 +155,10 @@ pub unsafe fn ShowGameInviteUIWithContext(serviceconfigurationid: &::windows::co
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContextForUser<P0>(user: P0, serviceconfigurationid: &::windows::core::HSTRING, sessiontemplatename: &::windows::core::HSTRING, sessionid: &::windows::core::HSTRING, invitationdisplaytext: &::windows::core::HSTRING, customactivationcontext: &::windows::core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-3.dll""system" fn ShowGameInviteUIWithContextForUser ( user : * mut::core::ffi::c_void , serviceconfigurationid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , sessiontemplatename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , sessionid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , invitationdisplaytext : ::std::mem::MaybeUninit <::windows::core::HSTRING > , customactivationcontext : ::std::mem::MaybeUninit <::windows::core::HSTRING > , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowGameInviteUIWithContextForUser(user.into().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), ::core::mem::transmute_copy(customactivationcontext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowGameInviteUIWithContextForUser(user.into_param().abi(), ::core::mem::transmute_copy(serviceconfigurationid), ::core::mem::transmute_copy(sessiontemplatename), ::core::mem::transmute_copy(sessionid), ::core::mem::transmute_copy(invitationdisplaytext), ::core::mem::transmute_copy(customactivationcontext), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -170,10 +170,10 @@ pub unsafe fn ShowPlayerPickerUI(promptdisplaytext: &::windows::core::HSTRING, x
 #[inline]
 pub unsafe fn ShowPlayerPickerUIForUser<P0>(user: P0, promptdisplaytext: &::windows::core::HSTRING, xuids: &[::windows::core::HSTRING], preselectedxuids: ::core::option::Option<&[::windows::core::HSTRING]>, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn ShowPlayerPickerUIForUser ( user : * mut::core::ffi::c_void , promptdisplaytext : ::std::mem::MaybeUninit <::windows::core::HSTRING > , xuids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , xuidscount : usize , preselectedxuids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , preselectedxuidscount : usize , minselectioncount : usize , maxselectioncount : usize , completionroutine : PlayerPickerUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowPlayerPickerUIForUser(user.into().abi(), ::core::mem::transmute_copy(promptdisplaytext), ::core::mem::transmute(xuids.as_ptr()), xuids.len() as _, ::core::mem::transmute(preselectedxuids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len() as _), minselectioncount, maxselectioncount, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowPlayerPickerUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(promptdisplaytext), ::core::mem::transmute(xuids.as_ptr()), xuids.len() as _, ::core::mem::transmute(preselectedxuids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len() as _), minselectioncount, maxselectioncount, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -185,10 +185,10 @@ pub unsafe fn ShowProfileCardUI(targetuserxuid: &::windows::core::HSTRING, compl
 #[inline]
 pub unsafe fn ShowProfileCardUIForUser<P0>(user: P0, targetuserxuid: &::windows::core::HSTRING, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn ShowProfileCardUIForUser ( user : * mut::core::ffi::c_void , targetuserxuid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowProfileCardUIForUser(user.into().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowProfileCardUIForUser(user.into_param().abi(), ::core::mem::transmute_copy(targetuserxuid), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -200,10 +200,10 @@ pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICom
 #[inline]
 pub unsafe fn ShowTitleAchievementsUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll""system" fn ShowTitleAchievementsUIForUser ( user : * mut::core::ffi::c_void , titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowTitleAchievementsUIForUser(user.into().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowTitleAchievementsUIForUser(user.into_param().abi(), titleid, completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[inline]
@@ -215,10 +215,10 @@ pub unsafe fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, con
 #[inline]
 pub unsafe fn ShowUserSettingsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IInspectable>>,
+    P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
 {
     ::windows::imp::link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll""system" fn ShowUserSettingsUIForUser ( user : * mut::core::ffi::c_void , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ShowUserSettingsUIForUser(user.into().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
+    ShowUserSettingsUIForUser(user.into_param().abi(), completionroutine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -232,19 +232,19 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
 pub struct IGameExplorer(::windows::core::IUnknown);
 impl IGameExplorer {
     pub unsafe fn AddGame(&self, bstrgdfbinarypath: &::windows::core::BSTR, bstrgameinstalldirectory: &::windows::core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddGame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute_copy(bstrgameinstalldirectory), installscope, pguidinstanceid).ok()
+        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute_copy(bstrgameinstalldirectory), installscope, pguidinstanceid).ok()
     }
     pub unsafe fn RemoveGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveGame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
+        (::windows::core::Interface::vtable(self).RemoveGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
     }
     pub unsafe fn UpdateGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UpdateGame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
+        (::windows::core::Interface::vtable(self).UpdateGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &::windows::core::BSTR) -> ::windows::core::Result<super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).VerifyAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).VerifyAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IGameExplorer, ::windows::core::IUnknown);
@@ -259,7 +259,7 @@ impl ::core::fmt::Debug for IGameExplorer {
         f.debug_tuple("IGameExplorer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGameExplorer {
+unsafe impl ::windows::core::Interface for IGameExplorer {
     type Vtable = IGameExplorer_Vtbl;
 }
 impl ::core::clone::Clone for IGameExplorer {
@@ -267,7 +267,7 @@ impl ::core::clone::Clone for IGameExplorer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameExplorer {
+unsafe impl ::windows::core::ComInterface for IGameExplorer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
 }
 #[repr(C)]
@@ -288,25 +288,25 @@ pub struct IGameExplorer2(::windows::core::IUnknown);
 impl IGameExplorer2 {
     pub unsafe fn InstallGame<P0, P1>(&self, binarygdfpath: P0, installdirectory: P1, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).InstallGame)(::windows::core::Vtable::as_raw(self), binarygdfpath.into().abi(), installdirectory.into().abi(), installscope).ok()
+        (::windows::core::Interface::vtable(self).InstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into_param().abi(), installdirectory.into_param().abi(), installscope).ok()
     }
     pub unsafe fn UninstallGame<P0>(&self, binarygdfpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).UninstallGame)(::windows::core::Vtable::as_raw(self), binarygdfpath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).UninstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckAccess<P0>(&self, binarygdfpath: P0) -> ::windows::core::Result<super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).CheckAccess)(::windows::core::Vtable::as_raw(self), binarygdfpath.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CheckAccess)(::windows::core::Interface::as_raw(self), binarygdfpath.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IGameExplorer2, ::windows::core::IUnknown);
@@ -321,7 +321,7 @@ impl ::core::fmt::Debug for IGameExplorer2 {
         f.debug_tuple("IGameExplorer2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGameExplorer2 {
+unsafe impl ::windows::core::Interface for IGameExplorer2 {
     type Vtable = IGameExplorer2_Vtbl;
 }
 impl ::core::clone::Clone for IGameExplorer2 {
@@ -329,7 +329,7 @@ impl ::core::clone::Clone for IGameExplorer2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameExplorer2 {
+unsafe impl ::windows::core::ComInterface for IGameExplorer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 }
 #[repr(C)]
@@ -349,58 +349,58 @@ pub struct IGameStatistics(::windows::core::IUnknown);
 impl IGameStatistics {
     pub unsafe fn GetMaxCategoryLength(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetMaxCategoryLength)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMaxCategoryLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxNameLength(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetMaxNameLength)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMaxNameLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxValueLength(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetMaxValueLength)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMaxValueLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxCategories(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::windows::core::zeroed::<u16>();
-        (::windows::core::Vtable::vtable(self).GetMaxCategories)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMaxCategories)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMaxStatsPerCategory(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::windows::core::zeroed::<u16>();
-        (::windows::core::Vtable::vtable(self).GetMaxStatsPerCategory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMaxStatsPerCategory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCategoryTitle<P0>(&self, categoryindex: u16, title: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetCategoryTitle)(::windows::core::Vtable::as_raw(self), categoryindex, title.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCategoryTitle)(::windows::core::Interface::as_raw(self), categoryindex, title.into_param().abi()).ok()
     }
     pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetCategoryTitle)(::windows::core::Vtable::as_raw(self), categoryindex, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCategoryTitle)(::windows::core::Interface::as_raw(self), categoryindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: ::core::option::Option<*mut ::windows::core::PWSTR>, pvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStatistic)(::windows::core::Vtable::as_raw(self), categoryindex, statindex, ::core::mem::transmute(pname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetStatistic)(::windows::core::Interface::as_raw(self), categoryindex, statindex, ::core::mem::transmute(pname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetStatistic<P0, P1>(&self, categoryindex: u16, statindex: u16, name: P0, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetStatistic)(::windows::core::Vtable::as_raw(self), categoryindex, statindex, name.into().abi(), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStatistic)(::windows::core::Interface::as_raw(self), categoryindex, statindex, name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0>(&self, trackchanges: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), trackchanges.into()).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), trackchanges.into_param().abi()).ok()
     }
     pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLastPlayedCategory)(::windows::core::Vtable::as_raw(self), categoryindex).ok()
+        (::windows::core::Interface::vtable(self).SetLastPlayedCategory)(::windows::core::Interface::as_raw(self), categoryindex).ok()
     }
     pub unsafe fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetLastPlayedCategory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetLastPlayedCategory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IGameStatistics, ::windows::core::IUnknown);
@@ -415,7 +415,7 @@ impl ::core::fmt::Debug for IGameStatistics {
         f.debug_tuple("IGameStatistics").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGameStatistics {
+unsafe impl ::windows::core::Interface for IGameStatistics {
     type Vtable = IGameStatistics_Vtbl;
 }
 impl ::core::clone::Clone for IGameStatistics {
@@ -423,7 +423,7 @@ impl ::core::clone::Clone for IGameStatistics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameStatistics {
+unsafe impl ::windows::core::ComInterface for IGameStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 }
 #[repr(C)]
@@ -452,15 +452,15 @@ pub struct IGameStatisticsMgr(::windows::core::IUnknown);
 impl IGameStatisticsMgr {
     pub unsafe fn GetGameStatistics<P0>(&self, gdfbinarypath: P0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetGameStatistics)(::windows::core::Vtable::as_raw(self), gdfbinarypath.into().abi(), opentype, popenresult, ::core::mem::transmute(ppistats)).ok()
+        (::windows::core::Interface::vtable(self).GetGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into_param().abi(), opentype, popenresult, ::core::mem::transmute(ppistats)).ok()
     }
     pub unsafe fn RemoveGameStatistics<P0>(&self, gdfbinarypath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveGameStatistics)(::windows::core::Vtable::as_raw(self), gdfbinarypath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IGameStatisticsMgr, ::windows::core::IUnknown);
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for IGameStatisticsMgr {
         f.debug_tuple("IGameStatisticsMgr").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGameStatisticsMgr {
+unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
     type Vtable = IGameStatisticsMgr_Vtbl;
 }
 impl ::core::clone::Clone for IGameStatisticsMgr {
@@ -483,7 +483,7 @@ impl ::core::clone::Clone for IGameStatisticsMgr {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
+unsafe impl ::windows::core::ComInterface for IGameStatisticsMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 }
 #[repr(C)]
@@ -499,44 +499,44 @@ pub struct IXblIdpAuthManager(::windows::core::IUnknown);
 impl IXblIdpAuthManager {
     pub unsafe fn SetGamerAccount<P0, P1>(&self, msaaccountid: P0, xuid: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetGamerAccount)(::windows::core::Vtable::as_raw(self), msaaccountid.into().abi(), xuid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGamerAccount)(::windows::core::Interface::as_raw(self), msaaccountid.into_param().abi(), xuid.into_param().abi()).ok()
     }
     pub unsafe fn GetGamerAccount(&self, msaaccountid: *mut ::windows::core::PWSTR, xuid: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetGamerAccount)(::windows::core::Vtable::as_raw(self), msaaccountid, xuid).ok()
+        (::windows::core::Interface::vtable(self).GetGamerAccount)(::windows::core::Interface::as_raw(self), msaaccountid, xuid).ok()
     }
     pub unsafe fn SetAppViewInitialized<P0, P1>(&self, appsid: P0, msaaccountid: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetAppViewInitialized)(::windows::core::Vtable::as_raw(self), appsid.into().abi(), msaaccountid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAppViewInitialized)(::windows::core::Interface::as_raw(self), appsid.into_param().abi(), msaaccountid.into_param().abi()).ok()
     }
     pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetEnvironment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnvironment)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSandbox)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSandbox)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6, P7>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: P7) -> ::windows::core::Result<IXblIdpAuthTokenResult>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P6: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P7: ::std::convert::Into<super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P6: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P7: ::windows::core::IntoParam<super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IXblIdpAuthTokenResult>();
-        (::windows::core::Vtable::vtable(self).GetTokenAndSignatureWithTokenResult)(::windows::core::Vtable::as_raw(self), msaaccountid.into().abi(), appsid.into().abi(), msatarget.into().abi(), msapolicy.into().abi(), httpmethod.into().abi(), uri.into().abi(), headers.into().abi(), ::core::mem::transmute(body.as_ptr()), body.len() as _, forcerefresh.into(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(::windows::core::Interface::as_raw(self), msaaccountid.into_param().abi(), appsid.into_param().abi(), msatarget.into_param().abi(), msapolicy.into_param().abi(), httpmethod.into_param().abi(), uri.into_param().abi(), headers.into_param().abi(), ::core::mem::transmute(body.as_ptr()), body.len() as _, forcerefresh.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IXblIdpAuthManager, ::windows::core::IUnknown);
@@ -551,7 +551,7 @@ impl ::core::fmt::Debug for IXblIdpAuthManager {
         f.debug_tuple("IXblIdpAuthManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXblIdpAuthManager {
+unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
     type Vtable = IXblIdpAuthManager_Vtbl;
 }
 impl ::core::clone::Clone for IXblIdpAuthManager {
@@ -559,7 +559,7 @@ impl ::core::clone::Clone for IXblIdpAuthManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
+unsafe impl ::windows::core::ComInterface for IXblIdpAuthManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
 }
 #[repr(C)]
@@ -582,83 +582,83 @@ pub struct IXblIdpAuthTokenResult(::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult {
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
         let mut result__ = ::windows::core::zeroed::<XBL_IDP_AUTH_TOKEN_STATUS>();
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-        (::windows::core::Vtable::vtable(self).GetErrorCode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetToken(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetToken)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetToken)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSignature(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSignature)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignature)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSandbox(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSandbox)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSandbox)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEnvironment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetEnvironment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnvironment)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMsaAccountId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetMsaAccountId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMsaAccountId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetXuid(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetXuid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetXuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetGamertag)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetGamertag)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAgeGroup(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetAgeGroup)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAgeGroup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrivileges(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetPrivileges)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPrivileges)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMsaTarget(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetMsaTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMsaTarget)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMsaPolicy(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetMsaPolicy)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMsaPolicy)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMsaAppId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetMsaAppId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMsaAppId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRedirect(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetRedirect)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRedirect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMessage(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetMessage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHelpId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetHelpId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetHelpId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEnforcementBans(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetEnforcementBans)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnforcementBans)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTitleRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetTitleRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTitleRestrictions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IXblIdpAuthTokenResult, ::windows::core::IUnknown);
@@ -673,7 +673,7 @@ impl ::core::fmt::Debug for IXblIdpAuthTokenResult {
         f.debug_tuple("IXblIdpAuthTokenResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXblIdpAuthTokenResult {
+unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResult_Vtbl;
 }
 impl ::core::clone::Clone for IXblIdpAuthTokenResult {
@@ -681,7 +681,7 @@ impl ::core::clone::Clone for IXblIdpAuthTokenResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
+unsafe impl ::windows::core::ComInterface for IXblIdpAuthTokenResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
 }
 #[repr(C)]
@@ -715,15 +715,15 @@ pub struct IXblIdpAuthTokenResult2(::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     pub unsafe fn GetModernGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetModernGamertag)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetModernGamertag)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetModernGamertagSuffix)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetModernGamertagSuffix)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetUniqueModernGamertag)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUniqueModernGamertag)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IXblIdpAuthTokenResult2, ::windows::core::IUnknown);
@@ -738,7 +738,7 @@ impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
         f.debug_tuple("IXblIdpAuthTokenResult2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXblIdpAuthTokenResult2 {
+unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2_Vtbl;
 }
 impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
@@ -746,7 +746,7 @@ impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
+unsafe impl ::windows::core::ComInterface for IXblIdpAuthTokenResult2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 }
 #[repr(C)]

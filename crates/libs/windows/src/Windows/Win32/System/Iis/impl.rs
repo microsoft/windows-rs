@@ -26,7 +26,7 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpAuthenticationProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpAuthenticationProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -60,7 +60,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpAuthorizationProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpAuthorizationProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -94,7 +94,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpHomeDirectoryProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpHomeDirectoryProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -122,7 +122,7 @@ impl AsyncIFtpLogProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpLogProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpLogProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -159,7 +159,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpPostprocessProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpPostprocessProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -196,7 +196,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpPreprocessProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpPreprocessProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -233,7 +233,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIFtpRoleProvider as ::windows::core::Interface>::IID
+        iid == &<AsyncIFtpRoleProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -275,7 +275,7 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIMSAdminBaseSinkW as ::windows::core::Interface>::IID
+        iid == &<AsyncIMSAdminBaseSinkW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -310,7 +310,7 @@ impl IADMEXT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IADMEXT as ::windows::core::Interface>::IID
+        iid == &<IADMEXT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -331,7 +331,7 @@ impl IFtpAuthenticationProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AuthenticateUser: AuthenticateUser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpAuthenticationProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpAuthenticationProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -355,7 +355,7 @@ impl IFtpAuthorizationProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserAccessPermission: GetUserAccessPermission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpAuthorizationProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpAuthorizationProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -379,7 +379,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserHomeDirectoryData: GetUserHomeDirectoryData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpHomeDirectoryProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpHomeDirectoryProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -397,7 +397,7 @@ impl IFtpLogProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Log: Log::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpLogProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpLogProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -424,7 +424,7 @@ impl IFtpPostprocessProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePostprocess: HandlePostprocess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpPostprocessProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpPostprocessProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -451,7 +451,7 @@ impl IFtpPreprocessProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePreprocess: HandlePreprocess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpPreprocessProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpPreprocessProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -472,7 +472,7 @@ impl IFtpProviderConstruct_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Construct: Construct::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpProviderConstruct as ::windows::core::Interface>::IID
+        iid == &<IFtpProviderConstruct as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -499,7 +499,7 @@ impl IFtpRoleProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsUserInRole: IsUserInRole::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFtpRoleProvider as ::windows::core::Interface>::IID
+        iid == &<IFtpRoleProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -558,7 +558,7 @@ impl IMSAdminBase2W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSAdminBase2W as ::windows::core::Interface>::IID || iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID
+        iid == &<IMSAdminBase2W as ::windows::core::ComInterface>::IID || iid == &<IMSAdminBaseW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -579,7 +579,7 @@ impl IMSAdminBase3W_Vtbl {
         Self { base__: IMSAdminBase2W_Vtbl::new::<Identity, Impl, OFFSET>(), GetChildPaths: GetChildPaths::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSAdminBase3W as ::windows::core::Interface>::IID || iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID || iid == &<IMSAdminBase2W as ::windows::core::Interface>::IID
+        iid == &<IMSAdminBase3W as ::windows::core::ComInterface>::IID || iid == &<IMSAdminBaseW as ::windows::core::ComInterface>::IID || iid == &<IMSAdminBase2W as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -607,7 +607,7 @@ impl IMSAdminBaseSinkW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSAdminBaseSinkW as ::windows::core::Interface>::IID
+        iid == &<IMSAdminBaseSinkW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -871,7 +871,7 @@ impl IMSAdminBaseW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSAdminBaseW as ::windows::core::Interface>::IID
+        iid == &<IMSAdminBaseW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"implement\"`*"]
@@ -889,6 +889,6 @@ impl IMSImpExpHelpW_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumeratePathsInFile: EnumeratePathsInFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMSImpExpHelpW as ::windows::core::Interface>::IID
+        iid == &<IMSImpExpHelpW as ::windows::core::ComInterface>::IID
     }
 }

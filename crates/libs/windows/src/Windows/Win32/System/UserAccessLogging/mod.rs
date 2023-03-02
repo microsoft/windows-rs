@@ -9,12 +9,12 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Resu
 #[inline]
 pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "ualapi.dll""system" fn UalRegisterProduct ( wszproductname : :: windows::core::PCWSTR , wszrolename : :: windows::core::PCWSTR , wszguid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    UalRegisterProduct(wszproductname.into().abi(), wszrolename.into().abi(), wszguid.into().abi()).ok()
+    UalRegisterProduct(wszproductname.into_param().abi(), wszrolename.into_param().abi(), wszguid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

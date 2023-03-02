@@ -16,7 +16,7 @@ impl IEffectivePermission_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEffectivePermission as ::windows::core::Interface>::IID
+        iid == &<IEffectivePermission as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -88,7 +88,7 @@ impl IEffectivePermission2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEffectivePermission2 as ::windows::core::Interface>::IID
+        iid == &<IEffectivePermission2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"implement\"`*"]
@@ -154,7 +154,7 @@ impl ISecurityInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityInformation as ::windows::core::Interface>::IID
+        iid == &<ISecurityInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -191,7 +191,7 @@ impl ISecurityInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityInformation2 as ::windows::core::Interface>::IID
+        iid == &<ISecurityInformation2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -228,7 +228,7 @@ impl ISecurityInformation3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityInformation3 as ::windows::core::Interface>::IID
+        iid == &<ISecurityInformation3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -249,7 +249,7 @@ impl ISecurityInformation4_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityInformation4 as ::windows::core::Interface>::IID
+        iid == &<ISecurityInformation4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"implement\"`*"]
@@ -267,6 +267,6 @@ impl ISecurityObjectTypeInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInheritSource: GetInheritSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityObjectTypeInfo as ::windows::core::Interface>::IID
+        iid == &<ISecurityObjectTypeInfo as ::windows::core::ComInterface>::IID
     }
 }

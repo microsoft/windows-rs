@@ -88,7 +88,7 @@ impl IXAPO_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAPO as ::windows::core::Interface>::IID
+        iid == &<IXAPO as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -130,7 +130,7 @@ impl IXAPOHrtfParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAPOHrtfParameters as ::windows::core::Interface>::IID
+        iid == &<IXAPOHrtfParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -158,7 +158,7 @@ impl IXAPOParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAPOParameters as ::windows::core::Interface>::IID
+        iid == &<IXAPOParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -245,7 +245,7 @@ impl IXAudio2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2 as ::windows::core::Interface>::IID
+        iid == &<IXAudio2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"implement\"`*"]
@@ -311,7 +311,7 @@ impl IXAudio2Extension_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2Extension as ::windows::core::Interface>::IID
+        iid == &<IXAudio2Extension as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]

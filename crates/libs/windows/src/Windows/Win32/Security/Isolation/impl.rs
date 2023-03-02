@@ -16,6 +16,6 @@ impl IIsolatedAppLauncher_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Launch: Launch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIsolatedAppLauncher as ::windows::core::Interface>::IID
+        iid == &<IIsolatedAppLauncher as ::windows::core::ComInterface>::IID
     }
 }

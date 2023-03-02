@@ -36,7 +36,7 @@ impl IDMOQualityControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMOQualityControl as ::windows::core::Interface>::IID
+        iid == &<IDMOQualityControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -96,7 +96,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDMOVideoOutputOptimizations as ::windows::core::Interface>::IID
+        iid == &<IDMOVideoOutputOptimizations as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -144,7 +144,7 @@ impl IEnumDMO_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDMO as ::windows::core::Interface>::IID
+        iid == &<IEnumDMO as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -185,7 +185,7 @@ impl IMediaBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaBuffer as ::windows::core::Interface>::IID
+        iid == &<IMediaBuffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -373,7 +373,7 @@ impl IMediaObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaObject as ::windows::core::Interface>::IID
+        iid == &<IMediaObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"implement\"`*"]
@@ -420,6 +420,6 @@ impl IMediaObjectInPlace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaObjectInPlace as ::windows::core::Interface>::IID
+        iid == &<IMediaObjectInPlace as ::windows::core::ComInterface>::IID
     }
 }

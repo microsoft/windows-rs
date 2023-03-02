@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProvider(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProvider {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProvider {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProvider {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
 #[repr(C)]
@@ -46,7 +46,7 @@ pub struct IHttpDiagnosticProvider_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -54,7 +54,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseCompletedEve
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
 #[repr(C)]
@@ -78,7 +78,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProviderRequestResponseTimestamps {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseTimestamps {
@@ -86,7 +86,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseTimestamps {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProviderRequestResponseTimestamps {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 }
 #[repr(C)]
@@ -133,7 +133,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProviderRequestSentEventArgs {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProviderRequestSentEventArgs {
@@ -141,7 +141,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProviderRequestSentEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProviderRequestSentEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
 #[repr(C)]
@@ -165,7 +165,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProviderResponseReceivedEventArgs {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProviderResponseReceivedEventArgs {
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProviderResponseReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProviderResponseReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
 #[repr(C)]
@@ -190,7 +190,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticProviderStatics {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderStatics {
     type Vtable = IHttpDiagnosticProviderStatics_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticProviderStatics {
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for IHttpDiagnosticProviderStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderStatics {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticProviderStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 }
 #[repr(C)]
@@ -213,7 +213,7 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHttpDiagnosticSourceLocation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHttpDiagnosticSourceLocation {
+unsafe impl ::windows::core::Interface for IHttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
 }
 impl ::core::clone::Clone for IHttpDiagnosticSourceLocation {
@@ -221,7 +221,7 @@ impl ::core::clone::Clone for IHttpDiagnosticSourceLocation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHttpDiagnosticSourceLocation {
+unsafe impl ::windows::core::ComInterface for IHttpDiagnosticSourceLocation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
 #[repr(C)]
@@ -241,11 +241,11 @@ pub struct HttpDiagnosticProvider(::windows::core::IUnknown);
 impl HttpDiagnosticProvider {
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -253,14 +253,14 @@ impl HttpDiagnosticProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).RequestSent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRequestSent(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRequestSent)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRequestSent)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -268,14 +268,14 @@ impl HttpDiagnosticProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ResponseReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResponseReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResponseReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveResponseReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveResponseReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -283,21 +283,21 @@ impl HttpDiagnosticProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).RequestResponseCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestResponseCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRequestResponseCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRequestResponseCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRequestResponseCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     #[cfg(feature = "System_Diagnostics")]
     pub fn CreateFromProcessDiagnosticInfo(processdiagnosticinfo: &super::super::super::System::Diagnostics::ProcessDiagnosticInfo) -> ::windows::core::Result<HttpDiagnosticProvider> {
         Self::IHttpDiagnosticProviderStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<HttpDiagnosticProvider>();
-            (::windows::core::Vtable::vtable(this).CreateFromProcessDiagnosticInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(processdiagnosticinfo), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateFromProcessDiagnosticInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(processdiagnosticinfo), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -325,11 +325,11 @@ impl ::core::clone::Clone for HttpDiagnosticProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticProvider {
+unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticProvider as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticProvider {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProvider as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
@@ -345,14 +345,14 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).ActivityId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Timestamps(&self) -> ::windows::core::Result<HttpDiagnosticProviderRequestResponseTimestamps> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HttpDiagnosticProviderRequestResponseTimestamps>();
-            (::windows::core::Vtable::vtable(this).Timestamps)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -361,28 +361,28 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).RequestedUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestedUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ProcessId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ThreadId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ThreadId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ThreadId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Initiator(&self) -> ::windows::core::Result<HttpDiagnosticRequestInitiator> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HttpDiagnosticRequestInitiator>();
-            (::windows::core::Vtable::vtable(this).Initiator)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Initiator)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -391,7 +391,7 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>>();
-            (::windows::core::Vtable::vtable(this).SourceLocations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -414,11 +414,11 @@ impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseCompletedEven
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
@@ -436,7 +436,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).CacheCheckedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CacheCheckedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -445,7 +445,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).ConnectionInitiatedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionInitiatedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -454,7 +454,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).NameResolvedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NameResolvedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -463,7 +463,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).SslNegotiatedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SslNegotiatedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -472,7 +472,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).ConnectionCompletedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConnectionCompletedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -481,7 +481,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).RequestSentTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSentTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -490,7 +490,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).RequestCompletedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestCompletedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -499,7 +499,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).ResponseReceivedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResponseReceivedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -508,7 +508,7 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).ResponseCompletedTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResponseCompletedTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -531,11 +531,11 @@ impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseTimestamps {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticProviderRequestResponseTimestamps {
+unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticProviderRequestResponseTimestamps {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
@@ -553,42 +553,42 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).ActivityId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Message(&self) -> ::windows::core::Result<super::HttpRequestMessage> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HttpRequestMessage>();
-            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ProcessId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ThreadId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ThreadId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ThreadId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Initiator(&self) -> ::windows::core::Result<HttpDiagnosticRequestInitiator> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HttpDiagnosticRequestInitiator>();
-            (::windows::core::Vtable::vtable(this).Initiator)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Initiator)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -597,7 +597,7 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>>();
-            (::windows::core::Vtable::vtable(this).SourceLocations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -620,11 +620,11 @@ impl ::core::clone::Clone for HttpDiagnosticProviderRequestSentEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticProviderRequestSentEventArgs {
+unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticProviderRequestSentEventArgs {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
@@ -642,21 +642,21 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).ActivityId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Message(&self) -> ::windows::core::Result<super::HttpResponseMessage> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::HttpResponseMessage>();
-            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -679,11 +679,11 @@ impl ::core::clone::Clone for HttpDiagnosticProviderResponseReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticProviderResponseReceivedEventArgs {
+unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticProviderResponseReceivedEventArgs {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
@@ -701,21 +701,21 @@ impl HttpDiagnosticSourceLocation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).SourceUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LineNumber(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).LineNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LineNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColumnNumber(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).ColumnNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ColumnNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -738,11 +738,11 @@ impl ::core::clone::Clone for HttpDiagnosticSourceLocation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HttpDiagnosticSourceLocation {
+unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
-    const IID: ::windows::core::GUID = <IHttpDiagnosticSourceLocation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HttpDiagnosticSourceLocation {
+    const IID: ::windows::core::GUID = <IHttpDiagnosticSourceLocation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";

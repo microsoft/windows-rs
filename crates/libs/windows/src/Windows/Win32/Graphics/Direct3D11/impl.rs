@@ -13,7 +13,7 @@ impl ID3D11Asynchronous_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDataSize: GetDataSize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11Asynchronous as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -57,7 +57,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11AuthenticatedChannel as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11AuthenticatedChannel as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -78,7 +78,7 @@ impl ID3D11BlendState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11BlendState as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11BlendState as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -99,7 +99,7 @@ impl ID3D11BlendState1_Vtbl {
         Self { base__: ID3D11BlendState_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11BlendState1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11BlendState as ::windows::core::Interface>::IID
+        iid == &<ID3D11BlendState1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11BlendState as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -117,7 +117,7 @@ impl ID3D11Buffer_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Buffer as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID
+        iid == &<ID3D11Buffer as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -162,7 +162,7 @@ impl ID3D11ClassInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ClassInstance as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11ClassInstance as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -202,7 +202,7 @@ impl ID3D11ClassLinkage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ClassLinkage as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11ClassLinkage as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -220,7 +220,7 @@ impl ID3D11CommandList_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetContextFlags: GetContextFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11CommandList as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11CommandList as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -231,7 +231,7 @@ impl ID3D11ComputeShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ComputeShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11ComputeShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -249,7 +249,7 @@ impl ID3D11Counter_Vtbl {
         Self { base__: ID3D11Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Counter as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID
+        iid == &<ID3D11Counter as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -307,7 +307,7 @@ impl ID3D11CryptoSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11CryptoSession as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11CryptoSession as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -393,7 +393,7 @@ impl ID3D11Debug_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Debug as ::windows::core::Interface>::IID
+        iid == &<ID3D11Debug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -414,7 +414,7 @@ impl ID3D11DepthStencilState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DepthStencilState as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11DepthStencilState as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -435,7 +435,7 @@ impl ID3D11DepthStencilView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DepthStencilView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11DepthStencilView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -750,7 +750,7 @@ impl ID3D11Device_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -816,7 +816,7 @@ impl ID3D11Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11Device as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -867,7 +867,7 @@ impl ID3D11Device2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device2 as ::windows::core::Interface>::IID || iid == &<ID3D11Device as ::windows::core::Interface>::IID || iid == &<ID3D11Device1 as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -961,7 +961,7 @@ impl ID3D11Device3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device3 as ::windows::core::Interface>::IID || iid == &<ID3D11Device as ::windows::core::Interface>::IID || iid == &<ID3D11Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11Device2 as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device3 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -998,7 +998,7 @@ impl ID3D11Device4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device4 as ::windows::core::Interface>::IID || iid == &<ID3D11Device as ::windows::core::Interface>::IID || iid == &<ID3D11Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11Device2 as ::windows::core::Interface>::IID || iid == &<ID3D11Device3 as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device4 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1029,7 +1029,7 @@ impl ID3D11Device5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Device5 as ::windows::core::Interface>::IID || iid == &<ID3D11Device as ::windows::core::Interface>::IID || iid == &<ID3D11Device1 as ::windows::core::Interface>::IID || iid == &<ID3D11Device2 as ::windows::core::Interface>::IID || iid == &<ID3D11Device3 as ::windows::core::Interface>::IID || iid == &<ID3D11Device4 as ::windows::core::Interface>::IID
+        iid == &<ID3D11Device5 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device3 as ::windows::core::ComInterface>::IID || iid == &<ID3D11Device4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -1071,7 +1071,7 @@ impl ID3D11DeviceChild_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1844,7 +1844,7 @@ impl ID3D11DeviceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1994,7 +1994,7 @@ impl ID3D11DeviceContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2093,7 +2093,7 @@ impl ID3D11DeviceContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2131,7 +2131,7 @@ impl ID3D11DeviceContext3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext3 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext2 as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceContext3 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -2162,7 +2162,7 @@ impl ID3D11DeviceContext4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DeviceContext4 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext2 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceContext3 as ::windows::core::Interface>::IID
+        iid == &<ID3D11DeviceContext4 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceContext3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2173,7 +2173,7 @@ impl ID3D11DomainShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11DomainShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11DomainShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"implement\"`*"]
@@ -2217,7 +2217,7 @@ impl ID3D11Fence_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Fence as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11Fence as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -2314,7 +2314,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11FunctionLinkingGraph as ::windows::core::Interface>::IID
+        iid == &<ID3D11FunctionLinkingGraph as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -2431,7 +2431,7 @@ impl ID3D11GeometryShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11GeometryShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11GeometryShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2442,7 +2442,7 @@ impl ID3D11HullShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11HullShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11HullShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2704,7 +2704,7 @@ impl ID3D11InfoQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11InfoQueue as ::windows::core::Interface>::IID
+        iid == &<ID3D11InfoQueue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2715,7 +2715,7 @@ impl ID3D11InputLayout_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11InputLayout as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11InputLayout as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2749,7 +2749,7 @@ impl ID3D11LibraryReflection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11LibraryReflection as ::windows::core::Interface>::IID
+        iid == &<ID3D11LibraryReflection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -2787,7 +2787,7 @@ impl ID3D11Linker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Linker as ::windows::core::Interface>::IID
+        iid == &<ID3D11Linker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2798,7 +2798,7 @@ impl ID3D11LinkingNode_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11LinkingNode as ::windows::core::Interface>::IID
+        iid == &<ID3D11LinkingNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2822,7 +2822,7 @@ impl ID3D11Module_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Module as ::windows::core::Interface>::IID
+        iid == &<ID3D11Module as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2906,7 +2906,7 @@ impl ID3D11ModuleInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ModuleInstance as ::windows::core::Interface>::IID
+        iid == &<ID3D11ModuleInstance as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2951,7 +2951,7 @@ impl ID3D11Multithread_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Multithread as ::windows::core::Interface>::IID
+        iid == &<ID3D11Multithread as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2962,7 +2962,7 @@ impl ID3D11PixelShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11PixelShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11PixelShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2973,7 +2973,7 @@ impl ID3D11Predicate_Vtbl {
         Self { base__: ID3D11Query_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Predicate as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D11Query as ::windows::core::Interface>::IID
+        iid == &<ID3D11Predicate as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::ComInterface>::IID || iid == &<ID3D11Query as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -2991,7 +2991,7 @@ impl ID3D11Query_Vtbl {
         Self { base__: ID3D11Asynchronous_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Query as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID
+        iid == &<ID3D11Query as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3009,7 +3009,7 @@ impl ID3D11Query1_Vtbl {
         Self { base__: ID3D11Query_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Query1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D11Query as ::windows::core::Interface>::IID
+        iid == &<ID3D11Query1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::ComInterface>::IID || iid == &<ID3D11Query as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3030,7 +3030,7 @@ impl ID3D11RasterizerState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11RasterizerState as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3051,7 +3051,7 @@ impl ID3D11RasterizerState1_Vtbl {
         Self { base__: ID3D11RasterizerState_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11RasterizerState as ::windows::core::Interface>::IID
+        iid == &<ID3D11RasterizerState1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11RasterizerState as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3072,7 +3072,7 @@ impl ID3D11RasterizerState2_Vtbl {
         Self { base__: ID3D11RasterizerState1_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc2: GetDesc2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RasterizerState2 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11RasterizerState as ::windows::core::Interface>::IID || iid == &<ID3D11RasterizerState1 as ::windows::core::Interface>::IID
+        iid == &<ID3D11RasterizerState2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11RasterizerState as ::windows::core::ComInterface>::IID || iid == &<ID3D11RasterizerState1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3090,7 +3090,7 @@ impl ID3D11RefDefaultTrackingOptions_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RefDefaultTrackingOptions as ::windows::core::Interface>::IID
+        iid == &<ID3D11RefDefaultTrackingOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3108,7 +3108,7 @@ impl ID3D11RefTrackingOptions_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RefTrackingOptions as ::windows::core::Interface>::IID
+        iid == &<ID3D11RefTrackingOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3129,7 +3129,7 @@ impl ID3D11RenderTargetView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RenderTargetView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11RenderTargetView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3150,7 +3150,7 @@ impl ID3D11RenderTargetView1_Vtbl {
         Self { base__: ID3D11RenderTargetView_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11RenderTargetView1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID || iid == &<ID3D11RenderTargetView as ::windows::core::Interface>::IID
+        iid == &<ID3D11RenderTargetView1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID || iid == &<ID3D11RenderTargetView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3185,7 +3185,7 @@ impl ID3D11Resource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Resource as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3203,7 +3203,7 @@ impl ID3D11SamplerState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11SamplerState as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11SamplerState as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -3359,7 +3359,7 @@ impl ID3D11ShaderReflection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderReflection as ::windows::core::Interface>::IID
+        iid == &<ID3D11ShaderReflection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -3570,7 +3570,7 @@ impl ID3D11ShaderResourceView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderResourceView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11ShaderResourceView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3591,7 +3591,7 @@ impl ID3D11ShaderResourceView1_Vtbl {
         Self { base__: ID3D11ShaderResourceView_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderResourceView1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID || iid == &<ID3D11ShaderResourceView as ::windows::core::Interface>::IID
+        iid == &<ID3D11ShaderResourceView1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID || iid == &<ID3D11ShaderResourceView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3664,7 +3664,7 @@ impl ID3D11ShaderTrace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderTrace as ::windows::core::Interface>::IID
+        iid == &<ID3D11ShaderTrace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3688,7 +3688,7 @@ impl ID3D11ShaderTraceFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateShaderTrace: CreateShaderTrace::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderTraceFactory as ::windows::core::Interface>::IID
+        iid == &<ID3D11ShaderTraceFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3719,7 +3719,7 @@ impl ID3D11SwitchToRef_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11SwitchToRef as ::windows::core::Interface>::IID
+        iid == &<ID3D11SwitchToRef as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3740,7 +3740,7 @@ impl ID3D11Texture1D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Texture1D as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID
+        iid == &<ID3D11Texture1D as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3761,7 +3761,7 @@ impl ID3D11Texture2D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Texture2D as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID
+        iid == &<ID3D11Texture2D as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3782,7 +3782,7 @@ impl ID3D11Texture2D1_Vtbl {
         Self { base__: ID3D11Texture2D_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Texture2D1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID || iid == &<ID3D11Texture2D as ::windows::core::Interface>::IID
+        iid == &<ID3D11Texture2D1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID || iid == &<ID3D11Texture2D as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3803,7 +3803,7 @@ impl ID3D11Texture3D_Vtbl {
         Self { base__: ID3D11Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Texture3D as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID
+        iid == &<ID3D11Texture3D as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3824,7 +3824,7 @@ impl ID3D11Texture3D1_Vtbl {
         Self { base__: ID3D11Texture3D_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11Texture3D1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Resource as ::windows::core::Interface>::IID || iid == &<ID3D11Texture3D as ::windows::core::Interface>::IID
+        iid == &<ID3D11Texture3D1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11Resource as ::windows::core::ComInterface>::IID || iid == &<ID3D11Texture3D as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3852,7 +3852,7 @@ impl ID3D11TracingDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11TracingDevice as ::windows::core::Interface>::IID
+        iid == &<ID3D11TracingDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3873,7 +3873,7 @@ impl ID3D11UnorderedAccessView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11UnorderedAccessView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11UnorderedAccessView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -3894,7 +3894,7 @@ impl ID3D11UnorderedAccessView1_Vtbl {
         Self { base__: ID3D11UnorderedAccessView_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc1: GetDesc1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11UnorderedAccessView1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID || iid == &<ID3D11UnorderedAccessView as ::windows::core::Interface>::IID
+        iid == &<ID3D11UnorderedAccessView1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID || iid == &<ID3D11UnorderedAccessView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -3905,7 +3905,7 @@ impl ID3D11VertexShader_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VertexShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11VertexShader as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4328,7 +4328,7 @@ impl ID3D11VideoContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoContext as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4461,7 +4461,7 @@ impl ID3D11VideoContext1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoContext1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoContext1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4506,7 +4506,7 @@ impl ID3D11VideoContext2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoContext2 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext1 as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoContext2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4537,7 +4537,7 @@ impl ID3D11VideoContext3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoContext3 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext1 as ::windows::core::Interface>::IID || iid == &<ID3D11VideoContext2 as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoContext3 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoContext2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4574,7 +4574,7 @@ impl ID3D11VideoDecoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoDecoder as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoDecoder as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -4592,7 +4592,7 @@ impl ID3D11VideoDecoderOutputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoDecoderOutputView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoDecoderOutputView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4782,7 +4782,7 @@ impl ID3D11VideoDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoDevice as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4839,7 +4839,7 @@ impl ID3D11VideoDevice1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoDevice1 as ::windows::core::Interface>::IID || iid == &<ID3D11VideoDevice as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoDevice1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4870,7 +4870,7 @@ impl ID3D11VideoDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoDevice2 as ::windows::core::Interface>::IID || iid == &<ID3D11VideoDevice as ::windows::core::Interface>::IID || iid == &<ID3D11VideoDevice1 as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoDevice2 as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoDevice as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoDevice1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4901,7 +4901,7 @@ impl ID3D11VideoProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessor as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoProcessor as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -4972,7 +4972,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorEnumerator as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoProcessorEnumerator as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -5002,7 +5002,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorEnumerator1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11VideoProcessorEnumerator as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoProcessorEnumerator1 as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11VideoProcessorEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5020,7 +5020,7 @@ impl ID3D11VideoProcessorInputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorInputView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoProcessorInputView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5038,7 +5038,7 @@ impl ID3D11VideoProcessorOutputView_Vtbl {
         Self { base__: ID3D11View_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11VideoProcessorOutputView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
+        iid == &<ID3D11VideoProcessorOutputView as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID || iid == &<ID3D11View as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5056,7 +5056,7 @@ impl ID3D11View_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), GetResource: GetResource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11View as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3D11View as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5067,7 +5067,7 @@ impl ID3DDeviceContextState_Vtbl {
         Self { base__: ID3D11DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DDeviceContextState as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
+        iid == &<ID3DDeviceContextState as ::windows::core::ComInterface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5112,7 +5112,7 @@ impl ID3DUserDefinedAnnotation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DUserDefinedAnnotation as ::windows::core::Interface>::IID
+        iid == &<ID3DUserDefinedAnnotation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5175,7 +5175,7 @@ impl ID3DX11FFT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DX11FFT as ::windows::core::Interface>::IID
+        iid == &<ID3DX11FFT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5210,7 +5210,7 @@ impl ID3DX11Scan_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DX11Scan as ::windows::core::Interface>::IID
+        iid == &<ID3DX11Scan as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"implement\"`*"]
@@ -5238,6 +5238,6 @@ impl ID3DX11SegmentedScan_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DX11SegmentedScan as ::windows::core::Interface>::IID
+        iid == &<ID3DX11SegmentedScan as ::windows::core::ComInterface>::IID
     }
 }

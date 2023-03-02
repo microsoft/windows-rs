@@ -3,7 +3,7 @@ pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKeyboardCapabilities(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IKeyboardCapabilities {
+unsafe impl ::windows::core::Interface for IKeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_Vtbl;
 }
 impl ::core::clone::Clone for IKeyboardCapabilities {
@@ -11,7 +11,7 @@ impl ::core::clone::Clone for IKeyboardCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKeyboardCapabilities {
+unsafe impl ::windows::core::ComInterface for IKeyboardCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 }
 #[repr(C)]
@@ -23,7 +23,7 @@ pub struct IKeyboardCapabilities_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMouseCapabilities(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMouseCapabilities {
+unsafe impl ::windows::core::Interface for IMouseCapabilities {
     type Vtable = IMouseCapabilities_Vtbl;
 }
 impl ::core::clone::Clone for IMouseCapabilities {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IMouseCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMouseCapabilities {
+unsafe impl ::windows::core::ComInterface for IMouseCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
 }
 #[repr(C)]
@@ -47,7 +47,7 @@ pub struct IMouseCapabilities_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMouseDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMouseDevice {
+unsafe impl ::windows::core::Interface for IMouseDevice {
     type Vtable = IMouseDevice_Vtbl;
 }
 impl ::core::clone::Clone for IMouseDevice {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for IMouseDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMouseDevice {
+unsafe impl ::windows::core::ComInterface for IMouseDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88edf458_f2c8_49f4_be1f_c256b388bc11);
 }
 #[repr(C)]
@@ -74,7 +74,7 @@ pub struct IMouseDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMouseDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMouseDeviceStatics {
+unsafe impl ::windows::core::Interface for IMouseDeviceStatics {
     type Vtable = IMouseDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IMouseDeviceStatics {
@@ -82,7 +82,7 @@ impl ::core::clone::Clone for IMouseDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMouseDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IMouseDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484a9045_6d70_49db_8e68_46ffbd17d38d);
 }
 #[repr(C)]
@@ -94,7 +94,7 @@ pub struct IMouseDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMouseEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMouseEventArgs {
+unsafe impl ::windows::core::Interface for IMouseEventArgs {
     type Vtable = IMouseEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IMouseEventArgs {
@@ -102,7 +102,7 @@ impl ::core::clone::Clone for IMouseEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMouseEventArgs {
+unsafe impl ::windows::core::ComInterface for IMouseEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf625aa5d_2354_4cc7_9230_96941c969fde);
 }
 #[repr(C)]
@@ -114,7 +114,7 @@ pub struct IMouseEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenButtonListener(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenButtonListener {
+unsafe impl ::windows::core::Interface for IPenButtonListener {
     type Vtable = IPenButtonListener_Vtbl;
 }
 impl ::core::clone::Clone for IPenButtonListener {
@@ -122,7 +122,7 @@ impl ::core::clone::Clone for IPenButtonListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenButtonListener {
+unsafe impl ::windows::core::ComInterface for IPenButtonListener {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
 }
 #[repr(C)]
@@ -166,7 +166,7 @@ pub struct IPenButtonListener_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenButtonListenerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenButtonListenerStatics {
+unsafe impl ::windows::core::Interface for IPenButtonListenerStatics {
     type Vtable = IPenButtonListenerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPenButtonListenerStatics {
@@ -174,7 +174,7 @@ impl ::core::clone::Clone for IPenButtonListenerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenButtonListenerStatics {
+unsafe impl ::windows::core::ComInterface for IPenButtonListenerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19a8a584_862f_5f69_bfea_05f6584f133f);
 }
 #[repr(C)]
@@ -186,7 +186,7 @@ pub struct IPenButtonListenerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDevice {
+unsafe impl ::windows::core::Interface for IPenDevice {
     type Vtable = IPenDevice_Vtbl;
 }
 impl ::core::clone::Clone for IPenDevice {
@@ -194,7 +194,7 @@ impl ::core::clone::Clone for IPenDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDevice {
+unsafe impl ::windows::core::ComInterface for IPenDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 }
 #[repr(C)]
@@ -206,7 +206,7 @@ pub struct IPenDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDevice2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDevice2 {
+unsafe impl ::windows::core::Interface for IPenDevice2 {
     type Vtable = IPenDevice2_Vtbl;
 }
 impl ::core::clone::Clone for IPenDevice2 {
@@ -214,7 +214,7 @@ impl ::core::clone::Clone for IPenDevice2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDevice2 {
+unsafe impl ::windows::core::ComInterface for IPenDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0207d327_7fb8_5566_8c34_f8342037b7f9);
 }
 #[repr(C)]
@@ -229,7 +229,7 @@ pub struct IPenDevice2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDeviceStatics {
+unsafe impl ::windows::core::Interface for IPenDeviceStatics {
     type Vtable = IPenDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPenDeviceStatics {
@@ -237,7 +237,7 @@ impl ::core::clone::Clone for IPenDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IPenDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dfbbe01_0966_5180_bcb4_b85060e39479);
 }
 #[repr(C)]
@@ -249,7 +249,7 @@ pub struct IPenDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDockListener(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDockListener {
+unsafe impl ::windows::core::Interface for IPenDockListener {
     type Vtable = IPenDockListener_Vtbl;
 }
 impl ::core::clone::Clone for IPenDockListener {
@@ -257,7 +257,7 @@ impl ::core::clone::Clone for IPenDockListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDockListener {
+unsafe impl ::windows::core::ComInterface for IPenDockListener {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x759f4d90_1dc0_55cb_ad18_b9101456f592);
 }
 #[repr(C)]
@@ -293,7 +293,7 @@ pub struct IPenDockListener_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDockListenerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDockListenerStatics {
+unsafe impl ::windows::core::Interface for IPenDockListenerStatics {
     type Vtable = IPenDockListenerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPenDockListenerStatics {
@@ -301,7 +301,7 @@ impl ::core::clone::Clone for IPenDockListenerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDockListenerStatics {
+unsafe impl ::windows::core::ComInterface for IPenDockListenerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcab75e9a_0016_5c72_969e_a97e11992a93);
 }
 #[repr(C)]
@@ -313,7 +313,7 @@ pub struct IPenDockListenerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenDockedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenDockedEventArgs {
+unsafe impl ::windows::core::Interface for IPenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPenDockedEventArgs {
@@ -321,7 +321,7 @@ impl ::core::clone::Clone for IPenDockedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenDockedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPenDockedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
 }
 #[repr(C)]
@@ -332,7 +332,7 @@ pub struct IPenDockedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenTailButtonClickedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenTailButtonClickedEventArgs {
+unsafe impl ::windows::core::Interface for IPenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPenTailButtonClickedEventArgs {
@@ -340,7 +340,7 @@ impl ::core::clone::Clone for IPenTailButtonClickedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenTailButtonClickedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPenTailButtonClickedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
 }
 #[repr(C)]
@@ -351,7 +351,7 @@ pub struct IPenTailButtonClickedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenTailButtonDoubleClickedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenTailButtonDoubleClickedEventArgs {
+unsafe impl ::windows::core::Interface for IPenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPenTailButtonDoubleClickedEventArgs {
@@ -359,7 +359,7 @@ impl ::core::clone::Clone for IPenTailButtonDoubleClickedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenTailButtonDoubleClickedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPenTailButtonDoubleClickedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x846321a2_618a_5478_b04c_b358231da4a7);
 }
 #[repr(C)]
@@ -370,7 +370,7 @@ pub struct IPenTailButtonDoubleClickedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenTailButtonLongPressedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenTailButtonLongPressedEventArgs {
+unsafe impl ::windows::core::Interface for IPenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPenTailButtonLongPressedEventArgs {
@@ -378,7 +378,7 @@ impl ::core::clone::Clone for IPenTailButtonLongPressedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenTailButtonLongPressedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPenTailButtonLongPressedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf37c606e_c60a_5f42_b818_a53112406c13);
 }
 #[repr(C)]
@@ -389,7 +389,7 @@ pub struct IPenTailButtonLongPressedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenUndockedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenUndockedEventArgs {
+unsafe impl ::windows::core::Interface for IPenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPenUndockedEventArgs {
@@ -397,7 +397,7 @@ impl ::core::clone::Clone for IPenUndockedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenUndockedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPenUndockedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccd09150_261b_59e6_a5d4_c1964cd03feb);
 }
 #[repr(C)]
@@ -408,7 +408,7 @@ pub struct IPenUndockedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPointerDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPointerDevice {
+unsafe impl ::windows::core::Interface for IPointerDevice {
     type Vtable = IPointerDevice_Vtbl;
 }
 impl ::core::clone::Clone for IPointerDevice {
@@ -416,7 +416,7 @@ impl ::core::clone::Clone for IPointerDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPointerDevice {
+unsafe impl ::windows::core::ComInterface for IPointerDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
 }
 #[repr(C)]
@@ -442,7 +442,7 @@ pub struct IPointerDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPointerDevice2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPointerDevice2 {
+unsafe impl ::windows::core::Interface for IPointerDevice2 {
     type Vtable = IPointerDevice2_Vtbl;
 }
 impl ::core::clone::Clone for IPointerDevice2 {
@@ -450,7 +450,7 @@ impl ::core::clone::Clone for IPointerDevice2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPointerDevice2 {
+unsafe impl ::windows::core::ComInterface for IPointerDevice2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 }
 #[repr(C)]
@@ -462,7 +462,7 @@ pub struct IPointerDevice2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPointerDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPointerDeviceStatics {
+unsafe impl ::windows::core::Interface for IPointerDeviceStatics {
     type Vtable = IPointerDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPointerDeviceStatics {
@@ -470,7 +470,7 @@ impl ::core::clone::Clone for IPointerDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPointerDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IPointerDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
 }
 #[repr(C)]
@@ -486,7 +486,7 @@ pub struct IPointerDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITouchCapabilities(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITouchCapabilities {
+unsafe impl ::windows::core::Interface for ITouchCapabilities {
     type Vtable = ITouchCapabilities_Vtbl;
 }
 impl ::core::clone::Clone for ITouchCapabilities {
@@ -494,7 +494,7 @@ impl ::core::clone::Clone for ITouchCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITouchCapabilities {
+unsafe impl ::windows::core::ComInterface for ITouchCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 }
 #[repr(C)]
@@ -519,7 +519,7 @@ impl KeyboardCapabilities {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).KeyboardPresent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).KeyboardPresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -542,11 +542,11 @@ impl ::core::clone::Clone for KeyboardCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for KeyboardCapabilities {
+unsafe impl ::windows::core::Interface for KeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_Vtbl;
 }
-unsafe impl ::windows::core::Interface for KeyboardCapabilities {
-    const IID: ::windows::core::GUID = <IKeyboardCapabilities as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for KeyboardCapabilities {
+    const IID: ::windows::core::GUID = <IKeyboardCapabilities as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
@@ -569,35 +569,35 @@ impl MouseCapabilities {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MousePresent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MousePresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VerticalWheelPresent(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).VerticalWheelPresent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VerticalWheelPresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HorizontalWheelPresent(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).HorizontalWheelPresent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HorizontalWheelPresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SwapButtons(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).SwapButtons)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SwapButtons)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberOfButtons(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).NumberOfButtons)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NumberOfButtons)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -620,11 +620,11 @@ impl ::core::clone::Clone for MouseCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MouseCapabilities {
+unsafe impl ::windows::core::Interface for MouseCapabilities {
     type Vtable = IMouseCapabilities_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MouseCapabilities {
-    const IID: ::windows::core::GUID = <IMouseCapabilities as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MouseCapabilities {
+    const IID: ::windows::core::GUID = <IMouseCapabilities as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
@@ -642,19 +642,19 @@ impl MouseDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).MouseMoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MouseMoved)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMouseMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveMouseMoved)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMouseMoved)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<MouseDevice> {
         Self::IMouseDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<MouseDevice>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -682,11 +682,11 @@ impl ::core::clone::Clone for MouseDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MouseDevice {
+unsafe impl ::windows::core::Interface for MouseDevice {
     type Vtable = IMouseDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MouseDevice {
-    const IID: ::windows::core::GUID = <IMouseDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MouseDevice {
+    const IID: ::windows::core::GUID = <IMouseDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
@@ -700,7 +700,7 @@ impl MouseEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MouseDelta>();
-            (::windows::core::Vtable::vtable(this).MouseDelta)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MouseDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -723,11 +723,11 @@ impl ::core::clone::Clone for MouseEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MouseEventArgs {
+unsafe impl ::windows::core::Interface for MouseEventArgs {
     type Vtable = IMouseEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MouseEventArgs {
-    const IID: ::windows::core::GUID = <IMouseEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MouseEventArgs {
+    const IID: ::windows::core::GUID = <IMouseEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
@@ -741,7 +741,7 @@ impl PenButtonListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -750,14 +750,14 @@ impl PenButtonListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).IsSupportedChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupportedChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsSupportedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsSupportedChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsSupportedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -765,14 +765,14 @@ impl PenButtonListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).TailButtonClicked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TailButtonClicked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTailButtonClicked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTailButtonClicked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -780,14 +780,14 @@ impl PenButtonListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).TailButtonDoubleClicked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TailButtonDoubleClicked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonDoubleClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTailButtonDoubleClicked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTailButtonDoubleClicked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -795,19 +795,19 @@ impl PenButtonListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).TailButtonLongPressed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TailButtonLongPressed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonLongPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTailButtonLongPressed)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTailButtonLongPressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<PenButtonListener> {
         Self::IPenButtonListenerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PenButtonListener>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -835,11 +835,11 @@ impl ::core::clone::Clone for PenButtonListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenButtonListener {
+unsafe impl ::windows::core::Interface for PenButtonListener {
     type Vtable = IPenButtonListener_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenButtonListener {
-    const IID: ::windows::core::GUID = <IPenButtonListener as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenButtonListener {
+    const IID: ::windows::core::GUID = <IPenButtonListener as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
@@ -855,22 +855,22 @@ impl PenDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).PenId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PenId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::Haptics::SimpleHapticsController> {
-        let this = &::windows::core::Interface::cast::<IPenDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPenDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Haptics::SimpleHapticsController>();
-            (::windows::core::Vtable::vtable(this).SimpleHapticsController)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SimpleHapticsController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetFromPointerId(pointerid: u32) -> ::windows::core::Result<PenDevice> {
         Self::IPenDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PenDevice>();
-            (::windows::core::Vtable::vtable(this).GetFromPointerId)(::windows::core::Vtable::as_raw(this), pointerid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFromPointerId)(::windows::core::Interface::as_raw(this), pointerid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -898,11 +898,11 @@ impl ::core::clone::Clone for PenDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenDevice {
+unsafe impl ::windows::core::Interface for PenDevice {
     type Vtable = IPenDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenDevice {
-    const IID: ::windows::core::GUID = <IPenDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenDevice {
+    const IID: ::windows::core::GUID = <IPenDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
@@ -918,7 +918,7 @@ impl PenDockListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -927,14 +927,14 @@ impl PenDockListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).IsSupportedChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupportedChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsSupportedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsSupportedChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsSupportedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -942,14 +942,14 @@ impl PenDockListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Docked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Docked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDocked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveDocked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDocked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -957,19 +957,19 @@ impl PenDockListener {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Undocked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Undocked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUndocked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveUndocked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUndocked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<PenDockListener> {
         Self::IPenDockListenerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PenDockListener>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -997,11 +997,11 @@ impl ::core::clone::Clone for PenDockListener {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenDockListener {
+unsafe impl ::windows::core::Interface for PenDockListener {
     type Vtable = IPenDockListener_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenDockListener {
-    const IID: ::windows::core::GUID = <IPenDockListener as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenDockListener {
+    const IID: ::windows::core::GUID = <IPenDockListener as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
@@ -1032,11 +1032,11 @@ impl ::core::clone::Clone for PenDockedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenDockedEventArgs {
+unsafe impl ::windows::core::Interface for PenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenDockedEventArgs {
-    const IID: ::windows::core::GUID = <IPenDockedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenDockedEventArgs {
+    const IID: ::windows::core::GUID = <IPenDockedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
@@ -1067,11 +1067,11 @@ impl ::core::clone::Clone for PenTailButtonClickedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenTailButtonClickedEventArgs {
+unsafe impl ::windows::core::Interface for PenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenTailButtonClickedEventArgs {
-    const IID: ::windows::core::GUID = <IPenTailButtonClickedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenTailButtonClickedEventArgs {
+    const IID: ::windows::core::GUID = <IPenTailButtonClickedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
@@ -1102,11 +1102,11 @@ impl ::core::clone::Clone for PenTailButtonDoubleClickedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenTailButtonDoubleClickedEventArgs {
+unsafe impl ::windows::core::Interface for PenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenTailButtonDoubleClickedEventArgs {
-    const IID: ::windows::core::GUID = <IPenTailButtonDoubleClickedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenTailButtonDoubleClickedEventArgs {
+    const IID: ::windows::core::GUID = <IPenTailButtonDoubleClickedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
@@ -1137,11 +1137,11 @@ impl ::core::clone::Clone for PenTailButtonLongPressedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenTailButtonLongPressedEventArgs {
+unsafe impl ::windows::core::Interface for PenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenTailButtonLongPressedEventArgs {
-    const IID: ::windows::core::GUID = <IPenTailButtonLongPressedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenTailButtonLongPressedEventArgs {
+    const IID: ::windows::core::GUID = <IPenTailButtonLongPressedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
@@ -1172,11 +1172,11 @@ impl ::core::clone::Clone for PenUndockedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenUndockedEventArgs {
+unsafe impl ::windows::core::Interface for PenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenUndockedEventArgs {
-    const IID: ::windows::core::GUID = <IPenUndockedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenUndockedEventArgs {
+    const IID: ::windows::core::GUID = <IPenUndockedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
@@ -1192,21 +1192,21 @@ impl PointerDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PointerDeviceType>();
-            (::windows::core::Vtable::vtable(this).PointerDeviceType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsIntegrated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsIntegrated)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsIntegrated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContacts(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxContacts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxContacts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1215,7 +1215,7 @@ impl PointerDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).PhysicalDeviceRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhysicalDeviceRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1224,7 +1224,7 @@ impl PointerDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).ScreenRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScreenRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1233,20 +1233,20 @@ impl PointerDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>>();
-            (::windows::core::Vtable::vtable(this).SupportedUsages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPointersWithZDistance(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IPointerDevice2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPointerDevice2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxPointersWithZDistance)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxPointersWithZDistance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPointerDevice(pointerid: u32) -> ::windows::core::Result<PointerDevice> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PointerDevice>();
-            (::windows::core::Vtable::vtable(this).GetPointerDevice)(::windows::core::Vtable::as_raw(this), pointerid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPointerDevice)(::windows::core::Interface::as_raw(this), pointerid, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1254,7 +1254,7 @@ impl PointerDevice {
     pub fn GetPointerDevices() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<PointerDevice>>();
-            (::windows::core::Vtable::vtable(this).GetPointerDevices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPointerDevices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1282,11 +1282,11 @@ impl ::core::clone::Clone for PointerDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PointerDevice {
+unsafe impl ::windows::core::Interface for PointerDevice {
     type Vtable = IPointerDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PointerDevice {
-    const IID: ::windows::core::GUID = <IPointerDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PointerDevice {
+    const IID: ::windows::core::GUID = <IPointerDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
@@ -1307,14 +1307,14 @@ impl TouchCapabilities {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).TouchPresent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TouchPresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contacts(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Contacts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Contacts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1337,11 +1337,11 @@ impl ::core::clone::Clone for TouchCapabilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TouchCapabilities {
+unsafe impl ::windows::core::Interface for TouchCapabilities {
     type Vtable = ITouchCapabilities_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TouchCapabilities {
-    const IID: ::windows::core::GUID = <ITouchCapabilities as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TouchCapabilities {
+    const IID: ::windows::core::GUID = <ITouchCapabilities as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";

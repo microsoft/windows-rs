@@ -6,21 +6,21 @@ impl IWPCGamesSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.IsLoggingRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.IsLoggingRequired)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SYSTEMTIME>();
-        (::windows::core::Vtable::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_RESTRICTION>();
-        (::windows::core::Vtable::vtable(self).base__.GetRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRestrictions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsBlocked(&self, guidappid: ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).IsBlocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidappid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidappid), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCGamesSettings, ::windows::core::IUnknown, IWPCSettings);
@@ -35,7 +35,7 @@ impl ::core::fmt::Debug for IWPCGamesSettings {
         f.debug_tuple("IWPCGamesSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCGamesSettings {
+unsafe impl ::windows::core::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettings_Vtbl;
 }
 impl ::core::clone::Clone for IWPCGamesSettings {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for IWPCGamesSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCGamesSettings {
+unsafe impl ::windows::core::ComInterface for IWPCGamesSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e87780_e158_489e_b452_bbb850790715);
 }
 #[repr(C)]
@@ -58,23 +58,23 @@ pub struct IWPCProviderConfig(::windows::core::IUnknown);
 impl IWPCProviderConfig {
     pub unsafe fn GetUserSummary(&self, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).GetUserSummary)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<P0>(&self, hwnd: P0, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrsid)).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute_copy(bstrsid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestOverride<P0>(&self, hwnd: P0, bstrpath: &::windows::core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).RequestOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
+        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCProviderConfig, ::windows::core::IUnknown);
@@ -89,7 +89,7 @@ impl ::core::fmt::Debug for IWPCProviderConfig {
         f.debug_tuple("IWPCProviderConfig").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCProviderConfig {
+unsafe impl ::windows::core::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfig_Vtbl;
 }
 impl ::core::clone::Clone for IWPCProviderConfig {
@@ -97,7 +97,7 @@ impl ::core::clone::Clone for IWPCProviderConfig {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCProviderConfig {
+unsafe impl ::windows::core::ComInterface for IWPCProviderConfig {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 }
 #[repr(C)]
@@ -119,10 +119,10 @@ pub struct IWPCProviderConfig_Vtbl {
 pub struct IWPCProviderState(::windows::core::IUnknown);
 impl IWPCProviderState {
     pub unsafe fn Enable(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Disable(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Disable)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Disable)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCProviderState, ::windows::core::IUnknown);
@@ -137,7 +137,7 @@ impl ::core::fmt::Debug for IWPCProviderState {
         f.debug_tuple("IWPCProviderState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCProviderState {
+unsafe impl ::windows::core::Interface for IWPCProviderState {
     type Vtable = IWPCProviderState_Vtbl;
 }
 impl ::core::clone::Clone for IWPCProviderState {
@@ -145,7 +145,7 @@ impl ::core::clone::Clone for IWPCProviderState {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCProviderState {
+unsafe impl ::windows::core::ComInterface for IWPCProviderState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b6a267_c4bd_450b_adb5_759073837c9e);
 }
 #[repr(C)]
@@ -161,7 +161,7 @@ pub struct IWPCProviderSupport(::windows::core::IUnknown);
 impl IWPCProviderSupport {
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCProviderSupport, ::windows::core::IUnknown);
@@ -176,7 +176,7 @@ impl ::core::fmt::Debug for IWPCProviderSupport {
         f.debug_tuple("IWPCProviderSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCProviderSupport {
+unsafe impl ::windows::core::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupport_Vtbl;
 }
 impl ::core::clone::Clone for IWPCProviderSupport {
@@ -184,7 +184,7 @@ impl ::core::clone::Clone for IWPCProviderSupport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCProviderSupport {
+unsafe impl ::windows::core::ComInterface for IWPCProviderSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41eba572_23ed_4779_bec1_8df96206c44c);
 }
 #[repr(C)]
@@ -201,17 +201,17 @@ impl IWPCSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).IsLoggingRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsLoggingRequired)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SYSTEMTIME>();
-        (::windows::core::Vtable::vtable(self).GetLastSettingsChangeTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetLastSettingsChangeTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_RESTRICTION>();
-        (::windows::core::Vtable::vtable(self).GetRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCSettings, ::windows::core::IUnknown);
@@ -226,7 +226,7 @@ impl ::core::fmt::Debug for IWPCSettings {
         f.debug_tuple("IWPCSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCSettings {
+unsafe impl ::windows::core::Interface for IWPCSettings {
     type Vtable = IWPCSettings_Vtbl;
 }
 impl ::core::clone::Clone for IWPCSettings {
@@ -234,7 +234,7 @@ impl ::core::clone::Clone for IWPCSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCSettings {
+unsafe impl ::windows::core::ComInterface for IWPCSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 }
 #[repr(C)]
@@ -259,31 +259,31 @@ impl IWPCWebSettings {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.IsLoggingRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.IsLoggingRequired)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SYSTEMTIME>();
-        (::windows::core::Vtable::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_RESTRICTION>();
-        (::windows::core::Vtable::vtable(self).base__.GetRestrictions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRestrictions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSettings(&self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_WEB_SETTING>();
-        (::windows::core::Vtable::vtable(self).GetSettings)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSettings)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestURLOverride<P0, P1>(&self, hwnd: P0, pcszurl: P1, ppcszsuburls: ::core::option::Option<&[::windows::core::PCWSTR]>) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).RequestURLOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), pcszurl.into().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestURLOverride)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCWebSettings, ::windows::core::IUnknown, IWPCSettings);
@@ -298,7 +298,7 @@ impl ::core::fmt::Debug for IWPCWebSettings {
         f.debug_tuple("IWPCWebSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWPCWebSettings {
+unsafe impl ::windows::core::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettings_Vtbl;
 }
 impl ::core::clone::Clone for IWPCWebSettings {
@@ -306,7 +306,7 @@ impl ::core::clone::Clone for IWPCWebSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWPCWebSettings {
+unsafe impl ::windows::core::ComInterface for IWPCWebSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 }
 #[repr(C)]
@@ -325,31 +325,31 @@ pub struct IWindowsParentalControls(::windows::core::IUnknown);
 impl IWindowsParentalControls {
     pub unsafe fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_VISIBILITY>();
-        (::windows::core::Vtable::vtable(self).base__.GetVisibility)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetVisibility)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWPCSettings>();
-        (::windows::core::Vtable::vtable(self).base__.GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUserSettings)(::windows::core::Interface::as_raw(self), pcszsid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWPCWebSettings>();
-        (::windows::core::Vtable::vtable(self).base__.GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetWebSettings)(::windows::core::Interface::as_raw(self), pcszsid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).base__.GetWebFilterInfo)(::windows::core::Interface::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetGamesSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCGamesSettings>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWPCGamesSettings>();
-        (::windows::core::Vtable::vtable(self).GetGamesSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetGamesSettings)(::windows::core::Interface::as_raw(self), pcszsid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWindowsParentalControls, ::windows::core::IUnknown, IWindowsParentalControlsCore);
@@ -364,7 +364,7 @@ impl ::core::fmt::Debug for IWindowsParentalControls {
         f.debug_tuple("IWindowsParentalControls").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWindowsParentalControls {
+unsafe impl ::windows::core::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControls_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsParentalControls {
@@ -372,7 +372,7 @@ impl ::core::clone::Clone for IWindowsParentalControls {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsParentalControls {
+unsafe impl ::windows::core::ComInterface for IWindowsParentalControls {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 }
 #[repr(C)]
@@ -387,24 +387,24 @@ pub struct IWindowsParentalControlsCore(::windows::core::IUnknown);
 impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY> {
         let mut result__ = ::windows::core::zeroed::<WPCFLAG_VISIBILITY>();
-        (::windows::core::Vtable::vtable(self).GetVisibility)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetVisibility)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWPCSettings>();
-        (::windows::core::Vtable::vtable(self).GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUserSettings)(::windows::core::Interface::as_raw(self), pcszsid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IWPCWebSettings>();
-        (::windows::core::Vtable::vtable(self).GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetWebSettings)(::windows::core::Interface::as_raw(self), pcszsid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetWebFilterInfo)(::windows::core::Interface::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWindowsParentalControlsCore, ::windows::core::IUnknown);
@@ -419,7 +419,7 @@ impl ::core::fmt::Debug for IWindowsParentalControlsCore {
         f.debug_tuple("IWindowsParentalControlsCore").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWindowsParentalControlsCore {
+unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCore_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsParentalControlsCore {
@@ -427,7 +427,7 @@ impl ::core::clone::Clone for IWindowsParentalControlsCore {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
+unsafe impl ::windows::core::ComInterface for IWindowsParentalControlsCore {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
 }
 #[repr(C)]

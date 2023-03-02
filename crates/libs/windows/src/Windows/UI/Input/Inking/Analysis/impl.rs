@@ -112,7 +112,7 @@ impl IInkAnalysisNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkAnalysisNode as ::windows::core::Interface>::IID
+        iid == &<IInkAnalysisNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"implement\"`*"]
@@ -142,6 +142,6 @@ impl IInkAnalyzerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInkAnalyzerFactory as ::windows::core::Interface>::IID
+        iid == &<IInkAnalyzerFactory as ::windows::core::ComInterface>::IID
     }
 }

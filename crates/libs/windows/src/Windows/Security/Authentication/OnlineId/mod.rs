@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdAuthenticator {
+unsafe impl ::windows::core::Interface for IOnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdAuthenticator {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IOnlineIdAuthenticator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdAuthenticator {
+unsafe impl ::windows::core::ComInterface for IOnlineIdAuthenticator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
 #[repr(C)]
@@ -36,7 +36,7 @@ pub struct IOnlineIdAuthenticator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicket(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdServiceTicket {
+unsafe impl ::windows::core::Interface for IOnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdServiceTicket {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for IOnlineIdServiceTicket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdServiceTicket {
+unsafe impl ::windows::core::ComInterface for IOnlineIdServiceTicket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
 #[repr(C)]
@@ -58,7 +58,7 @@ pub struct IOnlineIdServiceTicket_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicketRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdServiceTicketRequest {
+unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdServiceTicketRequest {
@@ -66,7 +66,7 @@ impl ::core::clone::Clone for IOnlineIdServiceTicketRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequest {
+unsafe impl ::windows::core::ComInterface for IOnlineIdServiceTicketRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
 #[repr(C)]
@@ -79,7 +79,7 @@ pub struct IOnlineIdServiceTicketRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicketRequestFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdServiceTicketRequestFactory {
+unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequestFactory {
     type Vtable = IOnlineIdServiceTicketRequestFactory_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdServiceTicketRequestFactory {
@@ -87,7 +87,7 @@ impl ::core::clone::Clone for IOnlineIdServiceTicketRequestFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequestFactory {
+unsafe impl ::windows::core::ComInterface for IOnlineIdServiceTicketRequestFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebb0a08_9e73_4077_9614_08614c0bc245);
 }
 #[repr(C)]
@@ -100,7 +100,7 @@ pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdSystemAuthenticatorForUser {
+unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdSystemAuthenticatorForUser {
@@ -108,7 +108,7 @@ impl ::core::clone::Clone for IOnlineIdSystemAuthenticatorForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorForUser {
+unsafe impl ::windows::core::ComInterface for IOnlineIdSystemAuthenticatorForUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 }
 #[repr(C)]
@@ -129,7 +129,7 @@ pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdSystemAuthenticatorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdSystemAuthenticatorStatics {
+unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorStatics {
     type Vtable = IOnlineIdSystemAuthenticatorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdSystemAuthenticatorStatics {
@@ -137,7 +137,7 @@ impl ::core::clone::Clone for IOnlineIdSystemAuthenticatorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorStatics {
+unsafe impl ::windows::core::ComInterface for IOnlineIdSystemAuthenticatorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85047792_f634_41e3_96a4_5164e902c740);
 }
 #[repr(C)]
@@ -153,7 +153,7 @@ pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdSystemIdentity(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdSystemIdentity {
+unsafe impl ::windows::core::Interface for IOnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdSystemIdentity {
@@ -161,7 +161,7 @@ impl ::core::clone::Clone for IOnlineIdSystemIdentity {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdSystemIdentity {
+unsafe impl ::windows::core::ComInterface for IOnlineIdSystemIdentity {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
 #[repr(C)]
@@ -174,7 +174,7 @@ pub struct IOnlineIdSystemIdentity_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOnlineIdSystemTicketResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOnlineIdSystemTicketResult {
+unsafe impl ::windows::core::Interface for IOnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_Vtbl;
 }
 impl ::core::clone::Clone for IOnlineIdSystemTicketResult {
@@ -182,7 +182,7 @@ impl ::core::clone::Clone for IOnlineIdSystemTicketResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOnlineIdSystemTicketResult {
+unsafe impl ::windows::core::ComInterface for IOnlineIdSystemTicketResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 }
 #[repr(C)]
@@ -196,7 +196,7 @@ pub struct IOnlineIdSystemTicketResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserIdentity(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserIdentity {
+unsafe impl ::windows::core::Interface for IUserIdentity {
     type Vtable = IUserIdentity_Vtbl;
 }
 impl ::core::clone::Clone for IUserIdentity {
@@ -204,7 +204,7 @@ impl ::core::clone::Clone for IUserIdentity {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserIdentity {
+unsafe impl ::windows::core::ComInterface for IUserIdentity {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 }
 #[repr(C)]
@@ -240,20 +240,19 @@ impl OnlineIdAuthenticator {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationOperation>();
-            (::windows::core::Vtable::vtable(this).AuthenticateUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AuthenticateUserAsyncAdvanced<P0, E0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>
+    pub fn AuthenticateUserAsyncAdvanced<P0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationOperation>();
-            (::windows::core::Vtable::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Vtable::as_raw(this), requests.try_into().map_err(|e| e.into())?.abi(), credentialprompttype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Interface::as_raw(this), requests.try_into_param()?.abi(), credentialprompttype, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -262,32 +261,32 @@ impl OnlineIdAuthenticator {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SignOutUserOperation>();
-            (::windows::core::Vtable::vtable(this).SignOutUserAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SignOutUserAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetApplicationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetApplicationId)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).ApplicationId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ApplicationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanSignOut(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanSignOut)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanSignOut)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AuthenticatedSafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AuthenticatedSafeCustomerId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticatedSafeCustomerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -310,11 +309,11 @@ impl ::core::clone::Clone for OnlineIdAuthenticator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdAuthenticator {
+unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
-    const IID: ::windows::core::GUID = <IOnlineIdAuthenticator as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdAuthenticator {
+    const IID: ::windows::core::GUID = <IOnlineIdAuthenticator as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
@@ -330,21 +329,21 @@ impl OnlineIdServiceTicket {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Request(&self) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdServiceTicketRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -367,11 +366,11 @@ impl ::core::clone::Clone for OnlineIdServiceTicket {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdServiceTicket {
+unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
-    const IID: ::windows::core::GUID = <IOnlineIdServiceTicket as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdServiceTicket {
+    const IID: ::windows::core::GUID = <IOnlineIdServiceTicket as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
@@ -387,26 +386,26 @@ impl OnlineIdServiceTicketRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Service)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Policy(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Policy)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOnlineIdServiceTicketRequest(service: &::windows::core::HSTRING, policy: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdServiceTicketRequest>();
-            (::windows::core::Vtable::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateOnlineIdServiceTicketRequestAdvanced(service: &::windows::core::HSTRING) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdServiceTicketRequest>();
-            (::windows::core::Vtable::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(service), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(service), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -434,11 +433,11 @@ impl ::core::clone::Clone for OnlineIdServiceTicketRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdServiceTicketRequest {
+unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
-    const IID: ::windows::core::GUID = <IOnlineIdServiceTicketRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdServiceTicketRequest {
+    const IID: ::windows::core::GUID = <IOnlineIdServiceTicketRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
@@ -452,7 +451,7 @@ impl OnlineIdSystemAuthenticator {
     pub fn Default() -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdSystemAuthenticatorForUser>();
-            (::windows::core::Vtable::vtable(this).Default)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Default)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -460,7 +459,7 @@ impl OnlineIdSystemAuthenticator {
     pub fn GetForUser(user: &super::super::super::System::User) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdSystemAuthenticatorForUser>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -482,18 +481,18 @@ impl OnlineIdSystemAuthenticatorForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>();
-            (::windows::core::Vtable::vtable(this).GetTicketAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetTicketAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
         }
     }
     pub fn SetApplicationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetApplicationId)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).ApplicationId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ApplicationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -502,7 +501,7 @@ impl OnlineIdSystemAuthenticatorForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::System::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -525,11 +524,11 @@ impl ::core::clone::Clone for OnlineIdSystemAuthenticatorForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdSystemAuthenticatorForUser {
+unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
-    const IID: ::windows::core::GUID = <IOnlineIdSystemAuthenticatorForUser as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdSystemAuthenticatorForUser {
+    const IID: ::windows::core::GUID = <IOnlineIdSystemAuthenticatorForUser as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
@@ -545,14 +544,14 @@ impl OnlineIdSystemIdentity {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdServiceTicket>();
-            (::windows::core::Vtable::vtable(this).Ticket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Ticket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -575,11 +574,11 @@ impl ::core::clone::Clone for OnlineIdSystemIdentity {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdSystemIdentity {
+unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
-    const IID: ::windows::core::GUID = <IOnlineIdSystemIdentity as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdSystemIdentity {
+    const IID: ::windows::core::GUID = <IOnlineIdSystemIdentity as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
@@ -595,21 +594,21 @@ impl OnlineIdSystemTicketResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdSystemIdentity>();
-            (::windows::core::Vtable::vtable(this).Identity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Identity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<OnlineIdSystemTicketStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<OnlineIdSystemTicketStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -632,11 +631,11 @@ impl ::core::clone::Clone for OnlineIdSystemTicketResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OnlineIdSystemTicketResult {
+unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
-    const IID: ::windows::core::GUID = <IOnlineIdSystemTicketResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OnlineIdSystemTicketResult {
+    const IID: ::windows::core::GUID = <IOnlineIdSystemTicketResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
@@ -654,7 +653,7 @@ impl SignOutUserOperation {
     #[cfg(feature = "Foundation")]
     pub fn SetCompleted(&self, handler: &super::super::super::Foundation::AsyncActionCompletedHandler) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -662,53 +661,53 @@ impl SignOutUserOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::AsyncActionCompletedHandler>();
-            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetResults(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).GetResults)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncStatus> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::AsyncStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -736,12 +735,12 @@ impl ::core::clone::Clone for SignOutUserOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Vtable for SignOutUserOperation {
+unsafe impl ::windows::core::Interface for SignOutUserOperation {
     type Vtable = super::super::super::Foundation::IAsyncAction_Vtbl;
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Interface for SignOutUserOperation {
-    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncAction as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SignOutUserOperation {
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncAction as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for SignOutUserOperation {
@@ -781,49 +780,9 @@ impl ::std::future::Future for SignOutUserOperation {
 #[cfg(feature = "Foundation")]
 ::windows::imp::interface_hierarchy!(SignOutUserOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
-    type Error = ::windows::core::Error;
-    fn try_from(value: SignOutUserOperation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IAsyncAction> for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncAction> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncInfo {
-    type Error = ::windows::core::Error;
-    fn try_from(value: SignOutUserOperation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Foundation::IAsyncInfo {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncInfo> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IAsyncInfo> for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Send for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
@@ -837,47 +796,47 @@ impl UserAuthenticationOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows::core::Result<super::super::super::Foundation::AsyncStatus> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::AsyncStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCompleted(&self, handler: &super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -885,7 +844,7 @@ impl UserAuthenticationOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>();
-            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -894,7 +853,7 @@ impl UserAuthenticationOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserIdentity>();
-            (::windows::core::Vtable::vtable(this).GetResults)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -923,12 +882,12 @@ impl ::core::clone::Clone for UserAuthenticationOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Vtable for UserAuthenticationOperation {
+unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
     type Vtable = super::super::super::Foundation::IAsyncOperation_Vtbl<UserIdentity>;
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
-    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserAuthenticationOperation {
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for UserAuthenticationOperation {
@@ -968,49 +927,9 @@ impl ::std::future::Future for UserAuthenticationOperation {
 #[cfg(feature = "Foundation")]
 ::windows::imp::interface_hierarchy!(UserAuthenticationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
-    type Error = ::windows::core::Error;
-    fn try_from(value: UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IAsyncInfo> for UserAuthenticationOperation {}
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncInfo> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncOperation<UserIdentity> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::super::Foundation::IAsyncOperation<UserIdentity> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IAsyncOperation<UserIdentity>> for UserAuthenticationOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Send for UserAuthenticationOperation {}
 #[cfg(feature = "Foundation")]
@@ -1025,56 +944,56 @@ impl UserIdentity {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>();
-            (::windows::core::Vtable::vtable(this).Tickets)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Tickets)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SafeCustomerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SafeCustomerId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SafeCustomerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SignInName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SignInName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SignInName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FirstName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FirstName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LastName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LastName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsBetaAccount(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsBetaAccount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsBetaAccount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConfirmedPC(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsConfirmedPC)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsConfirmedPC)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1097,11 +1016,11 @@ impl ::core::clone::Clone for UserIdentity {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserIdentity {
+unsafe impl ::windows::core::Interface for UserIdentity {
     type Vtable = IUserIdentity_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserIdentity {
-    const IID: ::windows::core::GUID = <IUserIdentity as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserIdentity {
+    const IID: ::windows::core::GUID = <IUserIdentity as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";

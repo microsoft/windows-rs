@@ -130,7 +130,7 @@ impl IRichEditOle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRichEditOle as ::windows::core::Interface>::IID
+        iid == &<IRichEditOle as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_SystemServices\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -223,7 +223,7 @@ impl IRichEditOleCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRichEditOleCallback as ::windows::core::Interface>::IID
+        iid == &<IRichEditOleCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -244,7 +244,7 @@ impl IRicheditUiaOverrides_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRicheditUiaOverrides as ::windows::core::Interface>::IID
+        iid == &<IRicheditUiaOverrides as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -258,7 +258,7 @@ impl ITextDisplays_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDisplays as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextDisplays as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -480,7 +480,7 @@ impl ITextDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextDocument as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -949,7 +949,7 @@ impl ITextDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextDocument as ::windows::core::Interface>::IID
+        iid == &<ITextDocument2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1194,7 +1194,7 @@ impl ITextDocument2Old_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument2Old as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextDocument as ::windows::core::Interface>::IID
+        iid == &<ITextDocument2Old as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1764,7 +1764,7 @@ impl ITextFont_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextFont as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextFont as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2235,7 +2235,7 @@ impl ITextFont2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextFont2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextFont as ::windows::core::Interface>::IID
+        iid == &<ITextFont2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextFont as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2531,7 +2531,7 @@ impl ITextHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextHost as ::windows::core::Interface>::IID
+        iid == &<ITextHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2632,7 +2632,7 @@ impl ITextHost2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextHost2 as ::windows::core::Interface>::IID || iid == &<ITextHost as ::windows::core::Interface>::IID
+        iid == &<ITextHost2 as ::windows::core::ComInterface>::IID || iid == &<ITextHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3129,7 +3129,7 @@ impl ITextPara_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextPara as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextPara as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3306,7 +3306,7 @@ impl ITextPara2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextPara2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextPara as ::windows::core::Interface>::IID
+        iid == &<ITextPara2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextPara as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3890,7 +3890,7 @@ impl ITextRange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4289,7 +4289,7 @@ impl ITextRange2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRange2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<ITextSelection as ::windows::core::Interface>::IID
+        iid == &<ITextRange2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<ITextSelection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4754,7 +4754,7 @@ impl ITextRow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRow as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextRow as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4889,7 +4889,7 @@ impl ITextSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextSelection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID
+        iid == &<ITextSelection as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4903,7 +4903,7 @@ impl ITextSelection2_Vtbl {
         Self { base__: ITextRange2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextSelection2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<ITextSelection as ::windows::core::Interface>::IID || iid == &<ITextRange2 as ::windows::core::Interface>::IID
+        iid == &<ITextSelection2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<ITextSelection as ::windows::core::ComInterface>::IID || iid == &<ITextRange2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5066,7 +5066,7 @@ impl ITextServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextServices as ::windows::core::Interface>::IID
+        iid == &<ITextServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5097,7 +5097,7 @@ impl ITextServices2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextServices2 as ::windows::core::Interface>::IID || iid == &<ITextServices as ::windows::core::Interface>::IID
+        iid == &<ITextServices2 as ::windows::core::ComInterface>::IID || iid == &<ITextServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5240,7 +5240,7 @@ impl ITextStory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStory as ::windows::core::Interface>::IID
+        iid == &<ITextStory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5296,7 +5296,7 @@ impl ITextStoryRanges_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoryRanges as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextStoryRanges as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5323,7 +5323,7 @@ impl ITextStoryRanges2_Vtbl {
         Self { base__: ITextStoryRanges_Vtbl::new::<Identity, Impl, OFFSET>(), Item2: Item2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoryRanges2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextStoryRanges as ::windows::core::Interface>::IID
+        iid == &<ITextStoryRanges2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextStoryRanges as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5477,6 +5477,6 @@ impl ITextStrings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStrings as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextStrings as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }

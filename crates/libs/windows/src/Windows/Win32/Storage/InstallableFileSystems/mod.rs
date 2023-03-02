@@ -2,75 +2,75 @@
 #[inline]
 pub unsafe fn FilterAttach<P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterAttach ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR , dwcreatedinstancenamelength : u32 , lpcreatedinstancename : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    FilterAttach(lpfiltername.into().abi(), lpvolumename.into().abi(), lpinstancename.into().abi(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
+    FilterAttach(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterAttachAtAltitude<P0, P1, P2, P3>(lpfiltername: P0, lpvolumename: P1, lpaltitude: P2, lpinstancename: P3, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterAttachAtAltitude ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpaltitude : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR , dwcreatedinstancenamelength : u32 , lpcreatedinstancename : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    FilterAttachAtAltitude(lpfiltername.into().abi(), lpvolumename.into().abi(), lpaltitude.into().abi(), lpinstancename.into().abi(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
+    FilterAttachAtAltitude(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpaltitude.into_param().abi(), lpinstancename.into_param().abi(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterClose<P0>(hfilter: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<HFILTER>,
+    P0: ::windows::core::IntoParam<HFILTER>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterClose ( hfilter : HFILTER ) -> :: windows::core::HRESULT );
-    FilterClose(hfilter.into()).ok()
+    FilterClose(hfilter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FilterConnectCommunicationPort<P0>(lpportname: P0, dwoptions: u32, lpcontext: ::core::option::Option<*const ::core::ffi::c_void>, wsizeofcontext: u16, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterConnectCommunicationPort ( lpportname : :: windows::core::PCWSTR , dwoptions : u32 , lpcontext : *const ::core::ffi::c_void , wsizeofcontext : u16 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , hport : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    FilterConnectCommunicationPort(lpportname.into().abi(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    FilterConnectCommunicationPort(lpportname.into_param().abi(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterCreate<P0>(lpfiltername: P0) -> ::windows::core::Result<HFILTER>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterCreate ( lpfiltername : :: windows::core::PCWSTR , hfilter : *mut HFILTER ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HFILTER>();
-    FilterCreate(lpfiltername.into().abi(), &mut result__).from_abi(result__)
+    FilterCreate(lpfiltername.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterDetach<P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterDetach ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    FilterDetach(lpfiltername.into().abi(), lpvolumename.into().abi(), lpinstancename.into().abi()).ok()
+    FilterDetach(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterFindClose<P0>(hfilterfind: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterFindClose ( hfilterfind : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    FilterFindClose(hfilterfind.into()).ok()
+    FilterFindClose(hfilterfind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -83,145 +83,145 @@ pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbu
 #[inline]
 pub unsafe fn FilterFindNext<P0>(hfilterfind: P0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterFindNext ( hfilterfind : super::super::Foundation:: HANDLE , dwinformationclass : FILTER_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterFindNext(hfilterfind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterFindNext(hfilterfind.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterGetDosName<P0>(lpvolumename: P0, lpdosname: &mut [u16]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterGetDosName ( lpvolumename : :: windows::core::PCWSTR , lpdosname : :: windows::core::PWSTR , dwdosnamebuffersize : u32 ) -> :: windows::core::HRESULT );
-    FilterGetDosName(lpvolumename.into().abi(), ::core::mem::transmute(lpdosname.as_ptr()), lpdosname.len() as _).ok()
+    FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(lpdosname.as_ptr()), lpdosname.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterGetInformation<P0>(hfilter: P0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<HFILTER>,
+    P0: ::windows::core::IntoParam<HFILTER>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterGetInformation ( hfilter : HFILTER , dwinformationclass : FILTER_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterGetInformation(hfilter.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterGetInformation(hfilter.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FilterGetMessage<P0>(hport: P0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterGetMessage ( hport : super::super::Foundation:: HANDLE , lpmessagebuffer : *mut FILTER_MESSAGE_HEADER , dwmessagebuffersize : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    FilterGetMessage(hport.into(), lpmessagebuffer, dwmessagebuffersize, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    FilterGetMessage(hport.into_param().abi(), lpmessagebuffer, dwmessagebuffersize, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterInstanceClose<P0>(hinstance: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<HFILTER_INSTANCE>,
+    P0: ::windows::core::IntoParam<HFILTER_INSTANCE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceClose ( hinstance : HFILTER_INSTANCE ) -> :: windows::core::HRESULT );
-    FilterInstanceClose(hinstance.into()).ok()
+    FilterInstanceClose(hinstance.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterInstanceCreate<P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2) -> ::windows::core::Result<HFILTER_INSTANCE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceCreate ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR , hinstance : *mut HFILTER_INSTANCE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HFILTER_INSTANCE>();
-    FilterInstanceCreate(lpfiltername.into().abi(), lpvolumename.into().abi(), lpinstancename.into().abi(), &mut result__).from_abi(result__)
+    FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterInstanceFindClose<P0>(hfilterinstancefind: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceFindClose ( hfilterinstancefind : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    FilterInstanceFindClose(hfilterinstancefind.into()).ok()
+    FilterInstanceFindClose(hfilterinstancefind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterInstanceFindFirst<P0>(lpfiltername: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceFindFirst ( lpfiltername : :: windows::core::PCWSTR , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpfilterinstancefind : *mut FilterInstanceFindHandle ) -> :: windows::core::HRESULT );
-    FilterInstanceFindFirst(lpfiltername.into().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind).ok()
+    FilterInstanceFindFirst(lpfiltername.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterInstanceFindNext<P0>(hfilterinstancefind: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceFindNext ( hfilterinstancefind : super::super::Foundation:: HANDLE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterInstanceFindNext(hfilterinstancefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterInstanceFindNext(hfilterinstancefind.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterInstanceGetInformation<P0>(hinstance: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<HFILTER_INSTANCE>,
+    P0: ::windows::core::IntoParam<HFILTER_INSTANCE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterInstanceGetInformation ( hinstance : HFILTER_INSTANCE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterInstanceGetInformation(hinstance.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterInstanceGetInformation(hinstance.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterLoad<P0>(lpfiltername: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterLoad ( lpfiltername : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    FilterLoad(lpfiltername.into().abi()).ok()
+    FilterLoad(lpfiltername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterReplyMessage<P0>(hport: P0, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterReplyMessage ( hport : super::super::Foundation:: HANDLE , lpreplybuffer : *const FILTER_REPLY_HEADER , dwreplybuffersize : u32 ) -> :: windows::core::HRESULT );
-    FilterReplyMessage(hport.into(), lpreplybuffer, dwreplybuffersize).ok()
+    FilterReplyMessage(hport.into_param().abi(), lpreplybuffer, dwreplybuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterSendMessage<P0>(hport: P0, lpinbuffer: *const ::core::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterSendMessage ( hport : super::super::Foundation:: HANDLE , lpinbuffer : *const ::core::ffi::c_void , dwinbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , dwoutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterSendMessage(hport.into(), lpinbuffer, dwinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), dwoutbuffersize, lpbytesreturned).ok()
+    FilterSendMessage(hport.into_param().abi(), lpinbuffer, dwinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), dwoutbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterUnload<P0>(lpfiltername: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterUnload ( lpfiltername : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    FilterUnload(lpfiltername.into().abi()).ok()
+    FilterUnload(lpfiltername.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterVolumeFindClose<P0>(hvolumefind: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterVolumeFindClose ( hvolumefind : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    FilterVolumeFindClose(hvolumefind.into()).ok()
+    FilterVolumeFindClose(hvolumefind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -234,39 +234,39 @@ pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATIO
 #[inline]
 pub unsafe fn FilterVolumeFindNext<P0>(hvolumefind: P0, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterVolumeFindNext ( hvolumefind : super::super::Foundation:: HANDLE , dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterVolumeFindNext(hvolumefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterVolumeFindNext(hvolumefind.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindClose<P0>(hvolumeinstancefind: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterVolumeInstanceFindClose ( hvolumeinstancefind : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    FilterVolumeInstanceFindClose(hvolumeinstancefind.into()).ok()
+    FilterVolumeInstanceFindClose(hvolumeinstancefind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindFirst<P0>(lpvolumename: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterVolumeInstanceFindFirst ( lpvolumename : :: windows::core::PCWSTR , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpvolumeinstancefind : *mut FilterVolumeInstanceFindHandle ) -> :: windows::core::HRESULT );
-    FilterVolumeInstanceFindFirst(lpvolumename.into().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind).ok()
+    FilterVolumeInstanceFindFirst(lpvolumename.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindNext<P0>(hvolumeinstancefind: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "fltlib.dll""system" fn FilterVolumeInstanceFindNext ( hvolumeinstancefind : super::super::Foundation:: HANDLE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterVolumeInstanceFindNext(hvolumeinstancefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
+    FilterVolumeInstanceFindNext(hvolumeinstancefind.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
@@ -1024,11 +1024,6 @@ impl ::core::fmt::Debug for FilterFindHandle {
         f.debug_tuple("FilterFindHandle").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<FilterFindHandle>> for FilterFindHandle {
-    fn from(optional: ::core::option::Option<FilterFindHandle>) -> FilterFindHandle {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for FilterFindHandle {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -1054,11 +1049,6 @@ impl ::core::marker::Copy for FilterInstanceFindHandle {}
 impl ::core::fmt::Debug for FilterInstanceFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FilterInstanceFindHandle").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<FilterInstanceFindHandle>> for FilterInstanceFindHandle {
-    fn from(optional: ::core::option::Option<FilterInstanceFindHandle>) -> FilterInstanceFindHandle {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for FilterInstanceFindHandle {
@@ -1088,11 +1078,6 @@ impl ::core::fmt::Debug for FilterVolumeFindHandle {
         f.debug_tuple("FilterVolumeFindHandle").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<FilterVolumeFindHandle>> for FilterVolumeFindHandle {
-    fn from(optional: ::core::option::Option<FilterVolumeFindHandle>) -> FilterVolumeFindHandle {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for FilterVolumeFindHandle {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -1118,11 +1103,6 @@ impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
 impl ::core::fmt::Debug for FilterVolumeInstanceFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FilterVolumeInstanceFindHandle").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<FilterVolumeInstanceFindHandle>> for FilterVolumeInstanceFindHandle {
-    fn from(optional: ::core::option::Option<FilterVolumeInstanceFindHandle>) -> FilterVolumeInstanceFindHandle {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for FilterVolumeInstanceFindHandle {
@@ -1152,11 +1132,6 @@ impl ::core::fmt::Debug for HFILTER {
         f.debug_tuple("HFILTER").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HFILTER>> for HFILTER {
-    fn from(optional: ::core::option::Option<HFILTER>) -> HFILTER {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HFILTER {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -1182,11 +1157,6 @@ impl ::core::marker::Copy for HFILTER_INSTANCE {}
 impl ::core::fmt::Debug for HFILTER_INSTANCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HFILTER_INSTANCE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HFILTER_INSTANCE>> for HFILTER_INSTANCE {
-    fn from(optional: ::core::option::Option<HFILTER_INSTANCE>) -> HFILTER_INSTANCE {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HFILTER_INSTANCE {

@@ -25,7 +25,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlChannelTriggerEventDetails as ::windows::core::Interface>::IID
+        iid == &<IControlChannelTriggerEventDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
@@ -83,7 +83,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlChannelTriggerResetEventDetails as ::windows::core::Interface>::IID
+        iid == &<IControlChannelTriggerResetEventDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -165,7 +165,7 @@ impl IWebSocket_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocket as ::windows::core::Interface>::IID
+        iid == &<IWebSocket as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"implement\"`*"]
@@ -261,7 +261,7 @@ impl IWebSocketControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketControl as ::windows::core::Interface>::IID
+        iid == &<IWebSocketControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
@@ -294,7 +294,7 @@ impl IWebSocketControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketControl2 as ::windows::core::Interface>::IID
+        iid == &<IWebSocketControl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
@@ -352,7 +352,7 @@ impl IWebSocketInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketInformation as ::windows::core::Interface>::IID
+        iid == &<IWebSocketInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
@@ -427,6 +427,6 @@ impl IWebSocketInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketInformation2 as ::windows::core::Interface>::IID
+        iid == &<IWebSocketInformation2 as ::windows::core::ComInterface>::IID
     }
 }

@@ -30,7 +30,7 @@ impl IContact_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContact as ::windows::core::Interface>::IID
+        iid == &<IContact as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -137,7 +137,7 @@ impl IContactAggregationAggregate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationAggregate as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationAggregate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -203,7 +203,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationAggregateCollection as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationAggregateCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -400,7 +400,7 @@ impl IContactAggregationContact_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationContact as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationContact as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -479,7 +479,7 @@ impl IContactAggregationContactCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationContactCollection as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationContactCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -587,7 +587,7 @@ impl IContactAggregationGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationGroup as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationGroup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -653,7 +653,7 @@ impl IContactAggregationGroupCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationGroupCollection as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationGroupCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -837,7 +837,7 @@ impl IContactAggregationLink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationLink as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationLink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -903,7 +903,7 @@ impl IContactAggregationLinkCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationLinkCollection as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationLinkCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1097,7 +1097,7 @@ impl IContactAggregationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationManager as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1341,7 +1341,7 @@ impl IContactAggregationServerPerson_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationServerPerson as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationServerPerson as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -1433,7 +1433,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactAggregationServerPersonCollection as ::windows::core::Interface>::IID
+        iid == &<IContactAggregationServerPersonCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -1474,7 +1474,7 @@ impl IContactCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactCollection as ::windows::core::Interface>::IID
+        iid == &<IContactCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"implement\"`*"]
@@ -1548,7 +1548,7 @@ impl IContactManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactManager as ::windows::core::Interface>::IID
+        iid == &<IContactManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1656,7 +1656,7 @@ impl IContactProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactProperties as ::windows::core::Interface>::IID
+        iid == &<IContactProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1722,6 +1722,6 @@ impl IContactPropertyCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContactPropertyCollection as ::windows::core::Interface>::IID
+        iid == &<IContactPropertyCollection as ::windows::core::ComInterface>::IID
     }
 }

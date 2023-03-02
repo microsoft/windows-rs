@@ -13,7 +13,7 @@ impl IDirectManipulationAutoScrollBehavior_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetConfiguration: SetConfiguration::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationAutoScrollBehavior as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationAutoScrollBehavior as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -55,7 +55,7 @@ impl IDirectManipulationCompositor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationCompositor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -76,7 +76,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationCompositor as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationCompositor2 as ::windows::core::ComInterface>::IID || iid == &<IDirectManipulationCompositor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -155,7 +155,7 @@ impl IDirectManipulationContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationContent as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -190,7 +190,7 @@ impl IDirectManipulationDeferContactService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationDeferContactService as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationDeferContactService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -224,7 +224,7 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationDragDropBehavior as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationDragDropBehavior as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -242,7 +242,7 @@ impl IDirectManipulationDragDropEventHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnDragDropStatusChange: OnDragDropStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationDragDropEventHandler as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationDragDropEventHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -260,7 +260,7 @@ impl IDirectManipulationFrameInfoProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextFrameInfo: GetNextFrameInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationFrameInfoProvider as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationFrameInfoProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -278,7 +278,7 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnInteraction: OnInteraction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationInteractionEventHandler as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationInteractionEventHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -350,7 +350,7 @@ impl IDirectManipulationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -371,7 +371,7 @@ impl IDirectManipulationManager2_Vtbl {
         Self { base__: IDirectManipulationManager_Vtbl::new::<Identity, Impl, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationManager2 as ::windows::core::ComInterface>::IID || iid == &<IDirectManipulationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -392,7 +392,7 @@ impl IDirectManipulationManager3_Vtbl {
         Self { base__: IDirectManipulationManager2_Vtbl::new::<Identity, Impl, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationManager3 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows::core::Interface>::IID || iid == &<IDirectManipulationManager2 as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationManager3 as ::windows::core::ComInterface>::IID || iid == &<IDirectManipulationManager as ::windows::core::ComInterface>::IID || iid == &<IDirectManipulationManager2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -469,7 +469,7 @@ impl IDirectManipulationPrimaryContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationPrimaryContent as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationPrimaryContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -487,7 +487,7 @@ impl IDirectManipulationUpdateHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationUpdateHandler as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationUpdateHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -531,7 +531,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationUpdateManager as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationUpdateManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -762,7 +762,7 @@ impl IDirectManipulationViewport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationViewport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -806,7 +806,7 @@ impl IDirectManipulationViewport2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport2 as ::windows::core::Interface>::IID || iid == &<IDirectManipulationViewport as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationViewport2 as ::windows::core::ComInterface>::IID || iid == &<IDirectManipulationViewport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`, `\"implement\"`*"]
@@ -841,6 +841,6 @@ impl IDirectManipulationViewportEventHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectManipulationViewportEventHandler as ::windows::core::Interface>::IID
+        iid == &<IDirectManipulationViewportEventHandler as ::windows::core::ComInterface>::IID
     }
 }

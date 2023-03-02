@@ -2,21 +2,21 @@
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<P0>(licensekey: P0, validityindays: u32) -> ::windows::core::Result<LicenseProtectionStatus>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "licenseprotection.dll""system" fn RegisterLicenseKeyWithExpiration ( licensekey : :: windows::core::PCWSTR , validityindays : u32 , status : *mut LicenseProtectionStatus ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<LicenseProtectionStatus>();
-    RegisterLicenseKeyWithExpiration(licensekey.into().abi(), validityindays, &mut result__).from_abi(result__)
+    RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), validityindays, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "licenseprotection.dll""system" fn ValidateLicenseKeyProtection ( licensekey : :: windows::core::PCWSTR , notvalidbefore : *mut super::super::Foundation:: FILETIME , notvalidafter : *mut super::super::Foundation:: FILETIME , status : *mut LicenseProtectionStatus ) -> :: windows::core::HRESULT );
-    ValidateLicenseKeyProtection(licensekey.into().abi(), notvalidbefore, notvalidafter, status).ok()
+    ValidateLicenseKeyProtection(licensekey.into_param().abi(), notvalidbefore, notvalidafter, status).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[repr(transparent)]

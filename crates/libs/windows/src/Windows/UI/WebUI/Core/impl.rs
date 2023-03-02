@@ -8,7 +8,7 @@ impl IWebUICommandBarElement_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebUICommandBarElement as ::windows::core::Interface>::IID
+        iid == &<IWebUICommandBarElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`, `\"implement\"`*"]
@@ -21,6 +21,6 @@ impl IWebUICommandBarIcon_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebUICommandBarIcon as ::windows::core::Interface>::IID
+        iid == &<IWebUICommandBarIcon as ::windows::core::ComInterface>::IID
     }
 }

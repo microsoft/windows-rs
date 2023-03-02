@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppCapability(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppCapability {
+unsafe impl ::windows::core::Interface for IAppCapability {
     type Vtable = IAppCapability_Vtbl;
 }
 impl ::core::clone::Clone for IAppCapability {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAppCapability {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppCapability {
+unsafe impl ::windows::core::ComInterface for IAppCapability {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
 #[repr(C)]
@@ -38,7 +38,7 @@ pub struct IAppCapability_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppCapability2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppCapability2 {
+unsafe impl ::windows::core::Interface for IAppCapability2 {
     type Vtable = IAppCapability2_Vtbl;
 }
 impl ::core::clone::Clone for IAppCapability2 {
@@ -46,7 +46,7 @@ impl ::core::clone::Clone for IAppCapability2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppCapability2 {
+unsafe impl ::windows::core::ComInterface for IAppCapability2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c7ccb6_c74f_50a3_b960_88008767d939);
 }
 #[repr(C)]
@@ -59,7 +59,7 @@ pub struct IAppCapability2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppCapabilityAccessChangedEventArgs {
+unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppCapabilityAccessChangedEventArgs {
@@ -67,7 +67,7 @@ impl ::core::clone::Clone for IAppCapabilityAccessChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppCapabilityAccessChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
 #[repr(C)]
@@ -78,7 +78,7 @@ pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppCapabilityStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppCapabilityStatics {
+unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
     type Vtable = IAppCapabilityStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppCapabilityStatics {
@@ -86,7 +86,7 @@ impl ::core::clone::Clone for IAppCapabilityStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
+unsafe impl ::windows::core::ComInterface for IAppCapabilityStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 }
 #[repr(C)]
@@ -115,7 +115,7 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).CapabilityName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CapabilityName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -124,7 +124,7 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::System::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -133,14 +133,14 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CheckAccess(&self) -> ::windows::core::Result<AppCapabilityAccessStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppCapabilityAccessStatus>();
-            (::windows::core::Vtable::vtable(this).CheckAccess)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CheckAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -149,54 +149,52 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AccessChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AccessChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccessChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAccessChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAccessChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppCapability2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppCapability2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayMessage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisplayMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAppCapability2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IAppCapability2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestAccessForCapabilitiesAsync<P0, E0>(capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessForCapabilitiesAsync)(::windows::core::Vtable::as_raw(this), capabilitynames.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows::core::Interface::as_raw(this), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn RequestAccessForCapabilitiesForUserAsync<P0, E0>(user: &super::super::super::System::User, capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesForUserAsync<P0>(user: &super::super::super::System::User, capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), capabilitynames.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn Create(capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppCapability>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -204,7 +202,7 @@ impl AppCapability {
     pub fn CreateWithProcessIdForUser(user: &super::super::super::System::User, capabilityname: &::windows::core::HSTRING, pid: u32) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppCapability>();
-            (::windows::core::Vtable::vtable(this).CreateWithProcessIdForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -232,11 +230,11 @@ impl ::core::clone::Clone for AppCapability {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppCapability {
+unsafe impl ::windows::core::Interface for AppCapability {
     type Vtable = IAppCapability_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppCapability {
-    const IID: ::windows::core::GUID = <IAppCapability as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppCapability {
+    const IID: ::windows::core::GUID = <IAppCapability as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
@@ -267,11 +265,11 @@ impl ::core::clone::Clone for AppCapabilityAccessChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppCapabilityAccessChangedEventArgs {
+unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
-    const IID: ::windows::core::GUID = <IAppCapabilityAccessChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppCapabilityAccessChangedEventArgs {
+    const IID: ::windows::core::GUID = <IAppCapabilityAccessChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";

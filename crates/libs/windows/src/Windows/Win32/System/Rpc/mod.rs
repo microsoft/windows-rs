@@ -14,28 +14,28 @@ pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]
 #[inline]
 pub unsafe fn IUnknown_AddRef_Proxy<P0>(this: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn IUnknown_AddRef_Proxy ( this : * mut::core::ffi::c_void ) -> u32 );
-    IUnknown_AddRef_Proxy(this.into().abi())
+    IUnknown_AddRef_Proxy(this.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
 pub unsafe fn IUnknown_QueryInterface_Proxy<P0>(this: P0, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn IUnknown_QueryInterface_Proxy ( this : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    IUnknown_QueryInterface_Proxy(this.into().abi(), riid, ppvobject).ok()
+    IUnknown_QueryInterface_Proxy(this.into_param().abi(), riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
 pub unsafe fn IUnknown_Release_Proxy<P0>(this: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn IUnknown_Release_Proxy ( this : * mut::core::ffi::c_void ) -> u32 );
-    IUnknown_Release_Proxy(this.into().abi())
+    IUnknown_Release_Proxy(this.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -611,11 +611,11 @@ pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO
 #[inline]
 pub unsafe fn Ndr64DcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Com::IRpcStubBuffer>>,
-    P1: ::std::convert::Into<::windows::core::InParam<super::Com::IRpcChannelBuffer>>,
+    P0: ::windows::core::IntoParam<super::Com::IRpcStubBuffer>,
+    P1: ::windows::core::IntoParam<super::Com::IRpcChannelBuffer>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn Ndr64DcomAsyncStubCall ( pthis : * mut::core::ffi::c_void , pchannel : * mut::core::ffi::c_void , prpcmsg : *mut RPC_MESSAGE , pdwstubphase : *mut u32 ) -> i32 );
-    Ndr64DcomAsyncStubCall(pthis.into().abi(), pchannel.into().abi(), prpcmsg, pdwstubphase)
+    Ndr64DcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), prpcmsg, pdwstubphase)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1006,10 +1006,10 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 #[inline]
 pub unsafe fn NdrCreateServerInterfaceFromStub<P0>(pstub: P0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Com::IRpcStubBuffer>>,
+    P0: ::windows::core::IntoParam<super::Com::IRpcStubBuffer>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrCreateServerInterfaceFromStub ( pstub : * mut::core::ffi::c_void , pserverif : *mut RPC_SERVER_INTERFACE ) -> RPC_STATUS );
-    NdrCreateServerInterfaceFromStub(pstub.into().abi(), pserverif)
+    NdrCreateServerInterfaceFromStub(pstub.into_param().abi(), pserverif)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1023,11 +1023,11 @@ pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pform
 #[inline]
 pub unsafe fn NdrDcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::Com::IRpcStubBuffer>>,
-    P1: ::std::convert::Into<::windows::core::InParam<super::Com::IRpcChannelBuffer>>,
+    P0: ::windows::core::IntoParam<super::Com::IRpcStubBuffer>,
+    P1: ::windows::core::IntoParam<super::Com::IRpcChannelBuffer>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn NdrDcomAsyncStubCall ( pthis : * mut::core::ffi::c_void , pchannel : * mut::core::ffi::c_void , prpcmsg : *mut RPC_MESSAGE , pdwstubphase : *mut u32 ) -> i32 );
-    NdrDcomAsyncStubCall(pthis.into().abi(), pchannel.into().abi(), prpcmsg, pdwstubphase)
+    NdrDcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), prpcmsg, pdwstubphase)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1795,10 +1795,10 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
 #[inline]
 pub unsafe fn RpcAsyncCancelCall<P0>(pasync: *mut RPC_ASYNC_STATE, fabort: P0) -> RPC_STATUS
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn RpcAsyncCancelCall ( pasync : *mut RPC_ASYNC_STATE , fabort : super::super::Foundation:: BOOL ) -> RPC_STATUS );
-    RpcAsyncCancelCall(pasync, fabort.into())
+    RpcAsyncCancelCall(pasync, fabort.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2101,10 +2101,10 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
 #[inline]
 pub unsafe fn RpcErrorGetNextRecord<P0>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: P0, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn RpcErrorGetNextRecord ( enumhandle : *const RPC_ERROR_ENUM_HANDLE , copystrings : super::super::Foundation:: BOOL , errorinfo : *mut RPC_EXTENDED_ERROR_INFO ) -> RPC_STATUS );
-    RpcErrorGetNextRecord(enumhandle, copystrings.into(), errorinfo)
+    RpcErrorGetNextRecord(enumhandle, copystrings.into_param().abi(), errorinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2153,10 +2153,10 @@ pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::core:
 #[inline]
 pub unsafe fn RpcGetAuthorizationContextForClient<P0>(clientbinding: ::core::option::Option<*const ::core::ffi::c_void>, impersonateonreturn: P0, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, pexpirationtime: ::core::option::Option<*const i64>, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: ::core::option::Option<*const ::core::ffi::c_void>, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "rpcrt4.dll""system" fn RpcGetAuthorizationContextForClient ( clientbinding : *const ::core::ffi::c_void , impersonateonreturn : super::super::Foundation:: BOOL , reserved1 : *const ::core::ffi::c_void , pexpirationtime : *const i64 , reserved2 : super::super::Foundation:: LUID , reserved3 : u32 , reserved4 : *const ::core::ffi::c_void , pauthzclientcontext : *mut *mut ::core::ffi::c_void ) -> RPC_STATUS );
-    RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), impersonateonreturn.into(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved2), reserved3, ::core::mem::transmute(reserved4.unwrap_or(::std::ptr::null())), pauthzclientcontext)
+    RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding.unwrap_or(::std::ptr::null())), impersonateonreturn.into_param().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved2), reserved3, ::core::mem::transmute(reserved4.unwrap_or(::std::ptr::null())), pauthzclientcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

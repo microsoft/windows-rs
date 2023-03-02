@@ -44,30 +44,30 @@ pub unsafe fn GetRawInputBuffer(pdata: ::core::option::Option<*mut RAWINPUT>, pc
 #[inline]
 pub unsafe fn GetRawInputData<P0>(hrawinput: P0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32, cbsizeheader: u32) -> u32
 where
-    P0: ::std::convert::Into<HRAWINPUT>,
+    P0: ::windows::core::IntoParam<HRAWINPUT>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetRawInputData ( hrawinput : HRAWINPUT , uicommand : RAW_INPUT_DATA_COMMAND_FLAGS , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 , cbsizeheader : u32 ) -> u32 );
-    GetRawInputData(hrawinput.into(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize, cbsizeheader)
+    GetRawInputData(hrawinput.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize, cbsizeheader)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoA<P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetRawInputDeviceInfoA ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
-    GetRawInputDeviceInfoA(hdevice.into(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
+    GetRawInputDeviceInfoA(hdevice.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoW<P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbsize: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "user32.dll""system" fn GetRawInputDeviceInfoW ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
-    GetRawInputDeviceInfoW(hdevice.into(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
+    GetRawInputDeviceInfoW(hdevice.into_param().abi(), uicommand, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), pcbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -339,11 +339,6 @@ impl ::core::marker::Copy for HRAWINPUT {}
 impl ::core::fmt::Debug for HRAWINPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRAWINPUT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HRAWINPUT>> for HRAWINPUT {
-    fn from(optional: ::core::option::Option<HRAWINPUT>) -> HRAWINPUT {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HRAWINPUT {

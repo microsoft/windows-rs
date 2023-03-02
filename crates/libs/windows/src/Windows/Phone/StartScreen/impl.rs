@@ -28,6 +28,6 @@ impl IToastNotificationManagerStatics3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IToastNotificationManagerStatics3 as ::windows::core::Interface>::IID
+        iid == &<IToastNotificationManagerStatics3 as ::windows::core::ComInterface>::IID
     }
 }

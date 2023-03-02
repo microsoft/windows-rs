@@ -35,7 +35,7 @@ impl ICoreAcceleratorKeys_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreAcceleratorKeys as ::windows::core::Interface>::IID
+        iid == &<ICoreAcceleratorKeys as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -110,7 +110,7 @@ impl ICoreInputSourceBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreInputSourceBase as ::windows::core::Interface>::IID
+        iid == &<ICoreInputSourceBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -339,7 +339,7 @@ impl ICorePointerInputSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICorePointerInputSource as ::windows::core::Interface>::IID
+        iid == &<ICorePointerInputSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"System\"`, `\"implement\"`*"]
@@ -372,7 +372,7 @@ impl ICorePointerInputSource2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICorePointerInputSource2 as ::windows::core::Interface>::IID
+        iid == &<ICorePointerInputSource2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -454,7 +454,7 @@ impl ICorePointerRedirector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICorePointerRedirector as ::windows::core::Interface>::IID
+        iid == &<ICorePointerRedirector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation_Collections\"`, `\"System\"`, `\"implement\"`*"]
@@ -1033,7 +1033,7 @@ impl ICoreWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreWindow as ::windows::core::Interface>::IID
+        iid == &<ICoreWindow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
@@ -1070,7 +1070,7 @@ impl ICoreWindowEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreWindowEventArgs as ::windows::core::Interface>::IID
+        iid == &<ICoreWindowEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Core\"`, `\"implement\"`*"]
@@ -1093,6 +1093,6 @@ impl IInitializeWithCoreWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInitializeWithCoreWindow as ::windows::core::Interface>::IID
+        iid == &<IInitializeWithCoreWindow as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidBooleanControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidBooleanControl {
+unsafe impl ::windows::core::Interface for IHidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
 }
 impl ::core::clone::Clone for IHidBooleanControl {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IHidBooleanControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidBooleanControl {
+unsafe impl ::windows::core::ComInterface for IHidBooleanControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
 #[repr(C)]
@@ -26,7 +26,7 @@ pub struct IHidBooleanControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidBooleanControlDescription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidBooleanControlDescription {
+unsafe impl ::windows::core::Interface for IHidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
 }
 impl ::core::clone::Clone for IHidBooleanControlDescription {
@@ -34,7 +34,7 @@ impl ::core::clone::Clone for IHidBooleanControlDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidBooleanControlDescription {
+unsafe impl ::windows::core::ComInterface for IHidBooleanControlDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
 }
 #[repr(C)]
@@ -54,7 +54,7 @@ pub struct IHidBooleanControlDescription_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidBooleanControlDescription2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidBooleanControlDescription2 {
+unsafe impl ::windows::core::Interface for IHidBooleanControlDescription2 {
     type Vtable = IHidBooleanControlDescription2_Vtbl;
 }
 impl ::core::clone::Clone for IHidBooleanControlDescription2 {
@@ -62,7 +62,7 @@ impl ::core::clone::Clone for IHidBooleanControlDescription2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidBooleanControlDescription2 {
+unsafe impl ::windows::core::ComInterface for IHidBooleanControlDescription2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 }
 #[repr(C)]
@@ -74,7 +74,7 @@ pub struct IHidBooleanControlDescription2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidCollection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidCollection {
+unsafe impl ::windows::core::Interface for IHidCollection {
     type Vtable = IHidCollection_Vtbl;
 }
 impl ::core::clone::Clone for IHidCollection {
@@ -82,7 +82,7 @@ impl ::core::clone::Clone for IHidCollection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidCollection {
+unsafe impl ::windows::core::ComInterface for IHidCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 }
 #[repr(C)]
@@ -97,7 +97,7 @@ pub struct IHidCollection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidDevice {
+unsafe impl ::windows::core::Interface for IHidDevice {
     type Vtable = IHidDevice_Vtbl;
 }
 impl ::core::clone::Clone for IHidDevice {
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for IHidDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidDevice {
+unsafe impl ::windows::core::ComInterface for IHidDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 }
 #[repr(C)]
@@ -165,7 +165,7 @@ pub struct IHidDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidDeviceStatics {
+unsafe impl ::windows::core::Interface for IHidDeviceStatics {
     type Vtable = IHidDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IHidDeviceStatics {
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for IHidDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IHidDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
 }
 #[repr(C)]
@@ -190,7 +190,7 @@ pub struct IHidDeviceStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidFeatureReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidFeatureReport {
+unsafe impl ::windows::core::Interface for IHidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
 }
 impl ::core::clone::Clone for IHidFeatureReport {
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for IHidFeatureReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidFeatureReport {
+unsafe impl ::windows::core::ComInterface for IHidFeatureReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 }
 #[repr(C)]
@@ -222,7 +222,7 @@ pub struct IHidFeatureReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidInputReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidInputReport {
+unsafe impl ::windows::core::Interface for IHidInputReport {
     type Vtable = IHidInputReport_Vtbl;
 }
 impl ::core::clone::Clone for IHidInputReport {
@@ -230,7 +230,7 @@ impl ::core::clone::Clone for IHidInputReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidInputReport {
+unsafe impl ::windows::core::ComInterface for IHidInputReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 }
 #[repr(C)]
@@ -258,7 +258,7 @@ pub struct IHidInputReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidInputReportReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidInputReportReceivedEventArgs {
+unsafe impl ::windows::core::Interface for IHidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IHidInputReportReceivedEventArgs {
@@ -266,7 +266,7 @@ impl ::core::clone::Clone for IHidInputReportReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidInputReportReceivedEventArgs {
+unsafe impl ::windows::core::ComInterface for IHidInputReportReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
 #[repr(C)]
@@ -278,7 +278,7 @@ pub struct IHidInputReportReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidNumericControl(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidNumericControl {
+unsafe impl ::windows::core::Interface for IHidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
 }
 impl ::core::clone::Clone for IHidNumericControl {
@@ -286,7 +286,7 @@ impl ::core::clone::Clone for IHidNumericControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidNumericControl {
+unsafe impl ::windows::core::ComInterface for IHidNumericControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 }
 #[repr(C)]
@@ -306,7 +306,7 @@ pub struct IHidNumericControl_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidNumericControlDescription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidNumericControlDescription {
+unsafe impl ::windows::core::Interface for IHidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
 }
 impl ::core::clone::Clone for IHidNumericControlDescription {
@@ -314,7 +314,7 @@ impl ::core::clone::Clone for IHidNumericControlDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidNumericControlDescription {
+unsafe impl ::windows::core::ComInterface for IHidNumericControlDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 }
 #[repr(C)]
@@ -344,7 +344,7 @@ pub struct IHidNumericControlDescription_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHidOutputReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHidOutputReport {
+unsafe impl ::windows::core::Interface for IHidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
 }
 impl ::core::clone::Clone for IHidOutputReport {
@@ -352,7 +352,7 @@ impl ::core::clone::Clone for IHidOutputReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHidOutputReport {
+unsafe impl ::windows::core::ComInterface for IHidOutputReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
 #[repr(C)]
@@ -381,39 +381,39 @@ impl HidBooleanControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsActive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsActive(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsActive)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsActive)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ControlDescription(&self) -> ::windows::core::Result<HidBooleanControlDescription> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControlDescription>();
-            (::windows::core::Vtable::vtable(this).ControlDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ControlDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -436,11 +436,11 @@ impl ::core::clone::Clone for HidBooleanControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidBooleanControl {
+unsafe impl ::windows::core::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidBooleanControl {
-    const IID: ::windows::core::GUID = <IHidBooleanControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidBooleanControl {
+    const IID: ::windows::core::GUID = <IHidBooleanControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
@@ -456,35 +456,35 @@ impl HidBooleanControlDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ReportId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportType(&self) -> ::windows::core::Result<HidReportType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidReportType>();
-            (::windows::core::Vtable::vtable(this).ReportType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -493,14 +493,14 @@ impl HidBooleanControlDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidCollection>>();
-            (::windows::core::Vtable::vtable(this).ParentCollections)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ParentCollections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsAbsolute(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IHidBooleanControlDescription2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IHidBooleanControlDescription2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAbsolute)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAbsolute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -523,11 +523,11 @@ impl ::core::clone::Clone for HidBooleanControlDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidBooleanControlDescription {
+unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
-    const IID: ::windows::core::GUID = <IHidBooleanControlDescription as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidBooleanControlDescription {
+    const IID: ::windows::core::GUID = <IHidBooleanControlDescription as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
@@ -543,28 +543,28 @@ impl HidCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Type(&self) -> ::windows::core::Result<HidCollectionType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidCollectionType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -587,11 +587,11 @@ impl ::core::clone::Clone for HidCollection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidCollection {
+unsafe impl ::windows::core::Interface for HidCollection {
     type Vtable = IHidCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidCollection {
-    const IID: ::windows::core::GUID = <IHidCollection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidCollection {
+    const IID: ::windows::core::GUID = <IHidCollection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
@@ -606,42 +606,42 @@ impl HidDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn VendorId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).VendorId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VendorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ProductId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Version(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -650,7 +650,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<HidInputReport>>();
-            (::windows::core::Vtable::vtable(this).GetInputReportAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetInputReportAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -659,7 +659,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<HidInputReport>>();
-            (::windows::core::Vtable::vtable(this).GetInputReportByIdAsync)(::windows::core::Vtable::as_raw(this), reportid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetInputReportByIdAsync)(::windows::core::Interface::as_raw(this), reportid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -668,7 +668,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>();
-            (::windows::core::Vtable::vtable(this).GetFeatureReportAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFeatureReportAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -677,35 +677,35 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>();
-            (::windows::core::Vtable::vtable(this).GetFeatureReportByIdAsync)(::windows::core::Vtable::as_raw(this), reportid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFeatureReportByIdAsync)(::windows::core::Interface::as_raw(this), reportid, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOutputReport(&self) -> ::windows::core::Result<HidOutputReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidOutputReport>();
-            (::windows::core::Vtable::vtable(this).CreateOutputReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOutputReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOutputReportById(&self, reportid: u16) -> ::windows::core::Result<HidOutputReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidOutputReport>();
-            (::windows::core::Vtable::vtable(this).CreateOutputReportById)(::windows::core::Vtable::as_raw(this), reportid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOutputReportById)(::windows::core::Interface::as_raw(this), reportid, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateFeatureReport(&self) -> ::windows::core::Result<HidFeatureReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidFeatureReport>();
-            (::windows::core::Vtable::vtable(this).CreateFeatureReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateFeatureReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateFeatureReportById(&self, reportid: u16) -> ::windows::core::Result<HidFeatureReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidFeatureReport>();
-            (::windows::core::Vtable::vtable(this).CreateFeatureReportById)(::windows::core::Vtable::as_raw(this), reportid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateFeatureReportById)(::windows::core::Interface::as_raw(this), reportid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -714,7 +714,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).SendOutputReportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(outputreport), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendOutputReportAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(outputreport), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -723,7 +723,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
-            (::windows::core::Vtable::vtable(this).SendFeatureReportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(featurereport), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendFeatureReportAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(featurereport), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -732,7 +732,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlDescriptions)(::windows::core::Vtable::as_raw(this), reporttype, usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -741,7 +741,7 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>();
-            (::windows::core::Vtable::vtable(this).GetNumericControlDescriptions)(::windows::core::Vtable::as_raw(this), reporttype, usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -750,25 +750,25 @@ impl HidDevice {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).InputReportReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(reporthandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputReportReceived)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(reporthandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputReportReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveInputReportReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInputReportReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetDeviceSelector(usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorVidPid(usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorVidPid)(::windows::core::Vtable::as_raw(this), usagepage, usageid, vendorid, productid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorVidPid)(::windows::core::Interface::as_raw(this), usagepage, usageid, vendorid, productid, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -776,7 +776,7 @@ impl HidDevice {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<HidDevice>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), accessmode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), accessmode, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -804,38 +804,18 @@ impl ::core::clone::Clone for HidDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidDevice {
+unsafe impl ::windows::core::Interface for HidDevice {
     type Vtable = IHidDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidDevice {
-    const IID: ::windows::core::GUID = <IHidDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidDevice {
+    const IID: ::windows::core::GUID = <IHidDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
 ::windows::imp::interface_hierarchy!(HidDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<HidDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: HidDevice) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&HidDevice> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &HidDevice) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&HidDevice> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &HidDevice) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for HidDevice {}
 unsafe impl ::core::marker::Send for HidDevice {}
 unsafe impl ::core::marker::Sync for HidDevice {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -846,7 +826,7 @@ impl HidFeatureReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -855,45 +835,44 @@ impl HidFeatureReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
 }
@@ -916,11 +895,11 @@ impl ::core::clone::Clone for HidFeatureReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidFeatureReport {
+unsafe impl ::windows::core::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidFeatureReport {
-    const IID: ::windows::core::GUID = <IHidFeatureReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidFeatureReport {
+    const IID: ::windows::core::GUID = <IHidFeatureReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
@@ -936,7 +915,7 @@ impl HidInputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -945,7 +924,7 @@ impl HidInputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -954,7 +933,7 @@ impl HidInputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>();
-            (::windows::core::Vtable::vtable(this).ActivatedBooleanControls)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActivatedBooleanControls)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -963,35 +942,35 @@ impl HidInputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>();
-            (::windows::core::Vtable::vtable(this).TransitionedBooleanControls)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TransitionedBooleanControls)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1014,11 +993,11 @@ impl ::core::clone::Clone for HidInputReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidInputReport {
+unsafe impl ::windows::core::Interface for HidInputReport {
     type Vtable = IHidInputReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidInputReport {
-    const IID: ::windows::core::GUID = <IHidInputReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidInputReport {
+    const IID: ::windows::core::GUID = <IHidInputReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
@@ -1034,7 +1013,7 @@ impl HidInputReportReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidInputReport>();
-            (::windows::core::Vtable::vtable(this).Report)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Report)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1057,11 +1036,11 @@ impl ::core::clone::Clone for HidInputReportReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidInputReportReceivedEventArgs {
+unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
-    const IID: ::windows::core::GUID = <IHidInputReportReceivedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidInputReportReceivedEventArgs {
+    const IID: ::windows::core::GUID = <IHidInputReportReceivedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
@@ -1077,57 +1056,57 @@ impl HidNumericControl {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGrouped(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsGrouped)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsGrouped)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i64>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValue(&self, value: i64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetValue)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ScaledValue(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i64>();
-            (::windows::core::Vtable::vtable(this).ScaledValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScaledValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScaledValue(&self, value: i64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetScaledValue)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaledValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ControlDescription(&self) -> ::windows::core::Result<HidNumericControlDescription> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControlDescription>();
-            (::windows::core::Vtable::vtable(this).ControlDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ControlDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1150,11 +1129,11 @@ impl ::core::clone::Clone for HidNumericControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidNumericControl {
+unsafe impl ::windows::core::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidNumericControl {
-    const IID: ::windows::core::GUID = <IHidNumericControl as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidNumericControl {
+    const IID: ::windows::core::GUID = <IHidNumericControl as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
@@ -1170,105 +1149,105 @@ impl HidNumericControlDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).ReportId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportType(&self) -> ::windows::core::Result<HidReportType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidReportType>();
-            (::windows::core::Vtable::vtable(this).ReportType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ReportSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ReportCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsagePage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).UsageId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LogicalMinimum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).LogicalMinimum)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LogicalMinimum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LogicalMaximum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).LogicalMaximum)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LogicalMaximum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhysicalMinimum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).PhysicalMinimum)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhysicalMinimum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhysicalMaximum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).PhysicalMaximum)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhysicalMaximum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnitExponent(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).UnitExponent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnitExponent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Unit(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Unit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsAbsolute(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAbsolute)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAbsolute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasNull(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HasNull)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasNull)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1277,7 +1256,7 @@ impl HidNumericControlDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<HidCollection>>();
-            (::windows::core::Vtable::vtable(this).ParentCollections)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ParentCollections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1300,11 +1279,11 @@ impl ::core::clone::Clone for HidNumericControlDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidNumericControlDescription {
+unsafe impl ::windows::core::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidNumericControlDescription {
-    const IID: ::windows::core::GUID = <IHidNumericControlDescription as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidNumericControlDescription {
+    const IID: ::windows::core::GUID = <IHidNumericControlDescription as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
@@ -1320,7 +1299,7 @@ impl HidOutputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1329,45 +1308,44 @@ impl HidOutputReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidBooleanControl>();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HidNumericControl>();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlByDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1390,11 +1368,11 @@ impl ::core::clone::Clone for HidOutputReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for HidOutputReport {
+unsafe impl ::windows::core::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for HidOutputReport {
-    const IID: ::windows::core::GUID = <IHidOutputReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for HidOutputReport {
+    const IID: ::windows::core::GUID = <IHidOutputReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";

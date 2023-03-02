@@ -8,6 +8,6 @@ impl IGeometrySource2D_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGeometrySource2D as ::windows::core::Interface>::IID
+        iid == &<IGeometrySource2D as ::windows::core::ComInterface>::IID
     }
 }

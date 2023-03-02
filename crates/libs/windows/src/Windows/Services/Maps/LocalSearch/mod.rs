@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalCategoriesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalCategoriesStatics {
+unsafe impl ::windows::core::Interface for ILocalCategoriesStatics {
     type Vtable = ILocalCategoriesStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILocalCategoriesStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ILocalCategoriesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalCategoriesStatics {
+unsafe impl ::windows::core::ComInterface for ILocalCategoriesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf49399f5_8261_4321_9974_ef92d49a8dca);
 }
 #[repr(C)]
@@ -28,7 +28,7 @@ pub struct ILocalCategoriesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocation {
+unsafe impl ::windows::core::Interface for ILocalLocation {
     type Vtable = ILocalLocation_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocation {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for ILocalLocation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocation {
+unsafe impl ::windows::core::ComInterface for ILocalLocation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
 }
 #[repr(C)]
@@ -57,7 +57,7 @@ pub struct ILocalLocation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocation2 {
+unsafe impl ::windows::core::Interface for ILocalLocation2 {
     type Vtable = ILocalLocation2_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocation2 {
@@ -65,7 +65,7 @@ impl ::core::clone::Clone for ILocalLocation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocation2 {
+unsafe impl ::windows::core::ComInterface for ILocalLocation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9e307c_ecb5_4ffc_bb8c_ba50ba8c2dc6);
 }
 #[repr(C)]
@@ -82,7 +82,7 @@ pub struct ILocalLocation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocationFinderResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocationFinderResult {
+unsafe impl ::windows::core::Interface for ILocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocationFinderResult {
@@ -90,7 +90,7 @@ impl ::core::clone::Clone for ILocalLocationFinderResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocationFinderResult {
+unsafe impl ::windows::core::ComInterface for ILocalLocationFinderResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
 }
 #[repr(C)]
@@ -106,7 +106,7 @@ pub struct ILocalLocationFinderResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocationFinderStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocationFinderStatics {
+unsafe impl ::windows::core::Interface for ILocalLocationFinderStatics {
     type Vtable = ILocalLocationFinderStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocationFinderStatics {
@@ -114,7 +114,7 @@ impl ::core::clone::Clone for ILocalLocationFinderStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocationFinderStatics {
+unsafe impl ::windows::core::ComInterface for ILocalLocationFinderStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
 }
 #[repr(C)]
@@ -129,7 +129,7 @@ pub struct ILocalLocationFinderStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocationHoursOfOperationItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocationHoursOfOperationItem {
+unsafe impl ::windows::core::Interface for ILocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocationHoursOfOperationItem {
@@ -137,7 +137,7 @@ impl ::core::clone::Clone for ILocalLocationHoursOfOperationItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocationHoursOfOperationItem {
+unsafe impl ::windows::core::ComInterface for ILocalLocationHoursOfOperationItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
 }
 #[repr(C)]
@@ -160,7 +160,7 @@ pub struct ILocalLocationHoursOfOperationItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILocalLocationRatingInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILocalLocationRatingInfo {
+unsafe impl ::windows::core::Interface for ILocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_Vtbl;
 }
 impl ::core::clone::Clone for ILocalLocationRatingInfo {
@@ -168,7 +168,7 @@ impl ::core::clone::Clone for ILocalLocationRatingInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILocalLocationRatingInfo {
+unsafe impl ::windows::core::ComInterface for ILocalLocationRatingInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
 }
 #[repr(C)]
@@ -188,7 +188,7 @@ pub struct ILocalLocationRatingInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlaceInfoHelperStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlaceInfoHelperStatics {
+unsafe impl ::windows::core::Interface for IPlaceInfoHelperStatics {
     type Vtable = IPlaceInfoHelperStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPlaceInfoHelperStatics {
@@ -196,7 +196,7 @@ impl ::core::clone::Clone for IPlaceInfoHelperStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlaceInfoHelperStatics {
+unsafe impl ::windows::core::ComInterface for IPlaceInfoHelperStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd1ca9a7_a9c6_491b_bc09_e80fcea48ee6);
 }
 #[repr(C)]
@@ -211,49 +211,49 @@ impl LocalCategories {
     pub fn BankAndCreditUnions() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).BankAndCreditUnions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BankAndCreditUnions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn EatDrink() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).EatDrink)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EatDrink)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Hospitals() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Hospitals)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Hospitals)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HotelsAndMotels() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HotelsAndMotels)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HotelsAndMotels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn All() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).All)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).All)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Parking() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Parking)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Parking)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn SeeDo() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SeeDo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SeeDo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Shop() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Shop)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Shop)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -273,28 +273,28 @@ impl LocalLocation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::MapAddress>();
-            (::windows::core::Vtable::vtable(this).Address)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Address)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Identifier)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Identifier)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -303,44 +303,44 @@ impl LocalLocation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Devices::Geolocation::Geopoint>();
-            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Point)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PhoneNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhoneNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DataAttribution(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DataAttribution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DataAttribution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILocalLocation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Category)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Category)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RatingInfo(&self) -> ::windows::core::Result<LocalLocationRatingInfo> {
-        let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILocalLocation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<LocalLocationRatingInfo>();
-            (::windows::core::Vtable::vtable(this).RatingInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RatingInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HoursOfOperation(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
-        let this = &::windows::core::Interface::cast::<ILocalLocation2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILocalLocation2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>>();
-            (::windows::core::Vtable::vtable(this).HoursOfOperation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HoursOfOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -363,11 +363,11 @@ impl ::core::clone::Clone for LocalLocation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LocalLocation {
+unsafe impl ::windows::core::Interface for LocalLocation {
     type Vtable = ILocalLocation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LocalLocation {
-    const IID: ::windows::core::GUID = <ILocalLocation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LocalLocation {
+    const IID: ::windows::core::GUID = <ILocalLocation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
@@ -383,7 +383,7 @@ impl LocalLocationFinder {
     pub fn FindLocalLocationsAsync(searchterm: &::windows::core::HSTRING, searcharea: &super::super::super::Devices::Geolocation::Geocircle, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>();
-            (::windows::core::Vtable::vtable(this).FindLocalLocationsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchterm), ::core::mem::transmute_copy(searcharea), ::core::mem::transmute_copy(localcategory), maxresults, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindLocalLocationsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchterm), ::core::mem::transmute_copy(searcharea), ::core::mem::transmute_copy(localcategory), maxresults, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -405,14 +405,14 @@ impl LocalLocationFinderResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<LocalLocation>>();
-            (::windows::core::Vtable::vtable(this).LocalLocations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<LocalLocationFinderStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<LocalLocationFinderStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -435,11 +435,11 @@ impl ::core::clone::Clone for LocalLocationFinderResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LocalLocationFinderResult {
+unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
-    const IID: ::windows::core::GUID = <ILocalLocationFinderResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LocalLocationFinderResult {
+    const IID: ::windows::core::GUID = <ILocalLocationFinderResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
@@ -457,7 +457,7 @@ impl LocalLocationHoursOfOperationItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::DayOfWeek>();
-            (::windows::core::Vtable::vtable(this).Day)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Day)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -466,7 +466,7 @@ impl LocalLocationHoursOfOperationItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -475,7 +475,7 @@ impl LocalLocationHoursOfOperationItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Span)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Span)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -498,11 +498,11 @@ impl ::core::clone::Clone for LocalLocationHoursOfOperationItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LocalLocationHoursOfOperationItem {
+unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
-    const IID: ::windows::core::GUID = <ILocalLocationHoursOfOperationItem as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LocalLocationHoursOfOperationItem {
+    const IID: ::windows::core::GUID = <ILocalLocationHoursOfOperationItem as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
@@ -520,7 +520,7 @@ impl LocalLocationRatingInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f64>>();
-            (::windows::core::Vtable::vtable(this).AggregateRating)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AggregateRating)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -529,14 +529,14 @@ impl LocalLocationRatingInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<i32>>();
-            (::windows::core::Vtable::vtable(this).RatingCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RatingCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProviderIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProviderIdentifier)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProviderIdentifier)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -559,11 +559,11 @@ impl ::core::clone::Clone for LocalLocationRatingInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LocalLocationRatingInfo {
+unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
-    const IID: ::windows::core::GUID = <ILocalLocationRatingInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LocalLocationRatingInfo {
+    const IID: ::windows::core::GUID = <ILocalLocationRatingInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
@@ -577,7 +577,7 @@ impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation(location: &LocalLocation) -> ::windows::core::Result<super::PlaceInfo> {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::PlaceInfo>();
-            (::windows::core::Vtable::vtable(this).CreateFromLocalLocation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(location), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocalLocation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(location), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

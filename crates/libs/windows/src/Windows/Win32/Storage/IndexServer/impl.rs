@@ -47,7 +47,7 @@ impl IFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFilter as ::windows::core::Interface>::IID
+        iid == &<IFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -75,6 +75,6 @@ impl IPhraseSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPhraseSink as ::windows::core::Interface>::IID
+        iid == &<IPhraseSink as ::windows::core::ComInterface>::IID
     }
 }

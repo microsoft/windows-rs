@@ -8,7 +8,7 @@ impl IBackgroundCondition_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundCondition, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundCondition as ::windows::core::Interface>::IID
+        iid == &<IBackgroundCondition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"implement\"`*"]
@@ -28,7 +28,7 @@ impl IBackgroundTask_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTask as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTask as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -159,7 +159,7 @@ impl IBackgroundTaskInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskInstance as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskInstance as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -192,7 +192,7 @@ impl IBackgroundTaskInstance2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskInstance2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskInstance2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"System\"`, `\"implement\"`*"]
@@ -222,7 +222,7 @@ impl IBackgroundTaskInstance4_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskInstance4, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskInstance4 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskInstance4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -318,7 +318,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskRegistration as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskRegistration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -348,7 +348,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundTaskRegistration2, OFFSET>(), Trigger: Trigger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskRegistration2 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskRegistration2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -381,7 +381,7 @@ impl IBackgroundTaskRegistration3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTaskRegistration3 as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTaskRegistration3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"implement\"`*"]
@@ -394,6 +394,6 @@ impl IBackgroundTrigger_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundTrigger, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTrigger as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTrigger as ::windows::core::ComInterface>::IID
     }
 }

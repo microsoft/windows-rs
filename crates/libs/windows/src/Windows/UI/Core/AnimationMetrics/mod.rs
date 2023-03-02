@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnimationDescription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnimationDescription {
+unsafe impl ::windows::core::Interface for IAnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
 }
 impl ::core::clone::Clone for IAnimationDescription {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAnimationDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnimationDescription {
+unsafe impl ::windows::core::ComInterface for IAnimationDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 #[repr(C)]
@@ -34,7 +34,7 @@ pub struct IAnimationDescription_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAnimationDescriptionFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAnimationDescriptionFactory {
+unsafe impl ::windows::core::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactory_Vtbl;
 }
 impl ::core::clone::Clone for IAnimationDescriptionFactory {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for IAnimationDescriptionFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAnimationDescriptionFactory {
+unsafe impl ::windows::core::ComInterface for IAnimationDescriptionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 }
 #[repr(C)]
@@ -54,7 +54,7 @@ pub struct IAnimationDescriptionFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOpacityAnimation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOpacityAnimation {
+unsafe impl ::windows::core::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IOpacityAnimation {
@@ -62,7 +62,7 @@ impl ::core::clone::Clone for IOpacityAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpacityAnimation {
+unsafe impl ::windows::core::ComInterface for IOpacityAnimation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 #[repr(C)]
@@ -83,7 +83,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -92,7 +92,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -101,7 +101,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -110,7 +110,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -119,7 +119,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -138,7 +138,7 @@ impl ::core::fmt::Debug for IPropertyAnimation {
 impl ::windows::core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
-unsafe impl ::windows::core::Vtable for IPropertyAnimation {
+unsafe impl ::windows::core::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IPropertyAnimation {
@@ -146,7 +146,7 @@ impl ::core::clone::Clone for IPropertyAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPropertyAnimation {
+unsafe impl ::windows::core::ComInterface for IPropertyAnimation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 #[repr(C)]
@@ -174,7 +174,7 @@ pub struct IPropertyAnimation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IScaleAnimation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IScaleAnimation {
+unsafe impl ::windows::core::Interface for IScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IScaleAnimation {
@@ -182,7 +182,7 @@ impl ::core::clone::Clone for IScaleAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IScaleAnimation {
+unsafe impl ::windows::core::ComInterface for IScaleAnimation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 #[repr(C)]
@@ -214,7 +214,7 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>();
-            (::windows::core::Vtable::vtable(this).Animations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Animations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -223,14 +223,14 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).StaggerDelay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StaggerDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).StaggerDelayFactor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -239,20 +239,20 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).DelayLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DelayLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ZOrder(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ZOrder)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ZOrder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AnimationDescription>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), effect, target, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -280,11 +280,11 @@ impl ::core::clone::Clone for AnimationDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AnimationDescription {
+unsafe impl ::windows::core::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AnimationDescription {
-    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AnimationDescription {
+    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
@@ -302,57 +302,57 @@ impl OpacityAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Vtable::vtable(this).InitialOpacity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InitialOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FinalOpacity(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).FinalOpacity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FinalOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -375,35 +375,17 @@ impl ::core::clone::Clone for OpacityAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OpacityAnimation {
+unsafe impl ::windows::core::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OpacityAnimation {
-    const IID: ::windows::core::GUID = <IOpacityAnimation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OpacityAnimation {
+    const IID: ::windows::core::GUID = <IOpacityAnimation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
 ::windows::imp::interface_hierarchy!(OpacityAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<OpacityAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: OpacityAnimation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&OpacityAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &OpacityAnimation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&OpacityAnimation> for ::windows::core::InParam<IPropertyAnimation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &OpacityAnimation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IPropertyAnimation> for OpacityAnimation {}
 unsafe impl ::core::marker::Send for OpacityAnimation {}
 unsafe impl ::core::marker::Sync for OpacityAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -414,7 +396,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -423,7 +405,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -432,7 +414,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -441,7 +423,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -450,7 +432,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -473,35 +455,17 @@ impl ::core::clone::Clone for PropertyAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PropertyAnimation {
+unsafe impl ::windows::core::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PropertyAnimation {
-    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PropertyAnimation {
+    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
 ::windows::imp::interface_hierarchy!(PropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<PropertyAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PropertyAnimation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&PropertyAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PropertyAnimation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&PropertyAnimation> for ::windows::core::InParam<IPropertyAnimation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PropertyAnimation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IPropertyAnimation> for PropertyAnimation {}
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -509,46 +473,46 @@ unsafe impl ::core::marker::Sync for PropertyAnimation {}
 pub struct ScaleAnimation(::windows::core::IUnknown);
 impl ScaleAnimation {
     pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -557,7 +521,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Vtable::vtable(this).InitialScaleX)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InitialScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -566,21 +530,21 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Vtable::vtable(this).InitialScaleY)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InitialScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FinalScaleX(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).FinalScaleX)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FinalScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FinalScaleY(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).FinalScaleY)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FinalScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -589,7 +553,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).NormalizedOrigin)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NormalizedOrigin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -612,35 +576,17 @@ impl ::core::clone::Clone for ScaleAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ScaleAnimation {
+unsafe impl ::windows::core::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ScaleAnimation {
-    const IID: ::windows::core::GUID = <IScaleAnimation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ScaleAnimation {
+    const IID: ::windows::core::GUID = <IScaleAnimation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
 ::windows::imp::interface_hierarchy!(ScaleAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ScaleAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ScaleAnimation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ScaleAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ScaleAnimation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ScaleAnimation> for ::windows::core::InParam<IPropertyAnimation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ScaleAnimation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IPropertyAnimation> for ScaleAnimation {}
 unsafe impl ::core::marker::Send for ScaleAnimation {}
 unsafe impl ::core::marker::Sync for ScaleAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -651,7 +597,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -660,7 +606,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -669,7 +615,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -678,7 +624,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -687,7 +633,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Control2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -710,35 +656,17 @@ impl ::core::clone::Clone for TranslationAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TranslationAnimation {
+unsafe impl ::windows::core::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TranslationAnimation {
-    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TranslationAnimation {
+    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
 ::windows::imp::interface_hierarchy!(TranslationAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<TranslationAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: TranslationAnimation) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&TranslationAnimation> for IPropertyAnimation {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TranslationAnimation) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&TranslationAnimation> for ::windows::core::InParam<IPropertyAnimation> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TranslationAnimation) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IPropertyAnimation> for TranslationAnimation {}
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]

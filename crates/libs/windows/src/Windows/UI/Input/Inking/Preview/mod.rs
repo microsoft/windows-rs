@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPalmRejectionDelayZonePreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPalmRejectionDelayZonePreview {
+unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
 }
 impl ::core::clone::Clone for IPalmRejectionDelayZonePreview {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPalmRejectionDelayZonePreview {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreview {
+unsafe impl ::windows::core::ComInterface for IPalmRejectionDelayZonePreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
 #[repr(C)]
@@ -20,7 +20,7 @@ pub struct IPalmRejectionDelayZonePreview_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPalmRejectionDelayZonePreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPalmRejectionDelayZonePreviewStatics {
+unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreviewStatics {
     type Vtable = IPalmRejectionDelayZonePreviewStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPalmRejectionDelayZonePreviewStatics {
@@ -28,7 +28,7 @@ impl ::core::clone::Clone for IPalmRejectionDelayZonePreviewStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreviewStatics {
+unsafe impl ::windows::core::ComInterface for IPalmRejectionDelayZonePreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
 }
 #[repr(C)]
@@ -51,30 +51,30 @@ impl PalmRejectionDelayZonePreview {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Composition::Visual>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PalmRejectionDelayZonePreview>();
-            (::windows::core::Vtable::vtable(this).CreateForVisual)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateForVisual)(::windows::core::Interface::as_raw(this), inputpanelvisual.try_into_param()?.abi(), inputpanelrect, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::Composition::Visual>>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Composition::Visual>,
+        P1: ::windows::core::TryIntoParam<super::super::super::Composition::Visual>,
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PalmRejectionDelayZonePreview>();
-            (::windows::core::Vtable::vtable(this).CreateForVisualWithViewportClip)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, viewportvisual.into().abi(), viewportrect, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateForVisualWithViewportClip)(::windows::core::Interface::as_raw(this), inputpanelvisual.try_into_param()?.abi(), inputpanelrect, viewportvisual.try_into_param()?.abi(), viewportrect, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -102,38 +102,18 @@ impl ::core::clone::Clone for PalmRejectionDelayZonePreview {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PalmRejectionDelayZonePreview {
+unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
-    const IID: ::windows::core::GUID = <IPalmRejectionDelayZonePreview as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PalmRejectionDelayZonePreview {
+    const IID: ::windows::core::GUID = <IPalmRejectionDelayZonePreview as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
 ::windows::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PalmRejectionDelayZonePreview) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PalmRejectionDelayZonePreview) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PalmRejectionDelayZonePreview> for ::windows::core::InParam<super::super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PalmRejectionDelayZonePreview) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::super::Foundation::IClosable> for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Send for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Sync for PalmRejectionDelayZonePreview {}
 #[cfg(feature = "implement")]

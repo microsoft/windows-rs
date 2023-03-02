@@ -26,7 +26,7 @@ impl IDWriteAsyncResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteAsyncResult as ::windows::core::Interface>::IID
+        iid == &<IDWriteAsyncResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -105,7 +105,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteBitmapRenderTarget as ::windows::core::Interface>::IID
+        iid == &<IDWriteBitmapRenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -136,7 +136,7 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteBitmapRenderTarget1 as ::windows::core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows::core::Interface>::IID
+        iid == &<IDWriteBitmapRenderTarget1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -179,7 +179,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteColorGlyphRunEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDWriteColorGlyphRunEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -206,7 +206,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
         Self { base__: IDWriteColorGlyphRunEnumerator_Vtbl::new::<Identity, Impl, OFFSET>(), GetCurrentRun2: GetCurrentRun2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteColorGlyphRunEnumerator1 as ::windows::core::Interface>::IID || iid == &<IDWriteColorGlyphRunEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDWriteColorGlyphRunEnumerator1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteColorGlyphRunEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -466,7 +466,7 @@ impl IDWriteFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -503,7 +503,7 @@ impl IDWriteFactory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -585,7 +585,7 @@ impl IDWriteFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -713,7 +713,7 @@ impl IDWriteFactory3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory3 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -769,7 +769,7 @@ impl IDWriteFactory4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory4 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -845,7 +845,7 @@ impl IDWriteFactory5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory5 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory4 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory5 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -953,7 +953,7 @@ impl IDWriteFactory6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory6 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory4 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory5 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory6 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -996,7 +996,7 @@ impl IDWriteFactory7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFactory7 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory as ::windows::core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory4 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory5 as ::windows::core::Interface>::IID || iid == &<IDWriteFactory6 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFactory7 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory5 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFactory6 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1114,7 +1114,7 @@ impl IDWriteFont_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFont as ::windows::core::Interface>::IID
+        iid == &<IDWriteFont as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1159,7 +1159,7 @@ impl IDWriteFont1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFont1 as ::windows::core::Interface>::IID || iid == &<IDWriteFont as ::windows::core::Interface>::IID
+        iid == &<IDWriteFont1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1180,7 +1180,7 @@ impl IDWriteFont2_Vtbl {
         Self { base__: IDWriteFont1_Vtbl::new::<Identity, Impl, OFFSET>(), IsColorFont: IsColorFont::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFont2 as ::windows::core::Interface>::IID || iid == &<IDWriteFont as ::windows::core::Interface>::IID || iid == &<IDWriteFont1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFont2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1244,7 +1244,7 @@ impl IDWriteFont3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFont3 as ::windows::core::Interface>::IID || iid == &<IDWriteFont as ::windows::core::Interface>::IID || iid == &<IDWriteFont1 as ::windows::core::Interface>::IID || iid == &<IDWriteFont2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFont3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFont2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1301,7 +1301,7 @@ impl IDWriteFontCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontCollection as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1344,7 +1344,7 @@ impl IDWriteFontCollection1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontCollection1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontCollection1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1407,7 +1407,7 @@ impl IDWriteFontCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontCollection2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontCollection2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1428,7 +1428,7 @@ impl IDWriteFontCollection3_Vtbl {
         Self { base__: IDWriteFontCollection2_Vtbl::new::<Identity, Impl, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontCollection3 as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontCollection2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontCollection3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontCollection2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -1452,7 +1452,7 @@ impl IDWriteFontCollectionLoader_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateEnumeratorFromKey: CreateEnumeratorFromKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontCollectionLoader as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontCollectionLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -1470,7 +1470,7 @@ impl IDWriteFontDownloadListener_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DownloadCompleted: DownloadCompleted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontDownloadListener as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontDownloadListener as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1535,7 +1535,7 @@ impl IDWriteFontDownloadQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontDownloadQueue as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontDownloadQueue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -1663,7 +1663,7 @@ impl IDWriteFontFace_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -1770,7 +1770,7 @@ impl IDWriteFontFace1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -1822,7 +1822,7 @@ impl IDWriteFontFace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -1967,7 +1967,7 @@ impl IDWriteFontFace3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace3 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -2018,7 +2018,7 @@ impl IDWriteFontFace4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace4 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -2076,7 +2076,7 @@ impl IDWriteFontFace5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace5 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace4 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace5 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
@@ -2119,7 +2119,7 @@ impl IDWriteFontFace6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFace6 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace4 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFace5 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFace6 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFace5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2258,7 +2258,7 @@ impl IDWriteFontFaceReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFaceReference as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFaceReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2302,7 +2302,7 @@ impl IDWriteFontFaceReference1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFaceReference1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFaceReference as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFaceReference1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFaceReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2333,7 +2333,7 @@ impl IDWriteFontFallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFallback as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2352,7 +2352,7 @@ impl IDWriteFontFallback1_Vtbl {
         Self { base__: IDWriteFontFallback_Vtbl::new::<Identity, Impl, OFFSET>(), MapCharacters2: MapCharacters2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFallback1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontFallback as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFallback1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2393,7 +2393,7 @@ impl IDWriteFontFallbackBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFallbackBuilder as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFallbackBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2446,7 +2446,7 @@ impl IDWriteFontFamily_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFamily as ::windows::core::Interface>::IID || iid == &<IDWriteFontList as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFamily as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2493,7 +2493,7 @@ impl IDWriteFontFamily1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFamily1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontList as ::windows::core::Interface>::IID || iid == &<IDWriteFontFamily as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFamily1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFamily as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2533,7 +2533,7 @@ impl IDWriteFontFamily2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFamily2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontList as ::windows::core::Interface>::IID || iid == &<IDWriteFontFamily as ::windows::core::Interface>::IID || iid == &<IDWriteFontFamily1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFamily2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFamily as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFamily1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2577,7 +2577,7 @@ impl IDWriteFontFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFile as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2620,7 +2620,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFileEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFileEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2644,7 +2644,7 @@ impl IDWriteFontFileLoader_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateStreamFromKey: CreateStreamFromKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFileLoader as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFileLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2698,7 +2698,7 @@ impl IDWriteFontFileStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontFileStream as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontFileStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2745,7 +2745,7 @@ impl IDWriteFontList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontList as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2792,7 +2792,7 @@ impl IDWriteFontList1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontList1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontList as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontList1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -2816,7 +2816,7 @@ impl IDWriteFontList2_Vtbl {
         Self { base__: IDWriteFontList1_Vtbl::new::<Identity, Impl, OFFSET>(), GetFontSet: GetFontSet::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontList2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontList as ::windows::core::Interface>::IID || iid == &<IDWriteFontList1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontList2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontList1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2941,7 +2941,7 @@ impl IDWriteFontResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontResource as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontResource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3064,7 +3064,7 @@ impl IDWriteFontSet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSet as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3220,7 +3220,7 @@ impl IDWriteFontSet1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSet1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSet1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3241,7 +3241,7 @@ impl IDWriteFontSet2_Vtbl {
         Self { base__: IDWriteFontSet1_Vtbl::new::<Identity, Impl, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSet2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSet2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3279,7 +3279,7 @@ impl IDWriteFontSet3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSet3 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSet2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSet3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3327,7 +3327,7 @@ impl IDWriteFontSetBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSetBuilder as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSetBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3345,7 +3345,7 @@ impl IDWriteFontSetBuilder1_Vtbl {
         Self { base__: IDWriteFontSetBuilder_Vtbl::new::<Identity, Impl, OFFSET>(), AddFontFile: AddFontFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSetBuilder1 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSetBuilder as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSetBuilder1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3373,7 +3373,7 @@ impl IDWriteFontSetBuilder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteFontSetBuilder2 as ::windows::core::Interface>::IID || iid == &<IDWriteFontSetBuilder as ::windows::core::Interface>::IID || iid == &<IDWriteFontSetBuilder1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteFontSetBuilder2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -3443,7 +3443,7 @@ impl IDWriteGdiInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteGdiInterop as ::windows::core::Interface>::IID
+        iid == &<IDWriteGdiInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -3500,7 +3500,7 @@ impl IDWriteGdiInterop1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteGdiInterop1 as ::windows::core::Interface>::IID || iid == &<IDWriteGdiInterop as ::windows::core::Interface>::IID
+        iid == &<IDWriteGdiInterop1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteGdiInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3544,7 +3544,7 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteGlyphRunAnalysis as ::windows::core::Interface>::IID
+        iid == &<IDWriteGlyphRunAnalysis as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3578,7 +3578,7 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteInMemoryFontFileLoader as ::windows::core::Interface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::Interface>::IID
+        iid == &<IDWriteInMemoryFontFileLoader as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3635,7 +3635,7 @@ impl IDWriteInlineObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteInlineObject as ::windows::core::Interface>::IID
+        iid == &<IDWriteInlineObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3685,7 +3685,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteLocalFontFileLoader as ::windows::core::Interface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::Interface>::IID
+        iid == &<IDWriteLocalFontFileLoader as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3756,7 +3756,7 @@ impl IDWriteLocalizedStrings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteLocalizedStrings as ::windows::core::Interface>::IID
+        iid == &<IDWriteLocalizedStrings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3767,7 +3767,7 @@ impl IDWriteNumberSubstitution_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteNumberSubstitution as ::windows::core::Interface>::IID
+        iid == &<IDWriteNumberSubstitution as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3817,7 +3817,7 @@ impl IDWritePixelSnapping_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWritePixelSnapping as ::windows::core::Interface>::IID
+        iid == &<IDWritePixelSnapping as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3870,7 +3870,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRemoteFontFileLoader as ::windows::core::Interface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::Interface>::IID
+        iid == &<IDWriteRemoteFontFileLoader as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3927,7 +3927,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRemoteFontFileStream as ::windows::core::Interface>::IID || iid == &<IDWriteFontFileStream as ::windows::core::Interface>::IID
+        iid == &<IDWriteRemoteFontFileStream as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontFileStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3976,7 +3976,7 @@ impl IDWriteRenderingParams_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams as ::windows::core::Interface>::IID
+        iid == &<IDWriteRenderingParams as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -3997,7 +3997,7 @@ impl IDWriteRenderingParams1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams1 as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::Interface>::IID
+        iid == &<IDWriteRenderingParams1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4015,7 +4015,7 @@ impl IDWriteRenderingParams2_Vtbl {
         Self { base__: IDWriteRenderingParams1_Vtbl::new::<Identity, Impl, OFFSET>(), GetGridFitMode: GetGridFitMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams2 as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteRenderingParams2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4033,7 +4033,7 @@ impl IDWriteRenderingParams3_Vtbl {
         Self { base__: IDWriteRenderingParams2_Vtbl::new::<Identity, Impl, OFFSET>(), GetRenderingMode1: GetRenderingMode1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams3 as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams1 as ::windows::core::Interface>::IID || iid == &<IDWriteRenderingParams2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteRenderingParams3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteRenderingParams2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4094,7 +4094,7 @@ impl IDWriteStringList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteStringList as ::windows::core::Interface>::IID
+        iid == &<IDWriteStringList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4136,7 +4136,7 @@ impl IDWriteTextAnalysisSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSink as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4157,7 +4157,7 @@ impl IDWriteTextAnalysisSink1_Vtbl {
         Self { base__: IDWriteTextAnalysisSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetGlyphOrientation: SetGlyphOrientation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSink1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextAnalysisSink as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSink1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextAnalysisSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4206,7 +4206,7 @@ impl IDWriteTextAnalysisSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSource as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4227,7 +4227,7 @@ impl IDWriteTextAnalysisSource1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSource1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextAnalysisSource as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSource1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextAnalysisSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4440,7 +4440,7 @@ impl IDWriteTextAnalyzer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalyzer as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalyzer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4552,7 +4552,7 @@ impl IDWriteTextAnalyzer1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalyzer1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextAnalyzer as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalyzer1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4590,7 +4590,7 @@ impl IDWriteTextAnalyzer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextAnalyzer2 as ::windows::core::Interface>::IID || iid == &<IDWriteTextAnalyzer as ::windows::core::Interface>::IID || iid == &<IDWriteTextAnalyzer1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextAnalyzer2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -4785,7 +4785,7 @@ impl IDWriteTextFormat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4864,7 +4864,7 @@ impl IDWriteTextFormat1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextFormat1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextFormat1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4895,7 +4895,7 @@ impl IDWriteTextFormat2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextFormat2 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextFormat2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4947,7 +4947,7 @@ impl IDWriteTextFormat3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextFormat3 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextFormat3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5249,7 +5249,7 @@ impl IDWriteTextLayout_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextLayout as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextLayout as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5294,7 +5294,7 @@ impl IDWriteTextLayout1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextLayout1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextLayout1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5380,7 +5380,7 @@ impl IDWriteTextLayout2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextLayout2 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextLayout2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5425,7 +5425,7 @@ impl IDWriteTextLayout3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextLayout3 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout2 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextLayout3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5477,7 +5477,7 @@ impl IDWriteTextLayout4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextLayout4 as ::windows::core::Interface>::IID || iid == &<IDWriteTextFormat as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout2 as ::windows::core::Interface>::IID || iid == &<IDWriteTextLayout3 as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextLayout4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextLayout3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5522,7 +5522,7 @@ impl IDWriteTextRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextRenderer as ::windows::core::Interface>::IID || iid == &<IDWritePixelSnapping as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextRenderer as ::windows::core::ComInterface>::IID || iid == &<IDWritePixelSnapping as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5567,7 +5567,7 @@ impl IDWriteTextRenderer1_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTextRenderer1 as ::windows::core::Interface>::IID || iid == &<IDWritePixelSnapping as ::windows::core::Interface>::IID || iid == &<IDWriteTextRenderer as ::windows::core::Interface>::IID
+        iid == &<IDWriteTextRenderer1 as ::windows::core::ComInterface>::IID || iid == &<IDWritePixelSnapping as ::windows::core::ComInterface>::IID || iid == &<IDWriteTextRenderer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
@@ -5608,6 +5608,6 @@ impl IDWriteTypography_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDWriteTypography as ::windows::core::Interface>::IID
+        iid == &<IDWriteTypography as ::windows::core::ComInterface>::IID
     }
 }

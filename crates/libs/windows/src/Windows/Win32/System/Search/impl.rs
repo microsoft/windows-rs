@@ -62,7 +62,7 @@ impl DataSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DataSource as ::windows::core::Interface>::IID
+        iid == &<DataSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -97,7 +97,7 @@ impl DataSourceListener_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DataSourceListener as ::windows::core::Interface>::IID
+        iid == &<DataSourceListener as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -111,7 +111,7 @@ impl DataSourceObject_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DataSourceObject as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<DataSourceObject as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -156,7 +156,7 @@ impl IAccessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccessor as ::windows::core::Interface>::IID
+        iid == &<IAccessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -177,7 +177,7 @@ impl IAlterIndex_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AlterIndex: AlterIndex::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAlterIndex as ::windows::core::Interface>::IID
+        iid == &<IAlterIndex as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -208,7 +208,7 @@ impl IAlterTable_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAlterTable as ::windows::core::Interface>::IID
+        iid == &<IAlterTable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -229,7 +229,7 @@ impl IBindResource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBindResource as ::windows::core::Interface>::IID
+        iid == &<IBindResource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -257,7 +257,7 @@ impl IChapteredRowset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChapteredRowset as ::windows::core::Interface>::IID
+        iid == &<IChapteredRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -302,7 +302,7 @@ impl IColumnMapper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IColumnMapper as ::windows::core::Interface>::IID
+        iid == &<IColumnMapper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -326,7 +326,7 @@ impl IColumnMapperCreator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetColumnMapper: GetColumnMapper::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IColumnMapperCreator as ::windows::core::Interface>::IID
+        iid == &<IColumnMapperCreator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -357,7 +357,7 @@ impl IColumnsInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IColumnsInfo as ::windows::core::Interface>::IID
+        iid == &<IColumnsInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -378,7 +378,7 @@ impl IColumnsInfo2_Vtbl {
         Self { base__: IColumnsInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IColumnsInfo2 as ::windows::core::Interface>::IID || iid == &<IColumnsInfo as ::windows::core::Interface>::IID
+        iid == &<IColumnsInfo2 as ::windows::core::ComInterface>::IID || iid == &<IColumnsInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -409,7 +409,7 @@ impl IColumnsRowset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IColumnsRowset as ::windows::core::Interface>::IID
+        iid == &<IColumnsRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -450,7 +450,7 @@ impl ICommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommand as ::windows::core::Interface>::IID
+        iid == &<ICommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -506,7 +506,7 @@ impl ICommandCost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandCost as ::windows::core::Interface>::IID
+        iid == &<ICommandCost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -551,7 +551,7 @@ impl ICommandPersist_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandPersist as ::windows::core::Interface>::IID
+        iid == &<ICommandPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -579,7 +579,7 @@ impl ICommandPrepare_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandPrepare as ::windows::core::Interface>::IID
+        iid == &<ICommandPrepare as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -610,7 +610,7 @@ impl ICommandProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandProperties as ::windows::core::Interface>::IID
+        iid == &<ICommandProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -638,7 +638,7 @@ impl ICommandStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandStream as ::windows::core::Interface>::IID
+        iid == &<ICommandStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -666,7 +666,7 @@ impl ICommandText_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandText as ::windows::core::Interface>::IID || iid == &<ICommand as ::windows::core::Interface>::IID
+        iid == &<ICommandText as ::windows::core::ComInterface>::IID || iid == &<ICommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -694,7 +694,7 @@ impl ICommandValidate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandValidate as ::windows::core::Interface>::IID
+        iid == &<ICommandValidate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -732,7 +732,7 @@ impl ICommandWithParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandWithParameters as ::windows::core::Interface>::IID
+        iid == &<ICommandWithParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
@@ -822,7 +822,7 @@ impl ICondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICondition as ::windows::core::Interface>::IID || iid == &<super::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::Interface>::IID
+        iid == &<ICondition as ::windows::core::ComInterface>::IID || iid == &<super::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -859,7 +859,7 @@ impl ICondition2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICondition2 as ::windows::core::Interface>::IID || iid == &<super::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::Interface>::IID || iid == &<ICondition as ::windows::core::Interface>::IID
+        iid == &<ICondition2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::ComInterface>::IID || iid == &<ICondition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
@@ -928,7 +928,7 @@ impl IConditionFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConditionFactory as ::windows::core::Interface>::IID
+        iid == &<IConditionFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1009,7 +1009,7 @@ impl IConditionFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConditionFactory2 as ::windows::core::Interface>::IID || iid == &<IConditionFactory as ::windows::core::Interface>::IID
+        iid == &<IConditionFactory2 as ::windows::core::ComInterface>::IID || iid == &<IConditionFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
@@ -1068,7 +1068,7 @@ impl IConditionGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConditionGenerator as ::windows::core::Interface>::IID
+        iid == &<IConditionGenerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1086,7 +1086,7 @@ impl IConvertType_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanConvert: CanConvert::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConvertType as ::windows::core::Interface>::IID
+        iid == &<IConvertType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1107,7 +1107,7 @@ impl ICreateRow_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRow: CreateRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICreateRow as ::windows::core::Interface>::IID
+        iid == &<ICreateRow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1142,7 +1142,7 @@ impl IDBAsynchNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBAsynchNotify as ::windows::core::Interface>::IID
+        iid == &<IDBAsynchNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1170,7 +1170,7 @@ impl IDBAsynchStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBAsynchStatus as ::windows::core::Interface>::IID
+        iid == &<IDBAsynchStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1191,7 +1191,7 @@ impl IDBBinderProperties_Vtbl {
         Self { base__: IDBProperties_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBBinderProperties as ::windows::core::Interface>::IID || iid == &<IDBProperties as ::windows::core::Interface>::IID
+        iid == &<IDBBinderProperties as ::windows::core::ComInterface>::IID || iid == &<IDBProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1215,7 +1215,7 @@ impl IDBCreateCommand_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateCommand: CreateCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBCreateCommand as ::windows::core::Interface>::IID
+        iid == &<IDBCreateCommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1239,7 +1239,7 @@ impl IDBCreateSession_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSession: CreateSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBCreateSession as ::windows::core::Interface>::IID
+        iid == &<IDBCreateSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1284,7 +1284,7 @@ impl IDBDataSourceAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBDataSourceAdmin as ::windows::core::Interface>::IID
+        iid == &<IDBDataSourceAdmin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1321,7 +1321,7 @@ impl IDBInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBInfo as ::windows::core::Interface>::IID
+        iid == &<IDBInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1349,7 +1349,7 @@ impl IDBInitialize_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBInitialize as ::windows::core::Interface>::IID
+        iid == &<IDBInitialize as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1386,7 +1386,7 @@ impl IDBPromptInitialize_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBPromptInitialize as ::windows::core::Interface>::IID
+        iid == &<IDBPromptInitialize as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1424,7 +1424,7 @@ impl IDBProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBProperties as ::windows::core::Interface>::IID
+        iid == &<IDBProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1458,7 +1458,7 @@ impl IDBSchemaCommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBSchemaCommand as ::windows::core::Interface>::IID
+        iid == &<IDBSchemaCommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1489,7 +1489,7 @@ impl IDBSchemaRowset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDBSchemaRowset as ::windows::core::Interface>::IID
+        iid == &<IDBSchemaRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1520,7 +1520,7 @@ impl IDCInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDCInfo as ::windows::core::Interface>::IID
+        iid == &<IDCInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1569,7 +1569,7 @@ impl IDataConvert_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataConvert as ::windows::core::Interface>::IID
+        iid == &<IDataConvert as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1646,7 +1646,7 @@ impl IDataInitialize_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataInitialize as ::windows::core::Interface>::IID
+        iid == &<IDataInitialize as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1703,7 +1703,7 @@ impl IDataSourceLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataSourceLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IDataSourceLocator as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1791,7 +1791,7 @@ impl IEntity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEntity as ::windows::core::Interface>::IID
+        iid == &<IEntity as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1855,7 +1855,7 @@ impl IEnumItemProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumItemProperties as ::windows::core::Interface>::IID
+        iid == &<IEnumItemProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1903,7 +1903,7 @@ impl IEnumSearchRoots_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSearchRoots as ::windows::core::Interface>::IID
+        iid == &<IEnumSearchRoots as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -1951,7 +1951,7 @@ impl IEnumSearchScopeRules_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSearchScopeRules as ::windows::core::Interface>::IID
+        iid == &<IEnumSearchScopeRules as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2012,7 +2012,7 @@ impl IEnumSubscription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSubscription as ::windows::core::Interface>::IID
+        iid == &<IEnumSubscription as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2050,7 +2050,7 @@ impl IErrorLookup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IErrorLookup as ::windows::core::Interface>::IID
+        iid == &<IErrorLookup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2133,7 +2133,7 @@ impl IErrorRecords_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IErrorRecords as ::windows::core::Interface>::IID
+        iid == &<IErrorRecords as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2157,7 +2157,7 @@ impl IGetDataSource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataSource: GetDataSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetDataSource as ::windows::core::Interface>::IID
+        iid == &<IGetDataSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2197,7 +2197,7 @@ impl IGetRow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetRow as ::windows::core::Interface>::IID
+        iid == &<IGetRow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2221,7 +2221,7 @@ impl IGetSession_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSession: GetSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetSession as ::windows::core::Interface>::IID
+        iid == &<IGetSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2245,7 +2245,7 @@ impl IGetSourceRow_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSourceRow: GetSourceRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetSourceRow as ::windows::core::Interface>::IID
+        iid == &<IGetSourceRow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2276,7 +2276,7 @@ impl IIndexDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndexDefinition as ::windows::core::Interface>::IID
+        iid == &<IIndexDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2297,7 +2297,7 @@ impl IInterval_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLimits: GetLimits::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInterval as ::windows::core::Interface>::IID
+        iid == &<IInterval as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2335,7 +2335,7 @@ impl ILoadFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILoadFilter as ::windows::core::Interface>::IID
+        iid == &<ILoadFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2359,7 +2359,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILoadFilterWithPrivateComActivation as ::windows::core::Interface>::IID || iid == &<ILoadFilter as ::windows::core::Interface>::IID
+        iid == &<ILoadFilterWithPrivateComActivation as ::windows::core::ComInterface>::IID || iid == &<ILoadFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2417,7 +2417,7 @@ impl IMDDataset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDDataset as ::windows::core::Interface>::IID
+        iid == &<IMDDataset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2445,7 +2445,7 @@ impl IMDFind_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDFind as ::windows::core::Interface>::IID
+        iid == &<IMDFind as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2466,7 +2466,7 @@ impl IMDRangeRowset_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRangeRowset: GetRangeRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMDRangeRowset as ::windows::core::Interface>::IID
+        iid == &<IMDRangeRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2484,7 +2484,7 @@ impl IMetaData_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMetaData as ::windows::core::Interface>::IID
+        iid == &<IMetaData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2502,7 +2502,7 @@ impl IMultipleResults_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetResult: GetResult::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultipleResults as ::windows::core::Interface>::IID
+        iid == &<IMultipleResults as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2536,7 +2536,7 @@ impl INamedEntity_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INamedEntity as ::windows::core::Interface>::IID
+        iid == &<INamedEntity as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2554,7 +2554,7 @@ impl INamedEntityCollector_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INamedEntityCollector as ::windows::core::Interface>::IID
+        iid == &<INamedEntityCollector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -2606,7 +2606,7 @@ impl IObjectAccessControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectAccessControl as ::windows::core::Interface>::IID
+        iid == &<IObjectAccessControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2662,7 +2662,7 @@ impl IOpLockStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpLockStatus as ::windows::core::Interface>::IID
+        iid == &<IOpLockStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2683,7 +2683,7 @@ impl IOpenRowset_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OpenRowset: OpenRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOpenRowset as ::windows::core::Interface>::IID
+        iid == &<IOpenRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2707,7 +2707,7 @@ impl IParentRowset_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetChildRowset: GetChildRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IParentRowset as ::windows::core::Interface>::IID
+        iid == &<IParentRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -2728,7 +2728,7 @@ impl IProtocolHandlerSite_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFilter: GetFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProtocolHandlerSite as ::windows::core::Interface>::IID
+        iid == &<IProtocolHandlerSite as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2755,7 +2755,7 @@ impl IProvideMoniker_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMoniker: GetMoniker::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvideMoniker as ::windows::core::Interface>::IID
+        iid == &<IProvideMoniker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2858,7 +2858,7 @@ impl IQueryParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQueryParser as ::windows::core::Interface>::IID
+        iid == &<IQueryParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -2896,7 +2896,7 @@ impl IQueryParserManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQueryParserManager as ::windows::core::Interface>::IID
+        iid == &<IQueryParserManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"implement\"`*"]
@@ -2934,7 +2934,7 @@ impl IQuerySolution_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IQuerySolution as ::windows::core::Interface>::IID || iid == &<IConditionFactory as ::windows::core::Interface>::IID
+        iid == &<IQuerySolution as ::windows::core::ComInterface>::IID || iid == &<IConditionFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -2962,7 +2962,7 @@ impl IReadData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReadData as ::windows::core::Interface>::IID
+        iid == &<IReadData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3003,7 +3003,7 @@ impl IRegisterProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRegisterProvider as ::windows::core::Interface>::IID
+        iid == &<IRegisterProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3067,7 +3067,7 @@ impl IRelationship_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRelationship as ::windows::core::Interface>::IID
+        iid == &<IRelationship as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -3088,7 +3088,7 @@ impl IRichChunk_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRichChunk as ::windows::core::Interface>::IID
+        iid == &<IRichChunk as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -3126,7 +3126,7 @@ impl IRow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRow as ::windows::core::Interface>::IID
+        iid == &<IRow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -3147,7 +3147,7 @@ impl IRowChange_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetColumns: SetColumns::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowChange as ::windows::core::Interface>::IID
+        iid == &<IRowChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3202,7 +3202,7 @@ impl IRowPosition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowPosition as ::windows::core::Interface>::IID
+        iid == &<IRowPosition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3223,7 +3223,7 @@ impl IRowPositionChange_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnRowPositionChange: OnRowPositionChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowPositionChange as ::windows::core::Interface>::IID
+        iid == &<IRowPositionChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3254,7 +3254,7 @@ impl IRowSchemaChange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowSchemaChange as ::windows::core::Interface>::IID || iid == &<IRowChange as ::windows::core::Interface>::IID
+        iid == &<IRowSchemaChange as ::windows::core::ComInterface>::IID || iid == &<IRowChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3303,7 +3303,7 @@ impl IRowset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowset as ::windows::core::Interface>::IID
+        iid == &<IRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3334,7 +3334,7 @@ impl IRowsetAsynch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetAsynch as ::windows::core::Interface>::IID
+        iid == &<IRowsetAsynch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3352,7 +3352,7 @@ impl IRowsetBookmark_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PositionOnBookmark: PositionOnBookmark::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetBookmark as ::windows::core::Interface>::IID
+        iid == &<IRowsetBookmark as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3387,7 +3387,7 @@ impl IRowsetChange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetChange as ::windows::core::Interface>::IID
+        iid == &<IRowsetChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3415,7 +3415,7 @@ impl IRowsetChangeExtInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetChangeExtInfo as ::windows::core::Interface>::IID
+        iid == &<IRowsetChangeExtInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3433,7 +3433,7 @@ impl IRowsetChapterMember_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsRowInChapter: IsRowInChapter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetChapterMember as ::windows::core::Interface>::IID
+        iid == &<IRowsetChapterMember as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3475,7 +3475,7 @@ impl IRowsetCopyRows_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetCopyRows as ::windows::core::Interface>::IID
+        iid == &<IRowsetCopyRows as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3506,7 +3506,7 @@ impl IRowsetCurrentIndex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetCurrentIndex as ::windows::core::Interface>::IID || iid == &<IRowsetIndex as ::windows::core::Interface>::IID
+        iid == &<IRowsetCurrentIndex as ::windows::core::ComInterface>::IID || iid == &<IRowsetIndex as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -3551,7 +3551,7 @@ impl IRowsetEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetEvents as ::windows::core::Interface>::IID
+        iid == &<IRowsetEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3582,7 +3582,7 @@ impl IRowsetFastLoad_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetFastLoad as ::windows::core::Interface>::IID
+        iid == &<IRowsetFastLoad as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3600,7 +3600,7 @@ impl IRowsetFind_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindNextRow: FindNextRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetFind as ::windows::core::Interface>::IID
+        iid == &<IRowsetFind as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3618,7 +3618,7 @@ impl IRowsetIdentity_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSameRow: IsSameRow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetIdentity as ::windows::core::Interface>::IID
+        iid == &<IRowsetIdentity as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3656,7 +3656,7 @@ impl IRowsetIndex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetIndex as ::windows::core::Interface>::IID
+        iid == &<IRowsetIndex as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3706,7 +3706,7 @@ impl IRowsetInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetInfo as ::windows::core::Interface>::IID
+        iid == &<IRowsetInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3724,7 +3724,7 @@ impl IRowsetKeys_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ListKeys: ListKeys::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetKeys as ::windows::core::Interface>::IID
+        iid == &<IRowsetKeys as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3766,7 +3766,7 @@ impl IRowsetLocate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetLocate as ::windows::core::Interface>::IID || iid == &<IRowset as ::windows::core::Interface>::IID
+        iid == &<IRowsetLocate as ::windows::core::ComInterface>::IID || iid == &<IRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3784,7 +3784,7 @@ impl IRowsetNewRowAfter_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetNewDataAfter: SetNewDataAfter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetNewRowAfter as ::windows::core::Interface>::IID
+        iid == &<IRowsetNewRowAfter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3808,7 +3808,7 @@ impl IRowsetNextRowset_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextRowset: GetNextRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetNextRowset as ::windows::core::Interface>::IID
+        iid == &<IRowsetNextRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3846,7 +3846,7 @@ impl IRowsetNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetNotify as ::windows::core::Interface>::IID
+        iid == &<IRowsetNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3881,7 +3881,7 @@ impl IRowsetPrioritization_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetPrioritization as ::windows::core::Interface>::IID
+        iid == &<IRowsetPrioritization as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3909,7 +3909,7 @@ impl IRowsetQueryStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetQueryStatus as ::windows::core::Interface>::IID
+        iid == &<IRowsetQueryStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3940,7 +3940,7 @@ impl IRowsetRefresh_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetRefresh as ::windows::core::Interface>::IID
+        iid == &<IRowsetRefresh as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3968,7 +3968,7 @@ impl IRowsetResynch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetResynch as ::windows::core::Interface>::IID
+        iid == &<IRowsetResynch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -3996,7 +3996,7 @@ impl IRowsetScroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetScroll as ::windows::core::Interface>::IID || iid == &<IRowset as ::windows::core::Interface>::IID || iid == &<IRowsetLocate as ::windows::core::Interface>::IID
+        iid == &<IRowsetScroll as ::windows::core::ComInterface>::IID || iid == &<IRowset as ::windows::core::ComInterface>::IID || iid == &<IRowsetLocate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4045,7 +4045,7 @@ impl IRowsetUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetUpdate as ::windows::core::Interface>::IID || iid == &<IRowsetChange as ::windows::core::Interface>::IID
+        iid == &<IRowsetUpdate as ::windows::core::ComInterface>::IID || iid == &<IRowsetChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4079,7 +4079,7 @@ impl IRowsetView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetView as ::windows::core::Interface>::IID
+        iid == &<IRowsetView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4114,7 +4114,7 @@ impl IRowsetWatchAll_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetWatchAll as ::windows::core::Interface>::IID
+        iid == &<IRowsetWatchAll as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4132,7 +4132,7 @@ impl IRowsetWatchNotify_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetWatchNotify as ::windows::core::Interface>::IID
+        iid == &<IRowsetWatchNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4188,7 +4188,7 @@ impl IRowsetWatchRegion_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetWatchRegion as ::windows::core::Interface>::IID || iid == &<IRowsetWatchAll as ::windows::core::Interface>::IID
+        iid == &<IRowsetWatchRegion as ::windows::core::ComInterface>::IID || iid == &<IRowsetWatchAll as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4219,7 +4219,7 @@ impl IRowsetWithParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRowsetWithParameters as ::windows::core::Interface>::IID
+        iid == &<IRowsetWithParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4237,7 +4237,7 @@ impl ISQLErrorInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSQLInfo: GetSQLInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISQLErrorInfo as ::windows::core::Interface>::IID
+        iid == &<ISQLErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4258,7 +4258,7 @@ impl ISQLGetDiagField_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDiagField: GetDiagField::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISQLGetDiagField as ::windows::core::Interface>::IID
+        iid == &<ISQLGetDiagField as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4279,7 +4279,7 @@ impl ISQLRequestDiagFields_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RequestDiagFields: RequestDiagFields::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISQLRequestDiagFields as ::windows::core::Interface>::IID
+        iid == &<ISQLRequestDiagFields as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4297,7 +4297,7 @@ impl ISQLServerErrorInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISQLServerErrorInfo as ::windows::core::Interface>::IID
+        iid == &<ISQLServerErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4321,7 +4321,7 @@ impl ISchemaLocalizerSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Localize: Localize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaLocalizerSupport as ::windows::core::Interface>::IID
+        iid == &<ISchemaLocalizerSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -4352,7 +4352,7 @@ impl ISchemaLock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaLock as ::windows::core::Interface>::IID
+        iid == &<ISchemaLock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -4427,7 +4427,7 @@ impl ISchemaProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISchemaProvider as ::windows::core::Interface>::IID
+        iid == &<ISchemaProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4472,7 +4472,7 @@ impl IScopedOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScopedOperations as ::windows::core::Interface>::IID || iid == &<IBindResource as ::windows::core::Interface>::IID
+        iid == &<IScopedOperations as ::windows::core::ComInterface>::IID || iid == &<IBindResource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -4749,7 +4749,7 @@ impl ISearchCatalogManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchCatalogManager as ::windows::core::Interface>::IID
+        iid == &<ISearchCatalogManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -4770,7 +4770,7 @@ impl ISearchCatalogManager2_Vtbl {
         Self { base__: ISearchCatalogManager_Vtbl::new::<Identity, Impl, OFFSET>(), PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchCatalogManager2 as ::windows::core::Interface>::IID || iid == &<ISearchCatalogManager as ::windows::core::Interface>::IID
+        iid == &<ISearchCatalogManager2 as ::windows::core::ComInterface>::IID || iid == &<ISearchCatalogManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4935,7 +4935,7 @@ impl ISearchCrawlScopeManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchCrawlScopeManager as ::windows::core::Interface>::IID
+        iid == &<ISearchCrawlScopeManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4956,7 +4956,7 @@ impl ISearchCrawlScopeManager2_Vtbl {
         Self { base__: ISearchCrawlScopeManager_Vtbl::new::<Identity, Impl, OFFSET>(), GetVersion: GetVersion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchCrawlScopeManager2 as ::windows::core::Interface>::IID || iid == &<ISearchCrawlScopeManager as ::windows::core::Interface>::IID
+        iid == &<ISearchCrawlScopeManager2 as ::windows::core::ComInterface>::IID || iid == &<ISearchCrawlScopeManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4994,7 +4994,7 @@ impl ISearchItemsChangedSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchItemsChangedSink as ::windows::core::Interface>::IID
+        iid == &<ISearchItemsChangedSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5058,7 +5058,7 @@ impl ISearchLanguageSupport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchLanguageSupport as ::windows::core::Interface>::IID
+        iid == &<ISearchLanguageSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -5220,7 +5220,7 @@ impl ISearchManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchManager as ::windows::core::Interface>::IID
+        iid == &<ISearchManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -5257,7 +5257,7 @@ impl ISearchManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchManager2 as ::windows::core::Interface>::IID || iid == &<ISearchManager as ::windows::core::Interface>::IID
+        iid == &<ISearchManager2 as ::windows::core::ComInterface>::IID || iid == &<ISearchManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -5285,7 +5285,7 @@ impl ISearchNotifyInlineSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchNotifyInlineSite as ::windows::core::Interface>::IID
+        iid == &<ISearchNotifyInlineSite as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -5320,7 +5320,7 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchPersistentItemsChangedSink as ::windows::core::Interface>::IID
+        iid == &<ISearchPersistentItemsChangedSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5365,7 +5365,7 @@ impl ISearchProtocol_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchProtocol as ::windows::core::Interface>::IID
+        iid == &<ISearchProtocol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5386,7 +5386,7 @@ impl ISearchProtocol2_Vtbl {
         Self { base__: ISearchProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchProtocol2 as ::windows::core::Interface>::IID || iid == &<ISearchProtocol as ::windows::core::Interface>::IID
+        iid == &<ISearchProtocol2 as ::windows::core::ComInterface>::IID || iid == &<ISearchProtocol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -5421,7 +5421,7 @@ impl ISearchProtocolThreadContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchProtocolThreadContext as ::windows::core::Interface>::IID
+        iid == &<ISearchProtocolThreadContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -5651,7 +5651,7 @@ impl ISearchQueryHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchQueryHelper as ::windows::core::Interface>::IID
+        iid == &<ISearchQueryHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5689,7 +5689,7 @@ impl ISearchQueryHits_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchQueryHits as ::windows::core::Interface>::IID
+        iid == &<ISearchQueryHits as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5926,7 +5926,7 @@ impl ISearchRoot_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchRoot as ::windows::core::Interface>::IID
+        iid == &<ISearchRoot as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5995,7 +5995,7 @@ impl ISearchScopeRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchScopeRule as ::windows::core::Interface>::IID
+        iid == &<ISearchScopeRule as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6016,7 +6016,7 @@ impl ISearchViewChangedSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchViewChangedSink as ::windows::core::Interface>::IID
+        iid == &<ISearchViewChangedSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`, `\"implement\"`*"]
@@ -6054,7 +6054,7 @@ impl ISecurityInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISecurityInfo as ::windows::core::Interface>::IID
+        iid == &<ISecurityInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -6072,7 +6072,7 @@ impl IService_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InvokeService: InvokeService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IService as ::windows::core::Interface>::IID
+        iid == &<IService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6103,7 +6103,7 @@ impl ISessionProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISessionProperties as ::windows::core::Interface>::IID
+        iid == &<ISessionProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -6138,7 +6138,7 @@ impl ISimpleCommandCreator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimpleCommandCreator as ::windows::core::Interface>::IID
+        iid == &<ISimpleCommandCreator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6159,7 +6159,7 @@ impl ISourcesRowset_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSourcesRowset: GetSourcesRowset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISourcesRowset as ::windows::core::Interface>::IID
+        iid == &<ISourcesRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6197,7 +6197,7 @@ impl IStemmer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStemmer as ::windows::core::Interface>::IID
+        iid == &<IStemmer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6275,7 +6275,7 @@ impl ISubscriptionItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISubscriptionItem as ::windows::core::Interface>::IID
+        iid == &<ISubscriptionItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6354,7 +6354,7 @@ impl ISubscriptionMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISubscriptionMgr as ::windows::core::Interface>::IID
+        iid == &<ISubscriptionMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6438,7 +6438,7 @@ impl ISubscriptionMgr2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISubscriptionMgr2 as ::windows::core::Interface>::IID || iid == &<ISubscriptionMgr as ::windows::core::Interface>::IID
+        iid == &<ISubscriptionMgr2 as ::windows::core::ComInterface>::IID || iid == &<ISubscriptionMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6459,7 +6459,7 @@ impl ITableCreation_Vtbl {
         Self { base__: ITableDefinition_Vtbl::new::<Identity, Impl, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITableCreation as ::windows::core::Interface>::IID || iid == &<ITableDefinition as ::windows::core::Interface>::IID
+        iid == &<ITableCreation as ::windows::core::ComInterface>::IID || iid == &<ITableDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6504,7 +6504,7 @@ impl ITableDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITableDefinition as ::windows::core::Interface>::IID
+        iid == &<ITableDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6543,7 +6543,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITableDefinitionWithConstraints as ::windows::core::Interface>::IID || iid == &<ITableDefinition as ::windows::core::Interface>::IID || iid == &<ITableCreation as ::windows::core::Interface>::IID
+        iid == &<ITableDefinitionWithConstraints as ::windows::core::ComInterface>::IID || iid == &<ITableDefinition as ::windows::core::ComInterface>::IID || iid == &<ITableCreation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -6574,7 +6574,7 @@ impl ITableRename_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITableRename as ::windows::core::Interface>::IID
+        iid == &<ITableRename as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -6602,7 +6602,7 @@ impl ITokenCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITokenCollection as ::windows::core::Interface>::IID
+        iid == &<ITokenCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -6639,7 +6639,7 @@ impl ITransactionJoin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionJoin as ::windows::core::Interface>::IID
+        iid == &<ITransactionJoin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -6676,7 +6676,7 @@ impl ITransactionLocal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionLocal as ::windows::core::Interface>::IID || iid == &<super::DistributedTransactionCoordinator::ITransaction as ::windows::core::Interface>::IID
+        iid == &<ITransactionLocal as ::windows::core::ComInterface>::IID || iid == &<super::DistributedTransactionCoordinator::ITransaction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -6703,7 +6703,7 @@ impl ITransactionObject_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTransactionObject: GetTransactionObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionObject as ::windows::core::Interface>::IID
+        iid == &<ITransactionObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6755,7 +6755,7 @@ impl ITrusteeAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITrusteeAdmin as ::windows::core::Interface>::IID
+        iid == &<ITrusteeAdmin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"implement\"`*"]
@@ -6807,7 +6807,7 @@ impl ITrusteeGroupAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITrusteeGroupAdmin as ::windows::core::Interface>::IID
+        iid == &<ITrusteeGroupAdmin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6886,7 +6886,7 @@ impl IUMSInitialize_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUMSInitialize as ::windows::core::Interface>::IID
+        iid == &<IUMSInitialize as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -7030,7 +7030,7 @@ impl IUrlAccessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUrlAccessor as ::windows::core::Interface>::IID
+        iid == &<IUrlAccessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -7068,7 +7068,7 @@ impl IUrlAccessor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID
+        iid == &<IUrlAccessor2 as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -7089,7 +7089,7 @@ impl IUrlAccessor3_Vtbl {
         Self { base__: IUrlAccessor2_Vtbl::new::<Identity, Impl, OFFSET>(), GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUrlAccessor3 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID || iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID
+        iid == &<IUrlAccessor3 as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -7132,7 +7132,7 @@ impl IUrlAccessor4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUrlAccessor4 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID || iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor3 as ::windows::core::Interface>::IID
+        iid == &<IUrlAccessor4 as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor2 as ::windows::core::ComInterface>::IID || iid == &<IUrlAccessor3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -7166,7 +7166,7 @@ impl IViewChapter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IViewChapter as ::windows::core::Interface>::IID
+        iid == &<IViewChapter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7204,7 +7204,7 @@ impl IViewFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IViewFilter as ::windows::core::Interface>::IID
+        iid == &<IViewFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -7244,7 +7244,7 @@ impl IViewRowset_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IViewRowset as ::windows::core::Interface>::IID
+        iid == &<IViewRowset as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -7272,7 +7272,7 @@ impl IViewSort_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IViewSort as ::windows::core::Interface>::IID
+        iid == &<IViewSort as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -7317,7 +7317,7 @@ impl IWordBreaker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWordBreaker as ::windows::core::Interface>::IID
+        iid == &<IWordBreaker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -7345,7 +7345,7 @@ impl IWordFormSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWordFormSink as ::windows::core::Interface>::IID
+        iid == &<IWordFormSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -7397,7 +7397,7 @@ impl IWordSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWordSink as ::windows::core::Interface>::IID
+        iid == &<IWordSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -7572,7 +7572,7 @@ impl OLEDBSimpleProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<OLEDBSimpleProvider as ::windows::core::Interface>::IID
+        iid == &<OLEDBSimpleProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
@@ -7642,6 +7642,6 @@ impl OLEDBSimpleProviderListener_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<OLEDBSimpleProviderListener as ::windows::core::Interface>::IID
+        iid == &<OLEDBSimpleProviderListener as ::windows::core::ComInterface>::IID
     }
 }

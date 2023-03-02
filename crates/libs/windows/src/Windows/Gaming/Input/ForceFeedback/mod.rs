@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConditionForceEffect(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IConditionForceEffect {
+unsafe impl ::windows::core::Interface for IConditionForceEffect {
     type Vtable = IConditionForceEffect_Vtbl;
 }
 impl ::core::clone::Clone for IConditionForceEffect {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IConditionForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IConditionForceEffect {
+unsafe impl ::windows::core::ComInterface for IConditionForceEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d1ea68_3695_4e69_85c0_cd1944189140);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IConditionForceEffect_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConditionForceEffectFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IConditionForceEffectFactory {
+unsafe impl ::windows::core::Interface for IConditionForceEffectFactory {
     type Vtable = IConditionForceEffectFactory_Vtbl;
 }
 impl ::core::clone::Clone for IConditionForceEffectFactory {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IConditionForceEffectFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IConditionForceEffectFactory {
+unsafe impl ::windows::core::ComInterface for IConditionForceEffectFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 }
 #[repr(C)]
@@ -45,7 +45,7 @@ pub struct IConditionForceEffectFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConstantForceEffect(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IConstantForceEffect {
+unsafe impl ::windows::core::Interface for IConstantForceEffect {
     type Vtable = IConstantForceEffect_Vtbl;
 }
 impl ::core::clone::Clone for IConstantForceEffect {
@@ -53,7 +53,7 @@ impl ::core::clone::Clone for IConstantForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IConstantForceEffect {
+unsafe impl ::windows::core::ComInterface for IConstantForceEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bfa0140_f3c7_415c_b068_0f068734bce0);
 }
 #[repr(C)]
@@ -77,27 +77,27 @@ impl IForceFeedbackEffect {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Gain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 ::windows::imp::interface_hierarchy!(IForceFeedbackEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -115,7 +115,7 @@ impl ::core::fmt::Debug for IForceFeedbackEffect {
 impl ::windows::core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
-unsafe impl ::windows::core::Vtable for IForceFeedbackEffect {
+unsafe impl ::windows::core::Interface for IForceFeedbackEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
 }
 impl ::core::clone::Clone for IForceFeedbackEffect {
@@ -123,7 +123,7 @@ impl ::core::clone::Clone for IForceFeedbackEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IForceFeedbackEffect {
+unsafe impl ::windows::core::ComInterface for IForceFeedbackEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 #[repr(C)]
@@ -139,7 +139,7 @@ pub struct IForceFeedbackEffect_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IForceFeedbackMotor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IForceFeedbackMotor {
+unsafe impl ::windows::core::Interface for IForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
 }
 impl ::core::clone::Clone for IForceFeedbackMotor {
@@ -147,7 +147,7 @@ impl ::core::clone::Clone for IForceFeedbackMotor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IForceFeedbackMotor {
+unsafe impl ::windows::core::ComInterface for IForceFeedbackMotor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 }
 #[repr(C)]
@@ -186,7 +186,7 @@ pub struct IForceFeedbackMotor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPeriodicForceEffect(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPeriodicForceEffect {
+unsafe impl ::windows::core::Interface for IPeriodicForceEffect {
     type Vtable = IPeriodicForceEffect_Vtbl;
 }
 impl ::core::clone::Clone for IPeriodicForceEffect {
@@ -194,7 +194,7 @@ impl ::core::clone::Clone for IPeriodicForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPeriodicForceEffect {
+unsafe impl ::windows::core::ComInterface for IPeriodicForceEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 }
 #[repr(C)]
@@ -214,7 +214,7 @@ pub struct IPeriodicForceEffect_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPeriodicForceEffectFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPeriodicForceEffectFactory {
+unsafe impl ::windows::core::Interface for IPeriodicForceEffectFactory {
     type Vtable = IPeriodicForceEffectFactory_Vtbl;
 }
 impl ::core::clone::Clone for IPeriodicForceEffectFactory {
@@ -222,7 +222,7 @@ impl ::core::clone::Clone for IPeriodicForceEffectFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPeriodicForceEffectFactory {
+unsafe impl ::windows::core::ComInterface for IPeriodicForceEffectFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 }
 #[repr(C)]
@@ -234,7 +234,7 @@ pub struct IPeriodicForceEffectFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRampForceEffect(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRampForceEffect {
+unsafe impl ::windows::core::Interface for IRampForceEffect {
     type Vtable = IRampForceEffect_Vtbl;
 }
 impl ::core::clone::Clone for IRampForceEffect {
@@ -242,7 +242,7 @@ impl ::core::clone::Clone for IRampForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRampForceEffect {
+unsafe impl ::windows::core::ComInterface for IRampForceEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f81259_1ca6_4080_b56d_b43f3354d052);
 }
 #[repr(C)]
@@ -263,49 +263,49 @@ pub struct IRampForceEffect_Vtbl {
 pub struct ConditionForceEffect(::windows::core::IUnknown);
 impl ConditionForceEffect {
     pub fn Kind(&self) -> ::windows::core::Result<ConditionForceEffectKind> {
-        let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IConditionForceEffect>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ConditionForceEffectKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParameters)(::windows::core::Vtable::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
+        let this = &::windows::core::ComInterface::cast::<IConditionForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ConditionForceEffect>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), effectkind, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, &mut result__).from_abi(result__)
         })
     }
     pub fn Gain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Gain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -332,35 +332,17 @@ impl ::core::clone::Clone for ConditionForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ConditionForceEffect {
+unsafe impl ::windows::core::Interface for ConditionForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ConditionForceEffect {
-    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ConditionForceEffect {
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
 ::windows::imp::interface_hierarchy!(ConditionForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ConditionForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ConditionForceEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ConditionForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ConditionForceEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ConditionForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ConditionForceEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IForceFeedbackEffect> for ConditionForceEffect {}
 unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -377,40 +359,40 @@ impl ConstantForceEffect {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParameters)(::windows::core::Vtable::as_raw(this), vector, duration).ok() }
+        let this = &::windows::core::ComInterface::cast::<IConstantForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, duration).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParametersWithEnvelope)(::windows::core::Vtable::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
+        let this = &::windows::core::ComInterface::cast::<IConstantForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     pub fn Gain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Gain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ConstantForceEffect {
@@ -432,35 +414,17 @@ impl ::core::clone::Clone for ConstantForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ConstantForceEffect {
+unsafe impl ::windows::core::Interface for ConstantForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ConstantForceEffect {
-    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ConstantForceEffect {
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
 }
 ::windows::imp::interface_hierarchy!(ConstantForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ConstantForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ConstantForceEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ConstantForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ConstantForceEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ConstantForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ConstantForceEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IForceFeedbackEffect> for ConstantForceEffect {}
 unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -471,58 +435,57 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreEffectsPaused)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreEffectsPaused)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MasterGain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).MasterGain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MasterGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMasterGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMasterGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMasterGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SupportedAxes(&self) -> ::windows::core::Result<ForceFeedbackEffectAxes> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectAxes>();
-            (::windows::core::Vtable::vtable(this).SupportedAxes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedAxes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadEffectAsync<P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
+    pub fn LoadEffectAsync<P0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<IForceFeedbackEffect>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<IForceFeedbackEffect>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>();
-            (::windows::core::Vtable::vtable(this).LoadEffectAsync)(::windows::core::Vtable::as_raw(this), effect.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadEffectAsync)(::windows::core::Interface::as_raw(this), effect.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn PauseAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).PauseAllEffects)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PauseAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ResumeAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ResumeAllEffects)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ResumeAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn StopAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StopAllEffects)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -530,7 +493,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TryDisableAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryDisableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -539,7 +502,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TryEnableAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryEnableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -548,20 +511,19 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TryResetAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryResetAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnloadEffectAsync<P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUnloadEffectAsync<P0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<IForceFeedbackEffect>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<IForceFeedbackEffect>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TryUnloadEffectAsync)(::windows::core::Vtable::as_raw(this), effect.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryUnloadEffectAsync)(::windows::core::Interface::as_raw(this), effect.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -584,11 +546,11 @@ impl ::core::clone::Clone for ForceFeedbackMotor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ForceFeedbackMotor {
+unsafe impl ::windows::core::Interface for ForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ForceFeedbackMotor {
-    const IID: ::windows::core::GUID = <IForceFeedbackMotor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ForceFeedbackMotor {
+    const IID: ::windows::core::GUID = <IForceFeedbackMotor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
@@ -604,51 +566,51 @@ impl PeriodicForceEffect {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Gain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Kind(&self) -> ::windows::core::Result<PeriodicForceEffectKind> {
-        let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPeriodicForceEffect>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PeriodicForceEffectKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParameters)(::windows::core::Vtable::as_raw(this), vector, frequency, phase, bias, duration).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPeriodicForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, duration).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParametersWithEnvelope)(::windows::core::Vtable::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPeriodicForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PeriodicForceEffect>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), effectkind, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -676,35 +638,17 @@ impl ::core::clone::Clone for PeriodicForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PeriodicForceEffect {
+unsafe impl ::windows::core::Interface for PeriodicForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PeriodicForceEffect {
-    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PeriodicForceEffect {
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
 ::windows::imp::interface_hierarchy!(PeriodicForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<PeriodicForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PeriodicForceEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&PeriodicForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PeriodicForceEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&PeriodicForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PeriodicForceEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IForceFeedbackEffect> for PeriodicForceEffect {}
 unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -722,39 +666,39 @@ impl RampForceEffect {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Gain)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGain)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ForceFeedbackEffectState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParameters)(::windows::core::Vtable::as_raw(this), startvector, endvector, duration).ok() }
+        let this = &::windows::core::ComInterface::cast::<IRampForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), startvector, endvector, duration).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetParametersWithEnvelope)(::windows::core::Vtable::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
+        let this = &::windows::core::ComInterface::cast::<IRampForceEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
 }
 impl ::core::cmp::PartialEq for RampForceEffect {
@@ -776,35 +720,17 @@ impl ::core::clone::Clone for RampForceEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RampForceEffect {
+unsafe impl ::windows::core::Interface for RampForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RampForceEffect {
-    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RampForceEffect {
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
 }
 ::windows::imp::interface_hierarchy!(RampForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<RampForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: RampForceEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&RampForceEffect> for IForceFeedbackEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &RampForceEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&RampForceEffect> for ::windows::core::InParam<IForceFeedbackEffect> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &RampForceEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IForceFeedbackEffect> for RampForceEffect {}
 unsafe impl ::core::marker::Send for RampForceEffect {}
 unsafe impl ::core::marker::Sync for RampForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]

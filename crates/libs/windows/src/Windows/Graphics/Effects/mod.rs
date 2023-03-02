@@ -6,34 +6,16 @@ impl IGraphicsEffect {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
 }
 ::windows::imp::interface_hierarchy!(IGraphicsEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<IGraphicsEffect> for IGraphicsEffectSource {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IGraphicsEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&IGraphicsEffect> for IGraphicsEffectSource {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IGraphicsEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&IGraphicsEffect> for ::windows::core::InParam<IGraphicsEffectSource> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IGraphicsEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl windows::core::CanTryInto<IGraphicsEffectSource> for IGraphicsEffect {}
 impl ::core::cmp::PartialEq for IGraphicsEffect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,7 +30,7 @@ impl ::core::fmt::Debug for IGraphicsEffect {
 impl ::windows::core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
 }
-unsafe impl ::windows::core::Vtable for IGraphicsEffect {
+unsafe impl ::windows::core::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_Vtbl;
 }
 impl ::core::clone::Clone for IGraphicsEffect {
@@ -56,7 +38,7 @@ impl ::core::clone::Clone for IGraphicsEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGraphicsEffect {
+unsafe impl ::windows::core::ComInterface for IGraphicsEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 }
 #[repr(C)]
@@ -85,7 +67,7 @@ impl ::core::fmt::Debug for IGraphicsEffectSource {
 impl ::windows::core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
 }
-unsafe impl ::windows::core::Vtable for IGraphicsEffectSource {
+unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_Vtbl;
 }
 impl ::core::clone::Clone for IGraphicsEffectSource {
@@ -93,7 +75,7 @@ impl ::core::clone::Clone for IGraphicsEffectSource {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
+unsafe impl ::windows::core::ComInterface for IGraphicsEffectSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 }
 #[repr(C)]

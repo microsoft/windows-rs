@@ -22,6 +22,6 @@ impl IChatItem_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IChatItem, OFFSET>(), ItemKind: ItemKind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IChatItem as ::windows::core::Interface>::IID
+        iid == &<IChatItem as ::windows::core::ComInterface>::IID
     }
 }

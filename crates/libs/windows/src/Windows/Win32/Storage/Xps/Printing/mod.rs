@@ -3,28 +3,28 @@
 #[inline]
 pub unsafe fn StartXpsPrintJob<P0, P1, P2, P3, P4>(printername: P0, jobname: P1, outputfilename: P2, progressevent: P3, completionevent: P4, printablepageson: &[u8], xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, documentstream: *mut ::core::option::Option<IXpsPrintJobStream>, printticketstream: *mut ::core::option::Option<IXpsPrintJobStream>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P3: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-    P4: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P3: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P4: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , printablepageson : *const u8 , printablepagesoncount : u32 , xpsprintjob : *mut * mut::core::ffi::c_void , documentstream : *mut * mut::core::ffi::c_void , printticketstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    StartXpsPrintJob(printername.into().abi(), jobname.into().abi(), outputfilename.into().abi(), progressevent.into(), completionevent.into(), ::core::mem::transmute(printablepageson.as_ptr()), printablepageson.len() as _, ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(documentstream), ::core::mem::transmute(printticketstream)).ok()
+    StartXpsPrintJob(printername.into_param().abi(), jobname.into_param().abi(), outputfilename.into_param().abi(), progressevent.into_param().abi(), completionevent.into_param().abi(), ::core::mem::transmute(printablepageson.as_ptr()), printablepageson.len() as _, ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(documentstream), ::core::mem::transmute(printticketstream)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<P0, P1, P2, P3, P4>(printername: P0, jobname: P1, outputfilename: P2, progressevent: P3, completionevent: P4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P3: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-    P4: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P3: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P4: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "xpsprint.dll""system" fn StartXpsPrintJob1 ( printername : :: windows::core::PCWSTR , jobname : :: windows::core::PCWSTR , outputfilename : :: windows::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , xpsprintjob : *mut * mut::core::ffi::c_void , printcontentreceiver : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    StartXpsPrintJob1(printername.into().abi(), jobname.into().abi(), outputfilename.into().abi(), progressevent.into(), completionevent.into(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
+    StartXpsPrintJob1(printername.into_param().abi(), jobname.into_param().abi(), outputfilename.into_param().abi(), progressevent.into_param().abi(), completionevent.into_param().abi(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -33,7 +33,7 @@ pub struct IPrintDocumentPackageStatusEvent(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageStatusEvent {
     pub unsafe fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PackageStatusUpdated)(::windows::core::Vtable::as_raw(self), packagestatus).ok()
+        (::windows::core::Interface::vtable(self).PackageStatusUpdated)(::windows::core::Interface::as_raw(self), packagestatus).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -53,7 +53,7 @@ impl ::core::fmt::Debug for IPrintDocumentPackageStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IPrintDocumentPackageStatusEvent {
+unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEvent_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -63,7 +63,7 @@ impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
+unsafe impl ::windows::core::ComInterface for IPrintDocumentPackageStatusEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -78,17 +78,17 @@ pub struct IPrintDocumentPackageStatusEvent_Vtbl {
 pub struct IPrintDocumentPackageTarget(::windows::core::IUnknown);
 impl IPrintDocumentPackageTarget {
     pub unsafe fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPackageTargetTypes)(::windows::core::Vtable::as_raw(self), targetcount, targettypes).ok()
+        (::windows::core::Interface::vtable(self).GetPackageTargetTypes)(::windows::core::Interface::as_raw(self), targetcount, targettypes).ok()
     }
     pub unsafe fn GetPackageTarget<T>(&self, guidtargettype: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
-        T: ::windows::core::Interface,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).GetPackageTarget)(::windows::core::Vtable::as_raw(self), guidtargettype, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPackageTarget)(::windows::core::Interface::as_raw(self), guidtargettype, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows::core::IUnknown);
@@ -103,7 +103,7 @@ impl ::core::fmt::Debug for IPrintDocumentPackageTarget {
         f.debug_tuple("IPrintDocumentPackageTarget").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrintDocumentPackageTarget {
+unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTarget_Vtbl;
 }
 impl ::core::clone::Clone for IPrintDocumentPackageTarget {
@@ -111,7 +111,7 @@ impl ::core::clone::Clone for IPrintDocumentPackageTarget {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
+unsafe impl ::windows::core::ComInterface for IPrintDocumentPackageTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b8efec4_3019_4c27_964e_367202156906);
 }
 #[repr(C)]
@@ -130,13 +130,13 @@ impl IPrintDocumentPackageTargetFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<P0, P1, P2, P3>(&self, printername: P0, jobname: P1, joboutputstream: P2, jobprintticketstream: P3) -> ::windows::core::Result<IPrintDocumentPackageTarget>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
-        P3: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P3: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
     {
         let mut result__ = ::windows::core::zeroed::<IPrintDocumentPackageTarget>();
-        (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into().abi(), jobname.into().abi(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Interface::as_raw(self), printername.into_param().abi(), jobname.into_param().abi(), joboutputstream.into_param().abi(), jobprintticketstream.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
@@ -151,7 +151,7 @@ impl ::core::fmt::Debug for IPrintDocumentPackageTargetFactory {
         f.debug_tuple("IPrintDocumentPackageTargetFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrintDocumentPackageTargetFactory {
+unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
     type Vtable = IPrintDocumentPackageTargetFactory_Vtbl;
 }
 impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
@@ -159,7 +159,7 @@ impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
+unsafe impl ::windows::core::ComInterface for IPrintDocumentPackageTargetFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
 }
 #[repr(C)]
@@ -176,10 +176,10 @@ pub struct IPrintDocumentPackageTargetFactory_Vtbl {
 pub struct IXpsPrintJob(::windows::core::IUnknown);
 impl IXpsPrintJob {
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetJobStatus(&self, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), jobstatus).ok()
+        (::windows::core::Interface::vtable(self).GetJobStatus)(::windows::core::Interface::as_raw(self), jobstatus).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);
@@ -194,7 +194,7 @@ impl ::core::fmt::Debug for IXpsPrintJob {
         f.debug_tuple("IXpsPrintJob").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXpsPrintJob {
+unsafe impl ::windows::core::Interface for IXpsPrintJob {
     type Vtable = IXpsPrintJob_Vtbl;
 }
 impl ::core::clone::Clone for IXpsPrintJob {
@@ -202,7 +202,7 @@ impl ::core::clone::Clone for IXpsPrintJob {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IXpsPrintJob {
+unsafe impl ::windows::core::ComInterface for IXpsPrintJob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab89b06_8194_425f_ab3b_d7a96e350161);
 }
 #[repr(C)]
@@ -221,15 +221,15 @@ impl IXpsPrintJobStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
+        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
+        (::windows::core::Interface::vtable(self).base__.Write)(::windows::core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -249,7 +249,7 @@ impl ::core::fmt::Debug for IXpsPrintJobStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IXpsPrintJobStream {
+unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStream_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -259,7 +259,7 @@ impl ::core::clone::Clone for IXpsPrintJobStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
+unsafe impl ::windows::core::ComInterface for IXpsPrintJobStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -6,11 +6,11 @@ impl ICoreFrameworkInputViewInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(ICoreFrameworkInputViewInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -25,7 +25,7 @@ impl ::core::fmt::Debug for ICoreFrameworkInputViewInterop {
         f.debug_tuple("ICoreFrameworkInputViewInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ICoreFrameworkInputViewInterop {
+unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInterop_Vtbl;
 }
 impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
+unsafe impl ::windows::core::ComInterface for ICoreFrameworkInputViewInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
 #[repr(C)]

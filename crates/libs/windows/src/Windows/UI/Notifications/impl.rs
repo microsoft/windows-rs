@@ -42,6 +42,6 @@ impl IAdaptiveNotificationContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdaptiveNotificationContent as ::windows::core::Interface>::IID
+        iid == &<IAdaptiveNotificationContent as ::windows::core::ComInterface>::IID
     }
 }

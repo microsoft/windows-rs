@@ -2,77 +2,77 @@
 #[inline]
 pub unsafe fn WslConfigureDistribution<P0>(distributionname: P0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslConfigureDistribution ( distributionname : :: windows::core::PCWSTR , defaultuid : u32 , wsldistributionflags : WSL_DISTRIBUTION_FLAGS ) -> :: windows::core::HRESULT );
-    WslConfigureDistribution(distributionname.into().abi(), defaultuid, wsldistributionflags).ok()
+    WslConfigureDistribution(distributionname.into_param().abi(), defaultuid, wsldistributionflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslGetDistributionConfiguration<P0>(distributionname: P0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut ::windows::core::PSTR, defaultenvironmentvariablecount: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslGetDistributionConfiguration ( distributionname : :: windows::core::PCWSTR , distributionversion : *mut u32 , defaultuid : *mut u32 , wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS , defaultenvironmentvariables : *mut *mut :: windows::core::PSTR , defaultenvironmentvariablecount : *mut u32 ) -> :: windows::core::HRESULT );
-    WslGetDistributionConfiguration(distributionname.into().abi(), distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount).ok()
+    WslGetDistributionConfiguration(distributionname.into_param().abi(), distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslIsDistributionRegistered<P0>(distributionname: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslIsDistributionRegistered ( distributionname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    WslIsDistributionRegistered(distributionname.into().abi())
+    WslIsDistributionRegistered(distributionname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunch<P0, P1, P2, P3, P4, P5>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2, stdin: P3, stdout: P4, stderr: P5) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P4: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P3: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P4: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P5: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunch ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , stdin : super::super::Foundation:: HANDLE , stdout : super::super::Foundation:: HANDLE , stderr : super::super::Foundation:: HANDLE , process : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    WslLaunch(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), stdin.into(), stdout.into(), stderr.into(), &mut result__).from_abi(result__)
+    WslLaunch(distributionname.into_param().abi(), command.into_param().abi(), usecurrentworkingdirectory.into_param().abi(), stdin.into_param().abi(), stdout.into_param().abi(), stderr.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WslLaunchInteractive<P0, P1, P2>(distributionname: P0, command: P1, usecurrentworkingdirectory: P2) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunchInteractive ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , exitcode : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
-    WslLaunchInteractive(distributionname.into().abi(), command.into().abi(), usecurrentworkingdirectory.into(), &mut result__).from_abi(result__)
+    WslLaunchInteractive(distributionname.into_param().abi(), command.into_param().abi(), usecurrentworkingdirectory.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslRegisterDistribution<P0, P1>(distributionname: P0, targzfilename: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslRegisterDistribution ( distributionname : :: windows::core::PCWSTR , targzfilename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    WslRegisterDistribution(distributionname.into().abi(), targzfilename.into().abi()).ok()
+    WslRegisterDistribution(distributionname.into_param().abi(), targzfilename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
 pub unsafe fn WslUnregisterDistribution<P0>(distributionname: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslUnregisterDistribution ( distributionname : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    WslUnregisterDistribution(distributionname.into().abi()).ok()
+    WslUnregisterDistribution(distributionname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[repr(transparent)]

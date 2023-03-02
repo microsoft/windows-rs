@@ -4,10 +4,10 @@ pub struct ISoftwareBitmapNative(::windows::core::IUnknown);
 impl ISoftwareBitmapNative {
     pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
     where
-        T: ::windows::core::Interface,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(ISoftwareBitmapNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -22,7 +22,7 @@ impl ::core::fmt::Debug for ISoftwareBitmapNative {
         f.debug_tuple("ISoftwareBitmapNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISoftwareBitmapNative {
+unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNative_Vtbl;
 }
 impl ::core::clone::Clone for ISoftwareBitmapNative {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for ISoftwareBitmapNative {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
+unsafe impl ::windows::core::ComInterface for ISoftwareBitmapNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 }
 #[repr(C)]
@@ -47,23 +47,23 @@ impl ISoftwareBitmapNativeFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateFromWICBitmap<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Graphics::Imaging::IWICBitmap>>,
-        P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::super::super::Graphics::Imaging::IWICBitmap>,
+        P1: ::windows::core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).CreateFromWICBitmap)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateFromWICBitmap)(::windows::core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMF2DBuffer2<P0, P1, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>>,
-        P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>,
+        P1: ::windows::core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -78,7 +78,7 @@ impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
         f.debug_tuple("ISoftwareBitmapNativeFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISoftwareBitmapNativeFactory {
+unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactory_Vtbl;
 }
 impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
@@ -86,7 +86,7 @@ impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
+unsafe impl ::windows::core::ComInterface for ISoftwareBitmapNativeFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);
 }
 #[repr(C)]

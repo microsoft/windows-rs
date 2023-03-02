@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDnssdRegistrationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDnssdRegistrationResult {
+unsafe impl ::windows::core::Interface for IDnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
 }
 impl ::core::clone::Clone for IDnssdRegistrationResult {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IDnssdRegistrationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDnssdRegistrationResult {
+unsafe impl ::windows::core::ComInterface for IDnssdRegistrationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
 #[repr(C)]
@@ -23,7 +23,7 @@ pub struct IDnssdRegistrationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDnssdServiceInstance(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDnssdServiceInstance {
+unsafe impl ::windows::core::Interface for IDnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
 }
 impl ::core::clone::Clone for IDnssdServiceInstance {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IDnssdServiceInstance {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDnssdServiceInstance {
+unsafe impl ::windows::core::ComInterface for IDnssdServiceInstance {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 }
 #[repr(C)]
@@ -72,7 +72,7 @@ pub struct IDnssdServiceInstance_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDnssdServiceInstanceFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDnssdServiceInstanceFactory {
+unsafe impl ::windows::core::Interface for IDnssdServiceInstanceFactory {
     type Vtable = IDnssdServiceInstanceFactory_Vtbl;
 }
 impl ::core::clone::Clone for IDnssdServiceInstanceFactory {
@@ -80,7 +80,7 @@ impl ::core::clone::Clone for IDnssdServiceInstanceFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDnssdServiceInstanceFactory {
+unsafe impl ::windows::core::ComInterface for IDnssdServiceInstanceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 }
 #[repr(C)]
@@ -92,7 +92,7 @@ pub struct IDnssdServiceInstanceFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDnssdServiceWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDnssdServiceWatcher {
+unsafe impl ::windows::core::Interface for IDnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;
 }
 impl ::core::clone::Clone for IDnssdServiceWatcher {
@@ -100,7 +100,7 @@ impl ::core::clone::Clone for IDnssdServiceWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDnssdServiceWatcher {
+unsafe impl ::windows::core::ComInterface for IDnssdServiceWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 }
 #[repr(C)]
@@ -150,30 +150,30 @@ impl DnssdRegistrationResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DnssdRegistrationStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IPAddress(&self) -> ::windows::core::Result<super::super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::HostName>();
-            (::windows::core::Vtable::vtable(this).IPAddress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IPAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasInstanceNameChanged(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HasInstanceNameChanged)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasInstanceNameChanged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ToString)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -196,38 +196,18 @@ impl ::core::clone::Clone for DnssdRegistrationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DnssdRegistrationResult {
+unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
-    const IID: ::windows::core::GUID = <IDnssdRegistrationResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DnssdRegistrationResult {
+    const IID: ::windows::core::GUID = <IDnssdRegistrationResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
 }
 ::windows::imp::interface_hierarchy!(DnssdRegistrationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<DnssdRegistrationResult> for super::super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DnssdRegistrationResult) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DnssdRegistrationResult> for super::super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdRegistrationResult) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DnssdRegistrationResult> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdRegistrationResult) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IStringable> for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`*"]
@@ -238,56 +218,56 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DnssdServiceInstanceName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDnssdServiceInstanceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDnssdServiceInstanceName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDnssdServiceInstanceName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn HostName(&self) -> ::windows::core::Result<super::super::HostName> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::HostName>();
-            (::windows::core::Vtable::vtable(this).HostName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HostName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetHostName(&self, value: &super::super::HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetHostName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHostName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Port(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Port)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Port)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPort(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPort)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPort)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Priority(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Priority)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPriority(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPriority)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Weight(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Vtable::vtable(this).Weight)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Weight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWeight(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWeight)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -295,7 +275,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).TextAttributes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TextAttributes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
@@ -304,7 +284,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>();
-            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync1)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RegisterStreamSocketListenerAsync1)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socket), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
@@ -313,7 +293,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>();
-            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RegisterStreamSocketListenerAsync2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
@@ -322,7 +302,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>();
-            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync1)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RegisterDatagramSocketAsync1)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socket), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
@@ -331,22 +311,22 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>();
-            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RegisterDatagramSocketAsync2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(dnssdserviceinstancename: &::windows::core::HSTRING, hostname: &super::super::HostName, port: u16) -> ::windows::core::Result<DnssdServiceInstance> {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DnssdServiceInstance>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(dnssdserviceinstancename), ::core::mem::transmute_copy(hostname), port, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(dnssdserviceinstancename), ::core::mem::transmute_copy(hostname), port, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ToString)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -374,38 +354,18 @@ impl ::core::clone::Clone for DnssdServiceInstance {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DnssdServiceInstance {
+unsafe impl ::windows::core::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DnssdServiceInstance {
-    const IID: ::windows::core::GUID = <IDnssdServiceInstance as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DnssdServiceInstance {
+    const IID: ::windows::core::GUID = <IDnssdServiceInstance as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
 ::windows::imp::interface_hierarchy!(DnssdServiceInstance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<DnssdServiceInstance> for super::super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DnssdServiceInstance) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DnssdServiceInstance> for super::super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstance) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DnssdServiceInstance> for ::windows::core::InParam<super::super::super::Foundation::IStringable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstance) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IStringable> for DnssdServiceInstance {}
 unsafe impl ::core::marker::Send for DnssdServiceInstance {}
 unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[doc = "*Required features: `\"Networking_ServiceDiscovery_Dnssd\"`, `\"Foundation_Collections\"`*"]
@@ -417,10 +377,10 @@ impl DnssdServiceInstanceCollection {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>>();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -429,7 +389,7 @@ impl DnssdServiceInstanceCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DnssdServiceInstance>();
-            (::windows::core::Vtable::vtable(this).GetAt)(::windows::core::Vtable::as_raw(this), index, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -438,7 +398,7 @@ impl DnssdServiceInstanceCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -447,7 +407,7 @@ impl DnssdServiceInstanceCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -456,7 +416,7 @@ impl DnssdServiceInstanceCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).GetMany)(::windows::core::Vtable::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
 }
@@ -485,12 +445,12 @@ impl ::core::clone::Clone for DnssdServiceInstanceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Vtable for DnssdServiceInstanceCollection {
+unsafe impl ::windows::core::Interface for DnssdServiceInstanceCollection {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<DnssdServiceInstance>;
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for DnssdServiceInstanceCollection {
-    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DnssdServiceInstanceCollection {
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DnssdServiceInstanceCollection {
@@ -509,55 +469,15 @@ impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
     type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
+        super::super::super::Foundation::Collections::VectorViewIterator::new(::windows::core::ComInterface::cast(self).ok())
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 ::windows::imp::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for ::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Send for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
@@ -572,14 +492,14 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -587,14 +507,14 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -602,29 +522,29 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Status(&self) -> ::windows::core::Result<DnssdServiceWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DnssdServiceWatcherStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for DnssdServiceWatcher {
@@ -646,11 +566,11 @@ impl ::core::clone::Clone for DnssdServiceWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DnssdServiceWatcher {
+unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
-    const IID: ::windows::core::GUID = <IDnssdServiceWatcher as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DnssdServiceWatcher {
+    const IID: ::windows::core::GUID = <IDnssdServiceWatcher as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";

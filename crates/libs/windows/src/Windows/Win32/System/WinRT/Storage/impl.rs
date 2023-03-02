@@ -13,7 +13,7 @@ impl IOplockBreakingHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OplockBreaking: OplockBreaking::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOplockBreakingHandler as ::windows::core::Interface>::IID
+        iid == &<IOplockBreakingHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
@@ -37,7 +37,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMode: GetMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRandomAccessStreamFileAccessMode as ::windows::core::Interface>::IID
+        iid == &<IRandomAccessStreamFileAccessMode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -64,7 +64,7 @@ impl IStorageFolderHandleAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolderHandleAccess as ::windows::core::Interface>::IID
+        iid == &<IStorageFolderHandleAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -91,7 +91,7 @@ impl IStorageItemHandleAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemHandleAccess as ::windows::core::Interface>::IID
+        iid == &<IStorageItemHandleAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
@@ -109,7 +109,7 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBrokenCallback: OnBrokenCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUnbufferedFileHandleOplockCallback as ::windows::core::Interface>::IID
+        iid == &<IUnbufferedFileHandleOplockCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"implement\"`*"]
@@ -143,6 +143,6 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUnbufferedFileHandleProvider as ::windows::core::Interface>::IID
+        iid == &<IUnbufferedFileHandleProvider as ::windows::core::ComInterface>::IID
     }
 }

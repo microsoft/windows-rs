@@ -25,7 +25,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICashDrawerEventSourceEventArgs as ::windows::core::Interface>::IID
+        iid == &<ICashDrawerEventSourceEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"implement\"`*"]
@@ -272,7 +272,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonClaimedPosPrinterStation as ::windows::core::Interface>::IID
+        iid == &<ICommonClaimedPosPrinterStation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -473,7 +473,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonPosPrintStationCapabilities as ::windows::core::Interface>::IID
+        iid == &<ICommonPosPrintStationCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -618,7 +618,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonReceiptSlipCapabilities as ::windows::core::Interface>::IID
+        iid == &<ICommonReceiptSlipCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -672,7 +672,7 @@ impl IPosPrinterJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPosPrinterJob as ::windows::core::Interface>::IID
+        iid == &<IPosPrinterJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"implement\"`*"]
@@ -796,6 +796,6 @@ impl IReceiptOrSlipJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReceiptOrSlipJob as ::windows::core::Interface>::IID
+        iid == &<IReceiptOrSlipJob as ::windows::core::ComInterface>::IID
     }
 }

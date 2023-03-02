@@ -2,41 +2,41 @@
 #[inline]
 pub unsafe fn CloseHandle<P0>(hobject: P0) -> BOOL
 where
-    P0: ::std::convert::Into<HANDLE>,
+    P0: ::windows::core::IntoParam<HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn CloseHandle ( hobject : HANDLE ) -> BOOL );
-    CloseHandle(hobject.into())
+    CloseHandle(hobject.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn CompareObjectHandles<P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
 where
-    P0: ::std::convert::Into<HANDLE>,
-    P1: ::std::convert::Into<HANDLE>,
+    P0: ::windows::core::IntoParam<HANDLE>,
+    P1: ::windows::core::IntoParam<HANDLE>,
 {
     ::windows::imp::link ! ( "api-ms-win-core-handle-l1-1-0.dll""system" fn CompareObjectHandles ( hfirstobjecthandle : HANDLE , hsecondobjecthandle : HANDLE ) -> BOOL );
-    CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into())
+    CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
 where
-    P0: ::std::convert::Into<HANDLE>,
-    P1: ::std::convert::Into<HANDLE>,
-    P2: ::std::convert::Into<HANDLE>,
-    P3: ::std::convert::Into<BOOL>,
+    P0: ::windows::core::IntoParam<HANDLE>,
+    P1: ::windows::core::IntoParam<HANDLE>,
+    P2: ::windows::core::IntoParam<HANDLE>,
+    P3: ::windows::core::IntoParam<BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn DuplicateHandle ( hsourceprocesshandle : HANDLE , hsourcehandle : HANDLE , htargetprocesshandle : HANDLE , lptargethandle : *mut HANDLE , dwdesiredaccess : u32 , binherithandle : BOOL , dwoptions : DUPLICATE_HANDLE_OPTIONS ) -> BOOL );
-    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), lptargethandle, dwdesiredaccess, binherithandle.into(), dwoptions)
+    DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), lptargethandle, dwdesiredaccess, binherithandle.into_param().abi(), dwoptions)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> BOOL
 where
-    P0: ::std::convert::Into<HANDLE>,
+    P0: ::windows::core::IntoParam<HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetHandleInformation ( hobject : HANDLE , lpdwflags : *mut u32 ) -> BOOL );
-    GetHandleInformation(hobject.into(), lpdwflags)
+    GetHandleInformation(hobject.into_param().abi(), lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -48,19 +48,19 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
 #[inline]
 pub unsafe fn RtlNtStatusToDosError<P0>(status: P0) -> u32
 where
-    P0: ::std::convert::Into<NTSTATUS>,
+    P0: ::windows::core::IntoParam<NTSTATUS>,
 {
     ::windows::imp::link ! ( "ntdll.dll""system" fn RtlNtStatusToDosError ( status : NTSTATUS ) -> u32 );
-    RtlNtStatusToDosError(status.into())
+    RtlNtStatusToDosError(status.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL
 where
-    P0: ::std::convert::Into<HANDLE>,
+    P0: ::windows::core::IntoParam<HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetHandleInformation ( hobject : HANDLE , dwmask : u32 , dwflags : HANDLE_FLAGS ) -> BOOL );
-    SetHandleInformation(hobject.into(), dwmask, dwflags)
+    SetHandleInformation(hobject.into_param().abi(), dwmask, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -84,10 +84,10 @@ pub unsafe fn SysAddRefString(bstrstring: &::windows::core::BSTR) -> ::windows::
 #[inline]
 pub unsafe fn SysAllocString<P0>(psz: P0) -> ::windows::core::BSTR
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocString ( psz : :: windows::core::PCWSTR ) -> :: windows::core::BSTR );
-    SysAllocString(psz.into().abi())
+    SysAllocString(psz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -111,19 +111,19 @@ pub unsafe fn SysFreeString(bstrstring: &::windows::core::BSTR) {
 #[inline]
 pub unsafe fn SysReAllocString<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR ) -> i32 );
-    SysReAllocString(::core::mem::transmute(pbstr), psz.into().abi())
+    SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0, len: u32) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR , len : u32 ) -> i32 );
-    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into().abi(), len)
+    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -19912,11 +19912,6 @@ impl ::core::fmt::Debug for BOOL {
         f.debug_tuple("BOOL").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
-    fn from(optional: ::core::option::Option<BOOL>) -> BOOL {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for BOOL {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -19937,11 +19932,6 @@ impl ::core::marker::Copy for BOOLEAN {}
 impl ::core::fmt::Debug for BOOLEAN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BOOLEAN").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
-    fn from(optional: ::core::option::Option<BOOLEAN>) -> BOOLEAN {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for BOOLEAN {
@@ -19966,11 +19956,6 @@ impl ::core::fmt::Debug for CHAR {
         f.debug_tuple("CHAR").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<CHAR>> for CHAR {
-    fn from(optional: ::core::option::Option<CHAR>) -> CHAR {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for CHAR {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -19991,11 +19976,6 @@ impl ::core::marker::Copy for COLORREF {}
 impl ::core::fmt::Debug for COLORREF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COLORREF").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<COLORREF>> for COLORREF {
-    fn from(optional: ::core::option::Option<COLORREF>) -> COLORREF {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for COLORREF {
@@ -20211,11 +20191,6 @@ impl ::core::fmt::Debug for HANDLE {
         f.debug_tuple("HANDLE").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
-    fn from(optional: ::core::option::Option<HANDLE>) -> HANDLE {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HANDLE {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -20236,11 +20211,6 @@ impl ::core::marker::Copy for HANDLE_PTR {}
 impl ::core::fmt::Debug for HANDLE_PTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HANDLE_PTR>> for HANDLE_PTR {
-    fn from(optional: ::core::option::Option<HANDLE_PTR>) -> HANDLE_PTR {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HANDLE_PTR {
@@ -20268,11 +20238,6 @@ impl ::core::marker::Copy for HINSTANCE {}
 impl ::core::fmt::Debug for HINSTANCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HINSTANCE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
-    fn from(optional: ::core::option::Option<HINSTANCE>) -> HINSTANCE {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HINSTANCE {
@@ -20330,11 +20295,6 @@ impl ::core::marker::Copy for HRSRC {}
 impl ::core::fmt::Debug for HRSRC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRSRC").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HRSRC>> for HRSRC {
-    fn from(optional: ::core::option::Option<HRSRC>) -> HRSRC {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HRSRC {
@@ -20449,11 +20409,6 @@ impl ::core::fmt::Debug for HWND {
         f.debug_tuple("HWND").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HWND>> for HWND {
-    fn from(optional: ::core::option::Option<HWND>) -> HWND {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HWND {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -20476,11 +20431,6 @@ impl ::core::fmt::Debug for LPARAM {
         f.debug_tuple("LPARAM").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<LPARAM>> for LPARAM {
-    fn from(optional: ::core::option::Option<LPARAM>) -> LPARAM {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for LPARAM {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -20501,11 +20451,6 @@ impl ::core::marker::Copy for LRESULT {}
 impl ::core::fmt::Debug for LRESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LRESULT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<LRESULT>> for LRESULT {
-    fn from(optional: ::core::option::Option<LRESULT>) -> LRESULT {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for LRESULT {
@@ -20559,11 +20504,6 @@ impl ::core::marker::Copy for NTSTATUS {}
 impl ::core::fmt::Debug for NTSTATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NTSTATUS").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
-    fn from(optional: ::core::option::Option<NTSTATUS>) -> NTSTATUS {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for NTSTATUS {
@@ -20686,11 +20626,6 @@ impl ::core::fmt::Debug for PSID {
         f.debug_tuple("PSID").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<PSID>> for PSID {
-    fn from(optional: ::core::option::Option<PSID>) -> PSID {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for PSID {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -20777,11 +20712,6 @@ impl ::core::marker::Copy for SHANDLE_PTR {}
 impl ::core::fmt::Debug for SHANDLE_PTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<SHANDLE_PTR>> for SHANDLE_PTR {
-    fn from(optional: ::core::option::Option<SHANDLE_PTR>) -> SHANDLE_PTR {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for SHANDLE_PTR {
@@ -20906,11 +20836,6 @@ impl ::core::fmt::Debug for VARIANT_BOOL {
         f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOOL {
-    fn from(optional: ::core::option::Option<VARIANT_BOOL>) -> VARIANT_BOOL {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for VARIANT_BOOL {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -20931,11 +20856,6 @@ impl ::core::marker::Copy for WPARAM {}
 impl ::core::fmt::Debug for WPARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WPARAM").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<WPARAM>> for WPARAM {
-    fn from(optional: ::core::option::Option<WPARAM>) -> WPARAM {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for WPARAM {
@@ -21015,6 +20935,11 @@ impl ::core::ops::Not for BOOL {
         } else {
             Self(1)
         }
+    }
+}
+impl windows::core::IntoParam<BOOL> for bool {
+    fn into_param(self) -> windows::core::Param<BOOL> {
+        windows::core::Param::Owned(self.into())
     }
 }
 impl BOOLEAN {

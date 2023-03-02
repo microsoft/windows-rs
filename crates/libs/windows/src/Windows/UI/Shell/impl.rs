@@ -22,7 +22,7 @@ impl IAdaptiveCard_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAdaptiveCard, OFFSET>(), ToJson: ToJson::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdaptiveCard as ::windows::core::Interface>::IID
+        iid == &<IAdaptiveCard as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Shell\"`, `\"implement\"`*"]
@@ -52,6 +52,6 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAdaptiveCardBuilderStatics as ::windows::core::Interface>::IID
+        iid == &<IAdaptiveCardBuilderStatics as ::windows::core::ComInterface>::IID
     }
 }

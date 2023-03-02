@@ -23,7 +23,7 @@ impl IWCNConnectNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWCNConnectNotify as ::windows::core::Interface>::IID
+        iid == &<IWCNConnectNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"implement\"`*"]
@@ -120,6 +120,6 @@ impl IWCNDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWCNDevice as ::windows::core::Interface>::IID
+        iid == &<IWCNDevice as ::windows::core::ComInterface>::IID
     }
 }

@@ -25,7 +25,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows::core::Interface>::IID
+        iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`, `\"implement\"`*"]
@@ -62,6 +62,6 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows::core::Interface>::IID
+        iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows::core::ComInterface>::IID
     }
 }

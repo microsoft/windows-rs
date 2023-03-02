@@ -5,21 +5,21 @@ impl IOpcCertificateEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), hasnext).ok()
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), hasnext).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), hasprevious).ok()
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), hasprevious).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn GetCurrent(&self, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), certificate).ok()
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), certificate).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcCertificateEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcCertificateEnumerator, ::windows::core::IUnknown);
@@ -34,7 +34,7 @@ impl ::core::fmt::Debug for IOpcCertificateEnumerator {
         f.debug_tuple("IOpcCertificateEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcCertificateEnumerator {
+unsafe impl ::windows::core::Interface for IOpcCertificateEnumerator {
     type Vtable = IOpcCertificateEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcCertificateEnumerator {
@@ -42,7 +42,7 @@ impl ::core::clone::Clone for IOpcCertificateEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcCertificateEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcCertificateEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85131937_8f24_421f_b439_59ab24d140b8);
 }
 #[repr(C)]
@@ -70,16 +70,16 @@ impl IOpcCertificateSet {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), certificate).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), certificate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), certificate).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), certificate).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcCertificateEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcCertificateSet, ::windows::core::IUnknown);
@@ -94,7 +94,7 @@ impl ::core::fmt::Debug for IOpcCertificateSet {
         f.debug_tuple("IOpcCertificateSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcCertificateSet {
+unsafe impl ::windows::core::Interface for IOpcCertificateSet {
     type Vtable = IOpcCertificateSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcCertificateSet {
@@ -102,7 +102,7 @@ impl ::core::clone::Clone for IOpcCertificateSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcCertificateSet {
+unsafe impl ::windows::core::ComInterface for IOpcCertificateSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
 }
 #[repr(C)]
@@ -124,61 +124,61 @@ pub struct IOpcCertificateSet_Vtbl {
 pub struct IOpcDigitalSignature(::windows::core::IUnknown);
 impl IOpcDigitalSignature {
     pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNamespaces)(::windows::core::Vtable::as_raw(self), prefixes, namespaces, count).ok()
+        (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), prefixes, namespaces, count).ok()
     }
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSignatureId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetSignaturePartName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignaturePartName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSignatureMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCanonicalizationMethod(&self, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCanonicalizationMethod)(::windows::core::Vtable::as_raw(self), canonicalizationmethod).ok()
+        (::windows::core::Interface::vtable(self).GetCanonicalizationMethod)(::windows::core::Interface::as_raw(self), canonicalizationmethod).ok()
     }
     pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSignatureValue)(::windows::core::Vtable::as_raw(self), signaturevalue, count).ok()
+        (::windows::core::Interface::vtable(self).GetSignatureValue)(::windows::core::Interface::as_raw(self), signaturevalue, count).ok()
     }
     pub unsafe fn GetSignaturePartReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetSignaturePartReferenceEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignaturePartReferenceEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSignatureRelationshipReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetSignatureRelationshipReferenceEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureRelationshipReferenceEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningTime(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSigningTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSigningTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTimeFormat(&self, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTimeFormat)(::windows::core::Vtable::as_raw(self), timeformat).ok()
+        (::windows::core::Interface::vtable(self).GetTimeFormat)(::windows::core::Interface::as_raw(self), timeformat).ok()
     }
     pub unsafe fn GetPackageObjectReference(&self) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReference>();
-        (::windows::core::Vtable::vtable(self).GetPackageObjectReference)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPackageObjectReference)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCertificateEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcCertificateEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetCertificateEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCustomReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetCustomReferenceEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCustomReferenceEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCustomObjectEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObjectEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetCustomObjectEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCustomObjectEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSignatureXml)(::windows::core::Vtable::as_raw(self), signaturexml, count).ok()
+        (::windows::core::Interface::vtable(self).GetSignatureXml)(::windows::core::Interface::as_raw(self), signaturexml, count).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcDigitalSignature, ::windows::core::IUnknown);
@@ -193,7 +193,7 @@ impl ::core::fmt::Debug for IOpcDigitalSignature {
         f.debug_tuple("IOpcDigitalSignature").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcDigitalSignature {
+unsafe impl ::windows::core::Interface for IOpcDigitalSignature {
     type Vtable = IOpcDigitalSignature_Vtbl;
 }
 impl ::core::clone::Clone for IOpcDigitalSignature {
@@ -201,7 +201,7 @@ impl ::core::clone::Clone for IOpcDigitalSignature {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcDigitalSignature {
+unsafe impl ::windows::core::ComInterface for IOpcDigitalSignature {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
 }
 #[repr(C)]
@@ -235,21 +235,21 @@ impl IOpcDigitalSignatureEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcDigitalSignature> {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignature>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignatureEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcDigitalSignatureEnumerator, ::windows::core::IUnknown);
@@ -264,7 +264,7 @@ impl ::core::fmt::Debug for IOpcDigitalSignatureEnumerator {
         f.debug_tuple("IOpcDigitalSignatureEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcDigitalSignatureEnumerator {
+unsafe impl ::windows::core::Interface for IOpcDigitalSignatureEnumerator {
     type Vtable = IOpcDigitalSignatureEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
@@ -272,7 +272,7 @@ impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcDigitalSignatureEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcDigitalSignatureEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
 }
 #[repr(C)]
@@ -298,57 +298,57 @@ impl IOpcDigitalSignatureManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignatureOriginPartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetSignatureOriginPartName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureOriginPartName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignatureOriginPartName<P0>(&self, signatureoriginpartname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
-        (::windows::core::Vtable::vtable(self).SetSignatureOriginPartName)(::windows::core::Vtable::as_raw(self), signatureoriginpartname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSignatureOriginPartName)(::windows::core::Interface::as_raw(self), signatureoriginpartname.into_param().abi()).ok()
     }
     pub unsafe fn GetSignatureEnumerator(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignatureEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetSignatureEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveSignature<P0>(&self, signaturepartname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveSignature)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveSignature)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
     }
     pub unsafe fn CreateSigningOptions(&self) -> ::windows::core::Result<IOpcSigningOptions> {
         let mut result__ = ::windows::core::zeroed::<IOpcSigningOptions>();
-        (::windows::core::Vtable::vtable(self).CreateSigningOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSigningOptions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Validate<P0>(&self, signature: P0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcDigitalSignature>>,
+        P0: ::windows::core::IntoParam<IOpcDigitalSignature>,
     {
-        (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), signature.into().abi(), certificate, validationresult).ok()
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), signature.into_param().abi(), certificate, validationresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Sign<P0>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: P0) -> ::windows::core::Result<IOpcDigitalSignature>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcSigningOptions>>,
+        P0: ::windows::core::IntoParam<IOpcSigningOptions>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignature>();
-        (::windows::core::Vtable::vtable(self).Sign)(::windows::core::Vtable::as_raw(self), certificate, signingoptions.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Sign)(::windows::core::Interface::as_raw(self), certificate, signingoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReplaceSignatureXml<P0>(&self, signaturepartname: P0, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignature>();
-        (::windows::core::Vtable::vtable(self).ReplaceSignatureXml)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi(), newsignaturexml, count, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ReplaceSignatureXml)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi(), newsignaturexml, count, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows::core::IUnknown);
@@ -363,7 +363,7 @@ impl ::core::fmt::Debug for IOpcDigitalSignatureManager {
         f.debug_tuple("IOpcDigitalSignatureManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcDigitalSignatureManager {
+unsafe impl ::windows::core::Interface for IOpcDigitalSignatureManager {
     type Vtable = IOpcDigitalSignatureManager_Vtbl;
 }
 impl ::core::clone::Clone for IOpcDigitalSignatureManager {
@@ -371,7 +371,7 @@ impl ::core::clone::Clone for IOpcDigitalSignatureManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcDigitalSignatureManager {
+unsafe impl ::windows::core::ComInterface for IOpcDigitalSignatureManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5e62a0b_696d_462f_94df_72e33cef2659);
 }
 #[repr(C)]
@@ -413,54 +413,54 @@ impl IOpcFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePackageRootUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcUri>();
-        (::windows::core::Vtable::vtable(self).CreatePackageRootUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreatePackageRootUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePartUri<P0>(&self, pwzuri: P0) -> ::windows::core::Result<IOpcPartUri>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).CreatePartUri)(::windows::core::Vtable::as_raw(self), pwzuri.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), pwzuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStreamOnFile<P0>(&self, filename: P0, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
-        (::windows::core::Vtable::vtable(self).CreateStreamOnFile)(::windows::core::Vtable::as_raw(self), filename.into().abi(), iomode, securityattributes, dwflagsandattributes, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateStreamOnFile)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), iomode, securityattributes, dwflagsandattributes, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IOpcPackage> {
         let mut result__ = ::windows::core::zeroed::<IOpcPackage>();
-        (::windows::core::Vtable::vtable(self).CreatePackage)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreatePackage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReadPackageFromStream<P0>(&self, stream: P0, flags: OPC_READ_FLAGS) -> ::windows::core::Result<IOpcPackage>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPackage>();
-        (::windows::core::Vtable::vtable(self).ReadPackageFromStream)(::windows::core::Vtable::as_raw(self), stream.into().abi(), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ReadPackageFromStream)(::windows::core::Interface::as_raw(self), stream.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WritePackageToStream<P0, P1>(&self, package: P0, flags: OPC_WRITE_FLAGS, stream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPackage>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<IOpcPackage>,
+        P1: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).WritePackageToStream)(::windows::core::Vtable::as_raw(self), package.into().abi(), flags, stream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).WritePackageToStream)(::windows::core::Interface::as_raw(self), package.into_param().abi(), flags, stream.into_param().abi()).ok()
     }
     pub unsafe fn CreateDigitalSignatureManager<P0>(&self, package: P0) -> ::windows::core::Result<IOpcDigitalSignatureManager>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPackage>>,
+        P0: ::windows::core::IntoParam<IOpcPackage>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcDigitalSignatureManager>();
-        (::windows::core::Vtable::vtable(self).CreateDigitalSignatureManager)(::windows::core::Vtable::as_raw(self), package.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDigitalSignatureManager)(::windows::core::Interface::as_raw(self), package.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcFactory, ::windows::core::IUnknown);
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for IOpcFactory {
         f.debug_tuple("IOpcFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcFactory {
+unsafe impl ::windows::core::Interface for IOpcFactory {
     type Vtable = IOpcFactory_Vtbl;
 }
 impl ::core::clone::Clone for IOpcFactory {
@@ -483,7 +483,7 @@ impl ::core::clone::Clone for IOpcFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcFactory {
+unsafe impl ::windows::core::ComInterface for IOpcFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
 }
 #[repr(C)]
@@ -519,11 +519,11 @@ pub struct IOpcPackage(::windows::core::IUnknown);
 impl IOpcPackage {
     pub unsafe fn GetPartSet(&self) -> ::windows::core::Result<IOpcPartSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartSet>();
-        (::windows::core::Vtable::vtable(self).GetPartSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPartSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSet>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcPackage, ::windows::core::IUnknown);
@@ -538,7 +538,7 @@ impl ::core::fmt::Debug for IOpcPackage {
         f.debug_tuple("IOpcPackage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcPackage {
+unsafe impl ::windows::core::Interface for IOpcPackage {
     type Vtable = IOpcPackage_Vtbl;
 }
 impl ::core::clone::Clone for IOpcPackage {
@@ -546,7 +546,7 @@ impl ::core::clone::Clone for IOpcPackage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcPackage {
+unsafe impl ::windows::core::ComInterface for IOpcPackage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
 }
 #[repr(C)]
@@ -562,27 +562,27 @@ pub struct IOpcPart(::windows::core::IUnknown);
 impl IOpcPart {
     pub unsafe fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSet>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContentStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
-        (::windows::core::Vtable::vtable(self).GetContentStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetContentStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetContentType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetContentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCompressionOptions(&self) -> ::windows::core::Result<OPC_COMPRESSION_OPTIONS> {
         let mut result__ = ::windows::core::zeroed::<OPC_COMPRESSION_OPTIONS>();
-        (::windows::core::Vtable::vtable(self).GetCompressionOptions)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCompressionOptions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcPart, ::windows::core::IUnknown);
@@ -597,7 +597,7 @@ impl ::core::fmt::Debug for IOpcPart {
         f.debug_tuple("IOpcPart").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcPart {
+unsafe impl ::windows::core::Interface for IOpcPart {
     type Vtable = IOpcPart_Vtbl;
 }
 impl ::core::clone::Clone for IOpcPart {
@@ -605,7 +605,7 @@ impl ::core::clone::Clone for IOpcPart {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcPart {
+unsafe impl ::windows::core::ComInterface for IOpcPart {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
 }
 #[repr(C)]
@@ -632,21 +632,21 @@ impl IOpcPartEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcPart> {
         let mut result__ = ::windows::core::zeroed::<IOpcPart>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcPartEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcPartEnumerator, ::windows::core::IUnknown);
@@ -661,7 +661,7 @@ impl ::core::fmt::Debug for IOpcPartEnumerator {
         f.debug_tuple("IOpcPartEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcPartEnumerator {
+unsafe impl ::windows::core::Interface for IOpcPartEnumerator {
     type Vtable = IOpcPartEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcPartEnumerator {
@@ -669,7 +669,7 @@ impl ::core::clone::Clone for IOpcPartEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcPartEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcPartEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
 }
 #[repr(C)]
@@ -695,41 +695,41 @@ impl IOpcPartSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPart<P0>(&self, name: P0) -> ::windows::core::Result<IOpcPart>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPart>();
-        (::windows::core::Vtable::vtable(self).GetPart)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPart)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePart<P0, P1>(&self, name: P0, contenttype: P1, compressionoptions: OPC_COMPRESSION_OPTIONS) -> ::windows::core::Result<IOpcPart>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPart>();
-        (::windows::core::Vtable::vtable(self).CreatePart)(::windows::core::Vtable::as_raw(self), name.into().abi(), contenttype.into().abi(), compressionoptions, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreatePart)(::windows::core::Interface::as_raw(self), name.into_param().abi(), contenttype.into_param().abi(), compressionoptions, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeletePart<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
-        (::windows::core::Vtable::vtable(self).DeletePart)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeletePart)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PartExists<P0>(&self, name: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).PartExists)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PartExists)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcPartEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcPartSet, ::windows::core::IUnknown);
@@ -744,7 +744,7 @@ impl ::core::fmt::Debug for IOpcPartSet {
         f.debug_tuple("IOpcPartSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcPartSet {
+unsafe impl ::windows::core::Interface for IOpcPartSet {
     type Vtable = IOpcPartSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcPartSet {
@@ -752,7 +752,7 @@ impl ::core::clone::Clone for IOpcPartSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcPartSet {
+unsafe impl ::windows::core::ComInterface for IOpcPartSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
 }
 #[repr(C)]
@@ -786,197 +786,197 @@ impl IOpcPartUri {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyBSTR)(::windows::core::Vtable::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyLength)(::windows::core::Vtable::as_raw(self), uriprop, pcchproperty, dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop, pcchproperty, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyDWORD)(::windows::core::Vtable::as_raw(self), uriprop, pdwproperty, dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop, pdwproperty, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.base__.HasProperty)(::windows::core::Vtable::as_raw(self), uriprop, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.HasProperty)(::windows::core::Interface::as_raw(self), uriprop, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAbsoluteUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAbsoluteUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetAbsoluteUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAuthority(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthority)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDisplayUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDisplayUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDomain(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDomain)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetDomain)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtension(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetExtension)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetExtension)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFragment(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFragment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetFragment)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHost(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetHost)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetHost)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPassword(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPassword)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPassword)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPathAndQuery(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPathAndQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPathAndQuery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuery(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetQuery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRawUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetRawUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetRawUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSchemeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSchemeName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetSchemeName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUserInfo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUserInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetUserInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUserName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUserName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetUserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHostType(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetHostType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetHostType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPort(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPort)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetPort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScheme(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetScheme)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetScheme)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetZone(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetZone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetZone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetProperties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.base__.IsEqual)(::windows::core::Vtable::as_raw(self), puri.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).base__.GetRelationshipsPartUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRelationshipsPartUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<P0>(&self, targetparturi: P0) -> ::windows::core::Result<super::super::super::System::Com::IUri>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IUri>();
-        (::windows::core::Vtable::vtable(self).base__.GetRelativeUri)(::windows::core::Vtable::as_raw(self), targetparturi.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<P0>(&self, relativeuri: P0) -> ::windows::core::Result<IOpcPartUri>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).base__.CombinePartUri)(::windows::core::Vtable::as_raw(self), relativeuri.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ComparePartUri<P0>(&self, parturi: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).ComparePartUri)(::windows::core::Vtable::as_raw(self), parturi.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ComparePartUri)(::windows::core::Interface::as_raw(self), parturi.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcUri>();
-        (::windows::core::Vtable::vtable(self).GetSourceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSourceUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRelationshipsPartUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).IsRelationshipsPartUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsRelationshipsPartUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -996,7 +996,7 @@ impl ::core::fmt::Debug for IOpcPartUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IOpcPartUri {
+unsafe impl ::windows::core::Interface for IOpcPartUri {
     type Vtable = IOpcPartUri_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1006,7 +1006,7 @@ impl ::core::clone::Clone for IOpcPartUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IOpcPartUri {
+unsafe impl ::windows::core::ComInterface for IOpcPartUri {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d3babe7_88b2_46ba_85cb_4203cb016c87);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1033,27 +1033,27 @@ pub struct IOpcRelationship(::windows::core::IUnknown);
 impl IOpcRelationship {
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRelationshipType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcUri>();
-        (::windows::core::Vtable::vtable(self).GetSourceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSourceUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTargetUri(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IUri>();
-        (::windows::core::Vtable::vtable(self).GetTargetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTargetUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetMode(&self) -> ::windows::core::Result<OPC_URI_TARGET_MODE> {
         let mut result__ = ::windows::core::zeroed::<OPC_URI_TARGET_MODE>();
-        (::windows::core::Vtable::vtable(self).GetTargetMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTargetMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationship, ::windows::core::IUnknown);
@@ -1068,7 +1068,7 @@ impl ::core::fmt::Debug for IOpcRelationship {
         f.debug_tuple("IOpcRelationship").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationship {
+unsafe impl ::windows::core::Interface for IOpcRelationship {
     type Vtable = IOpcRelationship_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationship {
@@ -1076,7 +1076,7 @@ impl ::core::clone::Clone for IOpcRelationship {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationship {
+unsafe impl ::windows::core::ComInterface for IOpcRelationship {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee72);
 }
 #[repr(C)]
@@ -1103,21 +1103,21 @@ impl IOpcRelationshipEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcRelationship> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationship>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationshipEnumerator, ::windows::core::IUnknown);
@@ -1132,7 +1132,7 @@ impl ::core::fmt::Debug for IOpcRelationshipEnumerator {
         f.debug_tuple("IOpcRelationshipEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationshipEnumerator {
+unsafe impl ::windows::core::Interface for IOpcRelationshipEnumerator {
     type Vtable = IOpcRelationshipEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationshipEnumerator {
@@ -1140,7 +1140,7 @@ impl ::core::clone::Clone for IOpcRelationshipEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationshipEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcRelationshipEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
 }
 #[repr(C)]
@@ -1164,11 +1164,11 @@ pub struct IOpcRelationshipSelector(::windows::core::IUnknown);
 impl IOpcRelationshipSelector {
     pub unsafe fn GetSelectorType(&self) -> ::windows::core::Result<OPC_RELATIONSHIP_SELECTOR> {
         let mut result__ = ::windows::core::zeroed::<OPC_RELATIONSHIP_SELECTOR>();
-        (::windows::core::Vtable::vtable(self).GetSelectorType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSelectorType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSelectionCriterion(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSelectionCriterion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSelectionCriterion)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationshipSelector, ::windows::core::IUnknown);
@@ -1183,7 +1183,7 @@ impl ::core::fmt::Debug for IOpcRelationshipSelector {
         f.debug_tuple("IOpcRelationshipSelector").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationshipSelector {
+unsafe impl ::windows::core::Interface for IOpcRelationshipSelector {
     type Vtable = IOpcRelationshipSelector_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationshipSelector {
@@ -1191,7 +1191,7 @@ impl ::core::clone::Clone for IOpcRelationshipSelector {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationshipSelector {
+unsafe impl ::windows::core::ComInterface for IOpcRelationshipSelector {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
 }
 #[repr(C)]
@@ -1209,21 +1209,21 @@ impl IOpcRelationshipSelectorEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcRelationshipSelector> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelector>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelectorEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, ::windows::core::IUnknown);
@@ -1238,7 +1238,7 @@ impl ::core::fmt::Debug for IOpcRelationshipSelectorEnumerator {
         f.debug_tuple("IOpcRelationshipSelectorEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationshipSelectorEnumerator {
+unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorEnumerator {
     type Vtable = IOpcRelationshipSelectorEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
@@ -1246,7 +1246,7 @@ impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcRelationshipSelectorEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
 }
 #[repr(C)]
@@ -1270,20 +1270,20 @@ pub struct IOpcRelationshipSelectorSet(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorSet {
     pub unsafe fn Create<P0>(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: P0) -> ::windows::core::Result<IOpcRelationshipSelector>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelector>();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), selector, selectioncriterion.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), selector, selectioncriterion.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, relationshipselector: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcRelationshipSelector>>,
+        P0: ::windows::core::IntoParam<IOpcRelationshipSelector>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), relationshipselector.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipselector.into_param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelectorEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationshipSelectorSet, ::windows::core::IUnknown);
@@ -1298,7 +1298,7 @@ impl ::core::fmt::Debug for IOpcRelationshipSelectorSet {
         f.debug_tuple("IOpcRelationshipSelectorSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationshipSelectorSet {
+unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorSet {
     type Vtable = IOpcRelationshipSelectorSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
@@ -1306,7 +1306,7 @@ impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationshipSelectorSet {
+unsafe impl ::windows::core::ComInterface for IOpcRelationshipSelectorSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
 }
 #[repr(C)]
@@ -1323,53 +1323,53 @@ pub struct IOpcRelationshipSet(::windows::core::IUnknown);
 impl IOpcRelationshipSet {
     pub unsafe fn GetRelationship<P0>(&self, relationshipidentifier: P0) -> ::windows::core::Result<IOpcRelationship>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationship>();
-        (::windows::core::Vtable::vtable(self).GetRelationship)(::windows::core::Vtable::as_raw(self), relationshipidentifier.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRelationship<P0, P1, P2>(&self, relationshipidentifier: P0, relationshiptype: P1, targeturi: P2, targetmode: OPC_URI_TARGET_MODE) -> ::windows::core::Result<IOpcRelationship>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationship>();
-        (::windows::core::Vtable::vtable(self).CreateRelationship)(::windows::core::Vtable::as_raw(self), relationshipidentifier.into().abi(), relationshiptype.into().abi(), targeturi.into().abi(), targetmode, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), relationshiptype.into_param().abi(), targeturi.into_param().abi(), targetmode, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteRelationship<P0>(&self, relationshipidentifier: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteRelationship)(::windows::core::Vtable::as_raw(self), relationshipidentifier.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteRelationship)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelationshipExists<P0>(&self, relationshipidentifier: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).RelationshipExists)(::windows::core::Vtable::as_raw(self), relationshipidentifier.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RelationshipExists)(::windows::core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEnumeratorForType<P0>(&self, relationshiptype: P0) -> ::windows::core::Result<IOpcRelationshipEnumerator>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumeratorForType)(::windows::core::Vtable::as_raw(self), relationshiptype.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumeratorForType)(::windows::core::Interface::as_raw(self), relationshiptype.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsContentStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IStream>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipsContentStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipsContentStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcRelationshipSet, ::windows::core::IUnknown);
@@ -1384,7 +1384,7 @@ impl ::core::fmt::Debug for IOpcRelationshipSet {
         f.debug_tuple("IOpcRelationshipSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcRelationshipSet {
+unsafe impl ::windows::core::Interface for IOpcRelationshipSet {
     type Vtable = IOpcRelationshipSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcRelationshipSet {
@@ -1392,7 +1392,7 @@ impl ::core::clone::Clone for IOpcRelationshipSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcRelationshipSet {
+unsafe impl ::windows::core::ComInterface for IOpcRelationshipSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
 }
 #[repr(C)]
@@ -1421,7 +1421,7 @@ pub struct IOpcRelationshipSet_Vtbl {
 pub struct IOpcSignatureCustomObject(::windows::core::IUnknown);
 impl IOpcSignatureCustomObject {
     pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetXml)(::windows::core::Vtable::as_raw(self), xmlmarkup, count).ok()
+        (::windows::core::Interface::vtable(self).GetXml)(::windows::core::Interface::as_raw(self), xmlmarkup, count).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureCustomObject, ::windows::core::IUnknown);
@@ -1436,7 +1436,7 @@ impl ::core::fmt::Debug for IOpcSignatureCustomObject {
         f.debug_tuple("IOpcSignatureCustomObject").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureCustomObject {
+unsafe impl ::windows::core::Interface for IOpcSignatureCustomObject {
     type Vtable = IOpcSignatureCustomObject_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObject {
@@ -1444,7 +1444,7 @@ impl ::core::clone::Clone for IOpcSignatureCustomObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureCustomObject {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureCustomObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
 }
 #[repr(C)]
@@ -1461,21 +1461,21 @@ impl IOpcSignatureCustomObjectEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObject>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObjectEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, ::windows::core::IUnknown);
@@ -1490,7 +1490,7 @@ impl ::core::fmt::Debug for IOpcSignatureCustomObjectEnumerator {
         f.debug_tuple("IOpcSignatureCustomObjectEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureCustomObjectEnumerator {
+unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectEnumerator {
     type Vtable = IOpcSignatureCustomObjectEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
@@ -1498,7 +1498,7 @@ impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureCustomObjectEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
 }
 #[repr(C)]
@@ -1522,17 +1522,17 @@ pub struct IOpcSignatureCustomObjectSet(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObject>();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, customobject: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcSignatureCustomObject>>,
+        P0: ::windows::core::IntoParam<IOpcSignatureCustomObject>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), customobject.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), customobject.into_param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObjectEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureCustomObjectSet, ::windows::core::IUnknown);
@@ -1547,7 +1547,7 @@ impl ::core::fmt::Debug for IOpcSignatureCustomObjectSet {
         f.debug_tuple("IOpcSignatureCustomObjectSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureCustomObjectSet {
+unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectSet {
     type Vtable = IOpcSignatureCustomObjectSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
@@ -1555,7 +1555,7 @@ impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureCustomObjectSet {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureCustomObjectSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
 }
 #[repr(C)]
@@ -1574,22 +1574,22 @@ impl IOpcSignaturePartReference {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetPartName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPartName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetContentType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetContentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetDigestMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDigestValue)(::windows::core::Vtable::as_raw(self), digestvalue, count).ok()
+        (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), digestvalue, count).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__ = ::windows::core::zeroed::<OPC_CANONICALIZATION_METHOD>();
-        (::windows::core::Vtable::vtable(self).GetTransformMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTransformMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignaturePartReference, ::windows::core::IUnknown);
@@ -1604,7 +1604,7 @@ impl ::core::fmt::Debug for IOpcSignaturePartReference {
         f.debug_tuple("IOpcSignaturePartReference").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignaturePartReference {
+unsafe impl ::windows::core::Interface for IOpcSignaturePartReference {
     type Vtable = IOpcSignaturePartReference_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignaturePartReference {
@@ -1612,7 +1612,7 @@ impl ::core::clone::Clone for IOpcSignaturePartReference {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignaturePartReference {
+unsafe impl ::windows::core::ComInterface for IOpcSignaturePartReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe24231ca_59f4_484e_b64b_36eeda36072c);
 }
 #[repr(C)]
@@ -1636,21 +1636,21 @@ impl IOpcSignaturePartReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignaturePartReference> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReference>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, ::windows::core::IUnknown);
@@ -1665,7 +1665,7 @@ impl ::core::fmt::Debug for IOpcSignaturePartReferenceEnumerator {
         f.debug_tuple("IOpcSignaturePartReferenceEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignaturePartReferenceEnumerator {
+unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceEnumerator {
     type Vtable = IOpcSignaturePartReferenceEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
@@ -1673,7 +1673,7 @@ impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcSignaturePartReferenceEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80eb1561_8c77_49cf_8266_459b356ee99a);
 }
 #[repr(C)]
@@ -1699,21 +1699,21 @@ impl IOpcSignaturePartReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1>(&self, parturi: P0, digestmethod: P1, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignaturePartReference>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReference>();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), parturi.into().abi(), digestmethod.into().abi(), transformmethod, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), parturi.into_param().abi(), digestmethod.into_param().abi(), transformmethod, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, partreference: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcSignaturePartReference>>,
+        P0: ::windows::core::IntoParam<IOpcSignaturePartReference>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), partreference.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), partreference.into_param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignaturePartReferenceSet, ::windows::core::IUnknown);
@@ -1728,7 +1728,7 @@ impl ::core::fmt::Debug for IOpcSignaturePartReferenceSet {
         f.debug_tuple("IOpcSignaturePartReferenceSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignaturePartReferenceSet {
+unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceSet {
     type Vtable = IOpcSignaturePartReferenceSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
@@ -1736,7 +1736,7 @@ impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignaturePartReferenceSet {
+unsafe impl ::windows::core::ComInterface for IOpcSignaturePartReferenceSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
 }
 #[repr(C)]
@@ -1756,28 +1756,28 @@ pub struct IOpcSignatureReference(::windows::core::IUnknown);
 impl IOpcSignatureReference {
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IUri>();
-        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__ = ::windows::core::zeroed::<OPC_CANONICALIZATION_METHOD>();
-        (::windows::core::Vtable::vtable(self).GetTransformMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTransformMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetDigestMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDigestValue)(::windows::core::Vtable::as_raw(self), digestvalue, count).ok()
+        (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), digestvalue, count).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureReference, ::windows::core::IUnknown);
@@ -1792,7 +1792,7 @@ impl ::core::fmt::Debug for IOpcSignatureReference {
         f.debug_tuple("IOpcSignatureReference").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureReference {
+unsafe impl ::windows::core::Interface for IOpcSignatureReference {
     type Vtable = IOpcSignatureReference_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureReference {
@@ -1800,7 +1800,7 @@ impl ::core::clone::Clone for IOpcSignatureReference {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureReference {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b47005e_3011_4edc_be6f_0f65e5ab0342);
 }
 #[repr(C)]
@@ -1825,21 +1825,21 @@ impl IOpcSignatureReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureReference> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReference>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureReferenceEnumerator, ::windows::core::IUnknown);
@@ -1854,7 +1854,7 @@ impl ::core::fmt::Debug for IOpcSignatureReferenceEnumerator {
         f.debug_tuple("IOpcSignatureReferenceEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureReferenceEnumerator {
+unsafe impl ::windows::core::Interface for IOpcSignatureReferenceEnumerator {
     type Vtable = IOpcSignatureReferenceEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
@@ -1862,7 +1862,7 @@ impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureReferenceEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureReferenceEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
 }
 #[repr(C)]
@@ -1888,23 +1888,23 @@ impl IOpcSignatureReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1, P2, P3>(&self, referenceuri: P0, referenceid: P1, r#type: P2, digestmethod: P3, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureReference>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReference>();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), referenceuri.into().abi(), referenceid.into().abi(), r#type.into().abi(), digestmethod.into().abi(), transformmethod, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), referenceuri.into_param().abi(), referenceid.into_param().abi(), r#type.into_param().abi(), digestmethod.into_param().abi(), transformmethod, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, reference: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcSignatureReference>>,
+        P0: ::windows::core::IntoParam<IOpcSignatureReference>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), reference.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), reference.into_param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureReferenceSet, ::windows::core::IUnknown);
@@ -1919,7 +1919,7 @@ impl ::core::fmt::Debug for IOpcSignatureReferenceSet {
         f.debug_tuple("IOpcSignatureReferenceSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureReferenceSet {
+unsafe impl ::windows::core::Interface for IOpcSignatureReferenceSet {
     type Vtable = IOpcSignatureReferenceSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureReferenceSet {
@@ -1927,7 +1927,7 @@ impl ::core::clone::Clone for IOpcSignatureReferenceSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureReferenceSet {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureReferenceSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
 }
 #[repr(C)]
@@ -1949,26 +1949,26 @@ impl IOpcSignatureRelationshipReference {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcUri>();
-        (::windows::core::Vtable::vtable(self).GetSourceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSourceUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetDigestMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDigestValue)(::windows::core::Vtable::as_raw(self), digestvalue, count).ok()
+        (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), digestvalue, count).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
         let mut result__ = ::windows::core::zeroed::<OPC_CANONICALIZATION_METHOD>();
-        (::windows::core::Vtable::vtable(self).GetTransformMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTransformMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRelationshipSigningOption(&self) -> ::windows::core::Result<OPC_RELATIONSHIPS_SIGNING_OPTION> {
         let mut result__ = ::windows::core::zeroed::<OPC_RELATIONSHIPS_SIGNING_OPTION>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipSigningOption)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipSigningOption)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRelationshipSelectorEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelectorEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipSelectorEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipSelectorEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReference, ::windows::core::IUnknown);
@@ -1983,7 +1983,7 @@ impl ::core::fmt::Debug for IOpcSignatureRelationshipReference {
         f.debug_tuple("IOpcSignatureRelationshipReference").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureRelationshipReference {
+unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReference {
     type Vtable = IOpcSignatureRelationshipReference_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
@@ -1991,7 +1991,7 @@ impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReference {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureRelationshipReference {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c);
 }
 #[repr(C)]
@@ -2016,21 +2016,21 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MoveNext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MovePrevious(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).MovePrevious)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReference> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReference>();
-        (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, ::windows::core::IUnknown);
@@ -2045,7 +2045,7 @@ impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceEnumerator {
         f.debug_tuple("IOpcSignatureRelationshipReferenceEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureRelationshipReferenceEnumerator {
+unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceEnumerator {
     type Vtable = IOpcSignatureRelationshipReferenceEnumerator_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
@@ -2053,7 +2053,7 @@ impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceEnumerator {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureRelationshipReferenceEnumerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x773ba3e4_f021_48e4_aa04_9816db5d3495);
 }
 #[repr(C)]
@@ -2079,26 +2079,26 @@ impl IOpcSignatureRelationshipReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1, P2>(&self, sourceuri: P0, digestmethod: P1, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: P2, transformmethod: OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<IOpcSignatureRelationshipReference>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcUri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<IOpcRelationshipSelectorSet>>,
+        P0: ::windows::core::IntoParam<IOpcUri>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<IOpcRelationshipSelectorSet>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReference>();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), sourceuri.into().abi(), digestmethod.into().abi(), relationshipsigningoption, selectorset.into().abi(), transformmethod, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), sourceuri.into_param().abi(), digestmethod.into_param().abi(), relationshipsigningoption, selectorset.into_param().abi(), transformmethod, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRelationshipSelectorSet(&self) -> ::windows::core::Result<IOpcRelationshipSelectorSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcRelationshipSelectorSet>();
-        (::windows::core::Vtable::vtable(self).CreateRelationshipSelectorSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateRelationshipSelectorSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, relationshipreference: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcSignatureRelationshipReference>>,
+        P0: ::windows::core::IntoParam<IOpcSignatureRelationshipReference>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), relationshipreference.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), relationshipreference.into_param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReferenceEnumerator>();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceSet, ::windows::core::IUnknown);
@@ -2113,7 +2113,7 @@ impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceSet {
         f.debug_tuple("IOpcSignatureRelationshipReferenceSet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSignatureRelationshipReferenceSet {
+unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceSet {
     type Vtable = IOpcSignatureRelationshipReferenceSet_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
@@ -2121,7 +2121,7 @@ impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSignatureRelationshipReferenceSet {
+unsafe impl ::windows::core::ComInterface for IOpcSignatureRelationshipReferenceSet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f863ca5_3631_404c_828d_807e0715069b);
 }
 #[repr(C)]
@@ -2142,81 +2142,81 @@ pub struct IOpcSigningOptions(::windows::core::IUnknown);
 impl IOpcSigningOptions {
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSignatureId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSignatureId<P0>(&self, signatureid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetSignatureId)(::windows::core::Vtable::as_raw(self), signatureid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSignatureId)(::windows::core::Interface::as_raw(self), signatureid.into_param().abi()).ok()
     }
     pub unsafe fn GetSignatureMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetSignatureMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSignatureMethod<P0>(&self, signaturemethod: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetSignatureMethod)(::windows::core::Vtable::as_raw(self), signaturemethod.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSignatureMethod)(::windows::core::Interface::as_raw(self), signaturemethod.into_param().abi()).ok()
     }
     pub unsafe fn GetDefaultDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetDefaultDigestMethod)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDefaultDigestMethod<P0>(&self, digestmethod: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetDefaultDigestMethod)(::windows::core::Vtable::as_raw(self), digestmethod.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultDigestMethod)(::windows::core::Interface::as_raw(self), digestmethod.into_param().abi()).ok()
     }
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> ::windows::core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {
         let mut result__ = ::windows::core::zeroed::<OPC_CERTIFICATE_EMBEDDING_OPTION>();
-        (::windows::core::Vtable::vtable(self).GetCertificateEmbeddingOption)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateEmbeddingOption)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCertificateEmbeddingOption(&self, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCertificateEmbeddingOption)(::windows::core::Vtable::as_raw(self), embeddingoption).ok()
+        (::windows::core::Interface::vtable(self).SetCertificateEmbeddingOption)(::windows::core::Interface::as_raw(self), embeddingoption).ok()
     }
     pub unsafe fn GetTimeFormat(&self) -> ::windows::core::Result<OPC_SIGNATURE_TIME_FORMAT> {
         let mut result__ = ::windows::core::zeroed::<OPC_SIGNATURE_TIME_FORMAT>();
-        (::windows::core::Vtable::vtable(self).GetTimeFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTimeFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTimeFormat(&self, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTimeFormat)(::windows::core::Vtable::as_raw(self), timeformat).ok()
+        (::windows::core::Interface::vtable(self).SetTimeFormat)(::windows::core::Interface::as_raw(self), timeformat).ok()
     }
     pub unsafe fn GetSignaturePartReferenceSet(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignaturePartReferenceSet>();
-        (::windows::core::Vtable::vtable(self).GetSignaturePartReferenceSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignaturePartReferenceSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSignatureRelationshipReferenceSet(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureRelationshipReferenceSet>();
-        (::windows::core::Vtable::vtable(self).GetSignatureRelationshipReferenceSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignatureRelationshipReferenceSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCustomObjectSet(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureCustomObjectSet>();
-        (::windows::core::Vtable::vtable(self).GetCustomObjectSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCustomObjectSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCustomReferenceSet(&self) -> ::windows::core::Result<IOpcSignatureReferenceSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcSignatureReferenceSet>();
-        (::windows::core::Vtable::vtable(self).GetCustomReferenceSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCustomReferenceSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCertificateSet(&self) -> ::windows::core::Result<IOpcCertificateSet> {
         let mut result__ = ::windows::core::zeroed::<IOpcCertificateSet>();
-        (::windows::core::Vtable::vtable(self).GetCertificateSet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCertificateSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetSignaturePartName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSignaturePartName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignaturePartName<P0>(&self, signaturepartname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
-        (::windows::core::Vtable::vtable(self).SetSignaturePartName)(::windows::core::Vtable::as_raw(self), signaturepartname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSignaturePartName)(::windows::core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOpcSigningOptions, ::windows::core::IUnknown);
@@ -2231,7 +2231,7 @@ impl ::core::fmt::Debug for IOpcSigningOptions {
         f.debug_tuple("IOpcSigningOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOpcSigningOptions {
+unsafe impl ::windows::core::Interface for IOpcSigningOptions {
     type Vtable = IOpcSigningOptions_Vtbl;
 }
 impl ::core::clone::Clone for IOpcSigningOptions {
@@ -2239,7 +2239,7 @@ impl ::core::clone::Clone for IOpcSigningOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOpcSigningOptions {
+unsafe impl ::windows::core::ComInterface for IOpcSigningOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e);
 }
 #[repr(C)]
@@ -2279,176 +2279,176 @@ impl IOpcUri {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyBSTR)(::windows::core::Vtable::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyLength)(::windows::core::Vtable::as_raw(self), uriprop, pcchproperty, dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop, pcchproperty, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyDWORD)(::windows::core::Vtable::as_raw(self), uriprop, pdwproperty, dwflags).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop, pdwproperty, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HasProperty(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.HasProperty)(::windows::core::Vtable::as_raw(self), uriprop, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.HasProperty)(::windows::core::Interface::as_raw(self), uriprop, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAbsoluteUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetAbsoluteUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAbsoluteUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAuthority(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetAuthority)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAuthority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDisplayUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDisplayUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDomain(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetDomain)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDomain)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtension(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetExtension)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetExtension)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFragment(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetFragment)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFragment)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHost(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetHost)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetHost)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPassword(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetPassword)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPassword)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPathAndQuery(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetPathAndQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPathAndQuery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuery(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetQuery)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetQuery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRawUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetRawUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRawUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSchemeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetSchemeName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSchemeName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUserInfo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetUserInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUserInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUserName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.GetUserName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHostType(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.GetHostType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetHostType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPort(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.GetPort)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScheme(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.GetScheme)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetScheme)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetZone(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.GetZone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetZone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetProperties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), puri.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), puri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> ::windows::core::Result<IOpcPartUri> {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).GetRelationshipsPartUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelationshipsPartUri)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<P0>(&self, targetparturi: P0) -> ::windows::core::Result<super::super::super::System::Com::IUri>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOpcPartUri>>,
+        P0: ::windows::core::IntoParam<IOpcPartUri>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IUri>();
-        (::windows::core::Vtable::vtable(self).GetRelativeUri)(::windows::core::Vtable::as_raw(self), targetparturi.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRelativeUri)(::windows::core::Interface::as_raw(self), targetparturi.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<P0>(&self, relativeuri: P0) -> ::windows::core::Result<IOpcPartUri>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IUri>>,
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IUri>,
     {
         let mut result__ = ::windows::core::zeroed::<IOpcPartUri>();
-        (::windows::core::Vtable::vtable(self).CombinePartUri)(::windows::core::Vtable::as_raw(self), relativeuri.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CombinePartUri)(::windows::core::Interface::as_raw(self), relativeuri.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2468,7 +2468,7 @@ impl ::core::fmt::Debug for IOpcUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IOpcUri {
+unsafe impl ::windows::core::Interface for IOpcUri {
     type Vtable = IOpcUri_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2478,7 +2478,7 @@ impl ::core::clone::Clone for IOpcUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IOpcUri {
+unsafe impl ::windows::core::ComInterface for IOpcUri {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc9c1b9b_d62c_49eb_aef0_3b4e0b28ebed);
 }
 #[cfg(feature = "Win32_System_Com")]

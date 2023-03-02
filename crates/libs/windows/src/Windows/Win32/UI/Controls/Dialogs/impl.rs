@@ -33,7 +33,7 @@ impl IPrintDialogCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDialogCallback as ::windows::core::Interface>::IID
+        iid == &<IPrintDialogCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -71,6 +71,6 @@ impl IPrintDialogServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDialogServices as ::windows::core::Interface>::IID
+        iid == &<IPrintDialogServices as ::windows::core::ComInterface>::IID
     }
 }

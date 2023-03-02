@@ -13,6 +13,6 @@ impl INotificationActivationCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INotificationActivationCallback as ::windows::core::Interface>::IID
+        iid == &<INotificationActivationCallback as ::windows::core::ComInterface>::IID
     }
 }

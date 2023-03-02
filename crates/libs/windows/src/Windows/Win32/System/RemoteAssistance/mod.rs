@@ -21,7 +21,7 @@ impl ::core::fmt::Debug for DRendezvousSessionEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for DRendezvousSessionEvents {
+unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEvents_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for DRendezvousSessionEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
+unsafe impl ::windows::core::ComInterface for DRendezvousSessionEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -46,9 +46,9 @@ pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
     pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).SetRendezvousSession)(::windows::core::Vtable::as_raw(self), prendezvoussession.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRendezvousSession)(::windows::core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IRendezvousApplication, ::windows::core::IUnknown);
@@ -63,7 +63,7 @@ impl ::core::fmt::Debug for IRendezvousApplication {
         f.debug_tuple("IRendezvousApplication").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IRendezvousApplication {
+unsafe impl ::windows::core::Interface for IRendezvousApplication {
     type Vtable = IRendezvousApplication_Vtbl;
 }
 impl ::core::clone::Clone for IRendezvousApplication {
@@ -71,7 +71,7 @@ impl ::core::clone::Clone for IRendezvousApplication {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRendezvousApplication {
+unsafe impl ::windows::core::ComInterface for IRendezvousApplication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
 }
 #[repr(C)]
@@ -86,21 +86,21 @@ pub struct IRendezvousSession(::windows::core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> ::windows::core::Result<RENDEZVOUS_SESSION_STATE> {
         let mut result__ = ::windows::core::zeroed::<RENDEZVOUS_SESSION_STATE>();
-        (::windows::core::Vtable::vtable(self).State)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoteUser(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).RemoteUser)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RemoteUser)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).Flags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendContextData(&self, bstrdata: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SendContextData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdata)).ok()
+        (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdata)).ok()
     }
     pub unsafe fn Terminate(&self, hr: ::windows::core::HRESULT, bstrappdata: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute_copy(bstrappdata)).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), hr, ::core::mem::transmute_copy(bstrappdata)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IRendezvousSession, ::windows::core::IUnknown);
@@ -115,7 +115,7 @@ impl ::core::fmt::Debug for IRendezvousSession {
         f.debug_tuple("IRendezvousSession").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IRendezvousSession {
+unsafe impl ::windows::core::Interface for IRendezvousSession {
     type Vtable = IRendezvousSession_Vtbl;
 }
 impl ::core::clone::Clone for IRendezvousSession {
@@ -123,7 +123,7 @@ impl ::core::clone::Clone for IRendezvousSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRendezvousSession {
+unsafe impl ::windows::core::ComInterface for IRendezvousSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 }
 #[repr(C)]

@@ -3,60 +3,60 @@
 #[inline]
 pub unsafe fn CfCloseHandle<P0>(filehandle: P0)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfCloseHandle ( filehandle : super::super::Foundation:: HANDLE ) -> ( ) );
-    CfCloseHandle(filehandle.into())
+    CfCloseHandle(filehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, connectflags: CF_CONNECT_FLAGS) -> ::windows::core::Result<CF_CONNECTION_KEY>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfConnectSyncRoot ( syncrootpath : :: windows::core::PCWSTR , callbacktable : *const CF_CALLBACK_REGISTRATION , callbackcontext : *const ::core::ffi::c_void , connectflags : CF_CONNECT_FLAGS , connectionkey : *mut CF_CONNECTION_KEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<CF_CONNECTION_KEY>();
-    CfConnectSyncRoot(syncrootpath.into().abi(), callbacktable, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, &mut result__).from_abi(result__)
+    CfConnectSyncRoot(syncrootpath.into_param().abi(), callbacktable, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfConvertToPlaceholder<P0>(filehandle: P0, fileidentity: ::core::option::Option<*const ::core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfConvertToPlaceholder ( filehandle : super::super::Foundation:: HANDLE , fileidentity : *const ::core::ffi::c_void , fileidentitylength : u32 , convertflags : CF_CONVERT_FLAGS , convertusn : *mut i64 , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    CfConvertToPlaceholder(filehandle.into(), ::core::mem::transmute(fileidentity.unwrap_or(::std::ptr::null())), fileidentitylength, convertflags, ::core::mem::transmute(convertusn.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfConvertToPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fileidentity.unwrap_or(::std::ptr::null())), fileidentitylength, convertflags, ::core::mem::transmute(convertusn.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
 pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfCreatePlaceholders ( basedirectorypath : :: windows::core::PCWSTR , placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO , placeholdercount : u32 , createflags : CF_CREATE_FLAGS , entriesprocessed : *mut u32 ) -> :: windows::core::HRESULT );
-    CfCreatePlaceholders(basedirectorypath.into().abi(), ::core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len() as _, createflags, ::core::mem::transmute(entriesprocessed.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len() as _, createflags, ::core::mem::transmute(entriesprocessed.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfDehydratePlaceholder<P0>(filehandle: P0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfDehydratePlaceholder ( filehandle : super::super::Foundation:: HANDLE , startingoffset : i64 , length : i64 , dehydrateflags : CF_DEHYDRATE_FLAGS , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    CfDehydratePlaceholder(filehandle.into(), startingoffset, length, dehydrateflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfDehydratePlaceholder(filehandle.into_param().abi(), startingoffset, length, dehydrateflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot<P0>(connectionkey: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<CF_CONNECTION_KEY>,
+    P0: ::windows::core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfDisconnectSyncRoot ( connectionkey : CF_CONNECTION_KEY ) -> :: windows::core::HRESULT );
-    CfDisconnectSyncRoot(connectionkey.into()).ok()
+    CfDisconnectSyncRoot(connectionkey.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
@@ -70,30 +70,30 @@ pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPER
 #[inline]
 pub unsafe fn CfGetCorrelationVector<P0>(filehandle: P0, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetCorrelationVector ( filehandle : super::super::Foundation:: HANDLE , correlationvector : *mut super::super::System::CorrelationVector:: CORRELATION_VECTOR ) -> :: windows::core::HRESULT );
-    CfGetCorrelationVector(filehandle.into(), correlationvector).ok()
+    CfGetCorrelationVector(filehandle.into_param().abi(), correlationvector).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderInfo<P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetPlaceholderInfo ( filehandle : super::super::Foundation:: HANDLE , infoclass : CF_PLACEHOLDER_INFO_CLASS , infobuffer : *mut ::core::ffi::c_void , infobufferlength : u32 , returnedlength : *mut u32 ) -> :: windows::core::HRESULT );
-    CfGetPlaceholderInfo(filehandle.into(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetPlaceholderInfo(filehandle.into_param().abi(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfo<P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetPlaceholderRangeInfo ( filehandle : super::super::Foundation:: HANDLE , infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS , startingoffset : i64 , length : i64 , infobuffer : *mut ::core::ffi::c_void , infobufferlength : u32 , returnedlength : *mut u32 ) -> :: windows::core::HRESULT );
-    CfGetPlaceholderRangeInfo(filehandle.into(), infoclass, startingoffset, length, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetPlaceholderRangeInfo(filehandle.into_param().abi(), infoclass, startingoffset, length, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -127,199 +127,199 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByHandle<P0>(filehandle: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetSyncRootInfoByHandle ( filehandle : super::super::Foundation:: HANDLE , infoclass : CF_SYNC_ROOT_INFO_CLASS , infobuffer : *mut ::core::ffi::c_void , infobufferlength : u32 , returnedlength : *mut u32 ) -> :: windows::core::HRESULT );
-    CfGetSyncRootInfoByHandle(filehandle.into(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetSyncRootInfoByHandle(filehandle.into_param().abi(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByPath<P0>(filepath: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetSyncRootInfoByPath ( filepath : :: windows::core::PCWSTR , infoclass : CF_SYNC_ROOT_INFO_CLASS , infobuffer : *mut ::core::ffi::c_void , infobufferlength : u32 , returnedlength : *mut u32 ) -> :: windows::core::HRESULT );
-    CfGetSyncRootInfoByPath(filepath.into().abi(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetSyncRootInfoByPath(filepath.into_param().abi(), infoclass, infobuffer, infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetTransferKey<P0>(filehandle: P0) -> ::windows::core::Result<i64>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetTransferKey ( filehandle : super::super::Foundation:: HANDLE , transferkey : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<i64>();
-    CfGetTransferKey(filehandle.into(), &mut result__).from_abi(result__)
+    CfGetTransferKey(filehandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetWin32HandleFromProtectedHandle<P0>(protectedhandle: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfGetWin32HandleFromProtectedHandle ( protectedhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
-    CfGetWin32HandleFromProtectedHandle(protectedhandle.into())
+    CfGetWin32HandleFromProtectedHandle(protectedhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfHydratePlaceholder<P0>(filehandle: P0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfHydratePlaceholder ( filehandle : super::super::Foundation:: HANDLE , startingoffset : i64 , length : i64 , hydrateflags : CF_HYDRATE_FLAGS , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    CfHydratePlaceholder(filehandle.into(), startingoffset, length, hydrateflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfHydratePlaceholder(filehandle.into_param().abi(), startingoffset, length, hydrateflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<P0>(filepath: P0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfOpenFileWithOplock ( filepath : :: windows::core::PCWSTR , flags : CF_OPEN_FILE_FLAGS , protectedhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
-    CfOpenFileWithOplock(filepath.into().abi(), flags, &mut result__).from_abi(result__)
+    CfOpenFileWithOplock(filepath.into_param().abi(), flags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfQuerySyncProviderStatus<P0>(connectionkey: P0) -> ::windows::core::Result<CF_SYNC_PROVIDER_STATUS>
 where
-    P0: ::std::convert::Into<CF_CONNECTION_KEY>,
+    P0: ::windows::core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfQuerySyncProviderStatus ( connectionkey : CF_CONNECTION_KEY , providerstatus : *mut CF_SYNC_PROVIDER_STATUS ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<CF_SYNC_PROVIDER_STATUS>();
-    CfQuerySyncProviderStatus(connectionkey.into(), &mut result__).from_abi(result__)
+    CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReferenceProtectedHandle<P0>(protectedhandle: P0) -> super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReferenceProtectedHandle ( protectedhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
-    CfReferenceProtectedHandle(protectedhandle.into())
+    CfReferenceProtectedHandle(protectedhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfRegisterSyncRoot<P0>(syncrootpath: P0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfRegisterSyncRoot ( syncrootpath : :: windows::core::PCWSTR , registration : *const CF_SYNC_REGISTRATION , policies : *const CF_SYNC_POLICIES , registerflags : CF_REGISTER_FLAGS ) -> :: windows::core::HRESULT );
-    CfRegisterSyncRoot(syncrootpath.into().abi(), registration, policies, registerflags).ok()
+    CfRegisterSyncRoot(syncrootpath.into_param().abi(), registration, policies, registerflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseProtectedHandle<P0>(protectedhandle: P0)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReleaseProtectedHandle ( protectedhandle : super::super::Foundation:: HANDLE ) -> ( ) );
-    CfReleaseProtectedHandle(protectedhandle.into())
+    CfReleaseProtectedHandle(protectedhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseTransferKey<P0>(filehandle: P0) -> i64
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReleaseTransferKey ( filehandle : super::super::Foundation:: HANDLE , transferkey : *mut i64 ) -> ( ) );
     let mut result__ = ::windows::core::zeroed::<i64>();
-    CfReleaseTransferKey(filehandle.into(), &mut result__);
+    CfReleaseTransferKey(filehandle.into_param().abi(), &mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress<P0>(connectionkey: P0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<CF_CONNECTION_KEY>,
+    P0: ::windows::core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReportProviderProgress ( connectionkey : CF_CONNECTION_KEY , transferkey : i64 , providerprogresstotal : i64 , providerprogresscompleted : i64 ) -> :: windows::core::HRESULT );
-    CfReportProviderProgress(connectionkey.into(), transferkey, providerprogresstotal, providerprogresscompleted).ok()
+    CfReportProviderProgress(connectionkey.into_param().abi(), transferkey, providerprogresstotal, providerprogresscompleted).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress2<P0>(connectionkey: P0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<CF_CONNECTION_KEY>,
+    P0: ::windows::core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReportProviderProgress2 ( connectionkey : CF_CONNECTION_KEY , transferkey : i64 , requestkey : i64 , providerprogresstotal : i64 , providerprogresscompleted : i64 , targetsessionid : u32 ) -> :: windows::core::HRESULT );
-    CfReportProviderProgress2(connectionkey.into(), transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid).ok()
+    CfReportProviderProgress2(connectionkey.into_param().abi(), transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: ::core::option::Option<*const CF_SYNC_STATUS>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfReportSyncStatus ( syncrootpath : :: windows::core::PCWSTR , syncstatus : *const CF_SYNC_STATUS ) -> :: windows::core::HRESULT );
-    CfReportSyncStatus(syncrootpath.into().abi(), ::core::mem::transmute(syncstatus.unwrap_or(::std::ptr::null()))).ok()
+    CfReportSyncStatus(syncrootpath.into_param().abi(), ::core::mem::transmute(syncstatus.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfRevertPlaceholder<P0>(filehandle: P0, revertflags: CF_REVERT_FLAGS, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfRevertPlaceholder ( filehandle : super::super::Foundation:: HANDLE , revertflags : CF_REVERT_FLAGS , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    CfRevertPlaceholder(filehandle.into(), revertflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfRevertPlaceholder(filehandle.into_param().abi(), revertflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfSetCorrelationVector<P0>(filehandle: P0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfSetCorrelationVector ( filehandle : super::super::Foundation:: HANDLE , correlationvector : *const super::super::System::CorrelationVector:: CORRELATION_VECTOR ) -> :: windows::core::HRESULT );
-    CfSetCorrelationVector(filehandle.into(), correlationvector).ok()
+    CfSetCorrelationVector(filehandle.into_param().abi(), correlationvector).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfSetInSyncState<P0>(filehandle: P0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: ::core::option::Option<*mut i64>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfSetInSyncState ( filehandle : super::super::Foundation:: HANDLE , insyncstate : CF_IN_SYNC_STATE , insyncflags : CF_SET_IN_SYNC_FLAGS , insyncusn : *mut i64 ) -> :: windows::core::HRESULT );
-    CfSetInSyncState(filehandle.into(), insyncstate, insyncflags, ::core::mem::transmute(insyncusn.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfSetInSyncState(filehandle.into_param().abi(), insyncstate, insyncflags, ::core::mem::transmute(insyncusn.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfSetPinState<P0>(filehandle: P0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfSetPinState ( filehandle : super::super::Foundation:: HANDLE , pinstate : CF_PIN_STATE , pinflags : CF_SET_PIN_FLAGS , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    CfSetPinState(filehandle.into(), pinstate, pinflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfSetPinState(filehandle.into_param().abi(), pinstate, pinflags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfUnregisterSyncRoot<P0>(syncrootpath: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfUnregisterSyncRoot ( syncrootpath : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    CfUnregisterSyncRoot(syncrootpath.into().abi()).ok()
+    CfUnregisterSyncRoot(syncrootpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfUpdatePlaceholder<P0>(filehandle: P0, fsmetadata: ::core::option::Option<*const CF_FS_METADATA>, fileidentity: ::core::option::Option<*const ::core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: ::core::option::Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfUpdatePlaceholder ( filehandle : super::super::Foundation:: HANDLE , fsmetadata : *const CF_FS_METADATA , fileidentity : *const ::core::ffi::c_void , fileidentitylength : u32 , dehydraterangearray : *const CF_FILE_RANGE , dehydraterangecount : u32 , updateflags : CF_UPDATE_FLAGS , updateusn : *mut i64 , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
     CfUpdatePlaceholder(
-        filehandle.into(),
+        filehandle.into_param().abi(),
         ::core::mem::transmute(fsmetadata.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(fileidentity.unwrap_or(::std::ptr::null())),
         fileidentitylength,
@@ -335,10 +335,10 @@ where
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus<P0>(connectionkey: P0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<CF_CONNECTION_KEY>,
+    P0: ::windows::core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows::imp::link ! ( "cldapi.dll""system" fn CfUpdateSyncProviderStatus ( connectionkey : CF_CONNECTION_KEY , providerstatus : CF_SYNC_PROVIDER_STATUS ) -> :: windows::core::HRESULT );
-    CfUpdateSyncProviderStatus(connectionkey.into(), providerstatus).ok()
+    CfUpdateSyncProviderStatus(connectionkey.into_param().abi(), providerstatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
@@ -3703,11 +3703,6 @@ impl ::core::marker::Copy for CF_CONNECTION_KEY {}
 impl ::core::fmt::Debug for CF_CONNECTION_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CONNECTION_KEY").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<CF_CONNECTION_KEY>> for CF_CONNECTION_KEY {
-    fn from(optional: ::core::option::Option<CF_CONNECTION_KEY>) -> CF_CONNECTION_KEY {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for CF_CONNECTION_KEY {

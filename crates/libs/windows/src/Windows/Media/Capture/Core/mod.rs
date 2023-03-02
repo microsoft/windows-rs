@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVariablePhotoCapturedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVariablePhotoCapturedEventArgs {
+unsafe impl ::windows::core::Interface for IVariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IVariablePhotoCapturedEventArgs {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IVariablePhotoCapturedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVariablePhotoCapturedEventArgs {
+unsafe impl ::windows::core::ComInterface for IVariablePhotoCapturedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
 #[repr(C)]
@@ -30,7 +30,7 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVariablePhotoSequenceCapture(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVariablePhotoSequenceCapture {
+unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;
 }
 impl ::core::clone::Clone for IVariablePhotoSequenceCapture {
@@ -38,7 +38,7 @@ impl ::core::clone::Clone for IVariablePhotoSequenceCapture {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture {
+unsafe impl ::windows::core::ComInterface for IVariablePhotoSequenceCapture {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 }
 #[repr(C)]
@@ -77,7 +77,7 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVariablePhotoSequenceCapture2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVariablePhotoSequenceCapture2 {
+unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture2 {
     type Vtable = IVariablePhotoSequenceCapture2_Vtbl;
 }
 impl ::core::clone::Clone for IVariablePhotoSequenceCapture2 {
@@ -85,7 +85,7 @@ impl ::core::clone::Clone for IVariablePhotoSequenceCapture2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture2 {
+unsafe impl ::windows::core::ComInterface for IVariablePhotoSequenceCapture2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 }
 #[repr(C)]
@@ -105,7 +105,7 @@ impl VariablePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::CapturedFrame>();
-            (::windows::core::Vtable::vtable(this).Frame)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -114,7 +114,7 @@ impl VariablePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).CaptureTimeOffset)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -123,14 +123,14 @@ impl VariablePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<u32>>();
-            (::windows::core::Vtable::vtable(this).UsedFrameControllerIndex)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UsedFrameControllerIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CapturedFrameControlValues(&self) -> ::windows::core::Result<super::CapturedFrameControlValues> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::CapturedFrameControlValues>();
-            (::windows::core::Vtable::vtable(this).CapturedFrameControlValues)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CapturedFrameControlValues)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -153,11 +153,11 @@ impl ::core::clone::Clone for VariablePhotoCapturedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for VariablePhotoCapturedEventArgs {
+unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
-    const IID: ::windows::core::GUID = <IVariablePhotoCapturedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for VariablePhotoCapturedEventArgs {
+    const IID: ::windows::core::GUID = <IVariablePhotoCapturedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
@@ -175,7 +175,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StartAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -184,7 +184,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StopAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StopAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -193,7 +193,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).FinishAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -202,14 +202,14 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PhotoCaptured)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhotoCaptured)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePhotoCaptured(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePhotoCaptured)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePhotoCaptured)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -217,22 +217,22 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateSettingsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IVariablePhotoSequenceCapture2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).UpdateSettingsAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateSettingsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -255,11 +255,11 @@ impl ::core::clone::Clone for VariablePhotoSequenceCapture {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for VariablePhotoSequenceCapture {
+unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;
 }
-unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
-    const IID: ::windows::core::GUID = <IVariablePhotoSequenceCapture as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for VariablePhotoSequenceCapture {
+    const IID: ::windows::core::GUID = <IVariablePhotoSequenceCapture as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";

@@ -19,7 +19,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRadialControllerConfigurationInterop as ::windows::core::Interface>::IID
+        iid == &<IRadialControllerConfigurationInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -43,7 +43,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRadialControllerIndependentInputSourceInterop as ::windows::core::Interface>::IID
+        iid == &<IRadialControllerIndependentInputSourceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -67,6 +67,6 @@ impl IRadialControllerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRadialControllerInterop as ::windows::core::Interface>::IID
+        iid == &<IRadialControllerInterop as ::windows::core::ComInterface>::IID
     }
 }

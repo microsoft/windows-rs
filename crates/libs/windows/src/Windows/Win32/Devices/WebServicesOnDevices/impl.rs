@@ -26,7 +26,7 @@ impl IWSDAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDAddress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -44,7 +44,7 @@ impl IWSDAsyncCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDAsyncCallback as ::windows::core::Interface>::IID
+        iid == &<IWSDAsyncCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -122,7 +122,7 @@ impl IWSDAsyncResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDAsyncResult as ::windows::core::Interface>::IID
+        iid == &<IWSDAsyncResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -133,7 +133,7 @@ impl IWSDAttachment_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDAttachment as ::windows::core::Interface>::IID
+        iid == &<IWSDAttachment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -234,7 +234,7 @@ impl IWSDDeviceHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDDeviceHost as ::windows::core::Interface>::IID
+        iid == &<IWSDDeviceHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -258,7 +258,7 @@ impl IWSDDeviceHostNotify_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDDeviceHostNotify as ::windows::core::Interface>::IID
+        iid == &<IWSDDeviceHostNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -390,7 +390,7 @@ impl IWSDDeviceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDDeviceProxy as ::windows::core::Interface>::IID
+        iid == &<IWSDDeviceProxy as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -474,7 +474,7 @@ impl IWSDEndpointProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDEndpointProxy as ::windows::core::Interface>::IID
+        iid == &<IWSDEndpointProxy as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -509,7 +509,7 @@ impl IWSDEventingStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDEventingStatus as ::windows::core::Interface>::IID
+        iid == &<IWSDEventingStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -560,7 +560,7 @@ impl IWSDHttpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDHttpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDHttpAddress as ::windows::core::ComInterface>::IID || iid == &<IWSDAddress as ::windows::core::ComInterface>::IID || iid == &<IWSDTransportAddress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -603,7 +603,7 @@ impl IWSDHttpAuthParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDHttpAuthParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDHttpAuthParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -704,7 +704,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDHttpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDHttpMessageParameters as ::windows::core::ComInterface>::IID || iid == &<IWSDMessageParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -728,7 +728,7 @@ impl IWSDInboundAttachment_Vtbl {
         Self { base__: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDInboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
+        iid == &<IWSDInboundAttachment as ::windows::core::ComInterface>::IID || iid == &<IWSDAttachment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -795,7 +795,7 @@ impl IWSDMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDMessageParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -819,7 +819,7 @@ impl IWSDMetadataExchange_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMetadata: GetMetadata::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
+        iid == &<IWSDMetadataExchange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -860,7 +860,7 @@ impl IWSDOutboundAttachment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDOutboundAttachment as ::windows::core::Interface>::IID || iid == &<IWSDAttachment as ::windows::core::Interface>::IID
+        iid == &<IWSDOutboundAttachment as ::windows::core::ComInterface>::IID || iid == &<IWSDAttachment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
@@ -903,7 +903,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDSSLClientCertificate as ::windows::core::Interface>::IID
+        iid == &<IWSDSSLClientCertificate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -946,7 +946,7 @@ impl IWSDScopeMatchingRule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDScopeMatchingRule as ::windows::core::Interface>::IID
+        iid == &<IWSDScopeMatchingRule as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -974,7 +974,7 @@ impl IWSDServiceMessaging_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDServiceMessaging as ::windows::core::Interface>::IID
+        iid == &<IWSDServiceMessaging as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1061,7 +1061,7 @@ impl IWSDServiceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID
+        iid == &<IWSDServiceProxy as ::windows::core::ComInterface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1186,7 +1186,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDServiceProxyEventing as ::windows::core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::Interface>::IID || iid == &<IWSDServiceProxy as ::windows::core::Interface>::IID
+        iid == &<IWSDServiceProxyEventing as ::windows::core::ComInterface>::IID || iid == &<IWSDMetadataExchange as ::windows::core::ComInterface>::IID || iid == &<IWSDServiceProxy as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1250,7 +1250,7 @@ impl IWSDSignatureProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDSignatureProperty as ::windows::core::Interface>::IID
+        iid == &<IWSDSignatureProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1320,7 +1320,7 @@ impl IWSDTransportAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDTransportAddress as ::windows::core::ComInterface>::IID || iid == &<IWSDAddress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"implement\"`*"]
@@ -1425,7 +1425,7 @@ impl IWSDUdpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDUdpAddress as ::windows::core::Interface>::IID || iid == &<IWSDAddress as ::windows::core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows::core::Interface>::IID
+        iid == &<IWSDUdpAddress as ::windows::core::ComInterface>::IID || iid == &<IWSDAddress as ::windows::core::ComInterface>::IID || iid == &<IWSDTransportAddress as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1453,7 +1453,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDUdpMessageParameters as ::windows::core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows::core::Interface>::IID
+        iid == &<IWSDUdpMessageParameters as ::windows::core::ComInterface>::IID || iid == &<IWSDMessageParameters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1495,7 +1495,7 @@ impl IWSDXMLContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDXMLContext as ::windows::core::Interface>::IID
+        iid == &<IWSDXMLContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1646,7 +1646,7 @@ impl IWSDiscoveredService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDiscoveredService as ::windows::core::Interface>::IID
+        iid == &<IWSDiscoveredService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1715,7 +1715,7 @@ impl IWSDiscoveryProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDiscoveryProvider as ::windows::core::Interface>::IID
+        iid == &<IWSDiscoveryProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1757,7 +1757,7 @@ impl IWSDiscoveryProviderNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDiscoveryProviderNotify as ::windows::core::Interface>::IID
+        iid == &<IWSDiscoveryProviderNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1917,7 +1917,7 @@ impl IWSDiscoveryPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDiscoveryPublisher as ::windows::core::Interface>::IID
+        iid == &<IWSDiscoveryPublisher as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
@@ -1945,6 +1945,6 @@ impl IWSDiscoveryPublisherNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWSDiscoveryPublisherNotify as ::windows::core::Interface>::IID
+        iid == &<IWSDiscoveryPublisherNotify as ::windows::core::ComInterface>::IID
     }
 }

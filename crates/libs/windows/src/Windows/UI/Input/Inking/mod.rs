@@ -7,7 +7,7 @@ pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributes {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributes {
@@ -15,7 +15,7 @@ impl ::core::clone::Clone for IInkDrawingAttributes {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributes {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
 #[repr(C)]
@@ -42,7 +42,7 @@ pub struct IInkDrawingAttributes_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributes2 {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributes2 {
     type Vtable = IInkDrawingAttributes2_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributes2 {
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for IInkDrawingAttributes2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributes2 {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributes2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
 }
 #[repr(C)]
@@ -71,7 +71,7 @@ pub struct IInkDrawingAttributes2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributes3 {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributes3 {
     type Vtable = IInkDrawingAttributes3_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributes3 {
@@ -79,7 +79,7 @@ impl ::core::clone::Clone for IInkDrawingAttributes3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributes3 {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributes3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72020002_7d5b_4690_8af4_e664cbe2b74f);
 }
 #[repr(C)]
@@ -92,7 +92,7 @@ pub struct IInkDrawingAttributes3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributes4 {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributes4 {
     type Vtable = IInkDrawingAttributes4_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributes4 {
@@ -100,7 +100,7 @@ impl ::core::clone::Clone for IInkDrawingAttributes4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributes4 {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributes4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
 }
 #[repr(C)]
@@ -113,7 +113,7 @@ pub struct IInkDrawingAttributes4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributes5 {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributes5 {
     type Vtable = IInkDrawingAttributes5_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributes5 {
@@ -121,7 +121,7 @@ impl ::core::clone::Clone for IInkDrawingAttributes5 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributes5 {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributes5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
 }
 #[repr(C)]
@@ -133,7 +133,7 @@ pub struct IInkDrawingAttributes5_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributesPencilProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributesPencilProperties {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributesPencilProperties {
@@ -141,7 +141,7 @@ impl ::core::clone::Clone for IInkDrawingAttributesPencilProperties {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributesPencilProperties {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributesPencilProperties {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ pub struct IInkDrawingAttributesPencilProperties_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkDrawingAttributesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkDrawingAttributesStatics {
+unsafe impl ::windows::core::Interface for IInkDrawingAttributesStatics {
     type Vtable = IInkDrawingAttributesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IInkDrawingAttributesStatics {
@@ -162,7 +162,7 @@ impl ::core::clone::Clone for IInkDrawingAttributesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkDrawingAttributesStatics {
+unsafe impl ::windows::core::ComInterface for IInkDrawingAttributesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
 }
 #[repr(C)]
@@ -174,7 +174,7 @@ pub struct IInkDrawingAttributesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkInputConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkInputConfiguration {
+unsafe impl ::windows::core::Interface for IInkInputConfiguration {
     type Vtable = IInkInputConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IInkInputConfiguration {
@@ -182,7 +182,7 @@ impl ::core::clone::Clone for IInkInputConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkInputConfiguration {
+unsafe impl ::windows::core::ComInterface for IInkInputConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 }
 #[repr(C)]
@@ -197,7 +197,7 @@ pub struct IInkInputConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkInputConfiguration2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkInputConfiguration2 {
+unsafe impl ::windows::core::Interface for IInkInputConfiguration2 {
     type Vtable = IInkInputConfiguration2_Vtbl;
 }
 impl ::core::clone::Clone for IInkInputConfiguration2 {
@@ -205,7 +205,7 @@ impl ::core::clone::Clone for IInkInputConfiguration2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkInputConfiguration2 {
+unsafe impl ::windows::core::ComInterface for IInkInputConfiguration2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
 }
 #[repr(C)]
@@ -218,7 +218,7 @@ pub struct IInkInputConfiguration2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkInputProcessingConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkInputProcessingConfiguration {
+unsafe impl ::windows::core::Interface for IInkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IInkInputProcessingConfiguration {
@@ -226,7 +226,7 @@ impl ::core::clone::Clone for IInkInputProcessingConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkInputProcessingConfiguration {
+unsafe impl ::windows::core::ComInterface for IInkInputProcessingConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 }
 #[repr(C)]
@@ -241,7 +241,7 @@ pub struct IInkInputProcessingConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkManager {
+unsafe impl ::windows::core::Interface for IInkManager {
     type Vtable = IInkManager_Vtbl;
 }
 impl ::core::clone::Clone for IInkManager {
@@ -249,7 +249,7 @@ impl ::core::clone::Clone for IInkManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkManager {
+unsafe impl ::windows::core::ComInterface for IInkManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 }
 #[repr(C)]
@@ -273,7 +273,7 @@ pub struct IInkManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkModelerAttributes(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkModelerAttributes {
+unsafe impl ::windows::core::Interface for IInkModelerAttributes {
     type Vtable = IInkModelerAttributes_Vtbl;
 }
 impl ::core::clone::Clone for IInkModelerAttributes {
@@ -281,7 +281,7 @@ impl ::core::clone::Clone for IInkModelerAttributes {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkModelerAttributes {
+unsafe impl ::windows::core::ComInterface for IInkModelerAttributes {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
 #[repr(C)]
@@ -302,7 +302,7 @@ pub struct IInkModelerAttributes_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkModelerAttributes2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkModelerAttributes2 {
+unsafe impl ::windows::core::Interface for IInkModelerAttributes2 {
     type Vtable = IInkModelerAttributes2_Vtbl;
 }
 impl ::core::clone::Clone for IInkModelerAttributes2 {
@@ -310,7 +310,7 @@ impl ::core::clone::Clone for IInkModelerAttributes2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkModelerAttributes2 {
+unsafe impl ::windows::core::ComInterface for IInkModelerAttributes2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
 }
 #[repr(C)]
@@ -323,7 +323,7 @@ pub struct IInkModelerAttributes2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPoint(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPoint {
+unsafe impl ::windows::core::Interface for IInkPoint {
     type Vtable = IInkPoint_Vtbl;
 }
 impl ::core::clone::Clone for IInkPoint {
@@ -331,7 +331,7 @@ impl ::core::clone::Clone for IInkPoint {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPoint {
+unsafe impl ::windows::core::ComInterface for IInkPoint {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
 }
 #[repr(C)]
@@ -347,7 +347,7 @@ pub struct IInkPoint_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPoint2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPoint2 {
+unsafe impl ::windows::core::Interface for IInkPoint2 {
     type Vtable = IInkPoint2_Vtbl;
 }
 impl ::core::clone::Clone for IInkPoint2 {
@@ -355,7 +355,7 @@ impl ::core::clone::Clone for IInkPoint2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPoint2 {
+unsafe impl ::windows::core::ComInterface for IInkPoint2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
 }
 #[repr(C)]
@@ -376,7 +376,7 @@ impl IInkPointFactory {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPoint>();
-            (::windows::core::Vtable::vtable(this).CreateInkPoint)(::windows::core::Vtable::as_raw(this), position, pressure, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInkPoint)(::windows::core::Interface::as_raw(this), position, pressure, &mut result__).from_abi(result__)
         }
     }
 }
@@ -395,7 +395,7 @@ impl ::core::fmt::Debug for IInkPointFactory {
 impl ::windows::core::RuntimeType for IInkPointFactory {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
 }
-unsafe impl ::windows::core::Vtable for IInkPointFactory {
+unsafe impl ::windows::core::Interface for IInkPointFactory {
     type Vtable = IInkPointFactory_Vtbl;
 }
 impl ::core::clone::Clone for IInkPointFactory {
@@ -403,7 +403,7 @@ impl ::core::clone::Clone for IInkPointFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPointFactory {
+unsafe impl ::windows::core::ComInterface for IInkPointFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
 }
 #[repr(C)]
@@ -418,7 +418,7 @@ pub struct IInkPointFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPointFactory2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPointFactory2 {
+unsafe impl ::windows::core::Interface for IInkPointFactory2 {
     type Vtable = IInkPointFactory2_Vtbl;
 }
 impl ::core::clone::Clone for IInkPointFactory2 {
@@ -426,7 +426,7 @@ impl ::core::clone::Clone for IInkPointFactory2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPointFactory2 {
+unsafe impl ::windows::core::ComInterface for IInkPointFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0145e85_daff_45f2_ad69_050d8256a209);
 }
 #[repr(C)]
@@ -441,7 +441,7 @@ pub struct IInkPointFactory2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenter {
+unsafe impl ::windows::core::Interface for IInkPresenter {
     type Vtable = IInkPresenter_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenter {
@@ -449,7 +449,7 @@ impl ::core::clone::Clone for IInkPresenter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenter {
+unsafe impl ::windows::core::ComInterface for IInkPresenter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
 }
 #[repr(C)]
@@ -495,7 +495,7 @@ pub struct IInkPresenter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenter2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenter2 {
+unsafe impl ::windows::core::Interface for IInkPresenter2 {
     type Vtable = IInkPresenter2_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenter2 {
@@ -503,7 +503,7 @@ impl ::core::clone::Clone for IInkPresenter2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenter2 {
+unsafe impl ::windows::core::ComInterface for IInkPresenter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 }
 #[repr(C)]
@@ -516,7 +516,7 @@ pub struct IInkPresenter2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenter3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenter3 {
+unsafe impl ::windows::core::Interface for IInkPresenter3 {
     type Vtable = IInkPresenter3_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenter3 {
@@ -524,7 +524,7 @@ impl ::core::clone::Clone for IInkPresenter3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenter3 {
+unsafe impl ::windows::core::ComInterface for IInkPresenter3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
 }
 #[repr(C)]
@@ -536,7 +536,7 @@ pub struct IInkPresenter3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenterProtractor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenterProtractor {
+unsafe impl ::windows::core::Interface for IInkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterProtractor {
@@ -544,7 +544,7 @@ impl ::core::clone::Clone for IInkPresenterProtractor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterProtractor {
+unsafe impl ::windows::core::ComInterface for IInkPresenterProtractor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 }
 #[repr(C)]
@@ -569,7 +569,7 @@ pub struct IInkPresenterProtractor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenterProtractorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenterProtractorFactory {
+unsafe impl ::windows::core::Interface for IInkPresenterProtractorFactory {
     type Vtable = IInkPresenterProtractorFactory_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterProtractorFactory {
@@ -577,7 +577,7 @@ impl ::core::clone::Clone for IInkPresenterProtractorFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterProtractorFactory {
+unsafe impl ::windows::core::ComInterface for IInkPresenterProtractorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320103c9_68fa_47e9_8127_8370711fc46c);
 }
 #[repr(C)]
@@ -589,7 +589,7 @@ pub struct IInkPresenterProtractorFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenterRuler(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenterRuler {
+unsafe impl ::windows::core::Interface for IInkPresenterRuler {
     type Vtable = IInkPresenterRuler_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterRuler {
@@ -597,7 +597,7 @@ impl ::core::clone::Clone for IInkPresenterRuler {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterRuler {
+unsafe impl ::windows::core::ComInterface for IInkPresenterRuler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 }
 #[repr(C)]
@@ -612,7 +612,7 @@ pub struct IInkPresenterRuler_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkPresenterRuler2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkPresenterRuler2 {
+unsafe impl ::windows::core::Interface for IInkPresenterRuler2 {
     type Vtable = IInkPresenterRuler2_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterRuler2 {
@@ -620,7 +620,7 @@ impl ::core::clone::Clone for IInkPresenterRuler2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterRuler2 {
+unsafe impl ::windows::core::ComInterface for IInkPresenterRuler2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45130dc1_bc61_44d4_a423_54712ae671c4);
 }
 #[repr(C)]
@@ -640,7 +640,7 @@ impl IInkPresenterRulerFactory {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterRuler>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
         }
     }
 }
@@ -659,7 +659,7 @@ impl ::core::fmt::Debug for IInkPresenterRulerFactory {
 impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
 }
-unsafe impl ::windows::core::Vtable for IInkPresenterRulerFactory {
+unsafe impl ::windows::core::Interface for IInkPresenterRulerFactory {
     type Vtable = IInkPresenterRulerFactory_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterRulerFactory {
@@ -667,7 +667,7 @@ impl ::core::clone::Clone for IInkPresenterRulerFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterRulerFactory {
+unsafe impl ::windows::core::ComInterface for IInkPresenterRulerFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34361beb_9001_4a4b_a690_69dbaf63e501);
 }
 #[repr(C)]
@@ -684,41 +684,41 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterStencilKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetForegroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -726,14 +726,14 @@ impl IInkPresenterStencil {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Matrix3x2>();
-            (::windows::core::Vtable::vtable(this).Transform)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Transform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 ::windows::imp::interface_hierarchy!(IInkPresenterStencil, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -751,7 +751,7 @@ impl ::core::fmt::Debug for IInkPresenterStencil {
 impl ::windows::core::RuntimeType for IInkPresenterStencil {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
 }
-unsafe impl ::windows::core::Vtable for IInkPresenterStencil {
+unsafe impl ::windows::core::Interface for IInkPresenterStencil {
     type Vtable = IInkPresenterStencil_Vtbl;
 }
 impl ::core::clone::Clone for IInkPresenterStencil {
@@ -759,7 +759,7 @@ impl ::core::clone::Clone for IInkPresenterStencil {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterStencil {
+unsafe impl ::windows::core::ComInterface for IInkPresenterStencil {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 }
 #[repr(C)]
@@ -785,7 +785,7 @@ pub struct IInkPresenterStencil_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkRecognitionResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkRecognitionResult {
+unsafe impl ::windows::core::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
 }
 impl ::core::clone::Clone for IInkRecognitionResult {
@@ -793,7 +793,7 @@ impl ::core::clone::Clone for IInkRecognitionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkRecognitionResult {
+unsafe impl ::windows::core::ComInterface for IInkRecognitionResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
 #[repr(C)]
@@ -816,7 +816,7 @@ pub struct IInkRecognitionResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkRecognizer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkRecognizer {
+unsafe impl ::windows::core::Interface for IInkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
 }
 impl ::core::clone::Clone for IInkRecognizer {
@@ -824,7 +824,7 @@ impl ::core::clone::Clone for IInkRecognizer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkRecognizer {
+unsafe impl ::windows::core::ComInterface for IInkRecognizer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
 }
 #[repr(C)]
@@ -839,7 +839,7 @@ pub struct IInkRecognizerContainer(::windows::core::IUnknown);
 impl IInkRecognizerContainer {
     pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultRecognizer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -847,7 +847,7 @@ impl IInkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -856,7 +856,7 @@ impl IInkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>();
-            (::windows::core::Vtable::vtable(this).GetRecognizers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognizers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -875,7 +875,7 @@ impl ::core::fmt::Debug for IInkRecognizerContainer {
 impl ::windows::core::RuntimeType for IInkRecognizerContainer {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
 }
-unsafe impl ::windows::core::Vtable for IInkRecognizerContainer {
+unsafe impl ::windows::core::Interface for IInkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
 }
 impl ::core::clone::Clone for IInkRecognizerContainer {
@@ -883,7 +883,7 @@ impl ::core::clone::Clone for IInkRecognizerContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkRecognizerContainer {
+unsafe impl ::windows::core::ComInterface for IInkRecognizerContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
 #[repr(C)]
@@ -903,7 +903,7 @@ pub struct IInkRecognizerContainer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStroke(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStroke {
+unsafe impl ::windows::core::Interface for IInkStroke {
     type Vtable = IInkStroke_Vtbl;
 }
 impl ::core::clone::Clone for IInkStroke {
@@ -911,7 +911,7 @@ impl ::core::clone::Clone for IInkStroke {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStroke {
+unsafe impl ::windows::core::ComInterface for IInkStroke {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 }
 #[repr(C)]
@@ -936,7 +936,7 @@ pub struct IInkStroke_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStroke2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStroke2 {
+unsafe impl ::windows::core::Interface for IInkStroke2 {
     type Vtable = IInkStroke2_Vtbl;
 }
 impl ::core::clone::Clone for IInkStroke2 {
@@ -944,7 +944,7 @@ impl ::core::clone::Clone for IInkStroke2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStroke2 {
+unsafe impl ::windows::core::ComInterface for IInkStroke2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
 }
 #[repr(C)]
@@ -967,7 +967,7 @@ pub struct IInkStroke2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStroke3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStroke3 {
+unsafe impl ::windows::core::Interface for IInkStroke3 {
     type Vtable = IInkStroke3_Vtbl;
 }
 impl ::core::clone::Clone for IInkStroke3 {
@@ -975,7 +975,7 @@ impl ::core::clone::Clone for IInkStroke3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStroke3 {
+unsafe impl ::windows::core::ComInterface for IInkStroke3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a807374_9499_411d_a1c4_68855d03d65f);
 }
 #[repr(C)]
@@ -1003,7 +1003,7 @@ pub struct IInkStroke3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStroke4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStroke4 {
+unsafe impl ::windows::core::Interface for IInkStroke4 {
     type Vtable = IInkStroke4_Vtbl;
 }
 impl ::core::clone::Clone for IInkStroke4 {
@@ -1011,7 +1011,7 @@ impl ::core::clone::Clone for IInkStroke4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStroke4 {
+unsafe impl ::windows::core::ComInterface for IInkStroke4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
 }
 #[repr(C)]
@@ -1023,7 +1023,7 @@ pub struct IInkStroke4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeBuilder(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeBuilder {
+unsafe impl ::windows::core::Interface for IInkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeBuilder {
@@ -1031,7 +1031,7 @@ impl ::core::clone::Clone for IInkStrokeBuilder {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeBuilder {
+unsafe impl ::windows::core::ComInterface for IInkStrokeBuilder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 }
 #[repr(C)]
@@ -1050,7 +1050,7 @@ pub struct IInkStrokeBuilder_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeBuilder2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeBuilder2 {
+unsafe impl ::windows::core::Interface for IInkStrokeBuilder2 {
     type Vtable = IInkStrokeBuilder2_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeBuilder2 {
@@ -1058,7 +1058,7 @@ impl ::core::clone::Clone for IInkStrokeBuilder2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeBuilder2 {
+unsafe impl ::windows::core::ComInterface for IInkStrokeBuilder2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
 }
 #[repr(C)]
@@ -1073,7 +1073,7 @@ pub struct IInkStrokeBuilder2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeBuilder3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeBuilder3 {
+unsafe impl ::windows::core::Interface for IInkStrokeBuilder3 {
     type Vtable = IInkStrokeBuilder3_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeBuilder3 {
@@ -1081,7 +1081,7 @@ impl ::core::clone::Clone for IInkStrokeBuilder3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeBuilder3 {
+unsafe impl ::windows::core::ComInterface for IInkStrokeBuilder3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
 }
 #[repr(C)]
@@ -1103,12 +1103,12 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1116,7 +1116,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).DeleteSelected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteSelected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1125,20 +1125,19 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).MoveSelected)(::windows::core::Vtable::as_raw(this), translation, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoveSelected)(::windows::core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithPolyLine)(::windows::core::Vtable::as_raw(this), polyline.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithPolyLine)(::windows::core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1147,12 +1146,12 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithLine)(::windows::core::Vtable::as_raw(this), from, to, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithLine)(::windows::core::Interface::as_raw(this), from, to, &mut result__).from_abi(result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CopySelectedToClipboard)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopySelectedToClipboard)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1160,51 +1159,48 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).PasteFromClipboard)(::windows::core::Vtable::as_raw(this), position, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasteFromClipboard)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanPasteFromClipboard)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanPasteFromClipboard)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncActionWithProgress<u64>>();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateRecognitionResults)(::windows::core::Vtable::as_raw(this), recognitionresults.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateRecognitionResults)(::windows::core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1212,7 +1208,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).GetStrokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStrokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1221,7 +1217,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>();
-            (::windows::core::Vtable::vtable(this).GetRecognitionResults)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognitionResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1240,7 +1236,7 @@ impl ::core::fmt::Debug for IInkStrokeContainer {
 impl ::windows::core::RuntimeType for IInkStrokeContainer {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
 }
-unsafe impl ::windows::core::Vtable for IInkStrokeContainer {
+unsafe impl ::windows::core::Interface for IInkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeContainer {
@@ -1248,7 +1244,7 @@ impl ::core::clone::Clone for IInkStrokeContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeContainer {
+unsafe impl ::windows::core::ComInterface for IInkStrokeContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
 #[repr(C)]
@@ -1306,7 +1302,7 @@ pub struct IInkStrokeContainer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeContainer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeContainer2 {
+unsafe impl ::windows::core::Interface for IInkStrokeContainer2 {
     type Vtable = IInkStrokeContainer2_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeContainer2 {
@@ -1314,7 +1310,7 @@ impl ::core::clone::Clone for IInkStrokeContainer2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeContainer2 {
+unsafe impl ::windows::core::ComInterface for IInkStrokeContainer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8901d364_da36_4bcf_9e5c_d195825995b4);
 }
 #[repr(C)]
@@ -1330,7 +1326,7 @@ pub struct IInkStrokeContainer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeContainer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeContainer3 {
+unsafe impl ::windows::core::Interface for IInkStrokeContainer3 {
     type Vtable = IInkStrokeContainer3_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeContainer3 {
@@ -1338,7 +1334,7 @@ impl ::core::clone::Clone for IInkStrokeContainer3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeContainer3 {
+unsafe impl ::windows::core::ComInterface for IInkStrokeContainer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d07bea5_baea_4c82_a719_7b83da1067d2);
 }
 #[repr(C)]
@@ -1354,7 +1350,7 @@ pub struct IInkStrokeContainer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeInput(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeInput {
+unsafe impl ::windows::core::Interface for IInkStrokeInput {
     type Vtable = IInkStrokeInput_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeInput {
@@ -1362,7 +1358,7 @@ impl ::core::clone::Clone for IInkStrokeInput {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeInput {
+unsafe impl ::windows::core::ComInterface for IInkStrokeInput {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 }
 #[repr(C)]
@@ -1406,7 +1402,7 @@ pub struct IInkStrokeInput_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokeRenderingSegment(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokeRenderingSegment {
+unsafe impl ::windows::core::Interface for IInkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokeRenderingSegment {
@@ -1414,7 +1410,7 @@ impl ::core::clone::Clone for IInkStrokeRenderingSegment {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokeRenderingSegment {
+unsafe impl ::windows::core::ComInterface for IInkStrokeRenderingSegment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
 #[repr(C)]
@@ -1441,7 +1437,7 @@ pub struct IInkStrokeRenderingSegment_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokesCollectedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokesCollectedEventArgs {
+unsafe impl ::windows::core::Interface for IInkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokesCollectedEventArgs {
@@ -1449,7 +1445,7 @@ impl ::core::clone::Clone for IInkStrokesCollectedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokesCollectedEventArgs {
+unsafe impl ::windows::core::ComInterface for IInkStrokesCollectedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
 #[repr(C)]
@@ -1464,7 +1460,7 @@ pub struct IInkStrokesCollectedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkStrokesErasedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkStrokesErasedEventArgs {
+unsafe impl ::windows::core::Interface for IInkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IInkStrokesErasedEventArgs {
@@ -1472,7 +1468,7 @@ impl ::core::clone::Clone for IInkStrokesErasedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkStrokesErasedEventArgs {
+unsafe impl ::windows::core::ComInterface for IInkStrokesErasedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 }
 #[repr(C)]
@@ -1487,7 +1483,7 @@ pub struct IInkStrokesErasedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkSynchronizer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkSynchronizer {
+unsafe impl ::windows::core::Interface for IInkSynchronizer {
     type Vtable = IInkSynchronizer_Vtbl;
 }
 impl ::core::clone::Clone for IInkSynchronizer {
@@ -1495,7 +1491,7 @@ impl ::core::clone::Clone for IInkSynchronizer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkSynchronizer {
+unsafe impl ::windows::core::ComInterface for IInkSynchronizer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
 #[repr(C)]
@@ -1511,7 +1507,7 @@ pub struct IInkSynchronizer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkUnprocessedInput(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkUnprocessedInput {
+unsafe impl ::windows::core::Interface for IInkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_Vtbl;
 }
 impl ::core::clone::Clone for IInkUnprocessedInput {
@@ -1519,7 +1515,7 @@ impl ::core::clone::Clone for IInkUnprocessedInput {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkUnprocessedInput {
+unsafe impl ::windows::core::ComInterface for IInkUnprocessedInput {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 }
 #[repr(C)]
@@ -1587,7 +1583,7 @@ pub struct IInkUnprocessedInput_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenAndInkSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenAndInkSettings {
+unsafe impl ::windows::core::Interface for IPenAndInkSettings {
     type Vtable = IPenAndInkSettings_Vtbl;
 }
 impl ::core::clone::Clone for IPenAndInkSettings {
@@ -1595,7 +1591,7 @@ impl ::core::clone::Clone for IPenAndInkSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenAndInkSettings {
+unsafe impl ::windows::core::ComInterface for IPenAndInkSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
 #[repr(C)]
@@ -1612,7 +1608,7 @@ pub struct IPenAndInkSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenAndInkSettings2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenAndInkSettings2 {
+unsafe impl ::windows::core::Interface for IPenAndInkSettings2 {
     type Vtable = IPenAndInkSettings2_Vtbl;
 }
 impl ::core::clone::Clone for IPenAndInkSettings2 {
@@ -1620,7 +1616,7 @@ impl ::core::clone::Clone for IPenAndInkSettings2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenAndInkSettings2 {
+unsafe impl ::windows::core::ComInterface for IPenAndInkSettings2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3262da53_1f44_55e2_9929_ebf77e5481b8);
 }
 #[repr(C)]
@@ -1632,7 +1628,7 @@ pub struct IPenAndInkSettings2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPenAndInkSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPenAndInkSettingsStatics {
+unsafe impl ::windows::core::Interface for IPenAndInkSettingsStatics {
     type Vtable = IPenAndInkSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPenAndInkSettingsStatics {
@@ -1640,7 +1636,7 @@ impl ::core::clone::Clone for IPenAndInkSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPenAndInkSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IPenAndInkSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed6dd036_5708_5c3c_96db_f2f552eab641);
 }
 #[repr(C)]
@@ -1664,23 +1660,23 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Color)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn PenTip(&self) -> ::windows::core::Result<PenTipShape> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PenTipShape>();
-            (::windows::core::Vtable::vtable(this).PenTip)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PenTip)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPenTip(&self, value: PenTipShape) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPenTip)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenTip)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1688,99 +1684,99 @@ impl InkDrawingAttributes {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSize(&self, value: super::super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IgnorePressure(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IgnorePressure)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnorePressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIgnorePressure(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIgnorePressure)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIgnorePressure)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn FitToCurve(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).FitToCurve)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FitToCurve)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFitToCurve(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFitToCurve)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFitToCurve)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PenTipTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Matrix3x2>();
-            (::windows::core::Vtable::vtable(this).PenTipTransform)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PenTipTransform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPenTipTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPenTipTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPenTipTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DrawAsHighlighter(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).DrawAsHighlighter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DrawAsHighlighter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDrawAsHighlighter(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDrawAsHighlighter)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDrawAsHighlighter)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Kind(&self) -> ::windows::core::Result<InkDrawingAttributesKind> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkDrawingAttributesKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PencilProperties(&self) -> ::windows::core::Result<InkDrawingAttributesPencilProperties> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkDrawingAttributesPencilProperties>();
-            (::windows::core::Vtable::vtable(this).PencilProperties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PencilProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IgnoreTilt(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IgnoreTilt)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnoreTilt)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIgnoreTilt(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes4>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIgnoreTilt)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes4>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIgnoreTilt)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ModelerAttributes(&self) -> ::windows::core::Result<InkModelerAttributes> {
-        let this = &::windows::core::Interface::cast::<IInkDrawingAttributes5>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkDrawingAttributes5>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkModelerAttributes>();
-            (::windows::core::Vtable::vtable(this).ModelerAttributes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ModelerAttributes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateForPencil() -> ::windows::core::Result<InkDrawingAttributes> {
         Self::IInkDrawingAttributesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkDrawingAttributes>();
-            (::windows::core::Vtable::vtable(this).CreateForPencil)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateForPencil)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1808,11 +1804,11 @@ impl ::core::clone::Clone for InkDrawingAttributes {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkDrawingAttributes {
+unsafe impl ::windows::core::Interface for InkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkDrawingAttributes {
-    const IID: ::windows::core::GUID = <IInkDrawingAttributes as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkDrawingAttributes {
+    const IID: ::windows::core::GUID = <IInkDrawingAttributes as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
@@ -1828,12 +1824,12 @@ impl InkDrawingAttributesPencilProperties {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Opacity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Opacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOpacity)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for InkDrawingAttributesPencilProperties {
@@ -1855,11 +1851,11 @@ impl ::core::clone::Clone for InkDrawingAttributesPencilProperties {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkDrawingAttributesPencilProperties {
+unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties {
-    const IID: ::windows::core::GUID = <IInkDrawingAttributesPencilProperties as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkDrawingAttributesPencilProperties {
+    const IID: ::windows::core::GUID = <IInkDrawingAttributesPencilProperties as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
@@ -1875,34 +1871,34 @@ impl InkInputConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPrimaryBarrelButtonInputEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPrimaryBarrelButtonInputEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsPrimaryBarrelButtonInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsPrimaryBarrelButtonInputEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsPrimaryBarrelButtonInputEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsEraserInputEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEraserInputEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEraserInputEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsEraserInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsEraserInputEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEraserInputEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsPenHapticFeedbackEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkInputConfiguration2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkInputConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPenHapticFeedbackEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPenHapticFeedbackEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsPenHapticFeedbackEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkInputConfiguration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsPenHapticFeedbackEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkInputConfiguration2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsPenHapticFeedbackEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for InkInputConfiguration {
@@ -1924,11 +1920,11 @@ impl ::core::clone::Clone for InkInputConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkInputConfiguration {
+unsafe impl ::windows::core::Interface for InkInputConfiguration {
     type Vtable = IInkInputConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkInputConfiguration {
-    const IID: ::windows::core::GUID = <IInkInputConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkInputConfiguration {
+    const IID: ::windows::core::GUID = <IInkInputConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
@@ -1944,23 +1940,23 @@ impl InkInputProcessingConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkInputProcessingMode>();
-            (::windows::core::Vtable::vtable(this).Mode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMode(&self, value: InkInputProcessingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn RightDragAction(&self) -> ::windows::core::Result<InkInputRightDragAction> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkInputRightDragAction>();
-            (::windows::core::Vtable::vtable(this).RightDragAction)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RightDragAction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRightDragAction(&self, value: InkInputRightDragAction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRightDragAction)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRightDragAction)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for InkInputProcessingConfiguration {
@@ -1982,11 +1978,11 @@ impl ::core::clone::Clone for InkInputProcessingConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkInputProcessingConfiguration {
+unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
-    const IID: ::windows::core::GUID = <IInkInputProcessingConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkInputProcessingConfiguration {
+    const IID: ::windows::core::GUID = <IInkInputProcessingConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
@@ -2009,22 +2005,22 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkManipulationMode>();
-            (::windows::core::Vtable::vtable(this).Mode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMode(&self, value: InkManipulationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ProcessPointerDown(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ProcessPointerDown)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ProcessPointerDown)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
     }
     pub fn ProcessPointerUpdate(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
-            (::windows::core::Vtable::vtable(this).ProcessPointerUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessPointerUpdate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2033,12 +2029,12 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).ProcessPointerUp)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProcessPointerUp)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDefaultDrawingAttributes(&self, drawingattributes: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2046,156 +2042,152 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync2)(::windows::core::Vtable::as_raw(this), recognitiontarget, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync2)(::windows::core::Interface::as_raw(this), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
     pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkRecognizerContainer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultRecognizer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecognizeAsync(&self, strokecollection: &InkStrokeContainer, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
-        let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkRecognizerContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognizers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>> {
-        let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkRecognizerContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>();
-            (::windows::core::Vtable::vtable(this).GetRecognizers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognizers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).AddStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteSelected(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).DeleteSelected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteSelected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MoveSelected(&self, translation: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).MoveSelected)(::windows::core::Vtable::as_raw(this), translation, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoveSelected)(::windows::core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithPolyLine)(::windows::core::Vtable::as_raw(this), polyline.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithPolyLine)(::windows::core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithLine)(::windows::core::Vtable::as_raw(this), from, to, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithLine)(::windows::core::Interface::as_raw(this), from, to, &mut result__).from_abi(result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).CopySelectedToClipboard)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).CopySelectedToClipboard)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PasteFromClipboard(&self, position: super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).PasteFromClipboard)(::windows::core::Vtable::as_raw(this), position, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasteFromClipboard)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanPasteFromClipboard)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanPasteFromClipboard)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncActionWithProgress<u64>>();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateRecognitionResults)(::windows::core::Vtable::as_raw(this), recognitionresults.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).UpdateRecognitionResults)(::windows::core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).GetStrokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStrokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecognitionResults(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>();
-            (::windows::core::Vtable::vtable(this).GetRecognitionResults)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognitionResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2218,54 +2210,18 @@ impl ::core::clone::Clone for InkManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkManager {
+unsafe impl ::windows::core::Interface for InkManager {
     type Vtable = IInkManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkManager {
-    const IID: ::windows::core::GUID = <IInkManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkManager {
+    const IID: ::windows::core::GUID = <IInkManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
 }
 ::windows::imp::interface_hierarchy!(InkManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<InkManager> for IInkRecognizerContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkManager) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkManager> for IInkRecognizerContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<IInkRecognizerContainer> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<InkManager> for IInkStrokeContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkManager) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkManager> for IInkStrokeContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkManager> for ::windows::core::InParam<IInkStrokeContainer> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkManager) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IInkRecognizerContainer> for InkManager {}
+impl ::windows::core::CanTryInto<IInkStrokeContainer> for InkManager {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkModelerAttributes(::windows::core::IUnknown);
@@ -2276,36 +2232,36 @@ impl InkModelerAttributes {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).PredictionTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PredictionTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPredictionTime(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPredictionTime)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPredictionTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ScalingFactor(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).ScalingFactor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScalingFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScalingFactor(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetScalingFactor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScalingFactor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn UseVelocityBasedPressure(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkModelerAttributes2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkModelerAttributes2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).UseVelocityBasedPressure)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UseVelocityBasedPressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetUseVelocityBasedPressure(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkModelerAttributes2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUseVelocityBasedPressure)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkModelerAttributes2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetUseVelocityBasedPressure)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for InkModelerAttributes {
@@ -2327,11 +2283,11 @@ impl ::core::clone::Clone for InkModelerAttributes {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkModelerAttributes {
+unsafe impl ::windows::core::Interface for InkModelerAttributes {
     type Vtable = IInkModelerAttributes_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkModelerAttributes {
-    const IID: ::windows::core::GUID = <IInkModelerAttributes as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkModelerAttributes {
+    const IID: ::windows::core::GUID = <IInkModelerAttributes as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
@@ -2349,35 +2305,35 @@ impl InkPoint {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pressure(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).Pressure)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TiltX(&self) -> ::windows::core::Result<f32> {
-        let this = &::windows::core::Interface::cast::<IInkPoint2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPoint2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).TiltX)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TiltX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TiltY(&self) -> ::windows::core::Result<f32> {
-        let this = &::windows::core::Interface::cast::<IInkPoint2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPoint2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).TiltY)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TiltY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
-        let this = &::windows::core::Interface::cast::<IInkPoint2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPoint2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2385,7 +2341,7 @@ impl InkPoint {
     pub fn CreateInkPoint(position: super::super::super::Foundation::Point, pressure: f32) -> ::windows::core::Result<InkPoint> {
         Self::IInkPointFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPoint>();
-            (::windows::core::Vtable::vtable(this).CreateInkPoint)(::windows::core::Vtable::as_raw(this), position, pressure, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInkPoint)(::windows::core::Interface::as_raw(this), position, pressure, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2393,7 +2349,7 @@ impl InkPoint {
     pub fn CreateInkPointWithTiltAndTimestamp(position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64) -> ::windows::core::Result<InkPoint> {
         Self::IInkPointFactory2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPoint>();
-            (::windows::core::Vtable::vtable(this).CreateInkPointWithTiltAndTimestamp)(::windows::core::Vtable::as_raw(this), position, pressure, tiltx, tilty, timestamp, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInkPointWithTiltAndTimestamp)(::windows::core::Interface::as_raw(this), position, pressure, tiltx, tilty, timestamp, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2426,11 +2382,11 @@ impl ::core::clone::Clone for InkPoint {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkPoint {
+unsafe impl ::windows::core::Interface for InkPoint {
     type Vtable = IInkPoint_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkPoint {
-    const IID: ::windows::core::GUID = <IInkPoint as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkPoint {
+    const IID: ::windows::core::GUID = <IInkPoint as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
@@ -2446,12 +2402,12 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsInputEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsInputEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsInputEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsInputEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsInputEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
@@ -2459,68 +2415,68 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreInputDeviceTypes>();
-            (::windows::core::Vtable::vtable(this).InputDeviceTypes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputDeviceTypes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn SetInputDeviceTypes(&self, value: super::super::Core::CoreInputDeviceTypes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInputDeviceTypes)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputDeviceTypes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn UnprocessedInput(&self) -> ::windows::core::Result<InkUnprocessedInput> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkUnprocessedInput>();
-            (::windows::core::Vtable::vtable(this).UnprocessedInput)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnprocessedInput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StrokeInput(&self) -> ::windows::core::Result<InkStrokeInput> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStrokeInput>();
-            (::windows::core::Vtable::vtable(this).StrokeInput)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeInput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InputProcessingConfiguration(&self) -> ::windows::core::Result<InkInputProcessingConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkInputProcessingConfiguration>();
-            (::windows::core::Vtable::vtable(this).InputProcessingConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputProcessingConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StrokeContainer(&self) -> ::windows::core::Result<InkStrokeContainer> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStrokeContainer>();
-            (::windows::core::Vtable::vtable(this).StrokeContainer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeContainer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetStrokeContainer(&self, value: &InkStrokeContainer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStrokeContainer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeContainer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CopyDefaultDrawingAttributes(&self) -> ::windows::core::Result<InkDrawingAttributes> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkDrawingAttributes>();
-            (::windows::core::Vtable::vtable(this).CopyDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CopyDefaultDrawingAttributes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateDefaultDrawingAttributes(&self, value: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateDefaultDrawingAttributes)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ActivateCustomDrying(&self) -> ::windows::core::Result<InkSynchronizer> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkSynchronizer>();
-            (::windows::core::Vtable::vtable(this).ActivateCustomDrying)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActivateCustomDrying)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPredefinedConfiguration(&self, value: InkPresenterPredefinedConfiguration) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPredefinedConfiguration)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPredefinedConfiguration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2528,14 +2484,14 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokesCollected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokesCollected)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokesCollected(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokesCollected)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokesCollected)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2543,31 +2499,31 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokesErased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokesErased)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokesErased(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokesErased)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokesErased)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn HighContrastAdjustment(&self) -> ::windows::core::Result<InkHighContrastAdjustment> {
-        let this = &::windows::core::Interface::cast::<IInkPresenter2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenter2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkHighContrastAdjustment>();
-            (::windows::core::Vtable::vtable(this).HighContrastAdjustment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HighContrastAdjustment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetHighContrastAdjustment(&self, value: InkHighContrastAdjustment) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenter2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetHighContrastAdjustment)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenter2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetHighContrastAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn InputConfiguration(&self) -> ::windows::core::Result<InkInputConfiguration> {
-        let this = &::windows::core::Interface::cast::<IInkPresenter3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenter3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkInputConfiguration>();
-            (::windows::core::Vtable::vtable(this).InputConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InputConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2590,11 +2546,11 @@ impl ::core::clone::Clone for InkPresenter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkPresenter {
+unsafe impl ::windows::core::Interface for InkPresenter {
     type Vtable = IInkPresenter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkPresenter {
-    const IID: ::windows::core::GUID = <IInkPresenter as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkPresenter {
+    const IID: ::windows::core::GUID = <IInkPresenter as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
@@ -2610,139 +2566,139 @@ impl InkPresenterProtractor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreTickMarksVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreTickMarksVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAreTickMarksVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAreTickMarksVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAreTickMarksVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AreRaysVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreRaysVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreRaysVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAreRaysVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAreRaysVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAreRaysVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsCenterMarkerVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCenterMarkerVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCenterMarkerVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsCenterMarkerVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsCenterMarkerVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCenterMarkerVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsAngleReadoutVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAngleReadoutVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAngleReadoutVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsAngleReadoutVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsAngleReadoutVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAngleReadoutVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsResizable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsResizable)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsResizable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsResizable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsResizable)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsResizable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Radius(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Radius)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Radius)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRadius(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRadius)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRadius)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AccentColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).AccentColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AccentColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAccentColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAccentColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccentColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Create(inkpresenter: &InkPresenter) -> ::windows::core::Result<InkPresenterProtractor> {
         Self::IInkPresenterProtractorFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterProtractor>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterStencilKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsVisible(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Color> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Color> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetForegroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Transform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Matrix3x2>();
-            (::windows::core::Vtable::vtable(this).Transform)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Transform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
     pub fn IInkPresenterProtractorFactory<R, F: FnOnce(&IInkPresenterProtractorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2769,35 +2725,17 @@ impl ::core::clone::Clone for InkPresenterProtractor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkPresenterProtractor {
+unsafe impl ::windows::core::Interface for InkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkPresenterProtractor {
-    const IID: ::windows::core::GUID = <IInkPresenterProtractor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkPresenterProtractor {
+    const IID: ::windows::core::GUID = <IInkPresenterProtractor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
 }
 ::windows::imp::interface_hierarchy!(InkPresenterProtractor, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<InkPresenterProtractor> for IInkPresenterStencil {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkPresenterProtractor) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkPresenterProtractor> for IInkPresenterStencil {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkPresenterProtractor) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkPresenterProtractor> for ::windows::core::InParam<IInkPresenterStencil> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkPresenterProtractor) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IInkPresenterStencil> for InkPresenterProtractor {}
 unsafe impl ::core::marker::Send for InkPresenterProtractor {}
 unsafe impl ::core::marker::Sync for InkPresenterProtractor {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2808,106 +2746,106 @@ impl InkPresenterRuler {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Length)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLength)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Width(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWidth(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWidth)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AreTickMarksVisible(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterRuler2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterRuler2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AreTickMarksVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AreTickMarksVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAreTickMarksVisible(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterRuler2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAreTickMarksVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterRuler2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetAreTickMarksVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsCompassVisible(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterRuler2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterRuler2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCompassVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCompassVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsCompassVisible(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterRuler2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsCompassVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterRuler2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCompassVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Create(inkpresenter: &InkPresenter) -> ::windows::core::Result<InkPresenterRuler> {
         Self::IInkPresenterRulerFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterRuler>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenterStencilKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsVisible(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Color> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Color> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Color>();
-            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetForegroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Transform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Matrix3x2>();
-            (::windows::core::Vtable::vtable(this).Transform)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Transform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkPresenterStencil>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkPresenterStencil>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
     pub fn IInkPresenterRulerFactory<R, F: FnOnce(&IInkPresenterRulerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2934,35 +2872,17 @@ impl ::core::clone::Clone for InkPresenterRuler {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkPresenterRuler {
+unsafe impl ::windows::core::Interface for InkPresenterRuler {
     type Vtable = IInkPresenterRuler_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkPresenterRuler {
-    const IID: ::windows::core::GUID = <IInkPresenterRuler as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkPresenterRuler {
+    const IID: ::windows::core::GUID = <IInkPresenterRuler as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
 }
 ::windows::imp::interface_hierarchy!(InkPresenterRuler, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<InkPresenterRuler> for IInkPresenterStencil {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkPresenterRuler) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkPresenterRuler> for IInkPresenterStencil {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkPresenterRuler) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkPresenterRuler> for ::windows::core::InParam<IInkPresenterStencil> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkPresenterRuler) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IInkPresenterStencil> for InkPresenterRuler {}
 unsafe impl ::core::marker::Send for InkPresenterRuler {}
 unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2975,7 +2895,7 @@ impl InkRecognitionResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2984,7 +2904,7 @@ impl InkRecognitionResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetTextCandidates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetTextCandidates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2993,7 +2913,7 @@ impl InkRecognitionResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).GetStrokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStrokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3016,11 +2936,11 @@ impl ::core::clone::Clone for InkRecognitionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkRecognitionResult {
+unsafe impl ::windows::core::Interface for InkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkRecognitionResult {
-    const IID: ::windows::core::GUID = <IInkRecognitionResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkRecognitionResult {
+    const IID: ::windows::core::GUID = <IInkRecognitionResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
@@ -3036,7 +2956,7 @@ impl InkRecognizer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3059,11 +2979,11 @@ impl ::core::clone::Clone for InkRecognizer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkRecognizer {
+unsafe impl ::windows::core::Interface for InkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkRecognizer {
-    const IID: ::windows::core::GUID = <IInkRecognizer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkRecognizer {
+    const IID: ::windows::core::GUID = <IInkRecognizer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
@@ -3082,7 +3002,7 @@ impl InkRecognizerContainer {
     }
     pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultRecognizer)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3090,7 +3010,7 @@ impl InkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3099,7 +3019,7 @@ impl InkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>();
-            (::windows::core::Vtable::vtable(this).GetRecognizers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognizers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3122,35 +3042,17 @@ impl ::core::clone::Clone for InkRecognizerContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkRecognizerContainer {
+unsafe impl ::windows::core::Interface for InkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkRecognizerContainer {
-    const IID: ::windows::core::GUID = <IInkRecognizerContainer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkRecognizerContainer {
+    const IID: ::windows::core::GUID = <IInkRecognizerContainer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
 }
 ::windows::imp::interface_hierarchy!(InkRecognizerContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<InkRecognizerContainer> for IInkRecognizerContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkRecognizerContainer) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkRecognizerContainer> for IInkRecognizerContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkRecognizerContainer) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkRecognizerContainer> for ::windows::core::InParam<IInkRecognizerContainer> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkRecognizerContainer) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IInkRecognizerContainer> for InkRecognizerContainer {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStroke(::windows::core::IUnknown);
@@ -3159,12 +3061,12 @@ impl InkStroke {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkDrawingAttributes>();
-            (::windows::core::Vtable::vtable(this).DrawingAttributes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DrawingAttributes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDrawingAttributes(&self, value: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDrawingAttributes)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3172,25 +3074,25 @@ impl InkStroke {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Selected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Selected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Selected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSelected(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelected)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelected)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Recognized(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Recognized)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Recognized)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3199,90 +3101,88 @@ impl InkStroke {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStrokeRenderingSegment>>();
-            (::windows::core::Vtable::vtable(this).GetRenderingSegments)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRenderingSegments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Clone(&self) -> ::windows::core::Result<InkStroke> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).Clone)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Clone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PointTransform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2> {
-        let this = &::windows::core::Interface::cast::<IInkStroke2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Matrix3x2>();
-            (::windows::core::Vtable::vtable(this).PointTransform)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointTransform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPointTransform(&self, value: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkStroke2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPointTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStroke2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPointTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetInkPoints(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkPoint>> {
-        let this = &::windows::core::Interface::cast::<IInkStroke2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkPoint>>();
-            (::windows::core::Vtable::vtable(this).GetInkPoints)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetInkPoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StrokeStartedTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
-        let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).StrokeStartedTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeStartedTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStrokeStartedTime<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStrokeStartedTime<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStrokeStartedTime)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStroke3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeStartedTime)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StrokeDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>();
-            (::windows::core::Vtable::vtable(this).StrokeDuration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStrokeDuration<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStrokeDuration<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStroke3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStrokeDuration)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStroke3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDuration)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn PointerId(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IInkStroke4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStroke4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).PointerId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3305,11 +3205,11 @@ impl ::core::clone::Clone for InkStroke {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStroke {
+unsafe impl ::windows::core::Interface for InkStroke {
     type Vtable = IInkStroke_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStroke {
-    const IID: ::windows::core::GUID = <IInkStroke as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStroke {
+    const IID: ::windows::core::GUID = <IInkStroke as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
@@ -3330,67 +3230,62 @@ impl InkStrokeBuilder {
     }
     pub fn BeginStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).BeginStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BeginStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
     }
     pub fn AppendToStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<super::PointerPoint> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::PointerPoint>();
-            (::windows::core::Vtable::vtable(this).AppendToStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppendToStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
         }
     }
     pub fn EndStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<InkStroke> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).EndStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EndStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pointerpoint), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateStroke<P0, E0>(&self, points: P0) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStroke<P0>(&self, points: P0) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).CreateStroke)(::windows::core::Vtable::as_raw(this), points.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateStroke)(::windows::core::Interface::as_raw(this), points.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDefaultDrawingAttributes(&self, drawingattributes: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
-    pub fn CreateStrokeFromInkPoints<P0, E0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints<P0>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeBuilder2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeBuilder2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).CreateStrokeFromInkPoints)(::windows::core::Vtable::as_raw(this), inkpoints.try_into().map_err(|e| e.into())?.abi(), transform, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateStrokeFromInkPoints)(::windows::core::Interface::as_raw(this), inkpoints.try_into_param()?.abi(), transform, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
-    pub fn CreateStrokeFromInkPoints2<P0, E0, P1, E1, P2, E2>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P1, strokeduration: P2) -> ::windows::core::Result<InkStroke>
+    pub fn CreateStrokeFromInkPoints2<P0, P1, P2>(&self, inkpoints: P0, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: P1, strokeduration: P2) -> ::windows::core::Result<InkStroke>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<InkPoint>>,
+        P1: ::windows::core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P2: ::windows::core::TryIntoParam<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeBuilder3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeBuilder3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).CreateStrokeFromInkPoints)(::windows::core::Vtable::as_raw(this), inkpoints.try_into().map_err(|e| e.into())?.abi(), transform, strokestartedtime.try_into().map_err(|e| e.into())?.abi(), strokeduration.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateStrokeFromInkPoints)(::windows::core::Interface::as_raw(this), inkpoints.try_into_param()?.abi(), transform, strokestartedtime.try_into_param()?.abi(), strokeduration.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3413,11 +3308,11 @@ impl ::core::clone::Clone for InkStrokeBuilder {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokeBuilder {
+unsafe impl ::windows::core::Interface for InkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokeBuilder {
-    const IID: ::windows::core::GUID = <IInkStrokeBuilder as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokeBuilder {
+    const IID: ::windows::core::GUID = <IInkStrokeBuilder as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
@@ -3440,12 +3335,12 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStroke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3453,7 +3348,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).DeleteSelected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteSelected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3462,20 +3357,19 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).MoveSelected)(::windows::core::Vtable::as_raw(this), translation, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoveSelected)(::windows::core::Interface::as_raw(this), translation, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SelectWithPolyLine<P0, E0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
+    pub fn SelectWithPolyLine<P0>(&self, polyline: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithPolyLine)(::windows::core::Vtable::as_raw(this), polyline.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithPolyLine)(::windows::core::Interface::as_raw(this), polyline.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3484,12 +3378,12 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectWithLine)(::windows::core::Vtable::as_raw(this), from, to, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectWithLine)(::windows::core::Interface::as_raw(this), from, to, &mut result__).from_abi(result__)
         }
     }
     pub fn CopySelectedToClipboard(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CopySelectedToClipboard)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopySelectedToClipboard)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3497,51 +3391,48 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).PasteFromClipboard)(::windows::core::Vtable::as_raw(this), position, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PasteFromClipboard)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn CanPasteFromClipboard(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanPasteFromClipboard)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanPasteFromClipboard)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadAsync<P0, E0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
+    pub fn LoadAsync<P0>(&self, inputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IInputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncActionWithProgress<u64>>();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveAsync<P0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateRecognitionResults<P0, E0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
+    pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateRecognitionResults)(::windows::core::Vtable::as_raw(this), recognitionresults.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateRecognitionResults)(::windows::core::Interface::as_raw(this), recognitionresults.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3549,7 +3440,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).GetStrokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStrokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3558,41 +3449,39 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>();
-            (::windows::core::Vtable::vtable(this).GetRecognitionResults)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRecognitionResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddStrokes<P0, E0>(&self, strokes: P0) -> ::windows::core::Result<()>
+    pub fn AddStrokes<P0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::Collections::IIterable<InkStroke>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<InkStroke>>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStrokes)(::windows::core::Vtable::as_raw(this), strokes.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).AddStrokes)(::windows::core::Interface::as_raw(this), strokes.try_into_param()?.abi()).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Clear)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveWithFormatAsync<P0, E0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveWithFormatAsync<P0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
-            (::windows::core::Vtable::vtable(this).SaveWithFormatAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), inkpersistenceformat, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveWithFormatAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), inkpersistenceformat, &mut result__).from_abi(result__)
         }
     }
     pub fn GetStrokeById(&self, id: u32) -> ::windows::core::Result<InkStroke> {
-        let this = &::windows::core::Interface::cast::<IInkStrokeContainer3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IInkStrokeContainer3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkStroke>();
-            (::windows::core::Vtable::vtable(this).GetStrokeById)(::windows::core::Vtable::as_raw(this), id, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStrokeById)(::windows::core::Interface::as_raw(this), id, &mut result__).from_abi(result__)
         }
     }
 }
@@ -3615,35 +3504,17 @@ impl ::core::clone::Clone for InkStrokeContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokeContainer {
+unsafe impl ::windows::core::Interface for InkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokeContainer {
-    const IID: ::windows::core::GUID = <IInkStrokeContainer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokeContainer {
+    const IID: ::windows::core::GUID = <IInkStrokeContainer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
 }
 ::windows::imp::interface_hierarchy!(InkStrokeContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<InkStrokeContainer> for IInkStrokeContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InkStrokeContainer) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&InkStrokeContainer> for IInkStrokeContainer {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkStrokeContainer) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&InkStrokeContainer> for ::windows::core::InParam<IInkStrokeContainer> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InkStrokeContainer) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IInkStrokeContainer> for InkStrokeContainer {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
 pub struct InkStrokeInput(::windows::core::IUnknown);
@@ -3654,14 +3525,14 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokeStarted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeStarted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeStarted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokeStarted)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokeStarted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -3669,14 +3540,14 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokeContinued)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeContinued)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeContinued(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokeContinued)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokeContinued)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -3684,14 +3555,14 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokeEnded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeEnded)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeEnded(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokeEnded)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokeEnded)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -3699,20 +3570,20 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StrokeCanceled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StrokeCanceled)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStrokeCanceled(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStrokeCanceled)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStrokeCanceled)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn InkPresenter(&self) -> ::windows::core::Result<InkPresenter> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenter>();
-            (::windows::core::Vtable::vtable(this).InkPresenter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InkPresenter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3735,11 +3606,11 @@ impl ::core::clone::Clone for InkStrokeInput {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokeInput {
+unsafe impl ::windows::core::Interface for InkStrokeInput {
     type Vtable = IInkStrokeInput_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokeInput {
-    const IID: ::windows::core::GUID = <IInkStrokeInput as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokeInput {
+    const IID: ::windows::core::GUID = <IInkStrokeInput as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
@@ -3757,7 +3628,7 @@ impl InkStrokeRenderingSegment {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3766,7 +3637,7 @@ impl InkStrokeRenderingSegment {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).BezierControlPoint1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BezierControlPoint1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3775,35 +3646,35 @@ impl InkStrokeRenderingSegment {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Vtable::vtable(this).BezierControlPoint2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BezierControlPoint2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pressure(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).Pressure)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TiltX(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).TiltX)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TiltX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TiltY(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).TiltY)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TiltY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Twist(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).Twist)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Twist)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3826,11 +3697,11 @@ impl ::core::clone::Clone for InkStrokeRenderingSegment {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokeRenderingSegment {
+unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
-    const IID: ::windows::core::GUID = <IInkStrokeRenderingSegment as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokeRenderingSegment {
+    const IID: ::windows::core::GUID = <IInkStrokeRenderingSegment as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
@@ -3848,7 +3719,7 @@ impl InkStrokesCollectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).Strokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Strokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3871,11 +3742,11 @@ impl ::core::clone::Clone for InkStrokesCollectedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokesCollectedEventArgs {
+unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
-    const IID: ::windows::core::GUID = <IInkStrokesCollectedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokesCollectedEventArgs {
+    const IID: ::windows::core::GUID = <IInkStrokesCollectedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
@@ -3891,7 +3762,7 @@ impl InkStrokesErasedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).Strokes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Strokes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3914,11 +3785,11 @@ impl ::core::clone::Clone for InkStrokesErasedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkStrokesErasedEventArgs {
+unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
-    const IID: ::windows::core::GUID = <IInkStrokesErasedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkStrokesErasedEventArgs {
+    const IID: ::windows::core::GUID = <IInkStrokesErasedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
@@ -3934,12 +3805,12 @@ impl InkSynchronizer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<InkStroke>>();
-            (::windows::core::Vtable::vtable(this).BeginDry)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BeginDry)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndDry(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).EndDry)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).EndDry)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for InkSynchronizer {
@@ -3961,11 +3832,11 @@ impl ::core::clone::Clone for InkSynchronizer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkSynchronizer {
+unsafe impl ::windows::core::Interface for InkSynchronizer {
     type Vtable = IInkSynchronizer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkSynchronizer {
-    const IID: ::windows::core::GUID = <IInkSynchronizer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkSynchronizer {
+    const IID: ::windows::core::GUID = <IInkSynchronizer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
@@ -3981,14 +3852,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerEntered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerEntered)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerEntered(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerEntered)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntered)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -3996,14 +3867,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerHovered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerHovered)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerHovered(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerHovered)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerHovered)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -4011,14 +3882,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerExited)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerExited)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerExited(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerExited)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerExited)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -4026,14 +3897,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerPressed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerPressed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerPressed(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerPressed)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressed)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -4041,14 +3912,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerMoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerMoved)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerMoved(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerMoved)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoved)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -4056,14 +3927,14 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerReleased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerReleased)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerReleased(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerReleased)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleased)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -4071,20 +3942,20 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PointerLost)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PointerLost)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePointerLost(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePointerLost)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerLost)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn InkPresenter(&self) -> ::windows::core::Result<InkPresenter> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<InkPresenter>();
-            (::windows::core::Vtable::vtable(this).InkPresenter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InkPresenter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4107,11 +3978,11 @@ impl ::core::clone::Clone for InkUnprocessedInput {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkUnprocessedInput {
+unsafe impl ::windows::core::Interface for InkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkUnprocessedInput {
-    const IID: ::windows::core::GUID = <IInkUnprocessedInput as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkUnprocessedInput {
+    const IID: ::windows::core::GUID = <IInkUnprocessedInput as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
@@ -4127,52 +3998,52 @@ impl PenAndInkSettings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsHandwritingDirectlyIntoTextFieldEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsHandwritingDirectlyIntoTextFieldEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PenHandedness(&self) -> ::windows::core::Result<PenHandedness> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PenHandedness>();
-            (::windows::core::Vtable::vtable(this).PenHandedness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PenHandedness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HandwritingLineHeight(&self) -> ::windows::core::Result<HandwritingLineHeight> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<HandwritingLineHeight>();
-            (::windows::core::Vtable::vtable(this).HandwritingLineHeight)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HandwritingLineHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FontFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FontFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FontFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UserConsentsToHandwritingTelemetryCollection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).UserConsentsToHandwritingTelemetryCollection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UserConsentsToHandwritingTelemetryCollection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTouchHandwritingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsTouchHandwritingEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsTouchHandwritingEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPenHandedness(&self, value: PenHandedness) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPenAndInkSettings2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPenHandedness)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPenAndInkSettings2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPenHandedness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<PenAndInkSettings> {
         Self::IPenAndInkSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PenAndInkSettings>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4200,11 +4071,11 @@ impl ::core::clone::Clone for PenAndInkSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PenAndInkSettings {
+unsafe impl ::windows::core::Interface for PenAndInkSettings {
     type Vtable = IPenAndInkSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PenAndInkSettings {
-    const IID: ::windows::core::GUID = <IPenAndInkSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PenAndInkSettings {
+    const IID: ::windows::core::GUID = <IPenAndInkSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";

@@ -57,7 +57,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDClosedCaptionDataReceivedEventArgs as ::windows::core::Interface>::IID
+        iid == &<INDClosedCaptionDataReceivedEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -106,7 +106,7 @@ impl INDCustomData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDCustomData as ::windows::core::Interface>::IID
+        iid == &<INDCustomData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -216,7 +216,7 @@ impl INDDownloadEngine_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDDownloadEngine as ::windows::core::Interface>::IID
+        iid == &<INDDownloadEngine as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -277,7 +277,7 @@ impl INDDownloadEngineNotifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDDownloadEngineNotifier as ::windows::core::Interface>::IID
+        iid == &<INDDownloadEngineNotifier as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -310,7 +310,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDLicenseFetchCompletedEventArgs as ::windows::core::Interface>::IID
+        iid == &<INDLicenseFetchCompletedEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -379,7 +379,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDLicenseFetchDescriptor as ::windows::core::Interface>::IID
+        iid == &<INDLicenseFetchDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -412,7 +412,7 @@ impl INDLicenseFetchResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDLicenseFetchResult as ::windows::core::Interface>::IID
+        iid == &<INDLicenseFetchResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -487,7 +487,7 @@ impl INDMessenger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDMessenger as ::windows::core::Interface>::IID
+        iid == &<INDMessenger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -520,7 +520,7 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDProximityDetectionCompletedEventArgs as ::windows::core::Interface>::IID
+        iid == &<INDProximityDetectionCompletedEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -588,7 +588,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDRegistrationCompletedEventArgs as ::windows::core::Interface>::IID
+        iid == &<INDRegistrationCompletedEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -619,7 +619,7 @@ impl INDSendResult_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, INDSendResult, OFFSET>(), Response: Response::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDSendResult as ::windows::core::Interface>::IID
+        iid == &<INDSendResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -652,7 +652,7 @@ impl INDStartResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDStartResult as ::windows::core::Interface>::IID
+        iid == &<INDStartResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -682,7 +682,7 @@ impl INDStorageFileHelper_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, INDStorageFileHelper, OFFSET>(), GetFileURLs: GetFileURLs::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDStorageFileHelper as ::windows::core::Interface>::IID
+        iid == &<INDStorageFileHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -750,7 +750,7 @@ impl INDStreamParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDStreamParser as ::windows::core::Interface>::IID
+        iid == &<INDStreamParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -797,7 +797,7 @@ impl INDStreamParserNotifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDStreamParserNotifier as ::windows::core::Interface>::IID
+        iid == &<INDStreamParserNotifier as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -973,7 +973,7 @@ impl INDTransmitterProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INDTransmitterProperties as ::windows::core::Interface>::IID
+        iid == &<INDTransmitterProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1062,7 +1062,7 @@ impl IPlayReadyDomain_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyDomain as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyDomain as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1179,7 +1179,7 @@ impl IPlayReadyLicense_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyLicense as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyLicense as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1240,7 +1240,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyLicenseAcquisitionServiceRequest as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyLicenseAcquisitionServiceRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"implement\"`*"]
@@ -1277,7 +1277,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyLicenseSession as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyLicenseSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -1310,7 +1310,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyLicenseSession2 as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyLicenseSession2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1400,7 +1400,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadySecureStopServiceRequest as ::windows::core::Interface>::IID
+        iid == &<IPlayReadySecureStopServiceRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1531,6 +1531,6 @@ impl IPlayReadyServiceRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayReadyServiceRequest as ::windows::core::Interface>::IID
+        iid == &<IPlayReadyServiceRequest as ::windows::core::ComInterface>::IID
     }
 }

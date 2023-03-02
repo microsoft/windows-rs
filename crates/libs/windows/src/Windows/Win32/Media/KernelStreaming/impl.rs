@@ -23,7 +23,7 @@ impl IKsAggregateControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsAggregateControl as ::windows::core::Interface>::IID
+        iid == &<IKsAggregateControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -58,7 +58,7 @@ impl IKsControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsControl as ::windows::core::Interface>::IID
+        iid == &<IKsControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -95,7 +95,7 @@ impl IKsFormatSupport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsFormatSupport as ::windows::core::Interface>::IID
+        iid == &<IKsFormatSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -119,7 +119,7 @@ impl IKsJackContainerId_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsJackContainerId as ::windows::core::Interface>::IID
+        iid == &<IKsJackContainerId as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -156,7 +156,7 @@ impl IKsJackDescription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsJackDescription as ::windows::core::Interface>::IID
+        iid == &<IKsJackDescription as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -196,7 +196,7 @@ impl IKsJackDescription2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsJackDescription2 as ::windows::core::Interface>::IID
+        iid == &<IKsJackDescription2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -217,7 +217,7 @@ impl IKsJackSinkInformation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsJackSinkInformation as ::windows::core::Interface>::IID
+        iid == &<IKsJackSinkInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -258,7 +258,7 @@ impl IKsPropertySet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsPropertySet as ::windows::core::Interface>::IID
+        iid == &<IKsPropertySet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
@@ -276,6 +276,6 @@ impl IKsTopology_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKsTopology as ::windows::core::Interface>::IID
+        iid == &<IKsTopology as ::windows::core::ComInterface>::IID
     }
 }

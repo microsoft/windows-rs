@@ -6,7 +6,7 @@ impl IDontSupportEventSubscription_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDontSupportEventSubscription as ::windows::core::Interface>::IID
+        iid == &<IDontSupportEventSubscription as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
@@ -54,7 +54,7 @@ impl IEnumEventObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumEventObject as ::windows::core::Interface>::IID
+        iid == &<IEnumEventObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -211,7 +211,7 @@ impl IEventClass_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventClass as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventClass as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -308,7 +308,7 @@ impl IEventClass2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventClass2 as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID || iid == &<IEventClass as ::windows::core::Interface>::IID
+        iid == &<IEventClass2 as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IEventClass as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -378,7 +378,7 @@ impl IEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventControl as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventControl as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
@@ -413,7 +413,7 @@ impl IEventObjectChange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventObjectChange as ::windows::core::Interface>::IID
+        iid == &<IEventObjectChange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
@@ -441,7 +441,7 @@ impl IEventObjectChange2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventObjectChange2 as ::windows::core::Interface>::IID
+        iid == &<IEventObjectChange2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -524,7 +524,7 @@ impl IEventObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventObjectCollection as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventObjectCollection as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -581,7 +581,7 @@ impl IEventProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventProperty as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventProperty as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -738,7 +738,7 @@ impl IEventPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventPublisher as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventPublisher as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1095,7 +1095,7 @@ impl IEventSubscription_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventSubscription as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventSubscription as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1172,7 +1172,7 @@ impl IEventSystem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEventSystem as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IEventSystem as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1193,7 +1193,7 @@ impl IFiringControl_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), FireSubscription: FireSubscription::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFiringControl as ::windows::core::Interface>::IID || iid == &<super::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IFiringControl as ::windows::core::ComInterface>::IID || iid == &<super::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1283,7 +1283,7 @@ impl IMultiInterfaceEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiInterfaceEventControl as ::windows::core::Interface>::IID
+        iid == &<IMultiInterfaceEventControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
@@ -1311,7 +1311,7 @@ impl IMultiInterfacePublisherFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMultiInterfacePublisherFilter as ::windows::core::Interface>::IID
+        iid == &<IMultiInterfacePublisherFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
@@ -1339,6 +1339,6 @@ impl IPublisherFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPublisherFilter as ::windows::core::Interface>::IID
+        iid == &<IPublisherFilter as ::windows::core::ComInterface>::IID
     }
 }

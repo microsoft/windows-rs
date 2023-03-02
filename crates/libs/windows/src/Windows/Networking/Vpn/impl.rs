@@ -18,7 +18,7 @@ impl IVpnChannelStatics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnChannelStatics as ::windows::core::Interface>::IID
+        iid == &<IVpnChannelStatics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
@@ -93,7 +93,7 @@ impl IVpnCredential_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnCredential as ::windows::core::Interface>::IID
+        iid == &<IVpnCredential as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -172,7 +172,7 @@ impl IVpnCustomPrompt_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnCustomPrompt as ::windows::core::Interface>::IID
+        iid == &<IVpnCustomPrompt as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -251,7 +251,7 @@ impl IVpnCustomPromptElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnCustomPromptElement as ::windows::core::Interface>::IID
+        iid == &<IVpnCustomPromptElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -284,7 +284,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnDomainNameInfoFactory as ::windows::core::Interface>::IID
+        iid == &<IVpnDomainNameInfoFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -314,7 +314,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnInterfaceIdFactory as ::windows::core::Interface>::IID
+        iid == &<IVpnInterfaceIdFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -347,7 +347,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnNamespaceInfoFactory as ::windows::core::Interface>::IID
+        iid == &<IVpnNamespaceInfoFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -377,7 +377,7 @@ impl IVpnPacketBufferFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnPacketBufferFactory as ::windows::core::Interface>::IID
+        iid == &<IVpnPacketBufferFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -428,7 +428,7 @@ impl IVpnPlugIn_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnPlugIn as ::windows::core::Interface>::IID
+        iid == &<IVpnPlugIn as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -566,7 +566,7 @@ impl IVpnProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnProfile as ::windows::core::Interface>::IID
+        iid == &<IVpnProfile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
@@ -596,6 +596,6 @@ impl IVpnRouteFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVpnRouteFactory as ::windows::core::Interface>::IID
+        iid == &<IVpnRouteFactory as ::windows::core::ComInterface>::IID
     }
 }

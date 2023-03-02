@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDualSimTile(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDualSimTile {
+unsafe impl ::windows::core::Interface for IDualSimTile {
     type Vtable = IDualSimTile_Vtbl;
 }
 impl ::core::clone::Clone for IDualSimTile {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IDualSimTile {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDualSimTile {
+unsafe impl ::windows::core::ComInterface for IDualSimTile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
 #[repr(C)]
@@ -35,7 +35,7 @@ pub struct IDualSimTile_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDualSimTileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDualSimTileStatics {
+unsafe impl ::windows::core::Interface for IDualSimTileStatics {
     type Vtable = IDualSimTileStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDualSimTileStatics {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for IDualSimTileStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDualSimTileStatics {
+unsafe impl ::windows::core::ComInterface for IDualSimTileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 }
 #[repr(C)]
@@ -90,7 +90,7 @@ impl IToastNotificationManagerStatics3 {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::ToastNotifier>();
-            (::windows::core::Vtable::vtable(this).CreateToastNotifierForSecondaryTile)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
 }
@@ -109,7 +109,7 @@ impl ::core::fmt::Debug for IToastNotificationManagerStatics3 {
 impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
 }
-unsafe impl ::windows::core::Vtable for IToastNotificationManagerStatics3 {
+unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
     type Vtable = IToastNotificationManagerStatics3_Vtbl;
 }
 impl ::core::clone::Clone for IToastNotificationManagerStatics3 {
@@ -117,7 +117,7 @@ impl ::core::clone::Clone for IToastNotificationManagerStatics3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
+unsafe impl ::windows::core::ComInterface for IToastNotificationManagerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 }
 #[repr(C)]
@@ -142,20 +142,20 @@ impl DualSimTile {
     }
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPinnedToStart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPinnedToStart)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPinnedToStart)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -164,7 +164,7 @@ impl DualSimTile {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).CreateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -173,7 +173,7 @@ impl DualSimTile {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).UpdateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -182,13 +182,13 @@ impl DualSimTile {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).DeleteAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetTileForSim2() -> ::windows::core::Result<DualSimTile> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DualSimTile>();
-            (::windows::core::Vtable::vtable(this).GetTileForSim2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetTileForSim2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -196,7 +196,7 @@ impl DualSimTile {
     pub fn UpdateDisplayNameForSim1Async(name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).UpdateDisplayNameForSim1Async)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateDisplayNameForSim1Async)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -204,7 +204,7 @@ impl DualSimTile {
     pub fn CreateTileUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::TileUpdater>();
-            (::windows::core::Vtable::vtable(this).CreateTileUpdaterForSim1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSim1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -212,7 +212,7 @@ impl DualSimTile {
     pub fn CreateTileUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::TileUpdater>();
-            (::windows::core::Vtable::vtable(this).CreateTileUpdaterForSim2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateTileUpdaterForSim2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -220,7 +220,7 @@ impl DualSimTile {
     pub fn CreateBadgeUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::BadgeUpdater>();
-            (::windows::core::Vtable::vtable(this).CreateBadgeUpdaterForSim1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSim1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -228,7 +228,7 @@ impl DualSimTile {
     pub fn CreateBadgeUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::BadgeUpdater>();
-            (::windows::core::Vtable::vtable(this).CreateBadgeUpdaterForSim2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSim2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -236,7 +236,7 @@ impl DualSimTile {
     pub fn CreateToastNotifierForSim1() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::ToastNotifier>();
-            (::windows::core::Vtable::vtable(this).CreateToastNotifierForSim1)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierForSim1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -244,7 +244,7 @@ impl DualSimTile {
     pub fn CreateToastNotifierForSim2() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Notifications::ToastNotifier>();
-            (::windows::core::Vtable::vtable(this).CreateToastNotifierForSim2)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierForSim2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -272,11 +272,11 @@ impl ::core::clone::Clone for DualSimTile {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DualSimTile {
+unsafe impl ::windows::core::Interface for DualSimTile {
     type Vtable = IDualSimTile_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DualSimTile {
-    const IID: ::windows::core::GUID = <IDualSimTile as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DualSimTile {
+    const IID: ::windows::core::GUID = <IDualSimTile as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";

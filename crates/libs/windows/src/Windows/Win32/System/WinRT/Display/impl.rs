@@ -38,7 +38,7 @@ impl IDisplayDeviceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDisplayDeviceInterop as ::windows::core::Interface>::IID
+        iid == &<IDisplayDeviceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -81,6 +81,6 @@ impl IDisplayPathInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDisplayPathInterop as ::windows::core::Interface>::IID
+        iid == &<IDisplayPathInterop as ::windows::core::ComInterface>::IID
     }
 }

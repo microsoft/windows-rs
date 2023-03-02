@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataAvailabilityStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataAvailabilityStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataAvailabilityStateChangedEventArgs {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IUserDataAvailabilityStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataAvailabilityStateChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataAvailabilityStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataBufferUnprotectResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataBufferUnprotectResult {
+unsafe impl ::windows::core::Interface for IUserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataBufferUnprotectResult {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IUserDataBufferUnprotectResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataBufferUnprotectResult {
+unsafe impl ::windows::core::ComInterface for IUserDataBufferUnprotectResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 }
 #[repr(C)]
@@ -48,7 +48,7 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataProtectionManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataProtectionManager {
+unsafe impl ::windows::core::Interface for IUserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataProtectionManager {
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for IUserDataProtectionManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataProtectionManager {
+unsafe impl ::windows::core::ComInterface for IUserDataProtectionManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
 }
 #[repr(C)]
@@ -92,7 +92,7 @@ pub struct IUserDataProtectionManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataProtectionManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataProtectionManagerStatics {
+unsafe impl ::windows::core::Interface for IUserDataProtectionManagerStatics {
     type Vtable = IUserDataProtectionManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataProtectionManagerStatics {
@@ -100,7 +100,7 @@ impl ::core::clone::Clone for IUserDataProtectionManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataProtectionManagerStatics {
+unsafe impl ::windows::core::ComInterface for IUserDataProtectionManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977780e8_6dce_4fae_af85_782ac2cf4572);
 }
 #[repr(C)]
@@ -116,7 +116,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataStorageItemProtectionInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataStorageItemProtectionInfo {
+unsafe impl ::windows::core::Interface for IUserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataStorageItemProtectionInfo {
@@ -124,7 +124,7 @@ impl ::core::clone::Clone for IUserDataStorageItemProtectionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataStorageItemProtectionInfo {
+unsafe impl ::windows::core::ComInterface for IUserDataStorageItemProtectionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 }
 #[repr(C)]
@@ -143,7 +143,7 @@ impl UserDataAvailabilityStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -166,11 +166,11 @@ impl ::core::clone::Clone for UserDataAvailabilityStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataAvailabilityStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataAvailabilityStateChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataAvailabilityStateChangedEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataAvailabilityStateChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
@@ -186,7 +186,7 @@ impl UserDataBufferUnprotectResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataBufferUnprotectStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -195,7 +195,7 @@ impl UserDataBufferUnprotectResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
-            (::windows::core::Vtable::vtable(this).UnprotectedBuffer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnprotectedBuffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -218,11 +218,11 @@ impl ::core::clone::Clone for UserDataBufferUnprotectResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataBufferUnprotectResult {
+unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
-    const IID: ::windows::core::GUID = <IUserDataBufferUnprotectResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataBufferUnprotectResult {
+    const IID: ::windows::core::GUID = <IUserDataBufferUnprotectResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
@@ -236,61 +236,57 @@ pub struct UserDataProtectionManager(::windows::core::IUnknown);
 impl UserDataProtectionManager {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ProtectStorageItemAsync<P0, E0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
+    pub fn ProtectStorageItemAsync<P0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageItem>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>();
-            (::windows::core::Vtable::vtable(this).ProtectStorageItemAsync)(::windows::core::Vtable::as_raw(this), storageitem.try_into().map_err(|e| e.into())?.abi(), availability, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProtectStorageItemAsync)(::windows::core::Interface::as_raw(this), storageitem.try_into_param()?.abi(), availability, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn GetStorageItemProtectionInfoAsync<P0, E0>(&self, storageitem: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
+    pub fn GetStorageItemProtectionInfoAsync<P0>(&self, storageitem: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageItem>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>();
-            (::windows::core::Vtable::vtable(this).GetStorageItemProtectionInfoAsync)(::windows::core::Vtable::as_raw(this), storageitem.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::windows::core::Interface::as_raw(this), storageitem.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProtectBufferAsync<P0, E0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectBufferAsync<P0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>();
-            (::windows::core::Vtable::vtable(this).ProtectBufferAsync)(::windows::core::Vtable::as_raw(this), unprotectedbuffer.try_into().map_err(|e| e.into())?.abi(), availability, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProtectBufferAsync)(::windows::core::Interface::as_raw(this), unprotectedbuffer.try_into_param()?.abi(), availability, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UnprotectBufferAsync<P0, E0>(&self, protectedbuffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
+    pub fn UnprotectBufferAsync<P0>(&self, protectedbuffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>();
-            (::windows::core::Vtable::vtable(this).UnprotectBufferAsync)(::windows::core::Vtable::as_raw(this), protectedbuffer.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnprotectBufferAsync)(::windows::core::Interface::as_raw(this), protectedbuffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsContinuedDataAvailabilityExpected)(::windows::core::Vtable::as_raw(this), availability, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(::windows::core::Interface::as_raw(this), availability, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -299,19 +295,19 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).DataAvailabilityStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DataAvailabilityStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataAvailabilityStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveDataAvailabilityStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataAvailabilityStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn TryGetDefault() -> ::windows::core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataProtectionManager>();
-            (::windows::core::Vtable::vtable(this).TryGetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryGetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -319,7 +315,7 @@ impl UserDataProtectionManager {
     pub fn TryGetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataProtectionManager>();
-            (::windows::core::Vtable::vtable(this).TryGetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryGetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -347,11 +343,11 @@ impl ::core::clone::Clone for UserDataProtectionManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataProtectionManager {
+unsafe impl ::windows::core::Interface for UserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataProtectionManager {
-    const IID: ::windows::core::GUID = <IUserDataProtectionManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataProtectionManager {
+    const IID: ::windows::core::GUID = <IUserDataProtectionManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
@@ -367,7 +363,7 @@ impl UserDataStorageItemProtectionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataAvailability>();
-            (::windows::core::Vtable::vtable(this).Availability)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Availability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -390,11 +386,11 @@ impl ::core::clone::Clone for UserDataStorageItemProtectionInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataStorageItemProtectionInfo {
+unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
-    const IID: ::windows::core::GUID = <IUserDataStorageItemProtectionInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataStorageItemProtectionInfo {
+    const IID: ::windows::core::GUID = <IUserDataStorageItemProtectionInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";

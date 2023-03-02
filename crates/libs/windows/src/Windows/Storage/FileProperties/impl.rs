@@ -56,6 +56,6 @@ impl IStorageItemExtraProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemExtraProperties as ::windows::core::Interface>::IID
+        iid == &<IStorageItemExtraProperties as ::windows::core::ComInterface>::IID
     }
 }

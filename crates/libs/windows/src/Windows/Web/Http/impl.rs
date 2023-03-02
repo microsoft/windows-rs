@@ -112,6 +112,6 @@ impl IHttpContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHttpContent as ::windows::core::Interface>::IID
+        iid == &<IHttpContent as ::windows::core::ComInterface>::IID
     }
 }

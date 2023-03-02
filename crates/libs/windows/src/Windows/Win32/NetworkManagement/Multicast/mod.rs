@@ -15,10 +15,10 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 #[inline]
 pub unsafe fn McastEnumerateScopes<P0>(addrfamily: u16, requery: P0, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "dhcpcsvc.dll""system" fn McastEnumerateScopes ( addrfamily : u16 , requery : super::super::Foundation:: BOOL , pscopelist : *mut MCAST_SCOPE_ENTRY , pscopelen : *mut u32 , pscopecount : *mut u32 ) -> u32 );
-    McastEnumerateScopes(addrfamily, requery.into(), pscopelist, pscopelen, pscopecount)
+    McastEnumerateScopes(addrfamily, requery.into_param().abi(), pscopelist, pscopelen, pscopecount)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]

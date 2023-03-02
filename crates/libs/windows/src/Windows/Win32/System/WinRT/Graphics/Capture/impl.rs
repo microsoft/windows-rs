@@ -26,6 +26,6 @@ impl IGraphicsCaptureItemInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGraphicsCaptureItemInterop as ::windows::core::Interface>::IID
+        iid == &<IGraphicsCaptureItemInterop as ::windows::core::ComInterface>::IID
     }
 }

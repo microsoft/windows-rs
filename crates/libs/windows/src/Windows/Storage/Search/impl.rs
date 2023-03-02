@@ -91,7 +91,7 @@ impl IIndexableContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndexableContent as ::windows::core::Interface>::IID
+        iid == &<IIndexableContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -348,7 +348,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolderQueryOperations as ::windows::core::Interface>::IID
+        iid == &<IStorageFolderQueryOperations as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -472,6 +472,6 @@ impl IStorageQueryResultBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageQueryResultBase as ::windows::core::Interface>::IID
+        iid == &<IStorageQueryResultBase as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofence(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeofence {
+unsafe impl ::windows::core::Interface for IGeofence {
     type Vtable = IGeofence_Vtbl;
 }
 impl ::core::clone::Clone for IGeofence {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IGeofence {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeofence {
+unsafe impl ::windows::core::ComInterface for IGeofence {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
 #[repr(C)]
@@ -36,7 +36,7 @@ pub struct IGeofence_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofenceFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeofenceFactory {
+unsafe impl ::windows::core::Interface for IGeofenceFactory {
     type Vtable = IGeofenceFactory_Vtbl;
 }
 impl ::core::clone::Clone for IGeofenceFactory {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for IGeofenceFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeofenceFactory {
+unsafe impl ::windows::core::ComInterface for IGeofenceFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
 }
 #[repr(C)]
@@ -65,7 +65,7 @@ pub struct IGeofenceFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofenceMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeofenceMonitor {
+unsafe impl ::windows::core::Interface for IGeofenceMonitor {
     type Vtable = IGeofenceMonitor_Vtbl;
 }
 impl ::core::clone::Clone for IGeofenceMonitor {
@@ -73,7 +73,7 @@ impl ::core::clone::Clone for IGeofenceMonitor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeofenceMonitor {
+unsafe impl ::windows::core::ComInterface for IGeofenceMonitor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 }
 #[repr(C)]
@@ -110,7 +110,7 @@ pub struct IGeofenceMonitor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofenceMonitorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeofenceMonitorStatics {
+unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
     type Vtable = IGeofenceMonitorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IGeofenceMonitorStatics {
@@ -118,7 +118,7 @@ impl ::core::clone::Clone for IGeofenceMonitorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
+unsafe impl ::windows::core::ComInterface for IGeofenceMonitorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
 }
 #[repr(C)]
@@ -130,7 +130,7 @@ pub struct IGeofenceMonitorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeofenceStateChangeReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeofenceStateChangeReport {
+unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_Vtbl;
 }
 impl ::core::clone::Clone for IGeofenceStateChangeReport {
@@ -138,7 +138,7 @@ impl ::core::clone::Clone for IGeofenceStateChangeReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
+unsafe impl ::windows::core::ComInterface for IGeofenceStateChangeReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 }
 #[repr(C)]
@@ -160,7 +160,7 @@ impl Geofence {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).StartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -169,7 +169,7 @@ impl Geofence {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -178,79 +178,75 @@ impl Geofence {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).DwellTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DwellTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MonitoredStates(&self) -> ::windows::core::Result<MonitoredGeofenceStates> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MonitoredGeofenceStates>();
-            (::windows::core::Vtable::vtable(this).MonitoredStates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MonitoredStates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Geoshape(&self) -> ::windows::core::Result<super::IGeoshape> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::IGeoshape>();
-            (::windows::core::Vtable::vtable(this).Geoshape)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Geoshape)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SingleUse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SingleUse)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SingleUse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0) -> ::windows::core::Result<Geofence>
+    pub fn Create<P0>(id: &::windows::core::HSTRING, geoshape: P0) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<Geofence>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateWithMonitorStates<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>
+    pub fn CreateWithMonitorStates<P0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<Geofence>();
-            (::windows::core::Vtable::vtable(this).CreateWithMonitorStates)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates, singleuse, &mut result__).from_abi(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesAndDwellTime<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IGeofenceFactory(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<Geofence>();
-            (::windows::core::Vtable::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates, singleuse, dwelltime, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStates)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into_param()?.abi(), monitoredstates, singleuse, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P0, E0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    pub fn CreateWithMonitorStatesAndDwellTime<P0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::IGeoshape>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::IGeoshape>,
     {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<Geofence>();
-            (::windows::core::Vtable::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into_param()?.abi(), monitoredstates, singleuse, dwelltime, &mut result__).from_abi(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<P0>(id: &::windows::core::HSTRING, geoshape: P0, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
+    where
+        P0: ::windows::core::TryIntoParam<super::IGeoshape>,
+    {
+        Self::IGeofenceFactory(|this| unsafe {
+            let mut result__ = ::windows::core::zeroed::<Geofence>();
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), geoshape.try_into_param()?.abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -278,11 +274,11 @@ impl ::core::clone::Clone for Geofence {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for Geofence {
+unsafe impl ::windows::core::Interface for Geofence {
     type Vtable = IGeofence_Vtbl;
 }
-unsafe impl ::windows::core::Interface for Geofence {
-    const IID: ::windows::core::GUID = <IGeofence as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for Geofence {
+    const IID: ::windows::core::GUID = <IGeofence as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
@@ -298,7 +294,7 @@ impl GeofenceMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GeofenceMonitorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -307,14 +303,14 @@ impl GeofenceMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVector<Geofence>>();
-            (::windows::core::Vtable::vtable(this).Geofences)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Geofences)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LastKnownGeoposition(&self) -> ::windows::core::Result<super::Geoposition> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Geoposition>();
-            (::windows::core::Vtable::vtable(this).LastKnownGeoposition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastKnownGeoposition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -323,14 +319,14 @@ impl GeofenceMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).GeofenceStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GeofenceStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGeofenceStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveGeofenceStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGeofenceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -338,7 +334,7 @@ impl GeofenceMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>>();
-            (::windows::core::Vtable::vtable(this).ReadReports)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -347,19 +343,19 @@ impl GeofenceMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Current() -> ::windows::core::Result<GeofenceMonitor> {
         Self::IGeofenceMonitorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<GeofenceMonitor>();
-            (::windows::core::Vtable::vtable(this).Current)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -387,11 +383,11 @@ impl ::core::clone::Clone for GeofenceMonitor {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GeofenceMonitor {
+unsafe impl ::windows::core::Interface for GeofenceMonitor {
     type Vtable = IGeofenceMonitor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GeofenceMonitor {
-    const IID: ::windows::core::GUID = <IGeofenceMonitor as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GeofenceMonitor {
+    const IID: ::windows::core::GUID = <IGeofenceMonitor as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
@@ -407,28 +403,28 @@ impl GeofenceStateChangeReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GeofenceState>();
-            (::windows::core::Vtable::vtable(this).NewState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Geofence(&self) -> ::windows::core::Result<Geofence> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<Geofence>();
-            (::windows::core::Vtable::vtable(this).Geofence)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Geofence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Geoposition(&self) -> ::windows::core::Result<super::Geoposition> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Geoposition>();
-            (::windows::core::Vtable::vtable(this).Geoposition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Geoposition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemovalReason(&self) -> ::windows::core::Result<GeofenceRemovalReason> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<GeofenceRemovalReason>();
-            (::windows::core::Vtable::vtable(this).RemovalReason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RemovalReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -451,11 +447,11 @@ impl ::core::clone::Clone for GeofenceStateChangeReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GeofenceStateChangeReport {
+unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
-    const IID: ::windows::core::GUID = <IGeofenceStateChangeReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GeofenceStateChangeReport {
+    const IID: ::windows::core::GUID = <IGeofenceStateChangeReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";

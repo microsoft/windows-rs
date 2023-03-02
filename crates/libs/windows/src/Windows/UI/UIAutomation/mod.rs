@@ -3,7 +3,7 @@ pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAutomationConnection {
+unsafe impl ::windows::core::Interface for IAutomationConnection {
     type Vtable = IAutomationConnection_Vtbl;
 }
 impl ::core::clone::Clone for IAutomationConnection {
@@ -11,7 +11,7 @@ impl ::core::clone::Clone for IAutomationConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAutomationConnection {
+unsafe impl ::windows::core::ComInterface for IAutomationConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IAutomationConnection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationConnectionBoundObject(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAutomationConnectionBoundObject {
+unsafe impl ::windows::core::Interface for IAutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObject_Vtbl;
 }
 impl ::core::clone::Clone for IAutomationConnectionBoundObject {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IAutomationConnectionBoundObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAutomationConnectionBoundObject {
+unsafe impl ::windows::core::ComInterface for IAutomationConnectionBoundObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
 #[repr(C)]
@@ -45,7 +45,7 @@ pub struct IAutomationConnectionBoundObject_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationElement(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAutomationElement {
+unsafe impl ::windows::core::Interface for IAutomationElement {
     type Vtable = IAutomationElement_Vtbl;
 }
 impl ::core::clone::Clone for IAutomationElement {
@@ -53,7 +53,7 @@ impl ::core::clone::Clone for IAutomationElement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAutomationElement {
+unsafe impl ::windows::core::ComInterface for IAutomationElement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
 }
 #[repr(C)]
@@ -67,7 +67,7 @@ pub struct IAutomationElement_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationTextRange(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAutomationTextRange {
+unsafe impl ::windows::core::Interface for IAutomationTextRange {
     type Vtable = IAutomationTextRange_Vtbl;
 }
 impl ::core::clone::Clone for IAutomationTextRange {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for IAutomationTextRange {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAutomationTextRange {
+unsafe impl ::windows::core::ComInterface for IAutomationTextRange {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
 #[repr(C)]
@@ -91,21 +91,21 @@ impl AutomationConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsRemoteSystem)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsRemoteSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppUserModelId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppUserModelId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ExecutableFileName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExecutableFileName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -128,11 +128,11 @@ impl ::core::clone::Clone for AutomationConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AutomationConnection {
+unsafe impl ::windows::core::Interface for AutomationConnection {
     type Vtable = IAutomationConnection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AutomationConnection {
-    const IID: ::windows::core::GUID = <IAutomationConnection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AutomationConnection {
+    const IID: ::windows::core::GUID = <IAutomationConnection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
@@ -148,7 +148,7 @@ impl AutomationConnectionBoundObject {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AutomationConnection>();
-            (::windows::core::Vtable::vtable(this).Connection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -171,11 +171,11 @@ impl ::core::clone::Clone for AutomationConnectionBoundObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AutomationConnectionBoundObject {
+unsafe impl ::windows::core::Interface for AutomationConnectionBoundObject {
     type Vtable = IAutomationConnectionBoundObject_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AutomationConnectionBoundObject {
-    const IID: ::windows::core::GUID = <IAutomationConnectionBoundObject as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AutomationConnectionBoundObject {
+    const IID: ::windows::core::GUID = <IAutomationConnectionBoundObject as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
@@ -191,21 +191,21 @@ impl AutomationElement {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsRemoteSystem)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsRemoteSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppUserModelId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppUserModelId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ExecutableFileName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExecutableFileName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -228,11 +228,11 @@ impl ::core::clone::Clone for AutomationElement {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AutomationElement {
+unsafe impl ::windows::core::Interface for AutomationElement {
     type Vtable = IAutomationElement_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AutomationElement {
-    const IID: ::windows::core::GUID = <IAutomationElement as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AutomationElement {
+    const IID: ::windows::core::GUID = <IAutomationElement as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
@@ -263,11 +263,11 @@ impl ::core::clone::Clone for AutomationTextRange {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AutomationTextRange {
+unsafe impl ::windows::core::Interface for AutomationTextRange {
     type Vtable = IAutomationTextRange_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AutomationTextRange {
-    const IID: ::windows::core::GUID = <IAutomationTextRange as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AutomationTextRange {
+    const IID: ::windows::core::GUID = <IAutomationTextRange as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";

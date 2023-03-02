@@ -8,6 +8,6 @@ impl IDevicePairingSettings_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IDevicePairingSettings, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDevicePairingSettings as ::windows::core::Interface>::IID
+        iid == &<IDevicePairingSettings as ::windows::core::ComInterface>::IID
     }
 }

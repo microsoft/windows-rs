@@ -3,24 +3,24 @@
 #[inline]
 pub unsafe fn AddConsoleAliasA<P0, P1, P2>(source: P0, target: P1, exename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn AddConsoleAliasA ( source : :: windows::core::PCSTR , target : :: windows::core::PCSTR , exename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    AddConsoleAliasA(source.into().abi(), target.into().abi(), exename.into().abi())
+    AddConsoleAliasA(source.into_param().abi(), target.into_param().abi(), exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddConsoleAliasW<P0, P1, P2>(source: P0, target: P1, exename: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn AddConsoleAliasW ( source : :: windows::core::PCWSTR , target : :: windows::core::PCWSTR , exename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    AddConsoleAliasW(source.into().abi(), target.into().abi(), exename.into().abi())
+    AddConsoleAliasW(source.into_param().abi(), target.into_param().abi(), exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,10 +40,10 @@ pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL 
 #[inline]
 pub unsafe fn ClosePseudoConsole<P0>(hpc: P0)
 where
-    P0: ::std::convert::Into<HPCON>,
+    P0: ::windows::core::IntoParam<HPCON>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ClosePseudoConsole ( hpc : HPCON ) -> ( ) );
-    ClosePseudoConsole(hpc.into())
+    ClosePseudoConsole(hpc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -58,71 +58,71 @@ pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, 
 #[inline]
 pub unsafe fn CreatePseudoConsole<P0, P1>(size: COORD, hinput: P0, houtput: P1, dwflags: u32) -> ::windows::core::Result<HPCON>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn CreatePseudoConsole ( size : COORD , hinput : super::super::Foundation:: HANDLE , houtput : super::super::Foundation:: HANDLE , dwflags : u32 , phpc : *mut HPCON ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HPCON>();
-    CreatePseudoConsole(::core::mem::transmute(size), hinput.into(), houtput.into(), dwflags, &mut result__).from_abi(result__)
+    CreatePseudoConsole(::core::mem::transmute(size), hinput.into_param().abi(), houtput.into_param().abi(), dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryA<P0>(exename: P0)
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ExpungeConsoleCommandHistoryA ( exename : :: windows::core::PCSTR ) -> ( ) );
-    ExpungeConsoleCommandHistoryA(exename.into().abi())
+    ExpungeConsoleCommandHistoryA(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryW<P0>(exename: P0)
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ExpungeConsoleCommandHistoryW ( exename : :: windows::core::PCWSTR ) -> ( ) );
-    ExpungeConsoleCommandHistoryW(exename.into().abi())
+    ExpungeConsoleCommandHistoryW(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillConsoleOutputAttribute<P0>(hconsoleoutput: P0, wattribute: u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn FillConsoleOutputAttribute ( hconsoleoutput : super::super::Foundation:: HANDLE , wattribute : u16 , nlength : u32 , dwwritecoord : COORD , lpnumberofattrswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FillConsoleOutputAttribute(hconsoleoutput.into(), wattribute, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofattrswritten)
+    FillConsoleOutputAttribute(hconsoleoutput.into_param().abi(), wattribute, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofattrswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillConsoleOutputCharacterA<P0, P1>(hconsoleoutput: P0, ccharacter: P1, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::CHAR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn FillConsoleOutputCharacterA ( hconsoleoutput : super::super::Foundation:: HANDLE , ccharacter : super::super::Foundation:: CHAR , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FillConsoleOutputCharacterA(hconsoleoutput.into(), ccharacter.into(), nlength, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
+    FillConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ccharacter.into_param().abi(), nlength, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillConsoleOutputCharacterW<P0>(hconsoleoutput: P0, ccharacter: u16, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn FillConsoleOutputCharacterW ( hconsoleoutput : super::super::Foundation:: HANDLE , ccharacter : u16 , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FillConsoleOutputCharacterW(hconsoleoutput.into(), ccharacter, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
+    FillConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ccharacter, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushConsoleInputBuffer<P0>(hconsoleinput: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn FlushConsoleInputBuffer ( hconsoleinput : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    FlushConsoleInputBuffer(hconsoleinput.into())
+    FlushConsoleInputBuffer(hconsoleinput.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -142,11 +142,11 @@ pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) 
 #[inline]
 pub unsafe fn GetConsoleAliasA<P0, P1>(source: P0, targetbuffer: &mut [u8], exename: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasA ( source : :: windows::core::PCSTR , targetbuffer : :: windows::core::PSTR , targetbufferlength : u32 , exename : :: windows::core::PCSTR ) -> u32 );
-    GetConsoleAliasA(source.into().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into().abi())
+    GetConsoleAliasA(source.into_param().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -176,47 +176,47 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
 #[inline]
 pub unsafe fn GetConsoleAliasW<P0, P1>(source: P0, targetbuffer: &mut [u16], exename: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasW ( source : :: windows::core::PCWSTR , targetbuffer : :: windows::core::PWSTR , targetbufferlength : u32 , exename : :: windows::core::PCWSTR ) -> u32 );
-    GetConsoleAliasW(source.into().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into().abi())
+    GetConsoleAliasW(source.into_param().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleAliasesA<P0>(aliasbuffer: &mut [u8], exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasesA ( aliasbuffer : :: windows::core::PSTR , aliasbufferlength : u32 , exename : :: windows::core::PCSTR ) -> u32 );
-    GetConsoleAliasesA(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into().abi())
+    GetConsoleAliasesA(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleAliasesLengthA<P0>(exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasesLengthA ( exename : :: windows::core::PCSTR ) -> u32 );
-    GetConsoleAliasesLengthA(exename.into().abi())
+    GetConsoleAliasesLengthA(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleAliasesLengthW<P0>(exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasesLengthW ( exename : :: windows::core::PCWSTR ) -> u32 );
-    GetConsoleAliasesLengthW(exename.into().abi())
+    GetConsoleAliasesLengthW(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleAliasesW<P0>(aliasbuffer: &mut [u16], exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleAliasesW ( aliasbuffer : :: windows::core::PWSTR , aliasbufferlength : u32 , exename : :: windows::core::PCWSTR ) -> u32 );
-    GetConsoleAliasesW(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into().abi())
+    GetConsoleAliasesW(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -228,47 +228,47 @@ pub unsafe fn GetConsoleCP() -> u32 {
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryA<P0>(commands: &mut [u8], exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleCommandHistoryA ( commands : :: windows::core::PSTR , commandbufferlength : u32 , exename : :: windows::core::PCSTR ) -> u32 );
-    GetConsoleCommandHistoryA(::core::mem::transmute(commands.as_ptr()), commands.len() as _, exename.into().abi())
+    GetConsoleCommandHistoryA(::core::mem::transmute(commands.as_ptr()), commands.len() as _, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthA<P0>(exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleCommandHistoryLengthA ( exename : :: windows::core::PCSTR ) -> u32 );
-    GetConsoleCommandHistoryLengthA(exename.into().abi())
+    GetConsoleCommandHistoryLengthA(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthW<P0>(exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleCommandHistoryLengthW ( exename : :: windows::core::PCWSTR ) -> u32 );
-    GetConsoleCommandHistoryLengthW(exename.into().abi())
+    GetConsoleCommandHistoryLengthW(exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryW<P0>(commands: ::windows::core::PWSTR, commandbufferlength: u32, exename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleCommandHistoryW ( commands : :: windows::core::PWSTR , commandbufferlength : u32 , exename : :: windows::core::PCWSTR ) -> u32 );
-    GetConsoleCommandHistoryW(::core::mem::transmute(commands), commandbufferlength, exename.into().abi())
+    GetConsoleCommandHistoryW(::core::mem::transmute(commands), commandbufferlength, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetConsoleCursorInfo<P0>(hconsoleoutput: P0, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleCursorInfo ( hconsoleoutput : super::super::Foundation:: HANDLE , lpconsolecursorinfo : *mut CONSOLE_CURSOR_INFO ) -> super::super::Foundation:: BOOL );
-    GetConsoleCursorInfo(hconsoleoutput.into(), lpconsolecursorinfo)
+    GetConsoleCursorInfo(hconsoleoutput.into_param().abi(), lpconsolecursorinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -282,10 +282,10 @@ pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> super::super::Foun
 #[inline]
 pub unsafe fn GetConsoleFontSize<P0>(hconsoleoutput: P0, nfont: u32) -> COORD
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleFontSize ( hconsoleoutput : super::super::Foundation:: HANDLE , nfont : u32 ) -> COORD );
-    GetConsoleFontSize(hconsoleoutput.into(), nfont)
+    GetConsoleFontSize(hconsoleoutput.into_param().abi(), nfont)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -299,10 +299,10 @@ pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_I
 #[inline]
 pub unsafe fn GetConsoleMode<P0>(hconsolehandle: P0, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleMode ( hconsolehandle : super::super::Foundation:: HANDLE , lpmode : *mut CONSOLE_MODE ) -> super::super::Foundation:: BOOL );
-    GetConsoleMode(hconsolehandle.into(), lpmode)
+    GetConsoleMode(hconsolehandle.into_param().abi(), lpmode)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
@@ -333,20 +333,20 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
 #[inline]
 pub unsafe fn GetConsoleScreenBufferInfo<P0>(hconsoleoutput: P0, lpconsolescreenbufferinfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleScreenBufferInfo ( hconsoleoutput : super::super::Foundation:: HANDLE , lpconsolescreenbufferinfo : *mut CONSOLE_SCREEN_BUFFER_INFO ) -> super::super::Foundation:: BOOL );
-    GetConsoleScreenBufferInfo(hconsoleoutput.into(), lpconsolescreenbufferinfo)
+    GetConsoleScreenBufferInfo(hconsoleoutput.into_param().abi(), lpconsolescreenbufferinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetConsoleScreenBufferInfoEx<P0>(hconsoleoutput: P0, lpconsolescreenbufferinfoex: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetConsoleScreenBufferInfoEx ( hconsoleoutput : super::super::Foundation:: HANDLE , lpconsolescreenbufferinfoex : *mut CONSOLE_SCREEN_BUFFER_INFOEX ) -> super::super::Foundation:: BOOL );
-    GetConsoleScreenBufferInfoEx(hconsoleoutput.into(), lpconsolescreenbufferinfoex)
+    GetConsoleScreenBufferInfoEx(hconsoleoutput.into_param().abi(), lpconsolescreenbufferinfoex)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -379,42 +379,42 @@ pub unsafe fn GetConsoleWindow() -> super::super::Foundation::HWND {
 #[inline]
 pub unsafe fn GetCurrentConsoleFont<P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentConsoleFont ( hconsoleoutput : super::super::Foundation:: HANDLE , bmaximumwindow : super::super::Foundation:: BOOL , lpconsolecurrentfont : *mut CONSOLE_FONT_INFO ) -> super::super::Foundation:: BOOL );
-    GetCurrentConsoleFont(hconsoleoutput.into(), bmaximumwindow.into(), lpconsolecurrentfont)
+    GetCurrentConsoleFont(hconsoleoutput.into_param().abi(), bmaximumwindow.into_param().abi(), lpconsolecurrentfont)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentConsoleFontEx<P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfontex: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentConsoleFontEx ( hconsoleoutput : super::super::Foundation:: HANDLE , bmaximumwindow : super::super::Foundation:: BOOL , lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX ) -> super::super::Foundation:: BOOL );
-    GetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), lpconsolecurrentfontex)
+    GetCurrentConsoleFontEx(hconsoleoutput.into_param().abi(), bmaximumwindow.into_param().abi(), lpconsolecurrentfontex)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLargestConsoleWindowSize<P0>(hconsoleoutput: P0) -> COORD
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetLargestConsoleWindowSize ( hconsoleoutput : super::super::Foundation:: HANDLE ) -> COORD );
-    GetLargestConsoleWindowSize(hconsoleoutput.into())
+    GetLargestConsoleWindowSize(hconsoleoutput.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumberOfConsoleInputEvents<P0>(hconsoleinput: P0, lpnumberofevents: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberOfConsoleInputEvents ( hconsoleinput : super::super::Foundation:: HANDLE , lpnumberofevents : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNumberOfConsoleInputEvents(hconsoleinput.into(), lpnumberofevents)
+    GetNumberOfConsoleInputEvents(hconsoleinput.into_param().abi(), lpnumberofevents)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -436,149 +436,149 @@ pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> ::windows::core::Result<su
 #[inline]
 pub unsafe fn PeekConsoleInputA<P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn PeekConsoleInputA ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut INPUT_RECORD , nlength : u32 , lpnumberofeventsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    PeekConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
+    PeekConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeekConsoleInputW<P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn PeekConsoleInputW ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut INPUT_RECORD , nlength : u32 , lpnumberofeventsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    PeekConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
+    PeekConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleA<P0>(hconsoleinput: P0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: ::core::option::Option<*const CONSOLE_READCONSOLE_CONTROL>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleA ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofcharstoread : u32 , lpnumberofcharsread : *mut u32 , pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL ) -> super::super::Foundation:: BOOL );
-    ReadConsoleA(hconsoleinput.into(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, ::core::mem::transmute(pinputcontrol.unwrap_or(::std::ptr::null())))
+    ReadConsoleA(hconsoleinput.into_param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, ::core::mem::transmute(pinputcontrol.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleInputA<P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleInputA ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut INPUT_RECORD , nlength : u32 , lpnumberofeventsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
+    ReadConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleInputW<P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleInputW ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut INPUT_RECORD , nlength : u32 , lpnumberofeventsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
+    ReadConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleOutputA<P0>(hconsoleoutput: P0, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleOutputA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *mut CHAR_INFO , dwbuffersize : COORD , dwbuffercoord : COORD , lpreadregion : *mut SMALL_RECT ) -> super::super::Foundation:: BOOL );
-    ReadConsoleOutputA(hconsoleoutput.into(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpreadregion)
+    ReadConsoleOutputA(hconsoleoutput.into_param().abi(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpreadregion)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleOutputAttribute<P0>(hconsoleoutput: P0, lpattribute: &mut [u16], dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleOutputAttribute ( hconsoleoutput : super::super::Foundation:: HANDLE , lpattribute : *mut u16 , nlength : u32 , dwreadcoord : COORD , lpnumberofattrsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofattrsread)
+    ReadConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofattrsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleOutputCharacterA<P0>(hconsoleoutput: P0, lpcharacter: &mut [u8], dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleOutputCharacterA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpcharacter : :: windows::core::PSTR , nlength : u32 , dwreadcoord : COORD , lpnumberofcharsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofcharsread)
+    ReadConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofcharsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleOutputCharacterW<P0>(hconsoleoutput: P0, lpcharacter: &mut [u16], dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleOutputCharacterW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpcharacter : :: windows::core::PWSTR , nlength : u32 , dwreadcoord : COORD , lpnumberofcharsread : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofcharsread)
+    ReadConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwreadcoord), lpnumberofcharsread)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleOutputW<P0>(hconsoleoutput: P0, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleOutputW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *mut CHAR_INFO , dwbuffersize : COORD , dwbuffercoord : COORD , lpreadregion : *mut SMALL_RECT ) -> super::super::Foundation:: BOOL );
-    ReadConsoleOutputW(hconsoleoutput.into(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpreadregion)
+    ReadConsoleOutputW(hconsoleoutput.into_param().abi(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpreadregion)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadConsoleW<P0>(hconsoleinput: P0, lpbuffer: *mut ::core::ffi::c_void, nnumberofcharstoread: u32, lpnumberofcharsread: *mut u32, pinputcontrol: ::core::option::Option<*const CONSOLE_READCONSOLE_CONTROL>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ReadConsoleW ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nnumberofcharstoread : u32 , lpnumberofcharsread : *mut u32 , pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL ) -> super::super::Foundation:: BOOL );
-    ReadConsoleW(hconsoleinput.into(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, ::core::mem::transmute(pinputcontrol.unwrap_or(::std::ptr::null())))
+    ReadConsoleW(hconsoleinput.into_param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, ::core::mem::transmute(pinputcontrol.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
 pub unsafe fn ResizePseudoConsole<P0>(hpc: P0, size: COORD) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<HPCON>,
+    P0: ::windows::core::IntoParam<HPCON>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ResizePseudoConsole ( hpc : HPCON , size : COORD ) -> :: windows::core::HRESULT );
-    ResizePseudoConsole(hpc.into(), ::core::mem::transmute(size)).ok()
+    ResizePseudoConsole(hpc.into_param().abi(), ::core::mem::transmute(size)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferA<P0>(hconsoleoutput: P0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: ::core::option::Option<*const SMALL_RECT>, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ScrollConsoleScreenBufferA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpscrollrectangle : *const SMALL_RECT , lpcliprectangle : *const SMALL_RECT , dwdestinationorigin : COORD , lpfill : *const CHAR_INFO ) -> super::super::Foundation:: BOOL );
-    ScrollConsoleScreenBufferA(hconsoleoutput.into(), lpscrollrectangle, ::core::mem::transmute(lpcliprectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dwdestinationorigin), lpfill)
+    ScrollConsoleScreenBufferA(hconsoleoutput.into_param().abi(), lpscrollrectangle, ::core::mem::transmute(lpcliprectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dwdestinationorigin), lpfill)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferW<P0>(hconsoleoutput: P0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: ::core::option::Option<*const SMALL_RECT>, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn ScrollConsoleScreenBufferW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpscrollrectangle : *const SMALL_RECT , lpcliprectangle : *const SMALL_RECT , dwdestinationorigin : COORD , lpfill : *const CHAR_INFO ) -> super::super::Foundation:: BOOL );
-    ScrollConsoleScreenBufferW(hconsoleoutput.into(), lpscrollrectangle, ::core::mem::transmute(lpcliprectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dwdestinationorigin), lpfill)
+    ScrollConsoleScreenBufferW(hconsoleoutput.into_param().abi(), lpscrollrectangle, ::core::mem::transmute(lpcliprectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dwdestinationorigin), lpfill)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleActiveScreenBuffer<P0>(hconsoleoutput: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleActiveScreenBuffer ( hconsoleoutput : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    SetConsoleActiveScreenBuffer(hconsoleoutput.into())
+    SetConsoleActiveScreenBuffer(hconsoleoutput.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -592,40 +592,40 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn SetConsoleCtrlHandler<P0>(handlerroutine: PHANDLER_ROUTINE, add: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleCtrlHandler ( handlerroutine : PHANDLER_ROUTINE , add : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetConsoleCtrlHandler(handlerroutine, add.into())
+    SetConsoleCtrlHandler(handlerroutine, add.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleCursorInfo<P0>(hconsoleoutput: P0, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleCursorInfo ( hconsoleoutput : super::super::Foundation:: HANDLE , lpconsolecursorinfo : *const CONSOLE_CURSOR_INFO ) -> super::super::Foundation:: BOOL );
-    SetConsoleCursorInfo(hconsoleoutput.into(), lpconsolecursorinfo)
+    SetConsoleCursorInfo(hconsoleoutput.into_param().abi(), lpconsolecursorinfo)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleCursorPosition<P0>(hconsoleoutput: P0, dwcursorposition: COORD) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleCursorPosition ( hconsoleoutput : super::super::Foundation:: HANDLE , dwcursorposition : COORD ) -> super::super::Foundation:: BOOL );
-    SetConsoleCursorPosition(hconsoleoutput.into(), ::core::mem::transmute(dwcursorposition))
+    SetConsoleCursorPosition(hconsoleoutput.into_param().abi(), ::core::mem::transmute(dwcursorposition))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleDisplayMode<P0>(hconsoleoutput: P0, dwflags: u32, lpnewscreenbufferdimensions: ::core::option::Option<*mut COORD>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleDisplayMode ( hconsoleoutput : super::super::Foundation:: HANDLE , dwflags : u32 , lpnewscreenbufferdimensions : *mut COORD ) -> super::super::Foundation:: BOOL );
-    SetConsoleDisplayMode(hconsoleoutput.into(), dwflags, ::core::mem::transmute(lpnewscreenbufferdimensions.unwrap_or(::std::ptr::null_mut())))
+    SetConsoleDisplayMode(hconsoleoutput.into_param().abi(), dwflags, ::core::mem::transmute(lpnewscreenbufferdimensions.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -639,30 +639,30 @@ pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY
 #[inline]
 pub unsafe fn SetConsoleMode<P0>(hconsolehandle: P0, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleMode ( hconsolehandle : super::super::Foundation:: HANDLE , dwmode : CONSOLE_MODE ) -> super::super::Foundation:: BOOL );
-    SetConsoleMode(hconsolehandle.into(), dwmode)
+    SetConsoleMode(hconsolehandle.into_param().abi(), dwmode)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleNumberOfCommandsA<P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleNumberOfCommandsA ( number : u32 , exename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetConsoleNumberOfCommandsA(number, exename.into().abi())
+    SetConsoleNumberOfCommandsA(number, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleNumberOfCommandsW<P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleNumberOfCommandsW ( number : u32 , exename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetConsoleNumberOfCommandsW(number, exename.into().abi())
+    SetConsoleNumberOfCommandsW(number, exename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -676,182 +676,182 @@ pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::
 #[inline]
 pub unsafe fn SetConsoleScreenBufferInfoEx<P0>(hconsoleoutput: P0, lpconsolescreenbufferinfoex: *const CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleScreenBufferInfoEx ( hconsoleoutput : super::super::Foundation:: HANDLE , lpconsolescreenbufferinfoex : *const CONSOLE_SCREEN_BUFFER_INFOEX ) -> super::super::Foundation:: BOOL );
-    SetConsoleScreenBufferInfoEx(hconsoleoutput.into(), lpconsolescreenbufferinfoex)
+    SetConsoleScreenBufferInfoEx(hconsoleoutput.into_param().abi(), lpconsolescreenbufferinfoex)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleScreenBufferSize<P0>(hconsoleoutput: P0, dwsize: COORD) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleScreenBufferSize ( hconsoleoutput : super::super::Foundation:: HANDLE , dwsize : COORD ) -> super::super::Foundation:: BOOL );
-    SetConsoleScreenBufferSize(hconsoleoutput.into(), ::core::mem::transmute(dwsize))
+    SetConsoleScreenBufferSize(hconsoleoutput.into_param().abi(), ::core::mem::transmute(dwsize))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleTextAttribute<P0>(hconsoleoutput: P0, wattributes: CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleTextAttribute ( hconsoleoutput : super::super::Foundation:: HANDLE , wattributes : CONSOLE_CHARACTER_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
-    SetConsoleTextAttribute(hconsoleoutput.into(), wattributes)
+    SetConsoleTextAttribute(hconsoleoutput.into_param().abi(), wattributes)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleTitleA<P0>(lpconsoletitle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleTitleA ( lpconsoletitle : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    SetConsoleTitleA(lpconsoletitle.into().abi())
+    SetConsoleTitleA(lpconsoletitle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleTitleW<P0>(lpconsoletitle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleTitleW ( lpconsoletitle : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    SetConsoleTitleW(lpconsoletitle.into().abi())
+    SetConsoleTitleW(lpconsoletitle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConsoleWindowInfo<P0, P1>(hconsoleoutput: P0, babsolute: P1, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetConsoleWindowInfo ( hconsoleoutput : super::super::Foundation:: HANDLE , babsolute : super::super::Foundation:: BOOL , lpconsolewindow : *const SMALL_RECT ) -> super::super::Foundation:: BOOL );
-    SetConsoleWindowInfo(hconsoleoutput.into(), babsolute.into(), lpconsolewindow)
+    SetConsoleWindowInfo(hconsoleoutput.into_param().abi(), babsolute.into_param().abi(), lpconsolewindow)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentConsoleFontEx<P0, P1>(hconsoleoutput: P0, bmaximumwindow: P1, lpconsolecurrentfontex: *const CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetCurrentConsoleFontEx ( hconsoleoutput : super::super::Foundation:: HANDLE , bmaximumwindow : super::super::Foundation:: BOOL , lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX ) -> super::super::Foundation:: BOOL );
-    SetCurrentConsoleFontEx(hconsoleoutput.into(), bmaximumwindow.into(), lpconsolecurrentfontex)
+    SetCurrentConsoleFontEx(hconsoleoutput.into_param().abi(), bmaximumwindow.into_param().abi(), lpconsolecurrentfontex)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetStdHandle<P0>(nstdhandle: STD_HANDLE, hhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetStdHandle ( nstdhandle : STD_HANDLE , hhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    SetStdHandle(nstdhandle, hhandle.into())
+    SetStdHandle(nstdhandle, hhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetStdHandleEx<P0>(nstdhandle: STD_HANDLE, hhandle: P0, phprevvalue: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn SetStdHandleEx ( nstdhandle : STD_HANDLE , hhandle : super::super::Foundation:: HANDLE , phprevvalue : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    SetStdHandleEx(nstdhandle, hhandle.into(), ::core::mem::transmute(phprevvalue.unwrap_or(::std::ptr::null_mut())))
+    SetStdHandleEx(nstdhandle, hhandle.into_param().abi(), ::core::mem::transmute(phprevvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleA<P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: ::core::option::Option<*mut u32>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    WriteConsoleA(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
+    WriteConsoleA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleInputA<P0>(hconsoleinput: P0, lpbuffer: &[INPUT_RECORD], lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleInputA ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *const INPUT_RECORD , nlength : u32 , lpnumberofeventswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WriteConsoleInputA(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventswritten)
+    WriteConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleInputW<P0>(hconsoleinput: P0, lpbuffer: &[INPUT_RECORD], lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleInputW ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *const INPUT_RECORD , nlength : u32 , lpnumberofeventswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WriteConsoleInputW(hconsoleinput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventswritten)
+    WriteConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpnumberofeventswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleOutputA<P0>(hconsoleoutput: P0, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleOutputA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const CHAR_INFO , dwbuffersize : COORD , dwbuffercoord : COORD , lpwriteregion : *mut SMALL_RECT ) -> super::super::Foundation:: BOOL );
-    WriteConsoleOutputA(hconsoleoutput.into(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpwriteregion)
+    WriteConsoleOutputA(hconsoleoutput.into_param().abi(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpwriteregion)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleOutputAttribute<P0>(hconsoleoutput: P0, lpattribute: &[u16], dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleOutputAttribute ( hconsoleoutput : super::super::Foundation:: HANDLE , lpattribute : *const u16 , nlength : u32 , dwwritecoord : COORD , lpnumberofattrswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WriteConsoleOutputAttribute(hconsoleoutput.into(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofattrswritten)
+    WriteConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofattrswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleOutputCharacterA<P0>(hconsoleoutput: P0, lpcharacter: &[u8], dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleOutputCharacterA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpcharacter : :: windows::core::PCSTR , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WriteConsoleOutputCharacterA(hconsoleoutput.into(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
+    WriteConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleOutputCharacterW<P0>(hconsoleoutput: P0, lpcharacter: &[u16], dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleOutputCharacterW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpcharacter : :: windows::core::PCWSTR , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WriteConsoleOutputCharacterW(hconsoleoutput.into(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
+    WriteConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleOutputW<P0>(hconsoleoutput: P0, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleOutputW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const CHAR_INFO , dwbuffersize : COORD , dwbuffercoord : COORD , lpwriteregion : *mut SMALL_RECT ) -> super::super::Foundation:: BOOL );
-    WriteConsoleOutputW(hconsoleoutput.into(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpwriteregion)
+    WriteConsoleOutputW(hconsoleoutput.into_param().abi(), lpbuffer, ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(dwbuffercoord), lpwriteregion)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteConsoleW<P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: ::core::option::Option<*mut u32>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn WriteConsoleW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    WriteConsoleW(hconsoleoutput.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
+    WriteConsoleW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
@@ -1578,11 +1578,6 @@ impl ::core::marker::Copy for HPCON {}
 impl ::core::fmt::Debug for HPCON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HPCON").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HPCON>> for HPCON {
-    fn from(optional: ::core::option::Option<HPCON>) -> HPCON {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HPCON {

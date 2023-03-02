@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPhoneNumberFormatter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPhoneNumberFormatter {
+unsafe impl ::windows::core::Interface for IPhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
 }
 impl ::core::clone::Clone for IPhoneNumberFormatter {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPhoneNumberFormatter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPhoneNumberFormatter {
+unsafe impl ::windows::core::ComInterface for IPhoneNumberFormatter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IPhoneNumberFormatter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPhoneNumberFormatterStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPhoneNumberFormatterStatics {
+unsafe impl ::windows::core::Interface for IPhoneNumberFormatterStatics {
     type Vtable = IPhoneNumberFormatterStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPhoneNumberFormatterStatics {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IPhoneNumberFormatterStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPhoneNumberFormatterStatics {
+unsafe impl ::windows::core::ComInterface for IPhoneNumberFormatterStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca6f931_84d9_414b_ab4e_a0552c878602);
 }
 #[repr(C)]
@@ -48,7 +48,7 @@ pub struct IPhoneNumberFormatterStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPhoneNumberInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPhoneNumberInfo {
+unsafe impl ::windows::core::Interface for IPhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;
 }
 impl ::core::clone::Clone for IPhoneNumberInfo {
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for IPhoneNumberInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPhoneNumberInfo {
+unsafe impl ::windows::core::ComInterface for IPhoneNumberInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
 }
 #[repr(C)]
@@ -75,7 +75,7 @@ pub struct IPhoneNumberInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPhoneNumberInfoFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPhoneNumberInfoFactory {
+unsafe impl ::windows::core::Interface for IPhoneNumberInfoFactory {
     type Vtable = IPhoneNumberInfoFactory_Vtbl;
 }
 impl ::core::clone::Clone for IPhoneNumberInfoFactory {
@@ -83,7 +83,7 @@ impl ::core::clone::Clone for IPhoneNumberInfoFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPhoneNumberInfoFactory {
+unsafe impl ::windows::core::ComInterface for IPhoneNumberInfoFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
 }
 #[repr(C)]
@@ -95,7 +95,7 @@ pub struct IPhoneNumberInfoFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPhoneNumberInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPhoneNumberInfoStatics {
+unsafe impl ::windows::core::Interface for IPhoneNumberInfoStatics {
     type Vtable = IPhoneNumberInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPhoneNumberInfoStatics {
@@ -103,7 +103,7 @@ impl ::core::clone::Clone for IPhoneNumberInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPhoneNumberInfoStatics {
+unsafe impl ::windows::core::ComInterface for IPhoneNumberInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
 }
 #[repr(C)]
@@ -128,56 +128,56 @@ impl PhoneNumberFormatter {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatWithOutputFormat(&self, number: &PhoneNumberInfo, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FormatWithOutputFormat)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), numberformat, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), numberformat, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatPartialString(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FormatPartialString)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FormatPartialString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatString(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FormatString)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FormatString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatStringWithLeftToRightMarkers(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FormatStringWithLeftToRightMarkers)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FormatStringWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn TryCreate(regioncode: &::windows::core::HSTRING, phonenumber: &mut ::core::option::Option<PhoneNumberFormatter>) -> ::windows::core::Result<()> {
-        Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).TryCreate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _).ok() })
+        Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _).ok() })
     }
     pub fn GetCountryCodeForRegion(regioncode: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).GetCountryCodeForRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(regioncode), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCountryCodeForRegion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(regioncode), &mut result__).from_abi(result__)
         })
     }
     pub fn GetNationalDirectDialingPrefixForRegion(regioncode: &::windows::core::HSTRING, stripnondigit: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(regioncode), stripnondigit, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(regioncode), stripnondigit, &mut result__).from_abi(result__)
         })
     }
     pub fn WrapWithLeftToRightMarkers(number: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).WrapWithLeftToRightMarkers)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WrapWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -205,11 +205,11 @@ impl ::core::clone::Clone for PhoneNumberFormatter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PhoneNumberFormatter {
+unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
-    const IID: ::windows::core::GUID = <IPhoneNumberFormatter as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PhoneNumberFormatter {
+    const IID: ::windows::core::GUID = <IPhoneNumberFormatter as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
@@ -225,83 +225,83 @@ impl PhoneNumberInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).CountryCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CountryCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PhoneNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PhoneNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetLengthOfGeographicalAreaCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).GetLengthOfGeographicalAreaCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetLengthOfGeographicalAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNationalSignificantNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetNationalSignificantNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetNationalSignificantNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetLengthOfNationalDestinationCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).GetLengthOfNationalDestinationCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetLengthOfNationalDestinationCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PredictNumberKind(&self) -> ::windows::core::Result<PredictedPhoneNumberKind> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PredictedPhoneNumberKind>();
-            (::windows::core::Vtable::vtable(this).PredictNumberKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PredictNumberKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetGeographicRegionCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetGeographicRegionCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetGeographicRegionCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CheckNumberMatch(&self, othernumber: &PhoneNumberInfo) -> ::windows::core::Result<PhoneNumberMatchResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PhoneNumberMatchResult>();
-            (::windows::core::Vtable::vtable(this).CheckNumberMatch)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othernumber), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CheckNumberMatch)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(othernumber), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(number: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneNumberInfo> {
         Self::IPhoneNumberInfoFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PhoneNumberInfo>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
     pub fn TryParse(input: &::windows::core::HSTRING, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PhoneNumberParseResult>();
-            (::windows::core::Vtable::vtable(this).TryParse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn TryParseWithRegion(input: &::windows::core::HSTRING, regioncode: &::windows::core::HSTRING, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PhoneNumberParseResult>();
-            (::windows::core::Vtable::vtable(this).TryParseWithRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryParseWithRegion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ToString)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -334,38 +334,18 @@ impl ::core::clone::Clone for PhoneNumberInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PhoneNumberInfo {
+unsafe impl ::windows::core::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PhoneNumberInfo {
-    const IID: ::windows::core::GUID = <IPhoneNumberInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PhoneNumberInfo {
+    const IID: ::windows::core::GUID = <IPhoneNumberInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";
 }
 ::windows::imp::interface_hierarchy!(PhoneNumberInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<PhoneNumberInfo> for super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PhoneNumberInfo) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PhoneNumberInfo> for super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PhoneNumberInfo) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PhoneNumberInfo> for ::windows::core::InParam<super::super::Foundation::IStringable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PhoneNumberInfo) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IStringable> for PhoneNumberInfo {}
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]

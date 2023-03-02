@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IExtendedExecutionForegroundRevokedEventArgs {
+unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionForegroundRevokedEventArgs {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IExtendedExecutionForegroundRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEventArgs {
+unsafe impl ::windows::core::ComInterface for IExtendedExecutionForegroundRevokedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
 #[repr(C)]
@@ -21,7 +21,7 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IExtendedExecutionForegroundSession {
+unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionForegroundSession {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for IExtendedExecutionForegroundSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
+unsafe impl ::windows::core::ComInterface for IExtendedExecutionForegroundSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
 #[repr(C)]
@@ -61,7 +61,7 @@ impl ExtendedExecutionForegroundRevokedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ExtendedExecutionForegroundRevokedReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -84,11 +84,11 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ExtendedExecutionForegroundRevokedEventArgs {
+unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
-    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundRevokedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ExtendedExecutionForegroundRevokedEventArgs {
+    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundRevokedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
@@ -110,19 +110,19 @@ impl ExtendedExecutionForegroundSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -130,14 +130,14 @@ impl ExtendedExecutionForegroundSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Revoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Revoked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRevoked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRevoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -145,19 +145,19 @@ impl ExtendedExecutionForegroundSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>>();
-            (::windows::core::Vtable::vtable(this).RequestExtensionAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestExtensionAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionForegroundReason> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ExtendedExecutionForegroundReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReason(&self, value: ExtendedExecutionForegroundReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetReason)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ExtendedExecutionForegroundSession {
@@ -179,38 +179,18 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ExtendedExecutionForegroundSession {
+unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
-    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundSession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ExtendedExecutionForegroundSession {
+    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundSession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
 ::windows::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ExtendedExecutionForegroundSession) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ExtendedExecutionForegroundSession) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ExtendedExecutionForegroundSession) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IClosable> for ExtendedExecutionForegroundSession {}
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]

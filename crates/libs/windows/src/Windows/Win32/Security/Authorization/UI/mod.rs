@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
+    P0: ::windows::core::IntoParam<ISecurityInformation>,
 {
     ::windows::imp::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
-    let result__ = CreateSecurityPage(psi.into().abi());
+    let result__ = CreateSecurityPage(psi.into_param().abi());
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
@@ -14,22 +14,22 @@ where
 #[inline]
 pub unsafe fn EditSecurity<P0, P1>(hwndowner: P0, psi: P1) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<ISecurityInformation>,
 {
     ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
-    EditSecurity(hwndowner.into(), psi.into().abi())
+    EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EditSecurityAdvanced<P0, P1>(hwndowner: P0, psi: P1, usipage: SI_PAGE_TYPE) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<ISecurityInformation>>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<ISecurityInformation>,
 {
     ::windows::imp::link ! ( "aclui.dll""system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : * mut::core::ffi::c_void , usipage : SI_PAGE_TYPE ) -> :: windows::core::HRESULT );
-    EditSecurityAdvanced(hwndowner.into(), psi.into().abi(), usipage).ok()
+    EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), usipage).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
@@ -39,11 +39,11 @@ impl IEffectivePermission {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectivePermission<P0, P1, P2>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P2: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), pguidobjecttype, pusersid.into(), pszservername.into().abi(), psd.into(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
+        (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), pguidobjecttype, pusersid.into_param().abi(), pszservername.into_param().abi(), psd.into_param().abi(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
@@ -58,7 +58,7 @@ impl ::core::fmt::Debug for IEffectivePermission {
         f.debug_tuple("IEffectivePermission").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEffectivePermission {
+unsafe impl ::windows::core::Interface for IEffectivePermission {
     type Vtable = IEffectivePermission_Vtbl;
 }
 impl ::core::clone::Clone for IEffectivePermission {
@@ -66,7 +66,7 @@ impl ::core::clone::Clone for IEffectivePermission {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEffectivePermission {
+unsafe impl ::windows::core::ComInterface for IEffectivePermission {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
 }
 #[repr(C)]
@@ -102,15 +102,15 @@ impl IEffectivePermission2 {
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
-        P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
-            ::windows::core::Vtable::as_raw(self),
-            psid.into(),
-            pdevicesid.into(),
-            pszservername.into().abi(),
+        (::windows::core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
+            ::windows::core::Interface::as_raw(self),
+            psid.into_param().abi(),
+            pdevicesid.into_param().abi(),
+            pszservername.into_param().abi(),
             psecurityobjects,
             dwsecurityobjectcount,
             ::core::mem::transmute(pusergroups.unwrap_or(::std::ptr::null())),
@@ -138,7 +138,7 @@ impl ::core::fmt::Debug for IEffectivePermission2 {
         f.debug_tuple("IEffectivePermission2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEffectivePermission2 {
+unsafe impl ::windows::core::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_Vtbl;
 }
 impl ::core::clone::Clone for IEffectivePermission2 {
@@ -146,7 +146,7 @@ impl ::core::clone::Clone for IEffectivePermission2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEffectivePermission2 {
+unsafe impl ::windows::core::ComInterface for IEffectivePermission2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 }
 #[repr(C)]
@@ -181,38 +181,38 @@ impl ISecurityInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetObjectInformation)(::windows::core::Vtable::as_raw(self), pobjectinfo).ok()
+        (::windows::core::Interface::vtable(self).GetObjectInformation)(::windows::core::Interface::as_raw(self), pobjectinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurity<P0>(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetSecurity)(::windows::core::Vtable::as_raw(self), requestedinformation, ppsecuritydescriptor, fdefault.into()).ok()
+        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), requestedinformation, ppsecuritydescriptor, fdefault.into_param().abi()).ok()
     }
     pub unsafe fn SetSecurity<P0>(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
+        P0: ::windows::core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (::windows::core::Vtable::vtable(self).SetSecurity)(::windows::core::Vtable::as_raw(self), securityinformation, psecuritydescriptor.into()).ok()
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), securityinformation, psecuritydescriptor.into_param().abi()).ok()
     }
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAccessRights)(::windows::core::Vtable::as_raw(self), pguidobjecttype, dwflags, ppaccess, pcaccesses, pidefaultaccess).ok()
+        (::windows::core::Interface::vtable(self).GetAccessRights)(::windows::core::Interface::as_raw(self), pguidobjecttype, dwflags, ppaccess, pcaccesses, pidefaultaccess).ok()
     }
     pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MapGeneric)(::windows::core::Vtable::as_raw(self), pguidobjecttype, paceflags, pmask).ok()
+        (::windows::core::Interface::vtable(self).MapGeneric)(::windows::core::Interface::as_raw(self), pguidobjecttype, paceflags, pmask).ok()
     }
     pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInheritTypes)(::windows::core::Vtable::as_raw(self), ppinherittypes, pcinherittypes).ok()
+        (::windows::core::Interface::vtable(self).GetInheritTypes)(::windows::core::Interface::as_raw(self), ppinherittypes, pcinherittypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub unsafe fn PropertySheetPageCallback<P0>(&self, hwnd: P0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).PropertySheetPageCallback)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, upage).ok()
+        (::windows::core::Interface::vtable(self).PropertySheetPageCallback)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), umsg, upage).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ISecurityInformation, ::windows::core::IUnknown);
@@ -227,7 +227,7 @@ impl ::core::fmt::Debug for ISecurityInformation {
         f.debug_tuple("ISecurityInformation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISecurityInformation {
+unsafe impl ::windows::core::Interface for ISecurityInformation {
     type Vtable = ISecurityInformation_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityInformation {
@@ -235,7 +235,7 @@ impl ::core::clone::Clone for ISecurityInformation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityInformation {
+unsafe impl ::windows::core::ComInterface for ISecurityInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 }
 #[repr(C)]
@@ -266,13 +266,13 @@ impl ISecurityInformation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).IsDaclCanonical)(::windows::core::Vtable::as_raw(self), pdacl)
+        (::windows::core::Interface::vtable(self).IsDaclCanonical)(::windows::core::Interface::as_raw(self), pdacl)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows::core::Result<super::super::super::System::Com::IDataObject> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IDataObject>();
-        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, rgpsids, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).LookupSids)(::windows::core::Interface::as_raw(self), csids, rgpsids, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
@@ -287,7 +287,7 @@ impl ::core::fmt::Debug for ISecurityInformation2 {
         f.debug_tuple("ISecurityInformation2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISecurityInformation2 {
+unsafe impl ::windows::core::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityInformation2 {
@@ -295,7 +295,7 @@ impl ::core::clone::Clone for ISecurityInformation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityInformation2 {
+unsafe impl ::windows::core::ComInterface for ISecurityInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 }
 #[repr(C)]
@@ -317,15 +317,15 @@ pub struct ISecurityInformation3(::windows::core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
-        (::windows::core::Vtable::vtable(self).GetFullResourceName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetFullResourceName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenElevatedEditor<P0>(&self, hwnd: P0, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).OpenElevatedEditor)(::windows::core::Vtable::as_raw(self), hwnd.into(), upage).ok()
+        (::windows::core::Interface::vtable(self).OpenElevatedEditor)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), upage).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ISecurityInformation3, ::windows::core::IUnknown);
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for ISecurityInformation3 {
         f.debug_tuple("ISecurityInformation3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISecurityInformation3 {
+unsafe impl ::windows::core::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityInformation3 {
@@ -348,7 +348,7 @@ impl ::core::clone::Clone for ISecurityInformation3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityInformation3 {
+unsafe impl ::windows::core::ComInterface for ISecurityInformation3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 }
 #[repr(C)]
@@ -368,7 +368,7 @@ impl ISecurityInformation4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSecondarySecurity)(::windows::core::Vtable::as_raw(self), psecurityobjects, psecurityobjectcount).ok()
+        (::windows::core::Interface::vtable(self).GetSecondarySecurity)(::windows::core::Interface::as_raw(self), psecurityobjects, psecurityobjectcount).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
@@ -383,7 +383,7 @@ impl ::core::fmt::Debug for ISecurityInformation4 {
         f.debug_tuple("ISecurityInformation4").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISecurityInformation4 {
+unsafe impl ::windows::core::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityInformation4 {
@@ -391,7 +391,7 @@ impl ::core::clone::Clone for ISecurityInformation4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityInformation4 {
+unsafe impl ::windows::core::ComInterface for ISecurityInformation4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
 }
 #[repr(C)]
@@ -408,7 +408,7 @@ pub struct ISecurityInformation4_Vtbl {
 pub struct ISecurityObjectTypeInfo(::windows::core::IUnknown);
 impl ISecurityObjectTypeInfo {
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInheritSource)(::windows::core::Vtable::as_raw(self), si, pacl, ppinheritarray).ok()
+        (::windows::core::Interface::vtable(self).GetInheritSource)(::windows::core::Interface::as_raw(self), si, pacl, ppinheritarray).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);
@@ -423,7 +423,7 @@ impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
         f.debug_tuple("ISecurityObjectTypeInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISecurityObjectTypeInfo {
+unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_Vtbl;
 }
 impl ::core::clone::Clone for ISecurityObjectTypeInfo {
@@ -431,7 +431,7 @@ impl ::core::clone::Clone for ISecurityObjectTypeInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
+unsafe impl ::windows::core::ComInterface for ISecurityObjectTypeInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 }
 #[repr(C)]

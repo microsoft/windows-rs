@@ -126,7 +126,7 @@ impl IBackgroundTransferBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTransferBase as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTransferBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
@@ -170,7 +170,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTransferContentPartFactory as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTransferContentPartFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -294,7 +294,7 @@ impl IBackgroundTransferOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTransferOperation as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTransferOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"implement\"`*"]
@@ -331,6 +331,6 @@ impl IBackgroundTransferOperationPriority_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBackgroundTransferOperationPriority as ::windows::core::Interface>::IID
+        iid == &<IBackgroundTransferOperationPriority as ::windows::core::ComInterface>::IID
     }
 }

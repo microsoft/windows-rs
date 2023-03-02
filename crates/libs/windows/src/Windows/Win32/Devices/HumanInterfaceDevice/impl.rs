@@ -16,7 +16,7 @@ impl IDirectInput2A_Vtbl {
         Self { base__: IDirectInputA_Vtbl::new::<Identity, Impl, OFFSET>(), FindDevice: FindDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput2A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID
+        iid == &<IDirectInput2A as ::windows::core::ComInterface>::IID || iid == &<IDirectInputA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -37,7 +37,7 @@ impl IDirectInput2W_Vtbl {
         Self { base__: IDirectInputW_Vtbl::new::<Identity, Impl, OFFSET>(), FindDevice: FindDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput2W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID
+        iid == &<IDirectInput2W as ::windows::core::ComInterface>::IID || iid == &<IDirectInputW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -58,7 +58,7 @@ impl IDirectInput7A_Vtbl {
         Self { base__: IDirectInput2A_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput7A as ::windows::core::Interface>::IID || iid == &<IDirectInputA as ::windows::core::Interface>::IID || iid == &<IDirectInput2A as ::windows::core::Interface>::IID
+        iid == &<IDirectInput7A as ::windows::core::ComInterface>::IID || iid == &<IDirectInputA as ::windows::core::ComInterface>::IID || iid == &<IDirectInput2A as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl IDirectInput7W_Vtbl {
         Self { base__: IDirectInput2W_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput7W as ::windows::core::Interface>::IID || iid == &<IDirectInputW as ::windows::core::Interface>::IID || iid == &<IDirectInput2W as ::windows::core::Interface>::IID
+        iid == &<IDirectInput7W as ::windows::core::ComInterface>::IID || iid == &<IDirectInputW as ::windows::core::ComInterface>::IID || iid == &<IDirectInput2W as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -152,7 +152,7 @@ impl IDirectInput8A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput8A as ::windows::core::Interface>::IID
+        iid == &<IDirectInput8A as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -225,7 +225,7 @@ impl IDirectInput8W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInput8W as ::windows::core::Interface>::IID
+        iid == &<IDirectInput8W as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -277,7 +277,7 @@ impl IDirectInputA_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputA as ::windows::core::Interface>::IID
+        iid == &<IDirectInputA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -357,7 +357,7 @@ impl IDirectInputDevice2A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice2A as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -437,7 +437,7 @@ impl IDirectInputDevice2W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice2W as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -468,7 +468,7 @@ impl IDirectInputDevice7A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice7A as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2A as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice7A as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDeviceA as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDevice2A as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -499,7 +499,7 @@ impl IDirectInputDevice7W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice7W as ::windows::core::Interface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID || iid == &<IDirectInputDevice2W as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice7W as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDeviceW as ::windows::core::ComInterface>::IID || iid == &<IDirectInputDevice2W as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -719,7 +719,7 @@ impl IDirectInputDevice8A_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice8A as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice8A as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -939,7 +939,7 @@ impl IDirectInputDevice8W_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDevice8W as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDevice8W as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1061,7 +1061,7 @@ impl IDirectInputDeviceA_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDeviceA as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDeviceA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1183,7 +1183,7 @@ impl IDirectInputDeviceW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputDeviceW as ::windows::core::Interface>::IID
+        iid == &<IDirectInputDeviceW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1270,7 +1270,7 @@ impl IDirectInputEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputEffect as ::windows::core::Interface>::IID
+        iid == &<IDirectInputEffect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"implement\"`*"]
@@ -1361,7 +1361,7 @@ impl IDirectInputEffectDriver_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputEffectDriver as ::windows::core::Interface>::IID
+        iid == &<IDirectInputEffectDriver as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -1490,7 +1490,7 @@ impl IDirectInputJoyConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputJoyConfig as ::windows::core::Interface>::IID
+        iid == &<IDirectInputJoyConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -1619,7 +1619,7 @@ impl IDirectInputJoyConfig8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputJoyConfig8 as ::windows::core::Interface>::IID
+        iid == &<IDirectInputJoyConfig8 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1671,6 +1671,6 @@ impl IDirectInputW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectInputW as ::windows::core::Interface>::IID
+        iid == &<IDirectInputW as ::windows::core::ComInterface>::IID
     }
 }

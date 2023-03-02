@@ -33,7 +33,7 @@ impl IWICImageEncoder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICImageEncoder as ::windows::core::Interface>::IID
+        iid == &<IWICImageEncoder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging_D2D\"`, `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -60,6 +60,6 @@ impl IWICImagingFactory2_Vtbl {
         Self { base__: super::IWICImagingFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateImageEncoder: CreateImageEncoder::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWICImagingFactory2 as ::windows::core::Interface>::IID || iid == &<super::IWICImagingFactory as ::windows::core::Interface>::IID
+        iid == &<IWICImagingFactory2 as ::windows::core::ComInterface>::IID || iid == &<super::IWICImagingFactory as ::windows::core::ComInterface>::IID
     }
 }

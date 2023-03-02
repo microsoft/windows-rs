@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISceneLightingEffect(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISceneLightingEffect {
+unsafe impl ::windows::core::Interface for ISceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;
 }
 impl ::core::clone::Clone for ISceneLightingEffect {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ISceneLightingEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISceneLightingEffect {
+unsafe impl ::windows::core::ComInterface for ISceneLightingEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
 #[repr(C)]
@@ -36,7 +36,7 @@ pub struct ISceneLightingEffect_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISceneLightingEffect2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISceneLightingEffect2 {
+unsafe impl ::windows::core::Interface for ISceneLightingEffect2 {
     type Vtable = ISceneLightingEffect2_Vtbl;
 }
 impl ::core::clone::Clone for ISceneLightingEffect2 {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for ISceneLightingEffect2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISceneLightingEffect2 {
+unsafe impl ::windows::core::ComInterface for ISceneLightingEffect2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
 }
 #[repr(C)]
@@ -68,39 +68,39 @@ impl SceneLightingEffect {
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
     pub fn AmbientAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).AmbientAmount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AmbientAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAmbientAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAmbientAmount)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAmbientAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DiffuseAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).DiffuseAmount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DiffuseAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDiffuseAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDiffuseAmount)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDiffuseAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
@@ -108,51 +108,50 @@ impl SceneLightingEffect {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Effects::IGraphicsEffectSource>();
-            (::windows::core::Vtable::vtable(this).NormalMapSource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NormalMapSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetNormalMapSource<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetNormalMapSource<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNormalMapSource)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn SpecularAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).SpecularAmount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SpecularAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSpecularAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSpecularAmount)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecularAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SpecularShine(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).SpecularShine)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SpecularShine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSpecularShine(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSpecularShine)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecularShine)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ReflectanceModel(&self) -> ::windows::core::Result<SceneLightingEffectReflectanceModel> {
-        let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SceneLightingEffectReflectanceModel>();
-            (::windows::core::Vtable::vtable(this).ReflectanceModel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReflectanceModel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetReflectanceModel)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<ISceneLightingEffect2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for SceneLightingEffect {
@@ -174,60 +173,20 @@ impl ::core::clone::Clone for SceneLightingEffect {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SceneLightingEffect {
+unsafe impl ::windows::core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SceneLightingEffect {
-    const IID: ::windows::core::GUID = <ISceneLightingEffect as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SceneLightingEffect {
+    const IID: ::windows::core::GUID = <ISceneLightingEffect as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
 ::windows::imp::interface_hierarchy!(SceneLightingEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: SceneLightingEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Graphics::Effects::IGraphicsEffect> for SceneLightingEffect {}
 #[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffect {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffect> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffectSource {
-    type Error = ::windows::core::Error;
-    fn try_from(value: SceneLightingEffect) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<&SceneLightingEffect> for super::super::super::Graphics::Effects::IGraphicsEffectSource {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Graphics_Effects")]
-impl ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InParam<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &SceneLightingEffect) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Graphics::Effects::IGraphicsEffectSource> for SceneLightingEffect {}
 unsafe impl ::core::marker::Send for SceneLightingEffect {}
 unsafe impl ::core::marker::Sync for SceneLightingEffect {}
 #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]

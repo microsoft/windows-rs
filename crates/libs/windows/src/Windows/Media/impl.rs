@@ -18,7 +18,7 @@ impl IMediaExtension_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaExtension as ::windows::core::Interface>::IID
+        iid == &<IMediaExtension as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -163,7 +163,7 @@ impl IMediaFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaFrame as ::windows::core::Interface>::IID
+        iid == &<IMediaFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -224,7 +224,7 @@ impl IMediaMarker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaMarker as ::windows::core::Interface>::IID
+        iid == &<IMediaMarker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -254,6 +254,6 @@ impl IMediaMarkers_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaMarkers as ::windows::core::Interface>::IID
+        iid == &<IMediaMarkers as ::windows::core::ComInterface>::IID
     }
 }
