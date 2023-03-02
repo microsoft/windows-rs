@@ -9474,15 +9474,15 @@ impl ::core::fmt::Debug for WTS_VIRTUAL_CLASS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct AAAccountingData {
-    pub userName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub clientName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub userName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub clientName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub authType: AAAuthSchemes,
-    pub resourceName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub resourceName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub portNumber: i32,
-    pub protocolName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub protocolName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub numberOfBytesReceived: i32,
     pub numberOfBytesTransfered: i32,
-    pub reasonForDisconnect: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub reasonForDisconnect: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub mainSessionId: ::windows::core::GUID,
     pub subSessionId: i32,
 }

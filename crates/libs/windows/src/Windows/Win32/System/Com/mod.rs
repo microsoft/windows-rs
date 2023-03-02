@@ -10430,7 +10430,7 @@ pub struct BINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
     pub iid: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -10779,7 +10779,7 @@ impl ::core::default::Default for COAUTHINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct CONNECTDATA {
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwCookie: u32,
 }
 impl ::core::clone::Clone for CONNECTDATA {
@@ -11264,9 +11264,9 @@ impl ::core::default::Default for ELEMDESC_0 {
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
-    pub bstrSource: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrDescription: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrHelpFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrSource: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrDescription: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrHelpFile: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub dwHelpContext: u32,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
@@ -11567,7 +11567,7 @@ pub struct IEnumContextProps(pub u8);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct INTERFACEINFO {
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub iid: ::windows::core::GUID,
     pub wMethod: u16,
 }
@@ -11599,7 +11599,7 @@ impl ::core::default::Default for INTERFACEINFO {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct MULTI_QI {
     pub pIID: *const ::windows::core::GUID,
-    pub pItf: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pItf: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub hr: ::windows::core::HRESULT,
 }
 impl ::core::clone::Clone for MULTI_QI {
@@ -11963,7 +11963,7 @@ impl ::core::default::Default for SOLE_AUTHENTICATION_SERVICE {
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
-    pub pAdvSink: ::windows::core::ManuallyDrop<IAdviseSink>,
+    pub pAdvSink: ::std::mem::ManuallyDrop<::core::option::Option<IAdviseSink>>,
     pub dwConnection: u32,
 }
 impl ::core::clone::Clone for STATDATA {
@@ -12044,7 +12044,7 @@ impl ::core::default::Default for STATSTG {
 pub struct STGMEDIUM {
     pub tymed: TYMED,
     pub Anonymous: STGMEDIUM_0,
-    pub pUnkForRelease: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkForRelease: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for STGMEDIUM {
@@ -12447,7 +12447,7 @@ impl ::core::default::Default for VARIANT_0_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,
-    pub pRecInfo: ::windows::core::ManuallyDrop<super::Ole::IRecordInfo>,
+    pub pRecInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Ole::IRecordInfo>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for VARIANT_0_0_0_0 {
@@ -12682,7 +12682,7 @@ impl ::core::default::Default for userFLAG_STGMEDIUM {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct userSTGMEDIUM {
-    pub pUnkForRelease: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkForRelease: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for userSTGMEDIUM {
     fn clone(&self) -> Self {

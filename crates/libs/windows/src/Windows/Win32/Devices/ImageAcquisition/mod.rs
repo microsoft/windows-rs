@@ -4667,7 +4667,7 @@ impl ::core::fmt::Debug for WIAVIDEO_STATE {
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub pIWiaItemRoot: ::windows::core::ManuallyDrop<IWiaItem>,
+    pub pIWiaItemRoot: ::std::mem::ManuallyDrop<::core::option::Option<IWiaItem>>,
     pub dwFlags: u32,
     pub lIntent: i32,
     pub lItemCount: i32,
@@ -4708,14 +4708,14 @@ impl ::core::default::Default for DEVICEDIALOGDATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
-    pub pIWiaItemRoot: ::windows::core::ManuallyDrop<IWiaItem2>,
+    pub pIWiaItemRoot: ::std::mem::ManuallyDrop<::core::option::Option<IWiaItem2>>,
     pub dwFlags: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub bstrFolderName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrFilename: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrFolderName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrFilename: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub lNumFiles: i32,
     pub pbstrFilePaths: *mut ::windows::core::BSTR,
-    pub pWiaItem: ::windows::core::ManuallyDrop<IWiaItem2>,
+    pub pWiaItem: ::std::mem::ManuallyDrop<::core::option::Option<IWiaItem2>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICEDIALOGDATA2 {
@@ -4770,7 +4770,7 @@ pub struct MINIDRV_TRANSFER_CONTEXT {
     pub bTransferDataCB: super::super::Foundation::BOOL,
     pub bClassDrvAllocBuf: super::super::Foundation::BOOL,
     pub lClientAddress: isize,
-    pub pIWiaMiniDrvCallBack: ::windows::core::ManuallyDrop<IWiaMiniDrvCallBack>,
+    pub pIWiaMiniDrvCallBack: ::std::mem::ManuallyDrop<::core::option::Option<IWiaMiniDrvCallBack>>,
     pub lImageSize: i32,
     pub lHeaderSize: i32,
     pub lItemSize: i32,
@@ -5502,10 +5502,10 @@ impl ::core::default::Default for WIA_DATA_TRANSFER_INFO {
 pub struct WIA_DEV_CAP {
     pub guid: ::windows::core::GUID,
     pub ulFlags: u32,
-    pub bstrName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrDescription: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrIcon: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrCommandline: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrDescription: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrIcon: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrCommandline: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for WIA_DEV_CAP {
     fn clone(&self) -> Self {
@@ -5569,7 +5569,7 @@ impl ::core::default::Default for WIA_DEV_CAP_DRV {
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
-    pub bstrPatternName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrPatternName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub lPatternWidth: i32,
     pub lPatternLength: i32,
     pub cbPattern: i32,
@@ -5934,7 +5934,7 @@ impl ::core::default::Default for WIA_PROPERTY_INFO_0_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
-    pub Nom: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub Nom: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub pList: *mut ::windows::core::BSTR,
 }
 #[cfg(feature = "Win32_System_Com")]

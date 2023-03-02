@@ -843,7 +843,7 @@ pub struct DMO_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
@@ -880,7 +880,7 @@ impl ::core::default::Default for DMO_MEDIA_TYPE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: ::windows::core::ManuallyDrop<IMediaBuffer>,
+    pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<IMediaBuffer>>,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,

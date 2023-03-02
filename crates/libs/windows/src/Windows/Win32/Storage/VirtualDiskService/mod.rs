@@ -4964,7 +4964,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub pVolumeUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pVolumeUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
     fn clone(&self) -> Self {
@@ -4993,7 +4993,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pLunUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pLunUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
     fn clone(&self) -> Self {
@@ -5053,7 +5053,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_2 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub pPortalGroupUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pPortalGroupUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
     fn clone(&self) -> Self {
@@ -5082,7 +5082,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_3 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pTargetUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pTargetUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
     fn clone(&self) -> Self {
@@ -5111,7 +5111,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_4 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pVolumeUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pVolumeUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
     fn clone(&self) -> Self {
@@ -5140,7 +5140,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_5 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pVDiskUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pVDiskUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {
     fn clone(&self) -> Self {

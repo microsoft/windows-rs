@@ -6235,7 +6235,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: ::windows::core::PCWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: ::windows::core::ManuallyDrop<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -6273,7 +6273,7 @@ impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: ::windows::core::PCWSTR,
-    pub blockMapHashAlgorithm: ::windows::core::ManuallyDrop<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IUri>>,
     pub options: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6344,7 +6344,7 @@ impl ::core::default::Default for APPX_KEY_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: ::windows::core::ManuallyDrop<super::super::super::System::Com::IUri>,
+    pub hashMethod: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IUri>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
@@ -6380,7 +6380,7 @@ impl ::core::default::Default for APPX_PACKAGE_SETTINGS {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: ::windows::core::ManuallyDrop<super::super::super::System::Com::IStream>,
+    pub inputStream: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IStream>>,
     pub fileName: ::windows::core::PCWSTR,
     pub contentType: ::windows::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,

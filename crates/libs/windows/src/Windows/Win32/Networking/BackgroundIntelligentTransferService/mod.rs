@@ -4481,8 +4481,8 @@ impl ::core::default::Default for BITS_JOB_PROPERTY_VALUE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct FILESETINFO {
-    pub bstrRemoteFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrLocalFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrRemoteFile: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrLocalFile: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub dwSizeHint: u32,
 }
 impl ::core::clone::Clone for FILESETINFO {

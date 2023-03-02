@@ -5375,9 +5375,9 @@ impl ::core::default::Default for TABLE_NOTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
-    pub lpWABObject: ::windows::core::ManuallyDrop<IWABObject>,
-    pub lpAdrBook: ::windows::core::ManuallyDrop<IAddrBook>,
-    pub lpPropObj: ::windows::core::ManuallyDrop<IMAPIProp>,
+    pub lpWABObject: ::std::mem::ManuallyDrop<::core::option::Option<IWABObject>>,
+    pub lpAdrBook: ::std::mem::ManuallyDrop<::core::option::Option<IAddrBook>>,
+    pub lpPropObj: ::std::mem::ManuallyDrop<::core::option::Option<IMAPIProp>>,
     pub fReadOnly: super::super::Foundation::BOOL,
     pub fDataChanged: super::super::Foundation::BOOL,
     pub ulFlags: u32,
@@ -5419,7 +5419,7 @@ impl ::core::default::Default for WABEXTDISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
-    pub lpAdrBook: ::windows::core::ManuallyDrop<IAddrBook>,
+    pub lpAdrBook: ::std::mem::ManuallyDrop<::core::option::Option<IAddrBook>>,
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
     pub lpszFileName: ::windows::core::PSTR,

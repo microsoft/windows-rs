@@ -5353,7 +5353,7 @@ impl ::core::default::Default for CODEBASEHOLD {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct CONFIRMSAFETY {
     pub clsid: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwFlags: u32,
 }
 impl ::core::clone::Clone for CONFIRMSAFETY {
@@ -5492,9 +5492,9 @@ impl ::core::default::Default for PROTOCOLDATA {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: ::windows::core::ManuallyDrop<IInternetProtocolSink>,
-    pub pProtocol: ::windows::core::ManuallyDrop<IInternetProtocol>,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pProtocolSink: ::std::mem::ManuallyDrop<::core::option::Option<IInternetProtocolSink>>,
+    pub pProtocol: ::std::mem::ManuallyDrop<::core::option::Option<IInternetProtocol>>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwFilterFlags: u32,
 }
 impl ::core::clone::Clone for PROTOCOLFILTERDATA {
@@ -5607,7 +5607,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5748,8 +5748,8 @@ impl ::core::default::Default for SOFTDISTINFO {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub struct StartParam {
     pub iid: ::windows::core::GUID,
-    pub pIBindCtx: ::windows::core::ManuallyDrop<super::IBindCtx>,
-    pub pItf: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pIBindCtx: ::std::mem::ManuallyDrop<::core::option::Option<super::IBindCtx>>,
+    pub pItf: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for StartParam {
     fn clone(&self) -> Self {

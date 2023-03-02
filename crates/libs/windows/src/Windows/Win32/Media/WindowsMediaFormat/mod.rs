@@ -11121,7 +11121,7 @@ impl ::core::default::Default for WMSCRIPTFORMAT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_BUFFER_SEGMENT {
-    pub pBuffer: ::windows::core::ManuallyDrop<INSSBuffer>,
+    pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<INSSBuffer>>,
     pub cbOffset: u32,
     pub cbLength: u32,
 }
@@ -11806,7 +11806,7 @@ pub struct WM_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }

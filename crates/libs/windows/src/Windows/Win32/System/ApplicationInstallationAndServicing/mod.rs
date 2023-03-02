@@ -12330,7 +12330,7 @@ impl ::core::default::Default for PM_APPTASKTYPE {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BSATASKID {
     pub ProductID: ::windows::core::GUID,
-    pub TaskID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub TaskID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_BSATASKID {
     fn clone(&self) -> Self {
@@ -12360,7 +12360,7 @@ impl ::core::default::Default for PM_BSATASKID {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_BWTASKID {
     pub ProductID: ::windows::core::GUID,
-    pub TaskID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub TaskID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_BWTASKID {
     fn clone(&self) -> Self {
@@ -12443,7 +12443,7 @@ impl ::core::default::Default for PM_ENUM_FILTER_0 {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: ::windows::core::GUID,
-    pub ExtensionID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub ExtensionID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_EXTENSIONCONSUMER {
     fn clone(&self) -> Self {
@@ -12474,14 +12474,14 @@ impl ::core::default::Default for PM_EXTENSIONCONSUMER {
 #[cfg(feature = "Win32_Foundation")]
 pub struct PM_INSTALLINFO {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub PackagePath: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
     pub IsUninstallDisabled: super::super::Foundation::BOOL,
     pub DeploymentOptions: u32,
     pub OfferID: ::windows::core::GUID,
-    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub MarketplaceAppVersion: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PM_INSTALLINFO {
@@ -12516,8 +12516,8 @@ impl ::core::default::Default for PM_INSTALLINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_INVOCATIONINFO {
-    pub URIBaseOrAUMID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub URIFragmentOrArgs: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub URIBaseOrAUMID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub URIFragmentOrArgs: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_INVOCATIONINFO {
     fn clone(&self) -> Self {
@@ -12549,8 +12549,8 @@ impl ::core::default::Default for PM_INVOCATIONINFO {
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
-    pub AppTitle: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub IconPath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub AppTitle: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub IconPath: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub IsUninstallable: super::super::Foundation::BOOL,
     pub AppInstallType: PM_APPLICATION_INSTALL_TYPE,
     pub InstanceID: ::windows::core::GUID,
@@ -12595,7 +12595,7 @@ impl ::core::default::Default for PM_STARTAPPBLOB {
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: ::windows::core::GUID,
-    pub TileID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub TileID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub TemplateType: TILE_TEMPLATE_TYPE,
     pub HubPosition: [u32; 32],
     pub HubVisibilityBitmask: u32,
@@ -12655,11 +12655,11 @@ impl ::core::default::Default for PM_STARTTILEBLOB {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub PackagePath: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub MarketplaceAppVersion: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub DeploymentOptions: u32,
 }
 impl ::core::clone::Clone for PM_UPDATEINFO {
@@ -12690,11 +12690,11 @@ impl ::core::default::Default for PM_UPDATEINFO {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: ::windows::core::GUID,
-    pub PackagePath: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub PackagePath: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub InstanceID: ::windows::core::GUID,
     pub pbLicense: *mut u8,
     pub cbLicense: u32,
-    pub MarketplaceAppVersion: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub MarketplaceAppVersion: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for PM_UPDATEINFO_LEGACY {
     fn clone(&self) -> Self {

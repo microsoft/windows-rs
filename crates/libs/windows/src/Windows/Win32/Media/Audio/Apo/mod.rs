@@ -1144,10 +1144,10 @@ impl ::core::default::Default for APOInitBaseStruct {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOSystemEffectsProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
+    pub pDeviceCollection: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDeviceCollection>>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::clone::Clone for APOInitSystemEffects {
@@ -1184,10 +1184,10 @@ impl ::core::default::Default for APOInitSystemEffects {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pAPOSystemEffectsProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
+    pub pDeviceCollection: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDeviceCollection>>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows::core::GUID,
@@ -1238,9 +1238,9 @@ impl ::core::default::Default for APOInitSystemEffects2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
-    pub pServiceProvider: ::windows::core::ManuallyDrop<super::super::super::System::Com::IServiceProvider>,
-    pub pDeviceCollection: ::windows::core::ManuallyDrop<super::IMMDeviceCollection>,
+    pub pAPOEndpointProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub pServiceProvider: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IServiceProvider>>,
+    pub pDeviceCollection: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDeviceCollection>>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
     pub AudioProcessingMode: ::windows::core::GUID,
@@ -1291,7 +1291,7 @@ pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
     pub u32MaxFrameCount: u32,
-    pub pFormat: ::windows::core::ManuallyDrop<IAudioMediaType>,
+    pub pFormat: ::std::mem::ManuallyDrop<::core::option::Option<IAudioMediaType>>,
     pub u32Signature: u32,
 }
 impl ::core::clone::Clone for APO_CONNECTION_DESCRIPTOR {
@@ -1527,7 +1527,7 @@ impl ::core::default::Default for APO_REG_PROPERTIES {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub device: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
 }
 impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -1557,8 +1557,8 @@ impl ::core::default::Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATIO
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
-    pub propertyStore: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub endpoint: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
+    pub propertyStore: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1594,7 +1594,7 @@ impl ::core::default::Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub device: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
 }
 impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -1624,7 +1624,7 @@ impl ::core::default::Default for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIP
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub endpoint: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1700,7 +1700,7 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    pub device: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub device: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
     pub propertyStoreContext: ::windows::core::GUID,
 }
 impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
@@ -1731,10 +1731,10 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFI
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    pub endpoint: ::windows::core::ManuallyDrop<super::IMMDevice>,
+    pub endpoint: ::std::mem::ManuallyDrop<::core::option::Option<super::IMMDevice>>,
     pub propertyStoreContext: ::windows::core::GUID,
     pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
-    pub propertyStore: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub propertyStore: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1773,7 +1773,7 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATI
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: ::windows::core::PWSTR,
-    pub pFxProperties: ::windows::core::ManuallyDrop<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pFxProperties: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for AudioFXExtensionParams {

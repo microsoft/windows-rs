@@ -7144,7 +7144,7 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_0 {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
-    pub pUnkControl: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkControl: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
     fn clone(&self) -> Self {
@@ -7253,7 +7253,7 @@ impl ::core::default::Default for SColumnSetID {
 #[cfg(feature = "Win32_System_Com")]
 pub struct SMMCDataObjects {
     pub count: u32,
-    pub lpDataObject: [::windows::core::ManuallyDrop<super::Com::IDataObject>; 1usize],
+    pub lpDataObject: [::std::mem::ManuallyDrop<::core::option::Option<super::Com::IDataObject>>; 1usize],
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for SMMCDataObjects {

@@ -6813,7 +6813,7 @@ pub struct RSOP_TARGET {
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
     pub pRsopToken: *mut ::core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: ::windows::core::ManuallyDrop<super::Wmi::IWbemServices>,
+    pub pWbemServices: ::std::mem::ManuallyDrop<::core::option::Option<super::Wmi::IWbemServices>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl ::core::clone::Clone for RSOP_TARGET {

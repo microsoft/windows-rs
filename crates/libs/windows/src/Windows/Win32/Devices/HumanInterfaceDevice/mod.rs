@@ -8262,7 +8262,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub lpUnkDDSTarget: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
@@ -8305,7 +8305,7 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub lpUnkDDSTarget: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {

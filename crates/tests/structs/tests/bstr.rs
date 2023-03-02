@@ -8,11 +8,14 @@ fn test() {
     let value: BSTR = "Name".into();
 
     let mut a = DebugPropertyInfo::default();
-    assert_eq!(a.m_bstrName.unwrap(), "");
-    a.m_bstrName = ManuallyDrop::new(&value);
+    assert_eq!(*a.m_bstrName, "");
+    a.m_bstrName = unsafe { std::mem::transmute_copy(&value) };
     let b = a.clone();
 
     assert!(a == b);
-    assert_eq!(a.m_bstrName.unwrap(), &value);
-    assert_eq!(b.m_bstrName.unwrap(), &value);
+    assert_eq!(*a.m_bstrName, value);
+    assert_eq!(*b.m_bstrName, value);
+
+    assert_eq!(*a.m_bstrName, "Name");
+    assert_eq!(*b.m_bstrName, "Name");
 }

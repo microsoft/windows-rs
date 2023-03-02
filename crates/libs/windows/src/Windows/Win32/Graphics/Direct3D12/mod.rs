@@ -23968,8 +23968,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameW: ::windows::core::PCWSTR,
     pub pCommandQueueDebugNameA: ::windows::core::PCSTR,
     pub pCommandQueueDebugNameW: ::windows::core::PCWSTR,
-    pub pCommandList: ::windows::core::ManuallyDrop<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::windows::core::ManuallyDrop<ID3D12CommandQueue>,
+    pub pCommandList: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12GraphicsCommandList>>,
+    pub pCommandQueue: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12CommandQueue>>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -24017,8 +24017,8 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameW: ::windows::core::PCWSTR,
     pub pCommandQueueDebugNameA: ::windows::core::PCSTR,
     pub pCommandQueueDebugNameW: ::windows::core::PCWSTR,
-    pub pCommandList: ::windows::core::ManuallyDrop<ID3D12GraphicsCommandList>,
-    pub pCommandQueue: ::windows::core::ManuallyDrop<ID3D12CommandQueue>,
+    pub pCommandList: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12GraphicsCommandList>>,
+    pub pCommandQueue: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12CommandQueue>>,
     pub BreadcrumbCount: u32,
     pub pLastBreadcrumbValue: *const u32,
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
@@ -24222,7 +24222,7 @@ pub struct D3D12_BUFFER_BARRIER {
     pub SyncAfter: D3D12_BARRIER_SYNC,
     pub AccessBefore: D3D12_BARRIER_ACCESS,
     pub AccessAfter: D3D12_BARRIER_ACCESS,
-    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
     pub Offset: u64,
     pub Size: u64,
 }
@@ -24610,7 +24610,7 @@ impl ::core::default::Default for D3D12_COMMAND_SIGNATURE_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
+    pub pRootSignature: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12RootSignature>>,
     pub CS: D3D12_SHADER_BYTECODE,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
@@ -25594,7 +25594,7 @@ pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameW: ::windows::core::PCWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *const D3D12_DRED_ALLOCATION_NODE1,
-    pub pObject: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pObject: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for D3D12_DRED_ALLOCATION_NODE1 {
     fn clone(&self) -> Self {
@@ -25875,7 +25875,7 @@ impl ::core::default::Default for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
-    pub pExistingCollection: ::windows::core::ManuallyDrop<ID3D12StateObject>,
+    pub pExistingCollection: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12StateObject>>,
     pub NumExports: u32,
     pub pExports: *mut D3D12_EXPORT_DESC,
 }
@@ -27519,7 +27519,7 @@ impl ::core::default::Default for D3D12_GLOBAL_BARRIER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
-    pub pGlobalRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
+    pub pGlobalRootSignature: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12RootSignature>>,
 }
 impl ::core::clone::Clone for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
@@ -27673,7 +27673,7 @@ impl ::core::default::Default for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    pub pRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
+    pub pRootSignature: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12RootSignature>>,
     pub VS: D3D12_SHADER_BYTECODE,
     pub PS: D3D12_SHADER_BYTECODE,
     pub DS: D3D12_SHADER_BYTECODE,
@@ -28287,7 +28287,7 @@ impl ::core::default::Default for D3D12_LIBRARY_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
-    pub pLocalRootSignature: ::windows::core::ManuallyDrop<ID3D12RootSignature>,
+    pub pLocalRootSignature: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12RootSignature>>,
 }
 impl ::core::clone::Clone for D3D12_LOCAL_ROOT_SIGNATURE {
     fn clone(&self) -> Self {
@@ -29739,8 +29739,8 @@ impl ::core::default::Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    pub pSrcResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
-    pub pDstResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pSrcResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
+    pub pDstResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
@@ -29950,8 +29950,8 @@ impl ::core::default::Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
-    pub pResourceBefore: ::windows::core::ManuallyDrop<ID3D12Resource>,
-    pub pResourceAfter: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResourceBefore: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
+    pub pResourceAfter: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_ALIASING_BARRIER {
     fn clone(&self) -> Self {
@@ -30178,7 +30178,7 @@ impl ::core::default::Default for D3D12_RESOURCE_DESC1 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
-    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
     pub Subresource: u32,
     pub StateBefore: D3D12_RESOURCE_STATES,
     pub StateAfter: D3D12_RESOURCE_STATES,
@@ -30210,7 +30210,7 @@ impl ::core::default::Default for D3D12_RESOURCE_TRANSITION_BARRIER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
-    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
 }
 impl ::core::clone::Clone for D3D12_RESOURCE_UAV_BARRIER {
     fn clone(&self) -> Self {
@@ -32641,7 +32641,7 @@ pub struct D3D12_TEXTURE_BARRIER {
     pub AccessAfter: D3D12_BARRIER_ACCESS,
     pub LayoutBefore: D3D12_BARRIER_LAYOUT,
     pub LayoutAfter: D3D12_BARRIER_LAYOUT,
-    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
     pub Subresources: D3D12_BARRIER_SUBRESOURCE_RANGE,
     pub Flags: D3D12_TEXTURE_BARRIER_FLAGS,
 }
@@ -32673,7 +32673,7 @@ impl ::core::default::Default for D3D12_TEXTURE_BARRIER {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
-    pub pResource: ::windows::core::ManuallyDrop<ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12Resource>>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }

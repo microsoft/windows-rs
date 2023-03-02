@@ -15727,7 +15727,7 @@ impl ::core::default::Default for CAUUID {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct CLEANLOCALSTORAGE {
-    pub pInterface: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pInterface: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub pStorage: *mut ::core::ffi::c_void,
     pub flags: u32,
 }
@@ -16465,7 +16465,7 @@ pub struct OLEUICHANGESOURCEA {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkContainerA>>,
     pub dwLink: u32,
     pub lpszDisplayName: ::windows::core::PSTR,
     pub nFileLength: u32,
@@ -16526,7 +16526,7 @@ pub struct OLEUICHANGESOURCEW {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkContainerW>>,
     pub dwLink: u32,
     pub lpszDisplayName: ::windows::core::PWSTR,
     pub nFileLength: u32,
@@ -16731,7 +16731,7 @@ pub struct OLEUIEDITLINKSA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkContainerA>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OLEUIEDITLINKSA {
@@ -16768,7 +16768,7 @@ pub struct OLEUIEDITLINKSW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::windows::core::ManuallyDrop<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkContainerW>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OLEUIEDITLINKSW {
@@ -16885,8 +16885,8 @@ pub struct OLEUIINSERTOBJECTA {
     pub iid: ::windows::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
-    pub lpIStorage: ::windows::core::ManuallyDrop<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: ::std::mem::ManuallyDrop<::core::option::Option<IOleClientSite>>,
+    pub lpIStorage: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::StructuredStorage::IStorage>>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -16956,8 +16956,8 @@ pub struct OLEUIINSERTOBJECTW {
     pub iid: ::windows::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
-    pub lpIStorage: ::windows::core::ManuallyDrop<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: ::std::mem::ManuallyDrop<::core::option::Option<IOleClientSite>>,
+    pub lpIStorage: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::StructuredStorage::IStorage>>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -17086,9 +17086,9 @@ pub struct OLEUIOBJECTPROPSA {
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::windows::core::ManuallyDrop<IOleUIObjInfoA>,
+    pub lpObjInfo: ::std::mem::ManuallyDrop<::core::option::Option<IOleUIObjInfoA>>,
     pub dwLink: u32,
-    pub lpLinkInfo: ::windows::core::ManuallyDrop<IOleUILinkInfoA>,
+    pub lpLinkInfo: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkInfoA>>,
     pub lpGP: *mut OLEUIGNRLPROPSA,
     pub lpVP: *mut OLEUIVIEWPROPSA,
     pub lpLP: *mut OLEUILINKPROPSA,
@@ -17131,9 +17131,9 @@ pub struct OLEUIOBJECTPROPSW {
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::windows::core::ManuallyDrop<IOleUIObjInfoW>,
+    pub lpObjInfo: ::std::mem::ManuallyDrop<::core::option::Option<IOleUIObjInfoW>>,
     pub dwLink: u32,
-    pub lpLinkInfo: ::windows::core::ManuallyDrop<IOleUILinkInfoW>,
+    pub lpLinkInfo: ::std::mem::ManuallyDrop<::core::option::Option<IOleUILinkInfoW>>,
     pub lpGP: *mut OLEUIGNRLPROPSW,
     pub lpVP: *mut OLEUIVIEWPROPSW,
     pub lpLP: *mut OLEUILINKPROPSW,
@@ -17265,7 +17265,7 @@ pub struct OLEUIPASTESPECIALA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::windows::core::ManuallyDrop<super::Com::IDataObject>,
+    pub lpSrcDataObj: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IDataObject>>,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYA,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -17332,7 +17332,7 @@ pub struct OLEUIPASTESPECIALW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::windows::core::ManuallyDrop<super::Com::IDataObject>,
+    pub lpSrcDataObj: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IDataObject>>,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYW,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -17991,21 +17991,21 @@ impl ::core::default::Default for PROPPAGEINFO {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct QACONTAINER {
     pub cbSize: u32,
-    pub pClientSite: ::windows::core::ManuallyDrop<IOleClientSite>,
-    pub pAdviseSink: ::windows::core::ManuallyDrop<IAdviseSinkEx>,
-    pub pPropertyNotifySink: ::windows::core::ManuallyDrop<IPropertyNotifySink>,
-    pub pUnkEventSink: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pClientSite: ::std::mem::ManuallyDrop<::core::option::Option<IOleClientSite>>,
+    pub pAdviseSink: ::std::mem::ManuallyDrop<::core::option::Option<IAdviseSinkEx>>,
+    pub pPropertyNotifySink: ::std::mem::ManuallyDrop<::core::option::Option<IPropertyNotifySink>>,
+    pub pUnkEventSink: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwAmbientFlags: QACONTAINERFLAGS,
     pub colorFore: u32,
     pub colorBack: u32,
-    pub pFont: ::windows::core::ManuallyDrop<IFont>,
-    pub pUndoMgr: ::windows::core::ManuallyDrop<IOleUndoManager>,
+    pub pFont: ::std::mem::ManuallyDrop<::core::option::Option<IFont>>,
+    pub pUndoMgr: ::std::mem::ManuallyDrop<::core::option::Option<IOleUndoManager>>,
     pub dwAppearance: u32,
     pub lcid: i32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub pBindHost: ::windows::core::ManuallyDrop<super::Com::IBindHost>,
-    pub pOleControlSite: ::windows::core::ManuallyDrop<IOleControlSite>,
-    pub pServiceProvider: ::windows::core::ManuallyDrop<super::Com::IServiceProvider>,
+    pub pBindHost: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IBindHost>>,
+    pub pOleControlSite: ::std::mem::ManuallyDrop<::core::option::Option<IOleControlSite>>,
+    pub pServiceProvider: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IServiceProvider>>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for QACONTAINER {
@@ -18402,7 +18402,7 @@ impl ::core::default::Default for UDATE {
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
-    pub pRecInfo: ::windows::core::ManuallyDrop<IRecordInfo>,
+    pub pRecInfo: ::std::mem::ManuallyDrop<::core::option::Option<IRecordInfo>>,
     pub pRecord: *mut u8,
 }
 impl ::core::clone::Clone for _wireBRECORD {

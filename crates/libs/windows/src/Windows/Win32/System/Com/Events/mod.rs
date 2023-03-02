@@ -1288,9 +1288,9 @@ impl ::core::fmt::Debug for EOC_ChangeType {
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
     pub changeType: EOC_ChangeType,
-    pub objectId: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub partitionId: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub applicationId: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub objectId: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub partitionId: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub applicationId: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub reserved: [::windows::core::GUID; 10],
 }
 impl ::core::clone::Clone for COMEVENTSYSCHANGEINFO {

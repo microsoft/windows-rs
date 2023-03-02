@@ -10600,9 +10600,9 @@ pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
     pub clsid: ::windows::core::GUID,
-    pub poleobj: ::windows::core::ManuallyDrop<super::super::super::System::Ole::IOleObject>,
-    pub pstg: ::windows::core::ManuallyDrop<super::super::super::System::Com::StructuredStorage::IStorage>,
-    pub polesite: ::windows::core::ManuallyDrop<super::super::super::System::Ole::IOleClientSite>,
+    pub poleobj: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Ole::IOleObject>>,
+    pub pstg: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>>,
+    pub polesite: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Ole::IOleClientSite>>,
     pub sizel: super::super::super::Foundation::SIZE,
     pub dvaspect: u32,
     pub dwFlags: REOBJECT_FLAGS,
@@ -10697,7 +10697,7 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Ascent: i32,
     pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
     pub pwszAlternateText: ::windows::core::PCWSTR,
-    pub pIStream: ::windows::core::ManuallyDrop<super::super::super::System::Com::IStream>,
+    pub pIStream: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IStream>>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::windows::core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {

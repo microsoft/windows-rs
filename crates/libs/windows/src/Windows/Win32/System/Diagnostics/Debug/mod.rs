@@ -44282,12 +44282,12 @@ impl ::core::default::Default for DUMP_HEADER64_0 {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub m_bstrType: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub m_bstrValue: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub m_bstrFullName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrType: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrValue: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub m_bstrFullName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: ::windows::core::ManuallyDrop<IDebugProperty>,
+    pub m_pDebugProp: ::std::mem::ManuallyDrop<::core::option::Option<IDebugProperty>>,
 }
 impl ::core::clone::Clone for DebugPropertyInfo {
     fn clone(&self) -> Self {
@@ -44317,11 +44317,11 @@ impl ::core::default::Default for DebugPropertyInfo {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor {
-    pub pdsf: ::windows::core::ManuallyDrop<IDebugStackFrame>,
+    pub pdsf: ::std::mem::ManuallyDrop<::core::option::Option<IDebugStackFrame>>,
     pub dwMin: u32,
     pub dwLim: u32,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punkFinal: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugStackFrameDescriptor {
@@ -44357,11 +44357,11 @@ impl ::core::default::Default for DebugStackFrameDescriptor {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64 {
-    pub pdsf: ::windows::core::ManuallyDrop<IDebugStackFrame>,
+    pub pdsf: ::std::mem::ManuallyDrop<::core::option::Option<IDebugStackFrame>>,
     pub dwMin: u64,
     pub dwLim: u64,
     pub fFinal: super::super::super::Foundation::BOOL,
-    pub punkFinal: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punkFinal: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DebugStackFrameDescriptor64 {
@@ -44961,12 +44961,12 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: ::windows::core::PWSTR,
     pub pszFullName: ::windows::core::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: ::windows::core::ManuallyDrop<IDebugProperty>,
+    pub pDebugProp: ::std::mem::ManuallyDrop<::core::option::Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
     pub varValue: super::super::Com::VARIANT,
-    pub plbValue: ::windows::core::ManuallyDrop<super::super::Com::StructuredStorage::ILockBytes>,
-    pub pDebugExtProp: ::windows::core::ManuallyDrop<IDebugExtendedProperty>,
+    pub plbValue: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Com::StructuredStorage::ILockBytes>>,
+    pub pDebugExtProp: ::std::mem::ManuallyDrop<::core::option::Option<IDebugExtendedProperty>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
@@ -48245,10 +48245,10 @@ impl ::core::default::Default for JS_NATIVE_FRAME {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct JsDebugPropertyInfo {
-    pub name: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub r#type: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub value: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub fullName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub name: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub r#type: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub value: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub fullName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub attr: JS_PROPERTY_ATTRIBUTES,
 }
 impl ::core::clone::Clone for JsDebugPropertyInfo {

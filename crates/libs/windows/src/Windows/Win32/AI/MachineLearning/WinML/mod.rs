@@ -1963,7 +1963,7 @@ pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
-    pub pResource: ::windows::core::ManuallyDrop<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pResource: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {

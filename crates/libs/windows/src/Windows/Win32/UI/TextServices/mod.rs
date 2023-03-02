@@ -12213,7 +12213,7 @@ impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_HALTCOND {
-    pub pHaltRange: ::windows::core::ManuallyDrop<ITfRange>,
+    pub pHaltRange: ::std::mem::ManuallyDrop<::core::option::Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
@@ -12359,7 +12359,7 @@ impl ::core::default::Default for TF_LANGUAGEPROFILE {
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
-    pub bstrText: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrText: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for TF_LBBALLOONINFO {
     fn clone(&self) -> Self {
@@ -12392,7 +12392,7 @@ pub struct TF_LMLATTELEMENT {
     pub dwFrameLen: u32,
     pub dwFlags: u32,
     pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrText: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for TF_LMLATTELEMENT {
     fn clone(&self) -> Self {
@@ -12519,7 +12519,7 @@ impl ::core::default::Default for TF_PROPERTYVAL {
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTION {
-    pub range: ::windows::core::ManuallyDrop<ITfRange>,
+    pub range: ::std::mem::ManuallyDrop<::core::option::Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12729,8 +12729,8 @@ impl ::core::default::Default for TS_SELECTION_ACP {
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ANCHOR {
-    pub paStart: ::windows::core::ManuallyDrop<IAnchor>,
-    pub paEnd: ::windows::core::ManuallyDrop<IAnchor>,
+    pub paStart: ::std::mem::ManuallyDrop<::core::option::Option<IAnchor>>,
+    pub paEnd: ::std::mem::ManuallyDrop<::core::option::Option<IAnchor>>,
     pub style: TS_SELECTIONSTYLE,
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -15111,7 +15111,7 @@ impl ::core::default::Default for DWRITE_GLYPH_OFFSET {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_GLYPH_RUN {
-    pub fontFace: ::windows::core::ManuallyDrop<IDWriteFontFace>,
+    pub fontFace: ::std::mem::ManuallyDrop<::core::option::Option<IDWriteFontFace>>,
     pub fontEmSize: f32,
     pub glyphCount: u32,
     pub glyphIndices: *const u16,
