@@ -54,6 +54,18 @@ impl<T: Type<T>> Array<T> {
         array
     }
 
+    /// Creates an array from a pointer and length. The `len` argument is the number of elements, not the number of bytes.
+    /// # Safety
+    /// The `data` argument must have been allocated with `CoTaskMemAlloc`.
+    pub unsafe fn from_raw_parts(data: *mut T::Default, len: u32) -> Self {
+        Self { data, len }
+    }
+
+    /// Returns a slice containing the entire array.
+    pub fn as_slice(&self) -> &[T::Default] {
+        self
+    }
+
     /// Returns `true` if the array is empty.
     pub fn is_empty(&self) -> bool {
         self.len == 0
