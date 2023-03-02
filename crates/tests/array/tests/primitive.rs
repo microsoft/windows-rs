@@ -21,7 +21,7 @@ fn array() {
     let result = a.as_slice().iter().fold(0, |acc, x| acc + x);
     assert_eq!(result, 6);
 
-    let a = Array::<i32>::from_slice(&[4,5,6]);
+    let a = Array::<i32>::from_slice(&[4, 5, 6]);
 
     assert_eq!(a.len(), 3);
     assert_eq!(a[0], 4);

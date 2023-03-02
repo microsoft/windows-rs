@@ -54,9 +54,10 @@ impl<T: Type<T>> Array<T> {
         array
     }
 
-    /// Creates an array from a pointer and length.
+    /// Creates an array from a pointer and length. The `len` argument is the number of elements, not the number of bytes.
     /// # Safety
-    pub unsafe fn from_raw(data: *mut T::Default, len: u32) -> Self {
+    /// The `data` argument must have been allocated with `CoTaskMemAlloc`.
+    pub unsafe fn from_raw_parts(data: *mut T::Default, len: u32) -> Self {
         Self { data, len }
     }
 
