@@ -50,11 +50,11 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
             && !gen.reader.field_is_blittable(f, def)
         {
             if let Type::Win32Array((ty, len)) = ty {
-                let ty = gen.type_name(&ty);
-                quote! { pub #name: [::windows::core::ManuallyDrop<#ty>; #len], }
+                let ty = gen.type_default_name(&ty);
+                quote! { pub #name: [::std::mem::ManuallyDrop<#ty>; #len], }
             } else {
-                let ty = gen.type_name(&ty);
-                quote! { pub #name: ::windows::core::ManuallyDrop<#ty>, }
+                let ty = gen.type_default_name(&ty);
+                quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
             }
         } else {
             let ty = gen.type_default_name(&ty);

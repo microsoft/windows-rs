@@ -56,8 +56,8 @@ impl IActivationFactory_Impl for ClassFactory {
 }
 
 #[no_mangle]
-unsafe extern "system" fn DllGetActivationFactory(name: ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
-    let factory: Option<IActivationFactory> = match name.unwrap().to_string().as_str() {
+unsafe extern "system" fn DllGetActivationFactory(name: std::mem::ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
+    let factory: Option<IActivationFactory> = match (*name).to_string().as_str() {
         "test_component.Class" => Some(ClassFactory.into()),
         _ => None,
     };
