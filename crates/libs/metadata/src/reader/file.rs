@@ -3,7 +3,6 @@ use std::cmp::*;
 
 #[derive(Default)]
 pub struct File {
-    name: String,
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
@@ -53,31 +52,21 @@ fn error_invalid_winmd() -> Error {
 
 impl File {
     pub fn with_default(paths: &[&str]) -> Result<Vec<Self>> {
-        let mut files = vec![
-            Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec(), "Windows.winmd".to_string())?,
-            Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec(), "Windows.Wdk.winmd".to_string())?,
-            Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec(), "Windows.Win32.winmd".to_string())?,
-            Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec(), "Windows.Win32.Interop.winmd".to_string())?,
-        ];
+        let mut files = vec![Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec())?];
 
         for path in paths {
-            files.push(Self::new(path)?);
+            files.push(Self::new(std::path::Path::new(path))?);
         }
 
         Ok(files)
     }
 
-    pub fn new(path: &str) -> Result<Self> {
-        let path = std::path::Path::new(path);
-
-        let buffer = std::fs::read(path)?;
-        let name = path.file_name().unwrap().to_string_lossy().into_owned();
-
-        Self::from_buffer(buffer, name)
+    pub fn new<P: AsRef<std::path::Path>>(path: P) -> Result<Self> {
+        Self::from_buffer(std::fs::read(&path)?)
     }
 
-    pub fn from_buffer(buffer: Vec<u8>, name: String) -> Result<Self> {
-        let mut result = File { bytes: buffer, name, ..Default::default() };
+    pub fn from_buffer(bytes: Vec<u8>) -> Result<Self> {
+        let mut result = File { bytes, ..Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
@@ -335,10 +324,6 @@ impl File {
         result.tables[TABLE_GENERICPARAM].set_data(&mut view);
 
         Ok(result)
-    }
-
-    pub fn name(&self) -> &str {
-        &self.name
     }
 
     pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
