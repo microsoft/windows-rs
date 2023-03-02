@@ -14644,8 +14644,8 @@ impl ::core::default::Default for TimedLevel {
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
-    pub bstrMenuText: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrHelpText: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrMenuText: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrHelpText: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for WMPContextMenuInfo {
     fn clone(&self) -> Self {

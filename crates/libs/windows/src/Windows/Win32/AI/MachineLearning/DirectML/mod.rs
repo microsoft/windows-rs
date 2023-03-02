@@ -3015,7 +3015,7 @@ impl ::core::default::Default for DML_BINDING_PROPERTIES {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: ::windows::core::ManuallyDrop<IDMLDispatchable>,
+    pub Dispatchable: ::std::mem::ManuallyDrop<::core::option::Option<IDMLDispatchable>>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -3093,7 +3093,7 @@ impl ::core::default::Default for DML_BUFFER_ARRAY_BINDING {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: ::windows::core::ManuallyDrop<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Buffer: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
@@ -6776,7 +6776,7 @@ impl ::core::default::Default for DML_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: ::windows::core::ManuallyDrop<IDMLOperator>,
+    pub Operator: ::std::mem::ManuallyDrop<::core::option::Option<IDMLOperator>>,
     pub Name: ::windows::core::PCSTR,
 }
 impl ::core::clone::Clone for DML_OPERATOR_GRAPH_NODE_DESC {

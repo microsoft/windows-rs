@@ -13842,7 +13842,7 @@ impl ::core::default::Default for CHARACTER_RANGE {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
-    pub dynamicRenderer: ::windows::core::ManuallyDrop<IDynamicRenderer>,
+    pub dynamicRenderer: ::std::mem::ManuallyDrop<::core::option::Option<IDynamicRenderer>>,
 }
 impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
     fn clone(&self) -> Self {
@@ -14100,8 +14100,8 @@ impl ::windows::core::TypeKind for HRECOWORDLIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::windows::core::ManuallyDrop<IInkCursor>,
-    pub Strokes: ::windows::core::ManuallyDrop<IInkStrokes>,
+    pub Cursor: ::std::mem::ManuallyDrop<::core::option::Option<IInkCursor>>,
+    pub Strokes: ::std::mem::ManuallyDrop<::core::option::Option<IInkStrokes>>,
     pub Gestures: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
@@ -14125,7 +14125,7 @@ impl ::core::default::Default for IEC_GESTUREINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: ::windows::core::ManuallyDrop<IInkRecognitionResult>,
+    pub RecognitionResult: ::std::mem::ManuallyDrop<::core::option::Option<IInkRecognitionResult>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
@@ -14162,8 +14162,8 @@ impl ::core::default::Default for IEC_RECOGNITIONRESULTINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::windows::core::ManuallyDrop<IInkCursor>,
-    pub Stroke: ::windows::core::ManuallyDrop<IInkStrokeDisp>,
+    pub Cursor: ::std::mem::ManuallyDrop<::core::option::Option<IInkCursor>>,
+    pub Stroke: ::std::mem::ManuallyDrop<::core::option::Option<IInkStrokeDisp>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_STROKEINFO {

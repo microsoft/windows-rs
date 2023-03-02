@@ -2870,7 +2870,7 @@ impl ::core::default::Default for STGOPTIONS {
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: ::windows::core::GUID,
-    pub pStream: ::windows::core::ManuallyDrop<super::IStream>,
+    pub pStream: ::std::mem::ManuallyDrop<::core::option::Option<super::IStream>>,
 }
 impl ::core::clone::Clone for VERSIONEDSTREAM {
     fn clone(&self) -> Self {

@@ -28004,7 +28004,7 @@ impl ::core::default::Default for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    pub pCryptoSession: ::windows::core::ManuallyDrop<ID3D11CryptoSession>,
+    pub pCryptoSession: ::std::mem::ManuallyDrop<::core::option::Option<ID3D11CryptoSession>>,
     pub BlobSize: u32,
     pub pBlob: *mut ::core::ffi::c_void,
     pub pKeyInfoId: *mut ::windows::core::GUID,
@@ -28714,10 +28714,10 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub PastFrames: u32,
     pub FutureFrames: u32,
     pub ppPastSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurface: ::windows::core::ManuallyDrop<ID3D11VideoProcessorInputView>,
+    pub pInputSurface: ::std::mem::ManuallyDrop<::core::option::Option<ID3D11VideoProcessorInputView>>,
     pub ppFutureSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
     pub ppPastSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurfaceRight: ::windows::core::ManuallyDrop<ID3D11VideoProcessorInputView>,
+    pub pInputSurfaceRight: ::std::mem::ManuallyDrop<::core::option::Option<ID3D11VideoProcessorInputView>>,
     pub ppFutureSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
 }
 #[cfg(feature = "Win32_Foundation")]

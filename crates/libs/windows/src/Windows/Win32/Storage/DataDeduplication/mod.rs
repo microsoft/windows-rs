@@ -776,7 +776,7 @@ impl ::core::default::Default for DedupHash {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub struct DedupStream {
-    pub Path: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub Path: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub Offset: u64,
     pub Length: u64,
     pub ChunkCount: u32,

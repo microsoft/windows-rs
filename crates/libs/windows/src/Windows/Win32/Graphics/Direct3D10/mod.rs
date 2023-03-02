@@ -10173,7 +10173,7 @@ impl ::core::default::Default for D3D10_PASS_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub struct D3D10_PASS_SHADER_DESC {
-    pub pShaderVariable: ::windows::core::ManuallyDrop<ID3D10EffectShaderVariable>,
+    pub pShaderVariable: ::std::mem::ManuallyDrop<::core::option::Option<ID3D10EffectShaderVariable>>,
     pub ShaderIndex: u32,
 }
 impl ::core::clone::Clone for D3D10_PASS_SHADER_DESC {

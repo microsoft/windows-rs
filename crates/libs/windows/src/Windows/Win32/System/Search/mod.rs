@@ -25063,7 +25063,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -25103,7 +25103,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -25207,7 +25207,7 @@ impl ::core::default::Default for DBCOLUMNACCESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows::core::GUID,
     pub cPropertySets: u32,
@@ -25242,7 +25242,7 @@ impl ::core::default::Default for DBCOLUMNDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows::core::GUID,
     pub cPropertySets: u32,
@@ -25270,7 +25270,7 @@ impl ::core::default::Default for DBCOLUMNDESC {
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -25304,7 +25304,7 @@ impl ::core::default::Default for DBCOLUMNINFO {
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -25611,9 +25611,9 @@ impl ::core::default::Default for DBFAILUREINFO {
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub piid: *mut ::windows::core::GUID,
-    pub pSession: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pSession: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DBIMPLICITSESSION {
@@ -25635,9 +25635,9 @@ impl ::core::default::Default for DBIMPLICITSESSION {
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub piid: *mut ::windows::core::GUID,
-    pub pSession: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pSession: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(target_arch = "x86")]
 impl ::windows::core::TypeKind for DBIMPLICITSESSION {
@@ -25924,7 +25924,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -25957,7 +25957,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: ::windows::core::PWSTR,
-    pub pTypeInfo: ::windows::core::ManuallyDrop<super::Com::ITypeInfo>,
+    pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -27355,7 +27355,7 @@ impl ::core::default::Default for RESTRICTION_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::windows::core::ManuallyDrop<super::Com::ISequentialStream>,
+    pub pISeqStream: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut ::windows::core::BSTR,
@@ -27394,7 +27394,7 @@ impl ::core::default::Default for RMTPACK {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::windows::core::ManuallyDrop<super::Com::ISequentialStream>,
+    pub pISeqStream: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut ::windows::core::BSTR,
@@ -28105,7 +28105,7 @@ impl ::core::default::Default for SSVARIANT_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SSVARIANT_0_0 {
@@ -28306,9 +28306,9 @@ pub struct SUBSCRIPTIONINFO {
     pub bChangesOnly: super::super::Foundation::BOOL,
     pub bNeedPassword: super::super::Foundation::BOOL,
     pub fChannelFlags: u32,
-    pub bstrUserName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrPassword: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrFriendlyName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrUserName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrPassword: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrFriendlyName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub dwMaxSizeKB: u32,
     pub subType: SUBSCRIPTIONTYPE,
     pub fTaskFlags: u32,

@@ -3820,8 +3820,8 @@ impl ::core::default::Default for CERT_CONTEXT_EX {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct CONFIGURATION_ENTRY {
-    pub bstrKey: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub bstrValue: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrKey: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub bstrValue: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     fn clone(&self) -> Self {

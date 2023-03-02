@@ -3843,7 +3843,7 @@ pub struct WSD_EVENT {
     pub HandlerContext: WSD_HANDLER_CONTEXT,
     pub Soap: *mut WSD_SOAP_MESSAGE,
     pub Operation: *mut WSD_OPERATION,
-    pub MessageParameters: ::windows::core::ManuallyDrop<IWSDMessageParameters>,
+    pub MessageParameters: ::std::mem::ManuallyDrop<::core::option::Option<IWSDMessageParameters>>,
 }
 impl ::core::clone::Clone for WSD_EVENT {
     fn clone(&self) -> Self {
@@ -4031,7 +4031,7 @@ impl ::core::default::Default for WSD_EVENTING_FILTER_ACTION {
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
-    pub Unknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub Unknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
     fn clone(&self) -> Self {
@@ -5109,7 +5109,7 @@ impl ::core::default::Default for WSD_SOAP_MESSAGE {
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows::core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
-    pub messageParameters: ::windows::core::ManuallyDrop<IWSDMessageParameters>,
+    pub messageParameters: ::std::mem::ManuallyDrop<::core::option::Option<IWSDMessageParameters>>,
     pub results: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

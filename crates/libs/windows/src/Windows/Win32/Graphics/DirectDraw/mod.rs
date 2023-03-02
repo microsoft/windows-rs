@@ -4689,7 +4689,7 @@ impl ::core::default::Default for DDARGB {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
-    pub lpDDSSrc: ::windows::core::ManuallyDrop<IDirectDrawSurface>,
+    pub lpDDSSrc: ::std::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
     pub lprSrc: *mut super::super::Foundation::RECT,
     pub dwFlags: u32,
     pub lpDDBltFx: *mut DDBLTFX,
@@ -9941,10 +9941,10 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub lpDD_int: *mut DDRAWI_DIRECTDRAW_INT,
     pub dwReserved1: usize,
-    pub pAddrefedThisOwner: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pAddrefedThisOwner: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10083,7 +10083,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub dwUnused0: usize,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwReserved1: usize,
     pub dwDDRAWReserved1: usize,
@@ -10797,7 +10797,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub dwLocalFlags: u32,
     pub dwLocalRefCnt: u32,
     pub dwProcessId: u32,
-    pub pUnkOuter: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub dwObsolete1: u32,
     pub hWnd: usize,
     pub hDC: usize,
@@ -10806,7 +10806,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
     pub hD3DInstance: super::super::Foundation::HINSTANCE,
-    pub pD3DIUnknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pD3DIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,
     pub dwAppHackFlags: u32,
@@ -15687,7 +15687,7 @@ impl ::core::default::Default for HEAPALIGNMENT {
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut ::windows::core::GUID,
-    pub lpIUnknown: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub lpIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 impl ::core::clone::Clone for IUNKNOWN_LIST {
     fn clone(&self) -> Self {

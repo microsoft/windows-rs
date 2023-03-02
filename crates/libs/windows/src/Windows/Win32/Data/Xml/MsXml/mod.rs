@@ -14626,11 +14626,11 @@ impl ::core::default::Default for XHR_COOKIE {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub struct XML_ERROR {
     pub _nLine: u32,
-    pub _pchBuf: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub _pchBuf: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub _cchBuf: u32,
     pub _ich: u32,
-    pub _pszFound: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub _pszExpected: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub _pszFound: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub _pszExpected: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub _reserved1: u32,
     pub _reserved2: u32,
 }

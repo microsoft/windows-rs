@@ -57967,7 +57967,7 @@ pub struct BANDINFOSFB {
     pub crBtnDk: super::super::Foundation::COLORREF,
     pub wViewMode: u16,
     pub wAlign: u16,
-    pub psf: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub psf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub pidl: *mut Common::ITEMIDLIST,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -58069,24 +58069,24 @@ impl ::core::default::Default for BANNER_NOTIFICATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: ::windows::core::ManuallyDrop<ITravelLog>,
-    pub _phlf: ::windows::core::ManuallyDrop<IHlinkFrame>,
-    pub _pautoWB2: ::windows::core::ManuallyDrop<IWebBrowser2>,
-    pub _pautoEDS: ::windows::core::ManuallyDrop<IExpDispSupport>,
-    pub _pautoSS: ::windows::core::ManuallyDrop<IShellService>,
+    pub _ptl: ::std::mem::ManuallyDrop<::core::option::Option<ITravelLog>>,
+    pub _phlf: ::std::mem::ManuallyDrop<::core::option::Option<IHlinkFrame>>,
+    pub _pautoWB2: ::std::mem::ManuallyDrop<::core::option::Option<IWebBrowser2>>,
+    pub _pautoEDS: ::std::mem::ManuallyDrop<::core::option::Option<IExpDispSupport>>,
+    pub _pautoSS: ::std::mem::ManuallyDrop<::core::option::Option<IShellService>>,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: ::windows::core::ManuallyDrop<super::super::System::Ole::IOleCommandTarget>,
+    pub _pctView: ::std::mem::ManuallyDrop<::core::option::Option<super::super::System::Ole::IOleCommandTarget>>,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: ::windows::core::ManuallyDrop<IShellView>,
-    pub _psf: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub _psv: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
+    pub _psf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub _hwndView: super::super::Foundation::HWND,
     pub _pszTitleCur: ::windows::core::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: ::windows::core::ManuallyDrop<IShellView>,
-    pub _psfPending: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub _psvPending: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
+    pub _psfPending: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub _hwndViewPending: super::super::Foundation::HWND,
     pub _pszTitlePending: ::windows::core::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
@@ -58185,24 +58185,24 @@ impl ::core::default::Default for BASEBROWSERDATALH {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
-    pub _ptl: ::windows::core::ManuallyDrop<ITravelLog>,
-    pub _phlf: ::windows::core::ManuallyDrop<IHlinkFrame>,
-    pub _pautoWB2: ::windows::core::ManuallyDrop<IWebBrowser2>,
-    pub _pautoEDS: ::windows::core::ManuallyDrop<IExpDispSupportXP>,
-    pub _pautoSS: ::windows::core::ManuallyDrop<IShellService>,
+    pub _ptl: ::std::mem::ManuallyDrop<::core::option::Option<ITravelLog>>,
+    pub _phlf: ::std::mem::ManuallyDrop<::core::option::Option<IHlinkFrame>>,
+    pub _pautoWB2: ::std::mem::ManuallyDrop<::core::option::Option<IWebBrowser2>>,
+    pub _pautoEDS: ::std::mem::ManuallyDrop<::core::option::Option<IExpDispSupportXP>>,
+    pub _pautoSS: ::std::mem::ManuallyDrop<::core::option::Option<IShellService>>,
     pub _eSecureLockIcon: i32,
     pub _bitfield: u32,
     pub _uActivateState: u32,
     pub _pidlViewState: *mut Common::ITEMIDLIST,
-    pub _pctView: ::windows::core::ManuallyDrop<super::super::System::Ole::IOleCommandTarget>,
+    pub _pctView: ::std::mem::ManuallyDrop<::core::option::Option<super::super::System::Ole::IOleCommandTarget>>,
     pub _pidlCur: *mut Common::ITEMIDLIST,
-    pub _psv: ::windows::core::ManuallyDrop<IShellView>,
-    pub _psf: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub _psv: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
+    pub _psf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub _hwndView: super::super::Foundation::HWND,
     pub _pszTitleCur: ::windows::core::PWSTR,
     pub _pidlPending: *mut Common::ITEMIDLIST,
-    pub _psvPending: ::windows::core::ManuallyDrop<IShellView>,
-    pub _psfPending: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub _psvPending: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
+    pub _psfPending: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub _hwndViewPending: super::super::Foundation::HWND,
     pub _pszTitlePending: ::windows::core::PWSTR,
     pub _fIsViewMSHTML: super::super::Foundation::BOOL,
@@ -58663,7 +58663,7 @@ impl ::core::default::Default for CM_COLUMNINFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct CONFIRM_CONFLICT_ITEM {
-    pub pShellItem: ::windows::core::ManuallyDrop<IShellItem2>,
+    pub pShellItem: ::std::mem::ManuallyDrop<::core::option::Option<IShellItem2>>,
     pub pszOriginalName: ::windows::core::PWSTR,
     pub pszAlternateName: ::windows::core::PWSTR,
     pub pszLocationShort: ::windows::core::PWSTR,
@@ -58818,8 +58818,8 @@ impl ::core::default::Default for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV {
     pub cbSize: u32,
-    pub pshf: ::windows::core::ManuallyDrop<IShellFolder>,
-    pub psvOuter: ::windows::core::ManuallyDrop<IShellView>,
+    pub pshf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
+    pub psvOuter: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
     pub pidl: *mut Common::ITEMIDLIST,
     pub lEvents: i32,
     pub pfnCallback: LPFNVIEWCALLBACK,
@@ -58872,12 +58872,12 @@ impl ::core::default::Default for DATABLOCK_HEADER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
-    pub pcmcb: ::windows::core::ManuallyDrop<IContextMenuCB>,
+    pub pcmcb: ::std::mem::ManuallyDrop<::core::option::Option<IContextMenuCB>>,
     pub pidlFolder: *mut Common::ITEMIDLIST,
-    pub psf: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub psf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub cidl: u32,
     pub apidl: *mut *mut Common::ITEMIDLIST,
-    pub punkAssociationInfo: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punkAssociationInfo: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub cKeys: u32,
     pub aKeys: *const super::super::System::Registry::HKEY,
 }
@@ -59016,7 +59016,7 @@ pub struct DFMICS {
     pub idCmdFirst: u32,
     pub idDefMax: u32,
     pub pici: *mut CMINVOKECOMMANDINFO,
-    pub punkSite: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punkSite: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DFMICS {
@@ -60570,7 +60570,7 @@ impl ::core::default::Default for NRESARRAY {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct NSTCCUSTOMDRAW {
-    pub psi: ::windows::core::ManuallyDrop<IShellItem>,
+    pub psi: ::std::mem::ManuallyDrop<::core::option::Option<IShellItem>>,
     pub uItemState: u32,
     pub nstcis: u32,
     pub pszText: ::windows::core::PCWSTR,
@@ -61325,9 +61325,9 @@ impl ::core::default::Default for SFVM_PROPPAGE_DATA {
 #[cfg(feature = "Win32_System_Ole")]
 pub struct SFV_CREATE {
     pub cbSize: u32,
-    pub pshf: ::windows::core::ManuallyDrop<IShellFolder>,
-    pub psvOuter: ::windows::core::ManuallyDrop<IShellView>,
-    pub psfvcb: ::windows::core::ManuallyDrop<IShellFolderViewCB>,
+    pub pshf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
+    pub psvOuter: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
+    pub psfvcb: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolderViewCB>>,
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::clone::Clone for SFV_CREATE {
@@ -61401,7 +61401,7 @@ impl ::core::default::Default for SFV_SETITEMPOS {
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct SHARDAPPIDINFO {
-    pub psi: ::windows::core::ManuallyDrop<IShellItem>,
+    pub psi: ::std::mem::ManuallyDrop<::core::option::Option<IShellItem>>,
     pub pszAppID: ::windows::core::PCWSTR,
 }
 impl ::windows::core::TypeKind for SHARDAPPIDINFO {
@@ -61440,7 +61440,7 @@ impl ::core::default::Default for SHARDAPPIDINFOIDLIST {
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct SHARDAPPIDINFOLINK {
-    pub psl: ::windows::core::ManuallyDrop<IShellLinkA>,
+    pub psl: ::std::mem::ManuallyDrop<::core::option::Option<IShellLinkA>>,
     pub pszAppID: ::windows::core::PCWSTR,
 }
 impl ::windows::core::TypeKind for SHARDAPPIDINFOLINK {
@@ -62842,10 +62842,10 @@ pub struct SMDATA {
     pub uId: u32,
     pub uIdParent: u32,
     pub uIdAncestor: u32,
-    pub punk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub pidlFolder: *mut Common::ITEMIDLIST,
     pub pidlItem: *mut Common::ITEMIDLIST,
-    pub psf: ::windows::core::ManuallyDrop<IShellFolder>,
+    pub psf: ::std::mem::ManuallyDrop<::core::option::Option<IShellFolder>>,
     pub pvUserData: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -62955,9 +62955,9 @@ impl ::core::default::Default for SORTCOLUMN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
-    pub psvPrev: ::windows::core::ManuallyDrop<IShellView>,
+    pub psvPrev: ::std::mem::ManuallyDrop<::core::option::Option<IShellView>>,
     pub pfs: *mut FOLDERSETTINGS,
-    pub psbOwner: ::windows::core::ManuallyDrop<IShellBrowser>,
+    pub psbOwner: ::std::mem::ManuallyDrop<::core::option::Option<IShellBrowser>>,
     pub prcView: *mut super::super::Foundation::RECT,
     pub pvid: *const ::windows::core::GUID,
     pub hwndView: super::super::Foundation::HWND,
@@ -63290,7 +63290,7 @@ impl ::core::default::Default for THUMBBUTTON {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 pub struct TOOLBARITEM {
-    pub ptbar: ::windows::core::ManuallyDrop<IDockingWindow>,
+    pub ptbar: ::std::mem::ManuallyDrop<::core::option::Option<IDockingWindow>>,
     pub rcBorderTool: super::super::Foundation::RECT,
     pub pwszItem: ::windows::core::PWSTR,
     pub fShow: super::super::Foundation::BOOL,

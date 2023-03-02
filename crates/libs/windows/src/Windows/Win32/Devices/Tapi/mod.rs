@@ -18631,7 +18631,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0 {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
@@ -18667,7 +18667,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_0 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
-    pub pASRTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pASRTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18706,8 +18706,8 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_1 {
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: ::windows::core::ManuallyDrop<ITStream>,
-    pub pTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pStream: ::std::mem::ManuallyDrop<::core::option::Option<ITStream>>,
+    pub pTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
     pub hrError: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18744,8 +18744,8 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_2 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
-    pub pParentFileTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
-    pub pFileTrack: ::windows::core::ManuallyDrop<ITFileTrack>,
+    pub pParentFileTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
+    pub pFileTrack: ::std::mem::ManuallyDrop<::core::option::Option<ITFileTrack>>,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows::core::HRESULT,
@@ -18784,7 +18784,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_3 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: ::windows::core::ManuallyDrop<super::super::System::Com::IDispatch>,
+    pub pEvent: ::std::mem::ManuallyDrop<::core::option::Option<super::super::System::Com::IDispatch>>,
     pub lEventCode: i32,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18821,7 +18821,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_4 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pToneTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pToneTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18897,7 +18897,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_6 {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pTTSTerminal: ::windows::core::ManuallyDrop<ITTerminal>,
+    pub pTTSTerminal: ::std::mem::ManuallyDrop<::core::option::Option<ITTerminal>>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]

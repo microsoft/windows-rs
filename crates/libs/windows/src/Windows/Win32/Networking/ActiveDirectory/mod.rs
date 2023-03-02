@@ -13472,7 +13472,7 @@ pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hr: ::windows::core::HRESULT,
-    pub pDsObj: ::windows::core::ManuallyDrop<IDirectoryObject>,
+    pub pDsObj: ::std::mem::ManuallyDrop<::core::option::Option<IDirectoryObject>>,
     pub pwzCN: ::windows::core::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
@@ -17902,7 +17902,7 @@ pub struct OPENQUERYWINDOW {
     pub clsidHandler: ::windows::core::GUID,
     pub pHandlerParameters: *mut ::core::ffi::c_void,
     pub clsidDefaultForm: ::windows::core::GUID,
-    pub pPersistQuery: ::windows::core::ManuallyDrop<IPersistQuery>,
+    pub pPersistQuery: ::std::mem::ManuallyDrop<::core::option::Option<IPersistQuery>>,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

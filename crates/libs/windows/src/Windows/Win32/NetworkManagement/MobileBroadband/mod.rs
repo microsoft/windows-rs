@@ -3823,9 +3823,9 @@ impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
-    pub accessString: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub userName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub password: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub accessString: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub userName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub password: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub compression: MBN_COMPRESSION,
     pub authType: MBN_AUTH_PROTOCOL,
 }
@@ -3857,7 +3857,7 @@ impl ::core::default::Default for MBN_CONTEXT {
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MBN_DEVICE_SERVICE {
-    pub deviceServiceID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub deviceServiceID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
     pub dataReadSupported: super::super::Foundation::VARIANT_BOOL,
 }
@@ -3897,16 +3897,16 @@ pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
     pub dataClass: u32,
-    pub customDataClass: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub customDataClass: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub gsmBandClass: u32,
     pub cdmaBandClass: u32,
-    pub customBandClass: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub customBandClass: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub smsCaps: u32,
     pub controlCaps: u32,
-    pub deviceID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub manufacturer: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub model: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub firmwareInfo: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub deviceID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub manufacturer: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub model: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub firmwareInfo: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
     fn clone(&self) -> Self {
@@ -3981,9 +3981,9 @@ impl ::core::default::Default for MBN_PIN_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER {
-    pub providerID: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub providerID: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub providerState: u32,
-    pub providerName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub providerName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub dataClass: u32,
 }
 impl ::core::clone::Clone for MBN_PROVIDER {

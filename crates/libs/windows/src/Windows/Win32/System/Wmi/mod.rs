@@ -15369,7 +15369,7 @@ pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
     pub m_uFeatureMask: u32,
-    pub m_pPath: ::windows::core::ManuallyDrop<IWbemPath>,
+    pub m_pPath: ::std::mem::ManuallyDrop<::core::option::Option<IWbemPath>>,
     pub m_pszPath: ::windows::core::PWSTR,
     pub m_pszQueryText: ::windows::core::PWSTR,
     pub m_pszResultClass: ::windows::core::PWSTR,

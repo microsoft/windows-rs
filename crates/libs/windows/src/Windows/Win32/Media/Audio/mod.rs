@@ -8853,9 +8853,9 @@ impl ::core::default::Default for AudioClientProperties {
 #[cfg(feature = "Win32_Foundation")]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: ::windows::core::ManuallyDrop<IMMDevice>,
-    pub pPnpInterface: ::windows::core::ManuallyDrop<IMMDevice>,
-    pub pPnpDevnode: ::windows::core::ManuallyDrop<IMMDevice>,
+    pub pEndpoint: ::std::mem::ManuallyDrop<::core::option::Option<IMMDevice>>,
+    pub pPnpInterface: ::std::mem::ManuallyDrop<::core::option::Option<IMMDevice>>,
+    pub pPnpDevnode: ::std::mem::ManuallyDrop<::core::option::Option<IMMDevice>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AudioExtensionParams {
@@ -10429,7 +10429,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -10455,7 +10455,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -10609,7 +10609,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SpatialAudioObjectRenderStreamActivationParams {
@@ -10631,7 +10631,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10657,7 +10657,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::windows::core::TypeKind for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -10682,7 +10682,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: ::windows::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::windows::core::ManuallyDrop<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

@@ -81,8 +81,8 @@ pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
-    pub pD3D12Device: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
-    pub ppD3D12Queues: [::windows::core::ManuallyDrop<::windows::core::IUnknown>; 2usize],
+    pub pD3D12Device: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub ppD3D12Queues: [::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>; 2usize],
     pub NumQueues: u32,
     pub NodeMask: u32,
 }

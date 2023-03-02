@@ -67926,7 +67926,7 @@ impl ::core::default::Default for EALocationCodeType {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
-    pub pGraph: ::windows::core::ManuallyDrop<IFilterGraph>,
+    pub pGraph: ::std::mem::ManuallyDrop<::core::option::Option<IFilterGraph>>,
 }
 impl ::core::clone::Clone for FILTER_INFO {
     fn clone(&self) -> Self {
@@ -70174,7 +70174,7 @@ impl ::core::default::Default for PID_MAP {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct PIN_INFO {
-    pub pFilter: ::windows::core::ManuallyDrop<IBaseFilter>,
+    pub pFilter: ::std::mem::ManuallyDrop<::core::option::Option<IBaseFilter>>,
     pub dir: PIN_DIRECTION,
     pub achName: [u16; 128],
 }
@@ -70921,8 +70921,8 @@ impl ::core::default::Default for STREAM_ID_MAP {
 pub struct SmartCardApplication {
     pub ApplicationType: ApplicationTypeType,
     pub ApplicationVersion: u16,
-    pub pbstrApplicationName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub pbstrApplicationURL: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub pbstrApplicationName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub pbstrApplicationURL: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for SmartCardApplication {
     fn clone(&self) -> Self {
@@ -71508,7 +71508,7 @@ impl ::core::default::Default for VMR9AllocationInfo {
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::windows::core::ManuallyDrop<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: VMR9NormalizedRect,
     pub fAlpha: f32,
@@ -71696,7 +71696,7 @@ impl ::core::default::Default for VMR9NormalizedRect {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
-    pub lpSurf: ::windows::core::ManuallyDrop<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub lpSurf: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -71845,7 +71845,7 @@ impl ::core::default::Default for VMR9VideoDesc {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct VMR9VideoStreamInfo {
-    pub pddsVideoSurface: ::windows::core::ManuallyDrop<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pddsVideoSurface: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
@@ -71936,7 +71936,7 @@ impl ::core::default::Default for VMRALLOCATIONINFO {
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::windows::core::ManuallyDrop<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: NORMALIZEDRECT,
     pub fAlpha: f32,
@@ -72121,7 +72121,7 @@ impl ::core::default::Default for VMRMONITORINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
-    pub lpSurf: ::windows::core::ManuallyDrop<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub lpSurf: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -72164,7 +72164,7 @@ impl ::core::default::Default for VMRPRESENTATIONINFO {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Graphics_DirectDraw\"`*"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: ::windows::core::ManuallyDrop<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pddsVideoSurface: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,

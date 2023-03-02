@@ -2188,7 +2188,7 @@ impl ::core::default::Default for XAUDIO2_EFFECT_CHAIN {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
-    pub pEffect: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pEffect: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub InitialState: super::super::super::Foundation::BOOL,
     pub OutputChannels: u32,
 }
@@ -2259,7 +2259,7 @@ impl ::core::default::Default for XAUDIO2_PERFORMANCE_DATA {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
-    pub pOutputVoice: ::windows::core::ManuallyDrop<IXAudio2Voice>,
+    pub pOutputVoice: ::std::mem::ManuallyDrop<::core::option::Option<IXAudio2Voice>>,
 }
 impl ::windows::core::TypeKind for XAUDIO2_SEND_DESCRIPTOR {
     type TypeKind = ::windows::core::CopyType;

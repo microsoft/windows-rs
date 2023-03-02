@@ -5579,7 +5579,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pvDestContext: *mut ::core::ffi::c_void,
     pub SavedContextHandles: *mut *mut NDR_SCONTEXT,
     pub ParamNumber: i32,
-    pub pRpcChannelBuffer: ::windows::core::ManuallyDrop<super::Com::IRpcChannelBuffer>,
+    pub pRpcChannelBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IRpcChannelBuffer>>,
     pub pArrayInfo: *mut ARRAY_INFO,
     pub SizePtrCountArray: *mut u32,
     pub SizePtrOffsetArray: *mut u32,
@@ -8140,7 +8140,7 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub BufferSize: u32,
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-    pub pRpcChannelBuffer: ::windows::core::ManuallyDrop<super::Com::IRpcChannelBuffer>,
+    pub pRpcChannelBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::IRpcChannelBuffer>>,
     pub Reserved: [usize; 5],
 }
 #[cfg(feature = "Win32_System_Com")]

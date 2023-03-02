@@ -15946,16 +15946,16 @@ impl ::core::default::Default for INVOC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct ImgErrorInfo {
-    pub description: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub description: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub guid: ::windows::core::GUID,
     pub helpContext: u32,
-    pub helpFile: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub source: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub devDescription: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub helpFile: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub source: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub devDescription: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub errorID: ::windows::core::GUID,
     pub cUserParameters: u32,
     pub aUserParameters: *mut ::windows::core::BSTR,
-    pub userFallback: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub userFallback: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
     pub exceptionID: u32,
 }
 impl ::core::clone::Clone for ImgErrorInfo {

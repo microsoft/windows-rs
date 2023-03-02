@@ -21416,8 +21416,8 @@ impl ::core::default::Default for ACCESSTIMEOUT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct ExtendedProperty {
-    pub PropertyName: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
-    pub PropertyValue: ::windows::core::ManuallyDrop<::windows::core::BSTR>,
+    pub PropertyName: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
+    pub PropertyValue: ::std::mem::ManuallyDrop<::windows::core::BSTR>,
 }
 impl ::core::clone::Clone for ExtendedProperty {
     fn clone(&self) -> Self {
@@ -22106,7 +22106,7 @@ pub struct UIAutomationPatternInfo {
     pub pMethods: *mut UIAutomationMethodInfo,
     pub cEvents: u32,
     pub pEvents: *mut UIAutomationEventInfo,
-    pub pPatternHandler: ::windows::core::ManuallyDrop<IUIAutomationPatternHandler>,
+    pub pPatternHandler: ::std::mem::ManuallyDrop<::core::option::Option<IUIAutomationPatternHandler>>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UIAutomationPatternInfo {

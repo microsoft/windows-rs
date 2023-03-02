@@ -11004,7 +11004,7 @@ impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: ::windows::core::ManuallyDrop<INetCfgComponent>,
+    pub pncc: ::std::mem::ManuallyDrop<::core::option::Option<INetCfgComponent>>,
     pub pszwManufacturer: ::windows::core::PCWSTR,
     pub pszwProduct: ::windows::core::PCWSTR,
     pub pszwDisplayName: ::windows::core::PCWSTR,

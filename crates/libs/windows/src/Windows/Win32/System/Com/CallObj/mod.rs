@@ -724,7 +724,7 @@ pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub dwDestContext: u32,
     pub pvDestContext: *mut ::core::ffi::c_void,
-    pub punkReserved: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub punkReserved: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub guidTransferSyntax: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
