@@ -53,7 +53,7 @@ impl IAVIEditStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAVIEditStream as ::windows::core::Interface>::IID
+        iid == &<IAVIEditStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -119,7 +119,7 @@ impl IAVIFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAVIFile as ::windows::core::Interface>::IID
+        iid == &<IAVIFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -140,7 +140,7 @@ impl IAVIPersistFile_Vtbl {
         Self { base__: super::super::System::Com::IPersistFile_Vtbl::new::<Identity, Impl, OFFSET>(), Reserved1: Reserved1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAVIPersistFile as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows::core::Interface>::IID
+        iid == &<IAVIPersistFile as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -234,7 +234,7 @@ impl IAVIStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAVIStream as ::windows::core::Interface>::IID
+        iid == &<IAVIStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"implement\"`*"]
@@ -258,7 +258,7 @@ impl IAVIStreaming_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAVIStreaming as ::windows::core::Interface>::IID
+        iid == &<IAVIStreaming as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -303,6 +303,6 @@ impl IGetFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetFrame as ::windows::core::Interface>::IID
+        iid == &<IGetFrame as ::windows::core::ComInterface>::IID
     }
 }

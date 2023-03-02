@@ -3,7 +3,7 @@
 #[repr(transparent)]
 pub struct IRetailModeStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IRetailModeStatics {
+unsafe impl ::windows::core::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStatics_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -13,7 +13,7 @@ impl ::core::clone::Clone for IRetailModeStatics {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IRetailModeStatics {
+unsafe impl ::windows::core::ComInterface for IRetailModeStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 }
 #[cfg(feature = "deprecated")]
@@ -36,7 +36,7 @@ impl RetailMode {
     pub fn RetailModeEnabled() -> ::windows::core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).RetailModeEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RetailModeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkWorkspaceHostedAppManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkWorkspaceHostedAppManager {
+unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
 }
 impl ::core::clone::Clone for IInkWorkspaceHostedAppManager {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IInkWorkspaceHostedAppManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManager {
+unsafe impl ::windows::core::ComInterface for IInkWorkspaceHostedAppManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInkWorkspaceHostedAppManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInkWorkspaceHostedAppManagerStatics {
+unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManagerStatics {
     type Vtable = IInkWorkspaceHostedAppManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IInkWorkspaceHostedAppManagerStatics {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IInkWorkspaceHostedAppManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManagerStatics {
+unsafe impl ::windows::core::ComInterface for IInkWorkspaceHostedAppManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
 }
 #[repr(C)]
@@ -51,13 +51,13 @@ impl InkWorkspaceHostedAppManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SetThumbnailAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetThumbnailAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
         }
     }
     pub fn GetForCurrentApp() -> ::windows::core::Result<InkWorkspaceHostedAppManager> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InkWorkspaceHostedAppManager>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentApp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentApp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -85,11 +85,11 @@ impl ::core::clone::Clone for InkWorkspaceHostedAppManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InkWorkspaceHostedAppManager {
+unsafe impl ::windows::core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InkWorkspaceHostedAppManager {
-    const IID: ::windows::core::GUID = <IInkWorkspaceHostedAppManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InkWorkspaceHostedAppManager {
+    const IID: ::windows::core::GUID = <IInkWorkspaceHostedAppManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";

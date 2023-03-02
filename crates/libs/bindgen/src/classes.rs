@@ -197,27 +197,7 @@ fn gen_conversions(
 
         tokens.combine(&quote! {
             #features
-            impl ::core::convert::TryFrom<#name> for #into {
-                type Error = ::windows::core::Error;
-                fn try_from(value: #name) -> ::windows::core::Result<Self> {
-                    ::core::convert::TryFrom::try_from(&value)
-                }
-            }
-            #features
-            impl ::core::convert::TryFrom<&#name> for #into {
-                type Error = ::windows::core::Error;
-                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                    ::windows::core::Interface::cast(value)
-                }
-            }
-            #features
-            impl ::core::convert::TryFrom<&#name> for ::windows::core::InParam<#into> {
-                type Error = ::windows::core::Error;
-                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                    let item = ::std::convert::TryInto::try_into(value)?;
-                    Ok(::windows::core::InParam::Owned(item))
-                }
-            }
+            impl ::windows::core::CanTryInto<#into> for #name {}
         });
     }
 
@@ -227,25 +207,7 @@ fn gen_conversions(
 
         tokens.combine(&quote! {
             #features
-            impl ::core::convert::From<#name> for #into {
-                fn from(value: #name) -> Self {
-                    ::core::convert::From::from(&value)
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for #into {
-                fn from(value: &#name) -> Self {
-                    // This unwrap is legitimate because conversion to base can never fail because
-                    // the base can never change across versions.
-                    ::windows::core::Interface::cast(value).unwrap()
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for ::windows::core::InParam<#into> {
-                fn from(value: &#name) -> Self {
-                    ::windows::core::InParam::Owned(value.into())
-                }
-            }
+            impl ::windows::core::CanTryInto<#into> for #name {}
         });
     }
 

@@ -616,7 +616,7 @@ impl IWebViewControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebViewControl as ::windows::core::Interface>::IID
+        iid == &<IWebViewControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Web_UI\"`, `\"implement\"`*"]
@@ -639,6 +639,6 @@ impl IWebViewControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebViewControl2 as ::windows::core::Interface>::IID
+        iid == &<IWebViewControl2 as ::windows::core::ComInterface>::IID
     }
 }

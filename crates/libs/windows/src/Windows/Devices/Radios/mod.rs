@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRadio(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRadio {
+unsafe impl ::windows::core::Interface for IRadio {
     type Vtable = IRadio_Vtbl;
 }
 impl ::core::clone::Clone for IRadio {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IRadio {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRadio {
+unsafe impl ::windows::core::ComInterface for IRadio {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
 #[repr(C)]
@@ -35,7 +35,7 @@ pub struct IRadio_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRadioStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRadioStatics {
+unsafe impl ::windows::core::Interface for IRadioStatics {
     type Vtable = IRadioStatics_Vtbl;
 }
 impl ::core::clone::Clone for IRadioStatics {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for IRadioStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRadioStatics {
+unsafe impl ::windows::core::ComInterface for IRadioStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 }
 #[repr(C)]
@@ -74,7 +74,7 @@ impl Radio {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).SetStateAsync)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetStateAsync)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -83,34 +83,34 @@ impl Radio {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStateChanged)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<RadioState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<RadioState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<RadioKind> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<RadioKind>();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -118,13 +118,13 @@ impl Radio {
     pub fn GetRadiosAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>>();
-            (::windows::core::Vtable::vtable(this).GetRadiosAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRadiosAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -132,7 +132,7 @@ impl Radio {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Radio>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Radio>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -140,7 +140,7 @@ impl Radio {
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -168,11 +168,11 @@ impl ::core::clone::Clone for Radio {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for Radio {
+unsafe impl ::windows::core::Interface for Radio {
     type Vtable = IRadio_Vtbl;
 }
-unsafe impl ::windows::core::Interface for Radio {
-    const IID: ::windows::core::GUID = <IRadio as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for Radio {
+    const IID: ::windows::core::GUID = <IRadio as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";

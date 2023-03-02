@@ -3,12 +3,12 @@
 #[inline]
 pub unsafe fn FCIAddFile<P0, P1, P2>(hfci: *const ::core::ffi::c_void, pszsourcefile: P0, pszfilename: P1, fexecute: P2, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "cabinet.dll""cdecl" fn FCIAddFile ( hfci : *const ::core::ffi::c_void , pszsourcefile : :: windows::core::PCSTR , pszfilename : :: windows::core::PCSTR , fexecute : super::super::Foundation:: BOOL , pfnfcignc : PFNFCIGETNEXTCABINET , pfnfcis : PFNFCISTATUS , pfnfcigoi : PFNFCIGETOPENINFO , typecompress : u16 ) -> super::super::Foundation:: BOOL );
-    FCIAddFile(hfci, pszsourcefile.into().abi(), pszfilename.into().abi(), fexecute.into(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress)
+    FCIAddFile(hfci, pszsourcefile.into_param().abi(), pszfilename.into_param().abi(), fexecute.into_param().abi(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress)
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -29,10 +29,10 @@ pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foun
 #[inline]
 pub unsafe fn FCIFlushCabinet<P0>(hfci: *const ::core::ffi::c_void, fgetnextcab: P0, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "cabinet.dll""cdecl" fn FCIFlushCabinet ( hfci : *const ::core::ffi::c_void , fgetnextcab : super::super::Foundation:: BOOL , pfnfcignc : PFNFCIGETNEXTCABINET , pfnfcis : PFNFCISTATUS ) -> super::super::Foundation:: BOOL );
-    FCIFlushCabinet(hfci, fgetnextcab.into(), pfnfcignc, pfnfcis)
+    FCIFlushCabinet(hfci, fgetnextcab.into_param().abi(), pfnfcignc, pfnfcis)
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46,11 +46,11 @@ pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCI
 #[inline]
 pub unsafe fn FDICopy<P0, P1>(hfdi: *const ::core::ffi::c_void, pszcabinet: P0, pszcabpath: P1, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "cabinet.dll""cdecl" fn FDICopy ( hfdi : *const ::core::ffi::c_void , pszcabinet : :: windows::core::PCSTR , pszcabpath : :: windows::core::PCSTR , flags : i32 , pfnfdin : PFNFDINOTIFY , pfnfdid : PFNFDIDECRYPT , pvuser : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    FDICopy(hfdi, pszcabinet.into().abi(), pszcabpath.into().abi(), flags, pfnfdin, pfnfdid, ::core::mem::transmute(pvuser.unwrap_or(::std::ptr::null())))
+    FDICopy(hfdi, pszcabinet.into_param().abi(), pszcabpath.into_param().abi(), flags, pfnfdin, pfnfdid, ::core::mem::transmute(pvuser.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -78,10 +78,10 @@ pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: 
 #[inline]
 pub unsafe fn FDITruncateCabinet<P0>(hfdi: *const ::core::ffi::c_void, pszcabinetname: P0, ifoldertodelete: u16) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
     ::windows::imp::link ! ( "cabinet.dll""cdecl" fn FDITruncateCabinet ( hfdi : *const ::core::ffi::c_void , pszcabinetname : :: windows::core::PCSTR , ifoldertodelete : u16 ) -> super::super::Foundation:: BOOL );
-    FDITruncateCabinet(hfdi, pszcabinetname.into().abi(), ifoldertodelete)
+    FDITruncateCabinet(hfdi, pszcabinetname.into_param().abi(), ifoldertodelete)
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;

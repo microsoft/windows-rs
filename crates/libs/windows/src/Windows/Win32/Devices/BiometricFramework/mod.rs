@@ -33,22 +33,37 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 #[inline]
 pub unsafe fn WinBioAsyncOpenFramework<P0, P1>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1, frameworkhandle: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "winbio.dll""system" fn WinBioAsyncOpenFramework ( notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD , targetwindow : super::super::Foundation:: HWND , messagecode : u32 , callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK , userdata : *const ::core::ffi::c_void , asynchronousopen : super::super::Foundation:: BOOL , frameworkhandle : *mut u32 ) -> :: windows::core::HRESULT );
-    WinBioAsyncOpenFramework(notificationmethod, targetwindow.into(), messagecode, callbackroutine, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())), asynchronousopen.into(), ::core::mem::transmute(frameworkhandle.unwrap_or(::std::ptr::null_mut()))).ok()
+    WinBioAsyncOpenFramework(notificationmethod, targetwindow.into_param().abi(), messagecode, callbackroutine, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())), asynchronousopen.into_param().abi(), ::core::mem::transmute(frameworkhandle.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession<P0, P1>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: ::core::option::Option<&[u32]>, databaseid: ::core::option::Option<*const ::windows::core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: ::core::option::Option<*const ::core::ffi::c_void>, asynchronousopen: P1, sessionhandle: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "winbio.dll""system" fn WinBioAsyncOpenSession ( factor : u32 , pooltype : WINBIO_POOL , flags : u32 , unitarray : *const u32 , unitcount : usize , databaseid : *const :: windows::core::GUID , notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD , targetwindow : super::super::Foundation:: HWND , messagecode : u32 , callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK , userdata : *const ::core::ffi::c_void , asynchronousopen : super::super::Foundation:: BOOL , sessionhandle : *mut u32 ) -> :: windows::core::HRESULT );
-    WinBioAsyncOpenSession(factor, pooltype, flags, ::core::mem::transmute(unitarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(databaseid.unwrap_or(::std::ptr::null())), notificationmethod, targetwindow.into(), messagecode, callbackroutine, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())), asynchronousopen.into(), ::core::mem::transmute(sessionhandle.unwrap_or(::std::ptr::null_mut()))).ok()
+    WinBioAsyncOpenSession(
+        factor,
+        pooltype,
+        flags,
+        ::core::mem::transmute(unitarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        unitarray.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(databaseid.unwrap_or(::std::ptr::null())),
+        notificationmethod,
+        targetwindow.into_param().abi(),
+        messagecode,
+        callbackroutine,
+        ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())),
+        asynchronousopen.into_param().abi(),
+        ::core::mem::transmute(sessionhandle.unwrap_or(::std::ptr::null_mut())),
+    )
+    .ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[inline]

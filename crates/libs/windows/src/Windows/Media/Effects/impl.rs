@@ -42,7 +42,7 @@ impl IAudioEffectDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEffectDefinition as ::windows::core::Interface>::IID
+        iid == &<IAudioEffectDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -117,7 +117,7 @@ impl IBasicAudioEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicAudioEffect as ::windows::core::Interface>::IID
+        iid == &<IBasicAudioEffect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -220,7 +220,7 @@ impl IBasicVideoEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicVideoEffect as ::windows::core::Interface>::IID
+        iid == &<IBasicVideoEffect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -281,7 +281,7 @@ impl IVideoCompositor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoCompositor as ::windows::core::Interface>::IID
+        iid == &<IVideoCompositor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -328,7 +328,7 @@ impl IVideoCompositorDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoCompositorDefinition as ::windows::core::Interface>::IID
+        iid == &<IVideoCompositorDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -375,6 +375,6 @@ impl IVideoEffectDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoEffectDefinition as ::windows::core::Interface>::IID
+        iid == &<IVideoEffectDefinition as ::windows::core::ComInterface>::IID
     }
 }

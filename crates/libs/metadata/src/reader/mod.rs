@@ -82,7 +82,6 @@ pub enum SignatureParamKind {
     ArrayRelativePtr(usize),
     TryInto,
     IntoParam,
-    Into,
     OptionalPointer,
     ValueType,
     Blittable,
@@ -636,10 +635,8 @@ impl<'a> Reader<'a> {
                 if self.signature_param_is_convertible(param) {
                     if self.signature_param_is_failible_param(param) {
                         param.kind = SignatureParamKind::TryInto;
-                    } else if self.signature_param_is_borrowed(param) {
-                        param.kind = SignatureParamKind::IntoParam;
                     } else {
-                        param.kind = SignatureParamKind::Into;
+                        param.kind = SignatureParamKind::IntoParam;
                     }
                 } else {
                     let flags = self.param_flags(param.def);
@@ -1715,7 +1712,15 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => {
                 let flags = self.type_def_flags(*row);
-                flags.contains(TypeAttributes::WINRT) && flags.contains(TypeAttributes::INTERFACE) && !self.type_def_is_exclusive(*row)
+                if !flags.contains(TypeAttributes::WINRT) {
+                    false
+                } else {
+                    match self.type_def_kind(*row) {
+                        TypeKind::Interface => !self.type_def_is_exclusive(*row),
+                        TypeKind::Class => self.type_def_is_composable(*row),
+                        _ => false,
+                    }
+                }
             }
             _ => false,
         }

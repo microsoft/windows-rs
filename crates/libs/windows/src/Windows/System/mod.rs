@@ -23,7 +23,7 @@ pub mod UserProfile;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppActivationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppActivationResult {
+unsafe impl ::windows::core::Interface for IAppActivationResult {
     type Vtable = IAppActivationResult_Vtbl;
 }
 impl ::core::clone::Clone for IAppActivationResult {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IAppActivationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppActivationResult {
+unsafe impl ::windows::core::ComInterface for IAppActivationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
 }
 #[repr(C)]
@@ -44,7 +44,7 @@ pub struct IAppActivationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfo {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfo {
@@ -52,7 +52,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfo {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
 }
 #[repr(C)]
@@ -67,7 +67,7 @@ pub struct IAppDiagnosticInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfo2 {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfo2 {
     type Vtable = IAppDiagnosticInfo2_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfo2 {
@@ -75,7 +75,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfo2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfo2 {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf46fbd7_191a_446c_9473_8fbc2374a354);
 }
 #[repr(C)]
@@ -91,7 +91,7 @@ pub struct IAppDiagnosticInfo2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfo3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfo3 {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfo3 {
     type Vtable = IAppDiagnosticInfo3_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfo3 {
@@ -99,7 +99,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfo3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfo3 {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfo3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc895c63d_dd61_4c65_babd_81a10b4f9815);
 }
 #[repr(C)]
@@ -114,7 +114,7 @@ pub struct IAppDiagnosticInfo3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfoStatics {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics {
     type Vtable = IAppDiagnosticInfoStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfoStatics {
@@ -122,7 +122,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfoStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
 }
 #[repr(C)]
@@ -137,7 +137,7 @@ pub struct IAppDiagnosticInfoStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfoStatics2 {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics2 {
     type Vtable = IAppDiagnosticInfoStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfoStatics2 {
@@ -145,7 +145,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfoStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics2 {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfoStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05b24b86_1000_4c90_bb9f_7235071c50fe);
 }
 #[repr(C)]
@@ -173,7 +173,7 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfoWatcher {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfoWatcher {
@@ -181,7 +181,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfoWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcher {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfoWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
 }
 #[repr(C)]
@@ -227,7 +227,7 @@ pub struct IAppDiagnosticInfoWatcher_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppDiagnosticInfoWatcherEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppDiagnosticInfoWatcherEventArgs {
+unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppDiagnosticInfoWatcherEventArgs {
@@ -235,7 +235,7 @@ impl ::core::clone::Clone for IAppDiagnosticInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppDiagnosticInfoWatcherEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppDiagnosticInfoWatcherEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
 }
 #[repr(C)]
@@ -247,7 +247,7 @@ pub struct IAppDiagnosticInfoWatcherEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppExecutionStateChangeResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppExecutionStateChangeResult {
+unsafe impl ::windows::core::Interface for IAppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_Vtbl;
 }
 impl ::core::clone::Clone for IAppExecutionStateChangeResult {
@@ -255,7 +255,7 @@ impl ::core::clone::Clone for IAppExecutionStateChangeResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppExecutionStateChangeResult {
+unsafe impl ::windows::core::ComInterface for IAppExecutionStateChangeResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
 }
 #[repr(C)]
@@ -267,7 +267,7 @@ pub struct IAppExecutionStateChangeResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppMemoryReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppMemoryReport {
+unsafe impl ::windows::core::Interface for IAppMemoryReport {
     type Vtable = IAppMemoryReport_Vtbl;
 }
 impl ::core::clone::Clone for IAppMemoryReport {
@@ -275,7 +275,7 @@ impl ::core::clone::Clone for IAppMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppMemoryReport {
+unsafe impl ::windows::core::ComInterface for IAppMemoryReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
 }
 #[repr(C)]
@@ -290,7 +290,7 @@ pub struct IAppMemoryReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppMemoryReport2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppMemoryReport2 {
+unsafe impl ::windows::core::Interface for IAppMemoryReport2 {
     type Vtable = IAppMemoryReport2_Vtbl;
 }
 impl ::core::clone::Clone for IAppMemoryReport2 {
@@ -298,7 +298,7 @@ impl ::core::clone::Clone for IAppMemoryReport2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppMemoryReport2 {
+unsafe impl ::windows::core::ComInterface for IAppMemoryReport2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
 }
 #[repr(C)]
@@ -310,7 +310,7 @@ pub struct IAppMemoryReport2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppMemoryUsageLimitChangingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppMemoryUsageLimitChangingEventArgs {
+unsafe impl ::windows::core::Interface for IAppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppMemoryUsageLimitChangingEventArgs {
@@ -318,7 +318,7 @@ impl ::core::clone::Clone for IAppMemoryUsageLimitChangingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppMemoryUsageLimitChangingEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppMemoryUsageLimitChangingEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
 }
 #[repr(C)]
@@ -331,7 +331,7 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupBackgroundTaskReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupBackgroundTaskReport {
+unsafe impl ::windows::core::Interface for IAppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupBackgroundTaskReport {
@@ -339,7 +339,7 @@ impl ::core::clone::Clone for IAppResourceGroupBackgroundTaskReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupBackgroundTaskReport {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupBackgroundTaskReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
 }
 #[repr(C)]
@@ -354,7 +354,7 @@ pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupInfo {
+unsafe impl ::windows::core::Interface for IAppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupInfo {
@@ -362,7 +362,7 @@ impl ::core::clone::Clone for IAppResourceGroupInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupInfo {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
 }
 #[repr(C)]
@@ -385,7 +385,7 @@ pub struct IAppResourceGroupInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupInfo2 {
+unsafe impl ::windows::core::Interface for IAppResourceGroupInfo2 {
     type Vtable = IAppResourceGroupInfo2_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupInfo2 {
@@ -393,7 +393,7 @@ impl ::core::clone::Clone for IAppResourceGroupInfo2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupInfo2 {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
 }
 #[repr(C)]
@@ -416,7 +416,7 @@ pub struct IAppResourceGroupInfo2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupInfoWatcher {
+unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupInfoWatcher {
@@ -424,7 +424,7 @@ impl ::core::clone::Clone for IAppResourceGroupInfoWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcher {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupInfoWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
 }
 #[repr(C)]
@@ -478,7 +478,7 @@ pub struct IAppResourceGroupInfoWatcher_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupInfoWatcherEventArgs {
+unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupInfoWatcherEventArgs {
@@ -486,7 +486,7 @@ impl ::core::clone::Clone for IAppResourceGroupInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupInfoWatcherEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
 }
 #[repr(C)]
@@ -502,7 +502,7 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -510,7 +510,7 @@ impl ::core::clone::Clone for IAppResourceGroupInfoWatcherExecutionStateChangedE
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
 }
 #[repr(C)]
@@ -526,7 +526,7 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupMemoryReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupMemoryReport {
+unsafe impl ::windows::core::Interface for IAppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupMemoryReport {
@@ -534,7 +534,7 @@ impl ::core::clone::Clone for IAppResourceGroupMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupMemoryReport {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupMemoryReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
 }
 #[repr(C)]
@@ -549,7 +549,7 @@ pub struct IAppResourceGroupMemoryReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppResourceGroupStateReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppResourceGroupStateReport {
+unsafe impl ::windows::core::Interface for IAppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_Vtbl;
 }
 impl ::core::clone::Clone for IAppResourceGroupStateReport {
@@ -557,7 +557,7 @@ impl ::core::clone::Clone for IAppResourceGroupStateReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppResourceGroupStateReport {
+unsafe impl ::windows::core::ComInterface for IAppResourceGroupStateReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
 }
 #[repr(C)]
@@ -570,7 +570,7 @@ pub struct IAppResourceGroupStateReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerHost(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerHost {
+unsafe impl ::windows::core::Interface for IAppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerHost {
@@ -578,7 +578,7 @@ impl ::core::clone::Clone for IAppUriHandlerHost {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerHost {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerHost {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
 }
 #[repr(C)]
@@ -591,7 +591,7 @@ pub struct IAppUriHandlerHost_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerHost2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerHost2 {
+unsafe impl ::windows::core::Interface for IAppUriHandlerHost2 {
     type Vtable = IAppUriHandlerHost2_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerHost2 {
@@ -599,7 +599,7 @@ impl ::core::clone::Clone for IAppUriHandlerHost2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerHost2 {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerHost2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a0bee95_29e4_51bf_8095_a3c068e3c72a);
 }
 #[repr(C)]
@@ -612,7 +612,7 @@ pub struct IAppUriHandlerHost2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerHostFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerHostFactory {
+unsafe impl ::windows::core::Interface for IAppUriHandlerHostFactory {
     type Vtable = IAppUriHandlerHostFactory_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerHostFactory {
@@ -620,7 +620,7 @@ impl ::core::clone::Clone for IAppUriHandlerHostFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerHostFactory {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerHostFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
 }
 #[repr(C)]
@@ -632,7 +632,7 @@ pub struct IAppUriHandlerHostFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistration {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistration {
@@ -640,7 +640,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
 }
 #[repr(C)]
@@ -661,7 +661,7 @@ pub struct IAppUriHandlerRegistration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistration2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistration2 {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration2 {
     type Vtable = IAppUriHandlerRegistration2_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistration2 {
@@ -669,7 +669,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistration2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistration2 {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistration2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd54dac97_cb39_5f1f_883e_01853730bd6d);
 }
 #[repr(C)]
@@ -689,7 +689,7 @@ pub struct IAppUriHandlerRegistration2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistrationManager {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistrationManager {
@@ -697,7 +697,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistrationManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistrationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
 }
 #[repr(C)]
@@ -710,7 +710,7 @@ pub struct IAppUriHandlerRegistrationManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManager2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistrationManager2 {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager2 {
     type Vtable = IAppUriHandlerRegistrationManager2_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistrationManager2 {
@@ -718,7 +718,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistrationManager2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManager2 {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistrationManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
 }
 #[repr(C)]
@@ -730,7 +730,7 @@ pub struct IAppUriHandlerRegistrationManager2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistrationManagerStatics {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStatics {
     type Vtable = IAppUriHandlerRegistrationManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics {
@@ -738,7 +738,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStatics {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistrationManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cedd9f_5729_5b76_a1d4_0285f295c124);
 }
 #[repr(C)]
@@ -751,7 +751,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppUriHandlerRegistrationManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppUriHandlerRegistrationManagerStatics2 {
+unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStatics2 {
     type Vtable = IAppUriHandlerRegistrationManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics2 {
@@ -759,7 +759,7 @@ impl ::core::clone::Clone for IAppUriHandlerRegistrationManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppUriHandlerRegistrationManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for IAppUriHandlerRegistrationManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14f78379_6890_5080_90a7_98824a7f079e);
 }
 #[repr(C)]
@@ -772,7 +772,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDateTimeSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDateTimeSettingsStatics {
+unsafe impl ::windows::core::Interface for IDateTimeSettingsStatics {
     type Vtable = IDateTimeSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDateTimeSettingsStatics {
@@ -780,7 +780,7 @@ impl ::core::clone::Clone for IDateTimeSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDateTimeSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IDateTimeSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
 }
 #[repr(C)]
@@ -795,7 +795,7 @@ pub struct IDateTimeSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueue(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueue {
+unsafe impl ::windows::core::Interface for IDispatcherQueue {
     type Vtable = IDispatcherQueue_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueue {
@@ -803,7 +803,7 @@ impl ::core::clone::Clone for IDispatcherQueue {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueue {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
 }
 #[repr(C)]
@@ -833,7 +833,7 @@ pub struct IDispatcherQueue_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueue2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueue2 {
+unsafe impl ::windows::core::Interface for IDispatcherQueue2 {
     type Vtable = IDispatcherQueue2_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueue2 {
@@ -841,7 +841,7 @@ impl ::core::clone::Clone for IDispatcherQueue2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueue2 {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueue2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc822c647_30ef_506e_bd1e_a647ae6675ff);
 }
 #[repr(C)]
@@ -853,7 +853,7 @@ pub struct IDispatcherQueue2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueueController(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueueController {
+unsafe impl ::windows::core::Interface for IDispatcherQueueController {
     type Vtable = IDispatcherQueueController_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueueController {
@@ -861,7 +861,7 @@ impl ::core::clone::Clone for IDispatcherQueueController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueueController {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueueController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
 }
 #[repr(C)]
@@ -877,7 +877,7 @@ pub struct IDispatcherQueueController_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueueControllerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueueControllerStatics {
+unsafe impl ::windows::core::Interface for IDispatcherQueueControllerStatics {
     type Vtable = IDispatcherQueueControllerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueueControllerStatics {
@@ -885,7 +885,7 @@ impl ::core::clone::Clone for IDispatcherQueueControllerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueueControllerStatics {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueueControllerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a6c98e0_5198_49a2_a313_3f70d1f13c27);
 }
 #[repr(C)]
@@ -897,7 +897,7 @@ pub struct IDispatcherQueueControllerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueueShutdownStartingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueueShutdownStartingEventArgs {
+unsafe impl ::windows::core::Interface for IDispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueueShutdownStartingEventArgs {
@@ -905,7 +905,7 @@ impl ::core::clone::Clone for IDispatcherQueueShutdownStartingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueueShutdownStartingEventArgs {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueueShutdownStartingEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
 }
 #[repr(C)]
@@ -920,7 +920,7 @@ pub struct IDispatcherQueueShutdownStartingEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueueStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueueStatics {
+unsafe impl ::windows::core::Interface for IDispatcherQueueStatics {
     type Vtable = IDispatcherQueueStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueueStatics {
@@ -928,7 +928,7 @@ impl ::core::clone::Clone for IDispatcherQueueStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueueStatics {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueueStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa96d83d7_9371_4517_9245_d0824ac12c74);
 }
 #[repr(C)]
@@ -940,7 +940,7 @@ pub struct IDispatcherQueueStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDispatcherQueueTimer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDispatcherQueueTimer {
+unsafe impl ::windows::core::Interface for IDispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_Vtbl;
 }
 impl ::core::clone::Clone for IDispatcherQueueTimer {
@@ -948,7 +948,7 @@ impl ::core::clone::Clone for IDispatcherQueueTimer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDispatcherQueueTimer {
+unsafe impl ::windows::core::ComInterface for IDispatcherQueueTimer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
 }
 #[repr(C)]
@@ -980,7 +980,7 @@ pub struct IDispatcherQueueTimer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFolderLauncherOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFolderLauncherOptions {
+unsafe impl ::windows::core::Interface for IFolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_Vtbl;
 }
 impl ::core::clone::Clone for IFolderLauncherOptions {
@@ -988,7 +988,7 @@ impl ::core::clone::Clone for IFolderLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFolderLauncherOptions {
+unsafe impl ::windows::core::ComInterface for IFolderLauncherOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
 }
 #[repr(C)]
@@ -1003,7 +1003,7 @@ pub struct IFolderLauncherOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownUserPropertiesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IKnownUserPropertiesStatics {
+unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics {
     type Vtable = IKnownUserPropertiesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IKnownUserPropertiesStatics {
@@ -1011,7 +1011,7 @@ impl ::core::clone::Clone for IKnownUserPropertiesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics {
+unsafe impl ::windows::core::ComInterface for IKnownUserPropertiesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
 }
 #[repr(C)]
@@ -1031,7 +1031,7 @@ pub struct IKnownUserPropertiesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownUserPropertiesStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IKnownUserPropertiesStatics2 {
+unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics2 {
     type Vtable = IKnownUserPropertiesStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IKnownUserPropertiesStatics2 {
@@ -1039,7 +1039,7 @@ impl ::core::clone::Clone for IKnownUserPropertiesStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IKnownUserPropertiesStatics2 {
+unsafe impl ::windows::core::ComInterface for IKnownUserPropertiesStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b450782_f620_577e_b1b3_dd56644d79b1);
 }
 #[repr(C)]
@@ -1051,7 +1051,7 @@ pub struct IKnownUserPropertiesStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILaunchUriResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILaunchUriResult {
+unsafe impl ::windows::core::Interface for ILaunchUriResult {
     type Vtable = ILaunchUriResult_Vtbl;
 }
 impl ::core::clone::Clone for ILaunchUriResult {
@@ -1059,7 +1059,7 @@ impl ::core::clone::Clone for ILaunchUriResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILaunchUriResult {
+unsafe impl ::windows::core::ComInterface for ILaunchUriResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
 }
 #[repr(C)]
@@ -1075,7 +1075,7 @@ pub struct ILaunchUriResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherOptions {
+unsafe impl ::windows::core::Interface for ILauncherOptions {
     type Vtable = ILauncherOptions_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherOptions {
@@ -1083,7 +1083,7 @@ impl ::core::clone::Clone for ILauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherOptions {
+unsafe impl ::windows::core::ComInterface for ILauncherOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
 }
 #[repr(C)]
@@ -1113,7 +1113,7 @@ pub struct ILauncherOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherOptions2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherOptions2 {
+unsafe impl ::windows::core::Interface for ILauncherOptions2 {
     type Vtable = ILauncherOptions2_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherOptions2 {
@@ -1121,7 +1121,7 @@ impl ::core::clone::Clone for ILauncherOptions2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherOptions2 {
+unsafe impl ::windows::core::ComInterface for ILauncherOptions2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49);
 }
 #[repr(C)]
@@ -1142,7 +1142,7 @@ pub struct ILauncherOptions2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherOptions3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherOptions3 {
+unsafe impl ::windows::core::Interface for ILauncherOptions3 {
     type Vtable = ILauncherOptions3_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherOptions3 {
@@ -1150,7 +1150,7 @@ impl ::core::clone::Clone for ILauncherOptions3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherOptions3 {
+unsafe impl ::windows::core::ComInterface for ILauncherOptions3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0770655_4b63_4e3a_9107_4e687841923a);
 }
 #[repr(C)]
@@ -1163,7 +1163,7 @@ pub struct ILauncherOptions3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherOptions4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherOptions4 {
+unsafe impl ::windows::core::Interface for ILauncherOptions4 {
     type Vtable = ILauncherOptions4_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherOptions4 {
@@ -1171,7 +1171,7 @@ impl ::core::clone::Clone for ILauncherOptions4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherOptions4 {
+unsafe impl ::windows::core::ComInterface for ILauncherOptions4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b);
 }
 #[repr(C)]
@@ -1184,7 +1184,7 @@ pub struct ILauncherOptions4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherStatics {
+unsafe impl ::windows::core::Interface for ILauncherStatics {
     type Vtable = ILauncherStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherStatics {
@@ -1192,7 +1192,7 @@ impl ::core::clone::Clone for ILauncherStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherStatics {
+unsafe impl ::windows::core::ComInterface for ILauncherStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x277151c3_9e3e_42f6_91a4_5dfdeb232451);
 }
 #[repr(C)]
@@ -1219,7 +1219,7 @@ pub struct ILauncherStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherStatics2 {
+unsafe impl ::windows::core::Interface for ILauncherStatics2 {
     type Vtable = ILauncherStatics2_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherStatics2 {
@@ -1227,7 +1227,7 @@ impl ::core::clone::Clone for ILauncherStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherStatics2 {
+unsafe impl ::windows::core::ComInterface for ILauncherStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1);
 }
 #[repr(C)]
@@ -1278,7 +1278,7 @@ pub struct ILauncherStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherStatics3 {
+unsafe impl ::windows::core::Interface for ILauncherStatics3 {
     type Vtable = ILauncherStatics3_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherStatics3 {
@@ -1286,7 +1286,7 @@ impl ::core::clone::Clone for ILauncherStatics3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherStatics3 {
+unsafe impl ::windows::core::ComInterface for ILauncherStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x234261a8_9db3_4683_aa42_dc6f51d33847);
 }
 #[repr(C)]
@@ -1305,7 +1305,7 @@ pub struct ILauncherStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherStatics4 {
+unsafe impl ::windows::core::Interface for ILauncherStatics4 {
     type Vtable = ILauncherStatics4_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherStatics4 {
@@ -1313,7 +1313,7 @@ impl ::core::clone::Clone for ILauncherStatics4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherStatics4 {
+unsafe impl ::windows::core::ComInterface for ILauncherStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
 }
 #[repr(C)]
@@ -1356,7 +1356,7 @@ pub struct ILauncherStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherStatics5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherStatics5 {
+unsafe impl ::windows::core::Interface for ILauncherStatics5 {
     type Vtable = ILauncherStatics5_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherStatics5 {
@@ -1364,7 +1364,7 @@ impl ::core::clone::Clone for ILauncherStatics5 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherStatics5 {
+unsafe impl ::windows::core::ComInterface for ILauncherStatics5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b24ef84_d895_5fea_9153_1ac49aed9ba9);
 }
 #[repr(C)]
@@ -1391,7 +1391,7 @@ pub struct ILauncherStatics5_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILauncherUIOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILauncherUIOptions {
+unsafe impl ::windows::core::Interface for ILauncherUIOptions {
     type Vtable = ILauncherUIOptions_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherUIOptions {
@@ -1399,7 +1399,7 @@ impl ::core::clone::Clone for ILauncherUIOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherUIOptions {
+unsafe impl ::windows::core::ComInterface for ILauncherUIOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
 }
 #[repr(C)]
@@ -1441,14 +1441,14 @@ impl ILauncherViewOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UI::ViewManagement::ViewSizePreference>();
-            (::windows::core::Vtable::vtable(this).DesiredRemainingView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredRemainingView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredRemainingView)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 ::windows::imp::interface_hierarchy!(ILauncherViewOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -1466,7 +1466,7 @@ impl ::core::fmt::Debug for ILauncherViewOptions {
 impl ::windows::core::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{8a9b29f1-7ca7-49de-9bd3-3c5b7184f616}");
 }
-unsafe impl ::windows::core::Vtable for ILauncherViewOptions {
+unsafe impl ::windows::core::Interface for ILauncherViewOptions {
     type Vtable = ILauncherViewOptions_Vtbl;
 }
 impl ::core::clone::Clone for ILauncherViewOptions {
@@ -1474,7 +1474,7 @@ impl ::core::clone::Clone for ILauncherViewOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILauncherViewOptions {
+unsafe impl ::windows::core::ComInterface for ILauncherViewOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
 }
 #[repr(C)]
@@ -1493,7 +1493,7 @@ pub struct ILauncherViewOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMemoryManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMemoryManagerStatics {
+unsafe impl ::windows::core::Interface for IMemoryManagerStatics {
     type Vtable = IMemoryManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IMemoryManagerStatics {
@@ -1501,7 +1501,7 @@ impl ::core::clone::Clone for IMemoryManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMemoryManagerStatics {
+unsafe impl ::windows::core::ComInterface for IMemoryManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6c279c_d7ca_4779_9188_4057219ce64c);
 }
 #[repr(C)]
@@ -1539,7 +1539,7 @@ pub struct IMemoryManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMemoryManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMemoryManagerStatics2 {
+unsafe impl ::windows::core::Interface for IMemoryManagerStatics2 {
     type Vtable = IMemoryManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IMemoryManagerStatics2 {
@@ -1547,7 +1547,7 @@ impl ::core::clone::Clone for IMemoryManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMemoryManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for IMemoryManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eee351f_6d62_423f_9479_b01f9c9f7669);
 }
 #[repr(C)]
@@ -1560,7 +1560,7 @@ pub struct IMemoryManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMemoryManagerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMemoryManagerStatics3 {
+unsafe impl ::windows::core::Interface for IMemoryManagerStatics3 {
     type Vtable = IMemoryManagerStatics3_Vtbl;
 }
 impl ::core::clone::Clone for IMemoryManagerStatics3 {
@@ -1568,7 +1568,7 @@ impl ::core::clone::Clone for IMemoryManagerStatics3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMemoryManagerStatics3 {
+unsafe impl ::windows::core::ComInterface for IMemoryManagerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x149b59ce_92ad_4e35_89eb_50dfb4c0d91c);
 }
 #[repr(C)]
@@ -1580,7 +1580,7 @@ pub struct IMemoryManagerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMemoryManagerStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMemoryManagerStatics4 {
+unsafe impl ::windows::core::Interface for IMemoryManagerStatics4 {
     type Vtable = IMemoryManagerStatics4_Vtbl;
 }
 impl ::core::clone::Clone for IMemoryManagerStatics4 {
@@ -1588,7 +1588,7 @@ impl ::core::clone::Clone for IMemoryManagerStatics4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMemoryManagerStatics4 {
+unsafe impl ::windows::core::ComInterface for IMemoryManagerStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5a94828_e84e_4886_8a0d_44b3190e3b72);
 }
 #[repr(C)]
@@ -1600,7 +1600,7 @@ pub struct IMemoryManagerStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProcessLauncherOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProcessLauncherOptions {
+unsafe impl ::windows::core::Interface for IProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_Vtbl;
 }
 impl ::core::clone::Clone for IProcessLauncherOptions {
@@ -1608,7 +1608,7 @@ impl ::core::clone::Clone for IProcessLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProcessLauncherOptions {
+unsafe impl ::windows::core::ComInterface for IProcessLauncherOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
 }
 #[repr(C)]
@@ -1645,7 +1645,7 @@ pub struct IProcessLauncherOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProcessLauncherResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProcessLauncherResult {
+unsafe impl ::windows::core::Interface for IProcessLauncherResult {
     type Vtable = IProcessLauncherResult_Vtbl;
 }
 impl ::core::clone::Clone for IProcessLauncherResult {
@@ -1653,7 +1653,7 @@ impl ::core::clone::Clone for IProcessLauncherResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProcessLauncherResult {
+unsafe impl ::windows::core::ComInterface for IProcessLauncherResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
 }
 #[repr(C)]
@@ -1665,7 +1665,7 @@ pub struct IProcessLauncherResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProcessLauncherStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProcessLauncherStatics {
+unsafe impl ::windows::core::Interface for IProcessLauncherStatics {
     type Vtable = IProcessLauncherStatics_Vtbl;
 }
 impl ::core::clone::Clone for IProcessLauncherStatics {
@@ -1673,7 +1673,7 @@ impl ::core::clone::Clone for IProcessLauncherStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProcessLauncherStatics {
+unsafe impl ::windows::core::ComInterface for IProcessLauncherStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c);
 }
 #[repr(C)]
@@ -1692,7 +1692,7 @@ pub struct IProcessLauncherStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProcessMemoryReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProcessMemoryReport {
+unsafe impl ::windows::core::Interface for IProcessMemoryReport {
     type Vtable = IProcessMemoryReport_Vtbl;
 }
 impl ::core::clone::Clone for IProcessMemoryReport {
@@ -1700,7 +1700,7 @@ impl ::core::clone::Clone for IProcessMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProcessMemoryReport {
+unsafe impl ::windows::core::ComInterface for IProcessMemoryReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
 }
 #[repr(C)]
@@ -1713,7 +1713,7 @@ pub struct IProcessMemoryReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProtocolForResultsOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProtocolForResultsOperation {
+unsafe impl ::windows::core::Interface for IProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_Vtbl;
 }
 impl ::core::clone::Clone for IProtocolForResultsOperation {
@@ -1721,7 +1721,7 @@ impl ::core::clone::Clone for IProtocolForResultsOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProtocolForResultsOperation {
+unsafe impl ::windows::core::ComInterface for IProtocolForResultsOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
 }
 #[repr(C)]
@@ -1736,7 +1736,7 @@ pub struct IProtocolForResultsOperation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRemoteLauncherOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRemoteLauncherOptions {
+unsafe impl ::windows::core::Interface for IRemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_Vtbl;
 }
 impl ::core::clone::Clone for IRemoteLauncherOptions {
@@ -1744,7 +1744,7 @@ impl ::core::clone::Clone for IRemoteLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRemoteLauncherOptions {
+unsafe impl ::windows::core::ComInterface for IRemoteLauncherOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
 }
 #[repr(C)]
@@ -1767,7 +1767,7 @@ pub struct IRemoteLauncherOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRemoteLauncherStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRemoteLauncherStatics {
+unsafe impl ::windows::core::Interface for IRemoteLauncherStatics {
     type Vtable = IRemoteLauncherStatics_Vtbl;
 }
 impl ::core::clone::Clone for IRemoteLauncherStatics {
@@ -1775,7 +1775,7 @@ impl ::core::clone::Clone for IRemoteLauncherStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRemoteLauncherStatics {
+unsafe impl ::windows::core::ComInterface for IRemoteLauncherStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7db7a93_a30c_48b7_9f21_051026a4e517);
 }
 #[repr(C)]
@@ -1798,7 +1798,7 @@ pub struct IRemoteLauncherStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShutdownManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShutdownManagerStatics {
+unsafe impl ::windows::core::Interface for IShutdownManagerStatics {
     type Vtable = IShutdownManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IShutdownManagerStatics {
@@ -1806,7 +1806,7 @@ impl ::core::clone::Clone for IShutdownManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShutdownManagerStatics {
+unsafe impl ::windows::core::ComInterface for IShutdownManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
 }
 #[repr(C)]
@@ -1822,7 +1822,7 @@ pub struct IShutdownManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShutdownManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShutdownManagerStatics2 {
+unsafe impl ::windows::core::Interface for IShutdownManagerStatics2 {
     type Vtable = IShutdownManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IShutdownManagerStatics2 {
@@ -1830,7 +1830,7 @@ impl ::core::clone::Clone for IShutdownManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShutdownManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for IShutdownManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
 }
 #[repr(C)]
@@ -1847,7 +1847,7 @@ pub struct IShutdownManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITimeZoneSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITimeZoneSettingsStatics {
+unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics {
     type Vtable = ITimeZoneSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for ITimeZoneSettingsStatics {
@@ -1855,7 +1855,7 @@ impl ::core::clone::Clone for ITimeZoneSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics {
+unsafe impl ::windows::core::ComInterface for ITimeZoneSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
 }
 #[repr(C)]
@@ -1873,7 +1873,7 @@ pub struct ITimeZoneSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITimeZoneSettingsStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITimeZoneSettingsStatics2 {
+unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics2 {
     type Vtable = ITimeZoneSettingsStatics2_Vtbl;
 }
 impl ::core::clone::Clone for ITimeZoneSettingsStatics2 {
@@ -1881,7 +1881,7 @@ impl ::core::clone::Clone for ITimeZoneSettingsStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITimeZoneSettingsStatics2 {
+unsafe impl ::windows::core::ComInterface for ITimeZoneSettingsStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555c0db8_39a8_49fa_b4f6_a2c7fc2842ec);
 }
 #[repr(C)]
@@ -1896,7 +1896,7 @@ pub struct ITimeZoneSettingsStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUser {
+unsafe impl ::windows::core::Interface for IUser {
     type Vtable = IUser_Vtbl;
 }
 impl ::core::clone::Clone for IUser {
@@ -1904,7 +1904,7 @@ impl ::core::clone::Clone for IUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUser {
+unsafe impl ::windows::core::ComInterface for IUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
 }
 #[repr(C)]
@@ -1930,7 +1930,7 @@ pub struct IUser_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUser2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUser2 {
+unsafe impl ::windows::core::Interface for IUser2 {
     type Vtable = IUser2_Vtbl;
 }
 impl ::core::clone::Clone for IUser2 {
@@ -1938,7 +1938,7 @@ impl ::core::clone::Clone for IUser2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUser2 {
+unsafe impl ::windows::core::ComInterface for IUser2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
 }
 #[repr(C)]
@@ -1953,7 +1953,7 @@ pub struct IUser2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserAuthenticationStatusChangeDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserAuthenticationStatusChangeDeferral {
+unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_Vtbl;
 }
 impl ::core::clone::Clone for IUserAuthenticationStatusChangeDeferral {
@@ -1961,7 +1961,7 @@ impl ::core::clone::Clone for IUserAuthenticationStatusChangeDeferral {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangeDeferral {
+unsafe impl ::windows::core::ComInterface for IUserAuthenticationStatusChangeDeferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
 }
 #[repr(C)]
@@ -1973,7 +1973,7 @@ pub struct IUserAuthenticationStatusChangeDeferral_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserAuthenticationStatusChangingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserAuthenticationStatusChangingEventArgs {
+unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserAuthenticationStatusChangingEventArgs {
@@ -1981,7 +1981,7 @@ impl ::core::clone::Clone for IUserAuthenticationStatusChangingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserAuthenticationStatusChangingEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserAuthenticationStatusChangingEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
 }
 #[repr(C)]
@@ -1996,7 +1996,7 @@ pub struct IUserAuthenticationStatusChangingEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserChangedEventArgs {
+unsafe impl ::windows::core::Interface for IUserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserChangedEventArgs {
@@ -2004,7 +2004,7 @@ impl ::core::clone::Clone for IUserChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
 }
 #[repr(C)]
@@ -2016,7 +2016,7 @@ pub struct IUserChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserChangedEventArgs2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserChangedEventArgs2 {
+unsafe impl ::windows::core::Interface for IUserChangedEventArgs2 {
     type Vtable = IUserChangedEventArgs2_Vtbl;
 }
 impl ::core::clone::Clone for IUserChangedEventArgs2 {
@@ -2024,7 +2024,7 @@ impl ::core::clone::Clone for IUserChangedEventArgs2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserChangedEventArgs2 {
+unsafe impl ::windows::core::ComInterface for IUserChangedEventArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
 }
 #[repr(C)]
@@ -2039,7 +2039,7 @@ pub struct IUserChangedEventArgs2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDeviceAssociationChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDeviceAssociationChangedEventArgs {
+unsafe impl ::windows::core::Interface for IUserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDeviceAssociationChangedEventArgs {
@@ -2047,7 +2047,7 @@ impl ::core::clone::Clone for IUserDeviceAssociationChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDeviceAssociationChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDeviceAssociationChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
 }
 #[repr(C)]
@@ -2061,7 +2061,7 @@ pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDeviceAssociationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDeviceAssociationStatics {
+unsafe impl ::windows::core::Interface for IUserDeviceAssociationStatics {
     type Vtable = IUserDeviceAssociationStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserDeviceAssociationStatics {
@@ -2069,7 +2069,7 @@ impl ::core::clone::Clone for IUserDeviceAssociationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDeviceAssociationStatics {
+unsafe impl ::windows::core::ComInterface for IUserDeviceAssociationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
 }
 #[repr(C)]
@@ -2089,7 +2089,7 @@ pub struct IUserDeviceAssociationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserPicker(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserPicker {
+unsafe impl ::windows::core::Interface for IUserPicker {
     type Vtable = IUserPicker_Vtbl;
 }
 impl ::core::clone::Clone for IUserPicker {
@@ -2097,7 +2097,7 @@ impl ::core::clone::Clone for IUserPicker {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserPicker {
+unsafe impl ::windows::core::ComInterface for IUserPicker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
 }
 #[repr(C)]
@@ -2116,7 +2116,7 @@ pub struct IUserPicker_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserPickerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserPickerStatics {
+unsafe impl ::windows::core::Interface for IUserPickerStatics {
     type Vtable = IUserPickerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserPickerStatics {
@@ -2124,7 +2124,7 @@ impl ::core::clone::Clone for IUserPickerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserPickerStatics {
+unsafe impl ::windows::core::ComInterface for IUserPickerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
 }
 #[repr(C)]
@@ -2136,7 +2136,7 @@ pub struct IUserPickerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserStatics {
+unsafe impl ::windows::core::Interface for IUserStatics {
     type Vtable = IUserStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserStatics {
@@ -2144,7 +2144,7 @@ impl ::core::clone::Clone for IUserStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserStatics {
+unsafe impl ::windows::core::ComInterface for IUserStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd);
 }
 #[repr(C)]
@@ -2169,7 +2169,7 @@ pub struct IUserStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserStatics2 {
+unsafe impl ::windows::core::Interface for IUserStatics2 {
     type Vtable = IUserStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IUserStatics2 {
@@ -2177,7 +2177,7 @@ impl ::core::clone::Clone for IUserStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserStatics2 {
+unsafe impl ::windows::core::ComInterface for IUserStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
 }
 #[repr(C)]
@@ -2189,7 +2189,7 @@ pub struct IUserStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserWatcher {
+unsafe impl ::windows::core::Interface for IUserWatcher {
     type Vtable = IUserWatcher_Vtbl;
 }
 impl ::core::clone::Clone for IUserWatcher {
@@ -2197,7 +2197,7 @@ impl ::core::clone::Clone for IUserWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserWatcher {
+unsafe impl ::windows::core::ComInterface for IUserWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
 }
 #[repr(C)]
@@ -2272,14 +2272,14 @@ impl AppActivationResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupInfo>();
-            (::windows::core::Vtable::vtable(this).AppResourceGroupInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppResourceGroupInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2302,11 +2302,11 @@ impl ::core::clone::Clone for AppActivationResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppActivationResult {
+unsafe impl ::windows::core::Interface for AppActivationResult {
     type Vtable = IAppActivationResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppActivationResult {
-    const IID: ::windows::core::GUID = <IAppActivationResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppActivationResult {
+    const IID: ::windows::core::GUID = <IAppActivationResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
@@ -2324,32 +2324,32 @@ impl AppDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::ApplicationModel::AppInfo>();
-            (::windows::core::Vtable::vtable(this).AppInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetResourceGroups(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppResourceGroupInfo>> {
-        let this = &::windows::core::Interface::cast::<IAppDiagnosticInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<AppResourceGroupInfo>>();
-            (::windows::core::Vtable::vtable(this).GetResourceGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetResourceGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateResourceGroupWatcher(&self) -> ::windows::core::Result<AppResourceGroupInfoWatcher> {
-        let this = &::windows::core::Interface::cast::<IAppDiagnosticInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupInfoWatcher>();
-            (::windows::core::Vtable::vtable(this).CreateResourceGroupWatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceGroupWatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppActivationResult>> {
-        let this = &::windows::core::Interface::cast::<IAppDiagnosticInfo3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppDiagnosticInfo3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<AppActivationResult>>();
-            (::windows::core::Vtable::vtable(this).LaunchAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2357,13 +2357,13 @@ impl AppDiagnosticInfo {
     pub fn RequestInfoAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>();
-            (::windows::core::Vtable::vtable(this).RequestInfoAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestInfoAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWatcher() -> ::windows::core::Result<AppDiagnosticInfoWatcher> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppDiagnosticInfoWatcher>();
-            (::windows::core::Vtable::vtable(this).CreateWatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2371,7 +2371,7 @@ impl AppDiagnosticInfo {
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2379,7 +2379,7 @@ impl AppDiagnosticInfo {
     pub fn RequestInfoForPackageAsync(packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>();
-            (::windows::core::Vtable::vtable(this).RequestInfoForPackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestInfoForPackageAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2387,7 +2387,7 @@ impl AppDiagnosticInfo {
     pub fn RequestInfoForAppAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>();
-            (::windows::core::Vtable::vtable(this).RequestInfoForAppAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestInfoForAppAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2395,7 +2395,7 @@ impl AppDiagnosticInfo {
     pub fn RequestInfoForAppUserModelId(appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>();
-            (::windows::core::Vtable::vtable(this).RequestInfoForAppUserModelId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appusermodelid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestInfoForAppUserModelId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appusermodelid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2428,11 +2428,11 @@ impl ::core::clone::Clone for AppDiagnosticInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppDiagnosticInfo {
+unsafe impl ::windows::core::Interface for AppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppDiagnosticInfo {
-    const IID: ::windows::core::GUID = <IAppDiagnosticInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppDiagnosticInfo {
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
@@ -2450,14 +2450,14 @@ impl AppDiagnosticInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2465,14 +2465,14 @@ impl AppDiagnosticInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2480,14 +2480,14 @@ impl AppDiagnosticInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2495,29 +2495,29 @@ impl AppDiagnosticInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Status(&self) -> ::windows::core::Result<AppDiagnosticInfoWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppDiagnosticInfoWatcherStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcher {
@@ -2539,11 +2539,11 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppDiagnosticInfoWatcher {
+unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcher {
-    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcher as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppDiagnosticInfoWatcher {
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcher as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
@@ -2559,7 +2559,7 @@ impl AppDiagnosticInfoWatcherEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppDiagnosticInfo>();
-            (::windows::core::Vtable::vtable(this).AppDiagnosticInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppDiagnosticInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2582,11 +2582,11 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppDiagnosticInfoWatcherEventArgs {
+unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcherEventArgs {
-    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcherEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppDiagnosticInfoWatcherEventArgs {
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcherEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
@@ -2602,7 +2602,7 @@ impl AppExecutionStateChangeResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2625,11 +2625,11 @@ impl ::core::clone::Clone for AppExecutionStateChangeResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppExecutionStateChangeResult {
+unsafe impl ::windows::core::Interface for AppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppExecutionStateChangeResult {
-    const IID: ::windows::core::GUID = <IAppExecutionStateChangeResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppExecutionStateChangeResult {
+    const IID: ::windows::core::GUID = <IAppExecutionStateChangeResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
@@ -2645,35 +2645,35 @@ impl AppMemoryReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).PrivateCommitUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrivateCommitUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PeakPrivateCommitUsage(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).PeakPrivateCommitUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PeakPrivateCommitUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalCommitUsage(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).TotalCommitUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TotalCommitUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalCommitLimit(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).TotalCommitLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TotalCommitLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExpectedTotalCommitLimit(&self) -> ::windows::core::Result<u64> {
-        let this = &::windows::core::Interface::cast::<IAppMemoryReport2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppMemoryReport2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).ExpectedTotalCommitLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExpectedTotalCommitLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2696,11 +2696,11 @@ impl ::core::clone::Clone for AppMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppMemoryReport {
+unsafe impl ::windows::core::Interface for AppMemoryReport {
     type Vtable = IAppMemoryReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppMemoryReport {
-    const IID: ::windows::core::GUID = <IAppMemoryReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppMemoryReport {
+    const IID: ::windows::core::GUID = <IAppMemoryReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
@@ -2716,14 +2716,14 @@ impl AppMemoryUsageLimitChangingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).OldLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OldLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NewLimit(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).NewLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2746,11 +2746,11 @@ impl ::core::clone::Clone for AppMemoryUsageLimitChangingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppMemoryUsageLimitChangingEventArgs {
+unsafe impl ::windows::core::Interface for AppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppMemoryUsageLimitChangingEventArgs {
-    const IID: ::windows::core::GUID = <IAppMemoryUsageLimitChangingEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppMemoryUsageLimitChangingEventArgs {
+    const IID: ::windows::core::GUID = <IAppMemoryUsageLimitChangingEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
@@ -2766,28 +2766,28 @@ impl AppResourceGroupBackgroundTaskReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).TaskId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Trigger(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Trigger)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Trigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EntryPoint(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).EntryPoint)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EntryPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2810,11 +2810,11 @@ impl ::core::clone::Clone for AppResourceGroupBackgroundTaskReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupBackgroundTaskReport {
+unsafe impl ::windows::core::Interface for AppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupBackgroundTaskReport {
-    const IID: ::windows::core::GUID = <IAppResourceGroupBackgroundTaskReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupBackgroundTaskReport {
+    const IID: ::windows::core::GUID = <IAppResourceGroupBackgroundTaskReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
@@ -2830,14 +2830,14 @@ impl AppResourceGroupInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).InstanceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InstanceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsShared(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsShared)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsShared)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2846,14 +2846,14 @@ impl AppResourceGroupInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<AppResourceGroupBackgroundTaskReport>>();
-            (::windows::core::Vtable::vtable(this).GetBackgroundTaskReports)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBackgroundTaskReports)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetMemoryReport(&self) -> ::windows::core::Result<AppResourceGroupMemoryReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupMemoryReport>();
-            (::windows::core::Vtable::vtable(this).GetMemoryReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetMemoryReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_Diagnostics\"`*"]
@@ -2862,41 +2862,41 @@ impl AppResourceGroupInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<Diagnostics::ProcessDiagnosticInfo>>();
-            (::windows::core::Vtable::vtable(this).GetProcessDiagnosticInfos)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetProcessDiagnosticInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetStateReport(&self) -> ::windows::core::Result<AppResourceGroupStateReport> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupStateReport>();
-            (::windows::core::Vtable::vtable(this).GetStateReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStateReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartSuspendAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
-        let this = &::windows::core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>();
-            (::windows::core::Vtable::vtable(this).StartSuspendAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartSuspendAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartResumeAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
-        let this = &::windows::core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>();
-            (::windows::core::Vtable::vtable(this).StartResumeAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartResumeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTerminateAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>> {
-        let this = &::windows::core::Interface::cast::<IAppResourceGroupInfo2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppResourceGroupInfo2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>>();
-            (::windows::core::Vtable::vtable(this).StartTerminateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartTerminateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2919,11 +2919,11 @@ impl ::core::clone::Clone for AppResourceGroupInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupInfo {
+unsafe impl ::windows::core::Interface for AppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupInfo {
-    const IID: ::windows::core::GUID = <IAppResourceGroupInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupInfo {
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
@@ -2941,14 +2941,14 @@ impl AppResourceGroupInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2956,14 +2956,14 @@ impl AppResourceGroupInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2971,14 +2971,14 @@ impl AppResourceGroupInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2986,14 +2986,14 @@ impl AppResourceGroupInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3001,29 +3001,29 @@ impl AppResourceGroupInfoWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ExecutionStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExecutionStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveExecutionStateChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveExecutionStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveExecutionStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Status(&self) -> ::windows::core::Result<AppResourceGroupInfoWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupInfoWatcherStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcher {
@@ -3045,11 +3045,11 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupInfoWatcher {
+unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcher {
-    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcher as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupInfoWatcher {
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcher as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
@@ -3067,14 +3067,14 @@ impl AppResourceGroupInfoWatcherEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>();
-            (::windows::core::Vtable::vtable(this).AppDiagnosticInfos)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppDiagnosticInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupInfo>();
-            (::windows::core::Vtable::vtable(this).AppResourceGroupInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppResourceGroupInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3097,11 +3097,11 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupInfoWatcherEventArgs {
+unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherEventArgs {
-    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupInfoWatcherEventArgs {
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
@@ -3119,14 +3119,14 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<AppDiagnosticInfo>>();
-            (::windows::core::Vtable::vtable(this).AppDiagnosticInfos)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppDiagnosticInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppResourceGroupInfo(&self) -> ::windows::core::Result<AppResourceGroupInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupInfo>();
-            (::windows::core::Vtable::vtable(this).AppResourceGroupInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppResourceGroupInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3149,11 +3149,11 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherExecutionStateChangedEv
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
@@ -3169,28 +3169,28 @@ impl AppResourceGroupMemoryReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).CommitUsageLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CommitUsageLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CommitUsageLevel(&self) -> ::windows::core::Result<AppMemoryUsageLevel> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppMemoryUsageLevel>();
-            (::windows::core::Vtable::vtable(this).CommitUsageLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CommitUsageLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PrivateCommitUsage(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).PrivateCommitUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrivateCommitUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalCommitUsage(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).TotalCommitUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TotalCommitUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3213,11 +3213,11 @@ impl ::core::clone::Clone for AppResourceGroupMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupMemoryReport {
+unsafe impl ::windows::core::Interface for AppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupMemoryReport {
-    const IID: ::windows::core::GUID = <IAppResourceGroupMemoryReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupMemoryReport {
+    const IID: ::windows::core::GUID = <IAppResourceGroupMemoryReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
@@ -3233,14 +3233,14 @@ impl AppResourceGroupStateReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupExecutionState>();
-            (::windows::core::Vtable::vtable(this).ExecutionState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnergyQuotaState(&self) -> ::windows::core::Result<AppResourceGroupEnergyQuotaState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppResourceGroupEnergyQuotaState>();
-            (::windows::core::Vtable::vtable(this).EnergyQuotaState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnergyQuotaState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3263,11 +3263,11 @@ impl ::core::clone::Clone for AppResourceGroupStateReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppResourceGroupStateReport {
+unsafe impl ::windows::core::Interface for AppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppResourceGroupStateReport {
-    const IID: ::windows::core::GUID = <IAppResourceGroupStateReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppResourceGroupStateReport {
+    const IID: ::windows::core::GUID = <IAppResourceGroupStateReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
@@ -3290,28 +3290,28 @@ impl AppUriHandlerHost {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerHost2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerHost2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerHost2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerHost2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn CreateInstance(name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerHost> {
         Self::IAppUriHandlerHostFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerHost>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3339,11 +3339,11 @@ impl ::core::clone::Clone for AppUriHandlerHost {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppUriHandlerHost {
+unsafe impl ::windows::core::Interface for AppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppUriHandlerHost {
-    const IID: ::windows::core::GUID = <IAppUriHandlerHost as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppUriHandlerHost {
+    const IID: ::windows::core::GUID = <IAppUriHandlerHost as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
@@ -3359,14 +3359,14 @@ impl AppUriHandlerRegistration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows::core::Result<User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3375,46 +3375,44 @@ impl AppUriHandlerRegistration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>();
-            (::windows::core::Vtable::vtable(this).GetAppAddedHostsAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAppAddedHostsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAppAddedHostsAsync<P0, E0>(&self, hosts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn SetAppAddedHostsAsync<P0>(&self, hosts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SetAppAddedHostsAsync)(::windows::core::Vtable::as_raw(this), hosts.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetAppAddedHostsAsync)(::windows::core::Interface::as_raw(this), hosts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllHosts(&self) -> ::windows::core::Result<super::Foundation::Collections::IVector<AppUriHandlerHost>> {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<AppUriHandlerHost>>();
-            (::windows::core::Vtable::vtable(this).GetAllHosts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAllHosts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateHosts<P0, E0>(&self, hosts: P0) -> ::windows::core::Result<()>
+    pub fn UpdateHosts<P0>(&self, hosts: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::Collections::IIterable<AppUriHandlerHost>>,
     {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateHosts)(::windows::core::Vtable::as_raw(this), hosts.try_into().map_err(|e| e.into())?.abi()).ok() }
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerRegistration2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).UpdateHosts)(::windows::core::Interface::as_raw(this), hosts.try_into_param()?.abi()).ok() }
     }
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerRegistration2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerRegistration2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3437,11 +3435,11 @@ impl ::core::clone::Clone for AppUriHandlerRegistration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppUriHandlerRegistration {
+unsafe impl ::windows::core::Interface for AppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppUriHandlerRegistration {
-    const IID: ::windows::core::GUID = <IAppUriHandlerRegistration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppUriHandlerRegistration {
+    const IID: ::windows::core::GUID = <IAppUriHandlerRegistration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
@@ -3457,45 +3455,45 @@ impl AppUriHandlerRegistrationManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetRegistration(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerRegistration>();
-            (::windows::core::Vtable::vtable(this).TryGetRegistration)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryGetRegistration)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppUriHandlerRegistrationManager2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IAppUriHandlerRegistrationManager2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerRegistrationManager>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &User) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerRegistrationManager>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForPackage(packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerRegistrationManager>();
-            (::windows::core::Vtable::vtable(this).GetForPackage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForPackage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForPackageForUser(packagefamilyname: &::windows::core::HSTRING, user: &User) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppUriHandlerRegistrationManager>();
-            (::windows::core::Vtable::vtable(this).GetForPackageForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForPackageForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3528,11 +3526,11 @@ impl ::core::clone::Clone for AppUriHandlerRegistrationManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppUriHandlerRegistrationManager {
+unsafe impl ::windows::core::Interface for AppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppUriHandlerRegistrationManager {
-    const IID: ::windows::core::GUID = <IAppUriHandlerRegistrationManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppUriHandlerRegistrationManager {
+    const IID: ::windows::core::GUID = <IAppUriHandlerRegistrationManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
@@ -3546,7 +3544,7 @@ impl DateTimeSettings {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSystemDateTime(utcdatetime: super::Foundation::DateTime) -> ::windows::core::Result<()> {
-        Self::IDateTimeSettingsStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetSystemDateTime)(::windows::core::Vtable::as_raw(this), utcdatetime).ok() })
+        Self::IDateTimeSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetSystemDateTime)(::windows::core::Interface::as_raw(this), utcdatetime).ok() })
     }
     #[doc(hidden)]
     pub fn IDateTimeSettingsStatics<R, F: FnOnce(&IDateTimeSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3565,21 +3563,21 @@ impl DispatcherQueue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DispatcherQueueTimer>();
-            (::windows::core::Vtable::vtable(this).CreateTimer)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateTimer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryEnqueue(&self, callback: &DispatcherQueueHandler) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryEnqueue)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(callback), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryEnqueue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(callback), &mut result__).from_abi(result__)
         }
     }
     pub fn TryEnqueueWithPriority(&self, priority: DispatcherQueuePriority, callback: &DispatcherQueueHandler) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryEnqueueWithPriority)(::windows::core::Vtable::as_raw(this), priority, ::core::mem::transmute_copy(callback), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryEnqueueWithPriority)(::windows::core::Interface::as_raw(this), priority, ::core::mem::transmute_copy(callback), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3588,14 +3586,14 @@ impl DispatcherQueue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ShutdownStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShutdownStarting)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShutdownStarting(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveShutdownStarting)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveShutdownStarting)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3603,26 +3601,26 @@ impl DispatcherQueue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ShutdownCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShutdownCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShutdownCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveShutdownCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveShutdownCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn HasThreadAccess(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDispatcherQueue2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IDispatcherQueue2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HasThreadAccess)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasThreadAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetForCurrentThread() -> ::windows::core::Result<DispatcherQueue> {
         Self::IDispatcherQueueStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DispatcherQueue>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentThread)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentThread)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3650,11 +3648,11 @@ impl ::core::clone::Clone for DispatcherQueue {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DispatcherQueue {
+unsafe impl ::windows::core::Interface for DispatcherQueue {
     type Vtable = IDispatcherQueue_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DispatcherQueue {
-    const IID: ::windows::core::GUID = <IDispatcherQueue as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DispatcherQueue {
+    const IID: ::windows::core::GUID = <IDispatcherQueue as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
@@ -3670,7 +3668,7 @@ impl DispatcherQueueController {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<DispatcherQueue>();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3679,13 +3677,13 @@ impl DispatcherQueueController {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ShutdownQueueAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShutdownQueueAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOnDedicatedThread() -> ::windows::core::Result<DispatcherQueueController> {
         Self::IDispatcherQueueControllerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DispatcherQueueController>();
-            (::windows::core::Vtable::vtable(this).CreateOnDedicatedThread)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOnDedicatedThread)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3713,11 +3711,11 @@ impl ::core::clone::Clone for DispatcherQueueController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DispatcherQueueController {
+unsafe impl ::windows::core::Interface for DispatcherQueueController {
     type Vtable = IDispatcherQueueController_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DispatcherQueueController {
-    const IID: ::windows::core::GUID = <IDispatcherQueueController as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DispatcherQueueController {
+    const IID: ::windows::core::GUID = <IDispatcherQueueController as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
@@ -3735,7 +3733,7 @@ impl DispatcherQueueShutdownStartingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3758,11 +3756,11 @@ impl ::core::clone::Clone for DispatcherQueueShutdownStartingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DispatcherQueueShutdownStartingEventArgs {
+unsafe impl ::windows::core::Interface for DispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DispatcherQueueShutdownStartingEventArgs {
-    const IID: ::windows::core::GUID = <IDispatcherQueueShutdownStartingEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DispatcherQueueShutdownStartingEventArgs {
+    const IID: ::windows::core::GUID = <IDispatcherQueueShutdownStartingEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
@@ -3780,40 +3778,40 @@ impl DispatcherQueueTimer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Interval)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInterval(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsRunning(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsRunning)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsRunning)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRepeating(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsRepeating)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsRepeating)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsRepeating(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsRepeating)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsRepeating)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3821,14 +3819,14 @@ impl DispatcherQueueTimer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Tick)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Tick)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTick(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTick)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTick)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for DispatcherQueueTimer {
@@ -3850,11 +3848,11 @@ impl ::core::clone::Clone for DispatcherQueueTimer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DispatcherQueueTimer {
+unsafe impl ::windows::core::Interface for DispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DispatcherQueueTimer {
-    const IID: ::windows::core::GUID = <IDispatcherQueueTimer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DispatcherQueueTimer {
+    const IID: ::windows::core::GUID = <IDispatcherQueueTimer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
@@ -3879,23 +3877,23 @@ impl FolderLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<super::Storage::IStorageItem>>();
-            (::windows::core::Vtable::vtable(this).ItemsToSelect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ItemsToSelect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference> {
-        let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UI::ViewManagement::ViewSizePreference>();
-            (::windows::core::Vtable::vtable(this).DesiredRemainingView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredRemainingView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredRemainingView)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherViewOptions>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for FolderLauncherOptions {
@@ -3917,35 +3915,17 @@ impl ::core::clone::Clone for FolderLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FolderLauncherOptions {
+unsafe impl ::windows::core::Interface for FolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FolderLauncherOptions {
-    const IID: ::windows::core::GUID = <IFolderLauncherOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FolderLauncherOptions {
+    const IID: ::windows::core::GUID = <IFolderLauncherOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
 }
 ::windows::imp::interface_hierarchy!(FolderLauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<FolderLauncherOptions> for ILauncherViewOptions {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FolderLauncherOptions) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FolderLauncherOptions> for ILauncherViewOptions {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderLauncherOptions) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&FolderLauncherOptions> for ::windows::core::InParam<ILauncherViewOptions> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderLauncherOptions) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<ILauncherViewOptions> for FolderLauncherOptions {}
 unsafe impl ::core::marker::Send for FolderLauncherOptions {}
 unsafe impl ::core::marker::Sync for FolderLauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3954,61 +3934,61 @@ impl KnownUserProperties {
     pub fn DisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn FirstName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FirstName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FirstName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LastName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).LastName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ProviderName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProviderName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn AccountName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AccountName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AccountName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GuestHost() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GuestHost)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GuestHost)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PrincipalName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PrincipalName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrincipalName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DomainName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DomainName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DomainName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn SessionInitiationProtocolUri() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SessionInitiationProtocolUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SessionInitiationProtocolUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn AgeEnforcementRegion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownUserPropertiesStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AgeEnforcementRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AgeEnforcementRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4033,7 +4013,7 @@ impl LaunchUriResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<LaunchUriStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4042,7 +4022,7 @@ impl LaunchUriResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::ValueSet>();
-            (::windows::core::Vtable::vtable(this).Result)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4065,11 +4045,11 @@ impl ::core::clone::Clone for LaunchUriResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LaunchUriResult {
+unsafe impl ::windows::core::Interface for LaunchUriResult {
     type Vtable = ILaunchUriResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LaunchUriResult {
-    const IID: ::windows::core::GUID = <ILaunchUriResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LaunchUriResult {
+    const IID: ::windows::core::GUID = <ILaunchUriResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
@@ -4082,26 +4062,24 @@ pub struct Launcher;
 impl Launcher {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileAsync<P0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::IStorageFile>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFileAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFileAsync)(::windows::core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFileWithOptionsAsync<P0, E0>(file: P0, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileWithOptionsAsync<P0>(file: P0, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::IStorageFile>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFileWithOptionsAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4109,7 +4087,7 @@ impl Launcher {
     pub fn LaunchUriAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4117,7 +4095,7 @@ impl Launcher {
     pub fn LaunchUriWithOptionsAsync(uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4125,7 +4103,7 @@ impl Launcher {
     pub fn LaunchUriForResultsAsync(uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriResult>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriForResultsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4133,7 +4111,7 @@ impl Launcher {
     pub fn LaunchUriForResultsWithDataAsync(uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriResult>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4141,7 +4119,7 @@ impl Launcher {
     pub fn LaunchUriWithDataAsync(uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithDataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4149,7 +4127,7 @@ impl Launcher {
     pub fn QueryUriSupportAsync(uri: &super::Foundation::Uri, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryUriSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryUriSupportAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4157,7 +4135,7 @@ impl Launcher {
     pub fn QueryUriSupportWithPackageFamilyNameAsync(uri: &super::Foundation::Uri, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -4165,7 +4143,7 @@ impl Launcher {
     pub fn QueryFileSupportAsync(file: &super::Storage::StorageFile) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryFileSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryFileSupportAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -4173,7 +4151,7 @@ impl Launcher {
     pub fn QueryFileSupportWithPackageFamilyNameAsync(file: &super::Storage::StorageFile, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(file), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -4181,7 +4159,7 @@ impl Launcher {
     pub fn FindUriSchemeHandlersAsync(scheme: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>();
-            (::windows::core::Vtable::vtable(this).FindUriSchemeHandlersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheme), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindUriSchemeHandlersAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -4189,7 +4167,7 @@ impl Launcher {
     pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync(scheme: &::windows::core::HSTRING, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>();
-            (::windows::core::Vtable::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheme), launchquerysupporttype, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(scheme), launchquerysupporttype, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -4197,31 +4175,29 @@ impl Launcher {
     pub fn FindFileHandlersAsync(extension: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>();
-            (::windows::core::Vtable::vtable(this).FindFileHandlersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(extension), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindFileHandlersAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(extension), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFolderAsync<P0, E0>(folder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderAsync<P0>(folder: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFolder>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::IStorageFolder>,
     {
         Self::ILauncherStatics3(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderAsync)(::windows::core::Interface::as_raw(this), folder.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFolderWithOptionsAsync<P0, E0>(folder: P0, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderWithOptionsAsync<P0>(folder: P0, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::IStorageFolder>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::IStorageFolder>,
     {
         Self::ILauncherStatics3(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderWithOptionsAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), folder.try_into_param()?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4229,7 +4205,7 @@ impl Launcher {
     pub fn QueryAppUriSupportAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryAppUriSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryAppUriSupportAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4237,7 +4213,7 @@ impl Launcher {
     pub fn QueryAppUriSupportWithPackageFamilyNameAsync(uri: &super::Foundation::Uri, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>();
-            (::windows::core::Vtable::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -4245,7 +4221,7 @@ impl Launcher {
     pub fn FindAppUriHandlersAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>();
-            (::windows::core::Vtable::vtable(this).FindAppUriHandlersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindAppUriHandlersAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4253,7 +4229,7 @@ impl Launcher {
     pub fn LaunchUriForUserAsync(user: &User, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4261,7 +4237,7 @@ impl Launcher {
     pub fn LaunchUriWithOptionsForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4269,7 +4245,7 @@ impl Launcher {
     pub fn LaunchUriWithDataForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithDataForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4277,7 +4253,7 @@ impl Launcher {
     pub fn LaunchUriForResultsForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriResult>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4285,7 +4261,7 @@ impl Launcher {
     pub fn LaunchUriForResultsWithDataForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<LaunchUriResult>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriForResultsWithDataForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4293,7 +4269,7 @@ impl Launcher {
     pub fn LaunchFolderPathAsync(path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderPathAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4301,7 +4277,7 @@ impl Launcher {
     pub fn LaunchFolderPathWithOptionsAsync(path: &::windows::core::HSTRING, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderPathWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4309,7 +4285,7 @@ impl Launcher {
     pub fn LaunchFolderPathForUserAsync(user: &User, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderPathForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4317,7 +4293,7 @@ impl Launcher {
     pub fn LaunchFolderPathWithOptionsForUserAsync(user: &User, path: &::windows::core::HSTRING, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4364,52 +4340,52 @@ impl LauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TreatAsUntrusted)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TreatAsUntrusted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTreatAsUntrusted(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTreatAsUntrusted)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTreatAsUntrusted)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DisplayApplicationPicker(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).DisplayApplicationPicker)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayApplicationPicker)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisplayApplicationPicker(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayApplicationPicker)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayApplicationPicker)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn UI(&self) -> ::windows::core::Result<LauncherUIOptions> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<LauncherUIOptions>();
-            (::windows::core::Vtable::vtable(this).UI)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreferredApplicationPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PreferredApplicationPackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredApplicationPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPreferredApplicationPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPreferredApplicationPackageFamilyName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredApplicationPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PreferredApplicationDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).PreferredApplicationDisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredApplicationDisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPreferredApplicationDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPreferredApplicationDisplayName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredApplicationDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4417,88 +4393,88 @@ impl LauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).FallbackUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FallbackUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri(&self, value: &super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ContentType)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContentType)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn TargetApplicationPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TargetApplicationPackageFamilyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TargetApplicationPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTargetApplicationPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTargetApplicationPackageFamilyName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetApplicationPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::Storage::Search::StorageFileQueryResult> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Storage::Search::StorageFileQueryResult>();
-            (::windows::core::Vtable::vtable(this).NeighboringFilesQuery)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
     pub fn SetNeighboringFilesQuery(&self, value: &super::Storage::Search::StorageFileQueryResult) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNeighboringFilesQuery)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetNeighboringFilesQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IgnoreAppUriHandlers(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IgnoreAppUriHandlers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IgnoreAppUriHandlers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIgnoreAppUriHandlers(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIgnoreAppUriHandlers)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetIgnoreAppUriHandlers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn LimitPickerToCurrentAppAndAppUriHandlers(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions4>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions4>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).LimitPickerToCurrentAppAndAppUriHandlers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LimitPickerToCurrentAppAndAppUriHandlers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetLimitPickerToCurrentAppAndAppUriHandlers(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherOptions4>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLimitPickerToCurrentAppAndAppUriHandlers)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherOptions4>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetLimitPickerToCurrentAppAndAppUriHandlers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference> {
-        let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
+        let this = &::windows::core::ComInterface::cast::<ILauncherViewOptions>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UI::ViewManagement::ViewSizePreference>();
-            (::windows::core::Vtable::vtable(this).DesiredRemainingView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredRemainingView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredRemainingView)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<ILauncherViewOptions>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for LauncherOptions {
@@ -4520,35 +4496,17 @@ impl ::core::clone::Clone for LauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LauncherOptions {
+unsafe impl ::windows::core::Interface for LauncherOptions {
     type Vtable = ILauncherOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LauncherOptions {
-    const IID: ::windows::core::GUID = <ILauncherOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LauncherOptions {
+    const IID: ::windows::core::GUID = <ILauncherOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
 }
 ::windows::imp::interface_hierarchy!(LauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<LauncherOptions> for ILauncherViewOptions {
-    type Error = ::windows::core::Error;
-    fn try_from(value: LauncherOptions) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&LauncherOptions> for ILauncherViewOptions {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &LauncherOptions) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&LauncherOptions> for ::windows::core::InParam<ILauncherViewOptions> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &LauncherOptions) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<ILauncherViewOptions> for LauncherOptions {}
 unsafe impl ::core::marker::Send for LauncherOptions {}
 unsafe impl ::core::marker::Sync for LauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -4561,18 +4519,17 @@ impl LauncherUIOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IReference<super::Foundation::Point>>();
-            (::windows::core::Vtable::vtable(this).InvocationPoint)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InvocationPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInvocationPoint<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetInvocationPoint<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::Point>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::IReference<super::Foundation::Point>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInvocationPoint)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInvocationPoint)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4580,18 +4537,17 @@ impl LauncherUIOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IReference<super::Foundation::Rect>>();
-            (::windows::core::Vtable::vtable(this).SelectionRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectionRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSelectionRect<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSelectionRect<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::IReference<super::Foundation::Rect>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::IReference<super::Foundation::Rect>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelectionRect)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionRect)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
@@ -4599,14 +4555,14 @@ impl LauncherUIOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UI::Popups::Placement>();
-            (::windows::core::Vtable::vtable(this).PreferredPlacement)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredPlacement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetPreferredPlacement(&self, value: super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPreferredPlacement)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredPlacement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for LauncherUIOptions {
@@ -4628,11 +4584,11 @@ impl ::core::clone::Clone for LauncherUIOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for LauncherUIOptions {
+unsafe impl ::windows::core::Interface for LauncherUIOptions {
     type Vtable = ILauncherUIOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for LauncherUIOptions {
-    const IID: ::windows::core::GUID = <ILauncherUIOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for LauncherUIOptions {
+    const IID: ::windows::core::GUID = <ILauncherUIOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
@@ -4646,19 +4602,19 @@ impl MemoryManager {
     pub fn AppMemoryUsage() -> ::windows::core::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn AppMemoryUsageLimit() -> ::windows::core::Result<u64> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsageLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn AppMemoryUsageLevel() -> ::windows::core::Result<AppMemoryUsageLevel> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppMemoryUsageLevel>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageLevel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsageLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4666,62 +4622,62 @@ impl MemoryManager {
     pub fn AppMemoryUsageIncreased(handler: &super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageIncreased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsageIncreased)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageIncreased(token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveAppMemoryUsageIncreased)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAppMemoryUsageIncreased)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AppMemoryUsageDecreased(handler: &super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageDecreased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsageDecreased)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageDecreased(token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveAppMemoryUsageDecreased)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAppMemoryUsageDecreased)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AppMemoryUsageLimitChanging(handler: &super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageLimitChanging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppMemoryUsageLimitChanging)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAppMemoryUsageLimitChanging(token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveAppMemoryUsageLimitChanging)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IMemoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAppMemoryUsageLimitChanging)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     pub fn GetAppMemoryReport() -> ::windows::core::Result<AppMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppMemoryReport>();
-            (::windows::core::Vtable::vtable(this).GetAppMemoryReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAppMemoryReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetProcessMemoryReport() -> ::windows::core::Result<ProcessMemoryReport> {
         Self::IMemoryManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ProcessMemoryReport>();
-            (::windows::core::Vtable::vtable(this).GetProcessMemoryReport)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetProcessMemoryReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn TrySetAppMemoryUsageLimit(value: u64) -> ::windows::core::Result<bool> {
         Self::IMemoryManagerStatics3(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TrySetAppMemoryUsageLimit)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetAppMemoryUsageLimit)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
     pub fn ExpectedAppMemoryUsageLimit() -> ::windows::core::Result<u64> {
         Self::IMemoryManagerStatics4(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).ExpectedAppMemoryUsageLimit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExpectedAppMemoryUsageLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4756,7 +4712,7 @@ impl ProcessLauncher {
     pub fn RunToCompletionAsync(filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>();
-            (::windows::core::Vtable::vtable(this).RunToCompletionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunToCompletionAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4764,7 +4720,7 @@ impl ProcessLauncher {
     pub fn RunToCompletionAsyncWithOptions(filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING, options: &ProcessLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>();
-            (::windows::core::Vtable::vtable(this).RunToCompletionAsyncWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RunToCompletionAsyncWithOptions)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4793,18 +4749,17 @@ impl ProcessLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Storage::Streams::IInputStream>();
-            (::windows::core::Vtable::vtable(this).StandardInput)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StandardInput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardInput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardInput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IInputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::Streams::IInputStream>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStandardInput)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStandardInput)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4812,18 +4767,17 @@ impl ProcessLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).StandardOutput)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StandardOutput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardOutput<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardOutput<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::Streams::IOutputStream>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStandardOutput)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStandardOutput)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4831,29 +4785,28 @@ impl ProcessLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Storage::Streams::IOutputStream>();
-            (::windows::core::Vtable::vtable(this).StandardError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StandardError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStandardError<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStandardError<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Storage::Streams::IOutputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Storage::Streams::IOutputStream>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStandardError)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStandardError)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn WorkingDirectory(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).WorkingDirectory)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WorkingDirectory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWorkingDirectory(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWorkingDirectory)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWorkingDirectory)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ProcessLauncherOptions {
@@ -4875,11 +4828,11 @@ impl ::core::clone::Clone for ProcessLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ProcessLauncherOptions {
+unsafe impl ::windows::core::Interface for ProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ProcessLauncherOptions {
-    const IID: ::windows::core::GUID = <IProcessLauncherOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ProcessLauncherOptions {
+    const IID: ::windows::core::GUID = <IProcessLauncherOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
@@ -4895,7 +4848,7 @@ impl ProcessLauncherResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ExitCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExitCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4918,11 +4871,11 @@ impl ::core::clone::Clone for ProcessLauncherResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ProcessLauncherResult {
+unsafe impl ::windows::core::Interface for ProcessLauncherResult {
     type Vtable = IProcessLauncherResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ProcessLauncherResult {
-    const IID: ::windows::core::GUID = <IProcessLauncherResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ProcessLauncherResult {
+    const IID: ::windows::core::GUID = <IProcessLauncherResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
@@ -4938,14 +4891,14 @@ impl ProcessMemoryReport {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).PrivateWorkingSetUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PrivateWorkingSetUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalWorkingSetUsage(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u64>();
-            (::windows::core::Vtable::vtable(this).TotalWorkingSetUsage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TotalWorkingSetUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -4968,11 +4921,11 @@ impl ::core::clone::Clone for ProcessMemoryReport {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ProcessMemoryReport {
+unsafe impl ::windows::core::Interface for ProcessMemoryReport {
     type Vtable = IProcessMemoryReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ProcessMemoryReport {
-    const IID: ::windows::core::GUID = <IProcessMemoryReport as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ProcessMemoryReport {
+    const IID: ::windows::core::GUID = <IProcessMemoryReport as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
@@ -4988,7 +4941,7 @@ impl ProtocolForResultsOperation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompleted(&self, data: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ProtocolForResultsOperation {
@@ -5010,11 +4963,11 @@ impl ::core::clone::Clone for ProtocolForResultsOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ProtocolForResultsOperation {
+unsafe impl ::windows::core::Interface for ProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ProtocolForResultsOperation {
-    const IID: ::windows::core::GUID = <IProtocolForResultsOperation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ProtocolForResultsOperation {
+    const IID: ::windows::core::GUID = <IProtocolForResultsOperation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
@@ -5030,7 +4983,7 @@ impl RemoteLauncher {
     pub fn LaunchUriAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
@@ -5038,7 +4991,7 @@ impl RemoteLauncher {
     pub fn LaunchUriWithOptionsAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri, options: &RemoteLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_RemoteSystems\"`*"]
@@ -5046,7 +4999,7 @@ impl RemoteLauncher {
     pub fn LaunchUriWithDataAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri, options: &RemoteLauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LaunchUriWithDataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5075,14 +5028,14 @@ impl RemoteLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).FallbackUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FallbackUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri(&self, value: &super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5090,7 +5043,7 @@ impl RemoteLauncherOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).PreferredAppIds)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredAppIds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5113,11 +5066,11 @@ impl ::core::clone::Clone for RemoteLauncherOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RemoteLauncherOptions {
+unsafe impl ::windows::core::Interface for RemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RemoteLauncherOptions {
-    const IID: ::windows::core::GUID = <IRemoteLauncherOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RemoteLauncherOptions {
+    const IID: ::windows::core::GUID = <IRemoteLauncherOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
@@ -5131,24 +5084,24 @@ impl ShutdownManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).BeginShutdown)(::windows::core::Vtable::as_raw(this), shutdownkind, timeout).ok() })
+        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).BeginShutdown)(::windows::core::Interface::as_raw(this), shutdownkind, timeout).ok() })
     }
     pub fn CancelShutdown() -> ::windows::core::Result<()> {
-        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).CancelShutdown)(::windows::core::Vtable::as_raw(this)).ok() })
+        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CancelShutdown)(::windows::core::Interface::as_raw(this)).ok() })
     }
     pub fn IsPowerStateSupported(powerstate: PowerState) -> ::windows::core::Result<bool> {
         Self::IShutdownManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPowerStateSupported)(::windows::core::Vtable::as_raw(this), powerstate, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPowerStateSupported)(::windows::core::Interface::as_raw(this), powerstate, &mut result__).from_abi(result__)
         })
     }
     pub fn EnterPowerState(powerstate: PowerState) -> ::windows::core::Result<()> {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).EnterPowerState)(::windows::core::Vtable::as_raw(this), powerstate).ok() })
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerState)(::windows::core::Interface::as_raw(this), powerstate).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).EnterPowerStateWithTimeSpan)(::windows::core::Vtable::as_raw(this), powerstate, wakeupafter).ok() })
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(::windows::core::Interface::as_raw(this), powerstate, wakeupafter).ok() })
     }
     #[doc(hidden)]
     pub fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5170,7 +5123,7 @@ impl TimeZoneSettings {
     pub fn CurrentTimeZoneDisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).CurrentTimeZoneDisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentTimeZoneDisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5178,24 +5131,24 @@ impl TimeZoneSettings {
     pub fn SupportedTimeZoneDisplayNames() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedTimeZoneDisplayNames)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedTimeZoneDisplayNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CanChangeTimeZone() -> ::windows::core::Result<bool> {
         Self::ITimeZoneSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanChangeTimeZone)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanChangeTimeZone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ChangeTimeZoneByDisplayName(timezonedisplayname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        Self::ITimeZoneSettingsStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).ChangeTimeZoneByDisplayName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(timezonedisplayname)).ok() })
+        Self::ITimeZoneSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ChangeTimeZoneByDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(timezonedisplayname)).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> ::windows::core::Result<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>>();
-            (::windows::core::Vtable::vtable(this).AutoUpdateTimeZoneAsync)(::windows::core::Vtable::as_raw(this), timeout, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoUpdateTimeZoneAsync)(::windows::core::Interface::as_raw(this), timeout, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5220,21 +5173,21 @@ impl User {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).NonRoamableId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NonRoamableId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AuthenticationStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationStatus>();
-            (::windows::core::Vtable::vtable(this).AuthenticationStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Type(&self) -> ::windows::core::Result<UserType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserType>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5243,20 +5196,19 @@ impl User {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<::windows::core::IInspectable>>();
-            (::windows::core::Vtable::vtable(this).GetPropertyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPropertyAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync<P0, E0>(&self, values: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
+    pub fn GetPropertiesAsync<P0>(&self, values: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>>();
-            (::windows::core::Vtable::vtable(this).GetPropertiesAsync)(::windows::core::Vtable::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPropertiesAsync)(::windows::core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -5265,22 +5217,22 @@ impl User {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>();
-            (::windows::core::Vtable::vtable(this).GetPictureAsync)(::windows::core::Vtable::as_raw(this), desiredsize, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPictureAsync)(::windows::core::Interface::as_raw(this), desiredsize, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> ::windows::core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
-        let this = &::windows::core::Interface::cast::<IUser2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IUser2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<UserAgeConsentResult>>();
-            (::windows::core::Vtable::vtable(this).CheckUserAgeConsentGroupAsync)(::windows::core::Vtable::as_raw(this), consentgroup, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CheckUserAgeConsentGroupAsync)(::windows::core::Interface::as_raw(this), consentgroup, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateWatcher() -> ::windows::core::Result<UserWatcher> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UserWatcher>();
-            (::windows::core::Vtable::vtable(this).CreateWatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5288,7 +5240,7 @@ impl User {
     pub fn FindAllAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>();
-            (::windows::core::Vtable::vtable(this).FindAllAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -5296,7 +5248,7 @@ impl User {
     pub fn FindAllAsyncByType(r#type: UserType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>();
-            (::windows::core::Vtable::vtable(this).FindAllAsyncByType)(::windows::core::Vtable::as_raw(this), r#type, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncByType)(::windows::core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -5304,19 +5256,19 @@ impl User {
     pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>();
-            (::windows::core::Vtable::vtable(this).FindAllAsyncByTypeAndStatus)(::windows::core::Vtable::as_raw(this), r#type, status, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(::windows::core::Interface::as_raw(this), r#type, status, &mut result__).from_abi(result__)
         })
     }
     pub fn GetFromId(nonroamableid: &::windows::core::HSTRING) -> ::windows::core::Result<User> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).GetFromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(nonroamableid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(nonroamableid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDefault() -> ::windows::core::Result<User> {
         Self::IUserStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5349,11 +5301,11 @@ impl ::core::clone::Clone for User {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for User {
+unsafe impl ::windows::core::Interface for User {
     type Vtable = IUser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for User {
-    const IID: ::windows::core::GUID = <IUser as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for User {
+    const IID: ::windows::core::GUID = <IUser as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
@@ -5367,7 +5319,7 @@ pub struct UserAuthenticationStatusChangeDeferral(::windows::core::IUnknown);
 impl UserAuthenticationStatusChangeDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserAuthenticationStatusChangeDeferral {
@@ -5389,11 +5341,11 @@ impl ::core::clone::Clone for UserAuthenticationStatusChangeDeferral {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserAuthenticationStatusChangeDeferral {
+unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangeDeferral {
-    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangeDeferral as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserAuthenticationStatusChangeDeferral {
+    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangeDeferral as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
@@ -5409,28 +5361,28 @@ impl UserAuthenticationStatusChangingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationStatusChangeDeferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows::core::Result<User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NewStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationStatus>();
-            (::windows::core::Vtable::vtable(this).NewStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentStatus(&self) -> ::windows::core::Result<UserAuthenticationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserAuthenticationStatus>();
-            (::windows::core::Vtable::vtable(this).CurrentStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5453,11 +5405,11 @@ impl ::core::clone::Clone for UserAuthenticationStatusChangingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserAuthenticationStatusChangingEventArgs {
+unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangingEventArgs {
-    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangingEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserAuthenticationStatusChangingEventArgs {
+    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangingEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
@@ -5473,16 +5425,16 @@ impl UserChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ChangedPropertyKinds(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>> {
-        let this = &::windows::core::Interface::cast::<IUserChangedEventArgs2>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IUserChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>>();
-            (::windows::core::Vtable::vtable(this).ChangedPropertyKinds)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ChangedPropertyKinds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5505,11 +5457,11 @@ impl ::core::clone::Clone for UserChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserChangedEventArgs {
+unsafe impl ::windows::core::Interface for UserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserChangedEventArgs {
-    const IID: ::windows::core::GUID = <IUserChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserChangedEventArgs {
+    const IID: ::windows::core::GUID = <IUserChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
@@ -5523,7 +5475,7 @@ impl UserDeviceAssociation {
     pub fn FindUserFromDeviceId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<User> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).FindUserFromDeviceId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindUserFromDeviceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5531,13 +5483,13 @@ impl UserDeviceAssociation {
     pub fn UserDeviceAssociationChanged(handler: &super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).UserDeviceAssociationChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UserDeviceAssociationChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserDeviceAssociationChanged(token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IUserDeviceAssociationStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveUserDeviceAssociationChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IUserDeviceAssociationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveUserDeviceAssociationChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IUserDeviceAssociationStatics<R, F: FnOnce(&IUserDeviceAssociationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5556,21 +5508,21 @@ impl UserDeviceAssociationChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NewUser(&self) -> ::windows::core::Result<User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).NewUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OldUser(&self) -> ::windows::core::Result<User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).OldUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OldUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -5593,11 +5545,11 @@ impl ::core::clone::Clone for UserDeviceAssociationChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDeviceAssociationChangedEventArgs {
+unsafe impl ::windows::core::Interface for UserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDeviceAssociationChangedEventArgs {
-    const IID: ::windows::core::GUID = <IUserDeviceAssociationChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDeviceAssociationChangedEventArgs {
+    const IID: ::windows::core::GUID = <IUserDeviceAssociationChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
@@ -5620,23 +5572,23 @@ impl UserPicker {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AllowGuestAccounts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AllowGuestAccounts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowGuestAccounts(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAllowGuestAccounts)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowGuestAccounts)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SuggestedSelectedUser(&self) -> ::windows::core::Result<User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<User>();
-            (::windows::core::Vtable::vtable(this).SuggestedSelectedUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SuggestedSelectedUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSuggestedSelectedUser(&self, value: &User) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuggestedSelectedUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedSelectedUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5644,13 +5596,13 @@ impl UserPicker {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<User>>();
-            (::windows::core::Vtable::vtable(this).PickSingleUserAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PickSingleUserAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IUserPickerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5678,11 +5630,11 @@ impl ::core::clone::Clone for UserPicker {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserPicker {
+unsafe impl ::windows::core::Interface for UserPicker {
     type Vtable = IUserPicker_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserPicker {
-    const IID: ::windows::core::GUID = <IUserPicker as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserPicker {
+    const IID: ::windows::core::GUID = <IUserPicker as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
@@ -5698,16 +5650,16 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserWatcherStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5715,14 +5667,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5730,14 +5682,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5745,14 +5697,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5760,14 +5712,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationStatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAuthenticationStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAuthenticationStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAuthenticationStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5775,14 +5727,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationStatusChanging)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAuthenticationStatusChanging(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAuthenticationStatusChanging)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAuthenticationStatusChanging)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5790,14 +5742,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5805,14 +5757,14 @@ impl UserWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserWatcher {
@@ -5834,11 +5786,11 @@ impl ::core::clone::Clone for UserWatcher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserWatcher {
+unsafe impl ::windows::core::Interface for UserWatcher {
     type Vtable = IUserWatcher_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserWatcher {
-    const IID: ::windows::core::GUID = <IUserWatcher as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserWatcher {
+    const IID: ::windows::core::GUID = <IUserWatcher as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";
@@ -6863,7 +6815,7 @@ impl DispatcherQueueHandler {
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 #[repr(C)]
@@ -6879,7 +6831,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DispatcherQueueHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<DispatcherQueueHandler as ::windows::core::ComInterface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -6915,7 +6867,7 @@ impl ::core::fmt::Debug for DispatcherQueueHandler {
         f.debug_tuple("DispatcherQueueHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for DispatcherQueueHandler {
+unsafe impl ::windows::core::Interface for DispatcherQueueHandler {
     type Vtable = DispatcherQueueHandler_Vtbl;
 }
 impl ::core::clone::Clone for DispatcherQueueHandler {
@@ -6923,7 +6875,7 @@ impl ::core::clone::Clone for DispatcherQueueHandler {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for DispatcherQueueHandler {
+unsafe impl ::windows::core::ComInterface for DispatcherQueueHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);
 }
 impl ::windows::core::RuntimeType for DispatcherQueueHandler {

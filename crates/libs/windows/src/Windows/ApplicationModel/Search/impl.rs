@@ -56,6 +56,6 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISearchPaneQueryChangedEventArgs as ::windows::core::Interface>::IID
+        iid == &<ISearchPaneQueryChangedEventArgs as ::windows::core::ComInterface>::IID
     }
 }

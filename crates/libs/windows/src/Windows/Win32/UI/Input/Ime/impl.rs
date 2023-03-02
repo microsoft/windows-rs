@@ -149,7 +149,7 @@ impl IActiveIME_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIME as ::windows::core::Interface>::IID
+        iid == &<IActiveIME as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -176,7 +176,7 @@ impl IActiveIME2_Vtbl {
         Self { base__: IActiveIME_Vtbl::new::<Identity, Impl, OFFSET>(), Sleep: Sleep::<Identity, Impl, OFFSET>, Unsleep: Unsleep::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIME2 as ::windows::core::Interface>::IID || iid == &<IActiveIME as ::windows::core::Interface>::IID
+        iid == &<IActiveIME2 as ::windows::core::ComInterface>::IID || iid == &<IActiveIME as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -759,7 +759,7 @@ impl IActiveIMMApp_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIMMApp as ::windows::core::Interface>::IID
+        iid == &<IActiveIMMApp as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1542,7 +1542,7 @@ impl IActiveIMMIME_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIMMIME as ::windows::core::Interface>::IID
+        iid == &<IActiveIMMIME as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -1600,7 +1600,7 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIMMMessagePumpOwner as ::windows::core::Interface>::IID
+        iid == &<IActiveIMMMessagePumpOwner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1628,7 +1628,7 @@ impl IActiveIMMRegistrar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveIMMRegistrar as ::windows::core::Interface>::IID
+        iid == &<IActiveIMMRegistrar as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"implement\"`*"]
@@ -1679,7 +1679,7 @@ impl IEnumInputContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumInputContext as ::windows::core::Interface>::IID
+        iid == &<IEnumInputContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1727,7 +1727,7 @@ impl IEnumRegisterWordA_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRegisterWordA as ::windows::core::Interface>::IID
+        iid == &<IEnumRegisterWordA as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -1775,7 +1775,7 @@ impl IEnumRegisterWordW_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRegisterWordW as ::windows::core::Interface>::IID
+        iid == &<IEnumRegisterWordW as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1789,7 +1789,7 @@ impl IFEClassFactory_Vtbl {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFEClassFactory as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as ::windows::core::Interface>::IID
+        iid == &<IFEClassFactory as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IClassFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1834,7 +1834,7 @@ impl IFECommon_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFECommon as ::windows::core::Interface>::IID
+        iid == &<IFECommon as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1970,7 +1970,7 @@ impl IFEDictionary_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFEDictionary as ::windows::core::Interface>::IID
+        iid == &<IFEDictionary as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -2026,7 +2026,7 @@ impl IFELanguage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFELanguage as ::windows::core::Interface>::IID
+        iid == &<IFELanguage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2047,7 +2047,7 @@ impl IImePad_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImePad as ::windows::core::Interface>::IID
+        iid == &<IImePad as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2099,7 +2099,7 @@ impl IImePadApplet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImePadApplet as ::windows::core::Interface>::IID
+        iid == &<IImePadApplet as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2130,7 +2130,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImePlugInDictDictionaryList as ::windows::core::Interface>::IID
+        iid == &<IImePlugInDictDictionaryList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
@@ -2148,6 +2148,6 @@ impl IImeSpecifyApplets_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAppletIIDList: GetAppletIIDList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImeSpecifyApplets as ::windows::core::Interface>::IID
+        iid == &<IImeSpecifyApplets as ::windows::core::ComInterface>::IID
     }
 }

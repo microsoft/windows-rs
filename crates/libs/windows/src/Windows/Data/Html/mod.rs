@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHtmlUtilities(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IHtmlUtilities {
+unsafe impl ::windows::core::Interface for IHtmlUtilities {
     type Vtable = IHtmlUtilities_Vtbl;
 }
 impl ::core::clone::Clone for IHtmlUtilities {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IHtmlUtilities {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IHtmlUtilities {
+unsafe impl ::windows::core::ComInterface for IHtmlUtilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ impl HtmlUtilities {
     pub fn ConvertToText(html: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHtmlUtilities(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ConvertToText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(html), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ConvertToText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(html), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICorePerceptionAutomationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICorePerceptionAutomationStatics {
+unsafe impl ::windows::core::Interface for ICorePerceptionAutomationStatics {
     type Vtable = ICorePerceptionAutomationStatics_Vtbl;
 }
 impl ::core::clone::Clone for ICorePerceptionAutomationStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ICorePerceptionAutomationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICorePerceptionAutomationStatics {
+unsafe impl ::windows::core::ComInterface for ICorePerceptionAutomationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 }
 #[repr(C)]
@@ -26,12 +26,11 @@ pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActivationFactoryProvider<P0, E0>(provider: P0) -> ::windows::core::Result<()>
+    pub fn SetActivationFactoryProvider<P0>(provider: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::Foundation::IGetActivationFactory>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::Foundation::IGetActivationFactory>,
     {
-        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetActivationFactoryProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi()).ok() })
+        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetActivationFactoryProvider)(::windows::core::Interface::as_raw(this), provider.try_into_param()?.abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

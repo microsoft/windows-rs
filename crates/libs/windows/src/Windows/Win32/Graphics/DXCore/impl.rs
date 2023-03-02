@@ -85,7 +85,7 @@ impl IDXCoreAdapter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXCoreAdapter as ::windows::core::Interface>::IID
+        iid == &<IDXCoreAdapter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -143,7 +143,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXCoreAdapterFactory as ::windows::core::Interface>::IID
+        iid == &<IDXCoreAdapterFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`, `\"implement\"`*"]
@@ -199,6 +199,6 @@ impl IDXCoreAdapterList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDXCoreAdapterList as ::windows::core::Interface>::IID
+        iid == &<IDXCoreAdapterList as ::windows::core::ComInterface>::IID
     }
 }

@@ -16,7 +16,7 @@ impl IAsyncGetSendNotificationCookie_Vtbl {
         Self { base__: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncGetSendNotificationCookie as ::windows::core::Interface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::Interface>::IID
+        iid == &<IAsyncGetSendNotificationCookie as ::windows::core::ComInterface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -51,7 +51,7 @@ impl IAsyncGetSrvReferralCookie_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncGetSrvReferralCookie as ::windows::core::Interface>::IID
+        iid == &<IAsyncGetSrvReferralCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -100,7 +100,7 @@ impl IBidiAsyncNotifyChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBidiAsyncNotifyChannel as ::windows::core::Interface>::IID || iid == &<IPrintAsyncNotifyChannel as ::windows::core::Interface>::IID
+        iid == &<IBidiAsyncNotifyChannel as ::windows::core::ComInterface>::IID || iid == &<IPrintAsyncNotifyChannel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -161,7 +161,7 @@ impl IBidiRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBidiRequest as ::windows::core::Interface>::IID
+        iid == &<IBidiRequest as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -211,7 +211,7 @@ impl IBidiRequestContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBidiRequestContainer as ::windows::core::Interface>::IID
+        iid == &<IBidiRequestContainer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -253,7 +253,7 @@ impl IBidiSpl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBidiSpl as ::windows::core::Interface>::IID
+        iid == &<IBidiSpl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -310,7 +310,7 @@ impl IBidiSpl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBidiSpl2 as ::windows::core::Interface>::IID
+        iid == &<IBidiSpl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -357,7 +357,7 @@ impl IFixedDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFixedDocument as ::windows::core::Interface>::IID
+        iid == &<IFixedDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -404,7 +404,7 @@ impl IFixedDocumentSequence_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFixedDocumentSequence as ::windows::core::Interface>::IID
+        iid == &<IFixedDocumentSequence as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -491,7 +491,7 @@ impl IFixedPage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFixedPage as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IFixedPage as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -515,7 +515,7 @@ impl IImgCreateErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImgCreateErrorInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Ole::ICreateErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IImgCreateErrorInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Ole::ICreateErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -617,7 +617,7 @@ impl IImgErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IImgErrorInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IImgErrorInfo as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -645,7 +645,7 @@ impl IInterFilterCommunicator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInterFilterCommunicator as ::windows::core::Interface>::IID
+        iid == &<IInterFilterCommunicator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -705,7 +705,7 @@ impl IPartBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -716,7 +716,7 @@ impl IPartColorProfile_Vtbl {
         Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartColorProfile as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartColorProfile as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -734,7 +734,7 @@ impl IPartDiscardControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDiscardProperties: GetDiscardProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartDiscardControl as ::windows::core::Interface>::IID
+        iid == &<IPartDiscardControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -769,7 +769,7 @@ impl IPartFont_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartFont as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartFont as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -793,7 +793,7 @@ impl IPartFont2_Vtbl {
         Self { base__: IPartFont_Vtbl::new::<Identity, Impl, OFFSET>(), GetFontRestriction: GetFontRestriction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartFont2 as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID || iid == &<IPartFont as ::windows::core::Interface>::IID
+        iid == &<IPartFont2 as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID || iid == &<IPartFont as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -827,7 +827,7 @@ impl IPartImage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartImage as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartImage as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -838,7 +838,7 @@ impl IPartPrintTicket_Vtbl {
         Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartPrintTicket as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartPrintTicket as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -849,7 +849,7 @@ impl IPartResourceDictionary_Vtbl {
         Self { base__: IPartBase_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartResourceDictionary as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartResourceDictionary as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -883,7 +883,7 @@ impl IPartThumbnail_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPartThumbnail as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
+        iid == &<IPartThumbnail as ::windows::core::ComInterface>::IID || iid == &<IPartBase as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -911,7 +911,7 @@ impl IPrintAsyncCookie_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncCookie as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -929,7 +929,7 @@ impl IPrintAsyncNewChannelCookie_Vtbl {
         Self { base__: IPrintAsyncCookie_Vtbl::new::<Identity, Impl, OFFSET>(), FinishAsyncCallWithData: FinishAsyncCallWithData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNewChannelCookie as ::windows::core::Interface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNewChannelCookie as ::windows::core::ComInterface>::IID || iid == &<IPrintAsyncCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -969,7 +969,7 @@ impl IPrintAsyncNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotify as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotify as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -997,7 +997,7 @@ impl IPrintAsyncNotifyCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotifyCallback as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotifyCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1025,7 +1025,7 @@ impl IPrintAsyncNotifyChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotifyChannel as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotifyChannel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1053,7 +1053,7 @@ impl IPrintAsyncNotifyDataObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotifyDataObject as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotifyDataObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1081,7 +1081,7 @@ impl IPrintAsyncNotifyRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotifyRegistration as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotifyRegistration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1122,7 +1122,7 @@ impl IPrintAsyncNotifyServerReferral_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintAsyncNotifyServerReferral as ::windows::core::Interface>::IID
+        iid == &<IPrintAsyncNotifyServerReferral as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1140,7 +1140,7 @@ impl IPrintBidiAsyncNotifyRegistration_Vtbl {
         Self { base__: IPrintAsyncNotifyRegistration_Vtbl::new::<Identity, Impl, OFFSET>(), AsyncGetNewChannel: AsyncGetNewChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintBidiAsyncNotifyRegistration as ::windows::core::Interface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::Interface>::IID
+        iid == &<IPrintBidiAsyncNotifyRegistration as ::windows::core::ComInterface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1158,7 +1158,7 @@ impl IPrintClassObjectFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPrintClassObject: GetPrintClassObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintClassObjectFactory as ::windows::core::Interface>::IID
+        iid == &<IPrintClassObjectFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1244,7 +1244,7 @@ impl IPrintCoreHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCoreHelper as ::windows::core::Interface>::IID
+        iid == &<IPrintCoreHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1282,7 +1282,7 @@ impl IPrintCoreHelperPS_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCoreHelperPS as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows::core::Interface>::IID
+        iid == &<IPrintCoreHelperPS as ::windows::core::ComInterface>::IID || iid == &<IPrintCoreHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1319,7 +1319,7 @@ impl IPrintCoreHelperUni_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCoreHelperUni as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows::core::Interface>::IID
+        iid == &<IPrintCoreHelperUni as ::windows::core::ComInterface>::IID || iid == &<IPrintCoreHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1340,7 +1340,7 @@ impl IPrintCoreHelperUni2_Vtbl {
         Self { base__: IPrintCoreHelperUni_Vtbl::new::<Identity, Impl, OFFSET>(), GetNamedCommand: GetNamedCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCoreHelperUni2 as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows::core::Interface>::IID || iid == &<IPrintCoreHelperUni as ::windows::core::Interface>::IID
+        iid == &<IPrintCoreHelperUni2 as ::windows::core::ComInterface>::IID || iid == &<IPrintCoreHelper as ::windows::core::ComInterface>::IID || iid == &<IPrintCoreHelperUni as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1433,7 +1433,7 @@ impl IPrintCoreUI2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintCoreUI2 as ::windows::core::Interface>::IID || iid == &<IPrintOemDriverUI as ::windows::core::Interface>::IID
+        iid == &<IPrintCoreUI2 as ::windows::core::ComInterface>::IID || iid == &<IPrintOemDriverUI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1532,7 +1532,7 @@ impl IPrintJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintJob as ::windows::core::Interface>::IID
+        iid == &<IPrintJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1588,7 +1588,7 @@ impl IPrintJobCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintJobCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintJobCollection as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1619,7 +1619,7 @@ impl IPrintOemCommon_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOemCommon as ::windows::core::Interface>::IID
+        iid == &<IPrintOemCommon as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1657,7 +1657,7 @@ impl IPrintOemDriverUI_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOemDriverUI as ::windows::core::Interface>::IID
+        iid == &<IPrintOemDriverUI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -1758,7 +1758,7 @@ impl IPrintOemUI_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOemUI as ::windows::core::Interface>::IID || iid == &<IPrintOemCommon as ::windows::core::Interface>::IID
+        iid == &<IPrintOemUI as ::windows::core::ComInterface>::IID || iid == &<IPrintOemCommon as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -1796,7 +1796,7 @@ impl IPrintOemUI2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOemUI2 as ::windows::core::Interface>::IID || iid == &<IPrintOemCommon as ::windows::core::Interface>::IID || iid == &<IPrintOemUI as ::windows::core::Interface>::IID
+        iid == &<IPrintOemUI2 as ::windows::core::ComInterface>::IID || iid == &<IPrintOemCommon as ::windows::core::ComInterface>::IID || iid == &<IPrintOemUI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1834,7 +1834,7 @@ impl IPrintOemUIMXDC_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintOemUIMXDC as ::windows::core::Interface>::IID
+        iid == &<IPrintOemUIMXDC as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1869,7 +1869,7 @@ impl IPrintPipelineFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintPipelineFilter as ::windows::core::Interface>::IID
+        iid == &<IPrintPipelineFilter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1900,7 +1900,7 @@ impl IPrintPipelineManagerControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintPipelineManagerControl as ::windows::core::Interface>::IID
+        iid == &<IPrintPipelineManagerControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -1918,7 +1918,7 @@ impl IPrintPipelineProgressReport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintPipelineProgressReport as ::windows::core::Interface>::IID
+        iid == &<IPrintPipelineProgressReport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1962,7 +1962,7 @@ impl IPrintPipelinePropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintPipelinePropertyBag as ::windows::core::Interface>::IID
+        iid == &<IPrintPipelinePropertyBag as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Graphics_Dxgi\"`, `\"implement\"`*"]
@@ -2000,7 +2000,7 @@ impl IPrintPreviewDxgiPackageTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintPreviewDxgiPackageTarget as ::windows::core::Interface>::IID
+        iid == &<IPrintPreviewDxgiPackageTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2031,7 +2031,7 @@ impl IPrintReadStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintReadStream as ::windows::core::Interface>::IID
+        iid == &<IPrintReadStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -2055,7 +2055,7 @@ impl IPrintReadStreamFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStream: GetStream::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintReadStreamFactory as ::windows::core::Interface>::IID
+        iid == &<IPrintReadStreamFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2086,7 +2086,7 @@ impl IPrintSchemaAsyncOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaAsyncOperation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaAsyncOperation as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2107,7 +2107,7 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaAsyncOperationEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaAsyncOperationEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2215,7 +2215,7 @@ impl IPrintSchemaCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaCapabilities as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2242,7 +2242,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
         Self { base__: IPrintSchemaCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterDefinition: GetParameterDefinition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaCapabilities2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaCapabilities as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaCapabilities2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2269,7 +2269,7 @@ impl IPrintSchemaDisplayableElement_Vtbl {
         Self { base__: IPrintSchemaElement_Vtbl::new::<Identity, Impl, OFFSET>(), DisplayName: DisplayName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2325,7 +2325,7 @@ impl IPrintSchemaElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2401,7 +2401,7 @@ impl IPrintSchemaFeature_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaFeature as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaFeature as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2428,7 +2428,7 @@ impl IPrintSchemaNUpOption_Vtbl {
         Self { base__: IPrintSchemaOption_Vtbl::new::<Identity, Impl, OFFSET>(), PagesPerSheet: PagesPerSheet::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaNUpOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaNUpOption as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaOption as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2484,7 +2484,7 @@ impl IPrintSchemaOption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaOption as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2540,7 +2540,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaOptionCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaOptionCollection as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2635,7 +2635,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaPageImageableSize as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaPageImageableSize as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2678,7 +2678,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaPageMediaSizeOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaPageMediaSizeOption as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaOption as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2760,7 +2760,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaParameterDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaParameterDefinition as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2797,7 +2797,7 @@ impl IPrintSchemaParameterInitializer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaParameterInitializer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaParameterInitializer as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2906,7 +2906,7 @@ impl IPrintSchemaTicket_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaTicket as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaTicket as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2933,7 +2933,7 @@ impl IPrintSchemaTicket2_Vtbl {
         Self { base__: IPrintSchemaTicket_Vtbl::new::<Identity, Impl, OFFSET>(), GetParameterInitializer: GetParameterInitializer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintSchemaTicket2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaTicket as ::windows::core::Interface>::IID
+        iid == &<IPrintSchemaTicket2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaElement as ::windows::core::ComInterface>::IID || iid == &<IPrintSchemaTicket as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3005,7 +3005,7 @@ impl IPrintTicketProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTicketProvider as ::windows::core::Interface>::IID
+        iid == &<IPrintTicketProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3048,7 +3048,7 @@ impl IPrintTicketProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTicketProvider2 as ::windows::core::Interface>::IID || iid == &<IPrintTicketProvider as ::windows::core::Interface>::IID
+        iid == &<IPrintTicketProvider2 as ::windows::core::ComInterface>::IID || iid == &<IPrintTicketProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3069,7 +3069,7 @@ impl IPrintUnidiAsyncNotifyRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintUnidiAsyncNotifyRegistration as ::windows::core::Interface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::Interface>::IID
+        iid == &<IPrintUnidiAsyncNotifyRegistration as ::windows::core::ComInterface>::IID || iid == &<IPrintAsyncNotifyRegistration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3103,7 +3103,7 @@ impl IPrintWriteStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintWriteStream as ::windows::core::Interface>::IID
+        iid == &<IPrintWriteStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3121,7 +3121,7 @@ impl IPrintWriteStreamFlush_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FlushData: FlushData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintWriteStreamFlush as ::windows::core::Interface>::IID
+        iid == &<IPrintWriteStreamFlush as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3139,7 +3139,7 @@ impl IPrinterBidiSetRequestCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterBidiSetRequestCallback as ::windows::core::Interface>::IID
+        iid == &<IPrinterBidiSetRequestCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3157,7 +3157,7 @@ impl IPrinterExtensionAsyncOperation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionAsyncOperation as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionAsyncOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3226,7 +3226,7 @@ impl IPrinterExtensionContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionContext as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3282,7 +3282,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionContextCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionContextCollection as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3313,7 +3313,7 @@ impl IPrinterExtensionEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3421,7 +3421,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionEventArgs as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterExtensionContext as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionEventArgs as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrinterExtensionContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -3449,7 +3449,7 @@ impl IPrinterExtensionManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionManager as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3480,7 +3480,7 @@ impl IPrinterExtensionRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterExtensionRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterExtensionRequest as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3597,7 +3597,7 @@ impl IPrinterPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterPropertyBag as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3660,7 +3660,7 @@ impl IPrinterQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterQueue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterQueue as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3703,7 +3703,7 @@ impl IPrinterQueue2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterQueue2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterQueue as ::windows::core::Interface>::IID
+        iid == &<IPrinterQueue2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrinterQueue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3727,7 +3727,7 @@ impl IPrinterQueueEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterQueueEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterQueueEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3748,7 +3748,7 @@ impl IPrinterQueueView_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), SetViewRange: SetViewRange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterQueueView as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterQueueView as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3769,7 +3769,7 @@ impl IPrinterQueueViewEvent_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterQueueViewEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterQueueViewEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3825,7 +3825,7 @@ impl IPrinterScriptContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterScriptContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterScriptContext as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3948,7 +3948,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterScriptablePropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterScriptablePropertyBag as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3975,7 +3975,7 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
         Self { base__: IPrinterScriptablePropertyBag_Vtbl::new::<Identity, Impl, OFFSET>(), GetReadStreamAsXML: GetReadStreamAsXML::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterScriptablePropertyBag2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterScriptablePropertyBag as ::windows::core::Interface>::IID
+        iid == &<IPrinterScriptablePropertyBag2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrinterScriptablePropertyBag as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4018,7 +4018,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterScriptableSequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrinterScriptableSequentialStream as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4062,7 +4062,7 @@ impl IPrinterScriptableStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrinterScriptableStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterScriptableSequentialStream as ::windows::core::Interface>::IID
+        iid == &<IPrinterScriptableStream as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IPrinterScriptableSequentialStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -4096,7 +4096,7 @@ impl IXpsDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsDocument as ::windows::core::Interface>::IID
+        iid == &<IXpsDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -4159,7 +4159,7 @@ impl IXpsDocumentConsumer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsDocumentConsumer as ::windows::core::Interface>::IID
+        iid == &<IXpsDocumentConsumer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -4183,7 +4183,7 @@ impl IXpsDocumentProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetXpsPart: GetXpsPart::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsDocumentProvider as ::windows::core::Interface>::IID
+        iid == &<IXpsDocumentProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4228,7 +4228,7 @@ impl IXpsPartIterator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsPartIterator as ::windows::core::Interface>::IID
+        iid == &<IXpsPartIterator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -4255,7 +4255,7 @@ impl IXpsRasterizationFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsRasterizationFactory as ::windows::core::Interface>::IID
+        iid == &<IXpsRasterizationFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -4282,7 +4282,7 @@ impl IXpsRasterizationFactory1_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsRasterizationFactory1 as ::windows::core::Interface>::IID
+        iid == &<IXpsRasterizationFactory1 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`, `\"implement\"`*"]
@@ -4309,7 +4309,7 @@ impl IXpsRasterizationFactory2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRasterizer: CreateRasterizer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsRasterizationFactory2 as ::windows::core::Interface>::IID
+        iid == &<IXpsRasterizationFactory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
@@ -4346,7 +4346,7 @@ impl IXpsRasterizer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsRasterizer as ::windows::core::Interface>::IID
+        iid == &<IXpsRasterizer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"implement\"`*"]
@@ -4364,6 +4364,6 @@ impl IXpsRasterizerNotificationCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Continue: Continue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsRasterizerNotificationCallback as ::windows::core::Interface>::IID
+        iid == &<IXpsRasterizerNotificationCallback as ::windows::core::ComInterface>::IID
     }
 }

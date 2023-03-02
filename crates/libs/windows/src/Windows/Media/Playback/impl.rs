@@ -35,7 +35,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaEnginePlaybackSource as ::windows::core::Interface>::IID
+        iid == &<IMediaEnginePlaybackSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Playback\"`, `\"implement\"`*"]
@@ -48,6 +48,6 @@ impl IMediaPlaybackSource_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaPlaybackSource as ::windows::core::Interface>::IID
+        iid == &<IMediaPlaybackSource as ::windows::core::ComInterface>::IID
     }
 }

@@ -46,7 +46,7 @@ impl IGameExplorer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameExplorer as ::windows::core::Interface>::IID
+        iid == &<IGameExplorer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IGameExplorer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameExplorer2 as ::windows::core::Interface>::IID
+        iid == &<IGameExplorer2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -233,7 +233,7 @@ impl IGameStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameStatistics as ::windows::core::Interface>::IID
+        iid == &<IGameStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -261,7 +261,7 @@ impl IGameStatisticsMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameStatisticsMgr as ::windows::core::Interface>::IID
+        iid == &<IGameStatisticsMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -338,7 +338,7 @@ impl IXblIdpAuthManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -612,7 +612,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthTokenResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -665,6 +665,6 @@ impl IXblIdpAuthTokenResult2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult2 as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthTokenResult2 as ::windows::core::ComInterface>::IID
     }
 }

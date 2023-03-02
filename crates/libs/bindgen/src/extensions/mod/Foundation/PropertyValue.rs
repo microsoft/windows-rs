@@ -9,13 +9,13 @@ macro_rules! primitive_boxed_type {
         impl std::convert::TryFrom<windows::core::IInspectable> for $t {
             type Error = windows::core::Error;
             fn try_from(value: windows::core::IInspectable) -> windows::core::Result<Self> {
-                <windows::core::IInspectable as windows::core::Interface>::cast::<IReference<$t>>(&value)?.Value()
+                <windows::core::IInspectable as windows::core::ComInterface>::cast::<IReference<$t>>(&value)?.Value()
             }
         }
         impl std::convert::TryFrom<&windows::core::IInspectable> for $t {
             type Error = windows::core::Error;
             fn try_from(value: &windows::core::IInspectable) -> windows::core::Result<Self> {
-                <windows::core::IInspectable as windows::core::Interface>::cast::<IReference<$t>>(value)?.Value()
+                <windows::core::IInspectable as windows::core::ComInterface>::cast::<IReference<$t>>(value)?.Value()
             }
         })*
     };
@@ -54,7 +54,7 @@ impl std::convert::TryFrom<&windows::core::HSTRING> for windows::core::IInspecta
 impl std::convert::TryFrom<windows::core::IInspectable> for windows::core::HSTRING {
     type Error = windows::core::Error;
     fn try_from(value: windows::core::IInspectable) -> windows::core::Result<Self> {
-        <windows::core::IInspectable as windows::core::Interface>::cast::<
+        <windows::core::IInspectable as windows::core::ComInterface>::cast::<
             IReference<windows::core::HSTRING>,
         >(&value)?
         .Value()
@@ -63,7 +63,7 @@ impl std::convert::TryFrom<windows::core::IInspectable> for windows::core::HSTRI
 impl std::convert::TryFrom<&windows::core::IInspectable> for windows::core::HSTRING {
     type Error = windows::core::Error;
     fn try_from(value: &windows::core::IInspectable) -> windows::core::Result<Self> {
-        <windows::core::IInspectable as windows::core::Interface>::cast::<
+        <windows::core::IInspectable as windows::core::ComInterface>::cast::<
             IReference<windows::core::HSTRING>,
         >(value)?
         .Value()

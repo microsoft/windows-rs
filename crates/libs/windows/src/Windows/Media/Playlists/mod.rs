@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlaylist(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlaylist {
+unsafe impl ::windows::core::Interface for IPlaylist {
     type Vtable = IPlaylist_Vtbl;
 }
 impl ::core::clone::Clone for IPlaylist {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPlaylist {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlaylist {
+unsafe impl ::windows::core::ComInterface for IPlaylist {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 #[repr(C)]
@@ -36,7 +36,7 @@ pub struct IPlaylist_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlaylistStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlaylistStatics {
+unsafe impl ::windows::core::Interface for IPlaylistStatics {
     type Vtable = IPlaylistStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPlaylistStatics {
@@ -44,7 +44,7 @@ impl ::core::clone::Clone for IPlaylistStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlaylistStatics {
+unsafe impl ::windows::core::ComInterface for IPlaylistStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 }
 #[repr(C)]
@@ -73,7 +73,7 @@ impl Playlist {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>>();
-            (::windows::core::Vtable::vtable(this).Files)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -82,45 +82,42 @@ impl Playlist {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsAsync<P0, E0>(&self, savelocation: P0, desiredname: &::windows::core::HSTRING, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &::windows::core::HSTRING, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>();
-            (::windows::core::Vtable::vtable(this).SaveAsAsync)(::windows::core::Vtable::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(desiredname), option, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into_param()?.abi(), ::core::mem::transmute_copy(desiredname), option, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsWithFormatAsync<P0, E0>(&self, savelocation: P0, desiredname: &::windows::core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &::windows::core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFolder>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>();
-            (::windows::core::Vtable::vtable(this).SaveAsWithFormatAsync)(::windows::core::Vtable::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveAsWithFormatAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into_param()?.abi(), ::core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Playlist>>
+    pub fn LoadAsync<P0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Playlist>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Playlist>>();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -148,11 +145,11 @@ impl ::core::clone::Clone for Playlist {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for Playlist {
+unsafe impl ::windows::core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;
 }
-unsafe impl ::windows::core::Interface for Playlist {
-    const IID: ::windows::core::GUID = <IPlaylist as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for Playlist {
+    const IID: ::windows::core::GUID = <IPlaylist as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";

@@ -11,11 +11,18 @@ pub struct CopyType;
 pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized {
     type Abi;
     type Default;
+
+    fn abi(&self) -> Self::Abi {
+        unsafe { std::mem::transmute_copy(self) }
+    }
+
     /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
+    fn from_default(default: &Self::Default) -> Result<Self>;
+
+    // TODO: this only used by ManuallyDrop
     /// # Safety
     unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self>;
-    fn from_default(default: &Self::Default) -> Result<Self>;
 }
 
 impl<T> Type<T, ReferenceType> for T
@@ -86,7 +93,7 @@ where
     }
 }
 
-impl<T: Vtable> TypeKind for T {
+impl<T: Interface> TypeKind for T {
     type TypeKind = ReferenceType;
 }
 

@@ -189,7 +189,7 @@ impl IDiskQuotaControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDiskQuotaControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows::core::Interface>::IID
+        iid == &<IDiskQuotaControl as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -207,7 +207,7 @@ impl IDiskQuotaEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDiskQuotaEvents as ::windows::core::Interface>::IID
+        iid == &<IDiskQuotaEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -329,7 +329,7 @@ impl IDiskQuotaUser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDiskQuotaUser as ::windows::core::Interface>::IID
+        iid == &<IDiskQuotaUser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -371,7 +371,7 @@ impl IDiskQuotaUserBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDiskQuotaUserBatch as ::windows::core::Interface>::IID
+        iid == &<IDiskQuotaUserBatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -419,6 +419,6 @@ impl IEnumDiskQuotaUsers_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDiskQuotaUsers as ::windows::core::Interface>::IID
+        iid == &<IEnumDiskQuotaUsers as ::windows::core::ComInterface>::IID
     }
 }

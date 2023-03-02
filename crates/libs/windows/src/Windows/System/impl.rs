@@ -35,6 +35,6 @@ impl ILauncherViewOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILauncherViewOptions as ::windows::core::Interface>::IID
+        iid == &<ILauncherViewOptions as ::windows::core::ComInterface>::IID
     }
 }

@@ -30,7 +30,7 @@ impl IDirectWriterLock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirectWriterLock as ::windows::core::Interface>::IID
+        iid == &<IDirectWriterLock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -81,7 +81,7 @@ impl IEnumSTATPROPSETSTG_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSTATPROPSETSTG as ::windows::core::Interface>::IID
+        iid == &<IEnumSTATPROPSETSTG as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -129,7 +129,7 @@ impl IEnumSTATPROPSTG_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSTATPROPSTG as ::windows::core::Interface>::IID
+        iid == &<IEnumSTATPROPSTG as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -180,7 +180,7 @@ impl IEnumSTATSTG_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSTATSTG as ::windows::core::Interface>::IID
+        iid == &<IEnumSTATSTG as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -237,7 +237,7 @@ impl IFillLockBytes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFillLockBytes as ::windows::core::Interface>::IID
+        iid == &<IFillLockBytes as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -286,7 +286,7 @@ impl ILayoutStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILayoutStorage as ::windows::core::Interface>::IID
+        iid == &<ILayoutStorage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -352,7 +352,7 @@ impl ILockBytes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILockBytes as ::windows::core::Interface>::IID
+        iid == &<ILockBytes as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -411,7 +411,7 @@ impl IPersistStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPersistStorage as ::windows::core::Interface>::IID || iid == &<super::IPersist as ::windows::core::Interface>::IID
+        iid == &<IPersistStorage as ::windows::core::ComInterface>::IID || iid == &<super::IPersist as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -438,7 +438,7 @@ impl IPropertyBag_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Write: Write::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyBag as ::windows::core::Interface>::IID
+        iid == &<IPropertyBag as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -496,7 +496,7 @@ impl IPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyBag2 as ::windows::core::Interface>::IID
+        iid == &<IPropertyBag2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -556,7 +556,7 @@ impl IPropertySetStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertySetStorage as ::windows::core::Interface>::IID
+        iid == &<IPropertySetStorage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -663,7 +663,7 @@ impl IPropertyStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyStorage as ::windows::core::Interface>::IID
+        iid == &<IPropertyStorage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -681,7 +681,7 @@ impl IRootStorage_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SwitchToFile: SwitchToFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRootStorage as ::windows::core::Interface>::IID
+        iid == &<IRootStorage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -833,6 +833,6 @@ impl IStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorage as ::windows::core::Interface>::IID
+        iid == &<IStorage as ::windows::core::ComInterface>::IID
     }
 }

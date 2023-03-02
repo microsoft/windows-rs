@@ -26,6 +26,6 @@ impl IPdfRendererNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPdfRendererNative as ::windows::core::Interface>::IID
+        iid == &<IPdfRendererNative as ::windows::core::ComInterface>::IID
     }
 }

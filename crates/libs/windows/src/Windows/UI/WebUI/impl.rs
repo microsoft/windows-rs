@@ -25,7 +25,7 @@ impl IActivatedEventArgsDeferral_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActivatedEventArgsDeferral as ::windows::core::Interface>::IID
+        iid == &<IActivatedEventArgsDeferral as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"implement\"`*"]
@@ -62,7 +62,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebUIBackgroundTaskInstance as ::windows::core::Interface>::IID
+        iid == &<IWebUIBackgroundTaskInstance as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"implement\"`*"]
@@ -92,6 +92,6 @@ impl IWebUINavigatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebUINavigatedEventArgs as ::windows::core::Interface>::IID
+        iid == &<IWebUINavigatedEventArgs as ::windows::core::ComInterface>::IID
     }
 }

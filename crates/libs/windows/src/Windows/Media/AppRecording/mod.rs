@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingManager {
+unsafe impl ::windows::core::Interface for IAppRecordingManager {
     type Vtable = IAppRecordingManager_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingManager {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAppRecordingManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingManager {
+unsafe impl ::windows::core::ComInterface for IAppRecordingManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
 }
 #[repr(C)]
@@ -37,7 +37,7 @@ pub struct IAppRecordingManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingManagerStatics {
+unsafe impl ::windows::core::Interface for IAppRecordingManagerStatics {
     type Vtable = IAppRecordingManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingManagerStatics {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for IAppRecordingManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingManagerStatics {
+unsafe impl ::windows::core::ComInterface for IAppRecordingManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
 }
 #[repr(C)]
@@ -57,7 +57,7 @@ pub struct IAppRecordingManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingResult {
+unsafe impl ::windows::core::Interface for IAppRecordingResult {
     type Vtable = IAppRecordingResult_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingResult {
@@ -65,7 +65,7 @@ impl ::core::clone::Clone for IAppRecordingResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingResult {
+unsafe impl ::windows::core::ComInterface for IAppRecordingResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
 }
 #[repr(C)]
@@ -83,7 +83,7 @@ pub struct IAppRecordingResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingSaveScreenshotResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingSaveScreenshotResult {
+unsafe impl ::windows::core::Interface for IAppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingSaveScreenshotResult {
@@ -91,7 +91,7 @@ impl ::core::clone::Clone for IAppRecordingSaveScreenshotResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingSaveScreenshotResult {
+unsafe impl ::windows::core::ComInterface for IAppRecordingSaveScreenshotResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
 }
 #[repr(C)]
@@ -108,7 +108,7 @@ pub struct IAppRecordingSaveScreenshotResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingSavedScreenshotInfo {
+unsafe impl ::windows::core::Interface for IAppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingSavedScreenshotInfo {
@@ -116,7 +116,7 @@ impl ::core::clone::Clone for IAppRecordingSavedScreenshotInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingSavedScreenshotInfo {
+unsafe impl ::windows::core::ComInterface for IAppRecordingSavedScreenshotInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
 }
 #[repr(C)]
@@ -132,7 +132,7 @@ pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingStatus(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingStatus {
+unsafe impl ::windows::core::Interface for IAppRecordingStatus {
     type Vtable = IAppRecordingStatus_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingStatus {
@@ -140,7 +140,7 @@ impl ::core::clone::Clone for IAppRecordingStatus {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingStatus {
+unsafe impl ::windows::core::ComInterface for IAppRecordingStatus {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
 }
 #[repr(C)]
@@ -158,7 +158,7 @@ pub struct IAppRecordingStatus_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppRecordingStatusDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppRecordingStatusDetails {
+unsafe impl ::windows::core::Interface for IAppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_Vtbl;
 }
 impl ::core::clone::Clone for IAppRecordingStatusDetails {
@@ -166,7 +166,7 @@ impl ::core::clone::Clone for IAppRecordingStatusDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppRecordingStatusDetails {
+unsafe impl ::windows::core::ComInterface for IAppRecordingStatusDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
 }
 #[repr(C)]
@@ -191,7 +191,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppRecordingStatus>();
-            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -200,7 +200,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>();
-            (::windows::core::Vtable::vtable(this).StartRecordingToFileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartRecordingToFileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -209,7 +209,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>();
-            (::windows::core::Vtable::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Vtable::as_raw(this), starttime, duration, ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Interface::as_raw(this), starttime, duration, ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -218,26 +218,25 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SaveScreenshotToFilesAsync<P0, E0>(&self, folder: &super::super::Storage::StorageFolder, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<P0>(&self, folder: &super::super::Storage::StorageFolder, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>();
-            (::windows::core::Vtable::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(folder), ::core::mem::transmute_copy(filenameprefix), option, requestedformats.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(folder), ::core::mem::transmute_copy(filenameprefix), option, requestedformats.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<AppRecordingManager> {
         Self::IAppRecordingManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AppRecordingManager>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -265,11 +264,11 @@ impl ::core::clone::Clone for AppRecordingManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingManager {
+unsafe impl ::windows::core::Interface for AppRecordingManager {
     type Vtable = IAppRecordingManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingManager {
-    const IID: ::windows::core::GUID = <IAppRecordingManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingManager {
+    const IID: ::windows::core::GUID = <IAppRecordingManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
@@ -285,14 +284,14 @@ impl AppRecordingResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -301,14 +300,14 @@ impl AppRecordingResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Duration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFileTruncated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFileTruncated)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFileTruncated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -331,11 +330,11 @@ impl ::core::clone::Clone for AppRecordingResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingResult {
+unsafe impl ::windows::core::Interface for AppRecordingResult {
     type Vtable = IAppRecordingResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingResult {
-    const IID: ::windows::core::GUID = <IAppRecordingResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingResult {
+    const IID: ::windows::core::GUID = <IAppRecordingResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
@@ -351,14 +350,14 @@ impl AppRecordingSaveScreenshotResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -367,7 +366,7 @@ impl AppRecordingSaveScreenshotResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>>();
-            (::windows::core::Vtable::vtable(this).SavedScreenshotInfos)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SavedScreenshotInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -390,11 +389,11 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingSaveScreenshotResult {
+unsafe impl ::windows::core::Interface for AppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingSaveScreenshotResult {
-    const IID: ::windows::core::GUID = <IAppRecordingSaveScreenshotResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingSaveScreenshotResult {
+    const IID: ::windows::core::GUID = <IAppRecordingSaveScreenshotResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
@@ -412,14 +411,14 @@ impl AppRecordingSavedScreenshotInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::StorageFile>();
-            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MediaEncodingSubtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).MediaEncodingSubtype)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MediaEncodingSubtype)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -442,11 +441,11 @@ impl ::core::clone::Clone for AppRecordingSavedScreenshotInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingSavedScreenshotInfo {
+unsafe impl ::windows::core::Interface for AppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingSavedScreenshotInfo {
-    const IID: ::windows::core::GUID = <IAppRecordingSavedScreenshotInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingSavedScreenshotInfo {
+    const IID: ::windows::core::GUID = <IAppRecordingSavedScreenshotInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
@@ -462,14 +461,14 @@ impl AppRecordingStatus {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanRecord)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanRecord)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRecordTimeSpan(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanRecordTimeSpan)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanRecordTimeSpan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -478,14 +477,14 @@ impl AppRecordingStatus {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).HistoricalBufferDuration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HistoricalBufferDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Details(&self) -> ::windows::core::Result<AppRecordingStatusDetails> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppRecordingStatusDetails>();
-            (::windows::core::Vtable::vtable(this).Details)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Details)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -508,11 +507,11 @@ impl ::core::clone::Clone for AppRecordingStatus {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingStatus {
+unsafe impl ::windows::core::Interface for AppRecordingStatus {
     type Vtable = IAppRecordingStatus_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingStatus {
-    const IID: ::windows::core::GUID = <IAppRecordingStatus as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingStatus {
+    const IID: ::windows::core::GUID = <IAppRecordingStatus as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
@@ -528,63 +527,63 @@ impl AppRecordingStatusDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAnyAppBroadcasting)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAnyAppBroadcasting)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCaptureResourceUnavailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCaptureResourceUnavailable)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCaptureResourceUnavailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGameStreamInProgress(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsGameStreamInProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsGameStreamInProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTimeSpanRecordingDisabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsTimeSpanRecordingDisabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsTimeSpanRecordingDisabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGpuConstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsGpuConstrained)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsGpuConstrained)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsAppInactive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAppInactive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAppInactive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsBlockedForApp(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsBlockedForApp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsBlockedForApp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDisabledByUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDisabledByUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDisabledByUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDisabledBySystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDisabledBySystem)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDisabledBySystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -607,11 +606,11 @@ impl ::core::clone::Clone for AppRecordingStatusDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppRecordingStatusDetails {
+unsafe impl ::windows::core::Interface for AppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppRecordingStatusDetails {
-    const IID: ::windows::core::GUID = <IAppRecordingStatusDetails as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppRecordingStatusDetails {
+    const IID: ::windows::core::GUID = <IAppRecordingStatusDetails as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";

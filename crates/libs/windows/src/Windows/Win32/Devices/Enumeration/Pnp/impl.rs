@@ -29,7 +29,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPAddressFamilyControl as ::windows::core::Interface>::IID
+        iid == &<IUPnPAddressFamilyControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -47,7 +47,7 @@ impl IUPnPAsyncResult_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPAsyncResult as ::windows::core::Interface>::IID
+        iid == &<IUPnPAsyncResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -137,7 +137,7 @@ impl IUPnPDescriptionDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDescriptionDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPDescriptionDocument as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -155,7 +155,7 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadComplete: LoadComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDescriptionDocumentCallback as ::windows::core::Interface>::IID
+        iid == &<IUPnPDescriptionDocumentCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -419,7 +419,7 @@ impl IUPnPDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDevice as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPDevice as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -456,7 +456,7 @@ impl IUPnPDeviceControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceControl as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -483,7 +483,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceControlHttpHeaders as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceControlHttpHeaders as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -507,7 +507,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDocumentURL: GetDocumentURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceDocumentAccess as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceDocumentAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -531,7 +531,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceDocumentAccessEx as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceDocumentAccessEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -601,7 +601,7 @@ impl IUPnPDeviceFinder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceFinder as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceFinder as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -622,7 +622,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceFinderAddCallbackWithInterface as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceFinderAddCallbackWithInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -660,7 +660,7 @@ impl IUPnPDeviceFinderCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceFinderCallback as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceFinderCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -684,7 +684,7 @@ impl IUPnPDeviceProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDeviceProvider as ::windows::core::Interface>::IID
+        iid == &<IUPnPDeviceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -740,7 +740,7 @@ impl IUPnPDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPDevices as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPDevices as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -771,7 +771,7 @@ impl IUPnPEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPEventSink as ::windows::core::Interface>::IID
+        iid == &<IUPnPEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -799,7 +799,7 @@ impl IUPnPEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPEventSource as ::windows::core::Interface>::IID
+        iid == &<IUPnPEventSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -817,7 +817,7 @@ impl IUPnPHttpHeaderControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddRequestHeaders: AddRequestHeaders::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPHttpHeaderControl as ::windows::core::Interface>::IID
+        iid == &<IUPnPHttpHeaderControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -894,7 +894,7 @@ impl IUPnPRegistrar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPRegistrar as ::windows::core::Interface>::IID
+        iid == &<IUPnPRegistrar as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -947,7 +947,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPRemoteEndpointInfo as ::windows::core::Interface>::IID
+        iid == &<IUPnPRemoteEndpointInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -975,7 +975,7 @@ impl IUPnPReregistrar_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPReregistrar as ::windows::core::Interface>::IID
+        iid == &<IUPnPReregistrar as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1058,7 +1058,7 @@ impl IUPnPService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPService as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPService as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1168,7 +1168,7 @@ impl IUPnPServiceAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPServiceAsync as ::windows::core::Interface>::IID
+        iid == &<IUPnPServiceAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1199,7 +1199,7 @@ impl IUPnPServiceCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPServiceCallback as ::windows::core::Interface>::IID
+        iid == &<IUPnPServiceCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -1239,7 +1239,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPServiceDocumentAccess as ::windows::core::Interface>::IID
+        iid == &<IUPnPServiceDocumentAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
@@ -1257,7 +1257,7 @@ impl IUPnPServiceEnumProperty_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetServiceEnumProperty: SetServiceEnumProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPServiceEnumProperty as ::windows::core::Interface>::IID
+        iid == &<IUPnPServiceEnumProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1313,6 +1313,6 @@ impl IUPnPServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUPnPServices as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IUPnPServices as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }

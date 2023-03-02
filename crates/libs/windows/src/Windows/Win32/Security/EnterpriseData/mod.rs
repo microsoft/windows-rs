@@ -2,11 +2,11 @@
 #[inline]
 pub unsafe fn ProtectFileToEnterpriseIdentity<P0, P1>(fileorfolderpath: P0, identity: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "efswrt.dll""system" fn ProtectFileToEnterpriseIdentity ( fileorfolderpath : :: windows::core::PCWSTR , identity : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    ProtectFileToEnterpriseIdentity(fileorfolderpath.into().abi(), identity.into().abi()).ok()
+    ProtectFileToEnterpriseIdentity(fileorfolderpath.into_param().abi(), identity.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20,11 +20,11 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
 #[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> ::windows::core::Result<HTHREAD_NETWORK_CONTEXT>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpCreateThreadNetworkContext ( enterpriseid : :: windows::core::PCWSTR , threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HTHREAD_NETWORK_CONTEXT>();
-    SrpCreateThreadNetworkContext(enterpriseid.into().abi(), &mut result__).from_abi(result__)
+    SrpCreateThreadNetworkContext(enterpriseid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
@@ -44,31 +44,31 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
 #[inline]
 pub unsafe fn SrpEnablePermissiveModeFileEncryption<P0>(enterpriseid: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpEnablePermissiveModeFileEncryption ( enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SrpEnablePermissiveModeFileEncryption(enterpriseid.into().abi()).ok()
+    SrpEnablePermissiveModeFileEncryption(enterpriseid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpGetEnterpriseIds<P0>(tokenhandle: P0, numberofbytes: ::core::option::Option<*mut u32>, enterpriseids: ::core::option::Option<*mut ::windows::core::PWSTR>, enterpriseidcount: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterpriseIds ( tokenhandle : super::super::Foundation:: HANDLE , numberofbytes : *mut u32 , enterpriseids : *mut :: windows::core::PWSTR , enterpriseidcount : *mut u32 ) -> :: windows::core::HRESULT );
-    SrpGetEnterpriseIds(tokenhandle.into(), ::core::mem::transmute(numberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(enterpriseids.unwrap_or(::std::ptr::null_mut())), enterpriseidcount).ok()
+    SrpGetEnterpriseIds(tokenhandle.into_param().abi(), ::core::mem::transmute(numberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(enterpriseids.unwrap_or(::std::ptr::null_mut())), enterpriseidcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy<P0>(tokenhandle: P0) -> ::windows::core::Result<ENTERPRISE_DATA_POLICIES>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterprisePolicy ( tokenhandle : super::super::Foundation:: HANDLE , policyflags : *mut ENTERPRISE_DATA_POLICIES ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ENTERPRISE_DATA_POLICIES>();
-    SrpGetEnterprisePolicy(tokenhandle.into(), &mut result__).from_abi(result__)
+    SrpGetEnterprisePolicy(tokenhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
@@ -87,30 +87,30 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 #[inline]
 pub unsafe fn SrpIsTokenService<P0>(tokenhandle: P0, istokenservice: *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpIsTokenService ( tokenhandle : super::super::Foundation:: HANDLE , istokenservice : *mut u8 ) -> super::super::Foundation:: NTSTATUS );
-    SrpIsTokenService(tokenhandle.into(), istokenservice).ok()
+    SrpIsTokenService(tokenhandle.into_param().abi(), istokenservice).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpSetTokenEnterpriseId<P0, P1>(tokenhandle: P0, enterpriseid: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "srpapi.dll""system" fn SrpSetTokenEnterpriseId ( tokenhandle : super::super::Foundation:: HANDLE , enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SrpSetTokenEnterpriseId(tokenhandle.into(), enterpriseid.into().abi()).ok()
+    SrpSetTokenEnterpriseId(tokenhandle.into_param().abi(), enterpriseid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
 pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: ::core::option::Option<*const FILE_UNPROTECT_OPTIONS>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "efswrt.dll""system" fn UnprotectFile ( fileorfolderpath : :: windows::core::PCWSTR , options : *const FILE_UNPROTECT_OPTIONS ) -> :: windows::core::HRESULT );
-    UnprotectFile(fileorfolderpath.into().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null()))).ok()
+    UnprotectFile(fileorfolderpath.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
@@ -120,21 +120,21 @@ impl IProtectionPolicyManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForWindowAsync<P0, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IProtectionPolicyManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -149,7 +149,7 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop {
         f.debug_tuple("IProtectionPolicyManagerInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IProtectionPolicyManagerInterop {
+unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_Vtbl;
 }
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop {
@@ -157,7 +157,7 @@ impl ::core::clone::Clone for IProtectionPolicyManagerInterop {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop {
+unsafe impl ::windows::core::ComInterface for IProtectionPolicyManagerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 }
 #[repr(C)]
@@ -181,55 +181,55 @@ impl IProtectionPolicyManagerInterop2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithWindowAsync<P0, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessForAppWithWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessForAppWithWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfounk: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithMessageForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfounk: P1, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessWithMessageForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessWithMessageForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: P1) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: P1, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IProtectionPolicyManagerInterop2, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -244,7 +244,7 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop2 {
         f.debug_tuple("IProtectionPolicyManagerInterop2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IProtectionPolicyManagerInterop2 {
+unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_Vtbl;
 }
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop2 {
@@ -252,7 +252,7 @@ impl ::core::clone::Clone for IProtectionPolicyManagerInterop2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop2 {
+unsafe impl ::windows::core::ComInterface for IProtectionPolicyManagerInterop2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
 }
 #[repr(C)]
@@ -288,71 +288,71 @@ impl IProtectionPolicyManagerInterop3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithBehaviorForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfounk: P1, messagefromapp: &::windows::core::HSTRING, behavior: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessWithBehaviorForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessWithBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<P0, P1, T>(&self, appwindow: P0, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: P1, messagefromapp: &::windows::core::HSTRING, behavior: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForAppForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: P2) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessToFilesForAppForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessToFilesForAppForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: P2, messagefromapp: &::windows::core::HSTRING, behavior: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), processid, auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), processid, auditinfounk.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2, messagefromapp: &::windows::core::HSTRING, behavior: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        T: ::windows::core::Interface,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Vtable::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), processid, auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), processid, auditinfounk.into_param().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IProtectionPolicyManagerInterop3, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -367,7 +367,7 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop3 {
         f.debug_tuple("IProtectionPolicyManagerInterop3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IProtectionPolicyManagerInterop3 {
+unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_Vtbl;
 }
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
@@ -375,7 +375,7 @@ impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop3 {
+unsafe impl ::windows::core::ComInterface for IProtectionPolicyManagerInterop3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);
 }
 #[repr(C)]

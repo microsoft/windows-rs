@@ -26,7 +26,7 @@ impl IProtectionPolicyManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop as ::windows::core::Interface>::IID
+        iid == &<IProtectionPolicyManagerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -78,7 +78,7 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop2 as ::windows::core::Interface>::IID
+        iid == &<IProtectionPolicyManagerInterop2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -137,6 +137,6 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop3 as ::windows::core::Interface>::IID
+        iid == &<IProtectionPolicyManagerInterop3 as ::windows::core::ComInterface>::IID
     }
 }

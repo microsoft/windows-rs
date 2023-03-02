@@ -1,7 +1,7 @@
 use super::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
-use windows::core::Interface;
+use windows::core::*;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -16,7 +16,7 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
-impl<C: core::RuntimeName, I: core::Interface> FactoryCache<C, I> {
+impl<C: core::RuntimeName, I: core::ComInterface> FactoryCache<C, I> {
     pub fn call<R, F: FnOnce(&I) -> core::Result<R>>(&self, callback: F) -> core::Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
@@ -49,7 +49,7 @@ unsafe impl<C, I> std::marker::Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: core::RuntimeName, I: core::Interface>() -> core::Result<I> {
+pub fn factory<C: core::RuntimeName, I: core::ComInterface>() -> core::Result<I> {
     let mut factory: Option<I> = None;
     let name = core::HSTRING::from(C::NAME);
 

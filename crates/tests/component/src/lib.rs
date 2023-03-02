@@ -1,6 +1,6 @@
 mod bindings;
 use std::sync::*;
-use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
 #[implement(bindings::Class)]
 struct Class(RwLock<i32>);
@@ -31,6 +31,18 @@ impl bindings::IClass_Impl for Class {
         b.clone_from_slice(a);
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
+    }
+    fn Input(&self, a: Option<&IInspectable>, b: Option<&bindings::Class>, c: Option<&IStringable>) -> Result<()> {
+        let a = a.unwrap();
+        let b = b.unwrap();
+        let c = c.unwrap();
+
+        let a: IUnknown = a.can_clone_into();
+        let b: IUnknown = b.can_clone_into();
+        assert_eq!(a, b);
+
+        assert_eq!(c.ToString()?, "client");
+        Ok(())
     }
 }
 

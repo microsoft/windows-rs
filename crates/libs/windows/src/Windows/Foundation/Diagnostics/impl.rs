@@ -32,7 +32,7 @@ impl IErrorReportingSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IErrorReportingSettings as ::windows::core::Interface>::IID
+        iid == &<IErrorReportingSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
@@ -121,7 +121,7 @@ impl IFileLoggingSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFileLoggingSession as ::windows::core::Interface>::IID
+        iid == &<IFileLoggingSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
@@ -228,7 +228,7 @@ impl ILoggingChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILoggingChannel as ::windows::core::Interface>::IID
+        iid == &<ILoggingChannel as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
@@ -296,7 +296,7 @@ impl ILoggingSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILoggingSession as ::windows::core::Interface>::IID
+        iid == &<ILoggingSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
@@ -438,6 +438,6 @@ impl ILoggingTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILoggingTarget as ::windows::core::Interface>::IID
+        iid == &<ILoggingTarget as ::windows::core::ComInterface>::IID
     }
 }

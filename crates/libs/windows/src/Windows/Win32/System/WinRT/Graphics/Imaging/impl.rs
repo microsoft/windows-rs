@@ -13,7 +13,7 @@ impl ISoftwareBitmapNative_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISoftwareBitmapNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISoftwareBitmapNative as ::windows::core::Interface>::IID
+        iid == &<ISoftwareBitmapNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -44,6 +44,6 @@ impl ISoftwareBitmapNativeFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISoftwareBitmapNativeFactory as ::windows::core::Interface>::IID
+        iid == &<ISoftwareBitmapNativeFactory as ::windows::core::ComInterface>::IID
     }
 }

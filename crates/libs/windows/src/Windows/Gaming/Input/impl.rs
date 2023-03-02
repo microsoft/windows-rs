@@ -119,7 +119,7 @@ impl IGameController_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameController as ::windows::core::Interface>::IID
+        iid == &<IGameController as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input\"`, `\"Devices_Power\"`, `\"implement\"`*"]
@@ -152,6 +152,6 @@ impl IGameControllerBatteryInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameControllerBatteryInfo as ::windows::core::Interface>::IID
+        iid == &<IGameControllerBatteryInfo as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocationProvider(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGeolocationProvider {
+unsafe impl ::windows::core::Interface for IGeolocationProvider {
     type Vtable = IGeolocationProvider_Vtbl;
 }
 impl ::core::clone::Clone for IGeolocationProvider {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IGeolocationProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGeolocationProvider {
+unsafe impl ::windows::core::ComInterface for IGeolocationProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cf071d_3f64_509f_8dc2_0b74a059829d);
 }
 #[repr(C)]
@@ -43,19 +43,19 @@ impl GeolocationProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsOverridden)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsOverridden)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> ::windows::core::Result<LocationOverrideStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<LocationOverrideStatus>();
-            (::windows::core::Vtable::vtable(this).SetOverridePosition)(::windows::core::Vtable::as_raw(this), newposition, positionsource, accuracyinmeters, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetOverridePosition)(::windows::core::Interface::as_raw(this), newposition, positionsource, accuracyinmeters, &mut result__).from_abi(result__)
         }
     }
     pub fn ClearOverridePosition(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ClearOverridePosition)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearOverridePosition)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -63,14 +63,14 @@ impl GeolocationProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).IsOverriddenChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsOverriddenChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsOverriddenChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsOverriddenChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsOverriddenChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for GeolocationProvider {
@@ -92,11 +92,11 @@ impl ::core::clone::Clone for GeolocationProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GeolocationProvider {
+unsafe impl ::windows::core::Interface for GeolocationProvider {
     type Vtable = IGeolocationProvider_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GeolocationProvider {
-    const IID: ::windows::core::GUID = <IGeolocationProvider as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GeolocationProvider {
+    const IID: ::windows::core::GUID = <IGeolocationProvider as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GeolocationProvider {
     const NAME: &'static str = "Windows.Devices.Geolocation.Provider.GeolocationProvider";

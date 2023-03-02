@@ -3,7 +3,7 @@ pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdcChannel(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdcChannel {
+unsafe impl ::windows::core::Interface for IAdcChannel {
     type Vtable = IAdcChannel_Vtbl;
 }
 impl ::core::clone::Clone for IAdcChannel {
@@ -11,7 +11,7 @@ impl ::core::clone::Clone for IAdcChannel {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdcChannel {
+unsafe impl ::windows::core::ComInterface for IAdcChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IAdcChannel_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdcController(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdcController {
+unsafe impl ::windows::core::Interface for IAdcController {
     type Vtable = IAdcController_Vtbl;
 }
 impl ::core::clone::Clone for IAdcController {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IAdcController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdcController {
+unsafe impl ::windows::core::ComInterface for IAdcController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 }
 #[repr(C)]
@@ -52,7 +52,7 @@ pub struct IAdcController_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdcControllerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdcControllerStatics {
+unsafe impl ::windows::core::Interface for IAdcControllerStatics {
     type Vtable = IAdcControllerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAdcControllerStatics {
@@ -60,7 +60,7 @@ impl ::core::clone::Clone for IAdcControllerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdcControllerStatics {
+unsafe impl ::windows::core::ComInterface for IAdcControllerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 }
 #[repr(C)]
@@ -75,7 +75,7 @@ pub struct IAdcControllerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdcControllerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdcControllerStatics2 {
+unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
     type Vtable = IAdcControllerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAdcControllerStatics2 {
@@ -83,7 +83,7 @@ impl ::core::clone::Clone for IAdcControllerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
+unsafe impl ::windows::core::ComInterface for IAdcControllerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 }
 #[repr(C)]
@@ -103,28 +103,28 @@ impl AdcChannel {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AdcController>();
-            (::windows::core::Vtable::vtable(this).Controller)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ReadValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReadValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadRatio(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).ReadRatio)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReadRatio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AdcChannel {
@@ -146,38 +146,18 @@ impl ::core::clone::Clone for AdcChannel {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AdcChannel {
+unsafe impl ::windows::core::Interface for AdcChannel {
     type Vtable = IAdcChannel_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AdcChannel {
-    const IID: ::windows::core::GUID = <IAdcChannel as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AdcChannel {
+    const IID: ::windows::core::GUID = <IAdcChannel as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
 ::windows::imp::interface_hierarchy!(AdcChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<AdcChannel> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AdcChannel) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&AdcChannel> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AdcChannel) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&AdcChannel> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AdcChannel) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for AdcChannel {}
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
@@ -188,65 +168,64 @@ impl AdcController {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ChannelCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolutionInBits(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ResolutionInBits)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ResolutionInBits)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ChannelMode(&self) -> ::windows::core::Result<AdcChannelMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AdcChannelMode>();
-            (::windows::core::Vtable::vtable(this).ChannelMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ChannelMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetChannelMode(&self, value: AdcChannelMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetChannelMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsChannelModeSupported(&self, channelmode: AdcChannelMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsChannelModeSupported)(::windows::core::Vtable::as_raw(this), channelmode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode, &mut result__).from_abi(result__)
         }
     }
     pub fn OpenChannel(&self, channelnumber: i32) -> ::windows::core::Result<AdcChannel> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AdcChannel>();
-            (::windows::core::Vtable::vtable(this).OpenChannel)(::windows::core::Vtable::as_raw(this), channelnumber, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpenChannel)(::windows::core::Interface::as_raw(this), channelnumber, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<Provider::IAdcProvider>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<Provider::IAdcProvider>,
     {
         Self::IAdcControllerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>();
-            (::windows::core::Vtable::vtable(this).GetControllersAsync)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -254,7 +233,7 @@ impl AdcController {
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<AdcController>>();
-            (::windows::core::Vtable::vtable(this).GetDefaultAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -287,11 +266,11 @@ impl ::core::clone::Clone for AdcController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AdcController {
+unsafe impl ::windows::core::Interface for AdcController {
     type Vtable = IAdcController_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AdcController {
-    const IID: ::windows::core::GUID = <IAdcController as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AdcController {
+    const IID: ::windows::core::GUID = <IAdcController as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";

@@ -3,23 +3,23 @@
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorGetAssertion ( hwnd : super::super::Foundation:: HWND , pwszrpid : :: windows::core::PCWSTR , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS , ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WEBAUTHN_ASSERTION>();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows::imp::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorMakeCredential ( hwnd : super::super::Foundation:: HWND , prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION , puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION , ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS , ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>();
-    WebAuthNAuthenticatorMakeCredential(hwnd.into(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -396,10 +396,10 @@ pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccont
 #[inline]
 pub unsafe fn WsFindAttribute<P0>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P0, attributeindex: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsFindAttribute ( reader : *const WS_XML_READER , localname : *const WS_XML_STRING , ns : *const WS_XML_STRING , required : super::super::Foundation:: BOOL , attributeindex : *mut u32 , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsFindAttribute(reader, localname, ns, required.into(), attributeindex, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsFindAttribute(reader, localname, ns, required.into_param().abi(), attributeindex, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -586,10 +586,10 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
 #[inline]
 pub unsafe fn WsGetNamespaceFromPrefix<P0>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P0, ns: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsGetNamespaceFromPrefix ( reader : *const WS_XML_READER , prefix : *const WS_XML_STRING , required : super::super::Foundation:: BOOL , ns : *mut *mut WS_XML_STRING , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsGetNamespaceFromPrefix(reader, prefix, required.into(), ns, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsGetNamespaceFromPrefix(reader, prefix, required.into_param().abi(), ns, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -614,10 +614,10 @@ pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPER
 #[inline]
 pub unsafe fn WsGetPrefixFromNamespace<P0>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P0, prefix: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsGetPrefixFromNamespace ( writer : *const WS_XML_WRITER , ns : *const WS_XML_STRING , required : super::super::Foundation:: BOOL , prefix : *mut *mut WS_XML_STRING , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsGetPrefixFromNamespace(writer, ns, required.into(), prefix, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsGetPrefixFromNamespace(writer, ns, required.into_param().abi(), prefix, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -697,10 +697,10 @@ pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerpositio
 #[inline]
 pub unsafe fn WsMatchPolicyAlternative<P0>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P0, heap: *const WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsMatchPolicyAlternative ( policy : *const WS_POLICY , alternativeindex : u32 , policyconstraints : *const WS_POLICY_CONSTRAINTS , matchrequired : super::super::Foundation:: BOOL , heap : *const WS_HEAP , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.into(), heap, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.into_param().abi(), heap, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1255,10 +1255,10 @@ pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: ::core:
 #[inline]
 pub unsafe fn WsWriteStartAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsWriteStartAttribute ( writer : *const WS_XML_WRITER , prefix : *const WS_XML_STRING , localname : *const WS_XML_STRING , ns : *const WS_XML_STRING , singlequote : super::super::Foundation:: BOOL , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsWriteStartAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), localname, ns, singlequote.into(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteStartAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), localname, ns, singlequote.into_param().abi(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -1308,10 +1308,10 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
 #[inline]
 pub unsafe fn WsWriteXmlnsAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "webservices.dll""system" fn WsWriteXmlnsAttribute ( writer : *const WS_XML_WRITER , prefix : *const WS_XML_STRING , ns : *const WS_XML_STRING , singlequote : super::super::Foundation:: BOOL , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsWriteXmlnsAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), ns, singlequote.into(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteXmlnsAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), ns, singlequote.into_param().abi(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1326,16 +1326,16 @@ pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Vtable::as_raw(self), packagefullname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi()).ok()
     }
     pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> ::windows::core::Result<u8>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<u8>();
-        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
         f.debug_tuple("IContentPrefetcherTaskTrigger").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IContentPrefetcherTaskTrigger {
+unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_Vtbl;
 }
 impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
@@ -1358,7 +1358,7 @@ impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
+unsafe impl ::windows::core::ComInterface for IContentPrefetcherTaskTrigger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
 #[repr(C)]

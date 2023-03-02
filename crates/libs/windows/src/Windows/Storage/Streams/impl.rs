@@ -46,7 +46,7 @@ impl IBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBuffer as ::windows::core::Interface>::IID
+        iid == &<IBuffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -73,7 +73,7 @@ impl IContentTypeProvider_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContentTypeProvider as ::windows::core::Interface>::IID
+        iid == &<IContentTypeProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -428,7 +428,7 @@ impl IDataReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataReader as ::windows::core::Interface>::IID
+        iid == &<IDataReader as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -699,7 +699,7 @@ impl IDataWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataWriter as ::windows::core::Interface>::IID
+        iid == &<IDataWriter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -729,7 +729,7 @@ impl IInputStream_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInputStream as ::windows::core::Interface>::IID
+        iid == &<IInputStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -762,7 +762,7 @@ impl IInputStreamReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInputStreamReference as ::windows::core::Interface>::IID
+        iid == &<IInputStreamReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -809,7 +809,7 @@ impl IOutputStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IOutputStream as ::windows::core::Interface>::IID
+        iid == &<IOutputStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -849,7 +849,7 @@ impl IPropertySetSerializer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertySetSerializer as ::windows::core::Interface>::IID
+        iid == &<IPropertySetSerializer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -980,7 +980,7 @@ impl IRandomAccessStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRandomAccessStream as ::windows::core::Interface>::IID
+        iid == &<IRandomAccessStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1013,7 +1013,7 @@ impl IRandomAccessStreamReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRandomAccessStreamReference as ::windows::core::Interface>::IID
+        iid == &<IRandomAccessStreamReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -1029,6 +1029,6 @@ impl IRandomAccessStreamWithContentType_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID
+        iid == &<IRandomAccessStreamWithContentType as ::windows::core::ComInterface>::IID
     }
 }

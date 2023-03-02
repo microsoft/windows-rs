@@ -19,7 +19,7 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageStatusEvent as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPrintDocumentPackageStatusEvent as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -54,7 +54,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageTarget as ::windows::core::Interface>::IID
+        iid == &<IPrintDocumentPackageTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -84,7 +84,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageTargetFactory as ::windows::core::Interface>::IID
+        iid == &<IPrintDocumentPackageTargetFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
@@ -112,7 +112,7 @@ impl IXpsPrintJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsPrintJob as ::windows::core::Interface>::IID
+        iid == &<IXpsPrintJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -133,6 +133,6 @@ impl IXpsPrintJobStream_Vtbl {
         Self { base__: super::super::super::System::Com::ISequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXpsPrintJobStream as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID
+        iid == &<IXpsPrintJobStream as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows::core::ComInterface>::IID
     }
 }

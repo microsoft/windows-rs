@@ -77,7 +77,7 @@ impl IMediaCue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaCue as ::windows::core::Interface>::IID
+        iid == &<IMediaCue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IMediaSource_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaSource as ::windows::core::Interface>::IID
+        iid == &<IMediaSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
@@ -162,7 +162,7 @@ impl IMediaStreamDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaStreamDescriptor as ::windows::core::Interface>::IID
+        iid == &<IMediaStreamDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
@@ -199,7 +199,7 @@ impl IMediaStreamDescriptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaStreamDescriptor2 as ::windows::core::Interface>::IID
+        iid == &<IMediaStreamDescriptor2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"implement\"`*"]
@@ -278,7 +278,7 @@ impl IMediaTrack_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaTrack as ::windows::core::Interface>::IID
+        iid == &<IMediaTrack as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -339,7 +339,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISingleSelectMediaTrackList as ::windows::core::Interface>::IID
+        iid == &<ISingleSelectMediaTrackList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Core\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -372,6 +372,6 @@ impl ITimedMetadataTrackProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITimedMetadataTrackProvider as ::windows::core::Interface>::IID
+        iid == &<ITimedMetadataTrackProvider as ::windows::core::ComInterface>::IID
     }
 }

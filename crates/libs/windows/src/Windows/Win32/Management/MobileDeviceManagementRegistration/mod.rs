@@ -2,40 +2,40 @@
 #[inline]
 pub unsafe fn ApplyLocalManagementSyncML<P0>(syncmlrequest: P0, syncmlresult: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmlocalmanagement.dll""system" fn ApplyLocalManagementSyncML ( syncmlrequest : :: windows::core::PCWSTR , syncmlresult : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    ApplyLocalManagementSyncML(syncmlrequest.into().abi(), ::core::mem::transmute(syncmlresult.unwrap_or(::std::ptr::null_mut()))).ok()
+    ApplyLocalManagementSyncML(syncmlrequest.into_param().abi(), ::core::mem::transmute(syncmlresult.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn DiscoverManagementService<P0>(pszupn: P0) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn DiscoverManagementService ( pszupn : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
-    DiscoverManagementService(pszupn.into().abi(), &mut result__).from_abi(result__)
+    DiscoverManagementService(pszupn.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn DiscoverManagementServiceEx<P0, P1>(pszupn: P0, pszdiscoveryservicecandidate: P1) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn DiscoverManagementServiceEx ( pszupn : :: windows::core::PCWSTR , pszdiscoveryservicecandidate : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
-    DiscoverManagementServiceEx(pszupn.into().abi(), pszdiscoveryservicecandidate.into().abi(), &mut result__).from_abi(result__)
+    DiscoverManagementServiceEx(pszupn.into_param().abi(), pszdiscoveryservicecandidate.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn GetDeviceManagementConfigInfo<P0>(providerid: P0, configstringbufferlength: *mut u32, configstring: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn GetDeviceManagementConfigInfo ( providerid : :: windows::core::PCWSTR , configstringbufferlength : *mut u32 , configstring : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    GetDeviceManagementConfigInfo(providerid.into().abi(), configstringbufferlength, ::core::mem::transmute(configstring)).ok()
+    GetDeviceManagementConfigInfo(providerid.into_param().abi(), configstringbufferlength, ::core::mem::transmute(configstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -83,22 +83,22 @@ pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: ::core::optio
 #[inline]
 pub unsafe fn RegisterDeviceWithManagement<P0, P1, P2>(pszupn: P0, ppszmdmserviceuri: P1, ppzsaccesstoken: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn RegisterDeviceWithManagement ( pszupn : :: windows::core::PCWSTR , ppszmdmserviceuri : :: windows::core::PCWSTR , ppzsaccesstoken : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    RegisterDeviceWithManagement(pszupn.into().abi(), ppszmdmserviceuri.into().abi(), ppzsaccesstoken.into().abi()).ok()
+    RegisterDeviceWithManagement(pszupn.into_param().abi(), ppszmdmserviceuri.into_param().abi(), ppzsaccesstoken.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<P0>(usertoken: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn RegisterDeviceWithManagementUsingAADCredentials ( usertoken : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    RegisterDeviceWithManagementUsingAADCredentials(usertoken.into()).ok()
+    RegisterDeviceWithManagementUsingAADCredentials(usertoken.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -110,30 +110,30 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windo
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<P0>(mdmapplicationid: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn RegisterDeviceWithManagementUsingAADDeviceCredentials2 ( mdmapplicationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.into().abi()).ok()
+    RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn SetDeviceManagementConfigInfo<P0, P1>(providerid: P0, configstring: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn SetDeviceManagementConfigInfo ( providerid : :: windows::core::PCWSTR , configstring : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SetDeviceManagementConfigInfo(providerid.into().abi(), configstring.into().abi()).ok()
+    SetDeviceManagementConfigInfo(providerid.into_param().abi(), configstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetManagedExternally<P0>(ismanagedexternally: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn SetManagedExternally ( ismanagedexternally : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    SetManagedExternally(ismanagedexternally.into()).ok()
+    SetManagedExternally(ismanagedexternally.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -145,10 +145,10 @@ pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::core::Result<(
 #[inline]
 pub unsafe fn UnregisterDeviceWithManagement<P0>(enrollmentid: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "mdmregistration.dll""system" fn UnregisterDeviceWithManagement ( enrollmentid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    UnregisterDeviceWithManagement(enrollmentid.into().abi()).ok()
+    UnregisterDeviceWithManagement(enrollmentid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentAction(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentAction {
+unsafe impl ::windows::core::Interface for ITargetedContentAction {
     type Vtable = ITargetedContentAction_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentAction {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ITargetedContentAction {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentAction {
+unsafe impl ::windows::core::ComInterface for ITargetedContentAction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct ITargetedContentAction_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentAvailabilityChangedEventArgs {
+unsafe impl ::windows::core::Interface for ITargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentAvailabilityChangedEventArgs {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for ITargetedContentAvailabilityChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentAvailabilityChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for ITargetedContentAvailabilityChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
 }
 #[repr(C)]
@@ -47,7 +47,7 @@ pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentChangedEventArgs {
+unsafe impl ::windows::core::Interface for ITargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentChangedEventArgs {
@@ -55,7 +55,7 @@ impl ::core::clone::Clone for ITargetedContentChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for ITargetedContentChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
 #[repr(C)]
@@ -71,7 +71,7 @@ pub struct ITargetedContentChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentCollection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentCollection {
+unsafe impl ::windows::core::Interface for ITargetedContentCollection {
     type Vtable = ITargetedContentCollection_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentCollection {
@@ -79,7 +79,7 @@ impl ::core::clone::Clone for ITargetedContentCollection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentCollection {
+unsafe impl ::windows::core::ComInterface for ITargetedContentCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
 }
 #[repr(C)]
@@ -106,7 +106,7 @@ pub struct ITargetedContentCollection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentContainer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentContainer {
+unsafe impl ::windows::core::Interface for ITargetedContentContainer {
     type Vtable = ITargetedContentContainer_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentContainer {
@@ -114,7 +114,7 @@ impl ::core::clone::Clone for ITargetedContentContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentContainer {
+unsafe impl ::windows::core::ComInterface for ITargetedContentContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
 #[repr(C)]
@@ -133,7 +133,7 @@ pub struct ITargetedContentContainer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentContainerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentContainerStatics {
+unsafe impl ::windows::core::Interface for ITargetedContentContainerStatics {
     type Vtable = ITargetedContentContainerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentContainerStatics {
@@ -141,7 +141,7 @@ impl ::core::clone::Clone for ITargetedContentContainerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentContainerStatics {
+unsafe impl ::windows::core::ComInterface for ITargetedContentContainerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
 }
 #[repr(C)]
@@ -156,7 +156,7 @@ pub struct ITargetedContentContainerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentImage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentImage {
+unsafe impl ::windows::core::Interface for ITargetedContentImage {
     type Vtable = ITargetedContentImage_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentImage {
@@ -164,7 +164,7 @@ impl ::core::clone::Clone for ITargetedContentImage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentImage {
+unsafe impl ::windows::core::ComInterface for ITargetedContentImage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
 #[repr(C)]
@@ -177,7 +177,7 @@ pub struct ITargetedContentImage_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentItem {
+unsafe impl ::windows::core::Interface for ITargetedContentItem {
     type Vtable = ITargetedContentItem_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentItem {
@@ -185,7 +185,7 @@ impl ::core::clone::Clone for ITargetedContentItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentItem {
+unsafe impl ::windows::core::ComInterface for ITargetedContentItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
 }
 #[repr(C)]
@@ -208,7 +208,7 @@ pub struct ITargetedContentItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentItemState(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentItemState {
+unsafe impl ::windows::core::Interface for ITargetedContentItemState {
     type Vtable = ITargetedContentItemState_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentItemState {
@@ -216,7 +216,7 @@ impl ::core::clone::Clone for ITargetedContentItemState {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentItemState {
+unsafe impl ::windows::core::ComInterface for ITargetedContentItemState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
 #[repr(C)]
@@ -229,7 +229,7 @@ pub struct ITargetedContentItemState_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentObject(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentObject {
+unsafe impl ::windows::core::Interface for ITargetedContentObject {
     type Vtable = ITargetedContentObject_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentObject {
@@ -237,7 +237,7 @@ impl ::core::clone::Clone for ITargetedContentObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentObject {
+unsafe impl ::windows::core::ComInterface for ITargetedContentObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
 }
 #[repr(C)]
@@ -252,7 +252,7 @@ pub struct ITargetedContentObject_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for ITargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentStateChangedEventArgs {
@@ -260,7 +260,7 @@ impl ::core::clone::Clone for ITargetedContentStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentStateChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for ITargetedContentStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
 #[repr(C)]
@@ -275,7 +275,7 @@ pub struct ITargetedContentStateChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentSubscription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentSubscription {
+unsafe impl ::windows::core::Interface for ITargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentSubscription {
@@ -283,7 +283,7 @@ impl ::core::clone::Clone for ITargetedContentSubscription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentSubscription {
+unsafe impl ::windows::core::ComInterface for ITargetedContentSubscription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
 }
 #[repr(C)]
@@ -323,7 +323,7 @@ pub struct ITargetedContentSubscription_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentSubscriptionOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentSubscriptionOptions {
+unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentSubscriptionOptions {
@@ -331,7 +331,7 @@ impl ::core::clone::Clone for ITargetedContentSubscriptionOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionOptions {
+unsafe impl ::windows::core::ComInterface for ITargetedContentSubscriptionOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
 #[repr(C)]
@@ -354,7 +354,7 @@ pub struct ITargetedContentSubscriptionOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentSubscriptionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentSubscriptionStatics {
+unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionStatics {
     type Vtable = ITargetedContentSubscriptionStatics_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentSubscriptionStatics {
@@ -362,7 +362,7 @@ impl ::core::clone::Clone for ITargetedContentSubscriptionStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionStatics {
+unsafe impl ::windows::core::ComInterface for ITargetedContentSubscriptionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaddfe80_360d_4916_b53c_7ea27090d02a);
 }
 #[repr(C)]
@@ -378,7 +378,7 @@ pub struct ITargetedContentSubscriptionStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITargetedContentValue(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ITargetedContentValue {
+unsafe impl ::windows::core::Interface for ITargetedContentValue {
     type Vtable = ITargetedContentValue_Vtbl;
 }
 impl ::core::clone::Clone for ITargetedContentValue {
@@ -386,7 +386,7 @@ impl ::core::clone::Clone for ITargetedContentValue {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ITargetedContentValue {
+unsafe impl ::windows::core::ComInterface for ITargetedContentValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
 }
 #[repr(C)]
@@ -447,7 +447,7 @@ impl TargetedContentAction {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).InvokeAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InvokeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -470,11 +470,11 @@ impl ::core::clone::Clone for TargetedContentAction {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentAction {
+unsafe impl ::windows::core::Interface for TargetedContentAction {
     type Vtable = ITargetedContentAction_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentAction {
-    const IID: ::windows::core::GUID = <ITargetedContentAction as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentAction {
+    const IID: ::windows::core::GUID = <ITargetedContentAction as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
@@ -492,7 +492,7 @@ impl TargetedContentAvailabilityChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -515,11 +515,11 @@ impl ::core::clone::Clone for TargetedContentAvailabilityChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentAvailabilityChangedEventArgs {
+unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEventArgs {
-    const IID: ::windows::core::GUID = <ITargetedContentAvailabilityChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentAvailabilityChangedEventArgs {
+    const IID: ::windows::core::GUID = <ITargetedContentAvailabilityChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
@@ -537,14 +537,14 @@ impl TargetedContentChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasPreviousContentExpired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HasPreviousContentExpired)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasPreviousContentExpired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -567,11 +567,11 @@ impl ::core::clone::Clone for TargetedContentChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentChangedEventArgs {
+unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
-    const IID: ::windows::core::GUID = <ITargetedContentChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentChangedEventArgs {
+    const IID: ::windows::core::GUID = <ITargetedContentChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
@@ -587,22 +587,22 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportInteraction)(::windows::core::Vtable::as_raw(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     pub fn ReportCustomInteraction(&self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCustomInteraction)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(custominteractionname)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(custominteractionname)).ok() }
     }
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -611,7 +611,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -620,7 +620,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>();
-            (::windows::core::Vtable::vtable(this).Collections)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Collections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -629,7 +629,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>();
-            (::windows::core::Vtable::vtable(this).Items)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -652,11 +652,11 @@ impl ::core::clone::Clone for TargetedContentCollection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentCollection {
+unsafe impl ::windows::core::Interface for TargetedContentCollection {
     type Vtable = ITargetedContentCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentCollection {
-    const IID: ::windows::core::GUID = <ITargetedContentCollection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentCollection {
+    const IID: ::windows::core::GUID = <ITargetedContentCollection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
@@ -672,7 +672,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -681,28 +681,28 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Availability(&self) -> ::windows::core::Result<TargetedContentAvailability> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentAvailability>();
-            (::windows::core::Vtable::vtable(this).Availability)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Availability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Content(&self) -> ::windows::core::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentCollection>();
-            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelectSingleObject(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentObject> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentObject>();
-            (::windows::core::Vtable::vtable(this).SelectSingleObject)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleObject)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -710,7 +710,7 @@ impl TargetedContentContainer {
     pub fn GetAsync(contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>();
-            (::windows::core::Vtable::vtable(this).GetAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contentid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -738,11 +738,11 @@ impl ::core::clone::Clone for TargetedContentContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentContainer {
+unsafe impl ::windows::core::Interface for TargetedContentContainer {
     type Vtable = ITargetedContentContainer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentContainer {
-    const IID: ::windows::core::GUID = <ITargetedContentContainer as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentContainer {
+    const IID: ::windows::core::GUID = <ITargetedContentContainer as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
@@ -762,7 +762,7 @@ impl TargetedContentFile {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
-            (::windows::core::Vtable::vtable(this).OpenReadAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpenReadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -791,12 +791,12 @@ impl ::core::clone::Clone for TargetedContentFile {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::windows::core::Vtable for TargetedContentFile {
+unsafe impl ::windows::core::Interface for TargetedContentFile {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamReference_Vtbl;
 }
 #[cfg(feature = "Storage_Streams")]
-unsafe impl ::windows::core::Interface for TargetedContentFile {
-    const IID: ::windows::core::GUID = <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentFile {
+    const IID: ::windows::core::GUID = <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for TargetedContentFile {
@@ -805,27 +805,7 @@ impl ::windows::core::RuntimeName for TargetedContentFile {
 #[cfg(feature = "Storage_Streams")]
 ::windows::imp::interface_hierarchy!(TargetedContentFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
-    type Error = ::windows::core::Error;
-    fn try_from(value: TargetedContentFile) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<&TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TargetedContentFile) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<&TargetedContentFile> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TargetedContentFile) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Send for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
@@ -837,24 +817,24 @@ impl TargetedContentImage {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
-        let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
-            (::windows::core::Vtable::vtable(this).OpenReadAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpenReadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Height)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -877,38 +857,18 @@ impl ::core::clone::Clone for TargetedContentImage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentImage {
+unsafe impl ::windows::core::Interface for TargetedContentImage {
     type Vtable = ITargetedContentImage_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentImage {
-    const IID: ::windows::core::GUID = <ITargetedContentImage as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentImage {
+    const IID: ::windows::core::GUID = <ITargetedContentImage as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
 }
 ::windows::imp::interface_hierarchy!(TargetedContentImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
-    type Error = ::windows::core::Error;
-    fn try_from(value: TargetedContentImage) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<&TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TargetedContentImage) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::TryFrom<&TargetedContentImage> for ::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &TargetedContentImage) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentImage {}
 unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -919,22 +879,22 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportInteraction)(::windows::core::Vtable::as_raw(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     pub fn ReportCustomInteraction(&self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCustomInteraction)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(custominteractionname)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(custominteractionname)).ok() }
     }
     pub fn State(&self) -> ::windows::core::Result<TargetedContentItemState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentItemState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -943,7 +903,7 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -952,7 +912,7 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>();
-            (::windows::core::Vtable::vtable(this).Collections)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Collections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -975,11 +935,11 @@ impl ::core::clone::Clone for TargetedContentItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentItem {
+unsafe impl ::windows::core::Interface for TargetedContentItem {
     type Vtable = ITargetedContentItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentItem {
-    const IID: ::windows::core::GUID = <ITargetedContentItem as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentItem {
+    const IID: ::windows::core::GUID = <ITargetedContentItem as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
@@ -995,14 +955,14 @@ impl TargetedContentItemState {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).ShouldDisplay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ShouldDisplay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppInstallationState(&self) -> ::windows::core::Result<TargetedContentAppInstallationState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentAppInstallationState>();
-            (::windows::core::Vtable::vtable(this).AppInstallationState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppInstallationState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1025,11 +985,11 @@ impl ::core::clone::Clone for TargetedContentItemState {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentItemState {
+unsafe impl ::windows::core::Interface for TargetedContentItemState {
     type Vtable = ITargetedContentItemState_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentItemState {
-    const IID: ::windows::core::GUID = <ITargetedContentItemState as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentItemState {
+    const IID: ::windows::core::GUID = <ITargetedContentItemState as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
@@ -1045,28 +1005,28 @@ impl TargetedContentObject {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentObjectKind>();
-            (::windows::core::Vtable::vtable(this).ObjectKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ObjectKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Collection(&self) -> ::windows::core::Result<TargetedContentCollection> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentCollection>();
-            (::windows::core::Vtable::vtable(this).Collection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Collection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Item(&self) -> ::windows::core::Result<TargetedContentItem> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentItem>();
-            (::windows::core::Vtable::vtable(this).Item)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows::core::Result<TargetedContentValue> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentValue>();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1089,11 +1049,11 @@ impl ::core::clone::Clone for TargetedContentObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentObject {
+unsafe impl ::windows::core::Interface for TargetedContentObject {
     type Vtable = ITargetedContentObject_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentObject {
-    const IID: ::windows::core::GUID = <ITargetedContentObject as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentObject {
+    const IID: ::windows::core::GUID = <ITargetedContentObject as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
@@ -1111,7 +1071,7 @@ impl TargetedContentStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1134,11 +1094,11 @@ impl ::core::clone::Clone for TargetedContentStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs {
-    const IID: ::windows::core::GUID = <ITargetedContentStateChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentStateChangedEventArgs {
+    const IID: ::windows::core::GUID = <ITargetedContentStateChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
@@ -1154,7 +1114,7 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1163,7 +1123,7 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>();
-            (::windows::core::Vtable::vtable(this).GetContentContainerAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetContentContainerAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1172,14 +1132,14 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ContentChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContentChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContentChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveContentChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1187,14 +1147,14 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AvailabilityChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailabilityChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAvailabilityChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1202,27 +1162,27 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStateChanged)(::windows::core::Vtable::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAsync(subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>();
-            (::windows::core::Vtable::vtable(this).GetAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(subscriptionid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subscriptionid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetOptions(subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentSubscriptionOptions>();
-            (::windows::core::Vtable::vtable(this).GetOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(subscriptionid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetOptions)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(subscriptionid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1250,11 +1210,11 @@ impl ::core::clone::Clone for TargetedContentSubscription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentSubscription {
+unsafe impl ::windows::core::Interface for TargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentSubscription {
-    const IID: ::windows::core::GUID = <ITargetedContentSubscription as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentSubscription {
+    const IID: ::windows::core::GUID = <ITargetedContentSubscription as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
@@ -1270,19 +1230,19 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).SubscriptionId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SubscriptionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AllowPartialContentAvailability(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AllowPartialContentAvailability)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AllowPartialContentAvailability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowPartialContentAvailability(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAllowPartialContentAvailability)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowPartialContentAvailability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1290,7 +1250,7 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).CloudQueryParameters)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CloudQueryParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1299,12 +1259,12 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).LocalFilters)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LocalFilters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Update(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for TargetedContentSubscriptionOptions {
@@ -1326,11 +1286,11 @@ impl ::core::clone::Clone for TargetedContentSubscriptionOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentSubscriptionOptions {
+unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
-    const IID: ::windows::core::GUID = <ITargetedContentSubscriptionOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentSubscriptionOptions {
+    const IID: ::windows::core::GUID = <ITargetedContentSubscriptionOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
@@ -1346,21 +1306,21 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentValueKind>();
-            (::windows::core::Vtable::vtable(this).ValueKind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ValueKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn String(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).String)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).String)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1369,21 +1329,21 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).Uri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Number(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Number)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Number)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Boolean(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Boolean)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Boolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1392,21 +1352,21 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentFile>();
-            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImageFile(&self) -> ::windows::core::Result<TargetedContentImage> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentImage>();
-            (::windows::core::Vtable::vtable(this).ImageFile)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ImageFile)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Action(&self) -> ::windows::core::Result<TargetedContentAction> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<TargetedContentAction>();
-            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1415,7 +1375,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Strings)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Strings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1424,7 +1384,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>();
-            (::windows::core::Vtable::vtable(this).Uris)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Uris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1433,7 +1393,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<f64>>();
-            (::windows::core::Vtable::vtable(this).Numbers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Numbers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1442,7 +1402,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<bool>>();
-            (::windows::core::Vtable::vtable(this).Booleans)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Booleans)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -1451,7 +1411,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>();
-            (::windows::core::Vtable::vtable(this).Files)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1460,7 +1420,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>();
-            (::windows::core::Vtable::vtable(this).ImageFiles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ImageFiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1469,7 +1429,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>();
-            (::windows::core::Vtable::vtable(this).Actions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Actions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1492,11 +1452,11 @@ impl ::core::clone::Clone for TargetedContentValue {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for TargetedContentValue {
+unsafe impl ::windows::core::Interface for TargetedContentValue {
     type Vtable = ITargetedContentValue_Vtbl;
 }
-unsafe impl ::windows::core::Interface for TargetedContentValue {
-    const IID: ::windows::core::GUID = <ITargetedContentValue as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for TargetedContentValue {
+    const IID: ::windows::core::GUID = <ITargetedContentValue as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";

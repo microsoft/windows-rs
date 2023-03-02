@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositorController(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICompositorController {
+unsafe impl ::windows::core::Interface for ICompositorController {
     type Vtable = ICompositorController_Vtbl;
 }
 impl ::core::clone::Clone for ICompositorController {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ICompositorController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICompositorController {
+unsafe impl ::windows::core::ComInterface for ICompositorController {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
 #[repr(C)]
@@ -45,19 +45,19 @@ impl CompositorController {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Compositor>();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Commit(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Commit)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Commit)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -65,7 +65,7 @@ impl CompositorController {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).EnsurePreviousCommitCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EnsurePreviousCommitCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -74,14 +74,14 @@ impl CompositorController {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CommitNeeded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CommitNeeded)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommitNeeded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCommitNeeded)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommitNeeded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for CompositorController {
@@ -103,38 +103,18 @@ impl ::core::clone::Clone for CompositorController {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for CompositorController {
+unsafe impl ::windows::core::Interface for CompositorController {
     type Vtable = ICompositorController_Vtbl;
 }
-unsafe impl ::windows::core::Interface for CompositorController {
-    const IID: ::windows::core::GUID = <ICompositorController as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for CompositorController {
+    const IID: ::windows::core::GUID = <ICompositorController as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
 }
 ::windows::imp::interface_hierarchy!(CompositorController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<CompositorController> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositorController) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&CompositorController> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositorController) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&CompositorController> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositorController) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::super::Foundation::IClosable> for CompositorController {}
 unsafe impl ::core::marker::Send for CompositorController {}
 unsafe impl ::core::marker::Sync for CompositorController {}
 #[cfg(feature = "implement")]

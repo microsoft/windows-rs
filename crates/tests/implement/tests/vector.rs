@@ -1,6 +1,5 @@
 #![allow(non_snake_case)]
 
-use std::convert::TryInto;
 use std::sync::RwLock;
 use windows::core::*;
 use windows::Foundation::Collections::*;
@@ -199,11 +198,11 @@ fn IndexOf() -> Result<()> {
 
     let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
     let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();
-    assert_eq!(v.IndexOf(&uri.cast()?, &mut index)?, true);
+    assert_eq!(v.IndexOf(&uri.cast::<IStringable>()?, &mut index)?, true);
     assert_eq!(index, 0);
     assert_eq!(v.IndexOf(None, &mut index)?, true);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(&Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?, &mut index)?, false);
+    assert_eq!(v.IndexOf(&Uri::CreateUri(&HSTRING::from("http://test/"))?.cast::<IStringable>()?, &mut index)?, false);
 
     Ok(())
 }
@@ -224,7 +223,7 @@ fn test() -> Result<()> {
     assert_eq!(30, v.GetAt(2)?);
     assert!(v.GetAt(20).is_err());
     assert_eq!(3, v.Size()?);
-    let c: IInspectable = (&v).into();
+    let c: &IInspectable = v.can_into();
     assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.Collections.IVector"); // TODO: needs to have `1<Int32>
 
     let mut index = 0;
@@ -247,7 +246,7 @@ fn test() -> Result<()> {
     assert_eq!(2, index);
     assert_eq!(false, v.IndexOf(&HSTRING::from("123"), &mut index)?);
 
-    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.try_into().unwrap())]).into();
+    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.cast()?), Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.cast()?), Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.cast()?)]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

@@ -40,7 +40,7 @@ impl IADesktopP2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IADesktopP2 as ::windows::core::Interface>::IID
+        iid == &<IADesktopP2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
@@ -82,7 +82,7 @@ impl IActiveDesktopP_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveDesktopP as ::windows::core::Interface>::IID
+        iid == &<IActiveDesktopP as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -103,7 +103,7 @@ impl IBriefcaseInitiator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsMonikerInBriefcase: IsMonikerInBriefcase::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBriefcaseInitiator as ::windows::core::Interface>::IID
+        iid == &<IBriefcaseInitiator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -161,7 +161,7 @@ impl IEmptyVolumeCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache as ::windows::core::Interface>::IID
+        iid == &<IEmptyVolumeCache as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -182,7 +182,7 @@ impl IEmptyVolumeCache2_Vtbl {
         Self { base__: IEmptyVolumeCache_Vtbl::new::<Identity, Impl, OFFSET>(), InitializeEx: InitializeEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache2 as ::windows::core::Interface>::IID || iid == &<IEmptyVolumeCache as ::windows::core::Interface>::IID
+        iid == &<IEmptyVolumeCache2 as ::windows::core::ComInterface>::IID || iid == &<IEmptyVolumeCache as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
@@ -210,7 +210,7 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEmptyVolumeCacheCallBack as ::windows::core::Interface>::IID
+        iid == &<IEmptyVolumeCacheCallBack as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -247,7 +247,7 @@ impl IReconcilableObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReconcilableObject as ::windows::core::Interface>::IID
+        iid == &<IReconcilableObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"implement\"`*"]
@@ -275,6 +275,6 @@ impl IReconcileInitiator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReconcileInitiator as ::windows::core::Interface>::IID
+        iid == &<IReconcileInitiator as ::windows::core::ComInterface>::IID
     }
 }

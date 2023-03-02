@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClassicAppManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IClassicAppManagerStatics {
+unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
     type Vtable = IClassicAppManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IClassicAppManagerStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IClassicAppManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
+unsafe impl ::windows::core::ComInterface for IClassicAppManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 }
 #[repr(C)]
@@ -21,7 +21,7 @@ pub struct IClassicAppManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInstalledClassicAppInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInstalledClassicAppInfo {
+unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_Vtbl;
 }
 impl ::core::clone::Clone for IInstalledClassicAppInfo {
@@ -29,7 +29,7 @@ impl ::core::clone::Clone for IInstalledClassicAppInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
+unsafe impl ::windows::core::ComInterface for IInstalledClassicAppInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 #[repr(C)]
@@ -45,7 +45,7 @@ impl ClassicAppManager {
     pub fn FindInstalledApp(appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo> {
         Self::IClassicAppManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<InstalledClassicAppInfo>();
-            (::windows::core::Vtable::vtable(this).FindInstalledApp)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -65,14 +65,14 @@ impl InstalledClassicAppInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayVersion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -95,11 +95,11 @@ impl ::core::clone::Clone for InstalledClassicAppInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InstalledClassicAppInfo {
+unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
-    const IID: ::windows::core::GUID = <IInstalledClassicAppInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InstalledClassicAppInfo {
+    const IID: ::windows::core::GUID = <IInstalledClassicAppInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";

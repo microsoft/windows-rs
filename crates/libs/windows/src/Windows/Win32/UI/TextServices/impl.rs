@@ -64,7 +64,7 @@ impl IAccClientDocMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccClientDocMgr as ::windows::core::Interface>::IID
+        iid == &<IAccClientDocMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -134,7 +134,7 @@ impl IAccDictionary_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccDictionary as ::windows::core::Interface>::IID
+        iid == &<IAccDictionary as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -169,7 +169,7 @@ impl IAccServerDocMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccServerDocMgr as ::windows::core::Interface>::IID
+        iid == &<IAccServerDocMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -259,7 +259,7 @@ impl IAccStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccStore as ::windows::core::Interface>::IID
+        iid == &<IAccStore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -389,7 +389,7 @@ impl IAnchor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAnchor as ::windows::core::Interface>::IID
+        iid == &<IAnchor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -407,7 +407,7 @@ impl IClonableWrapper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CloneNewWrapper: CloneNewWrapper::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IClonableWrapper as ::windows::core::Interface>::IID
+        iid == &<IClonableWrapper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -428,7 +428,7 @@ impl ICoCreateLocally_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CoCreateLocally: CoCreateLocally::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoCreateLocally as ::windows::core::Interface>::IID
+        iid == &<ICoCreateLocally as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -449,7 +449,7 @@ impl ICoCreatedLocally_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LocalInit: LocalInit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoCreatedLocally as ::windows::core::Interface>::IID
+        iid == &<ICoCreatedLocally as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -483,7 +483,7 @@ impl IDocWrap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDocWrap as ::windows::core::Interface>::IID
+        iid == &<IDocWrap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -531,7 +531,7 @@ impl IEnumITfCompositionView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumITfCompositionView as ::windows::core::Interface>::IID
+        iid == &<IEnumITfCompositionView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -579,7 +579,7 @@ impl IEnumSpeechCommands_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumSpeechCommands as ::windows::core::Interface>::IID
+        iid == &<IEnumSpeechCommands as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -627,7 +627,7 @@ impl IEnumTfCandidates_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfCandidates as ::windows::core::Interface>::IID
+        iid == &<IEnumTfCandidates as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -675,7 +675,7 @@ impl IEnumTfContextViews_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfContextViews as ::windows::core::Interface>::IID
+        iid == &<IEnumTfContextViews as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -723,7 +723,7 @@ impl IEnumTfContexts_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfContexts as ::windows::core::Interface>::IID
+        iid == &<IEnumTfContexts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -771,7 +771,7 @@ impl IEnumTfDisplayAttributeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfDisplayAttributeInfo as ::windows::core::Interface>::IID
+        iid == &<IEnumTfDisplayAttributeInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -819,7 +819,7 @@ impl IEnumTfDocumentMgrs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfDocumentMgrs as ::windows::core::Interface>::IID
+        iid == &<IEnumTfDocumentMgrs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -867,7 +867,7 @@ impl IEnumTfFunctionProviders_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfFunctionProviders as ::windows::core::Interface>::IID
+        iid == &<IEnumTfFunctionProviders as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -915,7 +915,7 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfInputProcessorProfiles as ::windows::core::Interface>::IID
+        iid == &<IEnumTfInputProcessorProfiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -963,7 +963,7 @@ impl IEnumTfLangBarItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfLangBarItems as ::windows::core::Interface>::IID
+        iid == &<IEnumTfLangBarItems as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1014,7 +1014,7 @@ impl IEnumTfLanguageProfiles_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfLanguageProfiles as ::windows::core::Interface>::IID
+        iid == &<IEnumTfLanguageProfiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1062,7 +1062,7 @@ impl IEnumTfLatticeElements_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfLatticeElements as ::windows::core::Interface>::IID
+        iid == &<IEnumTfLatticeElements as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1110,7 +1110,7 @@ impl IEnumTfProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfProperties as ::windows::core::Interface>::IID
+        iid == &<IEnumTfProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1161,7 +1161,7 @@ impl IEnumTfPropertyValue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfPropertyValue as ::windows::core::Interface>::IID
+        iid == &<IEnumTfPropertyValue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1209,7 +1209,7 @@ impl IEnumTfRanges_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfRanges as ::windows::core::Interface>::IID
+        iid == &<IEnumTfRanges as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1257,7 +1257,7 @@ impl IEnumTfUIElements_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumTfUIElements as ::windows::core::Interface>::IID
+        iid == &<IEnumTfUIElements as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1275,7 +1275,7 @@ impl IInternalDocWrap_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRevoke: NotifyRevoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInternalDocWrap as ::windows::core::Interface>::IID
+        iid == &<IInternalDocWrap as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1309,7 +1309,7 @@ impl ISpeechCommandProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpeechCommandProvider as ::windows::core::Interface>::IID
+        iid == &<ISpeechCommandProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1580,7 +1580,7 @@ impl ITextStoreACP_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACP as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACP as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1838,7 +1838,7 @@ impl ITextStoreACP2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACP2 as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACP2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1859,7 +1859,7 @@ impl ITextStoreACPEx_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACPEx as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACPEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1910,7 +1910,7 @@ impl ITextStoreACPServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACPServices as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACPServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1980,7 +1980,7 @@ impl ITextStoreACPSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACPSink as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACPSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -1998,7 +1998,7 @@ impl ITextStoreACPSinkEx_Vtbl {
         Self { base__: ITextStoreACPSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreACPSinkEx as ::windows::core::Interface>::IID || iid == &<ITextStoreACPSink as ::windows::core::Interface>::IID
+        iid == &<ITextStoreACPSinkEx as ::windows::core::ComInterface>::IID || iid == &<ITextStoreACPSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2270,7 +2270,7 @@ impl ITextStoreAnchor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreAnchor as ::windows::core::Interface>::IID
+        iid == &<ITextStoreAnchor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2291,7 +2291,7 @@ impl ITextStoreAnchorEx_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreAnchorEx as ::windows::core::Interface>::IID
+        iid == &<ITextStoreAnchorEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2361,7 +2361,7 @@ impl ITextStoreAnchorSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreAnchorSink as ::windows::core::Interface>::IID
+        iid == &<ITextStoreAnchorSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2379,7 +2379,7 @@ impl ITextStoreSinkAnchorEx_Vtbl {
         Self { base__: ITextStoreAnchorSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoreSinkAnchorEx as ::windows::core::Interface>::IID || iid == &<ITextStoreAnchorSink as ::windows::core::Interface>::IID
+        iid == &<ITextStoreSinkAnchorEx as ::windows::core::ComInterface>::IID || iid == &<ITextStoreAnchorSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2400,7 +2400,7 @@ impl ITfActiveLanguageProfileNotifySink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfActiveLanguageProfileNotifySink as ::windows::core::Interface>::IID
+        iid == &<ITfActiveLanguageProfileNotifySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2460,7 +2460,7 @@ impl ITfCandidateList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCandidateList as ::windows::core::Interface>::IID
+        iid == &<ITfCandidateList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2569,7 +2569,7 @@ impl ITfCandidateListUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElement as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfCandidateListUIElement as ::windows::core::ComInterface>::IID || iid == &<ITfUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2607,7 +2607,7 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElementBehavior as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID || iid == &<ITfCandidateListUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfCandidateListUIElementBehavior as ::windows::core::ComInterface>::IID || iid == &<ITfUIElement as ::windows::core::ComInterface>::IID || iid == &<ITfCandidateListUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2647,7 +2647,7 @@ impl ITfCandidateString_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCandidateString as ::windows::core::Interface>::IID
+        iid == &<ITfCandidateString as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2804,7 +2804,7 @@ impl ITfCategoryMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCategoryMgr as ::windows::core::Interface>::IID
+        iid == &<ITfCategoryMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2832,7 +2832,7 @@ impl ITfCleanupContextDurationSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCleanupContextDurationSink as ::windows::core::Interface>::IID
+        iid == &<ITfCleanupContextDurationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2850,7 +2850,7 @@ impl ITfCleanupContextSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCleanupContext: OnCleanupContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCleanupContextSink as ::windows::core::Interface>::IID
+        iid == &<ITfCleanupContextSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2874,7 +2874,7 @@ impl ITfClientId_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClientId: GetClientId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfClientId as ::windows::core::Interface>::IID
+        iid == &<ITfClientId as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2911,7 +2911,7 @@ impl ITfCompartment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCompartment as ::windows::core::Interface>::IID
+        iid == &<ITfCompartment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -2929,7 +2929,7 @@ impl ITfCompartmentEventSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCompartmentEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfCompartmentEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2979,7 +2979,7 @@ impl ITfCompartmentMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCompartmentMgr as ::windows::core::Interface>::IID
+        iid == &<ITfCompartmentMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3027,7 +3027,7 @@ impl ITfComposition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfComposition as ::windows::core::Interface>::IID
+        iid == &<ITfComposition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3045,7 +3045,7 @@ impl ITfCompositionSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCompositionTerminated: OnCompositionTerminated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCompositionSink as ::windows::core::Interface>::IID
+        iid == &<ITfCompositionSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3085,7 +3085,7 @@ impl ITfCompositionView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCompositionView as ::windows::core::Interface>::IID
+        iid == &<ITfCompositionView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3113,7 +3113,7 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfConfigureSystemKeystrokeFeed as ::windows::core::Interface>::IID
+        iid == &<ITfConfigureSystemKeystrokeFeed as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3313,7 +3313,7 @@ impl ITfContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContext as ::windows::core::Interface>::IID
+        iid == &<ITfContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3379,7 +3379,7 @@ impl ITfContextComposition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextComposition as ::windows::core::Interface>::IID
+        iid == &<ITfContextComposition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3448,7 +3448,7 @@ impl ITfContextKeyEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextKeyEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfContextKeyEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3537,7 +3537,7 @@ impl ITfContextOwner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextOwner as ::windows::core::Interface>::IID
+        iid == &<ITfContextOwner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3555,7 +3555,7 @@ impl ITfContextOwnerCompositionServices_Vtbl {
         Self { base__: ITfContextComposition_Vtbl::new::<Identity, Impl, OFFSET>(), TerminateComposition: TerminateComposition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextOwnerCompositionServices as ::windows::core::Interface>::IID || iid == &<ITfContextComposition as ::windows::core::Interface>::IID
+        iid == &<ITfContextOwnerCompositionServices as ::windows::core::ComInterface>::IID || iid == &<ITfContextComposition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3599,7 +3599,7 @@ impl ITfContextOwnerCompositionSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextOwnerCompositionSink as ::windows::core::Interface>::IID
+        iid == &<ITfContextOwnerCompositionSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3671,7 +3671,7 @@ impl ITfContextOwnerServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextOwnerServices as ::windows::core::Interface>::IID
+        iid == &<ITfContextOwnerServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3734,7 +3734,7 @@ impl ITfContextView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfContextView as ::windows::core::Interface>::IID
+        iid == &<ITfContextView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3777,7 +3777,7 @@ impl ITfCreatePropertyStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfCreatePropertyStore as ::windows::core::Interface>::IID
+        iid == &<ITfCreatePropertyStore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3841,7 +3841,7 @@ impl ITfDisplayAttributeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfDisplayAttributeInfo as ::windows::core::Interface>::IID
+        iid == &<ITfDisplayAttributeInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3882,7 +3882,7 @@ impl ITfDisplayAttributeMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfDisplayAttributeMgr as ::windows::core::Interface>::IID
+        iid == &<ITfDisplayAttributeMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3900,7 +3900,7 @@ impl ITfDisplayAttributeNotifySink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdateInfo: OnUpdateInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfDisplayAttributeNotifySink as ::windows::core::Interface>::IID
+        iid == &<ITfDisplayAttributeNotifySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -3940,7 +3940,7 @@ impl ITfDisplayAttributeProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfDisplayAttributeProvider as ::windows::core::Interface>::IID
+        iid == &<ITfDisplayAttributeProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4014,7 +4014,7 @@ impl ITfDocumentMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfDocumentMgr as ::windows::core::Interface>::IID
+        iid == &<ITfDocumentMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4057,7 +4057,7 @@ impl ITfEditRecord_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfEditRecord as ::windows::core::Interface>::IID
+        iid == &<ITfEditRecord as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4075,7 +4075,7 @@ impl ITfEditSession_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoEditSession: DoEditSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfEditSession as ::windows::core::Interface>::IID
+        iid == &<ITfEditSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4103,7 +4103,7 @@ impl ITfEditTransactionSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfEditTransactionSink as ::windows::core::Interface>::IID
+        iid == &<ITfEditTransactionSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4131,7 +4131,7 @@ impl ITfFnAdviseText_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnAdviseText as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnAdviseText as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4149,7 +4149,7 @@ impl ITfFnBalloon_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnBalloon as ::windows::core::Interface>::IID
+        iid == &<ITfFnBalloon as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4170,7 +4170,7 @@ impl ITfFnConfigure_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnConfigure as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnConfigure as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4191,7 +4191,7 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnConfigureRegisterEudc as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnConfigureRegisterEudc as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4212,7 +4212,7 @@ impl ITfFnConfigureRegisterWord_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnConfigureRegisterWord as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnConfigureRegisterWord as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4230,7 +4230,7 @@ impl ITfFnCustomSpeechCommand_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), SetSpeechCommandProvider: SetSpeechCommandProvider::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnCustomSpeechCommand as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnCustomSpeechCommand as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4254,7 +4254,7 @@ impl ITfFnGetLinguisticAlternates_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), GetAlternates: GetAlternates::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnGetLinguisticAlternates as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnGetLinguisticAlternates as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4272,7 +4272,7 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), GetLayout: GetLayout::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnGetPreferredTouchKeyboardLayout as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnGetPreferredTouchKeyboardLayout as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4296,7 +4296,7 @@ impl ITfFnGetSAPIObject_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Get: Get::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnGetSAPIObject as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnGetSAPIObject as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4317,7 +4317,7 @@ impl ITfFnLMInternal_Vtbl {
         Self { base__: ITfFnLMProcessor_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessLattice: ProcessLattice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnLMInternal as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID || iid == &<ITfFnLMProcessor as ::windows::core::Interface>::IID
+        iid == &<ITfFnLMInternal as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID || iid == &<ITfFnLMProcessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4401,7 +4401,7 @@ impl ITfFnLMProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnLMProcessor as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnLMProcessor as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4438,7 +4438,7 @@ impl ITfFnLangProfileUtil_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnLangProfileUtil as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnLangProfileUtil as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4469,7 +4469,7 @@ impl ITfFnPlayBack_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnPlayBack as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnPlayBack as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4503,7 +4503,7 @@ impl ITfFnPropertyUIStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnPropertyUIStatus as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnPropertyUIStatus as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4547,7 +4547,7 @@ impl ITfFnReconversion_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnReconversion as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnReconversion as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4581,7 +4581,7 @@ impl ITfFnSearchCandidateProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnSearchCandidateProvider as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnSearchCandidateProvider as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4602,7 +4602,7 @@ impl ITfFnShowHelp_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFnShowHelp as ::windows::core::Interface>::IID || iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFnShowHelp as ::windows::core::ComInterface>::IID || iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4626,7 +4626,7 @@ impl ITfFunction_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFunction as ::windows::core::Interface>::IID
+        iid == &<ITfFunction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4679,7 +4679,7 @@ impl ITfFunctionProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfFunctionProvider as ::windows::core::Interface>::IID
+        iid == &<ITfFunctionProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4697,7 +4697,7 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfileActivationSink as ::windows::core::Interface>::IID
+        iid == &<ITfInputProcessorProfileActivationSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4790,7 +4790,7 @@ impl ITfInputProcessorProfileMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfileMgr as ::windows::core::Interface>::IID
+        iid == &<ITfInputProcessorProfileMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -4817,7 +4817,7 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfileSubstituteLayout as ::windows::core::Interface>::IID
+        iid == &<ITfInputProcessorProfileSubstituteLayout as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4990,7 +4990,7 @@ impl ITfInputProcessorProfiles_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfiles as ::windows::core::Interface>::IID
+        iid == &<ITfInputProcessorProfiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5014,7 +5014,7 @@ impl ITfInputProcessorProfilesEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfilesEx as ::windows::core::Interface>::IID || iid == &<ITfInputProcessorProfiles as ::windows::core::Interface>::IID
+        iid == &<ITfInputProcessorProfilesEx as ::windows::core::ComInterface>::IID || iid == &<ITfInputProcessorProfiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -5081,7 +5081,7 @@ impl ITfInputScope_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputScope as ::windows::core::Interface>::IID
+        iid == &<ITfInputScope as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5108,7 +5108,7 @@ impl ITfInputScope2_Vtbl {
         Self { base__: ITfInputScope_Vtbl::new::<Identity, Impl, OFFSET>(), EnumWordList: EnumWordList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInputScope2 as ::windows::core::Interface>::IID || iid == &<ITfInputScope as ::windows::core::Interface>::IID
+        iid == &<ITfInputScope2 as ::windows::core::ComInterface>::IID || iid == &<ITfInputScope as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5151,7 +5151,7 @@ impl ITfInsertAtSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfInsertAtSelection as ::windows::core::Interface>::IID
+        iid == &<ITfInsertAtSelection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5221,7 +5221,7 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfIntegratableCandidateListUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfIntegratableCandidateListUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5310,7 +5310,7 @@ impl ITfKeyEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfKeyEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfKeyEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5341,7 +5341,7 @@ impl ITfKeyTraceEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfKeyTraceEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfKeyTraceEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5510,7 +5510,7 @@ impl ITfKeystrokeMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfKeystrokeMgr as ::windows::core::Interface>::IID
+        iid == &<ITfKeystrokeMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5553,7 +5553,7 @@ impl ITfLMLattice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLMLattice as ::windows::core::Interface>::IID
+        iid == &<ITfLMLattice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5618,7 +5618,7 @@ impl ITfLangBarEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5675,7 +5675,7 @@ impl ITfLangBarItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5725,7 +5725,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemBalloon as ::windows::core::Interface>::IID || iid == &<ITfLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemBalloon as ::windows::core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -5769,7 +5769,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmap as ::windows::core::Interface>::IID || iid == &<ITfLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemBitmap as ::windows::core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -5840,7 +5840,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmapButton as ::windows::core::Interface>::IID || iid == &<ITfLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemBitmapButton as ::windows::core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -5904,7 +5904,7 @@ impl ITfLangBarItemButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemButton as ::windows::core::Interface>::IID || iid == &<ITfLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemButton as ::windows::core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6029,7 +6029,7 @@ impl ITfLangBarItemMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemMgr as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6047,7 +6047,7 @@ impl ITfLangBarItemSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdate: OnUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarItemSink as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarItemSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6139,7 +6139,7 @@ impl ITfLangBarMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLangBarMgr as ::windows::core::Interface>::IID
+        iid == &<ITfLangBarMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6176,7 +6176,7 @@ impl ITfLanguageProfileNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfLanguageProfileNotifySink as ::windows::core::Interface>::IID
+        iid == &<ITfLanguageProfileNotifySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6204,7 +6204,7 @@ impl ITfMSAAControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMSAAControl as ::windows::core::Interface>::IID
+        iid == &<ITfMSAAControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -6225,7 +6225,7 @@ impl ITfMenu_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddMenuItem: AddMenuItem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMenu as ::windows::core::Interface>::IID
+        iid == &<ITfMenu as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -6270,7 +6270,7 @@ impl ITfMessagePump_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMessagePump as ::windows::core::Interface>::IID
+        iid == &<ITfMessagePump as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6297,7 +6297,7 @@ impl ITfMouseSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMouseEvent: OnMouseEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMouseSink as ::windows::core::Interface>::IID
+        iid == &<ITfMouseSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6331,7 +6331,7 @@ impl ITfMouseTracker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMouseTracker as ::windows::core::Interface>::IID
+        iid == &<ITfMouseTracker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6365,7 +6365,7 @@ impl ITfMouseTrackerACP_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfMouseTrackerACP as ::windows::core::Interface>::IID
+        iid == &<ITfMouseTrackerACP as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6392,7 +6392,7 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadProperty: LoadProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfPersistentPropertyLoaderACP as ::windows::core::Interface>::IID
+        iid == &<ITfPersistentPropertyLoaderACP as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6410,7 +6410,7 @@ impl ITfPreservedKeyNotifySink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdated: OnUpdated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfPreservedKeyNotifySink as ::windows::core::Interface>::IID
+        iid == &<ITfPreservedKeyNotifySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6455,7 +6455,7 @@ impl ITfProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfProperty as ::windows::core::Interface>::IID || iid == &<ITfReadOnlyProperty as ::windows::core::Interface>::IID
+        iid == &<ITfProperty as ::windows::core::ComInterface>::IID || iid == &<ITfReadOnlyProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6589,7 +6589,7 @@ impl ITfPropertyStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfPropertyStore as ::windows::core::Interface>::IID
+        iid == &<ITfPropertyStore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6616,7 +6616,7 @@ impl ITfQueryEmbedded_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryInsertEmbedded: QueryInsertEmbedded::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfQueryEmbedded as ::windows::core::Interface>::IID
+        iid == &<ITfQueryEmbedded as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6859,7 +6859,7 @@ impl ITfRange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfRange as ::windows::core::Interface>::IID
+        iid == &<ITfRange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -6890,7 +6890,7 @@ impl ITfRangeACP_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfRangeACP as ::windows::core::Interface>::IID || iid == &<ITfRange as ::windows::core::Interface>::IID
+        iid == &<ITfRangeACP as ::windows::core::ComInterface>::IID || iid == &<ITfRange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -6908,7 +6908,7 @@ impl ITfRangeBackup_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Restore: Restore::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfRangeBackup as ::windows::core::Interface>::IID
+        iid == &<ITfRangeBackup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -6971,7 +6971,7 @@ impl ITfReadOnlyProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfReadOnlyProperty as ::windows::core::Interface>::IID
+        iid == &<ITfReadOnlyProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7066,7 +7066,7 @@ impl ITfReadingInformationUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfReadingInformationUIElement as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfReadingInformationUIElement as ::windows::core::ComInterface>::IID || iid == &<ITfUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7090,7 +7090,7 @@ impl ITfReverseConversion_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoReverseConversion: DoReverseConversion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfReverseConversion as ::windows::core::Interface>::IID
+        iid == &<ITfReverseConversion as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7130,7 +7130,7 @@ impl ITfReverseConversionList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfReverseConversionList as ::windows::core::Interface>::IID
+        iid == &<ITfReverseConversionList as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7154,7 +7154,7 @@ impl ITfReverseConversionMgr_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetReverseConversion: GetReverseConversion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfReverseConversionMgr as ::windows::core::Interface>::IID
+        iid == &<ITfReverseConversionMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7188,7 +7188,7 @@ impl ITfSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSource as ::windows::core::Interface>::IID
+        iid == &<ITfSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7216,7 +7216,7 @@ impl ITfSourceSingle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSourceSingle as ::windows::core::Interface>::IID
+        iid == &<ITfSourceSingle as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7254,7 +7254,7 @@ impl ITfSpeechUIServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSpeechUIServer as ::windows::core::Interface>::IID
+        iid == &<ITfSpeechUIServer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7272,7 +7272,7 @@ impl ITfStatusSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfStatusSink as ::windows::core::Interface>::IID
+        iid == &<ITfStatusSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7306,7 +7306,7 @@ impl ITfSystemDeviceTypeLangBarItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSystemDeviceTypeLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfSystemDeviceTypeLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -7337,7 +7337,7 @@ impl ITfSystemLangBarItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSystemLangBarItem as ::windows::core::Interface>::IID
+        iid == &<ITfSystemLangBarItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7365,7 +7365,7 @@ impl ITfSystemLangBarItemSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSystemLangBarItemSink as ::windows::core::Interface>::IID
+        iid == &<ITfSystemLangBarItemSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7399,7 +7399,7 @@ impl ITfSystemLangBarItemText_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfSystemLangBarItemText as ::windows::core::Interface>::IID
+        iid == &<ITfSystemLangBarItemText as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7417,7 +7417,7 @@ impl ITfTextEditSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEndEdit: OnEndEdit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTextEditSink as ::windows::core::Interface>::IID
+        iid == &<ITfTextEditSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7445,7 +7445,7 @@ impl ITfTextInputProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTextInputProcessor as ::windows::core::Interface>::IID
+        iid == &<ITfTextInputProcessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7463,7 +7463,7 @@ impl ITfTextInputProcessorEx_Vtbl {
         Self { base__: ITfTextInputProcessor_Vtbl::new::<Identity, Impl, OFFSET>(), ActivateEx: ActivateEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTextInputProcessorEx as ::windows::core::Interface>::IID || iid == &<ITfTextInputProcessor as ::windows::core::Interface>::IID
+        iid == &<ITfTextInputProcessorEx as ::windows::core::ComInterface>::IID || iid == &<ITfTextInputProcessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7481,7 +7481,7 @@ impl ITfTextLayoutSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTextLayoutSink as ::windows::core::Interface>::IID
+        iid == &<ITfTextLayoutSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7509,7 +7509,7 @@ impl ITfThreadFocusSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfThreadFocusSink as ::windows::core::Interface>::IID
+        iid == &<ITfThreadFocusSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7657,7 +7657,7 @@ impl ITfThreadMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfThreadMgr as ::windows::core::Interface>::IID
+        iid == &<ITfThreadMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7826,7 +7826,7 @@ impl ITfThreadMgr2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfThreadMgr2 as ::windows::core::Interface>::IID
+        iid == &<ITfThreadMgr2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -7875,7 +7875,7 @@ impl ITfThreadMgrEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfThreadMgrEventSink as ::windows::core::Interface>::IID
+        iid == &<ITfThreadMgrEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7912,7 +7912,7 @@ impl ITfThreadMgrEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfThreadMgrEx as ::windows::core::Interface>::IID || iid == &<ITfThreadMgr as ::windows::core::Interface>::IID
+        iid == &<ITfThreadMgrEx as ::windows::core::ComInterface>::IID || iid == &<ITfThreadMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7939,7 +7939,7 @@ impl ITfToolTipUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, Impl, OFFSET>(), GetString: GetString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfToolTipUIElement as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfToolTipUIElement as ::windows::core::ComInterface>::IID || iid == &<ITfUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7969,7 +7969,7 @@ impl ITfTransitoryExtensionSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTransitoryExtensionSink as ::windows::core::Interface>::IID
+        iid == &<ITfTransitoryExtensionSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7996,7 +7996,7 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocumentMgr: GetDocumentMgr::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfTransitoryExtensionUIElement as ::windows::core::Interface>::IID || iid == &<ITfUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfTransitoryExtensionUIElement as ::windows::core::ComInterface>::IID || iid == &<ITfUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8059,7 +8059,7 @@ impl ITfUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfUIElement as ::windows::core::Interface>::IID
+        iid == &<ITfUIElement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8123,7 +8123,7 @@ impl ITfUIElementMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfUIElementMgr as ::windows::core::Interface>::IID
+        iid == &<ITfUIElementMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8161,7 +8161,7 @@ impl ITfUIElementSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITfUIElementSink as ::windows::core::Interface>::IID
+        iid == &<ITfUIElementSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8220,7 +8220,7 @@ impl IUIManagerEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIManagerEventSink as ::windows::core::Interface>::IID
+        iid == &<IUIManagerEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
@@ -8293,6 +8293,6 @@ impl IVersionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVersionInfo as ::windows::core::Interface>::IID
+        iid == &<IVersionInfo as ::windows::core::ComInterface>::IID
     }
 }

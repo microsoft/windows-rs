@@ -14,7 +14,7 @@ impl ::core::fmt::Debug for IDontSupportEventSubscription {
         f.debug_tuple("IDontSupportEventSubscription").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDontSupportEventSubscription {
+unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
     type Vtable = IDontSupportEventSubscription_Vtbl;
 }
 impl ::core::clone::Clone for IDontSupportEventSubscription {
@@ -22,7 +22,7 @@ impl ::core::clone::Clone for IDontSupportEventSubscription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
+unsafe impl ::windows::core::ComInterface for IDontSupportEventSubscription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x784121f1_62a6_4b89_855f_d65f296de83a);
 }
 #[repr(C)]
@@ -36,16 +36,16 @@ pub struct IEnumEventObject(::windows::core::IUnknown);
 impl IEnumEventObject {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumEventObject> {
         let mut result__ = ::windows::core::zeroed::<IEnumEventObject>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Next(&self, ppinterface: &mut [::core::option::Option<::windows::core::IUnknown>], cretelem: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ppinterface.len() as _, ::core::mem::transmute(ppinterface.as_ptr()), cretelem).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ppinterface.len() as _, ::core::mem::transmute(ppinterface.as_ptr()), cretelem).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Skip(&self, cskipelem: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskipelem).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), cskipelem).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumEventObject, ::windows::core::IUnknown);
@@ -60,7 +60,7 @@ impl ::core::fmt::Debug for IEnumEventObject {
         f.debug_tuple("IEnumEventObject").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumEventObject {
+unsafe impl ::windows::core::Interface for IEnumEventObject {
     type Vtable = IEnumEventObject_Vtbl;
 }
 impl ::core::clone::Clone for IEnumEventObject {
@@ -68,7 +68,7 @@ impl ::core::clone::Clone for IEnumEventObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumEventObject {
+unsafe impl ::windows::core::ComInterface for IEnumEventObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
@@ -86,52 +86,52 @@ pub struct IEventClass(::windows::core::IUnknown);
 impl IEventClass {
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).EventClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EventClassID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventClassID(&self, bstreventclassid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
+        (::windows::core::Interface::vtable(self).SetEventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
     }
     pub unsafe fn EventClassName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).EventClassName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EventClassName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventClassName(&self, bstreventclassname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventClassName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstreventclassname)).ok()
+        (::windows::core::Interface::vtable(self).SetEventClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstreventclassname)).ok()
     }
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).OwnerSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOwnerSID(&self, bstrownersid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOwnerSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
     }
     pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).FiringInterfaceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FiringInterfaceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFiringInterfaceID(&self, bstrfiringinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFiringInterfaceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfiringinterfaceid)).ok()
+        (::windows::core::Interface::vtable(self).SetFiringInterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfiringinterfaceid)).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).Description)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
     }
     pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).CustomConfigCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CustomConfigCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCustomConfigCLSID(&self, bstrcustomconfigclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCustomConfigCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcustomconfigclsid)).ok()
+        (::windows::core::Interface::vtable(self).SetCustomConfigCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcustomconfigclsid)).ok()
     }
     pub unsafe fn TypeLib(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).TypeLib)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).TypeLib)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTypeLib(&self, bstrtypelib: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTypeLib)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
+        (::windows::core::Interface::vtable(self).SetTypeLib)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventClass, ::windows::core::IUnknown, super::IDispatch);
@@ -146,7 +146,7 @@ impl ::core::fmt::Debug for IEventClass {
         f.debug_tuple("IEventClass").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventClass {
+unsafe impl ::windows::core::Interface for IEventClass {
     type Vtable = IEventClass_Vtbl;
 }
 impl ::core::clone::Clone for IEventClass {
@@ -154,7 +154,7 @@ impl ::core::clone::Clone for IEventClass {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventClass {
+unsafe impl ::windows::core::ComInterface for IEventClass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a0_7a68_11d1_88f9_0080c7d771bf);
 }
 #[repr(C)]
@@ -182,94 +182,94 @@ pub struct IEventClass2(::windows::core::IUnknown);
 impl IEventClass2 {
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.EventClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.EventClassID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventClassID(&self, bstreventclassid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetEventClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
     }
     pub unsafe fn EventClassName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.EventClassName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.EventClassName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventClassName(&self, bstreventclassname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetEventClassName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstreventclassname)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEventClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstreventclassname)).ok()
     }
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.OwnerSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.OwnerSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOwnerSID(&self, bstrownersid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOwnerSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetOwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
     }
     pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.FiringInterfaceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FiringInterfaceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFiringInterfaceID(&self, bstrfiringinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetFiringInterfaceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfiringinterfaceid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFiringInterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfiringinterfaceid)).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.Description)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
     }
     pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.CustomConfigCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CustomConfigCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCustomConfigCLSID(&self, bstrcustomconfigclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCustomConfigCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcustomconfigclsid)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCustomConfigCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcustomconfigclsid)).ok()
     }
     pub unsafe fn TypeLib(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).base__.TypeLib)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.TypeLib)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTypeLib(&self, bstrtypelib: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetTypeLib)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTypeLib)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrtypelib)).ok()
     }
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).PublisherID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPublisherID(&self, bstrpublisherid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPublisherID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
     pub unsafe fn MultiInterfacePublisherFilterCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).MultiInterfacePublisherFilterCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MultiInterfacePublisherFilterCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMultiInterfacePublisherFilterCLSID(&self, bstrpubfilclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMultiInterfacePublisherFilterCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpubfilclsid)).ok()
+        (::windows::core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpubfilclsid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).AllowInprocActivation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAllowInprocActivation)(::windows::core::Vtable::as_raw(self), fallowinprocactivation.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).FireInParallel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FireInParallel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
+        (::windows::core::Interface::vtable(self).SetFireInParallel)(::windows::core::Interface::as_raw(self), ffireinparallel.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventClass2, ::windows::core::IUnknown, super::IDispatch, IEventClass);
@@ -284,7 +284,7 @@ impl ::core::fmt::Debug for IEventClass2 {
         f.debug_tuple("IEventClass2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventClass2 {
+unsafe impl ::windows::core::Interface for IEventClass2 {
     type Vtable = IEventClass2_Vtbl;
 }
 impl ::core::clone::Clone for IEventClass2 {
@@ -292,7 +292,7 @@ impl ::core::clone::Clone for IEventClass2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventClass2 {
+unsafe impl ::windows::core::ComInterface for IEventClass2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a1_7a68_11d1_88f9_0080c7d771bf);
 }
 #[repr(C)]
@@ -326,31 +326,31 @@ pub struct IEventControl(::windows::core::IUnknown);
 impl IEventControl {
     pub unsafe fn SetPublisherFilter<P0>(&self, methodname: &::windows::core::BSTR, ppublisherfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IPublisherFilter>>,
+        P0: ::windows::core::IntoParam<IPublisherFilter>,
     {
-        (::windows::core::Vtable::vtable(self).SetPublisherFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ppublisherfilter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(methodname), ppublisherfilter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).AllowInprocActivation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAllowInprocActivation)(::windows::core::Vtable::as_raw(self), fallowinprocactivation.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
     }
     pub unsafe fn GetSubscriptions(&self, methodname: &::windows::core::BSTR, optionalcriteria: &::windows::core::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__ = ::windows::core::zeroed::<IEventObjectCollection>();
-        (::windows::core::Vtable::vtable(self).GetSubscriptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSubscriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDefaultQuery(&self, methodname: &::windows::core::BSTR, criteria: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).SetDefaultQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetDefaultQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(methodname), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEventControl, ::windows::core::IUnknown, super::IDispatch);
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for IEventControl {
         f.debug_tuple("IEventControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventControl {
+unsafe impl ::windows::core::Interface for IEventControl {
     type Vtable = IEventControl_Vtbl;
 }
 impl ::core::clone::Clone for IEventControl {
@@ -373,7 +373,7 @@ impl ::core::clone::Clone for IEventControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventControl {
+unsafe impl ::windows::core::ComInterface for IEventControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f4_86f6_11d1_b760_00c04fb926af);
 }
 #[repr(C)]
@@ -397,13 +397,13 @@ pub struct IEventControl_Vtbl {
 pub struct IEventObjectChange(::windows::core::IUnknown);
 impl IEventObjectChange {
     pub unsafe fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangedSubscription)(::windows::core::Vtable::as_raw(self), changetype, ::core::mem::transmute_copy(bstrsubscriptionid)).ok()
+        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), changetype, ::core::mem::transmute_copy(bstrsubscriptionid)).ok()
     }
     pub unsafe fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangedEventClass)(::windows::core::Vtable::as_raw(self), changetype, ::core::mem::transmute_copy(bstreventclassid)).ok()
+        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), changetype, ::core::mem::transmute_copy(bstreventclassid)).ok()
     }
     pub unsafe fn ChangedPublisher(&self, changetype: EOC_ChangeType, bstrpublisherid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangedPublisher)(::windows::core::Vtable::as_raw(self), changetype, ::core::mem::transmute_copy(bstrpublisherid)).ok()
+        (::windows::core::Interface::vtable(self).ChangedPublisher)(::windows::core::Interface::as_raw(self), changetype, ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventObjectChange, ::windows::core::IUnknown);
@@ -418,7 +418,7 @@ impl ::core::fmt::Debug for IEventObjectChange {
         f.debug_tuple("IEventObjectChange").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventObjectChange {
+unsafe impl ::windows::core::Interface for IEventObjectChange {
     type Vtable = IEventObjectChange_Vtbl;
 }
 impl ::core::clone::Clone for IEventObjectChange {
@@ -426,7 +426,7 @@ impl ::core::clone::Clone for IEventObjectChange {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventObjectChange {
+unsafe impl ::windows::core::ComInterface for IEventObjectChange {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
@@ -442,10 +442,10 @@ pub struct IEventObjectChange_Vtbl {
 pub struct IEventObjectChange2(::windows::core::IUnknown);
 impl IEventObjectChange2 {
     pub unsafe fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangedSubscription)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangedEventClass)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventObjectChange2, ::windows::core::IUnknown);
@@ -460,7 +460,7 @@ impl ::core::fmt::Debug for IEventObjectChange2 {
         f.debug_tuple("IEventObjectChange2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventObjectChange2 {
+unsafe impl ::windows::core::Interface for IEventObjectChange2 {
     type Vtable = IEventObjectChange2_Vtbl;
 }
 impl ::core::clone::Clone for IEventObjectChange2 {
@@ -468,7 +468,7 @@ impl ::core::clone::Clone for IEventObjectChange2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventObjectChange2 {
+unsafe impl ::windows::core::ComInterface for IEventObjectChange2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
 }
 #[repr(C)]
@@ -484,29 +484,29 @@ pub struct IEventObjectCollection(::windows::core::IUnknown);
 impl IEventObjectCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, objectid: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(objectid), &mut result__).from_abi(result__)
     }
     pub unsafe fn NewEnum(&self) -> ::windows::core::Result<IEnumEventObject> {
         let mut result__ = ::windows::core::zeroed::<IEnumEventObject>();
-        (::windows::core::Vtable::vtable(self).NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).NewEnum)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn Add(&self, item: *const super::VARIANT, objectid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), item, ::core::mem::transmute_copy(objectid)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item, ::core::mem::transmute_copy(objectid)).ok()
     }
     pub unsafe fn Remove(&self, objectid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(objectid)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventObjectCollection, ::windows::core::IUnknown, super::IDispatch);
@@ -521,7 +521,7 @@ impl ::core::fmt::Debug for IEventObjectCollection {
         f.debug_tuple("IEventObjectCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventObjectCollection {
+unsafe impl ::windows::core::Interface for IEventObjectCollection {
     type Vtable = IEventObjectCollection_Vtbl;
 }
 impl ::core::clone::Clone for IEventObjectCollection {
@@ -529,7 +529,7 @@ impl ::core::clone::Clone for IEventObjectCollection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventObjectCollection {
+unsafe impl ::windows::core::ComInterface for IEventObjectCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf89ac270_d4eb_11d1_b682_00805fc79216);
 }
 #[repr(C)]
@@ -555,21 +555,21 @@ pub struct IEventProperty(::windows::core::IUnknown);
 impl IEventProperty {
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname)).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
-        (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), propertyvalue).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), propertyvalue).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventProperty, ::windows::core::IUnknown, super::IDispatch);
@@ -584,7 +584,7 @@ impl ::core::fmt::Debug for IEventProperty {
         f.debug_tuple("IEventProperty").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventProperty {
+unsafe impl ::windows::core::Interface for IEventProperty {
     type Vtable = IEventProperty_Vtbl;
 }
 impl ::core::clone::Clone for IEventProperty {
@@ -592,7 +592,7 @@ impl ::core::clone::Clone for IEventProperty {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventProperty {
+unsafe impl ::windows::core::ComInterface for IEventProperty {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda538ee2_f4de_11d1_b6bb_00805fc79216);
 }
 #[repr(C)]
@@ -616,56 +616,56 @@ pub struct IEventPublisher(::windows::core::IUnknown);
 impl IEventPublisher {
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).PublisherID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPublisherID(&self, bstrpublisherid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPublisherID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
     pub unsafe fn PublisherName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).PublisherName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PublisherName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPublisherName(&self, bstrpublishername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPublisherName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpublishername)).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpublishername)).ok()
     }
     pub unsafe fn PublisherType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).PublisherType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PublisherType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPublisherType(&self, bstrpublishertype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPublisherType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpublishertype)).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpublishertype)).ok()
     }
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).OwnerSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOwnerSID(&self, bstrownersid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOwnerSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).Description)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
-        (::windows::core::Vtable::vtable(self).GetDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+        (::windows::core::Interface::vtable(self).PutDefaultProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
     }
     pub unsafe fn RemoveDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
+        (::windows::core::Interface::vtable(self).RemoveDefaultProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
     }
     pub unsafe fn GetDefaultPropertyCollection(&self) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__ = ::windows::core::zeroed::<IEventObjectCollection>();
-        (::windows::core::Vtable::vtable(self).GetDefaultPropertyCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultPropertyCollection)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEventPublisher, ::windows::core::IUnknown, super::IDispatch);
@@ -680,7 +680,7 @@ impl ::core::fmt::Debug for IEventPublisher {
         f.debug_tuple("IEventPublisher").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventPublisher {
+unsafe impl ::windows::core::Interface for IEventPublisher {
     type Vtable = IEventPublisher_Vtbl;
 }
 impl ::core::clone::Clone for IEventPublisher {
@@ -688,7 +688,7 @@ impl ::core::clone::Clone for IEventPublisher {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventPublisher {
+unsafe impl ::windows::core::ComInterface for IEventPublisher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe341516b_2e32_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
@@ -722,147 +722,147 @@ pub struct IEventSubscription(::windows::core::IUnknown);
 impl IEventSubscription {
     pub unsafe fn SubscriptionID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).SubscriptionID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SubscriptionID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSubscriptionID(&self, bstrsubscriptionid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSubscriptionID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsubscriptionid)).ok()
+        (::windows::core::Interface::vtable(self).SetSubscriptionID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsubscriptionid)).ok()
     }
     pub unsafe fn SubscriptionName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).SubscriptionName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SubscriptionName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSubscriptionName(&self, bstrsubscriptionname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSubscriptionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsubscriptionname)).ok()
+        (::windows::core::Interface::vtable(self).SetSubscriptionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsubscriptionname)).ok()
     }
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).PublisherID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPublisherID(&self, bstrpublisherid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPublisherID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
+        (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpublisherid)).ok()
     }
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).EventClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EventClassID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventClassID(&self, bstreventclassid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
+        (::windows::core::Interface::vtable(self).SetEventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstreventclassid)).ok()
     }
     pub unsafe fn MethodName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).MethodName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MethodName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMethodName(&self, bstrmethodname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMethodName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethodname)).ok()
+        (::windows::core::Interface::vtable(self).SetMethodName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmethodname)).ok()
     }
     pub unsafe fn SubscriberCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).SubscriberCLSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SubscriberCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSubscriberCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrsubscriberclsid)).ok()
+        (::windows::core::Interface::vtable(self).SetSubscriberCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsubscriberclsid)).ok()
     }
     pub unsafe fn SubscriberInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).SubscriberInterface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SubscriberInterface)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSubscriberInterface<P0>(&self, psubscriberinterface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).SetSubscriberInterface)(::windows::core::Vtable::as_raw(self), psubscriberinterface.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubscriberInterface)(::windows::core::Interface::as_raw(self), psubscriberinterface.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerUser(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).PerUser)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PerUser)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPerUser<P0>(&self, fperuser: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetPerUser)(::windows::core::Vtable::as_raw(self), fperuser.into()).ok()
+        (::windows::core::Interface::vtable(self).SetPerUser)(::windows::core::Interface::as_raw(self), fperuser.into_param().abi()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).OwnerSID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOwnerSID(&self, bstrownersid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOwnerSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrownersid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).Enabled)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), fenabled.into()).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).Description)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
     }
     pub unsafe fn MachineName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).MachineName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MachineName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMachineName(&self, bstrmachinename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMachineName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmachinename)).ok()
+        (::windows::core::Interface::vtable(self).SetMachineName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmachinename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
-        (::windows::core::Vtable::vtable(self).GetPublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPublisherProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutPublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+        (::windows::core::Interface::vtable(self).PutPublisherProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
     }
     pub unsafe fn RemovePublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemovePublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
+        (::windows::core::Interface::vtable(self).RemovePublisherProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
     }
     pub unsafe fn GetPublisherPropertyCollection(&self) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__ = ::windows::core::zeroed::<IEventObjectCollection>();
-        (::windows::core::Vtable::vtable(self).GetPublisherPropertyCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPublisherPropertyCollection)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
-        (::windows::core::Vtable::vtable(self).GetSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSubscriberProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+        (::windows::core::Interface::vtable(self).PutSubscriberProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
     }
     pub unsafe fn RemoveSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
+        (::windows::core::Interface::vtable(self).RemoveSubscriberProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
     }
     pub unsafe fn GetSubscriberPropertyCollection(&self) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__ = ::windows::core::zeroed::<IEventObjectCollection>();
-        (::windows::core::Vtable::vtable(self).GetSubscriberPropertyCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSubscriberPropertyCollection)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).InterfaceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).InterfaceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterfaceID(&self, bstrinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInterfaceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinterfaceid)).ok()
+        (::windows::core::Interface::vtable(self).SetInterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrinterfaceid)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventSubscription, ::windows::core::IUnknown, super::IDispatch);
@@ -877,7 +877,7 @@ impl ::core::fmt::Debug for IEventSubscription {
         f.debug_tuple("IEventSubscription").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventSubscription {
+unsafe impl ::windows::core::Interface for IEventSubscription {
     type Vtable = IEventSubscription_Vtbl;
 }
 impl ::core::clone::Clone for IEventSubscription {
@@ -885,7 +885,7 @@ impl ::core::clone::Clone for IEventSubscription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventSubscription {
+unsafe impl ::windows::core::ComInterface for IEventSubscription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6b0e15_2e38_11d1_9965_00c04fbbb345);
 }
 #[repr(C)]
@@ -956,28 +956,28 @@ pub struct IEventSubscription_Vtbl {
 pub struct IEventSystem(::windows::core::IUnknown);
 impl IEventSystem {
     pub unsafe fn Query(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), errorindex, ::core::mem::transmute(ppinterface)).ok()
+        (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), errorindex, ::core::mem::transmute(ppinterface)).ok()
     }
     pub unsafe fn Store<P0>(&self, progid: &::windows::core::BSTR, pinterface: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).Store)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), pinterface.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Store)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(progid), pinterface.into_param().abi()).ok()
     }
     pub unsafe fn Remove(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), &mut result__).from_abi(result__)
     }
     pub unsafe fn EventObjectChangeEventClassID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).EventObjectChangeEventClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EventObjectChangeEventClassID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryS(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).QueryS)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QueryS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveS(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveS)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria)).ok()
+        (::windows::core::Interface::vtable(self).RemoveS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(progid), ::core::mem::transmute_copy(querycriteria)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IEventSystem, ::windows::core::IUnknown, super::IDispatch);
@@ -992,7 +992,7 @@ impl ::core::fmt::Debug for IEventSystem {
         f.debug_tuple("IEventSystem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEventSystem {
+unsafe impl ::windows::core::Interface for IEventSystem {
     type Vtable = IEventSystem_Vtbl;
 }
 impl ::core::clone::Clone for IEventSystem {
@@ -1000,7 +1000,7 @@ impl ::core::clone::Clone for IEventSystem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEventSystem {
+unsafe impl ::windows::core::ComInterface for IEventSystem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
@@ -1020,9 +1020,9 @@ pub struct IFiringControl(::windows::core::IUnknown);
 impl IFiringControl {
     pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IEventSubscription>>,
+        P0: ::windows::core::IntoParam<IEventSubscription>,
     {
-        (::windows::core::Vtable::vtable(self).FireSubscription)(::windows::core::Vtable::as_raw(self), subscription.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).FireSubscription)(::windows::core::Interface::as_raw(self), subscription.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IFiringControl, ::windows::core::IUnknown, super::IDispatch);
@@ -1037,7 +1037,7 @@ impl ::core::fmt::Debug for IFiringControl {
         f.debug_tuple("IFiringControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IFiringControl {
+unsafe impl ::windows::core::Interface for IFiringControl {
     type Vtable = IFiringControl_Vtbl;
 }
 impl ::core::clone::Clone for IFiringControl {
@@ -1045,7 +1045,7 @@ impl ::core::clone::Clone for IFiringControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFiringControl {
+unsafe impl ::windows::core::ComInterface for IFiringControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0498c93_4efe_11d1_9971_00c04fbbb345);
 }
 #[repr(C)]
@@ -1060,45 +1060,45 @@ pub struct IMultiInterfaceEventControl(::windows::core::IUnknown);
 impl IMultiInterfaceEventControl {
     pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IMultiInterfacePublisherFilter>>,
+        P0: ::windows::core::IntoParam<IMultiInterfacePublisherFilter>,
     {
-        (::windows::core::Vtable::vtable(self).SetMultiInterfacePublisherFilter)(::windows::core::Vtable::as_raw(self), classfilter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(::windows::core::Interface::as_raw(self), classfilter.into_param().abi()).ok()
     }
     pub unsafe fn GetSubscriptions(&self, eventiid: *const ::windows::core::GUID, bstrmethodname: &::windows::core::BSTR, optionalcriteria: &::windows::core::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__ = ::windows::core::zeroed::<IEventObjectCollection>();
-        (::windows::core::Vtable::vtable(self).GetSubscriptions)(::windows::core::Vtable::as_raw(self), eventiid, ::core::mem::transmute_copy(bstrmethodname), ::core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSubscriptions)(::windows::core::Interface::as_raw(self), eventiid, ::core::mem::transmute_copy(bstrmethodname), ::core::mem::transmute_copy(optionalcriteria), optionalerrorindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDefaultQuery(&self, eventiid: *const ::windows::core::GUID, bstrmethodname: &::windows::core::BSTR, bstrcriteria: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).SetDefaultQuery)(::windows::core::Vtable::as_raw(self), eventiid, ::core::mem::transmute_copy(bstrmethodname), ::core::mem::transmute_copy(bstrcriteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetDefaultQuery)(::windows::core::Interface::as_raw(self), eventiid, ::core::mem::transmute_copy(bstrmethodname), ::core::mem::transmute_copy(bstrcriteria), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).AllowInprocActivation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAllowInprocActivation)(::windows::core::Vtable::as_raw(self), fallowinprocactivation.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).FireInParallel)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FireInParallel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetFireInParallel)(::windows::core::Vtable::as_raw(self), ffireinparallel.into()).ok()
+        (::windows::core::Interface::vtable(self).SetFireInParallel)(::windows::core::Interface::as_raw(self), ffireinparallel.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IMultiInterfaceEventControl, ::windows::core::IUnknown);
@@ -1113,7 +1113,7 @@ impl ::core::fmt::Debug for IMultiInterfaceEventControl {
         f.debug_tuple("IMultiInterfaceEventControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IMultiInterfaceEventControl {
+unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
     type Vtable = IMultiInterfaceEventControl_Vtbl;
 }
 impl ::core::clone::Clone for IMultiInterfaceEventControl {
@@ -1121,7 +1121,7 @@ impl ::core::clone::Clone for IMultiInterfaceEventControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
+unsafe impl ::windows::core::ComInterface for IMultiInterfaceEventControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f5_86f6_11d1_b760_00c04fb926af);
 }
 #[repr(C)]
@@ -1154,15 +1154,15 @@ pub struct IMultiInterfacePublisherFilter(::windows::core::IUnknown);
 impl IMultiInterfacePublisherFilter {
     pub unsafe fn Initialize<P0>(&self, peic: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IMultiInterfaceEventControl>>,
+        P0: ::windows::core::IntoParam<IMultiInterfaceEventControl>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), peic.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), peic.into_param().abi()).ok()
     }
     pub unsafe fn PrepareToFire<P0>(&self, iid: *const ::windows::core::GUID, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IFiringControl>>,
+        P0: ::windows::core::IntoParam<IFiringControl>,
     {
-        (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), iid, ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PrepareToFire)(::windows::core::Interface::as_raw(self), iid, ::core::mem::transmute_copy(methodname), firingcontrol.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, ::windows::core::IUnknown);
@@ -1177,7 +1177,7 @@ impl ::core::fmt::Debug for IMultiInterfacePublisherFilter {
         f.debug_tuple("IMultiInterfacePublisherFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IMultiInterfacePublisherFilter {
+unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
     type Vtable = IMultiInterfacePublisherFilter_Vtbl;
 }
 impl ::core::clone::Clone for IMultiInterfacePublisherFilter {
@@ -1185,7 +1185,7 @@ impl ::core::clone::Clone for IMultiInterfacePublisherFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
+unsafe impl ::windows::core::ComInterface for IMultiInterfacePublisherFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
 }
 #[repr(C)]
@@ -1201,15 +1201,15 @@ pub struct IPublisherFilter(::windows::core::IUnknown);
 impl IPublisherFilter {
     pub unsafe fn Initialize<P0>(&self, methodname: &::windows::core::BSTR, dispuserdefined: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::IDispatch>>,
+        P0: ::windows::core::IntoParam<super::IDispatch>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), dispuserdefined.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(methodname), dispuserdefined.into_param().abi()).ok()
     }
     pub unsafe fn PrepareToFire<P0>(&self, methodname: &::windows::core::BSTR, firingcontrol: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IFiringControl>>,
+        P0: ::windows::core::IntoParam<IFiringControl>,
     {
-        (::windows::core::Vtable::vtable(self).PrepareToFire)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(methodname), firingcontrol.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PrepareToFire)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(methodname), firingcontrol.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPublisherFilter, ::windows::core::IUnknown);
@@ -1224,7 +1224,7 @@ impl ::core::fmt::Debug for IPublisherFilter {
         f.debug_tuple("IPublisherFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPublisherFilter {
+unsafe impl ::windows::core::Interface for IPublisherFilter {
     type Vtable = IPublisherFilter_Vtbl;
 }
 impl ::core::clone::Clone for IPublisherFilter {
@@ -1232,7 +1232,7 @@ impl ::core::clone::Clone for IPublisherFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPublisherFilter {
+unsafe impl ::windows::core::ComInterface for IPublisherFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
 }
 #[repr(C)]

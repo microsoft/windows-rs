@@ -9,7 +9,7 @@ impl DRendezvousSessionEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DRendezvousSessionEvents as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<DRendezvousSessionEvents as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"implement\"`*"]
@@ -27,7 +27,7 @@ impl IRendezvousApplication_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRendezvousApplication as ::windows::core::Interface>::IID
+        iid == &<IRendezvousApplication as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"implement\"`*"]
@@ -94,6 +94,6 @@ impl IRendezvousSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRendezvousSession as ::windows::core::Interface>::IID
+        iid == &<IRendezvousSession as ::windows::core::ComInterface>::IID
     }
 }

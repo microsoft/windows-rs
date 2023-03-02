@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemUpdateItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemUpdateItem {
+unsafe impl ::windows::core::Interface for ISystemUpdateItem {
     type Vtable = ISystemUpdateItem_Vtbl;
 }
 impl ::core::clone::Clone for ISystemUpdateItem {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ISystemUpdateItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemUpdateItem {
+unsafe impl ::windows::core::ComInterface for ISystemUpdateItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
 #[repr(C)]
@@ -28,7 +28,7 @@ pub struct ISystemUpdateItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemUpdateLastErrorInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemUpdateLastErrorInfo {
+unsafe impl ::windows::core::Interface for ISystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
 }
 impl ::core::clone::Clone for ISystemUpdateLastErrorInfo {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for ISystemUpdateLastErrorInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemUpdateLastErrorInfo {
+unsafe impl ::windows::core::ComInterface for ISystemUpdateLastErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
 #[repr(C)]
@@ -50,7 +50,7 @@ pub struct ISystemUpdateLastErrorInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemUpdateManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISystemUpdateManagerStatics {
+unsafe impl ::windows::core::Interface for ISystemUpdateManagerStatics {
     type Vtable = ISystemUpdateManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ISystemUpdateManagerStatics {
@@ -58,7 +58,7 @@ impl ::core::clone::Clone for ISystemUpdateManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISystemUpdateManagerStatics {
+unsafe impl ::windows::core::ComInterface for ISystemUpdateManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
 }
 #[repr(C)]
@@ -131,56 +131,56 @@ impl SystemUpdateItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemUpdateItemState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Revision(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Revision)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Revision)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DownloadProgress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).DownloadProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DownloadProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InstallProgress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).InstallProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InstallProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -203,11 +203,11 @@ impl ::core::clone::Clone for SystemUpdateItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SystemUpdateItem {
+unsafe impl ::windows::core::Interface for SystemUpdateItem {
     type Vtable = ISystemUpdateItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SystemUpdateItem {
-    const IID: ::windows::core::GUID = <ISystemUpdateItem as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SystemUpdateItem {
+    const IID: ::windows::core::GUID = <ISystemUpdateItem as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
@@ -223,21 +223,21 @@ impl SystemUpdateLastErrorInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemUpdateManagerState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInteractive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsInteractive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsInteractive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -260,11 +260,11 @@ impl ::core::clone::Clone for SystemUpdateLastErrorInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SystemUpdateLastErrorInfo {
+unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
-    const IID: ::windows::core::GUID = <ISystemUpdateLastErrorInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SystemUpdateLastErrorInfo {
+    const IID: ::windows::core::GUID = <ISystemUpdateLastErrorInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
@@ -278,13 +278,13 @@ impl SystemUpdateManager {
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn State() -> ::windows::core::Result<SystemUpdateManagerState> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemUpdateManagerState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -292,24 +292,24 @@ impl SystemUpdateManager {
     pub fn StateChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     pub fn DownloadProgress() -> ::windows::core::Result<f64> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).DownloadProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DownloadProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn InstallProgress() -> ::windows::core::Result<f64> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).InstallProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).InstallProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -317,7 +317,7 @@ impl SystemUpdateManager {
     pub fn UserActiveHoursStart() -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).UserActiveHoursStart)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UserActiveHoursStart)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -325,13 +325,13 @@ impl SystemUpdateManager {
     pub fn UserActiveHoursEnd() -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).UserActiveHoursEnd)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UserActiveHoursEnd)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn UserActiveHoursMax() -> ::windows::core::Result<i32> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).UserActiveHoursMax)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UserActiveHoursMax)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -339,7 +339,7 @@ impl SystemUpdateManager {
     pub fn TrySetUserActiveHours(start: super::super::Foundation::TimeSpan, end: super::super::Foundation::TimeSpan) -> ::windows::core::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TrySetUserActiveHours)(::windows::core::Vtable::as_raw(this), start, end, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetUserActiveHours)(::windows::core::Interface::as_raw(this), start, end, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -347,7 +347,7 @@ impl SystemUpdateManager {
     pub fn LastUpdateCheckTime() -> ::windows::core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).LastUpdateCheckTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastUpdateCheckTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -355,13 +355,13 @@ impl SystemUpdateManager {
     pub fn LastUpdateInstallTime() -> ::windows::core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).LastUpdateInstallTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastUpdateInstallTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn LastErrorInfo() -> ::windows::core::Result<SystemUpdateLastErrorInfo> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemUpdateLastErrorInfo>();
-            (::windows::core::Vtable::vtable(this).LastErrorInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastErrorInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -369,7 +369,7 @@ impl SystemUpdateManager {
     pub fn GetAutomaticRebootBlockIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetAutomaticRebootBlockIds)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAutomaticRebootBlockIds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -377,7 +377,7 @@ impl SystemUpdateManager {
     pub fn BlockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(lockid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(lockid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -385,13 +385,13 @@ impl SystemUpdateManager {
     pub fn UnblockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).UnblockAutomaticRebootAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(lockid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnblockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(lockid), &mut result__).from_abi(result__)
         })
     }
     pub fn ExtendedError() -> ::windows::core::Result<::windows::core::HRESULT> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -399,35 +399,35 @@ impl SystemUpdateManager {
     pub fn GetUpdateItems() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>>();
-            (::windows::core::Vtable::vtable(this).GetUpdateItems)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetUpdateItems)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn AttentionRequiredReason() -> ::windows::core::Result<SystemUpdateAttentionRequiredReason> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<SystemUpdateAttentionRequiredReason>();
-            (::windows::core::Vtable::vtable(this).AttentionRequiredReason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AttentionRequiredReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn SetFlightRing(flightring: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SetFlightRing)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(flightring), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetFlightRing)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(flightring), &mut result__).from_abi(result__)
         })
     }
     pub fn GetFlightRing() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetFlightRing)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFlightRing)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn StartInstall(action: SystemUpdateStartInstallAction) -> ::windows::core::Result<()> {
-        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).StartInstall)(::windows::core::Vtable::as_raw(this), action).ok() })
+        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartInstall)(::windows::core::Interface::as_raw(this), action).ok() })
     }
     pub fn RebootToCompleteInstall() -> ::windows::core::Result<()> {
-        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RebootToCompleteInstall)(::windows::core::Vtable::as_raw(this)).ok() })
+        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RebootToCompleteInstall)(::windows::core::Interface::as_raw(this)).ok() })
     }
     pub fn StartCancelUpdates() -> ::windows::core::Result<()> {
-        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).StartCancelUpdates)(::windows::core::Vtable::as_raw(this)).ok() })
+        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartCancelUpdates)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc(hidden)]
     pub fn ISystemUpdateManagerStatics<R, F: FnOnce(&ISystemUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

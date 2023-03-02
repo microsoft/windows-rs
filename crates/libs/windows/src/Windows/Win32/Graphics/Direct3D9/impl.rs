@@ -110,7 +110,7 @@ impl IDirect3D9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3D9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3D9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -162,7 +162,7 @@ impl IDirect3D9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3D9Ex as ::windows::core::Interface>::IID || iid == &<IDirect3D9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3D9Ex as ::windows::core::ComInterface>::IID || iid == &<IDirect3D9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -218,7 +218,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DBaseTexture9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DBaseTexture9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -276,7 +276,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DCubeTexture9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DCubeTexture9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1201,7 +1201,7 @@ impl IDirect3DDevice9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DDevice9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DDevice9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1323,7 +1323,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DDevice9Ex as ::windows::core::Interface>::IID || iid == &<IDirect3DDevice9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DDevice9Ex as ::windows::core::ComInterface>::IID || iid == &<IDirect3DDevice9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1358,7 +1358,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DIndexBuffer9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DIndexBuffer9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1392,7 +1392,7 @@ impl IDirect3DPixelShader9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DPixelShader9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DPixelShader9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1447,7 +1447,7 @@ impl IDirect3DQuery9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DQuery9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DQuery9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1523,7 +1523,7 @@ impl IDirect3DResource9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1564,7 +1564,7 @@ impl IDirect3DStateBlock9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DStateBlock9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DStateBlock9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1623,7 +1623,7 @@ impl IDirect3DSurface9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DSurface9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DSurface9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1701,7 +1701,7 @@ impl IDirect3DSwapChain9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DSwapChain9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
@@ -1739,7 +1739,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9Ex as ::windows::core::Interface>::IID || iid == &<IDirect3DSwapChain9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DSwapChain9Ex as ::windows::core::ComInterface>::IID || iid == &<IDirect3DSwapChain9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1797,7 +1797,7 @@ impl IDirect3DTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DTexture9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DTexture9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1832,7 +1832,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DVertexBuffer9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DVertexBuffer9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1866,7 +1866,7 @@ impl IDirect3DVertexDeclaration9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DVertexDeclaration9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DVertexDeclaration9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1900,7 +1900,7 @@ impl IDirect3DVertexShader9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DVertexShader9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DVertexShader9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -1976,7 +1976,7 @@ impl IDirect3DVolume9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DVolume9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DVolume9 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"implement\"`*"]
@@ -2031,6 +2031,6 @@ impl IDirect3DVolumeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDirect3DVolumeTexture9 as ::windows::core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows::core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::Interface>::IID
+        iid == &<IDirect3DVolumeTexture9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows::core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows::core::ComInterface>::IID
     }
 }

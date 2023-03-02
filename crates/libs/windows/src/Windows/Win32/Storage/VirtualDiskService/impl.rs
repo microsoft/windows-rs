@@ -43,7 +43,7 @@ impl IEnumVdsObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumVdsObject as ::windows::core::Interface>::IID
+        iid == &<IEnumVdsObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -71,7 +71,7 @@ impl IVdsAdmin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsAdmin as ::windows::core::Interface>::IID
+        iid == &<IVdsAdmin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -89,7 +89,7 @@ impl IVdsAdviseSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsAdviseSink as ::windows::core::Interface>::IID
+        iid == &<IVdsAdviseSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -124,7 +124,7 @@ impl IVdsAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsAsync as ::windows::core::Interface>::IID
+        iid == &<IVdsAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -206,7 +206,7 @@ impl IVdsController_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsController as ::windows::core::Interface>::IID
+        iid == &<IVdsController as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -230,7 +230,7 @@ impl IVdsControllerControllerPort_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryControllerPorts: QueryControllerPorts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsControllerControllerPort as ::windows::core::Interface>::IID
+        iid == &<IVdsControllerControllerPort as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -291,7 +291,7 @@ impl IVdsControllerPort_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsControllerPort as ::windows::core::Interface>::IID
+        iid == &<IVdsControllerPort as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -356,7 +356,7 @@ impl IVdsDrive_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsDrive as ::windows::core::Interface>::IID
+        iid == &<IVdsDrive as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -374,7 +374,7 @@ impl IVdsDrive2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsDrive2 as ::windows::core::Interface>::IID
+        iid == &<IVdsDrive2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -415,7 +415,7 @@ impl IVdsHwProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProvider as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -442,7 +442,7 @@ impl IVdsHwProviderPrivate_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryIfCreatedLun: QueryIfCreatedLun::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProviderPrivate as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProviderPrivate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -463,7 +463,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProviderPrivateMpio as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProviderPrivateMpio as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -519,7 +519,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProviderStoragePools as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProviderStoragePools as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -543,7 +543,7 @@ impl IVdsHwProviderType_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType: GetProviderType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProviderType as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProviderType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -567,7 +567,7 @@ impl IVdsHwProviderType2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType2: GetProviderType2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsHwProviderType2 as ::windows::core::Interface>::IID
+        iid == &<IVdsHwProviderType2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -648,7 +648,7 @@ impl IVdsIscsiPortal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsIscsiPortal as ::windows::core::Interface>::IID
+        iid == &<IVdsIscsiPortal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -734,7 +734,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsIscsiPortalGroup as ::windows::core::Interface>::IID
+        iid == &<IVdsIscsiPortalGroup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -851,7 +851,7 @@ impl IVdsIscsiTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsIscsiTarget as ::windows::core::Interface>::IID
+        iid == &<IVdsIscsiTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1041,7 +1041,7 @@ impl IVdsLun_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLun as ::windows::core::Interface>::IID
+        iid == &<IVdsLun as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1072,7 +1072,7 @@ impl IVdsLun2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLun2 as ::windows::core::Interface>::IID
+        iid == &<IVdsLun2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1106,7 +1106,7 @@ impl IVdsLunControllerPorts_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunControllerPorts as ::windows::core::Interface>::IID
+        iid == &<IVdsLunControllerPorts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1140,7 +1140,7 @@ impl IVdsLunIscsi_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunIscsi as ::windows::core::Interface>::IID
+        iid == &<IVdsLunIscsi as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1191,7 +1191,7 @@ impl IVdsLunMpio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunMpio as ::windows::core::Interface>::IID
+        iid == &<IVdsLunMpio as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1209,7 +1209,7 @@ impl IVdsLunNaming_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunNaming as ::windows::core::Interface>::IID
+        iid == &<IVdsLunNaming as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1233,7 +1233,7 @@ impl IVdsLunNumber_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLunNumber: GetLunNumber::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunNumber as ::windows::core::Interface>::IID
+        iid == &<IVdsLunNumber as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1291,7 +1291,7 @@ impl IVdsLunPlex_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsLunPlex as ::windows::core::Interface>::IID
+        iid == &<IVdsLunPlex as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1326,7 +1326,7 @@ impl IVdsMaintenance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsMaintenance as ::windows::core::Interface>::IID
+        iid == &<IVdsMaintenance as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1344,7 +1344,7 @@ impl IVdsProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsProvider as ::windows::core::Interface>::IID
+        iid == &<IVdsProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1388,7 +1388,7 @@ impl IVdsProviderPrivate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsProviderPrivate as ::windows::core::Interface>::IID
+        iid == &<IVdsProviderPrivate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1412,7 +1412,7 @@ impl IVdsProviderSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetVersionSupport: GetVersionSupport::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsProviderSupport as ::windows::core::Interface>::IID
+        iid == &<IVdsProviderSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1489,7 +1489,7 @@ impl IVdsStoragePool_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsStoragePool as ::windows::core::Interface>::IID
+        iid == &<IVdsStoragePool as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1632,7 +1632,7 @@ impl IVdsSubSystem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsSubSystem as ::windows::core::Interface>::IID
+        iid == &<IVdsSubSystem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1695,7 +1695,7 @@ impl IVdsSubSystem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsSubSystem2 as ::windows::core::Interface>::IID
+        iid == &<IVdsSubSystem2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1722,7 +1722,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsSubSystemInterconnect as ::windows::core::Interface>::IID
+        iid == &<IVdsSubSystemInterconnect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1782,7 +1782,7 @@ impl IVdsSubSystemIscsi_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsSubSystemIscsi as ::windows::core::Interface>::IID
+        iid == &<IVdsSubSystemIscsi as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"implement\"`*"]
@@ -1800,6 +1800,6 @@ impl IVdsSubSystemNaming_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVdsSubSystemNaming as ::windows::core::Interface>::IID
+        iid == &<IVdsSubSystemNaming as ::windows::core::ComInterface>::IID
     }
 }

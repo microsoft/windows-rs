@@ -113,7 +113,7 @@ impl IDeviceModelPlugIn_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeviceModelPlugIn as ::windows::core::Interface>::IID
+        iid == &<IDeviceModelPlugIn as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"implement\"`*"]
@@ -141,6 +141,6 @@ impl IGamutMapModelPlugIn_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGamutMapModelPlugIn as ::windows::core::Interface>::IID
+        iid == &<IGamutMapModelPlugIn as ::windows::core::ComInterface>::IID
     }
 }

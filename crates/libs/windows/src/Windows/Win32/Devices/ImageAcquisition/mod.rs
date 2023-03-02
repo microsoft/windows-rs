@@ -3,21 +3,21 @@
 pub struct IEnumWIA_DEV_CAPS(::windows::core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgelt, pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, rgelt, pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows::core::IUnknown);
@@ -32,7 +32,7 @@ impl ::core::fmt::Debug for IEnumWIA_DEV_CAPS {
         f.debug_tuple("IEnumWIA_DEV_CAPS").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumWIA_DEV_CAPS {
+unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPS_Vtbl;
 }
 impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
@@ -40,7 +40,7 @@ impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
+unsafe impl ::windows::core::ComInterface for IEnumWIA_DEV_CAPS {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
 }
 #[repr(C)]
@@ -58,21 +58,21 @@ pub struct IEnumWIA_DEV_CAPS_Vtbl {
 pub struct IEnumWIA_DEV_INFO(::windows::core::IUnknown);
 impl IEnumWIA_DEV_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows::core::IUnknown);
@@ -87,7 +87,7 @@ impl ::core::fmt::Debug for IEnumWIA_DEV_INFO {
         f.debug_tuple("IEnumWIA_DEV_INFO").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumWIA_DEV_INFO {
+unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFO_Vtbl;
 }
 impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
@@ -95,7 +95,7 @@ impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
+unsafe impl ::windows::core::ComInterface for IEnumWIA_DEV_INFO {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
 }
 #[repr(C)]
@@ -113,21 +113,21 @@ pub struct IEnumWIA_DEV_INFO_Vtbl {
 pub struct IEnumWIA_FORMAT_INFO(::windows::core::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgelt, pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, rgelt, pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows::core::IUnknown);
@@ -142,7 +142,7 @@ impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
         f.debug_tuple("IEnumWIA_FORMAT_INFO").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumWIA_FORMAT_INFO {
+unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFO_Vtbl;
 }
 impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
@@ -150,7 +150,7 @@ impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
+unsafe impl ::windows::core::ComInterface for IEnumWIA_FORMAT_INFO {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
 }
 #[repr(C)]
@@ -168,21 +168,21 @@ pub struct IEnumWIA_FORMAT_INFO_Vtbl {
 pub struct IEnumWiaItem(::windows::core::IUnknown);
 impl IEnumWiaItem {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut ::core::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem), pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IEnumWiaItem>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumWiaItem, ::windows::core::IUnknown);
@@ -197,7 +197,7 @@ impl ::core::fmt::Debug for IEnumWiaItem {
         f.debug_tuple("IEnumWiaItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumWiaItem {
+unsafe impl ::windows::core::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItem_Vtbl;
 }
 impl ::core::clone::Clone for IEnumWiaItem {
@@ -205,7 +205,7 @@ impl ::core::clone::Clone for IEnumWiaItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumWiaItem {
+unsafe impl ::windows::core::ComInterface for IEnumWiaItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
 }
 #[repr(C)]
@@ -223,21 +223,21 @@ pub struct IEnumWiaItem_Vtbl {
 pub struct IEnumWiaItem2(::windows::core::IUnknown);
 impl IEnumWiaItem2 {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem2), pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem2), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IEnumWiaItem2>();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IEnumWiaItem2, ::windows::core::IUnknown);
@@ -252,7 +252,7 @@ impl ::core::fmt::Debug for IEnumWiaItem2 {
         f.debug_tuple("IEnumWiaItem2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumWiaItem2 {
+unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2_Vtbl;
 }
 impl ::core::clone::Clone for IEnumWiaItem2 {
@@ -260,7 +260,7 @@ impl ::core::clone::Clone for IEnumWiaItem2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
+unsafe impl ::windows::core::ComInterface for IEnumWiaItem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
 }
 #[repr(C)]
@@ -281,13 +281,13 @@ impl IWiaAppErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HWND>();
-        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetWindow)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReportStatus<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
     {
-        (::windows::core::Vtable::vtable(self).ReportStatus)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, lpercentcomplete).ok()
+        (::windows::core::Interface::vtable(self).ReportStatus)(::windows::core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows::core::IUnknown);
@@ -302,7 +302,7 @@ impl ::core::fmt::Debug for IWiaAppErrorHandler {
         f.debug_tuple("IWiaAppErrorHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaAppErrorHandler {
+unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandler_Vtbl;
 }
 impl ::core::clone::Clone for IWiaAppErrorHandler {
@@ -310,7 +310,7 @@ impl ::core::clone::Clone for IWiaAppErrorHandler {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
+unsafe impl ::windows::core::ComInterface for IWiaAppErrorHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
 }
 #[repr(C)]
@@ -328,7 +328,7 @@ pub struct IWiaAppErrorHandler_Vtbl {
 pub struct IWiaDataCallback(::windows::core::IUnknown);
 impl IWiaDataCallback {
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BandedDataCallback)(::windows::core::Vtable::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, pbbuffer).ok()
+        (::windows::core::Interface::vtable(self).BandedDataCallback)(::windows::core::Interface::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, pbbuffer).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaDataCallback, ::windows::core::IUnknown);
@@ -343,7 +343,7 @@ impl ::core::fmt::Debug for IWiaDataCallback {
         f.debug_tuple("IWiaDataCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaDataCallback {
+unsafe impl ::windows::core::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallback_Vtbl;
 }
 impl ::core::clone::Clone for IWiaDataCallback {
@@ -351,7 +351,7 @@ impl ::core::clone::Clone for IWiaDataCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaDataCallback {
+unsafe impl ::windows::core::ComInterface for IWiaDataCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 }
 #[repr(C)]
@@ -368,27 +368,27 @@ impl IWiaDataTransfer {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn idtGetData<P0>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaDataCallback>>,
+        P0: ::windows::core::IntoParam<IWiaDataCallback>,
     {
-        (::windows::core::Vtable::vtable(self).idtGetData)(::windows::core::Vtable::as_raw(self), pmedium, piwiadatacallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).idtGetData)(::windows::core::Interface::as_raw(self), pmedium, piwiadatacallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn idtGetBandedData<P0>(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaDataCallback>>,
+        P0: ::windows::core::IntoParam<IWiaDataCallback>,
     {
-        (::windows::core::Vtable::vtable(self).idtGetBandedData)(::windows::core::Vtable::as_raw(self), pwiadatatransinfo, piwiadatacallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).idtGetBandedData)(::windows::core::Interface::as_raw(self), pwiadatatransinfo, piwiadatacallback.into_param().abi()).ok()
     }
     pub unsafe fn idtQueryGetData(&self, pfe: ::core::option::Option<*const WIA_FORMAT_INFO>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).idtQueryGetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfe.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Interface::vtable(self).idtQueryGetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfe.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
-        (::windows::core::Vtable::vtable(self).idtEnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn idtGetExtendedTransferInfo(&self, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Vtable::as_raw(self), pextendedtransferinfo).ok()
+        (::windows::core::Interface::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Interface::as_raw(self), pextendedtransferinfo).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaDataTransfer, ::windows::core::IUnknown);
@@ -403,7 +403,7 @@ impl ::core::fmt::Debug for IWiaDataTransfer {
         f.debug_tuple("IWiaDataTransfer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaDataTransfer {
+unsafe impl ::windows::core::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransfer_Vtbl;
 }
 impl ::core::clone::Clone for IWiaDataTransfer {
@@ -411,7 +411,7 @@ impl ::core::clone::Clone for IWiaDataTransfer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaDataTransfer {
+unsafe impl ::windows::core::ComInterface for IWiaDataTransfer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
 }
 #[repr(C)]
@@ -436,57 +436,57 @@ pub struct IWiaDevMgr(::windows::core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
-        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflag, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumDeviceInfo)(::windows::core::Interface::as_raw(self), lflag, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDevice(&self, bstrdeviceid: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem>();
-        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows::core::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).SelectDeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
+        (::windows::core::Interface::vtable(self).SelectDeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).SelectDeviceDlgID)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
+        (::windows::core::Interface::vtable(self).SelectDeviceDlgID)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<P0, P1>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P1, bstrfilename: &::windows::core::BSTR, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaItem>>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<IWiaItem>,
     {
-        (::windows::core::Vtable::vtable(self).GetImageDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ldevicetype, lflags, lintent, pitemroot.into().abi(), ::core::mem::transmute_copy(bstrfilename), pguidformat).ok()
+        (::windows::core::Interface::vtable(self).GetImageDlg)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, lintent, pitemroot.into_param().abi(), ::core::mem::transmute_copy(bstrfilename), pguidformat).ok()
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, bstrcommandline: &::windows::core::BSTR, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackProgram)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, ::core::mem::transmute_copy(bstrcommandline), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackProgram)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, ::core::mem::transmute_copy(bstrcommandline), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P0>(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaEventCallback>>,
+        P0: ::windows::core::IntoParam<IWiaEventCallback>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackInterface)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDeviceDlg<P0>(&self, hwndparent: P0, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).AddDeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lflags).ok()
+        (::windows::core::Interface::vtable(self).AddDeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), lflags).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaDevMgr, ::windows::core::IUnknown);
@@ -501,7 +501,7 @@ impl ::core::fmt::Debug for IWiaDevMgr {
         f.debug_tuple("IWiaDevMgr").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaDevMgr {
+unsafe impl ::windows::core::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgr_Vtbl;
 }
 impl ::core::clone::Clone for IWiaDevMgr {
@@ -509,7 +509,7 @@ impl ::core::clone::Clone for IWiaDevMgr {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaDevMgr {
+unsafe impl ::windows::core::ComInterface for IWiaDevMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 }
 #[repr(C)]
@@ -544,48 +544,48 @@ pub struct IWiaDevMgr2(::windows::core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_INFO>();
-        (::windows::core::Vtable::vtable(self).EnumDeviceInfo)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumDeviceInfo)(::windows::core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDevice(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
-        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows::core::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).SelectDeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
+        (::windows::core::Interface::vtable(self).SelectDeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).SelectDeviceDlgID)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
+        (::windows::core::Interface::vtable(self).SelectDeviceDlgID)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn RegisterEventCallbackInterface<P0>(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, piwiaeventcallback: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaEventCallback>>,
+        P0: ::windows::core::IntoParam<IWiaEventCallback>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackInterface)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackInterface)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, piwiaeventcallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterEventCallbackProgram(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, bstrfullappname: &::windows::core::BSTR, bstrcommandlinearg: &::windows::core::BSTR, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackProgram)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, ::core::mem::transmute_copy(bstrfullappname), ::core::mem::transmute_copy(bstrcommandlinearg), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackProgram)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, ::core::mem::transmute_copy(bstrfullappname), ::core::mem::transmute_copy(bstrcommandlinearg), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
     }
     pub unsafe fn RegisterEventCallbackCLSID(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: &::windows::core::BSTR, bstrdescription: &::windows::core::BSTR, bstricon: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
+        (::windows::core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), peventguid, pclsid, ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrdescription), ::core::mem::transmute_copy(bstricon)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<P0>(&self, lflags: i32, bstrdeviceid: &::windows::core::BSTR, hwndparent: P0, bstrfoldername: &::windows::core::BSTR, bstrfilename: &::windows::core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).GetImageDlg)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), hwndparent.into(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).GetImageDlg)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), hwndparent.into_param().abi(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaDevMgr2, ::windows::core::IUnknown);
@@ -600,7 +600,7 @@ impl ::core::fmt::Debug for IWiaDevMgr2 {
         f.debug_tuple("IWiaDevMgr2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaDevMgr2 {
+unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2_Vtbl;
 }
 impl ::core::clone::Clone for IWiaDevMgr2 {
@@ -608,7 +608,7 @@ impl ::core::clone::Clone for IWiaDevMgr2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
+unsafe impl ::windows::core::ComInterface for IWiaDevMgr2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 }
 #[repr(C)]
@@ -639,55 +639,55 @@ pub struct IWiaDrvItem(::windows::core::IUnknown);
 impl IWiaDrvItem {
     pub unsafe fn GetItemFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).GetItemFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceSpecContext(&self) -> ::windows::core::Result<*mut u8> {
         let mut result__ = ::windows::core::zeroed::<*mut u8>();
-        (::windows::core::Vtable::vtable(self).GetDeviceSpecContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceSpecContext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFullItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).GetFullItemName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetFullItemName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).GetItemName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddItemToFolder<P0>(&self, __midl__iwiadrvitem0004: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaDrvItem>>,
+        P0: ::windows::core::IntoParam<IWiaDrvItem>,
     {
-        (::windows::core::Vtable::vtable(self).AddItemToFolder)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0004.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddItemToFolder)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0004.into_param().abi()).ok()
     }
     pub unsafe fn UnlinkItemTree(&self, __midl__iwiadrvitem0005: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UnlinkItemTree)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0005).ok()
+        (::windows::core::Interface::vtable(self).UnlinkItemTree)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0005).ok()
     }
     pub unsafe fn RemoveItemFromFolder(&self, __midl__iwiadrvitem0006: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveItemFromFolder)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0006).ok()
+        (::windows::core::Interface::vtable(self).RemoveItemFromFolder)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0006).ok()
     }
     pub unsafe fn FindItemByName(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: &::windows::core::BSTR) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), __midl__iwiadrvitem0007, ::core::mem::transmute_copy(__midl__iwiadrvitem0008), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0007, ::core::mem::transmute_copy(__midl__iwiadrvitem0008), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindChildItemByName(&self, __midl__iwiadrvitem0010: &::windows::core::BSTR) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
-        (::windows::core::Vtable::vtable(self).FindChildItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(__midl__iwiadrvitem0010), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindChildItemByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(__midl__iwiadrvitem0010), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
-        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFirstChildItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
-        (::windows::core::Vtable::vtable(self).GetFirstChildItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetFirstChildItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSiblingItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaDrvItem>();
-        (::windows::core::Vtable::vtable(self).GetNextSiblingItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetNextSiblingItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).DumpItemData)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaDrvItem, ::windows::core::IUnknown);
@@ -702,7 +702,7 @@ impl ::core::fmt::Debug for IWiaDrvItem {
         f.debug_tuple("IWiaDrvItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaDrvItem {
+unsafe impl ::windows::core::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItem_Vtbl;
 }
 impl ::core::clone::Clone for IWiaDrvItem {
@@ -710,7 +710,7 @@ impl ::core::clone::Clone for IWiaDrvItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaDrvItem {
+unsafe impl ::windows::core::ComInterface for IWiaDrvItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 }
 #[repr(C)]
@@ -739,17 +739,17 @@ impl IWiaErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReportStatus<P0, P1>(&self, lflags: i32, hwndparent: P0, pwiaitem2: P1, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<IWiaItem2>,
     {
-        (::windows::core::Vtable::vtable(self).ReportStatus)(::windows::core::Vtable::as_raw(self), lflags, hwndparent.into(), pwiaitem2.into().abi(), hrstatus, lpercentcomplete).ok()
+        (::windows::core::Interface::vtable(self).ReportStatus)(::windows::core::Interface::as_raw(self), lflags, hwndparent.into_param().abi(), pwiaitem2.into_param().abi(), hrstatus, lpercentcomplete).ok()
     }
     pub unsafe fn GetStatusDescription<P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).GetStatusDescription)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetStatusDescription)(::windows::core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaErrorHandler, ::windows::core::IUnknown);
@@ -764,7 +764,7 @@ impl ::core::fmt::Debug for IWiaErrorHandler {
         f.debug_tuple("IWiaErrorHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaErrorHandler {
+unsafe impl ::windows::core::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandler_Vtbl;
 }
 impl ::core::clone::Clone for IWiaErrorHandler {
@@ -772,7 +772,7 @@ impl ::core::clone::Clone for IWiaErrorHandler {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaErrorHandler {
+unsafe impl ::windows::core::ComInterface for IWiaErrorHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 }
 #[repr(C)]
@@ -790,7 +790,7 @@ pub struct IWiaErrorHandler_Vtbl {
 pub struct IWiaEventCallback(::windows::core::IUnknown);
 impl IWiaEventCallback {
     pub unsafe fn ImageEventCallback(&self, peventguid: *const ::windows::core::GUID, bstreventdescription: &::windows::core::BSTR, bstrdeviceid: &::windows::core::BSTR, bstrdevicedescription: &::windows::core::BSTR, dwdevicetype: u32, bstrfullitemname: &::windows::core::BSTR, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ImageEventCallback)(::windows::core::Vtable::as_raw(self), peventguid, ::core::mem::transmute_copy(bstreventdescription), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute_copy(bstrdevicedescription), dwdevicetype, ::core::mem::transmute_copy(bstrfullitemname), puleventtype, ulreserved).ok()
+        (::windows::core::Interface::vtable(self).ImageEventCallback)(::windows::core::Interface::as_raw(self), peventguid, ::core::mem::transmute_copy(bstreventdescription), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute_copy(bstrdevicedescription), dwdevicetype, ::core::mem::transmute_copy(bstrfullitemname), puleventtype, ulreserved).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaEventCallback, ::windows::core::IUnknown);
@@ -805,7 +805,7 @@ impl ::core::fmt::Debug for IWiaEventCallback {
         f.debug_tuple("IWiaEventCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaEventCallback {
+unsafe impl ::windows::core::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallback_Vtbl;
 }
 impl ::core::clone::Clone for IWiaEventCallback {
@@ -813,7 +813,7 @@ impl ::core::clone::Clone for IWiaEventCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaEventCallback {
+unsafe impl ::windows::core::ComInterface for IWiaEventCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 }
 #[repr(C)]
@@ -828,31 +828,31 @@ pub struct IWiaImageFilter(::windows::core::IUnknown);
 impl IWiaImageFilter {
     pub unsafe fn InitializeFilter<P0, P1>(&self, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
+        P1: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFilter)(::windows::core::Vtable::as_raw(self), pwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFilter)(::windows::core::Interface::as_raw(self), pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
     pub unsafe fn SetNewCallback<P0>(&self, pwiatransfercallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).SetNewCallback)(::windows::core::Vtable::as_raw(self), pwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNewCallback)(::windows::core::Interface::as_raw(self), pwiatransfercallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FilterPreviewImage<P0, P1>(&self, lflags: i32, pwiachilditem2: P0, inputimageextents: super::super::Foundation::RECT, pinputstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).FilterPreviewImage)(::windows::core::Vtable::as_raw(self), lflags, pwiachilditem2.into().abi(), ::core::mem::transmute(inputimageextents), pinputstream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).FilterPreviewImage)(::windows::core::Interface::as_raw(self), lflags, pwiachilditem2.into_param().abi(), ::core::mem::transmute(inputimageextents), pinputstream.into_param().abi()).ok()
     }
     pub unsafe fn ApplyProperties<P0>(&self, pwiapropertystorage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaPropertyStorage>>,
+        P0: ::windows::core::IntoParam<IWiaPropertyStorage>,
     {
-        (::windows::core::Vtable::vtable(self).ApplyProperties)(::windows::core::Vtable::as_raw(self), pwiapropertystorage.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ApplyProperties)(::windows::core::Interface::as_raw(self), pwiapropertystorage.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaImageFilter, ::windows::core::IUnknown);
@@ -867,7 +867,7 @@ impl ::core::fmt::Debug for IWiaImageFilter {
         f.debug_tuple("IWiaImageFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaImageFilter {
+unsafe impl ::windows::core::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilter_Vtbl;
 }
 impl ::core::clone::Clone for IWiaImageFilter {
@@ -875,7 +875,7 @@ impl ::core::clone::Clone for IWiaImageFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaImageFilter {
+unsafe impl ::windows::core::ComInterface for IWiaImageFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
 }
 #[repr(C)]
@@ -896,63 +896,63 @@ pub struct IWiaItem(::windows::core::IUnknown);
 impl IWiaItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AnalyzeItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
+        (::windows::core::Interface::vtable(self).AnalyzeItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self) -> ::windows::core::Result<IEnumWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IEnumWiaItem>();
-        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumChildItems)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
+        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn CreateChildItem(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem>();
-        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateChildItem)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
-        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterEventInfo)(::windows::core::Interface::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem>();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).DeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lflags, lintent, plitemcount, ppiwiaitem).ok()
+        (::windows::core::Interface::vtable(self).DeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), lflags, lintent, plitemcount, ppiwiaitem).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::core::GUID, piwiaitem: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeviceCommand)(::windows::core::Vtable::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(piwiaitem)).ok()
+        (::windows::core::Interface::vtable(self).DeviceCommand)(::windows::core::Interface::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(piwiaitem)).ok()
     }
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem>();
-        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRootItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
-        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumDeviceCapabilities)(::windows::core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).DumpItemData)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpDrvItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).DumpDrvItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).DumpDrvItemData)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DumpTreeItemData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).DumpTreeItemData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).DumpTreeItemData)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaItem, ::windows::core::IUnknown);
@@ -967,7 +967,7 @@ impl ::core::fmt::Debug for IWiaItem {
         f.debug_tuple("IWiaItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaItem {
+unsafe impl ::windows::core::Interface for IWiaItem {
     type Vtable = IWiaItem_Vtbl;
 }
 impl ::core::clone::Clone for IWiaItem {
@@ -975,7 +975,7 @@ impl ::core::clone::Clone for IWiaItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaItem {
+unsafe impl ::windows::core::ComInterface for IWiaItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
 }
 #[repr(C)]
@@ -1007,68 +1007,68 @@ pub struct IWiaItem2(::windows::core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem(&self, litemflags: i32, lcreationflags: i32, bstritemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
-        (::windows::core::Vtable::vtable(self).CreateChildItem)(::windows::core::Vtable::as_raw(self), litemflags, lcreationflags, ::core::mem::transmute_copy(bstritemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateChildItem)(::windows::core::Interface::as_raw(self), litemflags, lcreationflags, ::core::mem::transmute_copy(bstritemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), lflags).ok()
+        (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn EnumChildItems(&self, pcategoryguid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<IEnumWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IEnumWiaItem2>();
-        (::windows::core::Vtable::vtable(self).EnumChildItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcategoryguid.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumChildItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcategoryguid.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemByName(&self, lflags: i32, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
-        (::windows::core::Vtable::vtable(self).FindItemByName)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemCategory(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-        (::windows::core::Vtable::vtable(self).GetItemCategory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemCategory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<P0>(&self, lflags: i32, hwndparent: P0, bstrfoldername: &::windows::core::BSTR, bstrfilename: &::windows::core::BSTR, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: ::core::option::Option<*mut ::core::option::Option<IWiaItem2>>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).DeviceDlg)(::windows::core::Vtable::as_raw(self), lflags, hwndparent.into(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).DeviceDlg)(::windows::core::Interface::as_raw(self), lflags, hwndparent.into_param().abi(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::core::GUID, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeviceCommand)(::windows::core::Vtable::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(ppiwiaitem2)).ok()
+        (::windows::core::Interface::vtable(self).DeviceCommand)(::windows::core::Interface::as_raw(self), lflags, pcmdguid, ::core::mem::transmute(ppiwiaitem2)).ok()
     }
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
-        (::windows::core::Vtable::vtable(self).EnumDeviceCapabilities)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumDeviceCapabilities)(::windows::core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckExtension(&self, lflags: i32, bstrname: &::windows::core::BSTR, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckExtension)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrname), riidextensioninterface, pbextensionexists).ok()
+        (::windows::core::Interface::vtable(self).CheckExtension)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrname), riidextensioninterface, pbextensionexists).ok()
     }
     pub unsafe fn GetExtension(&self, lflags: i32, bstrname: &::windows::core::BSTR, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetExtension)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrname), riidextensioninterface, ppout).ok()
+        (::windows::core::Interface::vtable(self).GetExtension)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstrname), riidextensioninterface, ppout).ok()
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
-        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::windows::core::zeroed::<IWiaItem2>();
-        (::windows::core::Vtable::vtable(self).GetRootItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRootItem)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> ::windows::core::Result<IWiaPreview> {
         let mut result__ = ::windows::core::zeroed::<IWiaPreview>();
-        (::windows::core::Vtable::vtable(self).GetPreviewComponent)(::windows::core::Vtable::as_raw(self), lflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPreviewComponent)(::windows::core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_DEV_CAPS>();
-        (::windows::core::Vtable::vtable(self).EnumRegisterEventInfo)(::windows::core::Vtable::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumRegisterEventInfo)(::windows::core::Interface::as_raw(self), lflags, peventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaItem2, ::windows::core::IUnknown);
@@ -1083,7 +1083,7 @@ impl ::core::fmt::Debug for IWiaItem2 {
         f.debug_tuple("IWiaItem2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaItem2 {
+unsafe impl ::windows::core::Interface for IWiaItem2 {
     type Vtable = IWiaItem2_Vtbl;
 }
 impl ::core::clone::Clone for IWiaItem2 {
@@ -1091,7 +1091,7 @@ impl ::core::clone::Clone for IWiaItem2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaItem2 {
+unsafe impl ::windows::core::ComInterface for IWiaItem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
 }
 #[repr(C)]
@@ -1127,13 +1127,13 @@ pub struct IWiaItemExtras(::windows::core::IUnknown);
 impl IWiaItemExtras {
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).GetExtendedErrorInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetExtendedErrorInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, poutdata, dwoutdatasize, pdwactualdatasize).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::windows::core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, poutdata, dwoutdatasize, pdwactualdatasize).ok()
     }
     pub unsafe fn CancelPendingIO(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CancelPendingIO)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelPendingIO)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaItemExtras, ::windows::core::IUnknown);
@@ -1148,7 +1148,7 @@ impl ::core::fmt::Debug for IWiaItemExtras {
         f.debug_tuple("IWiaItemExtras").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaItemExtras {
+unsafe impl ::windows::core::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtras_Vtbl;
 }
 impl ::core::clone::Clone for IWiaItemExtras {
@@ -1156,7 +1156,7 @@ impl ::core::clone::Clone for IWiaItemExtras {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaItemExtras {
+unsafe impl ::windows::core::ComInterface for IWiaItemExtras {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
 }
 #[repr(C)]
@@ -1172,13 +1172,13 @@ pub struct IWiaItemExtras_Vtbl {
 pub struct IWiaLog(::windows::core::IUnknown);
 impl IWiaLog {
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeLog)(::windows::core::Vtable::as_raw(self), hinstance).ok()
+        (::windows::core::Interface::vtable(self).InitializeLog)(::windows::core::Interface::as_raw(self), hinstance).ok()
     }
     pub unsafe fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).hResult)(::windows::core::Vtable::as_raw(self), hresult).ok()
+        (::windows::core::Interface::vtable(self).hResult)(::windows::core::Interface::as_raw(self), hresult).ok()
     }
     pub unsafe fn Log(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
+        (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaLog, ::windows::core::IUnknown);
@@ -1193,7 +1193,7 @@ impl ::core::fmt::Debug for IWiaLog {
         f.debug_tuple("IWiaLog").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaLog {
+unsafe impl ::windows::core::Interface for IWiaLog {
     type Vtable = IWiaLog_Vtbl;
 }
 impl ::core::clone::Clone for IWiaLog {
@@ -1201,7 +1201,7 @@ impl ::core::clone::Clone for IWiaLog {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaLog {
+unsafe impl ::windows::core::ComInterface for IWiaLog {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
 }
 #[repr(C)]
@@ -1217,19 +1217,19 @@ pub struct IWiaLog_Vtbl {
 pub struct IWiaLogEx(::windows::core::IUnknown);
 impl IWiaLogEx {
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeLogEx)(::windows::core::Vtable::as_raw(self), hinstance).ok()
+        (::windows::core::Interface::vtable(self).InitializeLogEx)(::windows::core::Interface::as_raw(self), hinstance).ok()
     }
     pub unsafe fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).hResult)(::windows::core::Vtable::as_raw(self), hresult).ok()
+        (::windows::core::Interface::vtable(self).hResult)(::windows::core::Interface::as_raw(self), hresult).ok()
     }
     pub unsafe fn Log(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
+        (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
     pub unsafe fn hResultEx(&self, lmethodid: i32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).hResultEx)(::windows::core::Vtable::as_raw(self), lmethodid, hresult).ok()
+        (::windows::core::Interface::vtable(self).hResultEx)(::windows::core::Interface::as_raw(self), lmethodid, hresult).ok()
     }
     pub unsafe fn LogEx(&self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LogEx)(::windows::core::Vtable::as_raw(self), lmethodid, lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
+        (::windows::core::Interface::vtable(self).LogEx)(::windows::core::Interface::as_raw(self), lmethodid, lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaLogEx, ::windows::core::IUnknown);
@@ -1244,7 +1244,7 @@ impl ::core::fmt::Debug for IWiaLogEx {
         f.debug_tuple("IWiaLogEx").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaLogEx {
+unsafe impl ::windows::core::Interface for IWiaLogEx {
     type Vtable = IWiaLogEx_Vtbl;
 }
 impl ::core::clone::Clone for IWiaLogEx {
@@ -1252,7 +1252,7 @@ impl ::core::clone::Clone for IWiaLogEx {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaLogEx {
+unsafe impl ::windows::core::ComInterface for IWiaLogEx {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
 }
 #[repr(C)]
@@ -1271,74 +1271,74 @@ pub struct IWiaMiniDrv(::windows::core::IUnknown);
 impl IWiaMiniDrv {
     pub unsafe fn drvInitializeWia<P0, P1>(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: &::windows::core::BSTR, __midl__iwiaminidrv0003: &::windows::core::BSTR, __midl__iwiaminidrv0004: P0, __midl__iwiaminidrv0005: P1, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).drvInitializeWia)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, ::core::mem::transmute_copy(__midl__iwiaminidrv0002), ::core::mem::transmute_copy(__midl__iwiaminidrv0003), __midl__iwiaminidrv0004.into().abi(), __midl__iwiaminidrv0005.into().abi(), ::core::mem::transmute(__midl__iwiaminidrv0006), ::core::mem::transmute(__midl__iwiaminidrv0007), __midl__iwiaminidrv0008).ok()
+        (::windows::core::Interface::vtable(self).drvInitializeWia)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0000, __midl__iwiaminidrv0001, ::core::mem::transmute_copy(__midl__iwiaminidrv0002), ::core::mem::transmute_copy(__midl__iwiaminidrv0003), __midl__iwiaminidrv0004.into_param().abi(), __midl__iwiaminidrv0005.into_param().abi(), ::core::mem::transmute(__midl__iwiaminidrv0006), ::core::mem::transmute(__midl__iwiaminidrv0007), __midl__iwiaminidrv0008).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvAcquireItemData)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
+        (::windows::core::Interface::vtable(self).drvAcquireItemData)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0009, __midl__iwiaminidrv0010, __midl__iwiaminidrv0011, __midl__iwiaminidrv0012).ok()
     }
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvInitItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvInitItemProperties)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0013, __midl__iwiaminidrv0014, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvValidateItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvValidateItemProperties)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0016, __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, __midl__iwiaminidrv0019, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvWriteItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvWriteItemProperties)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0021, __midl__iwiaminidrv0022, __midl__iwiaminidrv0023, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvReadItemProperties)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvReadItemProperties)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0025, __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, __midl__iwiaminidrv0028, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvLockWiaDevice)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0030, __midl__iwiaminidrv0031, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvUnLockWiaDevice)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvUnLockWiaDevice)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0033, __midl__iwiaminidrv0034, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvAnalyzeItem)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0036, __midl__iwiaminidrv0037, __midl__iwiaminidrv0038).ok()
+        (::windows::core::Interface::vtable(self).drvAnalyzeItem)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0036, __midl__iwiaminidrv0037, __midl__iwiaminidrv0038).ok()
     }
     pub unsafe fn drvGetDeviceErrorStr(&self, __midl__iwiaminidrv0039: i32, __midl__iwiaminidrv0040: i32, __midl__iwiaminidrv0041: *mut ::windows::core::PWSTR, __midl__iwiaminidrv0042: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvGetDeviceErrorStr)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0039, __midl__iwiaminidrv0040, __midl__iwiaminidrv0041, __midl__iwiaminidrv0042).ok()
+        (::windows::core::Interface::vtable(self).drvGetDeviceErrorStr)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0039, __midl__iwiaminidrv0040, __midl__iwiaminidrv0041, __midl__iwiaminidrv0042).ok()
     }
     pub unsafe fn drvDeviceCommand(&self, __midl__iwiaminidrv0043: *const u8, __midl__iwiaminidrv0044: i32, __midl__iwiaminidrv0045: *const ::windows::core::GUID, __midl__iwiaminidrv0046: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0047: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvDeviceCommand)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0043, __midl__iwiaminidrv0044, __midl__iwiaminidrv0045, ::core::mem::transmute(__midl__iwiaminidrv0046), __midl__iwiaminidrv0047).ok()
+        (::windows::core::Interface::vtable(self).drvDeviceCommand)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0043, __midl__iwiaminidrv0044, __midl__iwiaminidrv0045, ::core::mem::transmute(__midl__iwiaminidrv0046), __midl__iwiaminidrv0047).ok()
     }
     pub unsafe fn drvGetCapabilities(&self, __midl__iwiaminidrv0048: *const u8, __midl__iwiaminidrv0049: i32, __midl__iwiaminidrv0050: *mut i32, __midl__iwiaminidrv0051: *mut *mut WIA_DEV_CAP_DRV, __midl__iwiaminidrv0052: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvGetCapabilities)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0048, __midl__iwiaminidrv0049, __midl__iwiaminidrv0050, __midl__iwiaminidrv0051, __midl__iwiaminidrv0052).ok()
+        (::windows::core::Interface::vtable(self).drvGetCapabilities)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0048, __midl__iwiaminidrv0049, __midl__iwiaminidrv0050, __midl__iwiaminidrv0051, __midl__iwiaminidrv0052).ok()
     }
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvDeleteItem)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvDeleteItem)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0053, __midl__iwiaminidrv0054, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Vtable::vtable(self).drvFreeDrvItemContext)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).drvFreeDrvItemContext)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0056, __midl__iwiaminidrv0057, &mut result__).from_abi(result__)
     }
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvGetWiaFormatInfo)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0059, __midl__iwiaminidrv0060, __midl__iwiaminidrv0061, __midl__iwiaminidrv0062, __midl__iwiaminidrv0063).ok()
+        (::windows::core::Interface::vtable(self).drvGetWiaFormatInfo)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0059, __midl__iwiaminidrv0060, __midl__iwiaminidrv0061, __midl__iwiaminidrv0062, __midl__iwiaminidrv0063).ok()
     }
     pub unsafe fn drvNotifyPnpEvent(&self, peventguid: *const ::windows::core::GUID, bstrdeviceid: &::windows::core::BSTR, ulreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvNotifyPnpEvent)(::windows::core::Vtable::as_raw(self), peventguid, ::core::mem::transmute_copy(bstrdeviceid), ulreserved).ok()
+        (::windows::core::Interface::vtable(self).drvNotifyPnpEvent)(::windows::core::Interface::as_raw(self), peventguid, ::core::mem::transmute_copy(bstrdeviceid), ulreserved).ok()
     }
     pub unsafe fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).drvUnInitializeWia)(::windows::core::Vtable::as_raw(self), __midl__iwiaminidrv0064).ok()
+        (::windows::core::Interface::vtable(self).drvUnInitializeWia)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0064).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaMiniDrv, ::windows::core::IUnknown);
@@ -1353,7 +1353,7 @@ impl ::core::fmt::Debug for IWiaMiniDrv {
         f.debug_tuple("IWiaMiniDrv").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaMiniDrv {
+unsafe impl ::windows::core::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrv_Vtbl;
 }
 impl ::core::clone::Clone for IWiaMiniDrv {
@@ -1361,7 +1361,7 @@ impl ::core::clone::Clone for IWiaMiniDrv {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaMiniDrv {
+unsafe impl ::windows::core::ComInterface for IWiaMiniDrv {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 }
 #[repr(C)]
@@ -1405,7 +1405,7 @@ impl IWiaMiniDrvCallBack {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MiniDrvCallback)(::windows::core::Vtable::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ptranctx, lreserved).ok()
+        (::windows::core::Interface::vtable(self).MiniDrvCallback)(::windows::core::Interface::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ptranctx, lreserved).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows::core::IUnknown);
@@ -1420,7 +1420,7 @@ impl ::core::fmt::Debug for IWiaMiniDrvCallBack {
         f.debug_tuple("IWiaMiniDrvCallBack").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaMiniDrvCallBack {
+unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBack_Vtbl;
 }
 impl ::core::clone::Clone for IWiaMiniDrvCallBack {
@@ -1428,7 +1428,7 @@ impl ::core::clone::Clone for IWiaMiniDrvCallBack {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
+unsafe impl ::windows::core::ComInterface for IWiaMiniDrvCallBack {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 }
 #[repr(C)]
@@ -1448,10 +1448,10 @@ impl IWiaMiniDrvTransferCallback {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetNextStream)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SendMessage)(::windows::core::Vtable::as_raw(self), lflags, pwiatransferparams).ok()
+        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows::core::IUnknown);
@@ -1466,7 +1466,7 @@ impl ::core::fmt::Debug for IWiaMiniDrvTransferCallback {
         f.debug_tuple("IWiaMiniDrvTransferCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaMiniDrvTransferCallback {
+unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallback_Vtbl;
 }
 impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
@@ -1474,7 +1474,7 @@ impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
+unsafe impl ::windows::core::ComInterface for IWiaMiniDrvTransferCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
 }
 #[repr(C)]
@@ -1492,7 +1492,7 @@ pub struct IWiaMiniDrvTransferCallback_Vtbl {
 pub struct IWiaNotifyDevMgr(::windows::core::IUnknown);
 impl IWiaNotifyDevMgr {
     pub unsafe fn NewDeviceArrival(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).NewDeviceArrival)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).NewDeviceArrival)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows::core::IUnknown);
@@ -1507,7 +1507,7 @@ impl ::core::fmt::Debug for IWiaNotifyDevMgr {
         f.debug_tuple("IWiaNotifyDevMgr").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaNotifyDevMgr {
+unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgr_Vtbl;
 }
 impl ::core::clone::Clone for IWiaNotifyDevMgr {
@@ -1515,7 +1515,7 @@ impl ::core::clone::Clone for IWiaNotifyDevMgr {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
+unsafe impl ::windows::core::ComInterface for IWiaNotifyDevMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
 }
 #[repr(C)]
@@ -1530,23 +1530,23 @@ pub struct IWiaPreview(::windows::core::IUnknown);
 impl IWiaPreview {
     pub unsafe fn GetNewPreview<P0, P1>(&self, lflags: i32, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
+        P1: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).GetNewPreview)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetNewPreview)(::windows::core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
     pub unsafe fn UpdatePreview<P0, P1>(&self, lflags: i32, pchildwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<IWiaItem2>,
+        P1: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).UpdatePreview)(::windows::core::Vtable::as_raw(self), lflags, pchildwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdatePreview)(::windows::core::Interface::as_raw(self), lflags, pchildwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
     pub unsafe fn DetectRegions(&self, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DetectRegions)(::windows::core::Vtable::as_raw(self), lflags).ok()
+        (::windows::core::Interface::vtable(self).DetectRegions)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaPreview, ::windows::core::IUnknown);
@@ -1561,7 +1561,7 @@ impl ::core::fmt::Debug for IWiaPreview {
         f.debug_tuple("IWiaPreview").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaPreview {
+unsafe impl ::windows::core::Interface for IWiaPreview {
     type Vtable = IWiaPreview_Vtbl;
 }
 impl ::core::clone::Clone for IWiaPreview {
@@ -1569,7 +1569,7 @@ impl ::core::clone::Clone for IWiaPreview {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaPreview {
+unsafe impl ::windows::core::ComInterface for IWiaPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
 }
 #[repr(C)]
@@ -1588,73 +1588,73 @@ impl IWiaPropertyStorage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReadMultiple)(::windows::core::Vtable::as_raw(self), cpspec, rgpspec, rgpropvar).ok()
+        (::windows::core::Interface::vtable(self).ReadMultiple)(::windows::core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WriteMultiple)(::windows::core::Vtable::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst).ok()
+        (::windows::core::Interface::vtable(self).WriteMultiple)(::windows::core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteMultiple)(::windows::core::Vtable::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).DeleteMultiple)(::windows::core::Interface::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
     }
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReadPropertyNames)(::windows::core::Vtable::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
+        (::windows::core::Interface::vtable(self).ReadPropertyNames)(::windows::core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
     }
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WritePropertyNames)(::windows::core::Vtable::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
+        (::windows::core::Interface::vtable(self).WritePropertyNames)(::windows::core::Interface::as_raw(self), cpropid, rgpropid, rglpwstrname).ok()
     }
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeletePropertyNames)(::windows::core::Vtable::as_raw(self), rgpropid.len() as _, ::core::mem::transmute(rgpropid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).DeletePropertyNames)(::windows::core::Interface::as_raw(self), rgpropid.len() as _, ::core::mem::transmute(rgpropid.as_ptr())).ok()
     }
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), grfcommitflags).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), grfcommitflags).ok()
     }
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Revert)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Revert)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>();
-        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Enum)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTimes)(::windows::core::Vtable::as_raw(self), pctime, patime, pmtime).ok()
+        (::windows::core::Interface::vtable(self).SetTimes)(::windows::core::Interface::as_raw(self), pctime, patime, pmtime).ok()
     }
     pub unsafe fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClass)(::windows::core::Vtable::as_raw(self), clsid).ok()
+        (::windows::core::Interface::vtable(self).SetClass)(::windows::core::Interface::as_raw(self), clsid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), pstatpsstg).ok()
+        (::windows::core::Interface::vtable(self).Stat)(::windows::core::Interface::as_raw(self), pstatpsstg).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyAttributes)(::windows::core::Vtable::as_raw(self), cpspec, rgpspec, rgflags, rgpropvar).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyAttributes)(::windows::core::Interface::as_raw(self), cpspec, rgpspec, rgflags, rgpropvar).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyStream(&self, pcompatibilityid: *mut ::windows::core::GUID, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyStream)(::windows::core::Vtable::as_raw(self), pcompatibilityid, ::core::mem::transmute(ppistream)).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyStream)(::windows::core::Interface::as_raw(self), pcompatibilityid, ::core::mem::transmute(ppistream)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertyStream<P0>(&self, pcompatibilityid: *mut ::windows::core::GUID, pistream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).SetPropertyStream)(::windows::core::Vtable::as_raw(self), pcompatibilityid, pistream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPropertyStream)(::windows::core::Interface::as_raw(self), pcompatibilityid, pistream.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows::core::IUnknown);
@@ -1669,7 +1669,7 @@ impl ::core::fmt::Debug for IWiaPropertyStorage {
         f.debug_tuple("IWiaPropertyStorage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaPropertyStorage {
+unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorage_Vtbl;
 }
 impl ::core::clone::Clone for IWiaPropertyStorage {
@@ -1677,7 +1677,7 @@ impl ::core::clone::Clone for IWiaPropertyStorage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
+unsafe impl ::windows::core::ComInterface for IWiaPropertyStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 }
 #[repr(C)]
@@ -1736,10 +1736,10 @@ impl IWiaSegmentationFilter {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectRegions<P0, P1>(&self, lflags: i32, pinputstream: P0, pwiaitem2: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaItem2>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<IWiaItem2>,
     {
-        (::windows::core::Vtable::vtable(self).DetectRegions)(::windows::core::Vtable::as_raw(self), lflags, pinputstream.into().abi(), pwiaitem2.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).DetectRegions)(::windows::core::Interface::as_raw(self), lflags, pinputstream.into_param().abi(), pwiaitem2.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaSegmentationFilter, ::windows::core::IUnknown);
@@ -1754,7 +1754,7 @@ impl ::core::fmt::Debug for IWiaSegmentationFilter {
         f.debug_tuple("IWiaSegmentationFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaSegmentationFilter {
+unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilter_Vtbl;
 }
 impl ::core::clone::Clone for IWiaSegmentationFilter {
@@ -1762,7 +1762,7 @@ impl ::core::clone::Clone for IWiaSegmentationFilter {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
+unsafe impl ::windows::core::ComInterface for IWiaSegmentationFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
 }
 #[repr(C)]
@@ -1780,25 +1780,25 @@ pub struct IWiaTransfer(::windows::core::IUnknown);
 impl IWiaTransfer {
     pub unsafe fn Download<P0>(&self, lflags: i32, piwiatransfercallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).Download)(::windows::core::Vtable::as_raw(self), lflags, piwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), lflags, piwiatransfercallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<P0, P1>(&self, lflags: i32, psource: P0, piwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWiaTransferCallback>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<IWiaTransferCallback>,
     {
-        (::windows::core::Vtable::vtable(self).Upload)(::windows::core::Vtable::as_raw(self), lflags, psource.into().abi(), piwiatransfercallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Upload)(::windows::core::Interface::as_raw(self), lflags, psource.into_param().abi(), piwiatransfercallback.into_param().abi()).ok()
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::windows::core::zeroed::<IEnumWIA_FORMAT_INFO>();
-        (::windows::core::Vtable::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaTransfer, ::windows::core::IUnknown);
@@ -1813,7 +1813,7 @@ impl ::core::fmt::Debug for IWiaTransfer {
         f.debug_tuple("IWiaTransfer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaTransfer {
+unsafe impl ::windows::core::Interface for IWiaTransfer {
     type Vtable = IWiaTransfer_Vtbl;
 }
 impl ::core::clone::Clone for IWiaTransfer {
@@ -1821,7 +1821,7 @@ impl ::core::clone::Clone for IWiaTransfer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaTransfer {
+unsafe impl ::windows::core::ComInterface for IWiaTransfer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
 }
 #[repr(C)]
@@ -1841,13 +1841,13 @@ pub struct IWiaTransfer_Vtbl {
 pub struct IWiaTransferCallback(::windows::core::IUnknown);
 impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TransferCallback)(::windows::core::Vtable::as_raw(self), lflags, pwiatransferparams).ok()
+        (::windows::core::Interface::vtable(self).TransferCallback)(::windows::core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextStream(&self, lflags: i32, bstritemname: &::windows::core::BSTR, bstrfullitemname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
-        (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetNextStream)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);
@@ -1862,7 +1862,7 @@ impl ::core::fmt::Debug for IWiaTransferCallback {
         f.debug_tuple("IWiaTransferCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaTransferCallback {
+unsafe impl ::windows::core::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallback_Vtbl;
 }
 impl ::core::clone::Clone for IWiaTransferCallback {
@@ -1870,7 +1870,7 @@ impl ::core::clone::Clone for IWiaTransferCallback {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaTransferCallback {
+unsafe impl ::windows::core::ComInterface for IWiaTransferCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 }
 #[repr(C)]
@@ -1890,17 +1890,17 @@ impl IWiaUIExtension {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeviceDialog)(::windows::core::Vtable::as_raw(self), pdevicedialogdata).ok()
+        (::windows::core::Interface::vtable(self).DeviceDialog)(::windows::core::Interface::as_raw(self), pdevicedialogdata).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon(&self, bstrdeviceid: &::windows::core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceIcon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phicon, nsize).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phicon, nsize).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDeviceBitmapLogo(&self, bstrdeviceid: &::windows::core::BSTR, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceBitmapLogo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phbitmap, nmaxwidth, nmaxheight).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceBitmapLogo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phbitmap, nmaxwidth, nmaxheight).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaUIExtension, ::windows::core::IUnknown);
@@ -1915,7 +1915,7 @@ impl ::core::fmt::Debug for IWiaUIExtension {
         f.debug_tuple("IWiaUIExtension").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaUIExtension {
+unsafe impl ::windows::core::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtension_Vtbl;
 }
 impl ::core::clone::Clone for IWiaUIExtension {
@@ -1923,7 +1923,7 @@ impl ::core::clone::Clone for IWiaUIExtension {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaUIExtension {
+unsafe impl ::windows::core::ComInterface for IWiaUIExtension {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
 }
 #[repr(C)]
@@ -1950,12 +1950,12 @@ impl IWiaUIExtension2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeviceDialog)(::windows::core::Vtable::as_raw(self), pdevicedialogdata).ok()
+        (::windows::core::Interface::vtable(self).DeviceDialog)(::windows::core::Interface::as_raw(self), pdevicedialogdata).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetDeviceIcon(&self, bstrdeviceid: &::windows::core::BSTR, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceIcon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phicon, nsize).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), phicon, nsize).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaUIExtension2, ::windows::core::IUnknown);
@@ -1970,7 +1970,7 @@ impl ::core::fmt::Debug for IWiaUIExtension2 {
         f.debug_tuple("IWiaUIExtension2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaUIExtension2 {
+unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2_Vtbl;
 }
 impl ::core::clone::Clone for IWiaUIExtension2 {
@@ -1978,7 +1978,7 @@ impl ::core::clone::Clone for IWiaUIExtension2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
+unsafe impl ::windows::core::ComInterface for IWiaUIExtension2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
 }
 #[repr(C)]
@@ -2002,77 +2002,77 @@ impl IWiaVideo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreviewVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Vtable::vtable(self).PreviewVisible)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PreviewVisible)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreviewVisible<P0>(&self, bpreviewvisible: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetPreviewVisible)(::windows::core::Vtable::as_raw(self), bpreviewvisible.into()).ok()
+        (::windows::core::Interface::vtable(self).SetPreviewVisible)(::windows::core::Interface::as_raw(self), bpreviewvisible.into_param().abi()).ok()
     }
     pub unsafe fn ImagesDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).ImagesDirectory)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ImagesDirectory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImagesDirectory(&self, bstrimagedirectory: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetImagesDirectory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrimagedirectory)).ok()
+        (::windows::core::Interface::vtable(self).SetImagesDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrimagedirectory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByWiaDevID<P0, P1, P2>(&self, bstrwiadeviceid: &::windows::core::BSTR, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).CreateVideoByWiaDevID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrwiadeviceid), hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (::windows::core::Interface::vtable(self).CreateVideoByWiaDevID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrwiadeviceid), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByDevNum<P0, P1, P2>(&self, uidevicenumber: u32, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).CreateVideoByDevNum)(::windows::core::Vtable::as_raw(self), uidevicenumber, hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (::windows::core::Interface::vtable(self).CreateVideoByDevNum)(::windows::core::Interface::as_raw(self), uidevicenumber, hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByName<P0, P1, P2>(&self, bstrfriendlyname: &::windows::core::BSTR, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).CreateVideoByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfriendlyname), hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
+        (::windows::core::Interface::vtable(self).CreateVideoByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfriendlyname), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
     pub unsafe fn DestroyVideo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DestroyVideo)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).DestroyVideo)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Play)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TakePicture(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Vtable::vtable(self).TakePicture)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).TakePicture)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResizeVideo<P0>(&self, bstretchtofitparent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).ResizeVideo)(::windows::core::Vtable::as_raw(self), bstretchtofitparent.into()).ok()
+        (::windows::core::Interface::vtable(self).ResizeVideo)(::windows::core::Interface::as_raw(self), bstretchtofitparent.into_param().abi()).ok()
     }
     pub unsafe fn GetCurrentState(&self) -> ::windows::core::Result<WIAVIDEO_STATE> {
         let mut result__ = ::windows::core::zeroed::<WIAVIDEO_STATE>();
-        (::windows::core::Vtable::vtable(self).GetCurrentState)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetCurrentState)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IWiaVideo, ::windows::core::IUnknown);
@@ -2087,7 +2087,7 @@ impl ::core::fmt::Debug for IWiaVideo {
         f.debug_tuple("IWiaVideo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWiaVideo {
+unsafe impl ::windows::core::Interface for IWiaVideo {
     type Vtable = IWiaVideo_Vtbl;
 }
 impl ::core::clone::Clone for IWiaVideo {
@@ -2095,7 +2095,7 @@ impl ::core::clone::Clone for IWiaVideo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWiaVideo {
+unsafe impl ::windows::core::ComInterface for IWiaVideo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
 }
 #[repr(C)]

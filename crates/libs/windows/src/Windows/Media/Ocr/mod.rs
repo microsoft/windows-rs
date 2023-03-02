@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOcrEngine(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOcrEngine {
+unsafe impl ::windows::core::Interface for IOcrEngine {
     type Vtable = IOcrEngine_Vtbl;
 }
 impl ::core::clone::Clone for IOcrEngine {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IOcrEngine {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOcrEngine {
+unsafe impl ::windows::core::ComInterface for IOcrEngine {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
 #[repr(C)]
@@ -28,7 +28,7 @@ pub struct IOcrEngine_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOcrEngineStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOcrEngineStatics {
+unsafe impl ::windows::core::Interface for IOcrEngineStatics {
     type Vtable = IOcrEngineStatics_Vtbl;
 }
 impl ::core::clone::Clone for IOcrEngineStatics {
@@ -36,7 +36,7 @@ impl ::core::clone::Clone for IOcrEngineStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOcrEngineStatics {
+unsafe impl ::windows::core::ComInterface for IOcrEngineStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bffa85a_3384_3540_9940_699120d428a8);
 }
 #[repr(C)]
@@ -61,7 +61,7 @@ pub struct IOcrEngineStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOcrLine(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOcrLine {
+unsafe impl ::windows::core::Interface for IOcrLine {
     type Vtable = IOcrLine_Vtbl;
 }
 impl ::core::clone::Clone for IOcrLine {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for IOcrLine {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOcrLine {
+unsafe impl ::windows::core::ComInterface for IOcrLine {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
 #[repr(C)]
@@ -85,7 +85,7 @@ pub struct IOcrLine_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOcrResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOcrResult {
+unsafe impl ::windows::core::Interface for IOcrResult {
     type Vtable = IOcrResult_Vtbl;
 }
 impl ::core::clone::Clone for IOcrResult {
@@ -93,7 +93,7 @@ impl ::core::clone::Clone for IOcrResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOcrResult {
+unsafe impl ::windows::core::ComInterface for IOcrResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 }
 #[repr(C)]
@@ -113,7 +113,7 @@ pub struct IOcrResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOcrWord(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IOcrWord {
+unsafe impl ::windows::core::Interface for IOcrWord {
     type Vtable = IOcrWord_Vtbl;
 }
 impl ::core::clone::Clone for IOcrWord {
@@ -121,7 +121,7 @@ impl ::core::clone::Clone for IOcrWord {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IOcrWord {
+unsafe impl ::windows::core::ComInterface for IOcrWord {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 }
 #[repr(C)]
@@ -144,7 +144,7 @@ impl OcrEngine {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<OcrResult>>();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -153,13 +153,13 @@ impl OcrEngine {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Globalization::Language>();
-            (::windows::core::Vtable::vtable(this).RecognizerLanguage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RecognizerLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxImageDimension() -> ::windows::core::Result<u32> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxImageDimension)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxImageDimension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
@@ -167,7 +167,7 @@ impl OcrEngine {
     pub fn AvailableRecognizerLanguages() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>();
-            (::windows::core::Vtable::vtable(this).AvailableRecognizerLanguages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AvailableRecognizerLanguages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -175,7 +175,7 @@ impl OcrEngine {
     pub fn IsLanguageSupported(language: &super::super::Globalization::Language) -> ::windows::core::Result<bool> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsLanguageSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsLanguageSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -183,13 +183,13 @@ impl OcrEngine {
     pub fn TryCreateFromLanguage(language: &super::super::Globalization::Language) -> ::windows::core::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OcrEngine>();
-            (::windows::core::Vtable::vtable(this).TryCreateFromLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
         })
     }
     pub fn TryCreateFromUserProfileLanguages() -> ::windows::core::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<OcrEngine>();
-            (::windows::core::Vtable::vtable(this).TryCreateFromUserProfileLanguages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromUserProfileLanguages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -217,11 +217,11 @@ impl ::core::clone::Clone for OcrEngine {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OcrEngine {
+unsafe impl ::windows::core::Interface for OcrEngine {
     type Vtable = IOcrEngine_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OcrEngine {
-    const IID: ::windows::core::GUID = <IOcrEngine as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OcrEngine {
+    const IID: ::windows::core::GUID = <IOcrEngine as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
@@ -239,14 +239,14 @@ impl OcrLine {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<OcrWord>>();
-            (::windows::core::Vtable::vtable(this).Words)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Words)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -269,11 +269,11 @@ impl ::core::clone::Clone for OcrLine {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OcrLine {
+unsafe impl ::windows::core::Interface for OcrLine {
     type Vtable = IOcrLine_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OcrLine {
-    const IID: ::windows::core::GUID = <IOcrLine as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OcrLine {
+    const IID: ::windows::core::GUID = <IOcrLine as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
@@ -291,7 +291,7 @@ impl OcrResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<OcrLine>>();
-            (::windows::core::Vtable::vtable(this).Lines)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Lines)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -300,14 +300,14 @@ impl OcrResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<f64>>();
-            (::windows::core::Vtable::vtable(this).TextAngle)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TextAngle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -330,11 +330,11 @@ impl ::core::clone::Clone for OcrResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OcrResult {
+unsafe impl ::windows::core::Interface for OcrResult {
     type Vtable = IOcrResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OcrResult {
-    const IID: ::windows::core::GUID = <IOcrResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OcrResult {
+    const IID: ::windows::core::GUID = <IOcrResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
@@ -352,14 +352,14 @@ impl OcrWord {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -382,11 +382,11 @@ impl ::core::clone::Clone for OcrWord {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for OcrWord {
+unsafe impl ::windows::core::Interface for OcrWord {
     type Vtable = IOcrWord_Vtbl;
 }
-unsafe impl ::windows::core::Interface for OcrWord {
-    const IID: ::windows::core::GUID = <IOcrWord as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for OcrWord {
+    const IID: ::windows::core::GUID = <IOcrWord as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";

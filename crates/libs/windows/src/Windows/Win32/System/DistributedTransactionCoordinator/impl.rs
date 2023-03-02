@@ -19,7 +19,7 @@ impl IDtcLuConfigure_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Delete: Delete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuConfigure as ::windows::core::Interface>::IID
+        iid == &<IDtcLuConfigure as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -30,7 +30,7 @@ impl IDtcLuRecovery_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecovery as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecovery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -54,7 +54,7 @@ impl IDtcLuRecoveryFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryFactory as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -72,7 +72,7 @@ impl IDtcLuRecoveryInitiatedByDtc_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWork: GetWork::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtc as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtc as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleCheckLuStatus: HandleCheckLuStatus::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -198,7 +198,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -225,7 +225,7 @@ impl IDtcLuRecoveryInitiatedByLu_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByLu as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByLu as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -295,7 +295,7 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByLuWork as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByLuWork as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -354,7 +354,7 @@ impl IDtcLuRmEnlistment_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistment as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRmEnlistment as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -372,7 +372,7 @@ impl IDtcLuRmEnlistmentFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistmentFactory as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRmEnlistmentFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -449,7 +449,7 @@ impl IDtcLuRmEnlistmentSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistmentSink as ::windows::core::Interface>::IID
+        iid == &<IDtcLuRmEnlistmentSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -515,7 +515,7 @@ impl IDtcLuSubordinateDtc_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtc as ::windows::core::Interface>::IID
+        iid == &<IDtcLuSubordinateDtc as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -546,7 +546,7 @@ impl IDtcLuSubordinateDtcFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtcFactory as ::windows::core::Interface>::IID
+        iid == &<IDtcLuSubordinateDtcFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -616,7 +616,7 @@ impl IDtcLuSubordinateDtcSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtcSink as ::windows::core::Interface>::IID
+        iid == &<IDtcLuSubordinateDtcSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -760,7 +760,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig as ::windows::core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -837,7 +837,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig2 as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig2 as ::windows::core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -874,7 +874,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig3 as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::Interface>::IID || iid == &<IDtcNetworkAccessConfig2 as ::windows::core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig3 as ::windows::core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows::core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -905,7 +905,7 @@ impl IDtcToXaHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcToXaHelper as ::windows::core::Interface>::IID
+        iid == &<IDtcToXaHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -923,7 +923,7 @@ impl IDtcToXaHelperFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcToXaHelperFactory as ::windows::core::Interface>::IID
+        iid == &<IDtcToXaHelperFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -974,7 +974,7 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcToXaHelperSinglePipe as ::windows::core::Interface>::IID
+        iid == &<IDtcToXaHelperSinglePipe as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1019,7 +1019,7 @@ impl IDtcToXaMapper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDtcToXaMapper as ::windows::core::Interface>::IID
+        iid == &<IDtcToXaMapper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1037,7 +1037,7 @@ impl IGetDispenser_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDispenser: GetDispenser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetDispenser as ::windows::core::Interface>::IID
+        iid == &<IGetDispenser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1064,7 +1064,7 @@ impl IKernelTransaction_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHandle: GetHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKernelTransaction as ::windows::core::Interface>::IID
+        iid == &<IKernelTransaction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1092,7 +1092,7 @@ impl ILastResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILastResourceManager as ::windows::core::Interface>::IID
+        iid == &<ILastResourceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1120,7 +1120,7 @@ impl IPrepareInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrepareInfo as ::windows::core::Interface>::IID
+        iid == &<IPrepareInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1154,7 +1154,7 @@ impl IPrepareInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrepareInfo2 as ::windows::core::Interface>::IID
+        iid == &<IPrepareInfo2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1185,7 +1185,7 @@ impl IRMHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRMHelper as ::windows::core::Interface>::IID
+        iid == &<IRMHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1233,7 +1233,7 @@ impl IResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManager as ::windows::core::Interface>::IID
+        iid == &<IResourceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1270,7 +1270,7 @@ impl IResourceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManager2 as ::windows::core::Interface>::IID || iid == &<IResourceManager as ::windows::core::Interface>::IID
+        iid == &<IResourceManager2 as ::windows::core::ComInterface>::IID || iid == &<IResourceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1294,7 +1294,7 @@ impl IResourceManagerFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerFactory as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1312,7 +1312,7 @@ impl IResourceManagerFactory2_Vtbl {
         Self { base__: IResourceManagerFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateEx: CreateEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerFactory2 as ::windows::core::Interface>::IID || iid == &<IResourceManagerFactory as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerFactory2 as ::windows::core::ComInterface>::IID || iid == &<IResourceManagerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1339,7 +1339,7 @@ impl IResourceManagerRejoinable_Vtbl {
         Self { base__: IResourceManager2_Vtbl::new::<Identity, Impl, OFFSET>(), Rejoin: Rejoin::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerRejoinable as ::windows::core::Interface>::IID || iid == &<IResourceManager as ::windows::core::Interface>::IID || iid == &<IResourceManager2 as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerRejoinable as ::windows::core::ComInterface>::IID || iid == &<IResourceManager as ::windows::core::ComInterface>::IID || iid == &<IResourceManager2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1357,7 +1357,7 @@ impl IResourceManagerSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TMDown: TMDown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IResourceManagerSink as ::windows::core::Interface>::IID
+        iid == &<IResourceManagerSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1410,7 +1410,7 @@ impl ITipHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITipHelper as ::windows::core::Interface>::IID
+        iid == &<ITipHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1428,7 +1428,7 @@ impl ITipPullSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PullComplete: PullComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITipPullSink as ::windows::core::Interface>::IID
+        iid == &<ITipPullSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1468,7 +1468,7 @@ impl ITipTransaction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITipTransaction as ::windows::core::Interface>::IID
+        iid == &<ITipTransaction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1502,7 +1502,7 @@ impl ITmNodeName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITmNodeName as ::windows::core::Interface>::IID
+        iid == &<ITmNodeName as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1540,7 +1540,7 @@ impl ITransaction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransaction as ::windows::core::Interface>::IID
+        iid == &<ITransaction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1561,7 +1561,7 @@ impl ITransaction2_Vtbl {
         Self { base__: ITransactionCloner_Vtbl::new::<Identity, Impl, OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransaction2 as ::windows::core::Interface>::IID || iid == &<ITransaction as ::windows::core::Interface>::IID || iid == &<ITransactionCloner as ::windows::core::Interface>::IID
+        iid == &<ITransaction2 as ::windows::core::ComInterface>::IID || iid == &<ITransaction as ::windows::core::ComInterface>::IID || iid == &<ITransactionCloner as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1588,7 +1588,7 @@ impl ITransactionCloner_Vtbl {
         Self { base__: ITransaction_Vtbl::new::<Identity, Impl, OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionCloner as ::windows::core::Interface>::IID || iid == &<ITransaction as ::windows::core::Interface>::IID
+        iid == &<ITransactionCloner as ::windows::core::ComInterface>::IID || iid == &<ITransaction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1628,7 +1628,7 @@ impl ITransactionDispenser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionDispenser as ::windows::core::Interface>::IID
+        iid == &<ITransactionDispenser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1666,7 +1666,7 @@ impl ITransactionEnlistmentAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionEnlistmentAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionEnlistmentAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1700,7 +1700,7 @@ impl ITransactionExport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionExport as ::windows::core::Interface>::IID
+        iid == &<ITransactionExport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1740,7 +1740,7 @@ impl ITransactionExportFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionExportFactory as ::windows::core::Interface>::IID
+        iid == &<ITransactionExportFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1758,7 +1758,7 @@ impl ITransactionImport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Import: Import::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionImport as ::windows::core::Interface>::IID
+        iid == &<ITransactionImport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1792,7 +1792,7 @@ impl ITransactionImportWhereabouts_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionImportWhereabouts as ::windows::core::Interface>::IID
+        iid == &<ITransactionImportWhereabouts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1810,7 +1810,7 @@ impl ITransactionLastEnlistmentAsync_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransactionOutcome: TransactionOutcome::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionLastEnlistmentAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionLastEnlistmentAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1838,7 +1838,7 @@ impl ITransactionLastResourceAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionLastResourceAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionLastResourceAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1866,7 +1866,7 @@ impl ITransactionOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionOptions as ::windows::core::Interface>::IID
+        iid == &<ITransactionOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1911,7 +1911,7 @@ impl ITransactionOutcomeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionOutcomeEvents as ::windows::core::Interface>::IID
+        iid == &<ITransactionOutcomeEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1966,7 +1966,7 @@ impl ITransactionPhase0EnlistmentAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionPhase0EnlistmentAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionPhase0EnlistmentAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -1990,7 +1990,7 @@ impl ITransactionPhase0Factory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionPhase0Factory as ::windows::core::Interface>::IID
+        iid == &<ITransactionPhase0Factory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2021,7 +2021,7 @@ impl ITransactionPhase0NotifyAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionPhase0NotifyAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionPhase0NotifyAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2075,7 +2075,7 @@ impl ITransactionReceiver_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionReceiver as ::windows::core::Interface>::IID
+        iid == &<ITransactionReceiver as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2099,7 +2099,7 @@ impl ITransactionReceiverFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionReceiverFactory as ::windows::core::Interface>::IID
+        iid == &<ITransactionReceiverFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2144,7 +2144,7 @@ impl ITransactionResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionResource as ::windows::core::Interface>::IID
+        iid == &<ITransactionResource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2189,7 +2189,7 @@ impl ITransactionResourceAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionResourceAsync as ::windows::core::Interface>::IID
+        iid == &<ITransactionResourceAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2244,7 +2244,7 @@ impl ITransactionTransmitter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionTransmitter as ::windows::core::Interface>::IID
+        iid == &<ITransactionTransmitter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2268,7 +2268,7 @@ impl ITransactionTransmitterFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionTransmitterFactory as ::windows::core::Interface>::IID
+        iid == &<ITransactionTransmitterFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2286,7 +2286,7 @@ impl ITransactionVoterBallotAsync2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), VoteRequestDone: VoteRequestDone::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionVoterBallotAsync2 as ::windows::core::Interface>::IID
+        iid == &<ITransactionVoterBallotAsync2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2310,7 +2310,7 @@ impl ITransactionVoterFactory2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionVoterFactory2 as ::windows::core::Interface>::IID
+        iid == &<ITransactionVoterFactory2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2331,7 +2331,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         Self { base__: ITransactionOutcomeEvents_Vtbl::new::<Identity, Impl, OFFSET>(), VoteRequest: VoteRequest::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransactionVoterNotifyAsync2 as ::windows::core::Interface>::IID || iid == &<ITransactionOutcomeEvents as ::windows::core::Interface>::IID
+        iid == &<ITransactionVoterNotifyAsync2 as ::windows::core::ComInterface>::IID || iid == &<ITransactionOutcomeEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2359,7 +2359,7 @@ impl IXAConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAConfig as ::windows::core::Interface>::IID
+        iid == &<IXAConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2377,7 +2377,7 @@ impl IXAObtainRMInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ObtainRMInfo: ObtainRMInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAObtainRMInfo as ::windows::core::Interface>::IID
+        iid == &<IXAObtainRMInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
@@ -2401,7 +2401,7 @@ impl IXATransLookup_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Lookup: Lookup::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXATransLookup as ::windows::core::Interface>::IID
+        iid == &<IXATransLookup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2428,6 +2428,6 @@ impl IXATransLookup2_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Lookup: Lookup::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXATransLookup2 as ::windows::core::Interface>::IID
+        iid == &<IXATransLookup2 as ::windows::core::ComInterface>::IID
     }
 }

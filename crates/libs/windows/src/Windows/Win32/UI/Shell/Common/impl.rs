@@ -29,7 +29,7 @@ impl IObjectArray_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectArray as ::windows::core::Interface>::IID
+        iid == &<IObjectArray as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
@@ -71,6 +71,6 @@ impl IObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectCollection as ::windows::core::Interface>::IID || iid == &<IObjectArray as ::windows::core::Interface>::IID
+        iid == &<IObjectCollection as ::windows::core::ComInterface>::IID || iid == &<IObjectArray as ::windows::core::ComInterface>::IID
     }
 }

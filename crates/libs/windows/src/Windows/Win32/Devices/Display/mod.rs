@@ -35,10 +35,10 @@ pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super:
 #[inline]
 pub unsafe fn CLIPOBJ_cEnumStart<P0>(pco: *mut CLIPOBJ, ball: P0, itype: u32, idirection: u32, climit: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn CLIPOBJ_cEnumStart ( pco : *mut CLIPOBJ , ball : super::super::Foundation:: BOOL , itype : u32 , idirection : u32 , climit : u32 ) -> u32 );
-    CLIPOBJ_cEnumStart(pco, ball.into(), itype, idirection, climit)
+    CLIPOBJ_cEnumStart(pco, ball.into_param().abi(), itype, idirection, climit)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52,30 +52,30 @@ pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
 #[inline]
 pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<P0>(hmonitor: P0, pszasciicapabilitiesstring: &mut [u8]) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : :: windows::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
-    CapabilitiesRequestAndCapabilitiesReply(hmonitor.into(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _)
+    CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DegaussMonitor<P0>(hmonitor: P0) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn DegaussMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
-    DegaussMonitor(hmonitor.into())
+    DegaussMonitor(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyPhysicalMonitor<P0>(hmonitor: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn DestroyPhysicalMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    DestroyPhysicalMonitor(hmonitor.into())
+    DestroyPhysicalMonitor(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -102,10 +102,10 @@ pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_
 #[inline]
 pub unsafe fn EngAcquireSemaphore<P0>(hsem: P0)
 where
-    P0: ::std::convert::Into<HSEMAPHORE>,
+    P0: ::windows::core::IntoParam<HSEMAPHORE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngAcquireSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
-    EngAcquireSemaphore(hsem.into())
+    EngAcquireSemaphore(hsem.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -119,11 +119,11 @@ pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *m
 #[inline]
 pub unsafe fn EngAssociateSurface<P0, P1>(hsurf: P0, hdev: P1, flhooks: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<HSURF>,
-    P1: ::std::convert::Into<HDEV>,
+    P0: ::windows::core::IntoParam<HSURF>,
+    P1: ::windows::core::IntoParam<HDEV>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngAssociateSurface ( hsurf : HSURF , hdev : HDEV , flhooks : u32 ) -> super::super::Foundation:: BOOL );
-    EngAssociateSurface(hsurf.into(), hdev.into(), flhooks)
+    EngAssociateSurface(hsurf.into_param().abi(), hdev.into_param().abi(), flhooks)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -171,20 +171,20 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
 #[inline]
 pub unsafe fn EngCreateDeviceBitmap<P0>(dhsurf: P0, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP
 where
-    P0: ::std::convert::Into<DHSURF>,
+    P0: ::windows::core::IntoParam<DHSURF>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateDeviceBitmap ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> super::super::Graphics::Gdi:: HBITMAP );
-    EngCreateDeviceBitmap(dhsurf.into(), ::core::mem::transmute(sizl), iformatcompat)
+    EngCreateDeviceBitmap(dhsurf.into_param().abi(), ::core::mem::transmute(sizl), iformatcompat)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngCreateDeviceSurface<P0>(dhsurf: P0, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> HSURF
 where
-    P0: ::std::convert::Into<DHSURF>,
+    P0: ::windows::core::IntoParam<DHSURF>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngCreateDeviceSurface ( dhsurf : DHSURF , sizl : super::super::Foundation:: SIZE , iformatcompat : u32 ) -> HSURF );
-    EngCreateDeviceSurface(dhsurf.into(), ::core::mem::transmute(sizl), iformatcompat)
+    EngCreateDeviceSurface(dhsurf.into_param().abi(), ::core::mem::transmute(sizl), iformatcompat)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -211,10 +211,10 @@ pub unsafe fn EngDeleteClip(pco: ::core::option::Option<*const CLIPOBJ>) {
 #[inline]
 pub unsafe fn EngDeletePalette<P0>(hpal: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Graphics::Gdi::HPALETTE>,
+    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HPALETTE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeletePalette ( hpal : super::super::Graphics::Gdi:: HPALETTE ) -> super::super::Foundation:: BOOL );
-    EngDeletePalette(hpal.into())
+    EngDeletePalette(hpal.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
@@ -226,20 +226,20 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
 #[inline]
 pub unsafe fn EngDeleteSemaphore<P0>(hsem: P0)
 where
-    P0: ::std::convert::Into<HSEMAPHORE>,
+    P0: ::windows::core::IntoParam<HSEMAPHORE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeleteSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
-    EngDeleteSemaphore(hsem.into())
+    EngDeleteSemaphore(hsem.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngDeleteSurface<P0>(hsurf: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<HSURF>,
+    P0: ::windows::core::IntoParam<HSURF>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngDeleteSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
-    EngDeleteSurface(hsurf.into())
+    EngDeleteSurface(hsurf.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -260,20 +260,20 @@ pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOB
 #[inline]
 pub unsafe fn EngFindResource<P0>(h: P0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::core::ffi::c_void
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngFindResource ( h : super::super::Foundation:: HANDLE , iname : i32 , itype : i32 , pulsize : *mut u32 ) -> *mut ::core::ffi::c_void );
-    EngFindResource(h.into(), iname, itype, pulsize)
+    EngFindResource(h.into_param().abi(), iname, itype, pulsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngFreeModule<P0>(h: P0)
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngFreeModule ( h : super::super::Foundation:: HANDLE ) -> ( ) );
-    EngFreeModule(h.into())
+    EngFreeModule(h.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
@@ -285,19 +285,19 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
 #[inline]
 pub unsafe fn EngGetDriverName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
-    P0: ::std::convert::Into<HDEV>,
+    P0: ::windows::core::IntoParam<HDEV>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetDriverName ( hdev : HDEV ) -> :: windows::core::PWSTR );
-    EngGetDriverName(hdev.into())
+    EngGetDriverName(hdev.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
 pub unsafe fn EngGetPrinterDataFileName<P0>(hdev: P0) -> ::windows::core::PWSTR
 where
-    P0: ::std::convert::Into<HDEV>,
+    P0: ::windows::core::IntoParam<HDEV>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngGetPrinterDataFileName ( hdev : HDEV ) -> :: windows::core::PWSTR );
-    EngGetPrinterDataFileName(hdev.into())
+    EngGetPrinterDataFileName(hdev.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -318,30 +318,30 @@ pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ
 #[inline]
 pub unsafe fn EngLoadModule<P0>(pwsz: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngLoadModule ( pwsz : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    EngLoadModule(pwsz.into().abi())
+    EngLoadModule(pwsz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngLockSurface<P0>(hsurf: P0) -> *mut SURFOBJ
 where
-    P0: ::std::convert::Into<HSURF>,
+    P0: ::windows::core::IntoParam<HSURF>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngLockSurface ( hsurf : HSURF ) -> *mut SURFOBJ );
-    EngLockSurface(hsurf.into())
+    EngLockSurface(hsurf.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EngMarkBandingSurface<P0>(hsurf: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<HSURF>,
+    P0: ::windows::core::IntoParam<HSURF>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngMarkBandingSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
-    EngMarkBandingSurface(hsurf.into())
+    EngMarkBandingSurface(hsurf.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
@@ -374,10 +374,10 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
 #[inline]
 pub unsafe fn EngQueryEMFInfo<P0>(hdev: P0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<HDEV>,
+    P0: ::windows::core::IntoParam<HDEV>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngQueryEMFInfo ( hdev : HDEV , pemfinfo : *mut EMFINFO ) -> super::super::Foundation:: BOOL );
-    EngQueryEMFInfo(hdev.into(), pemfinfo)
+    EngQueryEMFInfo(hdev.into_param().abi(), pemfinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
@@ -391,10 +391,10 @@ pub unsafe fn EngQueryLocalTime() -> ENG_TIME_FIELDS {
 #[inline]
 pub unsafe fn EngReleaseSemaphore<P0>(hsem: P0)
 where
-    P0: ::std::convert::Into<HSEMAPHORE>,
+    P0: ::windows::core::IntoParam<HSEMAPHORE>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngReleaseSemaphore ( hsem : HSEMAPHORE ) -> ( ) );
-    EngReleaseSemaphore(hsem.into())
+    EngReleaseSemaphore(hsem.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -442,10 +442,10 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
 #[inline]
 pub unsafe fn EngUnicodeToMultiByteN<P0>(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: P0, bytesinunicodestring: u32)
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngUnicodeToMultiByteN ( multibytestring : :: windows::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
-    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into().abi(), bytesinunicodestring)
+    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), unicodestring.into_param().abi(), bytesinunicodestring)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -458,10 +458,10 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 #[inline]
 pub unsafe fn EngWideCharToMultiByte<P0>(codepage: u32, widecharstring: P0, bytesinwidecharstring: i32, multibytestring: ::core::option::Option<&mut [u8]>) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
-    EngWideCharToMultiByte(codepage, widecharstring.into().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngWideCharToMultiByte(codepage, widecharstring.into_param().abi(), bytesinwidecharstring, ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -531,10 +531,10 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
 #[inline]
 pub unsafe fn GetCapabilitiesStringLength<P0>(hmonitor: P0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetCapabilitiesStringLength ( hmonitor : super::super::Foundation:: HANDLE , pdwcapabilitiesstringlengthincharacters : *mut u32 ) -> i32 );
-    GetCapabilitiesStringLength(hmonitor.into(), pdwcapabilitiesstringlengthincharacters)
+    GetCapabilitiesStringLength(hmonitor.into_param().abi(), pdwcapabilitiesstringlengthincharacters)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -555,151 +555,151 @@ pub unsafe fn GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, num
 #[inline]
 pub unsafe fn GetMonitorBrightness<P0>(hmonitor: P0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumbrightness : *mut u32 , pdwcurrentbrightness : *mut u32 , pdwmaximumbrightness : *mut u32 ) -> i32 );
-    GetMonitorBrightness(hmonitor.into(), pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness)
+    GetMonitorBrightness(hmonitor.into_param().abi(), pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorCapabilities<P0>(hmonitor: P0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorCapabilities ( hmonitor : super::super::Foundation:: HANDLE , pdwmonitorcapabilities : *mut u32 , pdwsupportedcolortemperatures : *mut u32 ) -> i32 );
-    GetMonitorCapabilities(hmonitor.into(), pdwmonitorcapabilities, pdwsupportedcolortemperatures)
+    GetMonitorCapabilities(hmonitor.into_param().abi(), pdwmonitorcapabilities, pdwsupportedcolortemperatures)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorColorTemperature<P0>(hmonitor: P0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , pctcurrentcolortemperature : *mut MC_COLOR_TEMPERATURE ) -> i32 );
-    GetMonitorColorTemperature(hmonitor.into(), pctcurrentcolortemperature)
+    GetMonitorColorTemperature(hmonitor.into_param().abi(), pctcurrentcolortemperature)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorContrast<P0>(hmonitor: P0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , pdwminimumcontrast : *mut u32 , pdwcurrentcontrast : *mut u32 , pdwmaximumcontrast : *mut u32 ) -> i32 );
-    GetMonitorContrast(hmonitor.into(), pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast)
+    GetMonitorContrast(hmonitor.into_param().abi(), pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorDisplayAreaPosition<P0>(hmonitor: P0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , pdwminimumposition : *mut u32 , pdwcurrentposition : *mut u32 , pdwmaximumposition : *mut u32 ) -> i32 );
-    GetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype, pdwminimumposition, pdwcurrentposition, pdwmaximumposition)
+    GetMonitorDisplayAreaPosition(hmonitor.into_param().abi(), ptpositiontype, pdwminimumposition, pdwcurrentposition, pdwmaximumposition)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorDisplayAreaSize<P0>(hmonitor: P0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , pdwminimumwidthorheight : *mut u32 , pdwcurrentwidthorheight : *mut u32 , pdwmaximumwidthorheight : *mut u32 ) -> i32 );
-    GetMonitorDisplayAreaSize(hmonitor.into(), stsizetype, pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight)
+    GetMonitorDisplayAreaSize(hmonitor.into_param().abi(), stsizetype, pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueDrive<P0>(hmonitor: P0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , pdwminimumdrive : *mut u32 , pdwcurrentdrive : *mut u32 , pdwmaximumdrive : *mut u32 ) -> i32 );
-    GetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype, pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive)
+    GetMonitorRedGreenOrBlueDrive(hmonitor.into_param().abi(), dtdrivetype, pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueGain<P0>(hmonitor: P0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , pdwminimumgain : *mut u32 , pdwcurrentgain : *mut u32 , pdwmaximumgain : *mut u32 ) -> i32 );
-    GetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype, pdwminimumgain, pdwcurrentgain, pdwmaximumgain)
+    GetMonitorRedGreenOrBlueGain(hmonitor.into_param().abi(), gtgaintype, pdwminimumgain, pdwcurrentgain, pdwmaximumgain)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorTechnologyType<P0>(hmonitor: P0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetMonitorTechnologyType ( hmonitor : super::super::Foundation:: HANDLE , pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE ) -> i32 );
-    GetMonitorTechnologyType(hmonitor.into(), pdtydisplaytechnologytype)
+    GetMonitorTechnologyType(hmonitor.into_param().abi(), pdtydisplaytechnologytype)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<P0>(hmonitor: P0, pdwnumberofphysicalmonitors: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
+    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HMONITOR>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , pdwnumberofphysicalmonitors : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.into(), pdwnumberofphysicalmonitors)
+    GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pdwnumberofphysicalmonitors)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
+    P0: ::windows::core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
-    GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), &mut result__).from_abi(result__)
+    GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetPhysicalMonitorsFromHMONITOR<P0>(hmonitor: P0, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
+    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HMONITOR>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
-    GetPhysicalMonitorsFromHMONITOR(hmonitor.into(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr()))
+    GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<P0>(pdirect3ddevice9: P0, pphysicalmonitorarray: &mut [PHYSICAL_MONITOR]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
+    P0: ::windows::core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> :: windows::core::HRESULT );
-    GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
+    GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimingReport<P0>(hmonitor: P0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetTimingReport ( hmonitor : super::super::Foundation:: HANDLE , pmtrmonitortimingreport : *mut MC_TIMING_REPORT ) -> i32 );
-    GetTimingReport(hmonitor.into(), pmtrmonitortimingreport)
+    GetTimingReport(hmonitor.into_param().abi(), pmtrmonitortimingreport)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVCPFeatureAndVCPFeatureReply<P0>(hmonitor: P0, bvcpcode: u8, pvct: ::core::option::Option<*mut MC_VCP_CODE_TYPE>, pdwcurrentvalue: *mut u32, pdwmaximumvalue: ::core::option::Option<*mut u32>) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn GetVCPFeatureAndVCPFeatureReply ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , pvct : *mut MC_VCP_CODE_TYPE , pdwcurrentvalue : *mut u32 , pdwmaximumvalue : *mut u32 ) -> i32 );
-    GetVCPFeatureAndVCPFeatureReply(hmonitor.into(), bvcpcode, ::core::mem::transmute(pvct.unwrap_or(::std::ptr::null_mut())), pdwcurrentvalue, ::core::mem::transmute(pdwmaximumvalue.unwrap_or(::std::ptr::null_mut())))
+    GetVCPFeatureAndVCPFeatureReply(hmonitor.into_param().abi(), bvcpcode, ::core::mem::transmute(pvct.unwrap_or(::std::ptr::null_mut())), pdwcurrentvalue, ::core::mem::transmute(pdwmaximumvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -713,10 +713,10 @@ pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: ::core::option::Option<*mut
 #[inline]
 pub unsafe fn HT_Get8BPPMaskPalette<P0>(ppaletteentry: ::core::option::Option<*mut super::super::Graphics::Gdi::PALETTEENTRY>, use8bppmaskpal: P0, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "gdi32.dll""system" fn HT_Get8BPPMaskPalette ( ppaletteentry : *mut super::super::Graphics::Gdi:: PALETTEENTRY , use8bppmaskpal : super::super::Foundation:: BOOL , cmymask : u8 , redgamma : u16 , greengamma : u16 , bluegamma : u16 ) -> i32 );
-    HT_Get8BPPMaskPalette(::core::mem::transmute(ppaletteentry.unwrap_or(::std::ptr::null_mut())), use8bppmaskpal.into(), cmymask, redgamma, greengamma, bluegamma)
+    HT_Get8BPPMaskPalette(::core::mem::transmute(ppaletteentry.unwrap_or(::std::ptr::null_mut())), use8bppmaskpal.into_param().abi(), cmymask, redgamma, greengamma, bluegamma)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -763,20 +763,20 @@ pub unsafe fn QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharray
 #[inline]
 pub unsafe fn RestoreMonitorFactoryColorDefaults<P0>(hmonitor: P0) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryColorDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
-    RestoreMonitorFactoryColorDefaults(hmonitor.into())
+    RestoreMonitorFactoryColorDefaults(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestoreMonitorFactoryDefaults<P0>(hmonitor: P0) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn RestoreMonitorFactoryDefaults ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
-    RestoreMonitorFactoryDefaults(hmonitor.into())
+    RestoreMonitorFactoryDefaults(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -818,20 +818,20 @@ pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
 #[inline]
 pub unsafe fn SaveCurrentMonitorSettings<P0>(hmonitor: P0) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SaveCurrentMonitorSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
-    SaveCurrentMonitorSettings(hmonitor.into())
+    SaveCurrentMonitorSettings(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaveCurrentSettings<P0>(hmonitor: P0) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SaveCurrentSettings ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
-    SaveCurrentSettings(hmonitor.into())
+    SaveCurrentSettings(hmonitor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -852,80 +852,80 @@ pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG
 #[inline]
 pub unsafe fn SetMonitorBrightness<P0>(hmonitor: P0, dwnewbrightness: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorBrightness ( hmonitor : super::super::Foundation:: HANDLE , dwnewbrightness : u32 ) -> i32 );
-    SetMonitorBrightness(hmonitor.into(), dwnewbrightness)
+    SetMonitorBrightness(hmonitor.into_param().abi(), dwnewbrightness)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorColorTemperature<P0>(hmonitor: P0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorColorTemperature ( hmonitor : super::super::Foundation:: HANDLE , ctcurrentcolortemperature : MC_COLOR_TEMPERATURE ) -> i32 );
-    SetMonitorColorTemperature(hmonitor.into(), ctcurrentcolortemperature)
+    SetMonitorColorTemperature(hmonitor.into_param().abi(), ctcurrentcolortemperature)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorContrast<P0>(hmonitor: P0, dwnewcontrast: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorContrast ( hmonitor : super::super::Foundation:: HANDLE , dwnewcontrast : u32 ) -> i32 );
-    SetMonitorContrast(hmonitor.into(), dwnewcontrast)
+    SetMonitorContrast(hmonitor.into_param().abi(), dwnewcontrast)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorDisplayAreaPosition<P0>(hmonitor: P0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaPosition ( hmonitor : super::super::Foundation:: HANDLE , ptpositiontype : MC_POSITION_TYPE , dwnewposition : u32 ) -> i32 );
-    SetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype, dwnewposition)
+    SetMonitorDisplayAreaPosition(hmonitor.into_param().abi(), ptpositiontype, dwnewposition)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorDisplayAreaSize<P0>(hmonitor: P0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorDisplayAreaSize ( hmonitor : super::super::Foundation:: HANDLE , stsizetype : MC_SIZE_TYPE , dwnewdisplayareawidthorheight : u32 ) -> i32 );
-    SetMonitorDisplayAreaSize(hmonitor.into(), stsizetype, dwnewdisplayareawidthorheight)
+    SetMonitorDisplayAreaSize(hmonitor.into_param().abi(), stsizetype, dwnewdisplayareawidthorheight)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueDrive<P0>(hmonitor: P0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueDrive ( hmonitor : super::super::Foundation:: HANDLE , dtdrivetype : MC_DRIVE_TYPE , dwnewdrive : u32 ) -> i32 );
-    SetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype, dwnewdrive)
+    SetMonitorRedGreenOrBlueDrive(hmonitor.into_param().abi(), dtdrivetype, dwnewdrive)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueGain<P0>(hmonitor: P0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetMonitorRedGreenOrBlueGain ( hmonitor : super::super::Foundation:: HANDLE , gtgaintype : MC_GAIN_TYPE , dwnewgain : u32 ) -> i32 );
-    SetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype, dwnewgain)
+    SetMonitorRedGreenOrBlueGain(hmonitor.into_param().abi(), gtgaintype, dwnewgain)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVCPFeature<P0>(hmonitor: P0, bvcpcode: u8, dwnewvalue: u32) -> i32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "dxva2.dll""system" fn SetVCPFeature ( hmonitor : super::super::Foundation:: HANDLE , bvcpcode : u8 , dwnewvalue : u32 ) -> i32 );
-    SetVCPFeature(hmonitor.into(), bvcpcode, dwnewvalue)
+    SetVCPFeature(hmonitor.into_param().abi(), bvcpcode, dwnewvalue)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -971,29 +971,29 @@ pub struct ICloneViewHelper(::windows::core::IUnknown);
 impl ICloneViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), pulcount, pulid, ulflags).ok()
+        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), pulcount, pulid, ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, pulcount, pultargetid).ok()
+        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ulsourceid, pulcount, pultargetid).ok()
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, ulcount, pultargetid).ok()
+        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ulsourceid, ulcount, pultargetid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<P0>(&self, ffinalcall: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), ffinalcall.into()).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ffinalcall.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ICloneViewHelper, ::windows::core::IUnknown);
@@ -1008,7 +1008,7 @@ impl ::core::fmt::Debug for ICloneViewHelper {
         f.debug_tuple("ICloneViewHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ICloneViewHelper {
+unsafe impl ::windows::core::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_Vtbl;
 }
 impl ::core::clone::Clone for ICloneViewHelper {
@@ -1016,7 +1016,7 @@ impl ::core::clone::Clone for ICloneViewHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICloneViewHelper {
+unsafe impl ::windows::core::ComInterface for ICloneViewHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
 #[repr(C)]
@@ -1037,36 +1037,36 @@ pub struct IViewHelper(::windows::core::IUnknown);
 impl IViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), pulcount, pulid, ulflags).ok()
+        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), pulcount, pulid, ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, pulcount, pultargetid).ok()
+        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ulsourceid, pulcount, pultargetid).ok()
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into().abi(), ulsourceid, ulcount, pultargetid).ok()
+        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ulsourceid, ulcount, pultargetid).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetConfiguration<P0>(&self, pistream: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IViewHelper, ::windows::core::IUnknown);
@@ -1081,7 +1081,7 @@ impl ::core::fmt::Debug for IViewHelper {
         f.debug_tuple("IViewHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IViewHelper {
+unsafe impl ::windows::core::Interface for IViewHelper {
     type Vtable = IViewHelper_Vtbl;
 }
 impl ::core::clone::Clone for IViewHelper {
@@ -1089,7 +1089,7 @@ impl ::core::clone::Clone for IViewHelper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IViewHelper {
+unsafe impl ::windows::core::ComInterface for IViewHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
 #[repr(C)]
@@ -4894,11 +4894,6 @@ impl ::core::fmt::Debug for DHPDEV {
         f.debug_tuple("DHPDEV").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<DHPDEV>> for DHPDEV {
-    fn from(optional: ::core::option::Option<DHPDEV>) -> DHPDEV {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for DHPDEV {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -4924,11 +4919,6 @@ impl ::core::marker::Copy for DHSURF {}
 impl ::core::fmt::Debug for DHSURF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DHSURF").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<DHSURF>> for DHSURF {
-    fn from(optional: ::core::option::Option<DHSURF>) -> DHSURF {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for DHSURF {
@@ -8128,11 +8118,6 @@ impl ::core::fmt::Debug for HBM {
         f.debug_tuple("HBM").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HBM>> for HBM {
-    fn from(optional: ::core::option::Option<HBM>) -> HBM {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HBM {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -8158,11 +8143,6 @@ impl ::core::marker::Copy for HDEV {}
 impl ::core::fmt::Debug for HDEV {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HDEV").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HDEV>> for HDEV {
-    fn from(optional: ::core::option::Option<HDEV>) -> HDEV {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HDEV {
@@ -8192,11 +8172,6 @@ impl ::core::fmt::Debug for HDRVOBJ {
         f.debug_tuple("HDRVOBJ").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HDRVOBJ>> for HDRVOBJ {
-    fn from(optional: ::core::option::Option<HDRVOBJ>) -> HDRVOBJ {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HDRVOBJ {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -8222,11 +8197,6 @@ impl ::core::marker::Copy for HFASTMUTEX {}
 impl ::core::fmt::Debug for HFASTMUTEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HFASTMUTEX").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HFASTMUTEX>> for HFASTMUTEX {
-    fn from(optional: ::core::option::Option<HFASTMUTEX>) -> HFASTMUTEX {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HFASTMUTEX {
@@ -8256,11 +8226,6 @@ impl ::core::fmt::Debug for HSEMAPHORE {
         f.debug_tuple("HSEMAPHORE").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HSEMAPHORE>> for HSEMAPHORE {
-    fn from(optional: ::core::option::Option<HSEMAPHORE>) -> HSEMAPHORE {
-        optional.unwrap_or_default()
-    }
-}
 impl ::windows::core::TypeKind for HSEMAPHORE {
     type TypeKind = ::windows::core::CopyType;
 }
@@ -8286,11 +8251,6 @@ impl ::core::marker::Copy for HSURF {}
 impl ::core::fmt::Debug for HSURF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HSURF").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HSURF>> for HSURF {
-    fn from(optional: ::core::option::Option<HSURF>) -> HSURF {
-        optional.unwrap_or_default()
     }
 }
 impl ::windows::core::TypeKind for HSURF {

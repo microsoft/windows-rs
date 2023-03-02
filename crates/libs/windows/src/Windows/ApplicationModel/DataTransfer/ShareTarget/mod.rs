@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IQuickLink(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IQuickLink {
+unsafe impl ::windows::core::Interface for IQuickLink {
     type Vtable = IQuickLink_Vtbl;
 }
 impl ::core::clone::Clone for IQuickLink {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IQuickLink {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IQuickLink {
+unsafe impl ::windows::core::ComInterface for IQuickLink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
 #[repr(C)]
@@ -40,7 +40,7 @@ pub struct IQuickLink_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareOperation {
+unsafe impl ::windows::core::Interface for IShareOperation {
     type Vtable = IShareOperation_Vtbl;
 }
 impl ::core::clone::Clone for IShareOperation {
@@ -48,7 +48,7 @@ impl ::core::clone::Clone for IShareOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareOperation {
+unsafe impl ::windows::core::ComInterface for IShareOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
 #[repr(C)]
@@ -68,7 +68,7 @@ pub struct IShareOperation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareOperation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareOperation2 {
+unsafe impl ::windows::core::Interface for IShareOperation2 {
     type Vtable = IShareOperation2_Vtbl;
 }
 impl ::core::clone::Clone for IShareOperation2 {
@@ -76,7 +76,7 @@ impl ::core::clone::Clone for IShareOperation2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareOperation2 {
+unsafe impl ::windows::core::ComInterface for IShareOperation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 }
 #[repr(C)]
@@ -88,7 +88,7 @@ pub struct IShareOperation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IShareOperation3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IShareOperation3 {
+unsafe impl ::windows::core::Interface for IShareOperation3 {
     type Vtable = IShareOperation3_Vtbl;
 }
 impl ::core::clone::Clone for IShareOperation3 {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for IShareOperation3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IShareOperation3 {
+unsafe impl ::windows::core::ComInterface for IShareOperation3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
 }
 #[repr(C)]
@@ -123,12 +123,12 @@ impl QuickLink {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTitle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -136,25 +136,25 @@ impl QuickLink {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Storage::Streams::RandomAccessStreamReference>();
-            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail(&self, value: &super::super::super::Storage::Streams::RandomAccessStreamReference) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetThumbnail)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -162,7 +162,7 @@ impl QuickLink {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedDataFormats)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedDataFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -171,7 +171,7 @@ impl QuickLink {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SupportedFileTypes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportedFileTypes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -194,11 +194,11 @@ impl ::core::clone::Clone for QuickLink {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for QuickLink {
+unsafe impl ::windows::core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for QuickLink {
-    const IID: ::windows::core::GUID = <IQuickLink as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for QuickLink {
+    const IID: ::windows::core::GUID = <IQuickLink as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
@@ -212,55 +212,55 @@ impl ShareOperation {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::DataPackageView>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QuickLinkId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).QuickLinkId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).QuickLinkId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveThisQuickLink(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveThisQuickLink)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThisQuickLink)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportStarted(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportStarted)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportStarted)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportDataRetrieved(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportDataRetrieved)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportDataRetrieved)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportSubmittedBackgroundTask(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportSubmittedBackgroundTask)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportSubmittedBackgroundTask)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportCompletedWithQuickLink(&self, quicklink: &QuickLink) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompletedWithQuickLink)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(quicklink)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompletedWithQuickLink)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(quicklink)).ok() }
     }
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportError(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IShareOperation2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).DismissUI)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IShareOperation2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn Contacts(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
-        let this = &::windows::core::Interface::cast::<IShareOperation3>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IShareOperation3>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>();
-            (::windows::core::Vtable::vtable(this).Contacts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Contacts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -283,11 +283,11 @@ impl ::core::clone::Clone for ShareOperation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ShareOperation {
+unsafe impl ::windows::core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ShareOperation {
-    const IID: ::windows::core::GUID = <IShareOperation as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ShareOperation {
+    const IID: ::windows::core::GUID = <IShareOperation as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPdfDocument(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPdfDocument {
+unsafe impl ::windows::core::Interface for IPdfDocument {
     type Vtable = IPdfDocument_Vtbl;
 }
 impl ::core::clone::Clone for IPdfDocument {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPdfDocument {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPdfDocument {
+unsafe impl ::windows::core::ComInterface for IPdfDocument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
 #[repr(C)]
@@ -23,7 +23,7 @@ pub struct IPdfDocument_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPdfDocumentStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPdfDocumentStatics {
+unsafe impl ::windows::core::Interface for IPdfDocumentStatics {
     type Vtable = IPdfDocumentStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPdfDocumentStatics {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IPdfDocumentStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPdfDocumentStatics {
+unsafe impl ::windows::core::ComInterface for IPdfDocumentStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433a0b5f_c007_4788_90f2_08143d922599);
 }
 #[repr(C)]
@@ -58,7 +58,7 @@ pub struct IPdfDocumentStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPdfPage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPdfPage {
+unsafe impl ::windows::core::Interface for IPdfPage {
     type Vtable = IPdfPage_Vtbl;
 }
 impl ::core::clone::Clone for IPdfPage {
@@ -66,7 +66,7 @@ impl ::core::clone::Clone for IPdfPage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPdfPage {
+unsafe impl ::windows::core::ComInterface for IPdfPage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 }
 #[repr(C)]
@@ -97,7 +97,7 @@ pub struct IPdfPage_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPdfPageDimensions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPdfPageDimensions {
+unsafe impl ::windows::core::Interface for IPdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
 }
 impl ::core::clone::Clone for IPdfPageDimensions {
@@ -105,7 +105,7 @@ impl ::core::clone::Clone for IPdfPageDimensions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPdfPageDimensions {
+unsafe impl ::windows::core::ComInterface for IPdfPageDimensions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
 #[repr(C)]
@@ -136,7 +136,7 @@ pub struct IPdfPageDimensions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPdfPageRenderOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPdfPageRenderOptions {
+unsafe impl ::windows::core::Interface for IPdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;
 }
 impl ::core::clone::Clone for IPdfPageRenderOptions {
@@ -144,7 +144,7 @@ impl ::core::clone::Clone for IPdfPageRenderOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPdfPageRenderOptions {
+unsafe impl ::windows::core::ComInterface for IPdfPageRenderOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 }
 #[repr(C)]
@@ -184,69 +184,65 @@ impl PdfDocument {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PdfPage>();
-            (::windows::core::Vtable::vtable(this).GetPage)(::windows::core::Vtable::as_raw(this), pageindex, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPage)(::windows::core::Interface::as_raw(this), pageindex, &mut result__).from_abi(result__)
         }
     }
     pub fn PageCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).PageCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PageCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPasswordProtected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPasswordProtected)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPasswordProtected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromFileAsync<P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileAsync<P0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<PdfDocument>>();
-            (::windows::core::Vtable::vtable(this).LoadFromFileAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromFileWithPasswordAsync<P0, E0>(file: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<PdfDocument>>();
-            (::windows::core::Vtable::vtable(this).LoadFromFileWithPasswordAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(password), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(::windows::core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(password), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamAsync<P0, E0>(inputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<PdfDocument>>();
-            (::windows::core::Vtable::vtable(this).LoadFromStreamAsync)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamWithPasswordAsync<P0, E0>(inputstream: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
+    pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPdfDocumentStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<PdfDocument>>();
-            (::windows::core::Vtable::vtable(this).LoadFromStreamWithPasswordAsync)(::windows::core::Vtable::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(password), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LoadFromStreamWithPasswordAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), ::core::mem::transmute_copy(password), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -274,11 +270,11 @@ impl ::core::clone::Clone for PdfDocument {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PdfDocument {
+unsafe impl ::windows::core::Interface for PdfDocument {
     type Vtable = IPdfDocument_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PdfDocument {
-    const IID: ::windows::core::GUID = <IPdfDocument as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PdfDocument {
+    const IID: ::windows::core::GUID = <IPdfDocument as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
@@ -293,33 +289,31 @@ impl PdfPage {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RenderToStreamAsync<P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RenderToStreamAsync<P0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).RenderToStreamAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RenderToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RenderWithOptionsToStreamAsync<P0, E0>(&self, outputstream: P0, options: &PdfPageRenderOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RenderWithOptionsToStreamAsync<P0>(&self, outputstream: P0, options: &PdfPageRenderOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).RenderWithOptionsToStreamAsync)(::windows::core::Vtable::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -328,14 +322,14 @@ impl PdfPage {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).PreparePageAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreparePageAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Index)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -344,28 +338,28 @@ impl PdfPage {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Dimensions(&self) -> ::windows::core::Result<PdfPageDimensions> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PdfPageDimensions>();
-            (::windows::core::Vtable::vtable(this).Dimensions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Dimensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Rotation(&self) -> ::windows::core::Result<PdfPageRotation> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PdfPageRotation>();
-            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Rotation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreferredZoom(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Vtable::vtable(this).PreferredZoom)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredZoom)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -388,38 +382,18 @@ impl ::core::clone::Clone for PdfPage {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PdfPage {
+unsafe impl ::windows::core::Interface for PdfPage {
     type Vtable = IPdfPage_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PdfPage {
-    const IID: ::windows::core::GUID = <IPdfPage as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PdfPage {
+    const IID: ::windows::core::GUID = <IPdfPage as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
 }
 ::windows::imp::interface_hierarchy!(PdfPage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<PdfPage> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: PdfPage) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PdfPage> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PdfPage) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&PdfPage> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &PdfPage) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for PdfPage {}
 unsafe impl ::core::marker::Send for PdfPage {}
 unsafe impl ::core::marker::Sync for PdfPage {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -432,7 +406,7 @@ impl PdfPageDimensions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).MediaBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MediaBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -441,7 +415,7 @@ impl PdfPageDimensions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).CropBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CropBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -450,7 +424,7 @@ impl PdfPageDimensions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).BleedBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BleedBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -459,7 +433,7 @@ impl PdfPageDimensions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).TrimBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrimBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -468,7 +442,7 @@ impl PdfPageDimensions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).ArtBox)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ArtBox)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -491,11 +465,11 @@ impl ::core::clone::Clone for PdfPageDimensions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PdfPageDimensions {
+unsafe impl ::windows::core::Interface for PdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PdfPageDimensions {
-    const IID: ::windows::core::GUID = <IPdfPageDimensions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PdfPageDimensions {
+    const IID: ::windows::core::GUID = <IPdfPageDimensions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
@@ -520,36 +494,36 @@ impl PdfPageRenderOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SourceRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSourceRect(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSourceRect)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourceRect)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DestinationWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).DestinationWidth)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DestinationWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDestinationWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDestinationWidth)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDestinationWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DestinationHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).DestinationHeight)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DestinationHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDestinationHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDestinationHeight)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDestinationHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -557,36 +531,36 @@ impl PdfPageRenderOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::UI::Color>();
-            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsIgnoringHighContrast(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsIgnoringHighContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsIgnoringHighContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsIgnoringHighContrast(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIsIgnoringHighContrast)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsIgnoringHighContrast)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn BitmapEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-            (::windows::core::Vtable::vtable(this).BitmapEncoderId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BitmapEncoderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBitmapEncoderId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBitmapEncoderId)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapEncoderId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PdfPageRenderOptions {
@@ -608,11 +582,11 @@ impl ::core::clone::Clone for PdfPageRenderOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PdfPageRenderOptions {
+unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
-    const IID: ::windows::core::GUID = <IPdfPageRenderOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PdfPageRenderOptions {
+    const IID: ::windows::core::GUID = <IPdfPageRenderOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";

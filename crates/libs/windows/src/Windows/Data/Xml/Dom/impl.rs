@@ -88,7 +88,7 @@ impl IXmlCharacterData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlCharacterData as ::windows::core::Interface>::IID
+        iid == &<IXmlCharacterData as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -405,7 +405,7 @@ impl IXmlNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlNode as ::windows::core::Interface>::IID
+        iid == &<IXmlNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -477,7 +477,7 @@ impl IXmlNodeSelector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlNodeSelector as ::windows::core::Interface>::IID
+        iid == &<IXmlNodeSelector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -528,7 +528,7 @@ impl IXmlNodeSerializer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlNodeSerializer as ::windows::core::Interface>::IID
+        iid == &<IXmlNodeSerializer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
@@ -555,6 +555,6 @@ impl IXmlText_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IXmlText, OFFSET>(), SplitText: SplitText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXmlText as ::windows::core::Interface>::IID
+        iid == &<IXmlText as ::windows::core::ComInterface>::IID
     }
 }

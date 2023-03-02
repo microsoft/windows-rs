@@ -53,7 +53,7 @@ impl INumberFormatter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberFormatter as ::windows::core::Interface>::IID
+        iid == &<INumberFormatter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -111,7 +111,7 @@ impl INumberFormatter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberFormatter2 as ::windows::core::Interface>::IID
+        iid == &<INumberFormatter2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -291,7 +291,7 @@ impl INumberFormatterOptions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberFormatterOptions as ::windows::core::Interface>::IID
+        iid == &<INumberFormatterOptions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -352,7 +352,7 @@ impl INumberParser_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberParser as ::windows::core::Interface>::IID
+        iid == &<INumberParser as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -452,7 +452,7 @@ impl INumberRounder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberRounder as ::windows::core::Interface>::IID
+        iid == &<INumberRounder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -489,7 +489,7 @@ impl INumberRounderOption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INumberRounderOption as ::windows::core::Interface>::IID
+        iid == &<INumberRounderOption as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -526,7 +526,7 @@ impl ISignedZeroOption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISignedZeroOption as ::windows::core::Interface>::IID
+        iid == &<ISignedZeroOption as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -563,6 +563,6 @@ impl ISignificantDigitsOption_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISignificantDigitsOption as ::windows::core::Interface>::IID
+        iid == &<ISignificantDigitsOption as ::windows::core::ComInterface>::IID
     }
 }

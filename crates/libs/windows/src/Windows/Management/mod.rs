@@ -11,7 +11,7 @@ pub mod Workplace;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMdmAlert(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMdmAlert {
+unsafe impl ::windows::core::Interface for IMdmAlert {
     type Vtable = IMdmAlert_Vtbl;
 }
 impl ::core::clone::Clone for IMdmAlert {
@@ -19,7 +19,7 @@ impl ::core::clone::Clone for IMdmAlert {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMdmAlert {
+unsafe impl ::windows::core::ComInterface for IMdmAlert {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
 #[repr(C)]
@@ -43,7 +43,7 @@ pub struct IMdmAlert_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMdmSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMdmSession {
+unsafe impl ::windows::core::Interface for IMdmSession {
     type Vtable = IMdmSession_Vtbl;
 }
 impl ::core::clone::Clone for IMdmSession {
@@ -51,7 +51,7 @@ impl ::core::clone::Clone for IMdmSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMdmSession {
+unsafe impl ::windows::core::ComInterface for IMdmSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
 #[repr(C)]
@@ -82,7 +82,7 @@ pub struct IMdmSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMdmSessionManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMdmSessionManagerStatics {
+unsafe impl ::windows::core::Interface for IMdmSessionManagerStatics {
     type Vtable = IMdmSessionManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IMdmSessionManagerStatics {
@@ -90,7 +90,7 @@ impl ::core::clone::Clone for IMdmSessionManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMdmSessionManagerStatics {
+unsafe impl ::windows::core::ComInterface for IMdmSessionManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 }
 #[repr(C)]
@@ -120,74 +120,74 @@ impl MdmAlert {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Format(&self) -> ::windows::core::Result<MdmAlertDataType> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MdmAlertDataType>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: MdmAlertDataType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Mark(&self) -> ::windows::core::Result<MdmAlertMark> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MdmAlertMark>();
-            (::windows::core::Vtable::vtable(this).Mark)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Mark)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMark(&self, value: MdmAlertMark) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMark)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSource(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Status(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Target)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Target)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTarget(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetType)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for MdmAlert {
@@ -209,11 +209,11 @@ impl ::core::clone::Clone for MdmAlert {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MdmAlert {
+unsafe impl ::windows::core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MdmAlert {
-    const IID: ::windows::core::GUID = <IMdmAlert as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MdmAlert {
+    const IID: ::windows::core::GUID = <IMdmAlert as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
@@ -229,28 +229,28 @@ impl MdmSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<MdmAlert>>();
-            (::windows::core::Vtable::vtable(this).Alerts)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Alerts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<MdmSessionState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<MdmSessionState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -259,12 +259,12 @@ impl MdmSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).AttachAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AttachAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Delete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Delete)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Delete)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -272,20 +272,19 @@ impl MdmSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StartAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithAlertsAsync<P0, E0>(&self, alerts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::Foundation::Collections::IIterable<MdmAlert>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::Foundation::Collections::IIterable<MdmAlert>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StartWithAlertsAsync)(::windows::core::Vtable::as_raw(this), alerts.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartWithAlertsAsync)(::windows::core::Interface::as_raw(this), alerts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -308,11 +307,11 @@ impl ::core::clone::Clone for MdmSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MdmSession {
+unsafe impl ::windows::core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MdmSession {
-    const IID: ::windows::core::GUID = <IMdmSession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MdmSession {
+    const IID: ::windows::core::GUID = <IMdmSession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
@@ -326,22 +325,22 @@ impl MdmSessionManager {
     pub fn SessionIds() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).SessionIds)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SessionIds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn TryCreateSession() -> ::windows::core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<MdmSession>();
-            (::windows::core::Vtable::vtable(this).TryCreateSession)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryCreateSession)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DeleteSessionById(sessionid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).DeleteSessionById)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sessionid)).ok() })
+        Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DeleteSessionById)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(sessionid)).ok() })
     }
     pub fn GetSessionById(sessionid: &::windows::core::HSTRING) -> ::windows::core::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<MdmSession>();
-            (::windows::core::Vtable::vtable(this).GetSessionById)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sessionid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSessionById)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(sessionid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

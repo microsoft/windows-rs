@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInstalledDesktopApp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInstalledDesktopApp {
+unsafe impl ::windows::core::Interface for IInstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;
 }
 impl ::core::clone::Clone for IInstalledDesktopApp {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IInstalledDesktopApp {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInstalledDesktopApp {
+unsafe impl ::windows::core::ComInterface for IInstalledDesktopApp {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IInstalledDesktopApp_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInstalledDesktopAppStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IInstalledDesktopAppStatics {
+unsafe impl ::windows::core::Interface for IInstalledDesktopAppStatics {
     type Vtable = IInstalledDesktopAppStatics_Vtbl;
 }
 impl ::core::clone::Clone for IInstalledDesktopAppStatics {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IInstalledDesktopAppStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IInstalledDesktopAppStatics {
+unsafe impl ::windows::core::ComInterface for IInstalledDesktopAppStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 }
 #[repr(C)]
@@ -52,28 +52,28 @@ impl InstalledDesktopApp {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Publisher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Publisher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DisplayVersion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DisplayVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -81,16 +81,16 @@ impl InstalledDesktopApp {
     pub fn GetInventoryAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>> {
         Self::IInstalledDesktopAppStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>>();
-            (::windows::core::Vtable::vtable(this).GetInventoryAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetInventoryAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ToString)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -118,38 +118,18 @@ impl ::core::clone::Clone for InstalledDesktopApp {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for InstalledDesktopApp {
+unsafe impl ::windows::core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;
 }
-unsafe impl ::windows::core::Interface for InstalledDesktopApp {
-    const IID: ::windows::core::GUID = <IInstalledDesktopApp as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for InstalledDesktopApp {
+    const IID: ::windows::core::GUID = <IInstalledDesktopApp as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
 ::windows::imp::interface_hierarchy!(InstalledDesktopApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<InstalledDesktopApp> for super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: InstalledDesktopApp) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&InstalledDesktopApp> for super::super::Foundation::IStringable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InstalledDesktopApp) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&InstalledDesktopApp> for ::windows::core::InParam<super::super::Foundation::IStringable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &InstalledDesktopApp) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IStringable> for InstalledDesktopApp {}
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}
 #[cfg(feature = "implement")]

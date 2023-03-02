@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVibrationDevice(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVibrationDevice {
+unsafe impl ::windows::core::Interface for IVibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
 }
 impl ::core::clone::Clone for IVibrationDevice {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IVibrationDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVibrationDevice {
+unsafe impl ::windows::core::ComInterface for IVibrationDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IVibrationDevice_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVibrationDeviceStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVibrationDeviceStatics {
+unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
     type Vtable = IVibrationDeviceStatics_Vtbl;
 }
 impl ::core::clone::Clone for IVibrationDeviceStatics {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IVibrationDeviceStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
+unsafe impl ::windows::core::ComInterface for IVibrationDeviceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
 }
 #[repr(C)]
@@ -50,16 +50,16 @@ impl VibrationDevice {
     #[cfg(feature = "Foundation")]
     pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Vibrate)(::windows::core::Vtable::as_raw(this), duration).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::windows::core::Interface::as_raw(this), duration).ok() }
     }
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn GetDefault() -> ::windows::core::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<VibrationDevice>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -87,11 +87,11 @@ impl ::core::clone::Clone for VibrationDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for VibrationDevice {
+unsafe impl ::windows::core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
 }
-unsafe impl ::windows::core::Interface for VibrationDevice {
-    const IID: ::windows::core::GUID = <IVibrationDevice as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for VibrationDevice {
+    const IID: ::windows::core::GUID = <IVibrationDevice as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";

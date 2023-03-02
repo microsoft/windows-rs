@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageScanner(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IImageScanner {
+unsafe impl ::windows::core::Interface for IImageScanner {
     type Vtable = IImageScanner_Vtbl;
 }
 impl ::core::clone::Clone for IImageScanner {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IImageScanner {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScanner {
+unsafe impl ::windows::core::ComInterface for IImageScanner {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a88f78_5298_48a0_8da3_8087519665e0);
 }
 #[repr(C)]
@@ -35,7 +35,7 @@ pub struct IImageScanner_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageScannerFeederConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IImageScannerFeederConfiguration {
+unsafe impl ::windows::core::Interface for IImageScannerFeederConfiguration {
     type Vtable = IImageScannerFeederConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerFeederConfiguration {
@@ -43,7 +43,7 @@ impl ::core::clone::Clone for IImageScannerFeederConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerFeederConfiguration {
+unsafe impl ::windows::core::ComInterface for IImageScannerFeederConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74bdacee_fa97_4c17_8280_40e39c6dcc67);
 }
 #[repr(C)]
@@ -94,25 +94,25 @@ impl IImageScannerFormatConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).DefaultFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFormatSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFormatSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
 }
@@ -131,7 +131,7 @@ impl ::core::fmt::Debug for IImageScannerFormatConfiguration {
 impl ::windows::core::RuntimeType for IImageScannerFormatConfiguration {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ae275d11-dadf-4010-bf10-cca5c83dcbb0}");
 }
-unsafe impl ::windows::core::Vtable for IImageScannerFormatConfiguration {
+unsafe impl ::windows::core::Interface for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerFormatConfiguration {
@@ -139,7 +139,7 @@ impl ::core::clone::Clone for IImageScannerFormatConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerFormatConfiguration {
+unsafe impl ::windows::core::ComInterface for IImageScannerFormatConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ pub struct IImageScannerFormatConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageScannerPreviewResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IImageScannerPreviewResult {
+unsafe impl ::windows::core::Interface for IImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerPreviewResult {
@@ -162,7 +162,7 @@ impl ::core::clone::Clone for IImageScannerPreviewResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerPreviewResult {
+unsafe impl ::windows::core::ComInterface for IImageScannerPreviewResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 }
 #[repr(C)]
@@ -175,7 +175,7 @@ pub struct IImageScannerPreviewResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageScannerScanResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IImageScannerScanResult {
+unsafe impl ::windows::core::Interface for IImageScannerScanResult {
     type Vtable = IImageScannerScanResult_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerScanResult {
@@ -183,7 +183,7 @@ impl ::core::clone::Clone for IImageScannerScanResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerScanResult {
+unsafe impl ::windows::core::ComInterface for IImageScannerScanResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc91624cd_9037_4e48_84c1_ac0975076bc5);
 }
 #[repr(C)]
@@ -205,7 +205,7 @@ impl IImageScannerSourceConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MinScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -214,7 +214,7 @@ impl IImageScannerSourceConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MaxScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -223,221 +223,203 @@ impl IImageScannerSourceConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectedScanRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectedScanRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelectedScanRegion)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerAutoCroppingMode>();
-            (::windows::core::Vtable::vtable(this).AutoCroppingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoCroppingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAutoCroppingMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MinResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MaxResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).OpticalResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpticalResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).DesiredResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDesiredResolution(&self, value: ImageScannerResolution) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredResolution)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).ActualResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActualResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).DefaultColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).ColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetColorMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsColorModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsColorModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).BrightnessStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BrightnessStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Brightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Brightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBrightness)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ContrastStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContrastStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Contrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Contrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContrast)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).DefaultFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFormatSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFormatSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::imp::interface_hierarchy!(IImageScannerSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<IImageScannerSourceConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&IImageScannerSourceConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&IImageScannerSourceConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl windows::core::CanTryInto<IImageScannerFormatConfiguration> for IImageScannerSourceConfiguration {}
 impl ::core::cmp::PartialEq for IImageScannerSourceConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -452,7 +434,7 @@ impl ::core::fmt::Debug for IImageScannerSourceConfiguration {
 impl ::windows::core::RuntimeType for IImageScannerSourceConfiguration {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{bfb50055-0b44-4c82-9e89-205f9c234e59}");
 }
-unsafe impl ::windows::core::Vtable for IImageScannerSourceConfiguration {
+unsafe impl ::windows::core::Interface for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfiguration_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerSourceConfiguration {
@@ -460,7 +442,7 @@ impl ::core::clone::Clone for IImageScannerSourceConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerSourceConfiguration {
+unsafe impl ::windows::core::ComInterface for IImageScannerSourceConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb50055_0b44_4c82_9e89_205f9c234e59);
 }
 #[repr(C)]
@@ -512,7 +494,7 @@ pub struct IImageScannerSourceConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageScannerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IImageScannerStatics {
+unsafe impl ::windows::core::Interface for IImageScannerStatics {
     type Vtable = IImageScannerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IImageScannerStatics {
@@ -520,7 +502,7 @@ impl ::core::clone::Clone for IImageScannerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IImageScannerStatics {
+unsafe impl ::windows::core::ComInterface for IImageScannerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc57e70e_d804_4477_9fb5_b911b5473897);
 }
 #[repr(C)]
@@ -541,62 +523,61 @@ impl ImageScanner {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultScanSource(&self) -> ::windows::core::Result<ImageScannerScanSource> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerScanSource>();
-            (::windows::core::Vtable::vtable(this).DefaultScanSource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultScanSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsScanSourceSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsScanSourceSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FlatbedConfiguration(&self) -> ::windows::core::Result<ImageScannerFlatbedConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFlatbedConfiguration>();
-            (::windows::core::Vtable::vtable(this).FlatbedConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FlatbedConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FeederConfiguration(&self) -> ::windows::core::Result<ImageScannerFeederConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFeederConfiguration>();
-            (::windows::core::Vtable::vtable(this).FeederConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FeederConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AutoConfiguration(&self) -> ::windows::core::Result<ImageScannerAutoConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerAutoConfiguration>();
-            (::windows::core::Vtable::vtable(this).AutoConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPreviewSupported(&self, scansource: ImageScannerScanSource) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPreviewSupported)(::windows::core::Vtable::as_raw(this), scansource, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPreviewSupported)(::windows::core::Interface::as_raw(this), scansource, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ScanPreviewToStreamAsync<P0, E0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
+    pub fn ScanPreviewToStreamAsync<P0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>();
-            (::windows::core::Vtable::vtable(this).ScanPreviewToStreamAsync)(::windows::core::Vtable::as_raw(this), scansource, targetstream.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScanPreviewToStreamAsync)(::windows::core::Interface::as_raw(this), scansource, targetstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -605,7 +586,7 @@ impl ImageScanner {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>();
-            (::windows::core::Vtable::vtable(this).ScanFilesToFolderAsync)(::windows::core::Vtable::as_raw(this), scansource, ::core::mem::transmute_copy(storagefolder), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScanFilesToFolderAsync)(::windows::core::Interface::as_raw(this), scansource, ::core::mem::transmute_copy(storagefolder), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -613,13 +594,13 @@ impl ImageScanner {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ImageScanner>>();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IImageScannerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -647,11 +628,11 @@ impl ::core::clone::Clone for ImageScanner {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScanner {
+unsafe impl ::windows::core::Interface for ImageScanner {
     type Vtable = IImageScanner_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScanner {
-    const IID: ::windows::core::GUID = <IImageScanner as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScanner {
+    const IID: ::windows::core::GUID = <IImageScanner as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
@@ -667,25 +648,25 @@ impl ImageScannerAutoConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).DefaultFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFormatSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFormatSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
 }
@@ -708,35 +689,17 @@ impl ::core::clone::Clone for ImageScannerAutoConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScannerAutoConfiguration {
+unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
-    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScannerAutoConfiguration {
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
 }
 ::windows::imp::interface_hierarchy!(ImageScannerAutoConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ImageScannerAutoConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerAutoConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerAutoConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IImageScannerFormatConfiguration> for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -744,335 +707,335 @@ unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
 pub struct ImageScannerFeederConfiguration(::windows::core::IUnknown);
 impl ImageScannerFeederConfiguration {
     pub fn CanAutoDetectPageSize(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanAutoDetectPageSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanAutoDetectPageSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AutoDetectPageSize(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AutoDetectPageSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoDetectPageSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAutoDetectPageSize(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAutoDetectPageSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoDetectPageSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintMediaSize> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Printing::PrintMediaSize>();
-            (::windows::core::Vtable::vtable(this).PageSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PageSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageSize(&self, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPageSize)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPageSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageOrientation(&self) -> ::windows::core::Result<super::super::Graphics::Printing::PrintOrientation> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Printing::PrintOrientation>();
-            (::windows::core::Vtable::vtable(this).PageOrientation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PageOrientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageOrientation(&self, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPageOrientation)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPageOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSizeDimensions(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).PageSizeDimensions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PageSizeDimensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn IsPageSizeSupported(&self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPageSizeSupported)(::windows::core::Vtable::as_raw(this), pagesize, pageorientation, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPageSizeSupported)(::windows::core::Interface::as_raw(this), pagesize, pageorientation, &mut result__).from_abi(result__)
         }
     }
     pub fn MaxNumberOfPages(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).MaxNumberOfPages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxNumberOfPages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxNumberOfPages(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMaxNumberOfPages)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxNumberOfPages)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn CanScanDuplex(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanScanDuplex)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanScanDuplex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Duplex(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Duplex)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Duplex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDuplex(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDuplex)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn CanScanAhead(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanScanAhead)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanScanAhead)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ScanAhead(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).ScanAhead)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScanAhead)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScanAhead(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetScanAhead)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetScanAhead)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).DefaultFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFormatSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFormatSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MinScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MaxScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectedScanRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectedScanRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelectedScanRegion)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerAutoCroppingMode>();
-            (::windows::core::Vtable::vtable(this).AutoCroppingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoCroppingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAutoCroppingMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MinResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MaxResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).OpticalResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpticalResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).DesiredResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDesiredResolution(&self, value: ImageScannerResolution) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredResolution)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).ActualResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActualResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).DefaultColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).ColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetColorMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsColorModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsColorModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).BrightnessStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BrightnessStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Brightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Brightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBrightness)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ContrastStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContrastStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Contrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Contrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContrast)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ImageScannerFeederConfiguration {
@@ -1094,54 +1057,18 @@ impl ::core::clone::Clone for ImageScannerFeederConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScannerFeederConfiguration {
+unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
-    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScannerFeederConfiguration {
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
 }
 ::windows::imp::interface_hierarchy!(ImageScannerFeederConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ImageScannerFeederConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ImageScannerFeederConfiguration> for IImageScannerSourceConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for IImageScannerSourceConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFeederConfiguration> for ::windows::core::InParam<IImageScannerSourceConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IImageScannerFormatConfiguration> for ImageScannerFeederConfiguration {}
+impl ::windows::core::CanTryInto<IImageScannerSourceConfiguration> for ImageScannerFeederConfiguration {}
 unsafe impl ::core::marker::Send for ImageScannerFeederConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFeederConfiguration {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1152,219 +1079,219 @@ impl ImageScannerFlatbedConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).DefaultFormat)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFormat)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFormatSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFormatSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MinScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
-            (::windows::core::Vtable::vtable(this).MaxScanArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxScanArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).SelectedScanRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SelectedScanRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectedScanRegion(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelectedScanRegion)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedScanRegion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerAutoCroppingMode>();
-            (::windows::core::Vtable::vtable(this).AutoCroppingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AutoCroppingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAutoCroppingMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoCroppingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MinResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).MaxResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).OpticalResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpticalResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).DesiredResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DesiredResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDesiredResolution(&self, value: ImageScannerResolution) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredResolution)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredResolution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerResolution>();
-            (::windows::core::Vtable::vtable(this).ActualResolution)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActualResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).DefaultColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerColorMode>();
-            (::windows::core::Vtable::vtable(this).ColorMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ColorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetColorMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsColorModeSupported)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsColorModeSupported)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).BrightnessStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).BrightnessStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultBrightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultBrightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Brightness)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Brightness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBrightness)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn MinContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MinContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MinContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).MaxContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).ContrastStep)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ContrastStep)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).DefaultContrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultContrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Contrast)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Contrast)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetContrast(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IImageScannerSourceConfiguration>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContrast)(::windows::core::Vtable::as_raw(this), value).ok() }
+        let this = &::windows::core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetContrast)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ImageScannerFlatbedConfiguration {
@@ -1386,54 +1313,18 @@ impl ::core::clone::Clone for ImageScannerFlatbedConfiguration {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScannerFlatbedConfiguration {
+unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
-    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScannerFlatbedConfiguration {
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
 }
 ::windows::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::convert::TryFrom<ImageScannerFlatbedConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for IImageScannerFormatConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<IImageScannerFormatConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ImageScannerFlatbedConfiguration> for IImageScannerSourceConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for IImageScannerSourceConfiguration {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl ::core::convert::TryFrom<&ImageScannerFlatbedConfiguration> for ::windows::core::InParam<IImageScannerSourceConfiguration> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<IImageScannerFormatConfiguration> for ImageScannerFlatbedConfiguration {}
+impl ::windows::core::CanTryInto<IImageScannerSourceConfiguration> for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1444,14 +1335,14 @@ impl ImageScannerPreviewResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ImageScannerFormat>();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1474,11 +1365,11 @@ impl ::core::clone::Clone for ImageScannerPreviewResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScannerPreviewResult {
+unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
-    const IID: ::windows::core::GUID = <IImageScannerPreviewResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScannerPreviewResult {
+    const IID: ::windows::core::GUID = <IImageScannerPreviewResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
@@ -1496,7 +1387,7 @@ impl ImageScannerScanResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>();
-            (::windows::core::Vtable::vtable(this).ScannedFiles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScannedFiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1519,11 +1410,11 @@ impl ::core::clone::Clone for ImageScannerScanResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ImageScannerScanResult {
+unsafe impl ::windows::core::Interface for ImageScannerScanResult {
     type Vtable = IImageScannerScanResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ImageScannerScanResult {
-    const IID: ::windows::core::GUID = <IImageScannerScanResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ImageScannerScanResult {
+    const IID: ::windows::core::GUID = <IImageScannerScanResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";

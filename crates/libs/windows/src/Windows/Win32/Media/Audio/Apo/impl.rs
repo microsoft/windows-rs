@@ -6,7 +6,7 @@ impl IApoAcousticEchoCancellation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApoAcousticEchoCancellation as ::windows::core::Interface>::IID
+        iid == &<IApoAcousticEchoCancellation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -47,7 +47,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApoAuxiliaryInputConfiguration as ::windows::core::Interface>::IID
+        iid == &<IApoAuxiliaryInputConfiguration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -65,7 +65,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AcceptInput: AcceptInput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApoAuxiliaryInputRT as ::windows::core::Interface>::IID
+        iid == &<IApoAuxiliaryInputRT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -86,7 +86,7 @@ impl IAudioDeviceModulesClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioDeviceModulesClient as ::windows::core::Interface>::IID
+        iid == &<IAudioDeviceModulesClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -143,7 +143,7 @@ impl IAudioMediaType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioMediaType as ::windows::core::Interface>::IID
+        iid == &<IAudioMediaType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -236,7 +236,7 @@ impl IAudioProcessingObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObject as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -264,7 +264,7 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectConfiguration as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectConfiguration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -282,7 +282,7 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectLoggingService as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectLoggingService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -313,7 +313,7 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectNotifications as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectNotifications as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -348,7 +348,7 @@ impl IAudioProcessingObjectRT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectRT as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectRT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -372,7 +372,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRealTimeWorkQueue: GetRealTimeWorkQueue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectRTQueueService as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectRTQueueService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -412,7 +412,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectVBR as ::windows::core::Interface>::IID
+        iid == &<IAudioProcessingObjectVBR as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -423,7 +423,7 @@ impl IAudioSystemEffects_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffects as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -444,7 +444,7 @@ impl IAudioSystemEffects2_Vtbl {
         Self { base__: IAudioSystemEffects_Vtbl::new::<Identity, Impl, OFFSET>(), GetEffectsList: GetEffectsList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffects2 as ::windows::core::ComInterface>::IID || iid == &<IAudioSystemEffects as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -475,7 +475,7 @@ impl IAudioSystemEffects3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffects3 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffects3 as ::windows::core::ComInterface>::IID || iid == &<IAudioSystemEffects as ::windows::core::ComInterface>::IID || iid == &<IAudioSystemEffects2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
@@ -528,6 +528,6 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioSystemEffectsCustomFormats as ::windows::core::Interface>::IID
+        iid == &<IAudioSystemEffectsCustomFormats as ::windows::core::ComInterface>::IID
     }
 }

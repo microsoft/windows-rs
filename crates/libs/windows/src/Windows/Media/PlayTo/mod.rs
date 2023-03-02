@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICurrentTimeChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for ICurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICurrentTimeChangeRequestedEventArgs {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ICurrentTimeChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICurrentTimeChangeRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for ICurrentTimeChangeRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMuteChangeRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IMuteChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IMuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IMuteChangeRequestedEventArgs {
@@ -32,7 +32,7 @@ impl ::core::clone::Clone for IMuteChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IMuteChangeRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IMuteChangeRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 }
 #[repr(C)]
@@ -46,7 +46,7 @@ pub struct IMuteChangeRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToConnection(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToConnection {
+unsafe impl ::windows::core::Interface for IPlayToConnection {
     type Vtable = IPlayToConnection_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for IPlayToConnection {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToConnection {
+unsafe impl ::windows::core::ComInterface for IPlayToConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 }
 #[cfg(feature = "deprecated")]
@@ -98,7 +98,7 @@ pub struct IPlayToConnection_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToConnectionErrorEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToConnectionErrorEventArgs {
+unsafe impl ::windows::core::Interface for IPlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -108,7 +108,7 @@ impl ::core::clone::Clone for IPlayToConnectionErrorEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToConnectionErrorEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlayToConnectionErrorEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 }
 #[cfg(feature = "deprecated")]
@@ -130,7 +130,7 @@ pub struct IPlayToConnectionErrorEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToConnectionStateChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToConnectionStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for IPlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -140,7 +140,7 @@ impl ::core::clone::Clone for IPlayToConnectionStateChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToConnectionStateChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlayToConnectionStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
 }
 #[cfg(feature = "deprecated")]
@@ -162,7 +162,7 @@ pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToConnectionTransferredEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToConnectionTransferredEventArgs {
+unsafe impl ::windows::core::Interface for IPlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -172,7 +172,7 @@ impl ::core::clone::Clone for IPlayToConnectionTransferredEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToConnectionTransferredEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlayToConnectionTransferredEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 }
 #[cfg(feature = "deprecated")]
@@ -194,7 +194,7 @@ pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToManager(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToManager {
+unsafe impl ::windows::core::Interface for IPlayToManager {
     type Vtable = IPlayToManager_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -204,7 +204,7 @@ impl ::core::clone::Clone for IPlayToManager {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToManager {
+unsafe impl ::windows::core::ComInterface for IPlayToManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 }
 #[cfg(feature = "deprecated")]
@@ -242,7 +242,7 @@ pub struct IPlayToManager_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToManagerStatics {
+unsafe impl ::windows::core::Interface for IPlayToManagerStatics {
     type Vtable = IPlayToManagerStatics_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -252,7 +252,7 @@ impl ::core::clone::Clone for IPlayToManagerStatics {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToManagerStatics {
+unsafe impl ::windows::core::ComInterface for IPlayToManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e6a887_3982_4f3b_ba20_6155e435325b);
 }
 #[cfg(feature = "deprecated")]
@@ -272,7 +272,7 @@ pub struct IPlayToManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlayToReceiver(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlayToReceiver {
+unsafe impl ::windows::core::Interface for IPlayToReceiver {
     type Vtable = IPlayToReceiver_Vtbl;
 }
 impl ::core::clone::Clone for IPlayToReceiver {
@@ -280,7 +280,7 @@ impl ::core::clone::Clone for IPlayToReceiver {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlayToReceiver {
+unsafe impl ::windows::core::ComInterface for IPlayToReceiver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 }
 #[repr(C)]
@@ -403,7 +403,7 @@ pub struct IPlayToReceiver_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSource {
+unsafe impl ::windows::core::Interface for IPlayToSource {
     type Vtable = IPlayToSource_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -413,7 +413,7 @@ impl ::core::clone::Clone for IPlayToSource {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSource {
+unsafe impl ::windows::core::ComInterface for IPlayToSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 }
 #[cfg(feature = "deprecated")]
@@ -443,7 +443,7 @@ pub struct IPlayToSource_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSourceDeferral(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSourceDeferral {
+unsafe impl ::windows::core::Interface for IPlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -453,7 +453,7 @@ impl ::core::clone::Clone for IPlayToSourceDeferral {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSourceDeferral {
+unsafe impl ::windows::core::ComInterface for IPlayToSourceDeferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
 }
 #[cfg(feature = "deprecated")]
@@ -471,7 +471,7 @@ pub struct IPlayToSourceDeferral_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSourceRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSourceRequest {
+unsafe impl ::windows::core::Interface for IPlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -481,7 +481,7 @@ impl ::core::clone::Clone for IPlayToSourceRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSourceRequest {
+unsafe impl ::windows::core::ComInterface for IPlayToSourceRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 }
 #[cfg(feature = "deprecated")]
@@ -511,7 +511,7 @@ pub struct IPlayToSourceRequest_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSourceRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSourceRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IPlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -521,7 +521,7 @@ impl ::core::clone::Clone for IPlayToSourceRequestedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSourceRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlayToSourceRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 }
 #[cfg(feature = "deprecated")]
@@ -539,7 +539,7 @@ pub struct IPlayToSourceRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSourceSelectedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSourceSelectedEventArgs {
+unsafe impl ::windows::core::Interface for IPlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -549,7 +549,7 @@ impl ::core::clone::Clone for IPlayToSourceSelectedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSourceSelectedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlayToSourceSelectedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 }
 #[cfg(feature = "deprecated")]
@@ -583,7 +583,7 @@ pub struct IPlayToSourceSelectedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IPlayToSourceWithPreferredSourceUri(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IPlayToSourceWithPreferredSourceUri {
+unsafe impl ::windows::core::Interface for IPlayToSourceWithPreferredSourceUri {
     type Vtable = IPlayToSourceWithPreferredSourceUri_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -593,7 +593,7 @@ impl ::core::clone::Clone for IPlayToSourceWithPreferredSourceUri {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPlayToSourceWithPreferredSourceUri {
+unsafe impl ::windows::core::ComInterface for IPlayToSourceWithPreferredSourceUri {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 }
 #[cfg(feature = "deprecated")]
@@ -613,7 +613,7 @@ pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPlaybackRateChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IPlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IPlaybackRateChangeRequestedEventArgs {
@@ -621,7 +621,7 @@ impl ::core::clone::Clone for IPlaybackRateChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPlaybackRateChangeRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IPlaybackRateChangeRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 }
 #[repr(C)]
@@ -633,7 +633,7 @@ pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISourceChangeRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISourceChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for ISourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ISourceChangeRequestedEventArgs {
@@ -641,7 +641,7 @@ impl ::core::clone::Clone for ISourceChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ISourceChangeRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for ISourceChangeRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 }
 #[repr(C)]
@@ -677,7 +677,7 @@ pub struct ISourceChangeRequestedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVolumeChangeRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IVolumeChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for IVolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IVolumeChangeRequestedEventArgs {
@@ -685,7 +685,7 @@ impl ::core::clone::Clone for IVolumeChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IVolumeChangeRequestedEventArgs {
+unsafe impl ::windows::core::ComInterface for IVolumeChangeRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 }
 #[repr(C)]
@@ -704,7 +704,7 @@ impl CurrentTimeChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).Time)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Time)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -727,11 +727,11 @@ impl ::core::clone::Clone for CurrentTimeChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for CurrentTimeChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
-    const IID: ::windows::core::GUID = <ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for CurrentTimeChangeRequestedEventArgs {
+    const IID: ::windows::core::GUID = <ICurrentTimeChangeRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
@@ -745,7 +745,7 @@ impl MuteChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Mute)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Mute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -768,11 +768,11 @@ impl ::core::clone::Clone for MuteChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for MuteChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IMuteChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for MuteChangeRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IMuteChangeRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
@@ -790,7 +790,7 @@ impl PlayToConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToConnectionState>();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -799,14 +799,14 @@ impl PlayToConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -814,14 +814,14 @@ impl PlayToConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Transferred)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Transferred)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveTransferred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTransferred)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransferred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -829,14 +829,14 @@ impl PlayToConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Error)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveError(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveError)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveError)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -864,12 +864,12 @@ impl ::core::clone::Clone for PlayToConnection {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToConnection {
+unsafe impl ::windows::core::Interface for PlayToConnection {
     type Vtable = IPlayToConnection_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToConnection {
-    const IID: ::windows::core::GUID = <IPlayToConnection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToConnection {
+    const IID: ::windows::core::GUID = <IPlayToConnection as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnection {
@@ -893,7 +893,7 @@ impl PlayToConnectionErrorEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToConnectionError>();
-            (::windows::core::Vtable::vtable(this).Code)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Code)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -902,7 +902,7 @@ impl PlayToConnectionErrorEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -931,12 +931,12 @@ impl ::core::clone::Clone for PlayToConnectionErrorEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToConnectionErrorEventArgs {
+unsafe impl ::windows::core::Interface for PlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToConnectionErrorEventArgs {
-    const IID: ::windows::core::GUID = <IPlayToConnectionErrorEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToConnectionErrorEventArgs {
+    const IID: ::windows::core::GUID = <IPlayToConnectionErrorEventArgs as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionErrorEventArgs {
@@ -960,7 +960,7 @@ impl PlayToConnectionStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToConnectionState>();
-            (::windows::core::Vtable::vtable(this).PreviousState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreviousState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -969,7 +969,7 @@ impl PlayToConnectionStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToConnectionState>();
-            (::windows::core::Vtable::vtable(this).CurrentState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -998,12 +998,12 @@ impl ::core::clone::Clone for PlayToConnectionStateChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToConnectionStateChangedEventArgs {
+unsafe impl ::windows::core::Interface for PlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToConnectionStateChangedEventArgs {
-    const IID: ::windows::core::GUID = <IPlayToConnectionStateChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToConnectionStateChangedEventArgs {
+    const IID: ::windows::core::GUID = <IPlayToConnectionStateChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionStateChangedEventArgs {
@@ -1027,7 +1027,7 @@ impl PlayToConnectionTransferredEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToSource>();
-            (::windows::core::Vtable::vtable(this).PreviousSource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreviousSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1036,7 +1036,7 @@ impl PlayToConnectionTransferredEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToSource>();
-            (::windows::core::Vtable::vtable(this).CurrentSource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1065,12 +1065,12 @@ impl ::core::clone::Clone for PlayToConnectionTransferredEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToConnectionTransferredEventArgs {
+unsafe impl ::windows::core::Interface for PlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToConnectionTransferredEventArgs {
-    const IID: ::windows::core::GUID = <IPlayToConnectionTransferredEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToConnectionTransferredEventArgs {
+    const IID: ::windows::core::GUID = <IPlayToConnectionTransferredEventArgs as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionTransferredEventArgs {
@@ -1094,14 +1094,14 @@ impl PlayToManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SourceRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1109,20 +1109,20 @@ impl PlayToManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SourceSelected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceSelected)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceSelected)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceSelected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDefaultSourceSelection(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultSourceSelection)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultSourceSelection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1130,7 +1130,7 @@ impl PlayToManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).DefaultSourceSelection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DefaultSourceSelection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1138,13 +1138,13 @@ impl PlayToManager {
     pub fn GetForCurrentView() -> ::windows::core::Result<PlayToManager> {
         Self::IPlayToManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToManager>();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ShowPlayToUI() -> ::windows::core::Result<()> {
-        Self::IPlayToManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).ShowPlayToUI)(::windows::core::Vtable::as_raw(this)).ok() })
+        Self::IPlayToManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowPlayToUI)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
@@ -1178,12 +1178,12 @@ impl ::core::clone::Clone for PlayToManager {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToManager {
+unsafe impl ::windows::core::Interface for PlayToManager {
     type Vtable = IPlayToManager_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToManager {
-    const IID: ::windows::core::GUID = <IPlayToManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToManager {
+    const IID: ::windows::core::GUID = <IPlayToManager as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToManager {
@@ -1212,14 +1212,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PlayRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PlayRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlayRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePlayRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlayRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1227,14 +1227,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PauseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PauseRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePauseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePauseRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePauseRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1242,14 +1242,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SourceChangeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceChangeRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceChangeRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1257,14 +1257,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).PlaybackRateChangeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackRateChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemovePlaybackRateChangeRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1272,14 +1272,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CurrentTimeChangeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentTimeChangeRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentTimeChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCurrentTimeChangeRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentTimeChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1287,14 +1287,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).MuteChangeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MuteChangeRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMuteChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveMuteChangeRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMuteChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1302,14 +1302,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).VolumeChangeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).VolumeChangeRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVolumeChangeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveVolumeChangeRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVolumeChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1317,14 +1317,14 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).TimeUpdateRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TimeUpdateRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTimeUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveTimeUpdateRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTimeUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1332,109 +1332,109 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).StopRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StopRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn NotifyVolumeChange(&self, volume: f64, mute: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyVolumeChange)(::windows::core::Vtable::as_raw(this), volume, mute).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyVolumeChange)(::windows::core::Interface::as_raw(this), volume, mute).ok() }
     }
     pub fn NotifyRateChange(&self, rate: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyRateChange)(::windows::core::Vtable::as_raw(this), rate).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyRateChange)(::windows::core::Interface::as_raw(this), rate).ok() }
     }
     pub fn NotifyLoadedMetadata(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyLoadedMetadata)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyLoadedMetadata)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyTimeUpdate(&self, currenttime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyTimeUpdate)(::windows::core::Vtable::as_raw(this), currenttime).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyTimeUpdate)(::windows::core::Interface::as_raw(this), currenttime).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyDurationChange)(::windows::core::Vtable::as_raw(this), duration).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyDurationChange)(::windows::core::Interface::as_raw(this), duration).ok() }
     }
     pub fn NotifySeeking(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifySeeking)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifySeeking)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifySeeked(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifySeeked)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifySeeked)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyPaused(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyPaused)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyPaused)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyPlaying(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyPlaying)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyPlaying)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyEnded(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyEnded)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyEnded)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyError(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyError)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyError)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyStopped(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).NotifyStopped)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyStopped)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FriendlyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFriendlyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFriendlyName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SetSupportsImage(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSupportsImage)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportsImage)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SupportsImage(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsImage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsImage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSupportsAudio(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSupportsAudio)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportsAudio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SupportsAudio(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsAudio)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsAudio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSupportsVideo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSupportsVideo)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportsVideo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SupportsVideo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsVideo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsVideo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1443,7 +1443,7 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1452,7 +1452,7 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StartAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1461,7 +1461,7 @@ impl PlayToReceiver {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).StopAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).StopAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1484,11 +1484,11 @@ impl ::core::clone::Clone for PlayToReceiver {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PlayToReceiver {
+unsafe impl ::windows::core::Interface for PlayToReceiver {
     type Vtable = IPlayToReceiver_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PlayToReceiver {
-    const IID: ::windows::core::GUID = <IPlayToReceiver as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToReceiver {
+    const IID: ::windows::core::GUID = <IPlayToReceiver as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
@@ -1506,7 +1506,7 @@ impl PlayToSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToConnection>();
-            (::windows::core::Vtable::vtable(this).Connection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1515,35 +1515,35 @@ impl PlayToSource {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToSource>();
-            (::windows::core::Vtable::vtable(this).Next)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Next)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetNext(&self, value: &PlayToSource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn PlayNext(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).PlayNext)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PlayNext)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PreferredSourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = &::windows::core::Interface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
+        let this = &::windows::core::ComInterface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).PreferredSourceUri)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredSourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetPreferredSourceUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPreferredSourceUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        let this = &::windows::core::ComInterface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredSourceUri)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1571,12 +1571,12 @@ impl ::core::clone::Clone for PlayToSource {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToSource {
+unsafe impl ::windows::core::Interface for PlayToSource {
     type Vtable = IPlayToSource_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToSource {
-    const IID: ::windows::core::GUID = <IPlayToSource as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToSource {
+    const IID: ::windows::core::GUID = <IPlayToSource as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSource {
@@ -1598,7 +1598,7 @@ impl PlayToSourceDeferral {
     #[cfg(feature = "deprecated")]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1626,12 +1626,12 @@ impl ::core::clone::Clone for PlayToSourceDeferral {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToSourceDeferral {
+unsafe impl ::windows::core::Interface for PlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToSourceDeferral {
-    const IID: ::windows::core::GUID = <IPlayToSourceDeferral as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToSourceDeferral {
+    const IID: ::windows::core::GUID = <IPlayToSourceDeferral as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceDeferral {
@@ -1655,14 +1655,14 @@ impl PlayToSourceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Deadline)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Deadline)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayErrorString(&self, errorstring: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DisplayErrorString)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(errorstring)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DisplayErrorString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(errorstring)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1670,14 +1670,14 @@ impl PlayToSourceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToSourceDeferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetSource(&self, value: &PlayToSource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1705,12 +1705,12 @@ impl ::core::clone::Clone for PlayToSourceRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToSourceRequest {
+unsafe impl ::windows::core::Interface for PlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToSourceRequest {
-    const IID: ::windows::core::GUID = <IPlayToSourceRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToSourceRequest {
+    const IID: ::windows::core::GUID = <IPlayToSourceRequest as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceRequest {
@@ -1734,7 +1734,7 @@ impl PlayToSourceRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PlayToSourceRequest>();
-            (::windows::core::Vtable::vtable(this).SourceRequest)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SourceRequest)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1763,12 +1763,12 @@ impl ::core::clone::Clone for PlayToSourceRequestedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToSourceRequestedEventArgs {
+unsafe impl ::windows::core::Interface for PlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToSourceRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IPlayToSourceRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToSourceRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IPlayToSourceRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceRequestedEventArgs {
@@ -1792,7 +1792,7 @@ impl PlayToSourceSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).FriendlyName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"deprecated\"`*"]
@@ -1801,7 +1801,7 @@ impl PlayToSourceSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
-            (::windows::core::Vtable::vtable(this).Icon)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Icon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1810,7 +1810,7 @@ impl PlayToSourceSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsImage)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsImage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1819,7 +1819,7 @@ impl PlayToSourceSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsAudio)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsAudio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1828,7 +1828,7 @@ impl PlayToSourceSelectedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SupportsVideo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportsVideo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1857,12 +1857,12 @@ impl ::core::clone::Clone for PlayToSourceSelectedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for PlayToSourceSelectedEventArgs {
+unsafe impl ::windows::core::Interface for PlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PlayToSourceSelectedEventArgs {
-    const IID: ::windows::core::GUID = <IPlayToSourceSelectedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlayToSourceSelectedEventArgs {
+    const IID: ::windows::core::GUID = <IPlayToSourceSelectedEventArgs as ::windows::core::ComInterface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceSelectedEventArgs {
@@ -1882,7 +1882,7 @@ impl PlaybackRateChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Rate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Rate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1905,11 +1905,11 @@ impl ::core::clone::Clone for PlaybackRateChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PlaybackRateChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PlaybackRateChangeRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IPlaybackRateChangeRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
@@ -1925,42 +1925,42 @@ impl SourceChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
-            (::windows::core::Vtable::vtable(this).Stream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Stream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Author)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Author)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Album(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Album)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Album)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Genre(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Genre)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Genre)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1969,7 +1969,7 @@ impl SourceChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).Date)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Date)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1978,7 +1978,7 @@ impl SourceChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
-            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1987,7 +1987,7 @@ impl SourceChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u32>>();
-            (::windows::core::Vtable::vtable(this).Rating)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Rating)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1996,7 +1996,7 @@ impl SourceChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2019,11 +2019,11 @@ impl ::core::clone::Clone for SourceChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SourceChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
-    const IID: ::windows::core::GUID = <ISourceChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SourceChangeRequestedEventArgs {
+    const IID: ::windows::core::GUID = <ISourceChangeRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
@@ -2037,7 +2037,7 @@ impl VolumeChangeRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Volume)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Volume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2060,11 +2060,11 @@ impl ::core::clone::Clone for VolumeChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for VolumeChangeRequestedEventArgs {
+unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
-    const IID: ::windows::core::GUID = <IVolumeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for VolumeChangeRequestedEventArgs {
+    const IID: ::windows::core::GUID = <IVolumeChangeRequestedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";

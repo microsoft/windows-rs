@@ -543,7 +543,7 @@ impl ITextCharacterFormat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextCharacterFormat as ::windows::core::Interface>::IID
+        iid == &<ITextCharacterFormat as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -849,7 +849,7 @@ impl ITextDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument as ::windows::core::Interface>::IID
+        iid == &<ITextDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"implement\"`*"]
@@ -1369,7 +1369,7 @@ impl ITextParagraphFormat_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextParagraphFormat as ::windows::core::Interface>::IID
+        iid == &<ITextParagraphFormat as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -1927,7 +1927,7 @@ impl ITextRange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRange as ::windows::core::Interface>::IID
+        iid == &<ITextRange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -2072,6 +2072,6 @@ impl ITextSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextSelection as ::windows::core::Interface>::IID
+        iid == &<ITextSelection as ::windows::core::ComInterface>::IID
     }
 }

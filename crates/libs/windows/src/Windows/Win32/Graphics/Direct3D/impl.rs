@@ -23,7 +23,7 @@ impl ID3DBlob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DBlob as ::windows::core::Interface>::IID
+        iid == &<ID3DBlob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -57,7 +57,7 @@ impl ID3DDestructionNotifier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DDestructionNotifier as ::windows::core::Interface>::IID
+        iid == &<ID3DDestructionNotifier as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]

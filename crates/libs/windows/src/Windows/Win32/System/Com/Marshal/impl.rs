@@ -63,7 +63,7 @@ impl IMarshal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMarshal as ::windows::core::Interface>::IID
+        iid == &<IMarshal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"implement\"`*"]
@@ -74,7 +74,7 @@ impl IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMarshal2 as ::windows::core::Interface>::IID || iid == &<IMarshal as ::windows::core::Interface>::IID
+        iid == &<IMarshal2 as ::windows::core::ComInterface>::IID || iid == &<IMarshal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -104,6 +104,6 @@ impl IMarshalingStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMarshalingStream as ::windows::core::Interface>::IID || iid == &<super::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::IStream as ::windows::core::Interface>::IID
+        iid == &<IMarshalingStream as ::windows::core::ComInterface>::IID || iid == &<super::ISequentialStream as ::windows::core::ComInterface>::IID || iid == &<super::IStream as ::windows::core::ComInterface>::IID
     }
 }

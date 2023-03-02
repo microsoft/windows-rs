@@ -10,22 +10,22 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
 #[inline]
 pub unsafe fn GetInterfaceContextTableForHostName<P0, P1>(hostname: P0, proxyname: P1, flags: u32, connectionprofilefilterrawdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "ondemandconnroutehelper.dll""system" fn GetInterfaceContextTableForHostName ( hostname : :: windows::core::PCWSTR , proxyname : :: windows::core::PCWSTR , flags : u32 , connectionprofilefilterrawdata : *const u8 , connectionprofilefilterrawdatasize : u32 , interfacecontexttable : *mut *mut NET_INTERFACE_CONTEXT_TABLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut NET_INTERFACE_CONTEXT_TABLE>();
-    GetInterfaceContextTableForHostName(hostname.into().abi(), proxyname.into().abi(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+    GetInterfaceContextTableForHostName(hostname.into_param().abi(), proxyname.into_param().abi(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
 pub unsafe fn OnDemandGetRoutingHint<P0>(destinationhostname: P0) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandGetRoutingHint ( destinationhostname : :: windows::core::PCWSTR , interfaceindex : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u32>();
-    OnDemandGetRoutingHint(destinationhostname.into().abi(), &mut result__).from_abi(result__)
+    OnDemandGetRoutingHint(destinationhostname.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,10 +40,10 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
 #[inline]
 pub unsafe fn OnDemandUnRegisterNotification<P0>(registrationhandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows::imp::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandUnRegisterNotification ( registrationhandle : super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    OnDemandUnRegisterNotification(registrationhandle.into()).ok()
+    OnDemandUnRegisterNotification(registrationhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
@@ -61,29 +61,29 @@ pub unsafe fn WcmGetProfileList(preserved: ::core::option::Option<*const ::core:
 #[inline]
 pub unsafe fn WcmQueryProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wcmapi.dll""system" fn WcmQueryProperty ( pinterface : *const :: windows::core::GUID , strprofilename : :: windows::core::PCWSTR , property : WCM_PROPERTY , preserved : *const ::core::ffi::c_void , pdwdatasize : *mut u32 , ppdata : *mut *mut u8 ) -> u32 );
-    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwdatasize, ppdata)
+    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into_param().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwdatasize, ppdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProfileList<P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "wcmapi.dll""system" fn WcmSetProfileList ( pprofilelist : *const WCM_PROFILE_INFO_LIST , dwposition : u32 , fignoreunknownprofiles : super::super::Foundation:: BOOL , preserved : *const ::core::ffi::c_void ) -> u32 );
-    WcmSetProfileList(pprofilelist, dwposition, fignoreunknownprofiles.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
+    WcmSetProfileList(pprofilelist, dwposition, fignoreunknownprofiles.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
 pub unsafe fn WcmSetProperty<P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pbdata: ::core::option::Option<&[u8]>) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wcmapi.dll""system" fn WcmSetProperty ( pinterface : *const :: windows::core::GUID , strprofilename : :: windows::core::PCWSTR , property : WCM_PROPERTY , preserved : *const ::core::ffi::c_void , dwdatasize : u32 , pbdata : *const u8 ) -> u32 );
-    WcmSetProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    WcmSetProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into_param().abi(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;

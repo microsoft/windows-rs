@@ -25,7 +25,7 @@ impl ISpiControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiControllerProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiControllerProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -100,7 +100,7 @@ impl ISpiDeviceProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiDeviceProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiDeviceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -133,6 +133,6 @@ impl ISpiProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiProvider as ::windows::core::ComInterface>::IID
     }
 }

@@ -210,6 +210,6 @@ impl IStorageItemAccessList_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemAccessList as ::windows::core::Interface>::IID
+        iid == &<IStorageItemAccessList as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarCancelMeetingRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarCancelMeetingRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarCancelMeetingRequest {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAppointmentCalendarCancelMeetingRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarCancelMeetingRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
 #[repr(C)]
@@ -37,7 +37,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarCancelMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarCancelMeetingRequestEventArgs {
@@ -45,7 +45,7 @@ impl ::core::clone::Clone for IAppointmentCalendarCancelMeetingRequestEventArgs 
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarCancelMeetingRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
 #[repr(C)]
@@ -61,7 +61,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for IAppointmentCalendarCreateOrUpdateAppointmentReque
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 }
 #[repr(C)]
@@ -95,7 +95,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -103,7 +103,7 @@ impl ::core::clone::Clone for IAppointmentCalendarCreateOrUpdateAppointmentReque
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
 #[repr(C)]
@@ -119,7 +119,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarForwardMeetingRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarForwardMeetingRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarForwardMeetingRequest {
@@ -127,7 +127,7 @@ impl ::core::clone::Clone for IAppointmentCalendarForwardMeetingRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarForwardMeetingRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 }
 #[repr(C)]
@@ -159,7 +159,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarForwardMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarForwardMeetingRequestEventArgs {
@@ -167,7 +167,7 @@ impl ::core::clone::Clone for IAppointmentCalendarForwardMeetingRequestEventArgs
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarForwardMeetingRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
 #[repr(C)]
@@ -183,7 +183,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarProposeNewTimeForMeetingRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -191,7 +191,7 @@ impl ::core::clone::Clone for IAppointmentCalendarProposeNewTimeForMeetingReques
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 }
 #[repr(C)]
@@ -226,7 +226,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -234,7 +234,7 @@ impl ::core::clone::Clone for IAppointmentCalendarProposeNewTimeForMeetingReques
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
 #[repr(C)]
@@ -250,7 +250,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarSyncManagerSyncRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarSyncManagerSyncRequest {
@@ -258,7 +258,7 @@ impl ::core::clone::Clone for IAppointmentCalendarSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarSyncManagerSyncRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 }
 #[repr(C)]
@@ -278,7 +278,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -286,7 +286,7 @@ impl ::core::clone::Clone for IAppointmentCalendarSyncManagerSyncRequestEventArg
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
 #[repr(C)]
@@ -302,7 +302,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarUpdateMeetingResponseRequest {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarUpdateMeetingResponseRequest {
@@ -310,7 +310,7 @@ impl ::core::clone::Clone for IAppointmentCalendarUpdateMeetingResponseRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarUpdateMeetingResponseRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 }
 #[repr(C)]
@@ -339,7 +339,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -347,7 +347,7 @@ impl ::core::clone::Clone for IAppointmentCalendarUpdateMeetingResponseRequestEv
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
 #[repr(C)]
@@ -363,7 +363,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentDataProviderConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentDataProviderConnection {
+unsafe impl ::windows::core::Interface for IAppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentDataProviderConnection {
@@ -371,7 +371,7 @@ impl ::core::clone::Clone for IAppointmentDataProviderConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentDataProviderConnection {
+unsafe impl ::windows::core::ComInterface for IAppointmentDataProviderConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
 }
 #[repr(C)]
@@ -431,7 +431,7 @@ pub struct IAppointmentDataProviderConnection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppointmentDataProviderTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAppointmentDataProviderTriggerDetails {
+unsafe impl ::windows::core::Interface for IAppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
 }
 impl ::core::clone::Clone for IAppointmentDataProviderTriggerDetails {
@@ -439,7 +439,7 @@ impl ::core::clone::Clone for IAppointmentDataProviderTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAppointmentDataProviderTriggerDetails {
+unsafe impl ::windows::core::ComInterface for IAppointmentDataProviderTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
 #[repr(C)]
@@ -456,14 +456,14 @@ impl AppointmentCalendarCancelMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -472,28 +472,28 @@ impl AppointmentCalendarCancelMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).AppointmentOriginalStartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Subject)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NotifyInvitees(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NotifyInvitees)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NotifyInvitees)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -502,7 +502,7 @@ impl AppointmentCalendarCancelMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -511,7 +511,7 @@ impl AppointmentCalendarCancelMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -534,11 +534,11 @@ impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarCancelMeetingRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarCancelMeetingRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarCancelMeetingRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarCancelMeetingRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
@@ -554,7 +554,7 @@ impl AppointmentCalendarCancelMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarCancelMeetingRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -563,7 +563,7 @@ impl AppointmentCalendarCancelMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -586,11 +586,11 @@ impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarCancelMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarCancelMeetingRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
@@ -606,21 +606,21 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Appointment(&self) -> ::windows::core::Result<super::Appointment> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::Appointment>();
-            (::windows::core::Vtable::vtable(this).Appointment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Appointment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NotifyInvitees(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NotifyInvitees)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NotifyInvitees)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -629,7 +629,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).ChangedProperties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ChangedProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -638,7 +638,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(createdorupdatedappointment), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(createdorupdatedappointment), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -647,7 +647,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -670,11 +670,11 @@ impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentReques
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarCreateOrUpdateAppointmentRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
@@ -690,7 +690,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarCreateOrUpdateAppointmentRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -699,7 +699,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -722,11 +722,11 @@ impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentReques
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
@@ -742,14 +742,14 @@ impl AppointmentCalendarForwardMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -758,7 +758,7 @@ impl AppointmentCalendarForwardMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).AppointmentOriginalStartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -767,28 +767,28 @@ impl AppointmentCalendarForwardMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>>();
-            (::windows::core::Vtable::vtable(this).Invitees)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Invitees)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Subject)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ForwardHeader(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ForwardHeader)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ForwardHeader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -797,7 +797,7 @@ impl AppointmentCalendarForwardMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -806,7 +806,7 @@ impl AppointmentCalendarForwardMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -829,11 +829,11 @@ impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarForwardMeetingRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarForwardMeetingRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarForwardMeetingRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarForwardMeetingRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
@@ -849,7 +849,7 @@ impl AppointmentCalendarForwardMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarForwardMeetingRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -858,7 +858,7 @@ impl AppointmentCalendarForwardMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -881,11 +881,11 @@ impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequestEventArgs 
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarForwardMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarForwardMeetingRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
@@ -901,14 +901,14 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -917,7 +917,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).AppointmentOriginalStartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -926,7 +926,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).NewStartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -935,21 +935,21 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).NewDuration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NewDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Subject)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -958,7 +958,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -967,7 +967,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -990,11 +990,11 @@ impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequest
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarProposeNewTimeForMeetingRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarProposeNewTimeForMeetingRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
@@ -1010,7 +1010,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarProposeNewTimeForMeetingRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1019,7 +1019,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1042,11 +1042,11 @@ impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequest
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
@@ -1062,7 +1062,7 @@ impl AppointmentCalendarSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1071,7 +1071,7 @@ impl AppointmentCalendarSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1080,7 +1080,7 @@ impl AppointmentCalendarSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1103,11 +1103,11 @@ impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarSyncManagerSyncRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarSyncManagerSyncRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarSyncManagerSyncRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarSyncManagerSyncRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
@@ -1123,7 +1123,7 @@ impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarSyncManagerSyncRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1132,7 +1132,7 @@ impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1155,11 +1155,11 @@ impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequestEventArgs
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
@@ -1175,14 +1175,14 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentCalendarLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentCalendarLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AppointmentLocalId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentLocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1191,35 +1191,35 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).AppointmentOriginalStartTime)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Response(&self) -> ::windows::core::Result<super::AppointmentParticipantResponse> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::AppointmentParticipantResponse>();
-            (::windows::core::Vtable::vtable(this).Response)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Response)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Subject)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SendUpdate(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).SendUpdate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SendUpdate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1228,7 +1228,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1237,7 +1237,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1260,11 +1260,11 @@ impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarUpdateMeetingResponseRequest {
+unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarUpdateMeetingResponseRequest {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
@@ -1280,7 +1280,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentCalendarUpdateMeetingResponseRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1289,7 +1289,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1312,11 +1312,11 @@ impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequestEve
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    const IID: ::windows::core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+    const IID: ::windows::core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
@@ -1334,14 +1334,14 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SyncRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SyncRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSyncRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSyncRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1349,14 +1349,14 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CreateOrUpdateAppointmentRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOrUpdateAppointmentRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateOrUpdateAppointmentRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCreateOrUpdateAppointmentRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCreateOrUpdateAppointmentRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1364,14 +1364,14 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CancelMeetingRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CancelMeetingRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCancelMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCancelMeetingRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCancelMeetingRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1379,14 +1379,14 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ForwardMeetingRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ForwardMeetingRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveForwardMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveForwardMeetingRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveForwardMeetingRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1394,14 +1394,14 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ProposeNewTimeForMeetingRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProposeNewTimeForMeetingRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProposeNewTimeForMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveProposeNewTimeForMeetingRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProposeNewTimeForMeetingRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1409,18 +1409,18 @@ impl AppointmentDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).UpdateMeetingResponseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateMeetingResponseRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateMeetingResponseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveUpdateMeetingResponseRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdateMeetingResponseRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AppointmentDataProviderConnection {
@@ -1442,11 +1442,11 @@ impl ::core::clone::Clone for AppointmentDataProviderConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentDataProviderConnection {
+unsafe impl ::windows::core::Interface for AppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentDataProviderConnection {
-    const IID: ::windows::core::GUID = <IAppointmentDataProviderConnection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentDataProviderConnection {
+    const IID: ::windows::core::GUID = <IAppointmentDataProviderConnection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
@@ -1462,7 +1462,7 @@ impl AppointmentDataProviderTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<AppointmentDataProviderConnection>();
-            (::windows::core::Vtable::vtable(this).Connection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1485,11 +1485,11 @@ impl ::core::clone::Clone for AppointmentDataProviderTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AppointmentDataProviderTriggerDetails {
+unsafe impl ::windows::core::Interface for AppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AppointmentDataProviderTriggerDetails {
-    const IID: ::windows::core::GUID = <IAppointmentDataProviderTriggerDetails as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AppointmentDataProviderTriggerDetails {
+    const IID: ::windows::core::GUID = <IAppointmentDataProviderTriggerDetails as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";

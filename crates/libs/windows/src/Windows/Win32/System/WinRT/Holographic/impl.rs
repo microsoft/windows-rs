@@ -59,7 +59,7 @@ impl IHolographicCameraInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHolographicCameraInterop as ::windows::core::Interface>::IID
+        iid == &<IHolographicCameraInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHolographicCameraRenderingParametersInterop as ::windows::core::Interface>::IID
+        iid == &<IHolographicCameraRenderingParametersInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -154,7 +154,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHolographicQuadLayerInterop as ::windows::core::Interface>::IID
+        iid == &<IHolographicQuadLayerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
@@ -178,6 +178,6 @@ impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHolographicQuadLayerUpdateParametersInterop as ::windows::core::Interface>::IID
+        iid == &<IHolographicQuadLayerUpdateParametersInterop as ::windows::core::ComInterface>::IID
     }
 }

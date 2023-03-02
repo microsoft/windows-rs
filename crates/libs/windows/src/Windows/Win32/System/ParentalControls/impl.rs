@@ -22,7 +22,7 @@ impl IWPCGamesSettings_Vtbl {
         Self { base__: IWPCSettings_Vtbl::new::<Identity, Impl, OFFSET>(), IsBlocked: IsBlocked::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCGamesSettings as ::windows::core::Interface>::IID || iid == &<IWPCSettings as ::windows::core::Interface>::IID
+        iid == &<IWPCGamesSettings as ::windows::core::ComInterface>::IID || iid == &<IWPCSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -66,7 +66,7 @@ impl IWPCProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCProviderConfig as ::windows::core::Interface>::IID
+        iid == &<IWPCProviderConfig as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
@@ -94,7 +94,7 @@ impl IWPCProviderState_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCProviderState as ::windows::core::Interface>::IID
+        iid == &<IWPCProviderState as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
@@ -118,7 +118,7 @@ impl IWPCProviderSupport_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCurrent: GetCurrent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCProviderSupport as ::windows::core::Interface>::IID
+        iid == &<IWPCProviderSupport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -174,7 +174,7 @@ impl IWPCSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCSettings as ::windows::core::Interface>::IID
+        iid == &<IWPCSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -217,7 +217,7 @@ impl IWPCWebSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWPCWebSettings as ::windows::core::Interface>::IID || iid == &<IWPCSettings as ::windows::core::Interface>::IID
+        iid == &<IWPCWebSettings as ::windows::core::ComInterface>::IID || iid == &<IWPCSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
@@ -241,7 +241,7 @@ impl IWindowsParentalControls_Vtbl {
         Self { base__: IWindowsParentalControlsCore_Vtbl::new::<Identity, Impl, OFFSET>(), GetGamesSettings: GetGamesSettings::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsParentalControls as ::windows::core::Interface>::IID || iid == &<IWindowsParentalControlsCore as ::windows::core::Interface>::IID
+        iid == &<IWindowsParentalControls as ::windows::core::ComInterface>::IID || iid == &<IWindowsParentalControlsCore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
@@ -301,6 +301,6 @@ impl IWindowsParentalControlsCore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsParentalControlsCore as ::windows::core::Interface>::IID
+        iid == &<IWindowsParentalControlsCore as ::windows::core::ComInterface>::IID
     }
 }

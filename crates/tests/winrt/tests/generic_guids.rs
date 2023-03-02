@@ -2,7 +2,7 @@ use windows::{Foundation::Collections::*, Foundation::*};
 
 #[test]
 fn generic_guids() -> windows::core::Result<()> {
-    use windows::core::Interface;
+    use windows::core::ComInterface;
 
     type A = IIterable<IStringable>;
     type B = IKeyValuePair<windows::core::HSTRING, IAsyncOperationWithProgress<A, f32>>;

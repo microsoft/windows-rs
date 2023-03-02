@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationProfileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IApplicationProfileStatics {
+unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_Vtbl;
 }
 impl ::core::clone::Clone for IApplicationProfileStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IApplicationProfileStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
+unsafe impl ::windows::core::ComInterface for IApplicationProfileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
 #[repr(C)]
@@ -24,7 +24,7 @@ impl ApplicationProfile {
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<ApplicationProfileModes>();
-            (::windows::core::Vtable::vtable(this).Modes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Modes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

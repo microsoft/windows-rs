@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApiInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IApiInformationStatics {
+unsafe impl ::windows::core::Interface for IApiInformationStatics {
     type Vtable = IApiInformationStatics_Vtbl;
 }
 impl ::core::clone::Clone for IApiInformationStatics {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IApiInformationStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IApiInformationStatics {
+unsafe impl ::windows::core::ComInterface for IApiInformationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
 }
 #[repr(C)]
@@ -33,61 +33,61 @@ impl ApiInformation {
     pub fn IsTypePresent(typename: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsTypePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsTypePresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), &mut result__).from_abi(result__)
         })
     }
     pub fn IsMethodPresent(typename: &::windows::core::HSTRING, methodname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsMethodPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsMethodPresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsMethodPresentWithArity(typename: &::windows::core::HSTRING, methodname: &::windows::core::HSTRING, inputparametercount: u32) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsMethodPresentWithArity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), inputparametercount, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsMethodPresentWithArity)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), inputparametercount, &mut result__).from_abi(result__)
         })
     }
     pub fn IsEventPresent(typename: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEventPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(eventname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEventPresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(eventname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsPropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsPropertyPresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsReadOnlyPropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsWriteablePropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsWriteablePropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsWriteablePropertyPresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsEnumNamedValuePresent(enumtypename: &::windows::core::HSTRING, valuename: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnumNamedValuePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(enumtypename), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnumNamedValuePresent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(enumtypename), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajor(contractname: &::windows::core::HSTRING, majorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsApiContractPresentByMajor)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, &mut result__).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajorAndMinor(contractname: &::windows::core::HSTRING, majorversion: u16, minorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, minorversion, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, minorversion, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

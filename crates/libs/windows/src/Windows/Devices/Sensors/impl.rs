@@ -8,6 +8,6 @@ impl ISensorDataThreshold_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorDataThreshold as ::windows::core::Interface>::IID
+        iid == &<ISensorDataThreshold as ::windows::core::ComInterface>::IID
     }
 }

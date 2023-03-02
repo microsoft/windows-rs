@@ -16,7 +16,7 @@ impl INetDiagExtensibleHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetDiagExtensibleHelper as ::windows::core::Interface>::IID
+        iid == &<INetDiagExtensibleHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -177,7 +177,7 @@ impl INetDiagHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetDiagHelper as ::windows::core::Interface>::IID
+        iid == &<INetDiagHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -215,7 +215,7 @@ impl INetDiagHelperEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetDiagHelperEx as ::windows::core::Interface>::IID
+        iid == &<INetDiagHelperEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"implement\"`*"]
@@ -233,7 +233,7 @@ impl INetDiagHelperInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetDiagHelperInfo as ::windows::core::Interface>::IID
+        iid == &<INetDiagHelperInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"implement\"`*"]
@@ -251,6 +251,6 @@ impl INetDiagHelperUtilFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetDiagHelperUtilFactory as ::windows::core::Interface>::IID
+        iid == &<INetDiagHelperUtilFactory as ::windows::core::ComInterface>::IID
     }
 }

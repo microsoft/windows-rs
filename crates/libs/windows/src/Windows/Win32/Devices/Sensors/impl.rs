@@ -32,7 +32,7 @@ impl ILocationPermissions_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILocationPermissions as ::windows::core::Interface>::IID
+        iid == &<ILocationPermissions as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -226,7 +226,7 @@ impl ISensor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensor as ::windows::core::Interface>::IID
+        iid == &<ISensor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"implement\"`*"]
@@ -294,7 +294,7 @@ impl ISensorCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorCollection as ::windows::core::Interface>::IID
+        iid == &<ISensorCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -350,7 +350,7 @@ impl ISensorDataReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorDataReport as ::windows::core::Interface>::IID
+        iid == &<ISensorDataReport as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -395,7 +395,7 @@ impl ISensorEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorEvents as ::windows::core::Interface>::IID
+        iid == &<ISensorEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -465,7 +465,7 @@ impl ISensorManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorManager as ::windows::core::Interface>::IID
+        iid == &<ISensorManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"implement\"`*"]
@@ -483,6 +483,6 @@ impl ISensorManagerEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSensorEnter: OnSensorEnter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISensorManagerEvents as ::windows::core::Interface>::IID
+        iid == &<ISensorManagerEvents as ::windows::core::ComInterface>::IID
     }
 }

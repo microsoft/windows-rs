@@ -37,7 +37,7 @@ impl IEnumNetCfgBindingInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumNetCfgBindingInterface as ::windows::core::Interface>::IID
+        iid == &<IEnumNetCfgBindingInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl IEnumNetCfgBindingPath_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumNetCfgBindingPath as ::windows::core::Interface>::IID
+        iid == &<IEnumNetCfgBindingPath as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -121,7 +121,7 @@ impl IEnumNetCfgComponent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumNetCfgComponent as ::windows::core::Interface>::IID
+        iid == &<IEnumNetCfgComponent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -184,7 +184,7 @@ impl INetCfg_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfg as ::windows::core::Interface>::IID
+        iid == &<INetCfg as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -219,7 +219,7 @@ impl INetCfgBindingInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgBindingInterface as ::windows::core::Interface>::IID
+        iid == &<INetCfgBindingInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -298,7 +298,7 @@ impl INetCfgBindingPath_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgBindingPath as ::windows::core::Interface>::IID
+        iid == &<INetCfgBindingPath as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -326,7 +326,7 @@ impl INetCfgClass_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgClass as ::windows::core::Interface>::IID
+        iid == &<INetCfgClass as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -364,7 +364,7 @@ impl INetCfgClassSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgClassSetup as ::windows::core::Interface>::IID
+        iid == &<INetCfgClassSetup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -388,7 +388,7 @@ impl INetCfgClassSetup2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgClassSetup2 as ::windows::core::Interface>::IID || iid == &<INetCfgClassSetup as ::windows::core::Interface>::IID
+        iid == &<INetCfgClassSetup2 as ::windows::core::ComInterface>::IID || iid == &<INetCfgClassSetup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
@@ -501,7 +501,7 @@ impl INetCfgComponent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponent as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -571,7 +571,7 @@ impl INetCfgComponentBindings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentBindings as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentBindings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -616,7 +616,7 @@ impl INetCfgComponentControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentControl as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -644,7 +644,7 @@ impl INetCfgComponentNotifyBinding_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentNotifyBinding as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentNotifyBinding as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -692,7 +692,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentNotifyGlobal as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentNotifyGlobal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -751,7 +751,7 @@ impl INetCfgComponentPropertyUi_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentPropertyUi as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentPropertyUi as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -793,7 +793,7 @@ impl INetCfgComponentSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentSetup as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentSetup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -821,7 +821,7 @@ impl INetCfgComponentSysPrep_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentSysPrep as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentSysPrep as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -856,7 +856,7 @@ impl INetCfgComponentUpperEdge_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgComponentUpperEdge as ::windows::core::Interface>::IID
+        iid == &<INetCfgComponentUpperEdge as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -891,7 +891,7 @@ impl INetCfgLock_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgLock as ::windows::core::Interface>::IID
+        iid == &<INetCfgLock as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -909,7 +909,7 @@ impl INetCfgPnpReconfigCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SendPnpReconfig: SendPnpReconfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgPnpReconfigCallback as ::windows::core::Interface>::IID
+        iid == &<INetCfgPnpReconfigCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -954,7 +954,7 @@ impl INetCfgSysPrep_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetCfgSysPrep as ::windows::core::Interface>::IID
+        iid == &<INetCfgSysPrep as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -978,7 +978,7 @@ impl INetLanConnectionUiInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceGuid: GetDeviceGuid::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetLanConnectionUiInfo as ::windows::core::Interface>::IID
+        iid == &<INetLanConnectionUiInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -999,7 +999,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUiInfo: GetUiInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetRasConnectionIpUiInfo as ::windows::core::Interface>::IID
+        iid == &<INetRasConnectionIpUiInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1032,7 +1032,7 @@ impl IProvisioningDomain_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Query: Query::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvisioningDomain as ::windows::core::Interface>::IID
+        iid == &<IProvisioningDomain as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
@@ -1056,6 +1056,6 @@ impl IProvisioningProfileWireless_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProfile: CreateProfile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvisioningProfileWireless as ::windows::core::Interface>::IID
+        iid == &<IProvisioningProfileWireless as ::windows::core::ComInterface>::IID
     }
 }

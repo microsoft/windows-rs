@@ -16,7 +16,7 @@ impl ISideShowBulkCapabilities_Vtbl {
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowBulkCapabilities as ::windows::core::Interface>::IID || iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
+        iid == &<ISideShowBulkCapabilities as ::windows::core::ComInterface>::IID || iid == &<ISideShowCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -37,7 +37,7 @@ impl ISideShowCapabilities_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCapability: GetCapability::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowCapabilities as ::windows::core::Interface>::IID
+        iid == &<ISideShowCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -77,7 +77,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowCapabilitiesCollection as ::windows::core::Interface>::IID
+        iid == &<ISideShowCapabilitiesCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -127,7 +127,7 @@ impl ISideShowContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowContent as ::windows::core::Interface>::IID
+        iid == &<ISideShowContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -182,7 +182,7 @@ impl ISideShowContentManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowContentManager as ::windows::core::Interface>::IID
+        iid == &<ISideShowContentManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -230,7 +230,7 @@ impl ISideShowEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowEvents as ::windows::core::Interface>::IID
+        iid == &<ISideShowEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -282,7 +282,7 @@ impl ISideShowKeyCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowKeyCollection as ::windows::core::Interface>::IID
+        iid == &<ISideShowKeyCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -399,7 +399,7 @@ impl ISideShowNotification_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowNotification as ::windows::core::Interface>::IID
+        iid == &<ISideShowNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -434,7 +434,7 @@ impl ISideShowNotificationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowNotificationManager as ::windows::core::Interface>::IID
+        iid == &<ISideShowNotificationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -486,7 +486,7 @@ impl ISideShowPropVariantCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowPropVariantCollection as ::windows::core::Interface>::IID
+        iid == &<ISideShowPropVariantCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
@@ -526,6 +526,6 @@ impl ISideShowSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISideShowSession as ::windows::core::Interface>::IID
+        iid == &<ISideShowSession as ::windows::core::ComInterface>::IID
     }
 }

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IContentRestrictionsBrowsePolicy {
+unsafe impl ::windows::core::Interface for IContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
 }
 impl ::core::clone::Clone for IContentRestrictionsBrowsePolicy {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IContentRestrictionsBrowsePolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IContentRestrictionsBrowsePolicy {
+unsafe impl ::windows::core::ComInterface for IContentRestrictionsBrowsePolicy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 }
 #[repr(C)]
@@ -29,7 +29,7 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRatedContentDescription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRatedContentDescription {
+unsafe impl ::windows::core::Interface for IRatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
 }
 impl ::core::clone::Clone for IRatedContentDescription {
@@ -37,7 +37,7 @@ impl ::core::clone::Clone for IRatedContentDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRatedContentDescription {
+unsafe impl ::windows::core::ComInterface for IRatedContentDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
 }
 #[repr(C)]
@@ -70,7 +70,7 @@ pub struct IRatedContentDescription_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRatedContentDescriptionFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRatedContentDescriptionFactory {
+unsafe impl ::windows::core::Interface for IRatedContentDescriptionFactory {
     type Vtable = IRatedContentDescriptionFactory_Vtbl;
 }
 impl ::core::clone::Clone for IRatedContentDescriptionFactory {
@@ -78,7 +78,7 @@ impl ::core::clone::Clone for IRatedContentDescriptionFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRatedContentDescriptionFactory {
+unsafe impl ::windows::core::ComInterface for IRatedContentDescriptionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 }
 #[repr(C)]
@@ -90,7 +90,7 @@ pub struct IRatedContentDescriptionFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRatedContentRestrictions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRatedContentRestrictions {
+unsafe impl ::windows::core::Interface for IRatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;
 }
 impl ::core::clone::Clone for IRatedContentRestrictions {
@@ -98,7 +98,7 @@ impl ::core::clone::Clone for IRatedContentRestrictions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRatedContentRestrictions {
+unsafe impl ::windows::core::ComInterface for IRatedContentRestrictions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 }
 #[repr(C)]
@@ -129,7 +129,7 @@ pub struct IRatedContentRestrictions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRatedContentRestrictionsFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IRatedContentRestrictionsFactory {
+unsafe impl ::windows::core::Interface for IRatedContentRestrictionsFactory {
     type Vtable = IRatedContentRestrictionsFactory_Vtbl;
 }
 impl ::core::clone::Clone for IRatedContentRestrictionsFactory {
@@ -137,7 +137,7 @@ impl ::core::clone::Clone for IRatedContentRestrictionsFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IRatedContentRestrictionsFactory {
+unsafe impl ::windows::core::ComInterface for IRatedContentRestrictionsFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ impl ContentRestrictionsBrowsePolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GeographicRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GeographicRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -163,7 +163,7 @@ impl ContentRestrictionsBrowsePolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u32>>();
-            (::windows::core::Vtable::vtable(this).MaxBrowsableAgeRating)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MaxBrowsableAgeRating)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -172,7 +172,7 @@ impl ContentRestrictionsBrowsePolicy {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<u32>>();
-            (::windows::core::Vtable::vtable(this).PreferredAgeRating)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PreferredAgeRating)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -195,11 +195,11 @@ impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ContentRestrictionsBrowsePolicy {
+unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
-    const IID: ::windows::core::GUID = <IContentRestrictionsBrowsePolicy as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ContentRestrictionsBrowsePolicy {
+    const IID: ::windows::core::GUID = <IContentRestrictionsBrowsePolicy as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
@@ -215,23 +215,23 @@ impl RatedContentDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTitle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -239,29 +239,28 @@ impl RatedContentDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
-            (::windows::core::Vtable::vtable(this).Image)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Image)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImage<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetImage<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImage)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn Category(&self) -> ::windows::core::Result<RatedContentCategory> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<RatedContentCategory>();
-            (::windows::core::Vtable::vtable(this).Category)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Category)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCategory(&self, value: RatedContentCategory) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCategory)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -269,23 +268,22 @@ impl RatedContentDescription {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Ratings)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Ratings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRatings<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetRatings<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRatings)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRatings)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     pub fn Create(id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, category: RatedContentCategory) -> ::windows::core::Result<RatedContentDescription> {
         Self::IRatedContentDescriptionFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<RatedContentDescription>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(title), category, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(title), category, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -313,11 +311,11 @@ impl ::core::clone::Clone for RatedContentDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RatedContentDescription {
+unsafe impl ::windows::core::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RatedContentDescription {
-    const IID: ::windows::core::GUID = <IRatedContentDescription as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RatedContentDescription {
+    const IID: ::windows::core::GUID = <IRatedContentDescription as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
@@ -342,7 +340,7 @@ impl RatedContentRestrictions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>>();
-            (::windows::core::Vtable::vtable(this).GetBrowsePolicyAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetBrowsePolicyAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -351,7 +349,7 @@ impl RatedContentRestrictions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>>();
-            (::windows::core::Vtable::vtable(this).GetRestrictionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(ratedcontentdescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRestrictionLevelAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(ratedcontentdescription), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -360,7 +358,7 @@ impl RatedContentRestrictions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).RequestContentAccessAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(ratedcontentdescription), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestContentAccessAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(ratedcontentdescription), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -369,19 +367,19 @@ impl RatedContentRestrictions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).RestrictionsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RestrictionsChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRestrictionsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRestrictionsChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRestrictionsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn CreateWithMaxAgeRating(maxagerating: u32) -> ::windows::core::Result<RatedContentRestrictions> {
         Self::IRatedContentRestrictionsFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<RatedContentRestrictions>();
-            (::windows::core::Vtable::vtable(this).CreateWithMaxAgeRating)(::windows::core::Vtable::as_raw(this), maxagerating, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMaxAgeRating)(::windows::core::Interface::as_raw(this), maxagerating, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -409,11 +407,11 @@ impl ::core::clone::Clone for RatedContentRestrictions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for RatedContentRestrictions {
+unsafe impl ::windows::core::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for RatedContentRestrictions {
-    const IID: ::windows::core::GUID = <IRatedContentRestrictions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for RatedContentRestrictions {
+    const IID: ::windows::core::GUID = <IRatedContentRestrictions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";

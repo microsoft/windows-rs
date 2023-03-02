@@ -17,13 +17,13 @@ pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT)
 #[inline]
 pub unsafe fn CryptUIDlgSelectCertificateFromStore<P0, P1, P2, P3>(hcertstore: P0, hwnd: P1, pwsztitle: P2, pwszdisplaystring: P3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT
 where
-    P0: ::std::convert::Into<super::HCERTSTORE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::HCERTSTORE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cryptui.dll""system" fn CryptUIDlgSelectCertificateFromStore ( hcertstore : super:: HCERTSTORE , hwnd : super::super::super::Foundation:: HWND , pwsztitle : :: windows::core::PCWSTR , pwszdisplaystring : :: windows::core::PCWSTR , dwdontusecolumn : u32 , dwflags : u32 , pvreserved : *const ::core::ffi::c_void ) -> *mut super:: CERT_CONTEXT );
-    CryptUIDlgSelectCertificateFromStore(hcertstore.into(), hwnd.into(), pwsztitle.into().abi(), pwszdisplaystring.into().abi(), dwdontusecolumn, dwflags, pvreserved)
+    CryptUIDlgSelectCertificateFromStore(hcertstore.into_param().abi(), hwnd.into_param().abi(), pwsztitle.into_param().abi(), pwszdisplaystring.into_param().abi(), dwdontusecolumn, dwflags, pvreserved)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Security_WinTrust\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -44,33 +44,33 @@ pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTI
 #[inline]
 pub unsafe fn CryptUIDlgViewContext<P0, P1>(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: P0, pwsztitle: P1, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cryptui.dll""system" fn CryptUIDlgViewContext ( dwcontexttype : u32 , pvcontext : *const ::core::ffi::c_void , hwnd : super::super::super::Foundation:: HWND , pwsztitle : :: windows::core::PCWSTR , dwflags : u32 , pvreserved : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
-    CryptUIDlgViewContext(dwcontexttype, pvcontext, hwnd.into(), pwsztitle.into().abi(), dwflags, pvreserved)
+    CryptUIDlgViewContext(dwcontexttype, pvcontext, hwnd.into_param().abi(), pwsztitle.into_param().abi(), dwflags, pvreserved)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizDigitalSign<P0, P1>(dwflags: u32, hwndparent: P0, pwszwizardtitle: P1, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: ::core::option::Option<*mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cryptui.dll""system" fn CryptUIWizDigitalSign ( dwflags : u32 , hwndparent : super::super::super::Foundation:: HWND , pwszwizardtitle : :: windows::core::PCWSTR , pdigitalsigninfo : *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO , ppsigncontext : *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT ) -> super::super::super::Foundation:: BOOL );
-    CryptUIWizDigitalSign(dwflags, hwndparent.into(), pwszwizardtitle.into().abi(), pdigitalsigninfo, ::core::mem::transmute(ppsigncontext.unwrap_or(::std::ptr::null_mut())))
+    CryptUIWizDigitalSign(dwflags, hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), pdigitalsigninfo, ::core::mem::transmute(ppsigncontext.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizExport<P0, P1>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: P0, pwszwizardtitle: P1, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "cryptui.dll""system" fn CryptUIWizExport ( dwflags : CRYPTUI_WIZ_FLAGS , hwndparent : super::super::super::Foundation:: HWND , pwszwizardtitle : :: windows::core::PCWSTR , pexportinfo : *const CRYPTUI_WIZ_EXPORT_INFO , pvoid : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
-    CryptUIWizExport(dwflags, hwndparent.into(), pwszwizardtitle.into().abi(), pexportinfo, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())))
+    CryptUIWizExport(dwflags, hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), pexportinfo, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -84,12 +84,12 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
 #[inline]
 pub unsafe fn CryptUIWizImport<P0, P1, P2>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: P0, pwszwizardtitle: P1, pimportsrc: ::core::option::Option<*const CRYPTUI_WIZ_IMPORT_SRC_INFO>, hdestcertstore: P2) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::HCERTSTORE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::HCERTSTORE>,
 {
     ::windows::imp::link ! ( "cryptui.dll""system" fn CryptUIWizImport ( dwflags : CRYPTUI_WIZ_FLAGS , hwndparent : super::super::super::Foundation:: HWND , pwszwizardtitle : :: windows::core::PCWSTR , pimportsrc : *const CRYPTUI_WIZ_IMPORT_SRC_INFO , hdestcertstore : super:: HCERTSTORE ) -> super::super::super::Foundation:: BOOL );
-    CryptUIWizImport(dwflags, hwndparent.into(), pwszwizardtitle.into().abi(), ::core::mem::transmute(pimportsrc.unwrap_or(::std::ptr::null())), hdestcertstore.into())
+    CryptUIWizImport(dwflags, hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), ::core::mem::transmute(pimportsrc.unwrap_or(::std::ptr::null())), hdestcertstore.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072u32;

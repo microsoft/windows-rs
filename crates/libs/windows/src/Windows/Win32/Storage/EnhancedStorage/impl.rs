@@ -69,7 +69,7 @@ impl IEnhancedStorageACT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageACT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -112,7 +112,7 @@ impl IEnhancedStorageACT2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageACT2 as ::windows::core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -162,7 +162,7 @@ impl IEnhancedStorageACT3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT3 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageACT3 as ::windows::core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::ComInterface>::IID || iid == &<IEnhancedStorageACT2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -232,7 +232,7 @@ impl IEnhancedStorageSilo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageSilo as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageSilo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"implement\"`*"]
@@ -279,7 +279,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnhancedStorageSiloAction as ::windows::core::Interface>::IID
+        iid == &<IEnhancedStorageSiloAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"implement\"`*"]
@@ -313,6 +313,6 @@ impl IEnumEnhancedStorageACT_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumEnhancedStorageACT as ::windows::core::Interface>::IID
+        iid == &<IEnumEnhancedStorageACT as ::windows::core::ComInterface>::IID
     }
 }

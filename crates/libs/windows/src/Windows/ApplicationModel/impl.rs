@@ -28,7 +28,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnteredBackgroundEventArgs as ::windows::core::Interface>::IID
+        iid == &<IEnteredBackgroundEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -61,7 +61,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID
+        iid == &<ILeavingBackgroundEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
@@ -91,7 +91,7 @@ impl IPackageCatalogStatics2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPackageCatalogStatics2 as ::windows::core::Interface>::IID
+        iid == &<IPackageCatalogStatics2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
@@ -111,7 +111,7 @@ impl ISuspendingDeferral_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISuspendingDeferral as ::windows::core::Interface>::IID
+        iid == &<ISuspendingDeferral as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
@@ -141,7 +141,7 @@ impl ISuspendingEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISuspendingEventArgs as ::windows::core::Interface>::IID
+        iid == &<ISuspendingEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -188,6 +188,6 @@ impl ISuspendingOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISuspendingOperation as ::windows::core::Interface>::IID
+        iid == &<ISuspendingOperation as ::windows::core::ComInterface>::IID
     }
 }

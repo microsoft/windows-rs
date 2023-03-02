@@ -32,7 +32,7 @@ impl IDialBranding_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDialBranding as ::windows::core::Interface>::IID
+        iid == &<IDialBranding as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
@@ -107,7 +107,7 @@ impl IDialEngine_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDialEngine as ::windows::core::Interface>::IID
+        iid == &<IDialEngine as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
@@ -125,7 +125,7 @@ impl IDialEventSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDialEventSink as ::windows::core::Interface>::IID
+        iid == &<IDialEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
@@ -143,7 +143,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProofOfPossessionCookieInfoManager as ::windows::core::Interface>::IID
+        iid == &<IProofOfPossessionCookieInfoManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
@@ -164,6 +164,6 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProofOfPossessionCookieInfoManager2 as ::windows::core::Interface>::IID
+        iid == &<IProofOfPossessionCookieInfoManager2 as ::windows::core::ComInterface>::IID
     }
 }

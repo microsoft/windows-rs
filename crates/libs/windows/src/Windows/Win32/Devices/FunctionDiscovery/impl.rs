@@ -72,7 +72,7 @@ impl IFunctionDiscovery_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscovery as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscovery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -110,7 +110,7 @@ impl IFunctionDiscoveryNotification_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscoveryNotification as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscoveryNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -207,7 +207,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscoveryProvider as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscoveryProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -263,7 +263,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscoveryProviderFactory as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscoveryProviderFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -320,7 +320,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscoveryProviderQuery as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscoveryProviderQuery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -341,7 +341,7 @@ impl IFunctionDiscoveryServiceProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionDiscoveryServiceProvider as ::windows::core::Interface>::IID
+        iid == &<IFunctionDiscoveryServiceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -404,7 +404,7 @@ impl IFunctionInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionInstance as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IServiceProvider as ::windows::core::Interface>::IID
+        iid == &<IFunctionInstance as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IServiceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -488,7 +488,7 @@ impl IFunctionInstanceCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionInstanceCollection as ::windows::core::Interface>::IID
+        iid == &<IFunctionInstanceCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -532,7 +532,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionInstanceCollectionQuery as ::windows::core::Interface>::IID
+        iid == &<IFunctionInstanceCollectionQuery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -559,7 +559,7 @@ impl IFunctionInstanceQuery_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Execute: Execute::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFunctionInstanceQuery as ::windows::core::Interface>::IID
+        iid == &<IFunctionInstanceQuery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"implement\"`*"]
@@ -594,7 +594,7 @@ impl IPNPXAssociation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPNPXAssociation as ::windows::core::Interface>::IID
+        iid == &<IPNPXAssociation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"implement\"`*"]
@@ -629,7 +629,7 @@ impl IPNPXDeviceAssociation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPNPXDeviceAssociation as ::windows::core::Interface>::IID
+        iid == &<IPNPXDeviceAssociation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -713,7 +713,7 @@ impl IPropertyStoreCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyStoreCollection as ::windows::core::Interface>::IID
+        iid == &<IPropertyStoreCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -770,7 +770,7 @@ impl IProviderProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProviderProperties as ::windows::core::Interface>::IID
+        iid == &<IProviderProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -835,7 +835,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProviderPropertyConstraintCollection as ::windows::core::Interface>::IID
+        iid == &<IProviderPropertyConstraintCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -872,7 +872,7 @@ impl IProviderPublishing_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProviderPublishing as ::windows::core::Interface>::IID
+        iid == &<IProviderPublishing as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`, `\"implement\"`*"]
@@ -940,6 +940,6 @@ impl IProviderQueryConstraintCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProviderQueryConstraintCollection as ::windows::core::Interface>::IID
+        iid == &<IProviderQueryConstraintCollection as ::windows::core::ComInterface>::IID
     }
 }

@@ -25,7 +25,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionCapabilitiesInteropFactory as ::windows::core::Interface>::IID
+        iid == &<ICompositionCapabilitiesInteropFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -84,7 +84,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::Interface>::IID
+        iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -105,7 +105,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         Self { base__: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, Impl, OFFSET>(), CopySurface: CopySurface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop2 as ::windows::core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::Interface>::IID
+        iid == &<ICompositionDrawingSurfaceInterop2 as ::windows::core::ComInterface>::IID || iid == &<ICompositionDrawingSurfaceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
@@ -139,7 +139,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionGraphicsDeviceInterop as ::windows::core::Interface>::IID
+        iid == &<ICompositionGraphicsDeviceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -176,7 +176,7 @@ impl ICompositorDesktopInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositorDesktopInterop as ::windows::core::Interface>::IID
+        iid == &<ICompositorDesktopInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -232,7 +232,7 @@ impl ICompositorInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositorInterop as ::windows::core::Interface>::IID
+        iid == &<ICompositorInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -259,7 +259,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Hwnd: Hwnd::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDesktopWindowTargetInterop as ::windows::core::Interface>::IID
+        iid == &<IDesktopWindowTargetInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
@@ -277,7 +277,7 @@ impl ISwapChainInterop_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISwapChainInterop as ::windows::core::Interface>::IID
+        iid == &<ISwapChainInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -301,6 +301,6 @@ impl IVisualInteractionSourceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVisualInteractionSourceInterop as ::windows::core::Interface>::IID
+        iid == &<IVisualInteractionSourceInterop as ::windows::core::ComInterface>::IID
     }
 }

@@ -10,10 +10,10 @@ pub unsafe fn EcClose(object: isize) -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn EcDeleteSubscription<P0>(subscriptionname: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wecapi.dll""system" fn EcDeleteSubscription ( subscriptionname : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
-    EcDeleteSubscription(subscriptionname.into().abi(), flags)
+    EcDeleteSubscription(subscriptionname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -48,11 +48,11 @@ pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
 #[inline]
 pub unsafe fn EcGetSubscriptionRunTimeStatus<P0, P1>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P1, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wecapi.dll""system" fn EcGetSubscriptionRunTimeStatus ( subscriptionname : :: windows::core::PCWSTR , statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID , eventsourcename : :: windows::core::PCWSTR , flags : u32 , statusvaluebuffersize : u32 , statusvaluebuffer : *mut EC_VARIANT , statusvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcGetSubscriptionRunTimeStatus(subscriptionname.into().abi(), statusinfoid, eventsourcename.into().abi(), flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused)
+    EcGetSubscriptionRunTimeStatus(subscriptionname.into_param().abi(), statusinfoid, eventsourcename.into_param().abi(), flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -65,10 +65,10 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[inline]
 pub unsafe fn EcOpenSubscription<P0>(subscriptionname: P0, accessmask: u32, flags: u32) -> isize
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wecapi.dll""system" fn EcOpenSubscription ( subscriptionname : :: windows::core::PCWSTR , accessmask : u32 , flags : u32 ) -> isize );
-    EcOpenSubscription(subscriptionname.into().abi(), accessmask, flags)
+    EcOpenSubscription(subscriptionname.into_param().abi(), accessmask, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[inline]
@@ -88,11 +88,11 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
 #[inline]
 pub unsafe fn EcRetrySubscription<P0, P1>(subscriptionname: P0, eventsourcename: P1, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "wecapi.dll""system" fn EcRetrySubscription ( subscriptionname : :: windows::core::PCWSTR , eventsourcename : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
-    EcRetrySubscription(subscriptionname.into().abi(), eventsourcename.into().abi(), flags)
+    EcRetrySubscription(subscriptionname.into_param().abi(), eventsourcename.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

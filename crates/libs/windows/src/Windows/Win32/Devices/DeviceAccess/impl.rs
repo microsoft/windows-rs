@@ -37,7 +37,7 @@ impl ICreateDeviceAccessAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICreateDeviceAccessAsync as ::windows::core::Interface>::IID
+        iid == &<ICreateDeviceAccessAsync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`, `\"implement\"`*"]
@@ -72,7 +72,7 @@ impl IDeviceIoControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeviceIoControl as ::windows::core::Interface>::IID
+        iid == &<IDeviceIoControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`, `\"implement\"`*"]
@@ -90,6 +90,6 @@ impl IDeviceRequestCompletionCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeviceRequestCompletionCallback as ::windows::core::Interface>::IID
+        iid == &<IDeviceRequestCompletionCallback as ::windows::core::ComInterface>::IID
     }
 }

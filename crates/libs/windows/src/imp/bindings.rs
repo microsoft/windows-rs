@@ -52,10 +52,10 @@ impl std::cmp::PartialEq for IAgileObject {
     }
 }
 impl std::cmp::Eq for IAgileObject {}
-unsafe impl core::Vtable for IAgileObject {
+unsafe impl core::Interface for IAgileObject {
     type Vtable = IAgileObject_Vtbl;
 }
-unsafe impl core::Interface for IAgileObject {
+unsafe impl core::ComInterface for IAgileObject {
     const IID: core::GUID = core::GUID::from_u128(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 }
 #[repr(C)]
@@ -69,7 +69,7 @@ pub struct IErrorInfo(core::IUnknown);
 impl IErrorInfo {
     pub unsafe fn GetDescription(&self) -> core::Result<core::BSTR> {
         let mut result__ = core::zeroed::<core::BSTR>();
-        (core::Vtable::vtable(self).GetDescription)(core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        (core::Interface::vtable(self).GetDescription)(core::Interface::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 
@@ -84,10 +84,10 @@ impl std::cmp::PartialEq for IErrorInfo {
     }
 }
 impl std::cmp::Eq for IErrorInfo {}
-unsafe impl core::Vtable for IErrorInfo {
+unsafe impl core::Interface for IErrorInfo {
     type Vtable = IErrorInfo_Vtbl;
 }
-unsafe impl core::Interface for IErrorInfo {
+unsafe impl core::ComInterface for IErrorInfo {
     const IID: core::GUID = core::GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 }
 #[repr(C)]
@@ -106,10 +106,10 @@ pub struct IAgileReference(pub(crate) core::IUnknown);
 impl IAgileReference {
     pub unsafe fn Resolve<T>(&self) -> core::Result<T>
     where
-        T: core::Interface,
+        T: core::ComInterface,
     {
         let mut result__ = std::ptr::null_mut();
-        (core::Vtable::vtable(self).Resolve)(core::Vtable::as_raw(self), &<T as core::Interface>::IID, &mut result__).from_abi(result__)
+        (core::Interface::vtable(self).Resolve)(core::Interface::as_raw(self), &<T as core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 
@@ -124,10 +124,10 @@ impl std::cmp::PartialEq for IAgileReference {
     }
 }
 impl std::cmp::Eq for IAgileReference {}
-unsafe impl core::Vtable for IAgileReference {
+unsafe impl core::Interface for IAgileReference {
     type Vtable = IAgileReference_Vtbl;
 }
-unsafe impl core::Interface for IAgileReference {
+unsafe impl core::ComInterface for IAgileReference {
     const IID: core::GUID = core::GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
 }
 #[repr(C)]
@@ -150,10 +150,10 @@ impl std::cmp::PartialEq for ILanguageExceptionErrorInfo {
     }
 }
 impl std::cmp::Eq for ILanguageExceptionErrorInfo {}
-unsafe impl core::Vtable for ILanguageExceptionErrorInfo {
+unsafe impl core::Interface for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfo_Vtbl;
 }
-unsafe impl core::Interface for ILanguageExceptionErrorInfo {
+unsafe impl core::ComInterface for ILanguageExceptionErrorInfo {
     const IID: core::GUID = core::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
 }
 #[repr(C)]
@@ -168,9 +168,9 @@ pub struct ILanguageExceptionErrorInfo2(core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> core::Result<()>
     where
-        P0: std::convert::Into<core::InParam<core::IUnknown>>,
+        P0: core::IntoParam<core::IUnknown>,
     {
-        (core::Vtable::vtable(self).CapturePropagationContext)(core::Vtable::as_raw(self), languageexception.into().abi()).ok()
+        (core::Interface::vtable(self).CapturePropagationContext)(core::Interface::as_raw(self), languageexception.into_param().abi()).ok()
     }
 }
 impl std::clone::Clone for ILanguageExceptionErrorInfo2 {
@@ -184,10 +184,10 @@ impl std::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
     }
 }
 impl std::cmp::Eq for ILanguageExceptionErrorInfo2 {}
-unsafe impl core::Vtable for ILanguageExceptionErrorInfo2 {
+unsafe impl core::Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_Vtbl;
 }
-unsafe impl core::Interface for ILanguageExceptionErrorInfo2 {
+unsafe impl core::ComInterface for ILanguageExceptionErrorInfo2 {
     const IID: core::GUID = core::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
 }
 #[repr(C)]
@@ -203,11 +203,11 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 pub struct IRestrictedErrorInfo(core::IUnknown);
 impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: &mut core::BSTR, error: &mut core::HRESULT, restricteddescription: &mut core::BSTR, capabilitysid: &mut core::BSTR) -> core::Result<()> {
-        (core::Vtable::vtable(self).GetErrorDetails)(core::Vtable::as_raw(self), description as *mut _, error as *mut _, restricteddescription as *mut _, capabilitysid as *mut _).ok()
+        (core::Interface::vtable(self).GetErrorDetails)(core::Interface::as_raw(self), description as *mut _, error as *mut _, restricteddescription as *mut _, capabilitysid as *mut _).ok()
     }
     pub unsafe fn GetReference(&self) -> core::Result<core::BSTR> {
         let mut result__ = core::zeroed::<core::BSTR>();
-        (core::Vtable::vtable(self).GetReference)(core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (core::Interface::vtable(self).GetReference)(core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 impl std::clone::Clone for IRestrictedErrorInfo {
@@ -223,10 +223,10 @@ impl std::cmp::PartialEq for IRestrictedErrorInfo {
 impl std::cmp::Eq for IRestrictedErrorInfo {}
 unsafe impl std::marker::Send for IRestrictedErrorInfo {}
 unsafe impl std::marker::Sync for IRestrictedErrorInfo {}
-unsafe impl core::Vtable for IRestrictedErrorInfo {
+unsafe impl core::Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfo_Vtbl;
 }
-unsafe impl core::Interface for IRestrictedErrorInfo {
+unsafe impl core::ComInterface for IRestrictedErrorInfo {
     const IID: core::GUID = core::GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 }
 #[repr(C)]
@@ -242,10 +242,10 @@ pub struct IWeakReference(core::IUnknown);
 impl IWeakReference {
     pub unsafe fn Resolve<T>(&self) -> core::Result<T>
     where
-        T: core::Interface,
+        T: core::ComInterface,
     {
         let mut result__ = std::ptr::null_mut();
-        (core::Vtable::vtable(self).Resolve)(core::Vtable::as_raw(self), &<T as core::Interface>::IID, &mut result__).from_abi(result__)
+        (core::Interface::vtable(self).Resolve)(core::Interface::as_raw(self), &<T as core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 impl std::clone::Clone for IWeakReference {
@@ -259,10 +259,10 @@ impl std::cmp::PartialEq for IWeakReference {
     }
 }
 impl std::cmp::Eq for IWeakReference {}
-unsafe impl core::Vtable for IWeakReference {
+unsafe impl core::Interface for IWeakReference {
     type Vtable = IWeakReference_Vtbl;
 }
-unsafe impl core::Interface for IWeakReference {
+unsafe impl core::ComInterface for IWeakReference {
     const IID: core::GUID = core::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -277,7 +277,7 @@ pub struct IWeakReferenceSource(core::IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> core::Result<IWeakReference> {
         let mut result__ = std::ptr::null_mut();
-        (core::Vtable::vtable(self).GetWeakReference)(core::Vtable::as_raw(self), &mut result__).from_abi(result__)
+        (core::Interface::vtable(self).GetWeakReference)(core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 impl std::clone::Clone for IWeakReferenceSource {
@@ -291,10 +291,10 @@ impl std::cmp::PartialEq for IWeakReferenceSource {
     }
 }
 impl std::cmp::Eq for IWeakReferenceSource {}
-unsafe impl core::Vtable for IWeakReferenceSource {
+unsafe impl core::Interface for IWeakReferenceSource {
     type Vtable = IWeakReferenceSource_Vtbl;
 }
-unsafe impl core::Interface for IWeakReferenceSource {
+unsafe impl core::ComInterface for IWeakReferenceSource {
     const IID: core::GUID = core::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
 }
 #[repr(C)]

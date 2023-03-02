@@ -50,7 +50,7 @@ impl IAssemblyCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAssemblyCache as ::windows::core::Interface>::IID
+        iid == &<IAssemblyCache as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -88,7 +88,7 @@ impl IAssemblyCacheItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAssemblyCacheItem as ::windows::core::Interface>::IID
+        iid == &<IAssemblyCacheItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -171,7 +171,7 @@ impl IAssemblyName_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAssemblyName as ::windows::core::Interface>::IID
+        iid == &<IAssemblyName as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -222,7 +222,7 @@ impl IEnumMsmDependency_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumMsmDependency as ::windows::core::Interface>::IID
+        iid == &<IEnumMsmDependency as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -273,7 +273,7 @@ impl IEnumMsmError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumMsmError as ::windows::core::Interface>::IID
+        iid == &<IEnumMsmError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -321,7 +321,7 @@ impl IEnumMsmString_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumMsmString as ::windows::core::Interface>::IID
+        iid == &<IEnumMsmString as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -371,7 +371,7 @@ impl IMsmDependencies_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmDependencies as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmDependencies as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -409,7 +409,7 @@ impl IMsmDependency_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmDependency as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmDependency as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -487,7 +487,7 @@ impl IMsmError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmError as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmError as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -537,7 +537,7 @@ impl IMsmErrors_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmErrors as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmErrors as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -564,7 +564,7 @@ impl IMsmGetFiles_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ModuleFiles: ModuleFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmGetFiles as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmGetFiles as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -684,7 +684,7 @@ impl IMsmMerge_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmMerge as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmMerge as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -728,7 +728,7 @@ impl IMsmStrings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMsmStrings as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IMsmStrings as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1340,7 +1340,7 @@ impl IPMApplicationInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMApplicationInfo as ::windows::core::Interface>::IID
+        iid == &<IPMApplicationInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -1364,7 +1364,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMApplicationInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMApplicationInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1515,7 +1515,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMBackgroundServiceAgentInfo as ::windows::core::Interface>::IID
+        iid == &<IPMBackgroundServiceAgentInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -1539,7 +1539,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMBackgroundServiceAgentInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMBackgroundServiceAgentInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1622,7 +1622,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMBackgroundWorkerInfo as ::windows::core::Interface>::IID
+        iid == &<IPMBackgroundWorkerInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -1646,7 +1646,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMBackgroundWorkerInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMBackgroundWorkerInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1922,7 +1922,7 @@ impl IPMDeploymentManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMDeploymentManager as ::windows::core::Interface>::IID
+        iid == &<IPMDeploymentManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2119,7 +2119,7 @@ impl IPMEnumerationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMEnumerationManager as ::windows::core::Interface>::IID
+        iid == &<IPMEnumerationManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2146,7 +2146,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SupportsUpdates: SupportsUpdates::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2164,7 +2164,7 @@ impl IPMExtensionContractInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_InvocationInfo: get_InvocationInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionContractInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionContractInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2227,7 +2227,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionFileExtensionInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionFileExtensionInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2264,7 +2264,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionFileOpenPickerInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionFileOpenPickerInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2301,7 +2301,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionFileSavePickerInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionFileSavePickerInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2363,7 +2363,7 @@ impl IPMExtensionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2387,7 +2387,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2415,7 +2415,7 @@ impl IPMExtensionProtocolInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionProtocolInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionProtocolInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2459,7 +2459,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMExtensionShareTargetInfo as ::windows::core::Interface>::IID
+        iid == &<IPMExtensionShareTargetInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2704,7 +2704,7 @@ impl IPMLiveTileJobInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMLiveTileJobInfo as ::windows::core::Interface>::IID
+        iid == &<IPMLiveTileJobInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2728,7 +2728,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMLiveTileJobInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMLiveTileJobInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2964,7 +2964,7 @@ impl IPMTaskInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTaskInfo as ::windows::core::Interface>::IID
+        iid == &<IPMTaskInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -2988,7 +2988,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTaskInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMTaskInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3251,7 +3251,7 @@ impl IPMTileInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTileInfo as ::windows::core::Interface>::IID
+        iid == &<IPMTileInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -3275,7 +3275,7 @@ impl IPMTileInfoEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTileInfoEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMTileInfoEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -3299,7 +3299,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTilePropertyEnumerator as ::windows::core::Interface>::IID
+        iid == &<IPMTilePropertyEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"implement\"`*"]
@@ -3340,7 +3340,7 @@ impl IPMTilePropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPMTilePropertyInfo as ::windows::core::Interface>::IID
+        iid == &<IPMTilePropertyInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3406,6 +3406,6 @@ impl IValidate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IValidate as ::windows::core::Interface>::IID
+        iid == &<IValidate as ::windows::core::ComInterface>::IID
     }
 }

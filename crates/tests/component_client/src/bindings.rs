@@ -1,8 +1,8 @@
-#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, clippy::all)]
+#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClass(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IClass {
+unsafe impl ::windows::core::Interface for IClass {
     type Vtable = IClass_Vtbl;
 }
 impl ::core::clone::Clone for IClass {
@@ -10,8 +10,8 @@ impl ::core::clone::Clone for IClass {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IClass {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25aa41cb_1aae_5c2e_a14a_48b91fd98f1e);
+unsafe impl ::windows::core::ComInterface for IClass {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e698df5_82fa_5cf4_8fc9_06e4a38c7178);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -22,6 +22,7 @@ pub struct IClass_Vtbl {
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Flags) -> ::windows::core::HRESULT,
     pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
     pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::std::mem::MaybeUninit<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Input: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a: *mut ::core::ffi::c_void, b: *mut ::core::ffi::c_void, c: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
 pub struct Class(::windows::core::IUnknown);
@@ -37,33 +38,41 @@ impl Class {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).Property)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Property)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetProperty(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProperty)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProperty)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Flags(&self) -> ::windows::core::Result<Flags> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<Flags>();
-            (::windows::core::Vtable::vtable(this).Flags)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Flags)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Int32Array)(::windows::core::Vtable::as_raw(this), a.len() as u32, a.as_ptr(), b.len() as u32, b.as_mut_ptr(), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).Int32Array)(::windows::core::Interface::as_raw(this), a.len() as u32, a.as_ptr(), b.len() as u32, b.as_mut_ptr(), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     pub fn StringArray(&self, a: &[::windows::core::HSTRING], b: &mut [::windows::core::HSTRING], c: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StringArray)(::windows::core::Vtable::as_raw(this), a.len() as u32, ::core::mem::transmute(a.as_ptr()), b.len() as u32, ::core::mem::transmute_copy(&b), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).StringArray)(::windows::core::Interface::as_raw(this), a.len() as u32, ::core::mem::transmute(a.as_ptr()), b.len() as u32, ::core::mem::transmute_copy(&b), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
+    }
+    pub fn Input<P0, P1>(&self, a: P0, b: &Class, c: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::IInspectable>,
+        P1: ::windows::core::TryIntoParam<::windows::Foundation::IStringable>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Input)(::windows::core::Interface::as_raw(this), a.into_param().abi(), ::core::mem::transmute_copy(b), c.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for Class {
@@ -78,18 +87,18 @@ impl ::core::fmt::Debug for Class {
     }
 }
 impl ::windows::core::RuntimeType for Class {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(test_component.Class;{25aa41cb-1aae-5c2e-a14a-48b91fd98f1e})");
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(test_component.Class;{8e698df5-82fa-5cf4-8fc9-06e4a38c7178})");
 }
 impl ::core::clone::Clone for Class {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for Class {
+unsafe impl ::windows::core::Interface for Class {
     type Vtable = IClass_Vtbl;
 }
-unsafe impl ::windows::core::Interface for Class {
-    const IID: ::windows::core::GUID = <IClass as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for Class {
+    const IID: ::windows::core::GUID = <IClass as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for Class {
     const NAME: &'static str = "test_component.Class";
@@ -164,6 +173,7 @@ pub trait IClass_Impl: Sized {
     fn Flags(&self) -> ::windows::core::Result<Flags>;
     fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<::windows::core::Array<i32>>;
     fn StringArray(&self, a: &[::windows::core::HSTRING], b: &mut [::windows::core::HSTRING], c: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>>;
+    fn Input(&self, a: ::core::option::Option<&::windows::core::IInspectable>, b: ::core::option::Option<&Class>, c: ::core::option::Option<&::windows::Foundation::IStringable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IClass {
     const NAME: &'static str = "test_component.IClass";
@@ -225,6 +235,11 @@ impl IClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
+        unsafe extern "system" fn Input<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a: *mut ::core::ffi::c_void, b: *mut ::core::ffi::c_void, c: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Input(::windows::core::from_raw_borrowed(&a), ::windows::core::from_raw_borrowed(&b), ::windows::core::from_raw_borrowed(&c)).into()
+        }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Property: Property::<Identity, Impl, OFFSET>,
@@ -232,9 +247,10 @@ impl IClass_Vtbl {
             Flags: Flags::<Identity, Impl, OFFSET>,
             Int32Array: Int32Array::<Identity, Impl, OFFSET>,
             StringArray: StringArray::<Identity, Impl, OFFSET>,
+            Input: Input::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IClass as ::windows::core::Interface>::IID
+        iid == &<IClass as ::windows::core::ComInterface>::IID
     }
 }

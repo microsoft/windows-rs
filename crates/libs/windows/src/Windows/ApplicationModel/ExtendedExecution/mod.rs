@@ -3,7 +3,7 @@ pub mod Foreground;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IExtendedExecutionRevokedEventArgs {
+unsafe impl ::windows::core::Interface for IExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionRevokedEventArgs {
@@ -11,7 +11,7 @@ impl ::core::clone::Clone for IExtendedExecutionRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IExtendedExecutionRevokedEventArgs {
+unsafe impl ::windows::core::ComInterface for IExtendedExecutionRevokedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 #[repr(C)]
@@ -23,7 +23,7 @@ pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IExtendedExecutionSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IExtendedExecutionSession {
+unsafe impl ::windows::core::Interface for IExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionSession {
@@ -31,7 +31,7 @@ impl ::core::clone::Clone for IExtendedExecutionSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IExtendedExecutionSession {
+unsafe impl ::windows::core::ComInterface for IExtendedExecutionSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 #[repr(C)]
@@ -65,7 +65,7 @@ impl ExtendedExecutionRevokedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ExtendedExecutionRevokedReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -88,11 +88,11 @@ impl ::core::clone::Clone for ExtendedExecutionRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ExtendedExecutionRevokedEventArgs {
+unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
-    const IID: ::windows::core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ExtendedExecutionRevokedEventArgs {
+    const IID: ::windows::core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
@@ -114,41 +114,41 @@ impl ExtendedExecutionSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionReason> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ExtendedExecutionReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetReason)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PercentProgress(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).PercentProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PercentProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPercentProgress(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPercentProgress)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPercentProgress)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -156,14 +156,14 @@ impl ExtendedExecutionSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).Revoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Revoked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveRevoked)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRevoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -171,7 +171,7 @@ impl ExtendedExecutionSession {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>>();
-            (::windows::core::Vtable::vtable(this).RequestExtensionAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestExtensionAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -194,38 +194,18 @@ impl ::core::clone::Clone for ExtendedExecutionSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ExtendedExecutionSession {
+unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
-    const IID: ::windows::core::GUID = <IExtendedExecutionSession as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ExtendedExecutionSession {
+    const IID: ::windows::core::GUID = <IExtendedExecutionSession as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
 ::windows::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ExtendedExecutionSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ExtendedExecutionSession) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ExtendedExecutionSession> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ExtendedExecutionSession) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ExtendedExecutionSession> for ::windows::core::InParam<super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ExtendedExecutionSession) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]

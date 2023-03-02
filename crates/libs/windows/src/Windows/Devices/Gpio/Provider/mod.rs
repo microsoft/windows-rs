@@ -6,14 +6,14 @@ impl IGpioControllerProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).PinCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::core::Result<IGpioPinProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<IGpioPinProvider>();
-            (::windows::core::Vtable::vtable(this).OpenPinProvider)(::windows::core::Vtable::as_raw(this), pin, sharingmode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OpenPinProvider)(::windows::core::Interface::as_raw(this), pin, sharingmode, &mut result__).from_abi(result__)
         }
     }
 }
@@ -32,7 +32,7 @@ impl ::core::fmt::Debug for IGpioControllerProvider {
 impl ::windows::core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{ad11cec7-19ea-4b21-874f-b91aed4a25db}");
 }
-unsafe impl ::windows::core::Vtable for IGpioControllerProvider {
+unsafe impl ::windows::core::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProvider_Vtbl;
 }
 impl ::core::clone::Clone for IGpioControllerProvider {
@@ -40,7 +40,7 @@ impl ::core::clone::Clone for IGpioControllerProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGpioControllerProvider {
+unsafe impl ::windows::core::ComInterface for IGpioControllerProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad11cec7_19ea_4b21_874f_b91aed4a25db);
 }
 #[repr(C)]
@@ -60,14 +60,14 @@ impl IGpioPinProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ValueChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveValueChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveValueChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -75,56 +75,56 @@ impl IGpioPinProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Vtable::vtable(this).DebounceTimeout)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DebounceTimeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDebounceTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDebounceTimeout)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDebounceTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn PinNumber(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).PinNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).PinNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SharingMode(&self) -> ::windows::core::Result<ProviderGpioSharingMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ProviderGpioSharingMode>();
-            (::windows::core::Vtable::vtable(this).SharingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDriveModeSupported)(::windows::core::Vtable::as_raw(this), drivemode, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDriveModeSupported)(::windows::core::Interface::as_raw(this), drivemode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetDriveMode(&self) -> ::windows::core::Result<ProviderGpioPinDriveMode> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ProviderGpioPinDriveMode>();
-            (::windows::core::Vtable::vtable(this).GetDriveMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDriveMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDriveMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDriveMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Write(&self, value: ProviderGpioPinValue) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Write)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Read(&self) -> ::windows::core::Result<ProviderGpioPinValue> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ProviderGpioPinValue>();
-            (::windows::core::Vtable::vtable(this).Read)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -143,7 +143,7 @@ impl ::core::fmt::Debug for IGpioPinProvider {
 impl ::windows::core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{42344cb7-6abc-40ff-9ce7-73b85301b900}");
 }
-unsafe impl ::windows::core::Vtable for IGpioPinProvider {
+unsafe impl ::windows::core::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProvider_Vtbl;
 }
 impl ::core::clone::Clone for IGpioPinProvider {
@@ -151,7 +151,7 @@ impl ::core::clone::Clone for IGpioPinProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGpioPinProvider {
+unsafe impl ::windows::core::ComInterface for IGpioPinProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42344cb7_6abc_40ff_9ce7_73b85301b900);
 }
 #[repr(C)]
@@ -185,7 +185,7 @@ pub struct IGpioPinProvider_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGpioPinProviderValueChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGpioPinProviderValueChangedEventArgs {
+unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgs {
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IGpioPinProviderValueChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 }
 #[repr(C)]
@@ -205,7 +205,7 @@ pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGpioPinProviderValueChangedEventArgsFactory {
+unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgsFactory {
     type Vtable = IGpioPinProviderValueChangedEventArgsFactory_Vtbl;
 }
 impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgsFactory {
@@ -213,7 +213,7 @@ impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgsFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGpioPinProviderValueChangedEventArgsFactory {
+unsafe impl ::windows::core::ComInterface for IGpioPinProviderValueChangedEventArgsFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
 }
 #[repr(C)]
@@ -232,7 +232,7 @@ impl IGpioProvider {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>();
-            (::windows::core::Vtable::vtable(this).GetControllers)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetControllers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -251,7 +251,7 @@ impl ::core::fmt::Debug for IGpioProvider {
 impl ::windows::core::RuntimeType for IGpioProvider {
     const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{44e82707-08ca-434a-afe0-d61580446f7e}");
 }
-unsafe impl ::windows::core::Vtable for IGpioProvider {
+unsafe impl ::windows::core::Interface for IGpioProvider {
     type Vtable = IGpioProvider_Vtbl;
 }
 impl ::core::clone::Clone for IGpioProvider {
@@ -259,7 +259,7 @@ impl ::core::clone::Clone for IGpioProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGpioProvider {
+unsafe impl ::windows::core::ComInterface for IGpioProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e82707_08ca_434a_afe0_d61580446f7e);
 }
 #[repr(C)]
@@ -279,13 +279,13 @@ impl GpioPinProviderValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ProviderGpioPinEdge>();
-            (::windows::core::Vtable::vtable(this).Edge)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Edge)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(edge: ProviderGpioPinEdge) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<GpioPinProviderValueChangedEventArgs>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), edge, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -313,11 +313,11 @@ impl ::core::clone::Clone for GpioPinProviderValueChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GpioPinProviderValueChangedEventArgs {
+unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs {
-    const IID: ::windows::core::GUID = <IGpioPinProviderValueChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GpioPinProviderValueChangedEventArgs {
+    const IID: ::windows::core::GUID = <IGpioPinProviderValueChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";

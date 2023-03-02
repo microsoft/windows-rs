@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPreviewBuildsManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPreviewBuildsManager {
+unsafe impl ::windows::core::Interface for IPreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_Vtbl;
 }
 impl ::core::clone::Clone for IPreviewBuildsManager {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IPreviewBuildsManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPreviewBuildsManager {
+unsafe impl ::windows::core::ComInterface for IPreviewBuildsManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
 #[repr(C)]
@@ -27,7 +27,7 @@ pub struct IPreviewBuildsManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPreviewBuildsManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPreviewBuildsManagerStatics {
+unsafe impl ::windows::core::Interface for IPreviewBuildsManagerStatics {
     type Vtable = IPreviewBuildsManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPreviewBuildsManagerStatics {
@@ -35,7 +35,7 @@ impl ::core::clone::Clone for IPreviewBuildsManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPreviewBuildsManagerStatics {
+unsafe impl ::windows::core::ComInterface for IPreviewBuildsManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e422887_b112_5a70_7da1_97d78d32aa29);
 }
 #[repr(C)]
@@ -48,7 +48,7 @@ pub struct IPreviewBuildsManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPreviewBuildsState(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPreviewBuildsState {
+unsafe impl ::windows::core::Interface for IPreviewBuildsState {
     type Vtable = IPreviewBuildsState_Vtbl;
 }
 impl ::core::clone::Clone for IPreviewBuildsState {
@@ -56,7 +56,7 @@ impl ::core::clone::Clone for IPreviewBuildsState {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IPreviewBuildsState {
+unsafe impl ::windows::core::ComInterface for IPreviewBuildsState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
 }
 #[repr(C)]
@@ -71,7 +71,7 @@ pub struct IPreviewBuildsState_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdate(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdate {
+unsafe impl ::windows::core::Interface for IWindowsUpdate {
     type Vtable = IWindowsUpdate_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdate {
@@ -79,7 +79,7 @@ impl ::core::clone::Clone for IWindowsUpdate {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdate {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c88dd7_0ef3_52b2_a9ad_66bfc6bd9582);
 }
 #[repr(C)]
@@ -123,7 +123,7 @@ pub struct IWindowsUpdate_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateActionCompletedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateActionCompletedEventArgs {
+unsafe impl ::windows::core::Interface for IWindowsUpdateActionCompletedEventArgs {
     type Vtable = IWindowsUpdateActionCompletedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateActionCompletedEventArgs {
@@ -131,7 +131,7 @@ impl ::core::clone::Clone for IWindowsUpdateActionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateActionCompletedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateActionCompletedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c44b950_a655_5321_aec1_aee762922131);
 }
 #[repr(C)]
@@ -146,7 +146,7 @@ pub struct IWindowsUpdateActionCompletedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateActionProgress(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateActionProgress {
+unsafe impl ::windows::core::Interface for IWindowsUpdateActionProgress {
     type Vtable = IWindowsUpdateActionProgress_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateActionProgress {
@@ -154,7 +154,7 @@ impl ::core::clone::Clone for IWindowsUpdateActionProgress {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateActionProgress {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateActionProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83b22d8a_4bb0_549f_ba39_59724882d137);
 }
 #[repr(C)]
@@ -167,7 +167,7 @@ pub struct IWindowsUpdateActionProgress_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateActionResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateActionResult {
+unsafe impl ::windows::core::Interface for IWindowsUpdateActionResult {
     type Vtable = IWindowsUpdateActionResult_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateActionResult {
@@ -175,7 +175,7 @@ impl ::core::clone::Clone for IWindowsUpdateActionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateActionResult {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateActionResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6692c62_f697_51b7_ab7f_e73e5e688f12);
 }
 #[repr(C)]
@@ -193,7 +193,7 @@ pub struct IWindowsUpdateActionResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateAdministrator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateAdministrator {
+unsafe impl ::windows::core::Interface for IWindowsUpdateAdministrator {
     type Vtable = IWindowsUpdateAdministrator_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateAdministrator {
@@ -201,7 +201,7 @@ impl ::core::clone::Clone for IWindowsUpdateAdministrator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateAdministrator {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateAdministrator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a60181c_ba1e_5cf9_aa65_304120b73d72);
 }
 #[repr(C)]
@@ -221,7 +221,7 @@ pub struct IWindowsUpdateAdministrator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateAdministratorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateAdministratorStatics {
+unsafe impl ::windows::core::Interface for IWindowsUpdateAdministratorStatics {
     type Vtable = IWindowsUpdateAdministratorStatics_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateAdministratorStatics {
@@ -229,7 +229,7 @@ impl ::core::clone::Clone for IWindowsUpdateAdministratorStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateAdministratorStatics {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateAdministratorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x013e6d36_ef69_53bc_8db8_c403bca550ed);
 }
 #[repr(C)]
@@ -246,7 +246,7 @@ pub struct IWindowsUpdateAdministratorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateApprovalData(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateApprovalData {
+unsafe impl ::windows::core::Interface for IWindowsUpdateApprovalData {
     type Vtable = IWindowsUpdateApprovalData_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateApprovalData {
@@ -254,7 +254,7 @@ impl ::core::clone::Clone for IWindowsUpdateApprovalData {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateApprovalData {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateApprovalData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaadf5bfd_84db_59bc_85e2_ad4fc1f62f7c);
 }
 #[repr(C)]
@@ -305,7 +305,7 @@ pub struct IWindowsUpdateApprovalData_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateAttentionRequiredInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateAttentionRequiredInfo {
+unsafe impl ::windows::core::Interface for IWindowsUpdateAttentionRequiredInfo {
     type Vtable = IWindowsUpdateAttentionRequiredInfo_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateAttentionRequiredInfo {
@@ -313,7 +313,7 @@ impl ::core::clone::Clone for IWindowsUpdateAttentionRequiredInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateAttentionRequiredInfo {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateAttentionRequiredInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df2579_74d3_5ffa_b6ce_09e187e1e0ed);
 }
 #[repr(C)]
@@ -329,7 +329,7 @@ pub struct IWindowsUpdateAttentionRequiredInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateAttentionRequiredReasonChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
+unsafe impl ::windows::core::Interface for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
     type Vtable = IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
@@ -337,7 +337,7 @@ impl ::core::clone::Clone for IWindowsUpdateAttentionRequiredReasonChangedEventA
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0627abca_dbb8_524a_b1d2_d9df004eeb31);
 }
 #[repr(C)]
@@ -350,7 +350,7 @@ pub struct IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateGetAdministratorResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateGetAdministratorResult {
+unsafe impl ::windows::core::Interface for IWindowsUpdateGetAdministratorResult {
     type Vtable = IWindowsUpdateGetAdministratorResult_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateGetAdministratorResult {
@@ -358,7 +358,7 @@ impl ::core::clone::Clone for IWindowsUpdateGetAdministratorResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateGetAdministratorResult {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateGetAdministratorResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb39ffc4_2c42_5b1c_8995_343341c92c50);
 }
 #[repr(C)]
@@ -371,7 +371,7 @@ pub struct IWindowsUpdateGetAdministratorResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateItem {
+unsafe impl ::windows::core::Interface for IWindowsUpdateItem {
     type Vtable = IWindowsUpdateItem_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateItem {
@@ -379,7 +379,7 @@ impl ::core::clone::Clone for IWindowsUpdateItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateItem {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb222e44a_49b6_59bf_a033_ef617cd73a98);
 }
 #[repr(C)]
@@ -404,7 +404,7 @@ pub struct IWindowsUpdateItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateManager {
+unsafe impl ::windows::core::Interface for IWindowsUpdateManager {
     type Vtable = IWindowsUpdateManager_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateManager {
@@ -412,7 +412,7 @@ impl ::core::clone::Clone for IWindowsUpdateManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateManager {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dd966c0_a71a_5602_bbd0_09a70e4573fa);
 }
 #[repr(C)]
@@ -490,7 +490,7 @@ pub struct IWindowsUpdateManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateManagerFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateManagerFactory {
+unsafe impl ::windows::core::Interface for IWindowsUpdateManagerFactory {
     type Vtable = IWindowsUpdateManagerFactory_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateManagerFactory {
@@ -498,7 +498,7 @@ impl ::core::clone::Clone for IWindowsUpdateManagerFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateManagerFactory {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateManagerFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37);
 }
 #[repr(C)]
@@ -510,7 +510,7 @@ pub struct IWindowsUpdateManagerFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateProgressChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateProgressChangedEventArgs {
+unsafe impl ::windows::core::Interface for IWindowsUpdateProgressChangedEventArgs {
     type Vtable = IWindowsUpdateProgressChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateProgressChangedEventArgs {
@@ -518,7 +518,7 @@ impl ::core::clone::Clone for IWindowsUpdateProgressChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateProgressChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateProgressChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbfbdeeb_94c8_5aa7_b0fb_66c67c233b0a);
 }
 #[repr(C)]
@@ -531,7 +531,7 @@ pub struct IWindowsUpdateProgressChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateRestartRequestOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateRestartRequestOptions {
+unsafe impl ::windows::core::Interface for IWindowsUpdateRestartRequestOptions {
     type Vtable = IWindowsUpdateRestartRequestOptions_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateRestartRequestOptions {
@@ -539,7 +539,7 @@ impl ::core::clone::Clone for IWindowsUpdateRestartRequestOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateRestartRequestOptions {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateRestartRequestOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38cfb7d3_4188_5222_905c_6c4443c951ee);
 }
 #[repr(C)]
@@ -570,7 +570,7 @@ pub struct IWindowsUpdateRestartRequestOptions_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateRestartRequestOptionsFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateRestartRequestOptionsFactory {
+unsafe impl ::windows::core::Interface for IWindowsUpdateRestartRequestOptionsFactory {
     type Vtable = IWindowsUpdateRestartRequestOptionsFactory_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateRestartRequestOptionsFactory {
@@ -578,7 +578,7 @@ impl ::core::clone::Clone for IWindowsUpdateRestartRequestOptionsFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateRestartRequestOptionsFactory {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateRestartRequestOptionsFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f41d04_0e17_50d0_8c15_6b9d0539b3a9);
 }
 #[repr(C)]
@@ -593,7 +593,7 @@ pub struct IWindowsUpdateRestartRequestOptionsFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsUpdateScanCompletedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IWindowsUpdateScanCompletedEventArgs {
+unsafe impl ::windows::core::Interface for IWindowsUpdateScanCompletedEventArgs {
     type Vtable = IWindowsUpdateScanCompletedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IWindowsUpdateScanCompletedEventArgs {
@@ -601,7 +601,7 @@ impl ::core::clone::Clone for IWindowsUpdateScanCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsUpdateScanCompletedEventArgs {
+unsafe impl ::windows::core::ComInterface for IWindowsUpdateScanCompletedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95b6953e_ba5c_5fe8_b115_12de184a6bb0);
 }
 #[repr(C)]
@@ -624,18 +624,18 @@ impl PreviewBuildsManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).ArePreviewBuildsAllowed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ArePreviewBuildsAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetArePreviewBuildsAllowed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetArePreviewBuildsAllowed)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetArePreviewBuildsAllowed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetCurrentState(&self) -> ::windows::core::Result<PreviewBuildsState> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<PreviewBuildsState>();
-            (::windows::core::Vtable::vtable(this).GetCurrentState)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -644,19 +644,19 @@ impl PreviewBuildsManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).SyncAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SyncAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<PreviewBuildsManager> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<PreviewBuildsManager>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -684,11 +684,11 @@ impl ::core::clone::Clone for PreviewBuildsManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PreviewBuildsManager {
+unsafe impl ::windows::core::Interface for PreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PreviewBuildsManager {
-    const IID: ::windows::core::GUID = <IPreviewBuildsManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PreviewBuildsManager {
+    const IID: ::windows::core::GUID = <IPreviewBuildsManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
@@ -706,7 +706,7 @@ impl PreviewBuildsState {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::ValueSet>();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -729,11 +729,11 @@ impl ::core::clone::Clone for PreviewBuildsState {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PreviewBuildsState {
+unsafe impl ::windows::core::Interface for PreviewBuildsState {
     type Vtable = IPreviewBuildsState_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PreviewBuildsState {
-    const IID: ::windows::core::GUID = <IPreviewBuildsState as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PreviewBuildsState {
+    const IID: ::windows::core::GUID = <IPreviewBuildsState as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
@@ -749,91 +749,91 @@ impl WindowsUpdate {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).UpdateId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFeatureUpdate(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsFeatureUpdate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsFeatureUpdate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMinorImpact(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsMinorImpact)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsMinorImpact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSecurity(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSecurity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSecurity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCritical(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsCritical)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsCritical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsForOS(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsForOS)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsForOS)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDriver(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsDriver)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsDriver)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMandatory(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsMandatory)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsMandatory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsUrgent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsUrgent)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsUrgent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSeeker(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSeeker)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSeeker)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -842,7 +842,7 @@ impl WindowsUpdate {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).MoreInfoUrl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoreInfoUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -851,21 +851,21 @@ impl WindowsUpdate {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).SupportUrl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SupportUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEulaAccepted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEulaAccepted)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEulaAccepted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EulaText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).EulaText)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).EulaText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -874,47 +874,47 @@ impl WindowsUpdate {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).Deadline)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Deadline)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AttentionRequiredInfo(&self) -> ::windows::core::Result<WindowsUpdateAttentionRequiredInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAttentionRequiredInfo>();
-            (::windows::core::Vtable::vtable(this).AttentionRequiredInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AttentionRequiredInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionResult(&self) -> ::windows::core::Result<WindowsUpdateActionResult> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateActionResult>();
-            (::windows::core::Vtable::vtable(this).ActionResult)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActionResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentAction(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).CurrentAction)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentAction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionProgress(&self) -> ::windows::core::Result<WindowsUpdateActionProgress> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateActionProgress>();
-            (::windows::core::Vtable::vtable(this).ActionProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActionProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPropertyValue(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
-            (::windows::core::Vtable::vtable(this).GetPropertyValue)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPropertyValue)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn AcceptEula(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AcceptEula)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AcceptEula)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for WindowsUpdate {
@@ -936,11 +936,11 @@ impl ::core::clone::Clone for WindowsUpdate {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdate {
+unsafe impl ::windows::core::Interface for WindowsUpdate {
     type Vtable = IWindowsUpdate_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdate {
-    const IID: ::windows::core::GUID = <IWindowsUpdate as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdate {
+    const IID: ::windows::core::GUID = <IWindowsUpdate as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdate {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdate";
@@ -956,28 +956,28 @@ impl WindowsUpdateActionCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdate>();
-            (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Action(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1000,11 +1000,11 @@ impl ::core::clone::Clone for WindowsUpdateActionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateActionCompletedEventArgs {
+unsafe impl ::windows::core::Interface for WindowsUpdateActionCompletedEventArgs {
     type Vtable = IWindowsUpdateActionCompletedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateActionCompletedEventArgs {
-    const IID: ::windows::core::GUID = <IWindowsUpdateActionCompletedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateActionCompletedEventArgs {
+    const IID: ::windows::core::GUID = <IWindowsUpdateActionCompletedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionCompletedEventArgs";
@@ -1020,14 +1020,14 @@ impl WindowsUpdateActionProgress {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<f64>();
-            (::windows::core::Vtable::vtable(this).Progress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1050,11 +1050,11 @@ impl ::core::clone::Clone for WindowsUpdateActionProgress {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateActionProgress {
+unsafe impl ::windows::core::Interface for WindowsUpdateActionProgress {
     type Vtable = IWindowsUpdateActionProgress_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateActionProgress {
-    const IID: ::windows::core::GUID = <IWindowsUpdateActionProgress as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateActionProgress {
+    const IID: ::windows::core::GUID = <IWindowsUpdateActionProgress as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateActionProgress {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionProgress";
@@ -1072,28 +1072,28 @@ impl WindowsUpdateActionResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Action(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1116,11 +1116,11 @@ impl ::core::clone::Clone for WindowsUpdateActionResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateActionResult {
+unsafe impl ::windows::core::Interface for WindowsUpdateActionResult {
     type Vtable = IWindowsUpdateActionResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateActionResult {
-    const IID: ::windows::core::GUID = <IWindowsUpdateActionResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateActionResult {
+    const IID: ::windows::core::GUID = <IWindowsUpdateActionResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateActionResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionResult";
@@ -1134,23 +1134,23 @@ pub struct WindowsUpdateAdministrator(::windows::core::IUnknown);
 impl WindowsUpdateAdministrator {
     pub fn StartAdministratorScan(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartAdministratorScan)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAdministratorScan)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn ApproveWindowsUpdateAction(&self, updateid: &::windows::core::HSTRING, action: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ApproveWindowsUpdateAction)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(action)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ApproveWindowsUpdateAction)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(action)).ok() }
     }
     pub fn RevokeWindowsUpdateActionApproval(&self, updateid: &::windows::core::HSTRING, action: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RevokeWindowsUpdateActionApproval)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(action)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RevokeWindowsUpdateActionApproval)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(action)).ok() }
     }
     pub fn ApproveWindowsUpdate(&self, updateid: &::windows::core::HSTRING, approvaldata: &WindowsUpdateApprovalData) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ApproveWindowsUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(approvaldata)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ApproveWindowsUpdate)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(approvaldata)).ok() }
     }
     pub fn RevokeWindowsUpdateApproval(&self, updateid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RevokeWindowsUpdateApproval)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updateid)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RevokeWindowsUpdateApproval)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1158,41 +1158,41 @@ impl WindowsUpdateAdministrator {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
-            (::windows::core::Vtable::vtable(this).GetUpdates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetUpdates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetRegisteredAdministrator(organizationname: &::windows::core::HSTRING) -> ::windows::core::Result<WindowsUpdateGetAdministratorResult> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateGetAdministratorResult>();
-            (::windows::core::Vtable::vtable(this).GetRegisteredAdministrator)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRegisteredAdministrator)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
         })
     }
     pub fn RegisterForAdministration(organizationname: &::windows::core::HSTRING, options: WindowsUpdateAdministratorOptions) -> ::windows::core::Result<WindowsUpdateAdministratorStatus> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAdministratorStatus>();
-            (::windows::core::Vtable::vtable(this).RegisterForAdministration)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(organizationname), options, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RegisterForAdministration)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), options, &mut result__).from_abi(result__)
         })
     }
     pub fn UnregisterForAdministration(organizationname: &::windows::core::HSTRING) -> ::windows::core::Result<WindowsUpdateAdministratorStatus> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAdministratorStatus>();
-            (::windows::core::Vtable::vtable(this).UnregisterForAdministration)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UnregisterForAdministration)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
         })
     }
     pub fn GetRegisteredAdministratorName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).GetRegisteredAdministratorName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetRegisteredAdministratorName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RequestRestart(restartoptions: &WindowsUpdateRestartRequestOptions) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).RequestRestart)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(restartoptions), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestRestart)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(restartoptions), &mut result__).from_abi(result__)
         })
     }
     pub fn CancelRestartRequest(requestrestarttoken: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        Self::IWindowsUpdateAdministratorStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).CancelRestartRequest)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requestrestarttoken)).ok() })
+        Self::IWindowsUpdateAdministratorStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CancelRestartRequest)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(requestrestarttoken)).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowsUpdateAdministratorStatics<R, F: FnOnce(&IWindowsUpdateAdministratorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1219,11 +1219,11 @@ impl ::core::clone::Clone for WindowsUpdateAdministrator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateAdministrator {
+unsafe impl ::windows::core::Interface for WindowsUpdateAdministrator {
     type Vtable = IWindowsUpdateAdministrator_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateAdministrator {
-    const IID: ::windows::core::GUID = <IWindowsUpdateAdministrator as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateAdministrator {
+    const IID: ::windows::core::GUID = <IWindowsUpdateAdministrator as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateAdministrator {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAdministrator";
@@ -1248,18 +1248,17 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<bool>>();
-            (::windows::core::Vtable::vtable(this).Seeker)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Seeker)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSeeker<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetSeeker<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<bool>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSeeker)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSeeker)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1267,18 +1266,17 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<bool>>();
-            (::windows::core::Vtable::vtable(this).AllowDownloadOnMetered)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AllowDownloadOnMetered)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAllowDownloadOnMetered<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetAllowDownloadOnMetered<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<bool>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAllowDownloadOnMetered)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowDownloadOnMetered)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1286,18 +1284,17 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Vtable::vtable(this).ComplianceDeadlineInDays)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ComplianceDeadlineInDays)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetComplianceDeadlineInDays<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetComplianceDeadlineInDays<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i32>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetComplianceDeadlineInDays)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComplianceDeadlineInDays)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1305,18 +1302,17 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Vtable::vtable(this).ComplianceGracePeriodInDays)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ComplianceGracePeriodInDays)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetComplianceGracePeriodInDays<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetComplianceGracePeriodInDays<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<i32>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetComplianceGracePeriodInDays)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComplianceGracePeriodInDays)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1324,18 +1320,17 @@ impl WindowsUpdateApprovalData {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<bool>>();
-            (::windows::core::Vtable::vtable(this).OptOutOfAutoReboot)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OptOutOfAutoReboot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOptOutOfAutoReboot<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOptOutOfAutoReboot<P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::IReference<bool>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOptOutOfAutoReboot)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOptOutOfAutoReboot)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for WindowsUpdateApprovalData {
@@ -1357,11 +1352,11 @@ impl ::core::clone::Clone for WindowsUpdateApprovalData {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateApprovalData {
+unsafe impl ::windows::core::Interface for WindowsUpdateApprovalData {
     type Vtable = IWindowsUpdateApprovalData_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateApprovalData {
-    const IID: ::windows::core::GUID = <IWindowsUpdateApprovalData as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateApprovalData {
+    const IID: ::windows::core::GUID = <IWindowsUpdateApprovalData as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateApprovalData {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateApprovalData";
@@ -1377,7 +1372,7 @@ impl WindowsUpdateAttentionRequiredInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAttentionRequiredReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1386,7 +1381,7 @@ impl WindowsUpdateAttentionRequiredInfo {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1409,11 +1404,11 @@ impl ::core::clone::Clone for WindowsUpdateAttentionRequiredInfo {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateAttentionRequiredInfo {
+unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredInfo {
     type Vtable = IWindowsUpdateAttentionRequiredInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredInfo {
-    const IID: ::windows::core::GUID = <IWindowsUpdateAttentionRequiredInfo as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateAttentionRequiredInfo {
+    const IID: ::windows::core::GUID = <IWindowsUpdateAttentionRequiredInfo as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredInfo";
@@ -1429,14 +1424,14 @@ impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdate>();
-            (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows::core::Result<WindowsUpdateAttentionRequiredReason> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAttentionRequiredReason>();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1459,11 +1454,11 @@ impl ::core::clone::Clone for WindowsUpdateAttentionRequiredReasonChangedEventAr
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
+unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     type Vtable = IWindowsUpdateAttentionRequiredReasonChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    const IID: ::windows::core::GUID = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
+    const IID: ::windows::core::GUID = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs";
@@ -1479,14 +1474,14 @@ impl WindowsUpdateGetAdministratorResult {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAdministrator>();
-            (::windows::core::Vtable::vtable(this).Administrator)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Administrator)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<WindowsUpdateAdministratorStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateAdministratorStatus>();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1509,11 +1504,11 @@ impl ::core::clone::Clone for WindowsUpdateGetAdministratorResult {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateGetAdministratorResult {
+unsafe impl ::windows::core::Interface for WindowsUpdateGetAdministratorResult {
     type Vtable = IWindowsUpdateGetAdministratorResult_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateGetAdministratorResult {
-    const IID: ::windows::core::GUID = <IWindowsUpdateGetAdministratorResult as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateGetAdministratorResult {
+    const IID: ::windows::core::GUID = <IWindowsUpdateGetAdministratorResult as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateGetAdministratorResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateGetAdministratorResult";
@@ -1529,14 +1524,14 @@ impl WindowsUpdateItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).UpdateId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).UpdateId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1545,21 +1540,21 @@ impl WindowsUpdateItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1568,21 +1563,21 @@ impl WindowsUpdateItem {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).MoreInfoUrl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoreInfoUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Category)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Category)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Operation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Operation)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1605,11 +1600,11 @@ impl ::core::clone::Clone for WindowsUpdateItem {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateItem {
+unsafe impl ::windows::core::Interface for WindowsUpdateItem {
     type Vtable = IWindowsUpdateItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateItem {
-    const IID: ::windows::core::GUID = <IWindowsUpdateItem as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateItem {
+    const IID: ::windows::core::GUID = <IWindowsUpdateItem as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateItem {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateItem";
@@ -1627,14 +1622,14 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ScanningStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScanningStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScanningStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveScanningStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScanningStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1642,14 +1637,14 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).WorkingStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WorkingStateChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWorkingStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveWorkingStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWorkingStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1657,14 +1652,14 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ProgressChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProgressChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgressChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveProgressChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgressChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1672,14 +1667,14 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AttentionRequiredReasonChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AttentionRequiredReasonChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAttentionRequiredReasonChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveAttentionRequiredReasonChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAttentionRequiredReasonChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1687,14 +1682,14 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ActionCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActionCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActionCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveActionCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveActionCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1702,27 +1697,27 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ScanCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScanCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScanCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveScanCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScanCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn IsScanning(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsScanning)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsScanning)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsWorking(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsWorking)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsWorking)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1731,7 +1726,7 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Vtable::vtable(this).LastSuccessfulScanTimestamp)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).LastSuccessfulScanTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1740,7 +1735,7 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
-            (::windows::core::Vtable::vtable(this).GetApplicableUpdates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetApplicableUpdates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1749,7 +1744,7 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>();
-            (::windows::core::Vtable::vtable(this).GetMostRecentCompletedUpdates)(::windows::core::Vtable::as_raw(this), count, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetMostRecentCompletedUpdates)(::windows::core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1758,17 +1753,17 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>>();
-            (::windows::core::Vtable::vtable(this).GetMostRecentCompletedUpdatesAsync)(::windows::core::Vtable::as_raw(this), count, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetMostRecentCompletedUpdatesAsync)(::windows::core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
     pub fn StartScan(&self, userinitiated: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartScan)(::windows::core::Vtable::as_raw(this), userinitiated).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartScan)(::windows::core::Interface::as_raw(this), userinitiated).ok() }
     }
     pub fn CreateInstance(clientid: &::windows::core::HSTRING) -> ::windows::core::Result<WindowsUpdateManager> {
         Self::IWindowsUpdateManagerFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateManager>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(clientid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(clientid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1796,11 +1791,11 @@ impl ::core::clone::Clone for WindowsUpdateManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateManager {
+unsafe impl ::windows::core::Interface for WindowsUpdateManager {
     type Vtable = IWindowsUpdateManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateManager {
-    const IID: ::windows::core::GUID = <IWindowsUpdateManager as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateManager {
+    const IID: ::windows::core::GUID = <IWindowsUpdateManager as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateManager {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateManager";
@@ -1816,14 +1811,14 @@ impl WindowsUpdateProgressChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdate>();
-            (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionProgress(&self) -> ::windows::core::Result<WindowsUpdateActionProgress> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateActionProgress>();
-            (::windows::core::Vtable::vtable(this).ActionProgress)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ActionProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1846,11 +1841,11 @@ impl ::core::clone::Clone for WindowsUpdateProgressChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateProgressChangedEventArgs {
+unsafe impl ::windows::core::Interface for WindowsUpdateProgressChangedEventArgs {
     type Vtable = IWindowsUpdateProgressChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateProgressChangedEventArgs {
-    const IID: ::windows::core::GUID = <IWindowsUpdateProgressChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateProgressChangedEventArgs {
+    const IID: ::windows::core::GUID = <IWindowsUpdateProgressChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateProgressChangedEventArgs";
@@ -1873,23 +1868,23 @@ impl WindowsUpdateRestartRequestOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTitle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1897,65 +1892,65 @@ impl WindowsUpdateRestartRequestOptions {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).MoreInfoUrl)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).MoreInfoUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMoreInfoUrl(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMoreInfoUrl)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMoreInfoUrl)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ComplianceDeadlineInDays(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ComplianceDeadlineInDays)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ComplianceDeadlineInDays)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComplianceDeadlineInDays(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetComplianceDeadlineInDays)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComplianceDeadlineInDays)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ComplianceGracePeriodInDays(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Vtable::vtable(this).ComplianceGracePeriodInDays)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ComplianceGracePeriodInDays)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComplianceGracePeriodInDays(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetComplianceGracePeriodInDays)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComplianceGracePeriodInDays)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn OrganizationName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).OrganizationName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OrganizationName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOrganizationName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOrganizationName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrganizationName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OptOutOfAutoReboot(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).OptOutOfAutoReboot)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OptOutOfAutoReboot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOptOutOfAutoReboot(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOptOutOfAutoReboot)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOptOutOfAutoReboot)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstance(title: &::windows::core::HSTRING, description: &::windows::core::HSTRING, moreinfourl: &super::super::Foundation::Uri, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> ::windows::core::Result<WindowsUpdateRestartRequestOptions> {
         Self::IWindowsUpdateRestartRequestOptionsFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<WindowsUpdateRestartRequestOptions>();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(moreinfourl), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(moreinfourl), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1983,11 +1978,11 @@ impl ::core::clone::Clone for WindowsUpdateRestartRequestOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateRestartRequestOptions {
+unsafe impl ::windows::core::Interface for WindowsUpdateRestartRequestOptions {
     type Vtable = IWindowsUpdateRestartRequestOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateRestartRequestOptions {
-    const IID: ::windows::core::GUID = <IWindowsUpdateRestartRequestOptions as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateRestartRequestOptions {
+    const IID: ::windows::core::GUID = <IWindowsUpdateRestartRequestOptions as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateRestartRequestOptions {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateRestartRequestOptions";
@@ -2003,21 +1998,21 @@ impl WindowsUpdateScanCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).Succeeded)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2026,7 +2021,7 @@ impl WindowsUpdateScanCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
-            (::windows::core::Vtable::vtable(this).Updates)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Updates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2049,11 +2044,11 @@ impl ::core::clone::Clone for WindowsUpdateScanCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for WindowsUpdateScanCompletedEventArgs {
+unsafe impl ::windows::core::Interface for WindowsUpdateScanCompletedEventArgs {
     type Vtable = IWindowsUpdateScanCompletedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for WindowsUpdateScanCompletedEventArgs {
-    const IID: ::windows::core::GUID = <IWindowsUpdateScanCompletedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for WindowsUpdateScanCompletedEventArgs {
+    const IID: ::windows::core::GUID = <IWindowsUpdateScanCompletedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsUpdateScanCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateScanCompletedEventArgs";

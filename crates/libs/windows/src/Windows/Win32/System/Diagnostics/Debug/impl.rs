@@ -65,7 +65,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<AsyncIDebugApplicationNodeEvents as ::windows::core::Interface>::IID
+        iid == &<AsyncIDebugApplicationNodeEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl DebugBaseEventCallbacks_Vtbl {
         Self { base__: IDebugEventCallbacks_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DebugBaseEventCallbacks as ::windows::core::Interface>::IID || iid == &<IDebugEventCallbacks as ::windows::core::Interface>::IID
+        iid == &<DebugBaseEventCallbacks as ::windows::core::ComInterface>::IID || iid == &<IDebugEventCallbacks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -93,7 +93,7 @@ impl DebugBaseEventCallbacksWide_Vtbl {
         Self { base__: IDebugEventCallbacksWide_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<DebugBaseEventCallbacksWide as ::windows::core::Interface>::IID || iid == &<IDebugEventCallbacksWide as ::windows::core::Interface>::IID
+        iid == &<DebugBaseEventCallbacksWide as ::windows::core::ComInterface>::IID || iid == &<IDebugEventCallbacksWide as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -237,7 +237,7 @@ impl IActiveScript_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScript as ::windows::core::Interface>::IID
+        iid == &<IActiveScript as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -383,7 +383,7 @@ impl IActiveScriptAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptAuthor as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptAuthor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -404,7 +404,7 @@ impl IActiveScriptAuthorProcedure_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptAuthorProcedure as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptAuthorProcedure as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -445,7 +445,7 @@ impl IActiveScriptDebug32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptDebug32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptDebug32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -486,7 +486,7 @@ impl IActiveScriptDebug64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptDebug64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptDebug64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -521,7 +521,7 @@ impl IActiveScriptEncode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptEncode as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptEncode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -565,7 +565,7 @@ impl IActiveScriptError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptError as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -586,7 +586,7 @@ impl IActiveScriptError64_Vtbl {
         Self { base__: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(), GetSourcePosition64: GetSourcePosition64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptError64 as ::windows::core::Interface>::IID || iid == &<IActiveScriptError as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptError64 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -629,7 +629,7 @@ impl IActiveScriptErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptErrorDebug as ::windows::core::Interface>::IID || iid == &<IActiveScriptError as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptErrorDebug as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -653,7 +653,7 @@ impl IActiveScriptErrorDebug110_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetExceptionThrownKind: GetExceptionThrownKind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptErrorDebug110 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptErrorDebug110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -671,7 +671,7 @@ impl IActiveScriptGarbageCollector_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CollectGarbage: CollectGarbage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptGarbageCollector as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptGarbageCollector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -689,7 +689,7 @@ impl IActiveScriptHostEncode_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EncodeScriptHostFile: EncodeScriptHostFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptHostEncode as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptHostEncode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -728,7 +728,7 @@ impl IActiveScriptParse32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParse32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParse32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -767,7 +767,7 @@ impl IActiveScriptParse64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParse64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParse64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -781,7 +781,7 @@ impl IActiveScriptParseProcedure2_32_Vtbl {
         Self { base__: IActiveScriptParseProcedure32_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_32 as ::windows::core::Interface>::IID || iid == &<IActiveScriptParseProcedure32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure2_32 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptParseProcedure32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -795,7 +795,7 @@ impl IActiveScriptParseProcedure2_64_Vtbl {
         Self { base__: IActiveScriptParseProcedure64_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_64 as ::windows::core::Interface>::IID || iid == &<IActiveScriptParseProcedure64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure2_64 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptParseProcedure64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -822,7 +822,7 @@ impl IActiveScriptParseProcedure32_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -849,7 +849,7 @@ impl IActiveScriptParseProcedure64_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -876,7 +876,7 @@ impl IActiveScriptParseProcedureOld32_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedureOld32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedureOld32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -903,7 +903,7 @@ impl IActiveScriptParseProcedureOld64_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedureOld64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptParseProcedureOld64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -959,7 +959,7 @@ impl IActiveScriptProfilerCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -987,7 +987,7 @@ impl IActiveScriptProfilerCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerCallback2 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1005,7 +1005,7 @@ impl IActiveScriptProfilerCallback3_Vtbl {
         Self { base__: IActiveScriptProfilerCallback2_Vtbl::new::<Identity, Impl, OFFSET>(), SetWebWorkerId: SetWebWorkerId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback2 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerCallback3 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1040,7 +1040,7 @@ impl IActiveScriptProfilerControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1068,7 +1068,7 @@ impl IActiveScriptProfilerControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl2 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1092,7 +1092,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
         Self { base__: IActiveScriptProfilerControl2_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap: EnumHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl3 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1110,7 +1110,7 @@ impl IActiveScriptProfilerControl4_Vtbl {
         Self { base__: IActiveScriptProfilerControl3_Vtbl::new::<Identity, Impl, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl4 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl4 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1134,7 +1134,7 @@ impl IActiveScriptProfilerControl5_Vtbl {
         Self { base__: IActiveScriptProfilerControl4_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap2: EnumHeap2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl5 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl4 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl5 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1176,7 +1176,7 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerHeapEnum as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProfilerHeapEnum as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1213,7 +1213,7 @@ impl IActiveScriptProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptProperty as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1237,7 +1237,7 @@ impl IActiveScriptSIPInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSIPOID: GetSIPOID::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSIPInfo as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSIPInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1322,7 +1322,7 @@ impl IActiveScriptSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSite as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSite as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1385,7 +1385,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebug32 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteDebug32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1448,7 +1448,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebug64 as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteDebug64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1478,7 +1478,7 @@ impl IActiveScriptSiteDebugEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebugEx as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteDebugEx as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1496,7 +1496,7 @@ impl IActiveScriptSiteInterruptPoll_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryContinue: QueryContinue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteInterruptPoll as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteInterruptPoll as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1514,7 +1514,7 @@ impl IActiveScriptSiteTraceInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SendScriptTraceInfo: SendScriptTraceInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteTraceInfo as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteTraceInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1538,7 +1538,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUIBehavior: GetUIBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteUIControl as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteUIControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1575,7 +1575,7 @@ impl IActiveScriptSiteWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptSiteWindow as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptSiteWindow as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1610,7 +1610,7 @@ impl IActiveScriptStats_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptStats as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptStats as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1634,7 +1634,7 @@ impl IActiveScriptStringCompare_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StrComp: StrComp::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptStringCompare as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptStringCompare as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1662,7 +1662,7 @@ impl IActiveScriptTraceInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptTraceInfo as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptTraceInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1718,7 +1718,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActiveScriptWinRTErrorDebug as ::windows::core::Interface>::IID || iid == &<IActiveScriptError as ::windows::core::Interface>::IID
+        iid == &<IActiveScriptWinRTErrorDebug as ::windows::core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1780,7 +1780,7 @@ impl IApplicationDebugger_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApplicationDebugger as ::windows::core::Interface>::IID
+        iid == &<IApplicationDebugger as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1808,7 +1808,7 @@ impl IApplicationDebuggerUI_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApplicationDebuggerUI as ::windows::core::Interface>::IID
+        iid == &<IApplicationDebuggerUI as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1829,7 +1829,7 @@ impl IBindEventHandler_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), BindHandler: BindHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBindEventHandler as ::windows::core::Interface>::IID
+        iid == &<IBindEventHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1853,7 +1853,7 @@ impl ICodeAddressConcept_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetContainingSymbol: GetContainingSymbol::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICodeAddressConcept as ::windows::core::Interface>::IID
+        iid == &<ICodeAddressConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1877,7 +1877,7 @@ impl IComparableConcept_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CompareObjects: CompareObjects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IComparableConcept as ::windows::core::Interface>::IID
+        iid == &<IComparableConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -1911,7 +1911,7 @@ impl IDataModelConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelConcept as ::windows::core::Interface>::IID
+        iid == &<IDataModelConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2140,7 +2140,7 @@ impl IDataModelManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelManager as ::windows::core::Interface>::IID
+        iid == &<IDataModelManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2183,7 +2183,7 @@ impl IDataModelManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelManager2 as ::windows::core::Interface>::IID || iid == &<IDataModelManager as ::windows::core::Interface>::IID
+        iid == &<IDataModelManager2 as ::windows::core::ComInterface>::IID || iid == &<IDataModelManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2237,7 +2237,7 @@ impl IDataModelNameBinder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelNameBinder as ::windows::core::Interface>::IID
+        iid == &<IDataModelNameBinder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2315,7 +2315,7 @@ impl IDataModelScript_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScript as ::windows::core::Interface>::IID
+        iid == &<IDataModelScript as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2333,7 +2333,7 @@ impl IDataModelScriptClient_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptClient as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2447,7 +2447,7 @@ impl IDataModelScriptDebug_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebug as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2471,7 +2471,7 @@ impl IDataModelScriptDebug2_Vtbl {
         Self { base__: IDataModelScriptDebug_Vtbl::new::<Identity, Impl, OFFSET>(), SetBreakpointAtFunction: SetBreakpointAtFunction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebug2 as ::windows::core::Interface>::IID || iid == &<IDataModelScriptDebug as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebug2 as ::windows::core::ComInterface>::IID || iid == &<IDataModelScriptDebug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2527,7 +2527,7 @@ impl IDataModelScriptDebugBreakpoint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugBreakpoint as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugBreakpoint as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2561,7 +2561,7 @@ impl IDataModelScriptDebugBreakpointEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugBreakpointEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugBreakpointEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2579,7 +2579,7 @@ impl IDataModelScriptDebugClient_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyDebugEvent: NotifyDebugEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugClient as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2613,7 +2613,7 @@ impl IDataModelScriptDebugStack_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugStack as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugStack as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2706,7 +2706,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugStackFrame as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugStackFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2734,7 +2734,7 @@ impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptDebugVariableSetEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptDebugVariableSetEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2768,7 +2768,7 @@ impl IDataModelScriptHostContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptHostContext as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptHostContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2848,7 +2848,7 @@ impl IDataModelScriptManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptManager as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2927,7 +2927,7 @@ impl IDataModelScriptProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptProvider as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -2961,7 +2961,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptProviderEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptProviderEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3017,7 +3017,7 @@ impl IDataModelScriptTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptTemplate as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptTemplate as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3051,7 +3051,7 @@ impl IDataModelScriptTemplateEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDataModelScriptTemplateEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDataModelScriptTemplateEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3079,7 +3079,7 @@ impl IDebugAdvanced_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAdvanced as ::windows::core::Interface>::IID
+        iid == &<IDebugAdvanced as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3142,7 +3142,7 @@ impl IDebugAdvanced2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAdvanced2 as ::windows::core::Interface>::IID
+        iid == &<IDebugAdvanced2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3226,7 +3226,7 @@ impl IDebugAdvanced3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAdvanced3 as ::windows::core::Interface>::IID
+        iid == &<IDebugAdvanced3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3317,7 +3317,7 @@ impl IDebugAdvanced4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAdvanced4 as ::windows::core::Interface>::IID
+        iid == &<IDebugAdvanced4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3361,7 +3361,7 @@ impl IDebugApplication11032_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplication11032 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplication110 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplication11032 as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplication110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3405,7 +3405,7 @@ impl IDebugApplication11064_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplication11064 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplication110 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplication11064 as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplication110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3598,7 +3598,7 @@ impl IDebugApplication32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplication32 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplication as ::windows::core::Interface>::IID
+        iid == &<IDebugApplication32 as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplication as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3791,7 +3791,7 @@ impl IDebugApplication64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplication64 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplication as ::windows::core::Interface>::IID
+        iid == &<IDebugApplication64 as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplication as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3859,7 +3859,7 @@ impl IDebugApplicationNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationNode as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID || iid == &<IDebugDocumentProvider as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationNode as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3900,7 +3900,7 @@ impl IDebugApplicationNode100_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationNode100 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationNode100 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3942,7 +3942,7 @@ impl IDebugApplicationNodeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationNodeEvents as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationNodeEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -3991,7 +3991,7 @@ impl IDebugApplicationThread_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationThread as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationThread as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4054,7 +4054,7 @@ impl IDebugApplicationThread11032_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationThread11032 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationThread11032 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4117,7 +4117,7 @@ impl IDebugApplicationThread11064_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationThread11064 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationThread11064 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4138,7 +4138,7 @@ impl IDebugApplicationThread64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationThread64 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows::core::Interface>::IID || iid == &<IDebugApplicationThread as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationThread64 as ::windows::core::ComInterface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows::core::ComInterface>::IID || iid == &<IDebugApplicationThread as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4180,7 +4180,7 @@ impl IDebugApplicationThreadEvents110_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugApplicationThreadEvents110 as ::windows::core::Interface>::IID
+        iid == &<IDebugApplicationThreadEvents110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4235,7 +4235,7 @@ impl IDebugAsyncOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAsyncOperation as ::windows::core::Interface>::IID
+        iid == &<IDebugAsyncOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4253,7 +4253,7 @@ impl IDebugAsyncOperationCallBack_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugAsyncOperationCallBack as ::windows::core::Interface>::IID
+        iid == &<IDebugAsyncOperationCallBack as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4456,7 +4456,7 @@ impl IDebugBreakpoint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugBreakpoint as ::windows::core::Interface>::IID
+        iid == &<IDebugBreakpoint as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4687,7 +4687,7 @@ impl IDebugBreakpoint2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugBreakpoint2 as ::windows::core::Interface>::IID
+        iid == &<IDebugBreakpoint2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -4931,7 +4931,7 @@ impl IDebugBreakpoint3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugBreakpoint3 as ::windows::core::Interface>::IID
+        iid == &<IDebugBreakpoint3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -5326,7 +5326,7 @@ impl IDebugClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient as ::windows::core::Interface>::IID
+        iid == &<IDebugClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -5777,7 +5777,7 @@ impl IDebugClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient2 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -6262,7 +6262,7 @@ impl IDebugClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient3 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -6795,7 +6795,7 @@ impl IDebugClient4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient4 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -7579,7 +7579,7 @@ impl IDebugClient5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient5 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -8370,7 +8370,7 @@ impl IDebugClient6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient6 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient6 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -9168,7 +9168,7 @@ impl IDebugClient7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient7 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient7 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -9973,7 +9973,7 @@ impl IDebugClient8_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugClient8 as ::windows::core::Interface>::IID
+        iid == &<IDebugClient8 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -10007,7 +10007,7 @@ impl IDebugCodeContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugCodeContext as ::windows::core::Interface>::IID
+        iid == &<IDebugCodeContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -10819,7 +10819,7 @@ impl IDebugControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl as ::windows::core::Interface>::IID
+        iid == &<IDebugControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -11711,7 +11711,7 @@ impl IDebugControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl2 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -12730,7 +12730,7 @@ impl IDebugControl3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl3 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -14156,7 +14156,7 @@ impl IDebugControl4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl4 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -15623,7 +15623,7 @@ impl IDebugControl5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl5 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -17110,7 +17110,7 @@ impl IDebugControl6_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl6 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl6 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"implement\"`*"]
@@ -18604,7 +18604,7 @@ impl IDebugControl7_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugControl7 as ::windows::core::Interface>::IID
+        iid == &<IDebugControl7 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -18622,7 +18622,7 @@ impl IDebugCookie_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetDebugCookie: SetDebugCookie::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugCookie as ::windows::core::Interface>::IID
+        iid == &<IDebugCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -18788,7 +18788,7 @@ impl IDebugDataSpaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDataSpaces as ::windows::core::Interface>::IID
+        iid == &<IDebugDataSpaces as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Memory\"`, `\"implement\"`*"]
@@ -19005,7 +19005,7 @@ impl IDebugDataSpaces2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDataSpaces2 as ::windows::core::Interface>::IID
+        iid == &<IDebugDataSpaces2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`, `\"implement\"`*"]
@@ -19263,7 +19263,7 @@ impl IDebugDataSpaces3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDataSpaces3 as ::windows::core::Interface>::IID
+        iid == &<IDebugDataSpaces3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`, `\"implement\"`*"]
@@ -19603,7 +19603,7 @@ impl IDebugDataSpaces4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDataSpaces4 as ::windows::core::Interface>::IID
+        iid == &<IDebugDataSpaces4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -19614,7 +19614,7 @@ impl IDebugDocument_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocument as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
+        iid == &<IDebugDocument as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -19654,7 +19654,7 @@ impl IDebugDocumentContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentContext as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -19815,7 +19815,7 @@ impl IDebugDocumentHelper32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentHelper32 as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentHelper32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -19976,7 +19976,7 @@ impl IDebugDocumentHelper64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentHelper64 as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentHelper64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20047,7 +20047,7 @@ impl IDebugDocumentHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentHost as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20087,7 +20087,7 @@ impl IDebugDocumentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20111,7 +20111,7 @@ impl IDebugDocumentProvider_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentProvider as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentProvider as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20192,7 +20192,7 @@ impl IDebugDocumentText_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentText as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID || iid == &<IDebugDocument as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentText as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID || iid == &<IDebugDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20227,7 +20227,7 @@ impl IDebugDocumentTextAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentTextAuthor as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID || iid == &<IDebugDocument as ::windows::core::Interface>::IID || iid == &<IDebugDocumentText as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentTextAuthor as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::ComInterface>::IID || iid == &<IDebugDocument as ::windows::core::ComInterface>::IID || iid == &<IDebugDocumentText as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20283,7 +20283,7 @@ impl IDebugDocumentTextEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentTextEvents as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentTextEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20327,7 +20327,7 @@ impl IDebugDocumentTextExternalAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugDocumentTextExternalAuthor as ::windows::core::Interface>::IID
+        iid == &<IDebugDocumentTextExternalAuthor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20449,7 +20449,7 @@ impl IDebugEventCallbacks_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugEventCallbacks as ::windows::core::Interface>::IID
+        iid == &<IDebugEventCallbacks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20571,7 +20571,7 @@ impl IDebugEventCallbacksWide_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugEventCallbacksWide as ::windows::core::Interface>::IID
+        iid == &<IDebugEventCallbacksWide as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -20707,7 +20707,7 @@ impl IDebugEventContextCallbacks_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugEventContextCallbacks as ::windows::core::Interface>::IID
+        iid == &<IDebugEventContextCallbacks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20756,7 +20756,7 @@ impl IDebugExpression_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugExpression as ::windows::core::Interface>::IID
+        iid == &<IDebugExpression as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20774,7 +20774,7 @@ impl IDebugExpressionCallBack_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugExpressionCallBack as ::windows::core::Interface>::IID
+        iid == &<IDebugExpressionCallBack as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -20808,7 +20808,7 @@ impl IDebugExpressionContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugExpressionContext as ::windows::core::Interface>::IID
+        iid == &<IDebugExpressionContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -20845,7 +20845,7 @@ impl IDebugExtendedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugExtendedProperty as ::windows::core::Interface>::IID || iid == &<IDebugProperty as ::windows::core::Interface>::IID
+        iid == &<IDebugExtendedProperty as ::windows::core::ComInterface>::IID || iid == &<IDebugProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -20901,7 +20901,7 @@ impl IDebugFormatter_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugFormatter as ::windows::core::Interface>::IID
+        iid == &<IDebugFormatter as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -20957,7 +20957,7 @@ impl IDebugHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHelper as ::windows::core::Interface>::IID
+        iid == &<IDebugHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21010,7 +21010,7 @@ impl IDebugHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHost as ::windows::core::Interface>::IID
+        iid == &<IDebugHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21034,7 +21034,7 @@ impl IDebugHostBaseClass_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetOffset: GetOffset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostBaseClass as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostBaseClass as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21061,7 +21061,7 @@ impl IDebugHostConstant_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostConstant as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostConstant as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21085,7 +21085,7 @@ impl IDebugHostContext_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEqualTo: IsEqualTo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostContext as ::windows::core::Interface>::IID
+        iid == &<IDebugHostContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21141,7 +21141,7 @@ impl IDebugHostData_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostData as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostData as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21159,7 +21159,7 @@ impl IDebugHostErrorSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportError: ReportError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostErrorSink as ::windows::core::Interface>::IID
+        iid == &<IDebugHostErrorSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21187,7 +21187,7 @@ impl IDebugHostEvaluator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostEvaluator as ::windows::core::Interface>::IID
+        iid == &<IDebugHostEvaluator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21205,7 +21205,7 @@ impl IDebugHostEvaluator2_Vtbl {
         Self { base__: IDebugHostEvaluator_Vtbl::new::<Identity, Impl, OFFSET>(), AssignTo: AssignTo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostEvaluator2 as ::windows::core::Interface>::IID || iid == &<IDebugHostEvaluator as ::windows::core::Interface>::IID
+        iid == &<IDebugHostEvaluator2 as ::windows::core::ComInterface>::IID || iid == &<IDebugHostEvaluator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21233,7 +21233,7 @@ impl IDebugHostExtensibility_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostExtensibility as ::windows::core::Interface>::IID
+        iid == &<IDebugHostExtensibility as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -21302,7 +21302,7 @@ impl IDebugHostField_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostField as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostField as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21357,7 +21357,7 @@ impl IDebugHostMemory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostMemory as ::windows::core::Interface>::IID
+        iid == &<IDebugHostMemory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21381,7 +21381,7 @@ impl IDebugHostMemory2_Vtbl {
         Self { base__: IDebugHostMemory_Vtbl::new::<Identity, Impl, OFFSET>(), LinearizeLocation: LinearizeLocation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostMemory2 as ::windows::core::Interface>::IID || iid == &<IDebugHostMemory as ::windows::core::Interface>::IID
+        iid == &<IDebugHostMemory2 as ::windows::core::ComInterface>::IID || iid == &<IDebugHostMemory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21467,7 +21467,7 @@ impl IDebugHostModule_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostModule as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostModule as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21485,7 +21485,7 @@ impl IDebugHostModule2_Vtbl {
         Self { base__: IDebugHostModule_Vtbl::new::<Identity, Impl, OFFSET>(), FindContainingSymbolByRVA: FindContainingSymbolByRVA::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostModule2 as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID || iid == &<IDebugHostModule as ::windows::core::Interface>::IID
+        iid == &<IDebugHostModule2 as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID || iid == &<IDebugHostModule as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21509,7 +21509,7 @@ impl IDebugHostModuleSignature_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsMatch: IsMatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostModuleSignature as ::windows::core::Interface>::IID
+        iid == &<IDebugHostModuleSignature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21549,7 +21549,7 @@ impl IDebugHostPublic_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostPublic as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostPublic as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21573,7 +21573,7 @@ impl IDebugHostScriptHost_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateContext: CreateContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostScriptHost as ::windows::core::Interface>::IID
+        iid == &<IDebugHostScriptHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21597,7 +21597,7 @@ impl IDebugHostStatus_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PollUserInterrupt: PollUserInterrupt::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostStatus as ::windows::core::Interface>::IID
+        iid == &<IDebugHostStatus as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21702,7 +21702,7 @@ impl IDebugHostSymbol_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21726,7 +21726,7 @@ impl IDebugHostSymbol2_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, Impl, OFFSET>(), GetLanguage: GetLanguage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostSymbol2 as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostSymbol2 as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21760,7 +21760,7 @@ impl IDebugHostSymbolEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostSymbolEnumerator as ::windows::core::Interface>::IID
+        iid == &<IDebugHostSymbolEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -21859,7 +21859,7 @@ impl IDebugHostSymbols_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostSymbols as ::windows::core::Interface>::IID
+        iid == &<IDebugHostSymbols as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22102,7 +22102,7 @@ impl IDebugHostType_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostType as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
+        iid == &<IDebugHostType as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22181,7 +22181,7 @@ impl IDebugHostType2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostType2 as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID || iid == &<IDebugHostType as ::windows::core::Interface>::IID
+        iid == &<IDebugHostType2 as ::windows::core::ComInterface>::IID || iid == &<IDebugHostSymbol as ::windows::core::ComInterface>::IID || iid == &<IDebugHostType as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22228,7 +22228,7 @@ impl IDebugHostTypeSignature_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugHostTypeSignature as ::windows::core::Interface>::IID
+        iid == &<IDebugHostTypeSignature as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22256,7 +22256,7 @@ impl IDebugInputCallbacks_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugInputCallbacks as ::windows::core::Interface>::IID
+        iid == &<IDebugInputCallbacks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22274,7 +22274,7 @@ impl IDebugOutputCallbacks_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugOutputCallbacks as ::windows::core::Interface>::IID
+        iid == &<IDebugOutputCallbacks as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22315,7 +22315,7 @@ impl IDebugOutputCallbacks2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugOutputCallbacks2 as ::windows::core::Interface>::IID
+        iid == &<IDebugOutputCallbacks2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22333,7 +22333,7 @@ impl IDebugOutputCallbacksWide_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugOutputCallbacksWide as ::windows::core::Interface>::IID
+        iid == &<IDebugOutputCallbacksWide as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22351,7 +22351,7 @@ impl IDebugOutputStream_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugOutputStream as ::windows::core::Interface>::IID
+        iid == &<IDebugOutputStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22372,7 +22372,7 @@ impl IDebugPlmClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPlmClient as ::windows::core::Interface>::IID
+        iid == &<IDebugPlmClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22400,7 +22400,7 @@ impl IDebugPlmClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPlmClient2 as ::windows::core::Interface>::IID
+        iid == &<IDebugPlmClient2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22491,7 +22491,7 @@ impl IDebugPlmClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPlmClient3 as ::windows::core::Interface>::IID
+        iid == &<IDebugPlmClient3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -22555,7 +22555,7 @@ impl IDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugProperty as ::windows::core::Interface>::IID
+        iid == &<IDebugProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22579,7 +22579,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_All as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22590,7 +22590,7 @@ impl IDebugPropertyEnumType_Arguments_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Arguments as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Arguments as ::windows::core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22601,7 +22601,7 @@ impl IDebugPropertyEnumType_Locals_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Locals as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Locals as ::windows::core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22612,7 +22612,7 @@ impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as ::windows::core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -22623,7 +22623,7 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Registers as ::windows::core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Registers as ::windows::core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -22747,7 +22747,7 @@ impl IDebugRegisters_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugRegisters as ::windows::core::Interface>::IID
+        iid == &<IDebugRegisters as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23018,7 +23018,7 @@ impl IDebugRegisters2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugRegisters2 as ::windows::core::Interface>::IID
+        iid == &<IDebugRegisters2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -23036,7 +23036,7 @@ impl IDebugSessionProvider_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartDebugSession: StartDebugSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSessionProvider as ::windows::core::Interface>::IID
+        iid == &<IDebugSessionProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23118,7 +23118,7 @@ impl IDebugStackFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugStackFrame as ::windows::core::Interface>::IID
+        iid == &<IDebugStackFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23161,7 +23161,7 @@ impl IDebugStackFrame110_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugStackFrame110 as ::windows::core::Interface>::IID || iid == &<IDebugStackFrame as ::windows::core::Interface>::IID
+        iid == &<IDebugStackFrame110 as ::windows::core::ComInterface>::IID || iid == &<IDebugStackFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -23185,7 +23185,7 @@ impl IDebugStackFrameSniffer_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumStackFrames: EnumStackFrames::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
+        iid == &<IDebugStackFrameSniffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -23209,7 +23209,7 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx32: EnumStackFramesEx32::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx32 as ::windows::core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
+        iid == &<IDebugStackFrameSnifferEx32 as ::windows::core::ComInterface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -23233,7 +23233,7 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx64: EnumStackFramesEx64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx64 as ::windows::core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::Interface>::IID
+        iid == &<IDebugStackFrameSnifferEx64 as ::windows::core::ComInterface>::IID || iid == &<IDebugStackFrameSniffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23326,7 +23326,7 @@ impl IDebugSymbolGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbolGroup as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbolGroup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23528,7 +23528,7 @@ impl IDebugSymbolGroup2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbolGroup2 as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbolGroup2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -23967,7 +23967,7 @@ impl IDebugSymbols_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbols as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbols as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -24468,7 +24468,7 @@ impl IDebugSymbols2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbols2 as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbols2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -25497,7 +25497,7 @@ impl IDebugSymbols3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbols3 as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbols3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -26575,7 +26575,7 @@ impl IDebugSymbols4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbols4 as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbols4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -27673,7 +27673,7 @@ impl IDebugSymbols5_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSymbols5 as ::windows::core::Interface>::IID
+        iid == &<IDebugSymbols5 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -27720,7 +27720,7 @@ impl IDebugSyncOperation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSyncOperation as ::windows::core::Interface>::IID
+        iid == &<IDebugSyncOperation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -28075,7 +28075,7 @@ impl IDebugSystemObjects_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSystemObjects as ::windows::core::Interface>::IID
+        iid == &<IDebugSystemObjects as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -28483,7 +28483,7 @@ impl IDebugSystemObjects2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSystemObjects2 as ::windows::core::Interface>::IID
+        iid == &<IDebugSystemObjects2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -28984,7 +28984,7 @@ impl IDebugSystemObjects3_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSystemObjects3 as ::windows::core::Interface>::IID
+        iid == &<IDebugSystemObjects3 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29499,7 +29499,7 @@ impl IDebugSystemObjects4_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugSystemObjects4 as ::windows::core::Interface>::IID
+        iid == &<IDebugSystemObjects4 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29517,7 +29517,7 @@ impl IDebugThreadCall32_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugThreadCall32 as ::windows::core::Interface>::IID
+        iid == &<IDebugThreadCall32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29535,7 +29535,7 @@ impl IDebugThreadCall64_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDebugThreadCall64 as ::windows::core::Interface>::IID
+        iid == &<IDebugThreadCall64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29584,7 +29584,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDynamicConceptProviderConcept as ::windows::core::Interface>::IID
+        iid == &<IDynamicConceptProviderConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29625,7 +29625,7 @@ impl IDynamicKeyProviderConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDynamicKeyProviderConcept as ::windows::core::Interface>::IID
+        iid == &<IDynamicKeyProviderConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29673,7 +29673,7 @@ impl IEnumDebugApplicationNodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugApplicationNodes as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugApplicationNodes as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29721,7 +29721,7 @@ impl IEnumDebugCodeContexts_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugCodeContexts as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugCodeContexts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29769,7 +29769,7 @@ impl IEnumDebugExpressionContexts_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugExpressionContexts as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugExpressionContexts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -29833,7 +29833,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugExtendedPropertyInfo as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugExtendedPropertyInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29894,7 +29894,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugPropertyInfo as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugPropertyInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -29945,7 +29945,7 @@ impl IEnumDebugStackFrames_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugStackFrames as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugStackFrames as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -29966,7 +29966,7 @@ impl IEnumDebugStackFrames64_Vtbl {
         Self { base__: IEnumDebugStackFrames_Vtbl::new::<Identity, Impl, OFFSET>(), Next64: Next64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumDebugStackFrames64 as ::windows::core::Interface>::IID || iid == &<IEnumDebugStackFrames as ::windows::core::Interface>::IID
+        iid == &<IEnumDebugStackFrames64 as ::windows::core::ComInterface>::IID || iid == &<IEnumDebugStackFrames as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -29990,7 +29990,7 @@ impl IEnumJsStackFrames_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET>, Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumJsStackFrames as ::windows::core::Interface>::IID
+        iid == &<IEnumJsStackFrames as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30038,7 +30038,7 @@ impl IEnumRemoteDebugApplicationThreads_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRemoteDebugApplicationThreads as ::windows::core::Interface>::IID
+        iid == &<IEnumRemoteDebugApplicationThreads as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30086,7 +30086,7 @@ impl IEnumRemoteDebugApplications_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumRemoteDebugApplications as ::windows::core::Interface>::IID
+        iid == &<IEnumRemoteDebugApplications as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30110,7 +30110,7 @@ impl IEquatableConcept_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AreObjectsEqual: AreObjectsEqual::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEquatableConcept as ::windows::core::Interface>::IID
+        iid == &<IEquatableConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30128,7 +30128,7 @@ impl IHostDataModelAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDataModel: GetDataModel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHostDataModelAccess as ::windows::core::Interface>::IID
+        iid == &<IHostDataModelAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30169,7 +30169,7 @@ impl IIndexableConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndexableConcept as ::windows::core::Interface>::IID
+        iid == &<IIndexableConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30209,7 +30209,7 @@ impl IIterableConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIterableConcept as ::windows::core::Interface>::IID
+        iid == &<IIterableConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30233,7 +30233,7 @@ impl IJsDebug_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OpenVirtualProcess: OpenVirtualProcess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebug as ::windows::core::Interface>::IID
+        iid == &<IJsDebug as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -30291,7 +30291,7 @@ impl IJsDebugBreakPoint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugBreakPoint as ::windows::core::Interface>::IID
+        iid == &<IJsDebugBreakPoint as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30398,7 +30398,7 @@ impl IJsDebugDataTarget_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugDataTarget as ::windows::core::Interface>::IID
+        iid == &<IJsDebugDataTarget as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30479,7 +30479,7 @@ impl IJsDebugFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugFrame as ::windows::core::Interface>::IID
+        iid == &<IJsDebugFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -30542,7 +30542,7 @@ impl IJsDebugProcess_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugProcess as ::windows::core::Interface>::IID
+        iid == &<IJsDebugProcess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30576,7 +30576,7 @@ impl IJsDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugProperty as ::windows::core::Interface>::IID
+        iid == &<IJsDebugProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30600,7 +30600,7 @@ impl IJsDebugStackWalker_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNext: GetNext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsDebugStackWalker as ::windows::core::Interface>::IID
+        iid == &<IJsDebugStackWalker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30634,7 +30634,7 @@ impl IJsEnumDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IJsEnumDebugProperty as ::windows::core::Interface>::IID
+        iid == &<IJsEnumDebugProperty as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30662,7 +30662,7 @@ impl IKeyEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKeyEnumerator as ::windows::core::Interface>::IID
+        iid == &<IKeyEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30711,7 +30711,7 @@ impl IKeyStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IKeyStore as ::windows::core::Interface>::IID
+        iid == &<IKeyStore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30758,7 +30758,7 @@ impl IMachineDebugManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMachineDebugManager as ::windows::core::Interface>::IID
+        iid == &<IMachineDebugManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30805,7 +30805,7 @@ impl IMachineDebugManagerCookie_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMachineDebugManagerCookie as ::windows::core::Interface>::IID
+        iid == &<IMachineDebugManagerCookie as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30833,7 +30833,7 @@ impl IMachineDebugManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMachineDebugManagerEvents as ::windows::core::Interface>::IID
+        iid == &<IMachineDebugManagerEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30861,7 +30861,7 @@ impl IModelIterator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelIterator as ::windows::core::Interface>::IID
+        iid == &<IModelIterator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30942,7 +30942,7 @@ impl IModelKeyReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelKeyReference as ::windows::core::Interface>::IID
+        iid == &<IModelKeyReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30960,7 +30960,7 @@ impl IModelKeyReference2_Vtbl {
         Self { base__: IModelKeyReference_Vtbl::new::<Identity, Impl, OFFSET>(), OverrideContextObject: OverrideContextObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelKeyReference2 as ::windows::core::Interface>::IID || iid == &<IModelKeyReference as ::windows::core::Interface>::IID
+        iid == &<IModelKeyReference2 as ::windows::core::ComInterface>::IID || iid == &<IModelKeyReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -30978,7 +30978,7 @@ impl IModelMethod_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Call: Call::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelMethod as ::windows::core::Interface>::IID
+        iid == &<IModelMethod as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31334,7 +31334,7 @@ impl IModelObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelObject as ::windows::core::Interface>::IID
+        iid == &<IModelObject as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31368,7 +31368,7 @@ impl IModelPropertyAccessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IModelPropertyAccessor as ::windows::core::Interface>::IID
+        iid == &<IModelPropertyAccessor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31396,7 +31396,7 @@ impl IObjectSafety_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IObjectSafety as ::windows::core::Interface>::IID
+        iid == &<IObjectSafety as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -31453,7 +31453,7 @@ impl IPerPropertyBrowsing2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPerPropertyBrowsing2 as ::windows::core::Interface>::IID
+        iid == &<IPerPropertyBrowsing2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31480,7 +31480,7 @@ impl IPreferredRuntimeTypeConcept_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPreferredRuntimeTypeConcept as ::windows::core::Interface>::IID
+        iid == &<IPreferredRuntimeTypeConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31553,7 +31553,7 @@ impl IProcessDebugManager32_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProcessDebugManager32 as ::windows::core::Interface>::IID
+        iid == &<IProcessDebugManager32 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31626,7 +31626,7 @@ impl IProcessDebugManager64_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProcessDebugManager64 as ::windows::core::Interface>::IID
+        iid == &<IProcessDebugManager64 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31650,7 +31650,7 @@ impl IProvideExpressionContexts_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumExpressionContexts: EnumExpressionContexts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IProvideExpressionContexts as ::windows::core::Interface>::IID
+        iid == &<IProvideExpressionContexts as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31678,7 +31678,7 @@ impl IRawEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRawEnumerator as ::windows::core::Interface>::IID
+        iid == &<IRawEnumerator as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31805,7 +31805,7 @@ impl IRemoteDebugApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugApplication as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugApplication as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31852,7 +31852,7 @@ impl IRemoteDebugApplication110_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugApplication110 as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugApplication110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -31936,7 +31936,7 @@ impl IRemoteDebugApplicationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugApplicationEvents as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugApplicationEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -32055,7 +32055,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugApplicationThread as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugApplicationThread as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -32073,7 +32073,7 @@ impl IRemoteDebugCriticalErrorEvent110_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugCriticalErrorEvent110 as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugCriticalErrorEvent110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -32091,7 +32091,7 @@ impl IRemoteDebugInfoEvent110_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEventInfo: GetEventInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRemoteDebugInfoEvent110 as ::windows::core::Interface>::IID
+        iid == &<IRemoteDebugInfoEvent110 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -32209,7 +32209,7 @@ impl IScriptEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScriptEntry as ::windows::core::Interface>::IID || iid == &<IScriptNode as ::windows::core::Interface>::IID
+        iid == &<IScriptEntry as ::windows::core::ComInterface>::IID || iid == &<IScriptNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -32262,7 +32262,7 @@ impl IScriptInvocationContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScriptInvocationContext as ::windows::core::Interface>::IID
+        iid == &<IScriptInvocationContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -32397,7 +32397,7 @@ impl IScriptNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScriptNode as ::windows::core::Interface>::IID
+        iid == &<IScriptNode as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -32474,7 +32474,7 @@ impl IScriptScriptlet_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IScriptScriptlet as ::windows::core::Interface>::IID || iid == &<IScriptNode as ::windows::core::Interface>::IID || iid == &<IScriptEntry as ::windows::core::Interface>::IID
+        iid == &<IScriptScriptlet as ::windows::core::ComInterface>::IID || iid == &<IScriptNode as ::windows::core::ComInterface>::IID || iid == &<IScriptEntry as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -32531,7 +32531,7 @@ impl ISimpleConnectionPoint_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISimpleConnectionPoint as ::windows::core::Interface>::IID
+        iid == &<ISimpleConnectionPoint as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
@@ -32555,7 +32555,7 @@ impl IStringDisplayableConcept_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ToDisplayString: ToDisplayString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStringDisplayableConcept as ::windows::core::Interface>::IID
+        iid == &<IStringDisplayableConcept as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -32576,7 +32576,7 @@ impl ITridentEventSink_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITridentEventSink as ::windows::core::Interface>::IID
+        iid == &<ITridentEventSink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -32597,7 +32597,7 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAppDiagnosticsObjectInitialization as ::windows::core::Interface>::IID
+        iid == &<IWebAppDiagnosticsObjectInitialization as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -32634,6 +32634,6 @@ impl IWebAppDiagnosticsSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAppDiagnosticsSetup as ::windows::core::Interface>::IID
+        iid == &<IWebAppDiagnosticsSetup as ::windows::core::ComInterface>::IID
     }
 }

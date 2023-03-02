@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICharacterGrouping(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICharacterGrouping {
+unsafe impl ::windows::core::Interface for ICharacterGrouping {
     type Vtable = ICharacterGrouping_Vtbl;
 }
 impl ::core::clone::Clone for ICharacterGrouping {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for ICharacterGrouping {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICharacterGrouping {
+unsafe impl ::windows::core::ComInterface for ICharacterGrouping {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
 #[repr(C)]
@@ -22,7 +22,7 @@ pub struct ICharacterGrouping_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICharacterGroupings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICharacterGroupings {
+unsafe impl ::windows::core::Interface for ICharacterGroupings {
     type Vtable = ICharacterGroupings_Vtbl;
 }
 impl ::core::clone::Clone for ICharacterGroupings {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for ICharacterGroupings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICharacterGroupings {
+unsafe impl ::windows::core::ComInterface for ICharacterGroupings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
 #[repr(C)]
@@ -42,7 +42,7 @@ pub struct ICharacterGroupings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICharacterGroupingsFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ICharacterGroupingsFactory {
+unsafe impl ::windows::core::Interface for ICharacterGroupingsFactory {
     type Vtable = ICharacterGroupingsFactory_Vtbl;
 }
 impl ::core::clone::Clone for ICharacterGroupingsFactory {
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for ICharacterGroupingsFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ICharacterGroupingsFactory {
+unsafe impl ::windows::core::ComInterface for ICharacterGroupingsFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
 }
 #[repr(C)]
@@ -67,14 +67,14 @@ impl CharacterGrouping {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -97,11 +97,11 @@ impl ::core::clone::Clone for CharacterGrouping {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for CharacterGrouping {
+unsafe impl ::windows::core::Interface for CharacterGrouping {
     type Vtable = ICharacterGrouping_Vtbl;
 }
-unsafe impl ::windows::core::Interface for CharacterGrouping {
-    const IID: ::windows::core::GUID = <ICharacterGrouping as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for CharacterGrouping {
+    const IID: ::windows::core::GUID = <ICharacterGrouping as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
@@ -124,58 +124,58 @@ impl CharacterGroupings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).Lookup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(language: &::windows::core::HSTRING) -> ::windows::core::Result<CharacterGroupings> {
         Self::ICharacterGroupingsFactory(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<CharacterGroupings>();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CharacterGrouping>> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CharacterGrouping>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IIterator<CharacterGrouping>>();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<CharacterGrouping> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<CharacterGrouping>();
-            (::windows::core::Vtable::vtable(this).GetAt)(::windows::core::Vtable::as_raw(this), index, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf(&self, value: &CharacterGrouping, index: &mut u32) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CharacterGrouping>]) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).GetMany)(::windows::core::Vtable::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -203,11 +203,11 @@ impl ::core::clone::Clone for CharacterGroupings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for CharacterGroupings {
+unsafe impl ::windows::core::Interface for CharacterGroupings {
     type Vtable = ICharacterGroupings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for CharacterGroupings {
-    const IID: ::windows::core::GUID = <ICharacterGroupings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for CharacterGroupings {
+    const IID: ::windows::core::GUID = <ICharacterGroupings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";
@@ -225,54 +225,14 @@ impl ::core::iter::IntoIterator for &CharacterGroupings {
     type Item = CharacterGrouping;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
+        super::super::Foundation::Collections::VectorViewIterator::new(::windows::core::ComInterface::cast(self).ok())
     }
 }
 ::windows::imp::interface_hierarchy!(CharacterGroupings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<CharacterGroupings> for super::super::Foundation::Collections::IIterable<CharacterGrouping> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CharacterGroupings) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::Collections::IIterable<CharacterGrouping>> for CharacterGroupings {}
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&CharacterGroupings> for super::super::Foundation::Collections::IIterable<CharacterGrouping> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<CharacterGrouping>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<CharacterGroupings> for super::super::Foundation::Collections::IVectorView<CharacterGrouping> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CharacterGroupings) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&CharacterGroupings> for super::super::Foundation::Collections::IVectorView<CharacterGrouping> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&CharacterGroupings> for ::windows::core::InParam<super::super::Foundation::Collections::IVectorView<CharacterGrouping>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CharacterGroupings) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::Collections::IVectorView<CharacterGrouping>> for CharacterGroupings {}
 unsafe impl ::core::marker::Send for CharacterGroupings {}
 unsafe impl ::core::marker::Sync for CharacterGroupings {}
 #[cfg(feature = "implement")]

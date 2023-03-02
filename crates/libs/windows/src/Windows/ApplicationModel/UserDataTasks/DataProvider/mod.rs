@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskDataProviderConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskDataProviderConnection {
+unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnection_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskDataProviderConnection {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IUserDataTaskDataProviderConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderConnection {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskDataProviderConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
 #[repr(C)]
@@ -61,7 +61,7 @@ pub struct IUserDataTaskDataProviderConnection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskDataProviderTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskDataProviderTriggerDetails {
+unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderTriggerDetails {
     type Vtable = IUserDataTaskDataProviderTriggerDetails_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskDataProviderTriggerDetails {
@@ -69,7 +69,7 @@ impl ::core::clone::Clone for IUserDataTaskDataProviderTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderTriggerDetails {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskDataProviderTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
 #[repr(C)]
@@ -81,7 +81,7 @@ pub struct IUserDataTaskDataProviderTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListCompleteTaskRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListCompleteTaskRequest {
+unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequest_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListCompleteTaskRequest {
@@ -89,7 +89,7 @@ impl ::core::clone::Clone for IUserDataTaskListCompleteTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequest {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListCompleteTaskRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
 }
 #[repr(C)]
@@ -110,7 +110,7 @@ pub struct IUserDataTaskListCompleteTaskRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListCompleteTaskRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListCompleteTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListCompleteTaskRequestEventArgs {
@@ -118,7 +118,7 @@ impl ::core::clone::Clone for IUserDataTaskListCompleteTaskRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListCompleteTaskRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
 #[repr(C)]
@@ -134,7 +134,7 @@ pub struct IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListCreateOrUpdateTaskRequest {
+unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListCreateOrUpdateTaskRequest {
@@ -142,7 +142,7 @@ impl ::core::clone::Clone for IUserDataTaskListCreateOrUpdateTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListCreateOrUpdateTaskRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
 }
 #[repr(C)]
@@ -163,7 +163,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -171,7 +171,7 @@ impl ::core::clone::Clone for IUserDataTaskListCreateOrUpdateTaskRequestEventArg
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
 #[repr(C)]
@@ -187,7 +187,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListDeleteTaskRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListDeleteTaskRequest {
+unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequest_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListDeleteTaskRequest {
@@ -195,7 +195,7 @@ impl ::core::clone::Clone for IUserDataTaskListDeleteTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequest {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListDeleteTaskRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
 }
 #[repr(C)]
@@ -216,7 +216,7 @@ pub struct IUserDataTaskListDeleteTaskRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListDeleteTaskRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListDeleteTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListDeleteTaskRequestEventArgs {
@@ -224,7 +224,7 @@ impl ::core::clone::Clone for IUserDataTaskListDeleteTaskRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListDeleteTaskRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
 #[repr(C)]
@@ -240,7 +240,7 @@ pub struct IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListSkipOccurrenceRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListSkipOccurrenceRequest {
+unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequest_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListSkipOccurrenceRequest {
@@ -248,7 +248,7 @@ impl ::core::clone::Clone for IUserDataTaskListSkipOccurrenceRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequest {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListSkipOccurrenceRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
 }
 #[repr(C)]
@@ -269,7 +269,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListSkipOccurrenceRequestEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -277,7 +277,7 @@ impl ::core::clone::Clone for IUserDataTaskListSkipOccurrenceRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
 #[repr(C)]
@@ -293,7 +293,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListSyncManagerSyncRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListSyncManagerSyncRequest {
+unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequest_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListSyncManagerSyncRequest {
@@ -301,7 +301,7 @@ impl ::core::clone::Clone for IUserDataTaskListSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequest {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListSyncManagerSyncRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
 }
 #[repr(C)]
@@ -321,7 +321,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserDataTaskListSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListSyncManagerSyncRequestEventArgs {
@@ -329,7 +329,7 @@ impl ::core::clone::Clone for IUserDataTaskListSyncManagerSyncRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::ComInterface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
 }
 #[repr(C)]
@@ -352,14 +352,14 @@ impl UserDataTaskDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CreateOrUpdateTaskRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CreateOrUpdateTaskRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateOrUpdateTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCreateOrUpdateTaskRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCreateOrUpdateTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -367,14 +367,14 @@ impl UserDataTaskDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SyncRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SyncRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSyncRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSyncRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -382,14 +382,14 @@ impl UserDataTaskDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).SkipOccurrenceRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SkipOccurrenceRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSkipOccurrenceRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSkipOccurrenceRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSkipOccurrenceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -397,14 +397,14 @@ impl UserDataTaskDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).CompleteTaskRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CompleteTaskRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleteTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveCompleteTaskRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleteTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -412,18 +412,18 @@ impl UserDataTaskDataProviderConnection {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).DeleteTaskRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).DeleteTaskRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeleteTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveDeleteTaskRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDeleteTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTaskDataProviderConnection {
@@ -445,11 +445,11 @@ impl ::core::clone::Clone for UserDataTaskDataProviderConnection {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskDataProviderConnection {
+unsafe impl ::windows::core::Interface for UserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskDataProviderConnection {
-    const IID: ::windows::core::GUID = <IUserDataTaskDataProviderConnection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskDataProviderConnection {
+    const IID: ::windows::core::GUID = <IUserDataTaskDataProviderConnection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
@@ -465,7 +465,7 @@ impl UserDataTaskDataProviderTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskDataProviderConnection>();
-            (::windows::core::Vtable::vtable(this).Connection)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -488,11 +488,11 @@ impl ::core::clone::Clone for UserDataTaskDataProviderTriggerDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskDataProviderTriggerDetails {
+unsafe impl ::windows::core::Interface for UserDataTaskDataProviderTriggerDetails {
     type Vtable = IUserDataTaskDataProviderTriggerDetails_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskDataProviderTriggerDetails {
-    const IID: ::windows::core::GUID = <IUserDataTaskDataProviderTriggerDetails as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskDataProviderTriggerDetails {
+    const IID: ::windows::core::GUID = <IUserDataTaskDataProviderTriggerDetails as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
@@ -508,14 +508,14 @@ impl UserDataTaskListCompleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskListId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -524,7 +524,7 @@ impl UserDataTaskListCompleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(completedtaskid), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(completedtaskid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -533,7 +533,7 @@ impl UserDataTaskListCompleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -556,11 +556,11 @@ impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListCompleteTaskRequest {
+unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequest {
-    const IID: ::windows::core::GUID = <IUserDataTaskListCompleteTaskRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListCompleteTaskRequest {
+    const IID: ::windows::core::GUID = <IUserDataTaskListCompleteTaskRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
@@ -576,7 +576,7 @@ impl UserDataTaskListCompleteTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskListCompleteTaskRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -585,7 +585,7 @@ impl UserDataTaskListCompleteTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -608,11 +608,11 @@ impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListCompleteTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequestEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataTaskListCompleteTaskRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListCompleteTaskRequestEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataTaskListCompleteTaskRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
@@ -628,14 +628,14 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskListId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Task(&self) -> ::windows::core::Result<super::UserDataTask> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::UserDataTask>();
-            (::windows::core::Vtable::vtable(this).Task)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Task)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -644,7 +644,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(createdorupdateduserdatatask), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(createdorupdateduserdatatask), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -653,7 +653,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -676,11 +676,11 @@ impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListCreateOrUpdateTaskRequest {
+unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequest {
-    const IID: ::windows::core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListCreateOrUpdateTaskRequest {
+    const IID: ::windows::core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
@@ -696,7 +696,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskListCreateOrUpdateTaskRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -705,7 +705,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -728,11 +728,11 @@ impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequestEventArgs
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
@@ -748,14 +748,14 @@ impl UserDataTaskListDeleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskListId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -764,7 +764,7 @@ impl UserDataTaskListDeleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -773,7 +773,7 @@ impl UserDataTaskListDeleteTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -796,11 +796,11 @@ impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListDeleteTaskRequest {
+unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequest {
-    const IID: ::windows::core::GUID = <IUserDataTaskListDeleteTaskRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListDeleteTaskRequest {
+    const IID: ::windows::core::GUID = <IUserDataTaskListDeleteTaskRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
@@ -816,7 +816,7 @@ impl UserDataTaskListDeleteTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskListDeleteTaskRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -825,7 +825,7 @@ impl UserDataTaskListDeleteTaskRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -848,11 +848,11 @@ impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListDeleteTaskRequestEventArgs {
+unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequestEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataTaskListDeleteTaskRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListDeleteTaskRequestEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataTaskListDeleteTaskRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
@@ -868,14 +868,14 @@ impl UserDataTaskListSkipOccurrenceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskListId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -884,7 +884,7 @@ impl UserDataTaskListSkipOccurrenceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -893,7 +893,7 @@ impl UserDataTaskListSkipOccurrenceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -916,11 +916,11 @@ impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListSkipOccurrenceRequest {
+unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest {
-    const IID: ::windows::core::GUID = <IUserDataTaskListSkipOccurrenceRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListSkipOccurrenceRequest {
+    const IID: ::windows::core::GUID = <IUserDataTaskListSkipOccurrenceRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
@@ -936,7 +936,7 @@ impl UserDataTaskListSkipOccurrenceRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskListSkipOccurrenceRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -945,7 +945,7 @@ impl UserDataTaskListSkipOccurrenceRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -968,11 +968,11 @@ impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListSkipOccurrenceRequestEventArgs {
+unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataTaskListSkipOccurrenceRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListSkipOccurrenceRequestEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataTaskListSkipOccurrenceRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
@@ -988,7 +988,7 @@ impl UserDataTaskListSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).TaskListId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -997,7 +997,7 @@ impl UserDataTaskListSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportCompletedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1006,7 +1006,7 @@ impl UserDataTaskListSyncManagerSyncRequest {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).ReportFailedAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1029,11 +1029,11 @@ impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListSyncManagerSyncRequest {
+unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequest_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequest {
-    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManagerSyncRequest as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListSyncManagerSyncRequest {
+    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManagerSyncRequest as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
@@ -1049,7 +1049,7 @@ impl UserDataTaskListSyncManagerSyncRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<UserDataTaskListSyncManagerSyncRequest>();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1058,7 +1058,7 @@ impl UserDataTaskListSyncManagerSyncRequestEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1081,11 +1081,11 @@ impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequestEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserDataTaskListSyncManagerSyncRequestEventArgs {
+unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserDataTaskListSyncManagerSyncRequestEventArgs {
+    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManagerSyncRequestEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";

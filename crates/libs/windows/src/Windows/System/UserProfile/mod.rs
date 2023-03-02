@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdvertisingManagerForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdvertisingManagerForUser {
+unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
 }
 impl ::core::clone::Clone for IAdvertisingManagerForUser {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IAdvertisingManagerForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
+unsafe impl ::windows::core::ComInterface for IAdvertisingManagerForUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
 #[repr(C)]
@@ -22,7 +22,7 @@ pub struct IAdvertisingManagerForUser_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdvertisingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdvertisingManagerStatics {
+unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
     type Vtable = IAdvertisingManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAdvertisingManagerStatics {
@@ -30,7 +30,7 @@ impl ::core::clone::Clone for IAdvertisingManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
+unsafe impl ::windows::core::ComInterface for IAdvertisingManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
 }
 #[repr(C)]
@@ -42,7 +42,7 @@ pub struct IAdvertisingManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdvertisingManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAdvertisingManagerStatics2 {
+unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
     type Vtable = IAdvertisingManagerStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IAdvertisingManagerStatics2 {
@@ -50,7 +50,7 @@ impl ::core::clone::Clone for IAdvertisingManagerStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
+unsafe impl ::windows::core::ComInterface for IAdvertisingManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
 }
 #[repr(C)]
@@ -62,7 +62,7 @@ pub struct IAdvertisingManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAssignedAccessSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAssignedAccessSettings {
+unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
 }
 impl ::core::clone::Clone for IAssignedAccessSettings {
@@ -70,7 +70,7 @@ impl ::core::clone::Clone for IAssignedAccessSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
+unsafe impl ::windows::core::ComInterface for IAssignedAccessSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 }
 #[repr(C)]
@@ -84,7 +84,7 @@ pub struct IAssignedAccessSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAssignedAccessSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IAssignedAccessSettingsStatics {
+unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
     type Vtable = IAssignedAccessSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAssignedAccessSettingsStatics {
@@ -92,7 +92,7 @@ impl ::core::clone::Clone for IAssignedAccessSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IAssignedAccessSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
 }
 #[repr(C)]
@@ -105,7 +105,7 @@ pub struct IAssignedAccessSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiagnosticsSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDiagnosticsSettings {
+unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
 }
 impl ::core::clone::Clone for IDiagnosticsSettings {
@@ -113,7 +113,7 @@ impl ::core::clone::Clone for IDiagnosticsSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
+unsafe impl ::windows::core::ComInterface for IDiagnosticsSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
 }
 #[repr(C)]
@@ -126,7 +126,7 @@ pub struct IDiagnosticsSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiagnosticsSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IDiagnosticsSettingsStatics {
+unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
     type Vtable = IDiagnosticsSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IDiagnosticsSettingsStatics {
@@ -134,7 +134,7 @@ impl ::core::clone::Clone for IDiagnosticsSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IDiagnosticsSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
 }
 #[repr(C)]
@@ -147,7 +147,7 @@ pub struct IDiagnosticsSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFirstSignInSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFirstSignInSettings {
+unsafe impl ::windows::core::Interface for IFirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
 }
 impl ::core::clone::Clone for IFirstSignInSettings {
@@ -155,7 +155,7 @@ impl ::core::clone::Clone for IFirstSignInSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFirstSignInSettings {
+unsafe impl ::windows::core::ComInterface for IFirstSignInSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
 #[repr(C)]
@@ -166,7 +166,7 @@ pub struct IFirstSignInSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFirstSignInSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IFirstSignInSettingsStatics {
+unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
     type Vtable = IFirstSignInSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IFirstSignInSettingsStatics {
@@ -174,7 +174,7 @@ impl ::core::clone::Clone for IFirstSignInSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IFirstSignInSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
 }
 #[repr(C)]
@@ -186,7 +186,7 @@ pub struct IFirstSignInSettingsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGlobalizationPreferencesForUser {
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
 }
 impl ::core::clone::Clone for IGlobalizationPreferencesForUser {
@@ -194,7 +194,7 @@ impl ::core::clone::Clone for IGlobalizationPreferencesForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
+unsafe impl ::windows::core::ComInterface for IGlobalizationPreferencesForUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 }
 #[repr(C)]
@@ -227,7 +227,7 @@ pub struct IGlobalizationPreferencesForUser_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGlobalizationPreferencesStatics {
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
     type Vtable = IGlobalizationPreferencesStatics_Vtbl;
 }
 impl ::core::clone::Clone for IGlobalizationPreferencesStatics {
@@ -235,7 +235,7 @@ impl ::core::clone::Clone for IGlobalizationPreferencesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
+unsafe impl ::windows::core::ComInterface for IGlobalizationPreferencesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
 }
 #[repr(C)]
@@ -267,7 +267,7 @@ pub struct IGlobalizationPreferencesStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGlobalizationPreferencesStatics2 {
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
     type Vtable = IGlobalizationPreferencesStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IGlobalizationPreferencesStatics2 {
@@ -275,7 +275,7 @@ impl ::core::clone::Clone for IGlobalizationPreferencesStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
+unsafe impl ::windows::core::ComInterface for IGlobalizationPreferencesStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
 }
 #[repr(C)]
@@ -291,7 +291,7 @@ pub struct IGlobalizationPreferencesStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGlobalizationPreferencesStatics3 {
+unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
     type Vtable = IGlobalizationPreferencesStatics3_Vtbl;
 }
 impl ::core::clone::Clone for IGlobalizationPreferencesStatics3 {
@@ -299,7 +299,7 @@ impl ::core::clone::Clone for IGlobalizationPreferencesStatics3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
+unsafe impl ::windows::core::ComInterface for IGlobalizationPreferencesStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 }
 #[repr(C)]
@@ -311,7 +311,7 @@ pub struct IGlobalizationPreferencesStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenImageFeedStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILockScreenImageFeedStatics {
+unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
     type Vtable = ILockScreenImageFeedStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILockScreenImageFeedStatics {
@@ -319,7 +319,7 @@ impl ::core::clone::Clone for ILockScreenImageFeedStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
+unsafe impl ::windows::core::ComInterface for ILockScreenImageFeedStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
 }
 #[repr(C)]
@@ -335,7 +335,7 @@ pub struct ILockScreenImageFeedStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ILockScreenStatics {
+unsafe impl ::windows::core::Interface for ILockScreenStatics {
     type Vtable = ILockScreenStatics_Vtbl;
 }
 impl ::core::clone::Clone for ILockScreenStatics {
@@ -343,7 +343,7 @@ impl ::core::clone::Clone for ILockScreenStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ILockScreenStatics {
+unsafe impl ::windows::core::ComInterface for ILockScreenStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
 }
 #[repr(C)]
@@ -372,7 +372,7 @@ pub struct ILockScreenStatics_Vtbl {
 #[repr(transparent)]
 pub struct IUserInformationStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IUserInformationStatics {
+unsafe impl ::windows::core::Interface for IUserInformationStatics {
     type Vtable = IUserInformationStatics_Vtbl;
 }
 #[cfg(feature = "deprecated")]
@@ -382,7 +382,7 @@ impl ::core::clone::Clone for IUserInformationStatics {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IUserInformationStatics {
+unsafe impl ::windows::core::ComInterface for IUserInformationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
 }
 #[cfg(feature = "deprecated")]
@@ -454,7 +454,7 @@ pub struct IUserInformationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserProfilePersonalizationSettings {
+unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;
 }
 impl ::core::clone::Clone for IUserProfilePersonalizationSettings {
@@ -462,7 +462,7 @@ impl ::core::clone::Clone for IUserProfilePersonalizationSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
+unsafe impl ::windows::core::ComInterface for IUserProfilePersonalizationSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
 #[repr(C)]
@@ -481,7 +481,7 @@ pub struct IUserProfilePersonalizationSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IUserProfilePersonalizationSettingsStatics {
+unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
     type Vtable = IUserProfilePersonalizationSettingsStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserProfilePersonalizationSettingsStatics {
@@ -489,7 +489,7 @@ impl ::core::clone::Clone for IUserProfilePersonalizationSettingsStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
+unsafe impl ::windows::core::ComInterface for IUserProfilePersonalizationSettingsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
 }
 #[repr(C)]
@@ -505,13 +505,13 @@ impl AdvertisingManager {
     pub fn AdvertisingId() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAdvertisingManagerStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AdvertisingId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AdvertisingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows::core::Result<AdvertisingManagerForUser> {
         Self::IAdvertisingManagerStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AdvertisingManagerForUser>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -536,14 +536,14 @@ impl AdvertisingManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).AdvertisingId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AdvertisingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -566,11 +566,11 @@ impl ::core::clone::Clone for AdvertisingManagerForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AdvertisingManagerForUser {
+unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
-    const IID: ::windows::core::GUID = <IAdvertisingManagerForUser as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AdvertisingManagerForUser {
+    const IID: ::windows::core::GUID = <IAdvertisingManagerForUser as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
@@ -586,33 +586,33 @@ impl AssignedAccessSettings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSingleAppKioskMode(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSingleAppKioskMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSingleAppKioskMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AssignedAccessSettings>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows::core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<AssignedAccessSettings>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -640,11 +640,11 @@ impl ::core::clone::Clone for AssignedAccessSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for AssignedAccessSettings {
+unsafe impl ::windows::core::Interface for AssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for AssignedAccessSettings {
-    const IID: ::windows::core::GUID = <IAssignedAccessSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for AssignedAccessSettings {
+    const IID: ::windows::core::GUID = <IAssignedAccessSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
@@ -660,26 +660,26 @@ impl DiagnosticsSettings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).CanUseDiagnosticsToTailorExperiences)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CanUseDiagnosticsToTailorExperiences)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DiagnosticsSettings>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows::core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<DiagnosticsSettings>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -707,11 +707,11 @@ impl ::core::clone::Clone for DiagnosticsSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for DiagnosticsSettings {
+unsafe impl ::windows::core::Interface for DiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for DiagnosticsSettings {
-    const IID: ::windows::core::GUID = <IDiagnosticsSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for DiagnosticsSettings {
+    const IID: ::windows::core::GUID = <IDiagnosticsSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
@@ -726,50 +726,50 @@ impl FirstSignInSettings {
     pub fn GetDefault() -> ::windows::core::Result<FirstSignInSettings> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<FirstSignInSettings>();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
-            (::windows::core::Vtable::vtable(this).Lookup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).HasKey)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, second: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Split)(::windows::core::Vtable::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Split)(::windows::core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     #[doc(hidden)]
     pub fn IFirstSignInSettingsStatics<R, F: FnOnce(&IFirstSignInSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -796,11 +796,11 @@ impl ::core::clone::Clone for FirstSignInSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for FirstSignInSettings {
+unsafe impl ::windows::core::Interface for FirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for FirstSignInSettings {
-    const IID: ::windows::core::GUID = <IFirstSignInSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for FirstSignInSettings {
+    const IID: ::windows::core::GUID = <IFirstSignInSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
@@ -823,49 +823,9 @@ impl ::core::iter::IntoIterator for &FirstSignInSettings {
 }
 ::windows::imp::interface_hierarchy!(FirstSignInSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<FirstSignInSettings> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FirstSignInSettings) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for FirstSignInSettings {}
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<FirstSignInSettings> for super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FirstSignInSettings) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::Owned(item))
-    }
-}
+impl ::windows::core::CanTryInto<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for FirstSignInSettings {}
 unsafe impl ::core::marker::Send for FirstSignInSettings {}
 unsafe impl ::core::marker::Sync for FirstSignInSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -876,7 +836,7 @@ impl GlobalizationPreferences {
     pub fn Calendars() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Calendars)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Calendars)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -884,7 +844,7 @@ impl GlobalizationPreferences {
     pub fn Clocks() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Clocks)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Clocks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -892,7 +852,7 @@ impl GlobalizationPreferences {
     pub fn Currencies() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Currencies)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Currencies)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -900,13 +860,13 @@ impl GlobalizationPreferences {
     pub fn Languages() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Languages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Languages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HomeGeographicRegion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HomeGeographicRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HomeGeographicRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -914,31 +874,30 @@ impl GlobalizationPreferences {
     pub fn WeekStartsOn() -> ::windows::core::Result<super::super::Globalization::DayOfWeek> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Globalization::DayOfWeek>();
-            (::windows::core::Vtable::vtable(this).WeekStartsOn)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WeekStartsOn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn TrySetHomeGeographicRegion(region: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TrySetHomeGeographicRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(region), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetHomeGeographicRegion)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(region), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TrySetLanguages<P0, E0>(languagetags: P0) -> ::windows::core::Result<bool>
+    pub fn TrySetLanguages<P0>(languagetags: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>,
     {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TrySetLanguages)(::windows::core::Vtable::as_raw(this), languagetags.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetLanguages)(::windows::core::Interface::as_raw(this), languagetags.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows::core::Result<GlobalizationPreferencesForUser> {
         Self::IGlobalizationPreferencesStatics3(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<GlobalizationPreferencesForUser>();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -968,7 +927,7 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::User>();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -977,7 +936,7 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Calendars)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Calendars)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -986,7 +945,7 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Clocks)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Clocks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -995,7 +954,7 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Currencies)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Currencies)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1004,14 +963,14 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).Languages)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Languages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HomeGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Vtable::vtable(this).HomeGeographicRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).HomeGeographicRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -1020,7 +979,7 @@ impl GlobalizationPreferencesForUser {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Globalization::DayOfWeek>();
-            (::windows::core::Vtable::vtable(this).WeekStartsOn)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).WeekStartsOn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1043,11 +1002,11 @@ impl ::core::clone::Clone for GlobalizationPreferencesForUser {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GlobalizationPreferencesForUser {
+unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
-    const IID: ::windows::core::GUID = <IGlobalizationPreferencesForUser as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GlobalizationPreferencesForUser {
+    const IID: ::windows::core::GUID = <IGlobalizationPreferencesForUser as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
@@ -1063,13 +1022,13 @@ impl LockScreen {
     pub fn RequestSetImageFeedAsync(syndicationfeeduri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>();
-            (::windows::core::Vtable::vtable(this).RequestSetImageFeedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(syndicationfeeduri), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).RequestSetImageFeedAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(syndicationfeeduri), &mut result__).from_abi(result__)
         })
     }
     pub fn TryRemoveImageFeed() -> ::windows::core::Result<bool> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).TryRemoveImageFeed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TryRemoveImageFeed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1077,7 +1036,7 @@ impl LockScreen {
     pub fn OriginalImageFile() -> ::windows::core::Result<super::super::Foundation::Uri> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Uri>();
-            (::windows::core::Vtable::vtable(this).OriginalImageFile)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).OriginalImageFile)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1085,31 +1044,29 @@ impl LockScreen {
     pub fn GetImageStream() -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStream>();
-            (::windows::core::Vtable::vtable(this).GetImageStream)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetImageStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SetImageFileAsync<P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageFileAsync<P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SetImageFileAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetImageFileAsync)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetImageStreamAsync<P0, E0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetImageStreamAsync<P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Vtable::vtable(this).SetImageStreamAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetImageStreamAsync)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1136,7 +1093,7 @@ impl UserInformation {
     pub fn AccountPictureChangeEnabled() -> ::windows::core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).AccountPictureChangeEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AccountPictureChangeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1144,7 +1101,7 @@ impl UserInformation {
     pub fn NameAccessAllowed() -> ::windows::core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).NameAccessAllowed)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).NameAccessAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
@@ -1152,63 +1109,55 @@ impl UserInformation {
     pub fn GetAccountPicture(kind: AccountPictureKind) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Storage::IStorageFile>();
-            (::windows::core::Vtable::vtable(this).GetAccountPicture)(::windows::core::Vtable::as_raw(this), kind, &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetAccountPicture)(::windows::core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPictureAsync<P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureAsync<P0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
-            (::windows::core::Vtable::vtable(this).SetAccountPictureAsync)(::windows::core::Vtable::as_raw(this), image.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPictureAsync)(::windows::core::Interface::as_raw(this), image.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPicturesAsync<P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::IStorageFile>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P1: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P2: ::windows::core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
-            (::windows::core::Vtable::vtable(this).SetAccountPicturesAsync)(::windows::core::Vtable::as_raw(this), smallimage.try_into().map_err(|e| e.into())?.abi(), largeimage.try_into().map_err(|e| e.into())?.abi(), video.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPicturesAsync)(::windows::core::Interface::as_raw(this), smallimage.try_into_param()?.abi(), largeimage.try_into_param()?.abi(), video.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPictureFromStreamAsync<P0, E0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPictureFromStreamAsync<P0>(image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
-            (::windows::core::Vtable::vtable(this).SetAccountPictureFromStreamAsync)(::windows::core::Vtable::as_raw(this), image.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(::windows::core::Interface::as_raw(this), image.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPicturesFromStreamsAsync<P0, E0, P1, E1, P2, E2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
+    pub fn SetAccountPicturesFromStreamsAsync<P0, P1, P2>(smallimage: P0, largeimage: P1, video: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P2: ::windows::core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
-            (::windows::core::Vtable::vtable(this).SetAccountPicturesFromStreamsAsync)(::windows::core::Vtable::as_raw(this), smallimage.try_into().map_err(|e| e.into())?.abi(), largeimage.try_into().map_err(|e| e.into())?.abi(), video.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(::windows::core::Interface::as_raw(this), smallimage.try_into_param()?.abi(), largeimage.try_into_param()?.abi(), video.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1216,20 +1165,20 @@ impl UserInformation {
     pub fn AccountPictureChanged(changehandler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).AccountPictureChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).AccountPictureChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAccountPictureChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IUserInformationStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveAccountPictureChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+        Self::IUserInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetDisplayNameAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetDisplayNameAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDisplayNameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1237,7 +1186,7 @@ impl UserInformation {
     pub fn GetFirstNameAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetFirstNameAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetFirstNameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1245,7 +1194,7 @@ impl UserInformation {
     pub fn GetLastNameAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetLastNameAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetLastNameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1253,7 +1202,7 @@ impl UserInformation {
     pub fn GetPrincipalNameAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetPrincipalNameAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetPrincipalNameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1261,7 +1210,7 @@ impl UserInformation {
     pub fn GetSessionInitiationProtocolUriAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>();
-            (::windows::core::Vtable::vtable(this).GetSessionInitiationProtocolUriAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1269,7 +1218,7 @@ impl UserInformation {
     pub fn GetDomainNameAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Vtable::vtable(this).GetDomainNameAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).GetDomainNameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1293,7 +1242,7 @@ impl UserProfilePersonalizationSettings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1302,19 +1251,19 @@ impl UserProfilePersonalizationSettings {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Vtable::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
         }
     }
     pub fn Current() -> ::windows::core::Result<UserProfilePersonalizationSettings> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<UserProfilePersonalizationSettings>();
-            (::windows::core::Vtable::vtable(this).Current)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1342,11 +1291,11 @@ impl ::core::clone::Clone for UserProfilePersonalizationSettings {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for UserProfilePersonalizationSettings {
+unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
-    const IID: ::windows::core::GUID = <IUserProfilePersonalizationSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for UserProfilePersonalizationSettings {
+    const IID: ::windows::core::GUID = <IUserProfilePersonalizationSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";

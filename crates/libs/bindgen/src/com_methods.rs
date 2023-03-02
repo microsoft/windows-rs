@@ -36,14 +36,14 @@ pub fn gen(
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
                     let mut result__ = ::std::ptr::null_mut();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -52,13 +52,13 @@ pub fn gen(
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -73,7 +73,7 @@ pub fn gen(
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
                     let mut result__ = ::windows::core::zeroed::<#return_type>();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -85,7 +85,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -102,7 +102,7 @@ pub fn gen(
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
                         let mut result__ = ::windows::core::zeroed::<#return_type>();
-                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
+                        (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args);
                         ::windows::core::from_abi(result__)
                     }
                 }
@@ -112,7 +112,7 @@ pub fn gen(
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                         let mut result__ = ::windows::core::zeroed::<#return_type>();
-                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
+                        (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args);
                         ::std::mem::transmute(result__)
                     }
                 }
@@ -128,7 +128,7 @@ pub fn gen(
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = ::core::mem::zeroed();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), &mut result__, #args);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }
             }
@@ -142,7 +142,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }
@@ -154,7 +154,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }

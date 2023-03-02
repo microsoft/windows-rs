@@ -8,7 +8,7 @@ impl ICompositionInteractionSource_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICompositionInteractionSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICompositionInteractionSource as ::windows::core::Interface>::IID
+        iid == &<ICompositionInteractionSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"implement\"`*"]
@@ -66,6 +66,6 @@ impl IInteractionTrackerOwner_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInteractionTrackerOwner as ::windows::core::Interface>::IID
+        iid == &<IInteractionTrackerOwner as ::windows::core::ComInterface>::IID
     }
 }

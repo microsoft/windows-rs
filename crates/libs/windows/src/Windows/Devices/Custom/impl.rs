@@ -81,6 +81,6 @@ impl IIOControlCode_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIOControlCode as ::windows::core::Interface>::IID
+        iid == &<IIOControlCode as ::windows::core::ComInterface>::IID
     }
 }

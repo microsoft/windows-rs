@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IScreenReaderPositionChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IScreenReaderPositionChangedEventArgs {
+unsafe impl ::windows::core::Interface for IScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IScreenReaderPositionChangedEventArgs {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for IScreenReaderPositionChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IScreenReaderPositionChangedEventArgs {
+unsafe impl ::windows::core::ComInterface for IScreenReaderPositionChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
 #[repr(C)]
@@ -25,7 +25,7 @@ pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IScreenReaderService(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IScreenReaderService {
+unsafe impl ::windows::core::Interface for IScreenReaderService {
     type Vtable = IScreenReaderService_Vtbl;
 }
 impl ::core::clone::Clone for IScreenReaderService {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for IScreenReaderService {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for IScreenReaderService {
+unsafe impl ::windows::core::ComInterface for IScreenReaderService {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
 }
 #[repr(C)]
@@ -60,14 +60,14 @@ impl ScreenReaderPositionChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
-            (::windows::core::Vtable::vtable(this).ScreenPositionInRawPixels)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScreenPositionInRawPixels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadingText(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Vtable::vtable(this).IsReadingText)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).IsReadingText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -90,11 +90,11 @@ impl ::core::clone::Clone for ScreenReaderPositionChangedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ScreenReaderPositionChangedEventArgs {
+unsafe impl ::windows::core::Interface for ScreenReaderPositionChangedEventArgs {
     type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ScreenReaderPositionChangedEventArgs {
-    const IID: ::windows::core::GUID = <IScreenReaderPositionChangedEventArgs as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ScreenReaderPositionChangedEventArgs {
+    const IID: ::windows::core::GUID = <IScreenReaderPositionChangedEventArgs as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
@@ -117,7 +117,7 @@ impl ScreenReaderService {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<ScreenReaderPositionChangedEventArgs>();
-            (::windows::core::Vtable::vtable(this).CurrentScreenReaderPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).CurrentScreenReaderPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -126,14 +126,14 @@ impl ScreenReaderService {
         let this = self;
         unsafe {
             let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Vtable::vtable(this).ScreenReaderPositionChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows::core::Interface::vtable(this).ScreenReaderPositionChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenReaderPositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveScreenReaderPositionChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScreenReaderPositionChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ScreenReaderService {
@@ -155,11 +155,11 @@ impl ::core::clone::Clone for ScreenReaderService {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ScreenReaderService {
+unsafe impl ::windows::core::Interface for ScreenReaderService {
     type Vtable = IScreenReaderService_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ScreenReaderService {
-    const IID: ::windows::core::GUID = <IScreenReaderService as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ScreenReaderService {
+    const IID: ::windows::core::GUID = <IScreenReaderService as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";

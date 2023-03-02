@@ -13,7 +13,7 @@ impl IAudioFrameNative_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAudioFrameNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioFrameNative as ::windows::core::Interface>::IID
+        iid == &<IAudioFrameNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -37,7 +37,7 @@ impl IAudioFrameNativeFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioFrameNativeFactory as ::windows::core::Interface>::IID
+        iid == &<IAudioFrameNativeFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"implement\"`*"]
@@ -65,7 +65,7 @@ impl IVideoFrameNative_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoFrameNative as ::windows::core::Interface>::IID
+        iid == &<IVideoFrameNative as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
@@ -89,6 +89,6 @@ impl IVideoFrameNativeFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoFrameNativeFactory as ::windows::core::Interface>::IID
+        iid == &<IVideoFrameNativeFactory as ::windows::core::ComInterface>::IID
     }
 }

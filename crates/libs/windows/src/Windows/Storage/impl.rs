@@ -182,7 +182,7 @@ impl IStorageFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFile as ::windows::core::Interface>::IID
+        iid == &<IStorageFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -229,7 +229,7 @@ impl IStorageFile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFile2 as ::windows::core::Interface>::IID
+        iid == &<IStorageFile2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -259,7 +259,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::Interface>::IID
+        iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -418,7 +418,7 @@ impl IStorageFolder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolder as ::windows::core::Interface>::IID
+        iid == &<IStorageFolder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -451,7 +451,7 @@ impl IStorageFolder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolder2 as ::windows::core::Interface>::IID
+        iid == &<IStorageFolder2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -610,7 +610,7 @@ impl IStorageItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItem as ::windows::core::Interface>::IID
+        iid == &<IStorageItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -657,7 +657,7 @@ impl IStorageItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItem2 as ::windows::core::Interface>::IID
+        iid == &<IStorageItem2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -774,7 +774,7 @@ impl IStorageItemProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemProperties as ::windows::core::Interface>::IID
+        iid == &<IStorageItemProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -835,7 +835,7 @@ impl IStorageItemProperties2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemProperties2 as ::windows::core::Interface>::IID
+        iid == &<IStorageItemProperties2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -868,7 +868,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemPropertiesWithProvider as ::windows::core::Interface>::IID
+        iid == &<IStorageItemPropertiesWithProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -891,6 +891,6 @@ impl IStreamedFileDataRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamedFileDataRequest as ::windows::core::Interface>::IID
+        iid == &<IStreamedFileDataRequest as ::windows::core::ComInterface>::IID
     }
 }

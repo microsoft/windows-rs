@@ -5,7 +5,7 @@ use windows::{
     Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
-use windows::core::Interface;
+use windows::core::ComInterface;
 
 #[test]
 fn non_generic() -> windows::core::Result<()> {
@@ -68,7 +68,7 @@ fn event() -> windows::core::Result<()> {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let _: IObservableMap<windows::core::HSTRING, windows::core::IInspectable> = set.try_into().unwrap();
+        let _: IObservableMap<windows::core::HSTRING, windows::core::IInspectable> = set.cast()?;
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
         Ok(())

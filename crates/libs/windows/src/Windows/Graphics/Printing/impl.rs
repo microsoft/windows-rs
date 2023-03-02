@@ -8,7 +8,7 @@ impl IPrintDocumentSource_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintDocumentSource as ::windows::core::Interface>::IID
+        iid == &<IPrintDocumentSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -41,7 +41,7 @@ impl IPrintTaskOptionsCore_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCore as ::windows::core::Interface>::IID
+        iid == &<IPrintTaskOptionsCore as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`, `\"implement\"`*"]
@@ -316,7 +316,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCoreProperties as ::windows::core::Interface>::IID
+        iid == &<IPrintTaskOptionsCoreProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -349,6 +349,6 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCoreUIConfiguration as ::windows::core::Interface>::IID
+        iid == &<IPrintTaskOptionsCoreUIConfiguration as ::windows::core::ComInterface>::IID
     }
 }
