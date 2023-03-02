@@ -2,7 +2,16 @@
 
 mod bindings;
 use bindings::*;
-use windows::core::*;
+use windows::{core::*, Foundation::*};
+
+#[implement(IStringable)]
+struct Stringable;
+
+impl IStringable_Impl for Stringable {
+    fn ToString(&self) -> Result<HSTRING> {
+        Ok("client".into())
+    }
+}
 
 #[test]
 fn test() -> Result<()> {
@@ -29,13 +38,16 @@ fn test() -> Result<()> {
     assert_eq!(a, c[..]);
     assert_eq!(a, d[..]);
 
+    let c : IStringable = Stringable.into();
+    class.Input(&class, &class, &c)?;
+
     // This explicitly queries for IInspectable.
     let inspectable: IInspectable = class.cast()?;
     // Notice GetRuntimeClassName returns the class name.
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.Class");
 
     // This just casts down to IInspectable since the vtable already includes IInspectable.
-    let inspectable: IInspectable = class.into();
+    let inspectable: &IInspectable = class.can_into();
     // Notice GetRuntimeClassName returns the specific interface name.
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.IClass");
 

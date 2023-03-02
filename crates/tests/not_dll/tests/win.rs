@@ -5,6 +5,6 @@ use windows::{Win32::Foundation::*, Win32::Graphics::Printing::*};
 #[test]
 fn test() {
     unsafe {
-        let _ = GetSpoolFileHandle(HANDLE(0));
+        GetSpoolFileHandle(HANDLE(0));
     }
 }
