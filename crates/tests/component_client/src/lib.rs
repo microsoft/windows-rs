@@ -38,7 +38,7 @@ fn test() -> Result<()> {
     assert_eq!(a, c[..]);
     assert_eq!(a, d[..]);
 
-    let c : IStringable = Stringable.into();
+    let c: IStringable = Stringable.into();
     class.Input(&class, &class, &c)?;
 
     // This explicitly queries for IInspectable.
