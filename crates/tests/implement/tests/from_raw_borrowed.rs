@@ -53,8 +53,9 @@ fn test() -> Result<()> {
         let service = one_two_three.cast::<IProfferService>()?;
 
         assert_eq!(service.ProfferService(&GUID::zeroed(), None)?, 0);
-        assert_eq!(service.ProfferService(&GUID::zeroed(), &one_two_three.cast()?)?, 123);
-        assert_eq!(service.ProfferService(&GUID::zeroed(), &four_five_six.cast()?)?, 456);
+
+        assert_eq!(service.ProfferService(&GUID::zeroed(), &one_two_three.cast::<IServiceProvider>()?)?, 123);
+        assert_eq!(service.ProfferService(&GUID::zeroed(), &four_five_six.cast::<IServiceProvider>()?)?, 456);
 
         Ok(())
     }

@@ -36,6 +36,8 @@ unsafe impl ComInterface for IInspectable {
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
 
+impl CanInto<IUnknown> for IInspectable {}
+
 impl RuntimeType for IInspectable {
     const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }

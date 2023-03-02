@@ -7,6 +7,7 @@ namespace test_component
         Flags Flags { get; };
         Int32[] Int32Array(Int32[] a, ref Int32[] b, out Int32[] c);
         String[] StringArray(String[] a, ref String[] b, out String[] c);
+        void Input(Object a, Class b, Windows.Foundation.IStringable c);
     }
 
     [flags] enum Flags

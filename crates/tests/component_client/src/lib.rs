@@ -2,7 +2,16 @@
 
 mod bindings;
 use bindings::*;
-use windows::core::*;
+use windows::{core::*, Foundation::*};
+
+#[implement(IStringable)]
+struct Stringable;
+
+impl IStringable_Impl for Stringable {
+    fn ToString(&self) -> Result<HSTRING> {
+        Ok("client".into())
+    }
+}
 
 #[test]
 fn test() -> Result<()> {
@@ -28,6 +37,9 @@ fn test() -> Result<()> {
     assert_eq!(a, b);
     assert_eq!(a, c[..]);
     assert_eq!(a, d[..]);
+
+    let c : IStringable = Stringable.into();
+    class.Input(&class, &class, &c)?;
 
     // This explicitly queries for IInspectable.
     let inspectable: IInspectable = class.cast()?;
