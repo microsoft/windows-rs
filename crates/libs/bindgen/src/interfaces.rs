@@ -162,23 +162,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> ::core::convert::From<#ident> for #into {
-                        fn from(value: #ident) -> Self {
-                            unsafe { ::core::mem::transmute(value) }
-                        }
-                    }
-                    #cfg
-                    impl<'a, #constraints> ::core::convert::From<&'a #ident> for &'a #into {
-                        fn from(value: &'a #ident) -> Self {
-                            unsafe { ::core::mem::transmute(value) }
-                        }
-                    }
-                    #cfg
-                    impl<#constraints> ::core::convert::From<&#ident> for #into {
-                        fn from(value: &#ident) -> Self {
-                            ::core::convert::From::from(::core::clone::Clone::clone(value))
-                        }
-                    }
+                    impl<#constraints> windows::core::CanInto<#into> for #ident {}
                 });
             }
         }
@@ -193,27 +177,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> ::core::convert::TryFrom<#ident> for #into {
-                        type Error = ::windows::core::Error;
-                        fn try_from(value: #ident) -> ::windows::core::Result<Self> {
-                            ::core::convert::TryFrom::try_from(&value)
-                        }
-                    }
-                    #cfg
-                    impl<#constraints> ::core::convert::TryFrom<&#ident> for #into {
-                        type Error = ::windows::core::Error;
-                        fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
-                            ::windows::core::Interface::cast(value)
-                        }
-                    }
-                    #cfg
-                    impl<#constraints> ::core::convert::TryFrom<&#ident> for ::windows::core::InParam<#into> {
-                        type Error = ::windows::core::Error;
-                        fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
-                            let item = ::std::convert::TryInto::try_into(value)?;
-                            Ok(::windows::core::InParam::Owned(item))
-                        }
-                    }
+                    impl<#constraints> windows::core::CanTryInto<#into> for #ident {}
                 });
             }
         }

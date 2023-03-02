@@ -183,7 +183,7 @@ pub fn gen(
                             type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
                             fn into_iter(self) -> Self::IntoIter {
-                                #wfc VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
+                                #wfc VectorViewIterator::new(::windows::core::ComInterface::cast(self).ok())
                             }
                         }
                     };
@@ -211,7 +211,7 @@ pub fn gen(
                             type IntoIter = #wfc VectorIterator<Self::Item>;
 
                             fn into_iter(self) -> Self::IntoIter {
-                                #wfc VectorIterator::new(::core::convert::TryInto::try_into(self).ok())
+                                #wfc VectorIterator::new(::windows::core::ComInterface::cast(self).ok())
                             }
                         }
                     };
