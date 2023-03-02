@@ -54,6 +54,17 @@ impl<T: Type<T>> Array<T> {
         array
     }
 
+    /// Creates an array from a pointer and length.
+    /// # Safety
+    pub unsafe fn from_raw(data: *mut T::Default, len: u32) -> Self {
+        Self { data, len }
+    }
+
+    /// Returns a slice containing the entire array.
+    pub fn as_slice(&self) -> &[T::Default] {
+        &*self
+    }
+
     /// Returns `true` if the array is empty.
     pub fn is_empty(&self) -> bool {
         self.len == 0

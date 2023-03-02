@@ -117,6 +117,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
           cargo test --target ${{ matrix.target }} -p test_arch &&
           cargo test --target ${{ matrix.target }} -p test_arch_feature &&
+          cargo test --target ${{ matrix.target }} -p test_array &&
           cargo test --target ${{ matrix.target }} -p test_bcrypt &&
           cargo test --target ${{ matrix.target }} -p test_bstr &&
           cargo test --target ${{ matrix.target }} -p test_calling_convention &&

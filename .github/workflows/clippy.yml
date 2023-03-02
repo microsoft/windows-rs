@@ -67,6 +67,7 @@ jobs:
           cargo clippy -p test_alternate_success_code &&
           cargo clippy -p test_arch &&
           cargo clippy -p test_arch_feature &&
+          cargo clippy -p test_array &&
           cargo clippy -p test_bcrypt &&
           cargo clippy -p test_bstr &&
           cargo clippy -p test_calling_convention &&
