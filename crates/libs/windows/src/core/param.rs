@@ -1,11 +1,11 @@
 use super::*;
 
-pub enum InParam<T: Type<T>> {
+pub enum Param<T: Type<T>> {
     Owned(T),
     Borrowed(T::Abi),
 }
 
-impl<T: Type<T>> InParam<T> {
+impl<T: Type<T>> Param<T> {
     pub fn abi(&self) -> T::Abi {
         unsafe {
             match self {
@@ -16,34 +16,113 @@ impl<T: Type<T>> InParam<T> {
     }
 }
 
-impl<'a, T, U: Type<U>> From<&'a T> for InParam<U>
+pub trait TryIntoParam<T: Type<T>> {
+    fn try_into_param(self) -> Result<Param<T>>;
+}
+
+impl<T> TryIntoParam<T> for Option<&T>
 where
-    &'a T: Into<ManuallyDrop<U>>,
+    T: ComInterface,
 {
-    fn from(borrowed: &'a T) -> Self {
-        unsafe { InParam::Borrowed(std::mem::transmute_copy(borrowed)) }
+    fn try_into_param(self) -> Result<Param<T>> {
+        match self {
+            Some(from) => Ok(Param::Borrowed(from.abi())),
+            None => Ok(Param::Borrowed(zeroed::<T>())),
+        }
     }
 }
 
-impl<'a, T: Type<T>> From<Option<&'a T>> for InParam<T>
+impl<T, U> TryIntoParam<T> for &U
 where
-    &'a T: Into<ManuallyDrop<T>>,
+    T: ComInterface,
+    U: ComInterface,
+    U: CanTryInto<T>,
 {
-    fn from(item: Option<&'a T>) -> Self {
-        unsafe { InParam::Borrowed(std::mem::transmute_copy(&item)) }
+    fn try_into_param(self) -> Result<Param<T>> {
+        if U::CAN_INTO {
+            Ok(Param::Borrowed(self.abi()))
+        } else {
+            Ok(Param::Owned(self.cast()?))
+        }
     }
 }
 
-macro_rules! primitive_types {
-    ($($t:ty),+) => {
-        $(
-            impl From<$t> for InParam<$t> {
-                fn from(item: $t) -> Self {
-                    Self::Owned(item)
-                }
-            }
-        )*
-    };
+pub trait CanTryInto<T>: ComInterface
+where
+    T: ComInterface,
+{
+    const CAN_INTO: bool = false;
 }
 
-primitive_types!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize, super::PCSTR, super::PCWSTR);
+impl<T, U> CanTryInto<T> for U
+where
+    T: ComInterface,
+    U: ComInterface,
+    U: CanInto<T>,
+{
+    const CAN_INTO: bool = true;
+}
+
+pub trait CanInto<T>: Sized
+where
+    T: Clone,
+{
+    fn can_into(&self) -> &T {
+        unsafe { std::mem::transmute(self) }
+    }
+
+    fn can_clone_into(&self) -> T {
+        self.can_into().clone()
+    }
+}
+impl<T> CanInto<T> for T where T: Clone {}
+
+pub trait IntoParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
+where
+    T: Type<T>,
+{
+    fn into_param(self) -> Param<T>;
+}
+
+impl<T> IntoParam<T> for Option<&T>
+where
+    T: Type<T>,
+{
+    fn into_param(self) -> Param<T> {
+        match self {
+            Some(item) => Param::Borrowed(item.abi()),
+            None => Param::Borrowed(zeroed::<T>()),
+        }
+    }
+}
+
+impl<T, U> IntoParam<T, ReferenceType> for &U
+where
+    T: TypeKind<TypeKind = ReferenceType> + Clone,
+    U: TypeKind<TypeKind = ReferenceType> + Clone,
+    U: CanInto<T>,
+{
+    fn into_param(self) -> Param<T> {
+        Param::Borrowed(self.abi())
+    }
+}
+
+impl<T> IntoParam<T, ValueType> for &T
+where
+    T: TypeKind<TypeKind = ValueType> + Clone,
+{
+    fn into_param(self) -> Param<T> {
+        Param::Borrowed(self.abi())
+    }
+}
+
+impl<T, U> IntoParam<T, CopyType> for U
+where
+    T: TypeKind<TypeKind = CopyType> + Clone,
+    U: TypeKind<TypeKind = CopyType> + Clone,
+    U: CanInto<T>,
+{
+    fn into_param(self) -> Param<T> {
+        unsafe { Param::Owned(std::mem::transmute_copy(&self)) }
+    }
+}

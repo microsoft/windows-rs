@@ -28,13 +28,15 @@ pub struct IInspectable_Vtbl {
     pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
 }
 
-unsafe impl Vtable for IInspectable {
+unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_Vtbl;
 }
 
-unsafe impl Interface for IInspectable {
+unsafe impl ComInterface for IInspectable {
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
+
+impl CanInto<IUnknown> for IInspectable {}
 
 impl RuntimeType for IInspectable {
     const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
