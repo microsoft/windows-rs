@@ -283,6 +283,10 @@ pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COLE_DEFAULT_AUTHINFO: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COLE_DEFAULT_PRINCIPAL: ::windows_sys::core::PCWSTR = -1i32 as u16 as _;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
@@ -1812,16 +1816,16 @@ impl ::core::clone::Clone for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for FLAG_STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for FLAG_STGMEDIUM {
     fn clone(&self) -> Self {
         *self
@@ -2133,36 +2137,36 @@ impl ::core::clone::Clone for STATSTG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
     pub tymed: TYMED,
     pub Anonymous: STGMEDIUM_0,
     pub pUnkForRelease: ::windows_sys::core::IUnknown,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for STGMEDIUM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut ::core::ffi::c_void,
     pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
-    pub hGlobal: isize,
+    pub hGlobal: super::super::Foundation::HGLOBAL,
     pub lpszFileName: ::windows_sys::core::PWSTR,
     pub pstm: IStream,
     pub pstg: StructuredStorage::IStorage,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for STGMEDIUM_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for STGMEDIUM_0 {
     fn clone(&self) -> Self {
         *self

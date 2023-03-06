@@ -734,6 +734,8 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterClassA ( lpclassname : :: windows_sys::core::PCSTR , hinstance : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterClassW ( lpclassname : :: windows_sys::core::PCWSTR , hinstance : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn UnregisterDeviceNotification ( handle : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn UpdateLayeredWindow ( hwnd : super::super::Foundation:: HWND , hdcdst : super::super::Graphics::Gdi:: HDC , pptdst : *const super::super::Foundation:: POINT , psize : *const super::super::Foundation:: SIZE , hdcsrc : super::super::Graphics::Gdi:: HDC , pptsrc : *const super::super::Foundation:: POINT , crkey : super::super::Foundation:: COLORREF , pblend : *const super::super::Graphics::Gdi:: BLENDFUNCTION , dwflags : UPDATE_LAYERED_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -808,6 +810,10 @@ pub const BN_UNHILITE: u32 = 3u32;
 pub const BN_UNPUSHED: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1050,6 +1056,72 @@ pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 pub const CWF_CREATE_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_SLOWNET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_XPORT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_APPYBEGIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_APPYEND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGCHANGED: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGMGAPI32: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CUSTOMEVENT: u32 = 32774u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_NET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_MONITORCHANGE: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_NO_DISK_SPACE: u32 = 71u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_SHELLLOGGEDON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_USERDEFINED: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VPOWERDAPI: u32 = 33024u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1462,6 +1534,72 @@ pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GIDC_REMOVAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_DEVICE_EVENT_RBC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DEVICE_BECOMING_READY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_REMOVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_TAPE_ERASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DISMOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_LOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_MOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_WEARING_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GUI_16BITTASK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1965,6 +2103,22 @@ pub const LB_SETTOPINDEX: u32 = 407u32;
 pub const LLMHF_INJECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKF_LOGICAL_LOCK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKF_PHYSICAL_LOCK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_ALLOW_MEM_MAPPING: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_ALLOW_WRITES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_FAIL_MEM_MAPPING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_FAIL_WRITES: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_USER_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const LR_COLOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3451,6 +3605,24 @@ pub const CWP_SKIPINVISIBLE: CWP_FLAGS = 1u32;
 pub const CWP_SKIPDISABLED: CWP_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = 5u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = 6u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = 3u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = 2u16;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub type DI_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5471,6 +5643,279 @@ impl ::core::clone::Clone for DEBUGHOOKINFO {
         *self
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_BECOMING_READY {
+    pub Version: u32,
+    pub Reason: u32,
+    pub Estimated100msToReady: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_BECOMING_READY {}
+impl ::core::clone::Clone for DEVICE_EVENT_BECOMING_READY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
+    pub Version: u32,
+    pub DeviceClass: u32,
+    pub ButtonStatus: u16,
+    pub Request: u16,
+    pub SystemTime: i64,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_EXTERNAL_REQUEST {}
+impl ::core::clone::Clone for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_GENERIC_DATA {
+    pub EventNumber: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_GENERIC_DATA {}
+impl ::core::clone::Clone for DEVICE_EVENT_GENERIC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_MOUNT {
+    pub Version: u32,
+    pub Flags: u32,
+    pub FileSystemNameLength: u32,
+    pub FileSystemNameOffset: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_MOUNT {}
+impl ::core::clone::Clone for DEVICE_EVENT_MOUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_RBC_DATA {
+    pub EventNumber: u32,
+    pub SenseQualifier: u8,
+    pub SenseCode: u8,
+    pub SenseKey: u8,
+    pub Reserved: u8,
+    pub Information: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_RBC_DATA {}
+impl ::core::clone::Clone for DEVICE_EVENT_RBC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: ::windows_sys::core::GUID,
+    pub dbcc_name: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: ::windows_sys::core::GUID,
+    pub dbcc_name: [u16; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_W {}
+impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_DEVNODE {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+    pub dbcd_devnode: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_DEVNODE {}
+impl ::core::clone::Clone for DEV_BROADCAST_DEVNODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_HANDLE {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: super::super::Foundation::HANDLE,
+    pub dbch_hdevnotify: *mut ::core::ffi::c_void,
+    pub dbch_eventguid: ::windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HANDLE32 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u32,
+    pub dbch_hdevnotify: u32,
+    pub dbch_eventguid: ::windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE32 {}
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HANDLE64 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u64,
+    pub dbch_hdevnotify: u64,
+    pub dbch_eventguid: ::windows_sys::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE64 {}
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HDR {
+    pub dbch_size: u32,
+    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
+    pub dbch_reserved: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HDR {}
+impl ::core::clone::Clone for DEV_BROADCAST_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_NET {
+    pub dbcn_size: u32,
+    pub dbcn_devicetype: u32,
+    pub dbcn_reserved: u32,
+    pub dbcn_resource: u32,
+    pub dbcn_flags: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_NET {}
+impl ::core::clone::Clone for DEV_BROADCAST_NET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_OEM {
+    pub dbco_size: u32,
+    pub dbco_devicetype: u32,
+    pub dbco_reserved: u32,
+    pub dbco_identifier: u32,
+    pub dbco_suppfunc: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_OEM {}
+impl ::core::clone::Clone for DEV_BROADCAST_OEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_PORT_A {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_PORT_W {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [u16; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_PORT_W {}
+impl ::core::clone::Clone for DEV_BROADCAST_PORT_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_VOLUME {
+    pub dbcv_size: u32,
+    pub dbcv_devicetype: u32,
+    pub dbcv_reserved: u32,
+    pub dbcv_unitmask: u32,
+    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_VOLUME {}
+impl ::core::clone::Clone for DEV_BROADCAST_VOLUME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DISK_HEALTH_NOTIFICATION_DATA {
+    pub DeviceGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DISK_HEALTH_NOTIFICATION_DATA {}
+impl ::core::clone::Clone for DISK_HEALTH_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DLGITEMTEMPLATE {
@@ -5556,6 +6001,17 @@ pub struct FLASHWINFO {
 impl ::core::marker::Copy for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FLASHWINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    pub DiskNumber: u32,
+}
+impl ::core::marker::Copy for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {}
+impl ::core::clone::Clone for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
@@ -6351,6 +6807,22 @@ impl ::core::clone::Clone for UPDATELAYEREDWINDOWINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct VolLockBroadcast {
+    pub vlb_dbh: DEV_BROADCAST_HDR,
+    pub vlb_owner: u32,
+    pub vlb_perms: u8,
+    pub vlb_lockType: u8,
+    pub vlb_drive: u8,
+    pub vlb_flags: u8,
+}
+impl ::core::marker::Copy for VolLockBroadcast {}
+impl ::core::clone::Clone for VolLockBroadcast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWINFO {
@@ -6504,6 +6976,34 @@ pub struct WNDCLASSW {
 impl ::core::marker::Copy for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for WNDCLASSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct _DEV_BROADCAST_HEADER {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+}
+impl ::core::marker::Copy for _DEV_BROADCAST_HEADER {}
+impl ::core::clone::Clone for _DEV_BROADCAST_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct _DEV_BROADCAST_USERDEFINED {
+    pub dbud_dbh: DEV_BROADCAST_HDR,
+    pub dbud_szName: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {
     fn clone(&self) -> Self {
         *self
     }

@@ -37,15 +37,22 @@ pub mod NonVolatile;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GetSystemFileCacheSize ( lpminimumfilecachesize : *mut usize , lpmaximumfilecachesize : *mut usize , lpflags : *mut u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GetWriteWatch ( dwflags : u32 , lpbaseaddress : *const ::core::ffi::c_void , dwregionsize : usize , lpaddresses : *mut *mut ::core::ffi::c_void , lpdwcount : *mut usize , lpdwgranularity : *mut u32 ) -> u32 );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalAlloc ( uflags : GLOBAL_ALLOC_FLAGS , dwbytes : usize ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalFlags ( hmem : isize ) -> u32 );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalFree ( hmem : isize ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalHandle ( pmem : *const ::core::ffi::c_void ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalLock ( hmem : isize ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalReAlloc ( hmem : isize , dwbytes : usize , uflags : u32 ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn GlobalSize ( hmem : isize ) -> usize );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalUnlock ( hmem : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalAlloc ( uflags : GLOBAL_ALLOC_FLAGS , dwbytes : usize ) -> super::super::Foundation:: HGLOBAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalFlags ( hmem : super::super::Foundation:: HGLOBAL ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalFree ( hmem : super::super::Foundation:: HGLOBAL ) -> super::super::Foundation:: HGLOBAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalHandle ( pmem : *const ::core::ffi::c_void ) -> super::super::Foundation:: HGLOBAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalLock ( hmem : super::super::Foundation:: HGLOBAL ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalReAlloc ( hmem : super::super::Foundation:: HGLOBAL , dwbytes : usize , uflags : u32 ) -> super::super::Foundation:: HGLOBAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalSize ( hmem : super::super::Foundation:: HGLOBAL ) -> usize );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn GlobalUnlock ( hmem : super::super::Foundation:: HGLOBAL ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn HeapAlloc ( hheap : HeapHandle , dwflags : HEAP_FLAGS , dwbytes : usize ) -> *mut ::core::ffi::c_void );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn HeapCompact ( hheap : HeapHandle , dwflags : HEAP_FLAGS ) -> usize );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn HeapCreate ( floptions : HEAP_FLAGS , dwinitialsize : usize , dwmaximumsize : usize ) -> HeapHandle );
@@ -79,15 +86,22 @@ pub mod NonVolatile;
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn IsBadStringPtrW ( lpsz : :: windows_sys::core::PCWSTR , ucchmax : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn IsBadWritePtr ( lp : *const ::core::ffi::c_void , ucb : usize ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalAlloc ( uflags : LOCAL_ALLOC_FLAGS , ubytes : usize ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalFlags ( hmem : isize ) -> u32 );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalFree ( hmem : isize ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalHandle ( pmem : *const ::core::ffi::c_void ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalLock ( hmem : isize ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalReAlloc ( hmem : isize , ubytes : usize , uflags : u32 ) -> isize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn LocalSize ( hmem : isize ) -> usize );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalUnlock ( hmem : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalAlloc ( uflags : LOCAL_ALLOC_FLAGS , ubytes : usize ) -> super::super::Foundation:: HLOCAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalFlags ( hmem : super::super::Foundation:: HLOCAL ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalFree ( hmem : super::super::Foundation:: HLOCAL ) -> super::super::Foundation:: HLOCAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalHandle ( pmem : *const ::core::ffi::c_void ) -> super::super::Foundation:: HLOCAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalLock ( hmem : super::super::Foundation:: HLOCAL ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalReAlloc ( hmem : super::super::Foundation:: HLOCAL , ubytes : usize , uflags : u32 ) -> super::super::Foundation:: HLOCAL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalSize ( hmem : super::super::Foundation:: HLOCAL ) -> usize );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn LocalUnlock ( hmem : super::super::Foundation:: HLOCAL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapUserPhysicalPages ( virtualaddress : *const ::core::ffi::c_void , numberofpages : usize , pagearray : *const usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -287,6 +301,18 @@ pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0i3
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 1i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub type MEM_EXTENDED_PARAMETER_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = 0i32;
@@ -304,6 +330,18 @@ pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = 5i32
 pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = 6i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = 7i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub type MEM_SECTION_EXTENDED_PARAMETER_TYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 4i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub type OFFER_PRIORITY = i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -402,6 +440,22 @@ pub const MEM_PRIVATE: PAGE_TYPE = 131072u32;
 pub const MEM_MAPPED: PAGE_TYPE = 262144u32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEM_IMAGE: PAGE_TYPE = 16777216u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub type SECTION_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_ALL_ACCESS: SECTION_FLAGS = 983071u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_QUERY: SECTION_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_MAP_WRITE: SECTION_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_MAP_READ: SECTION_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_MAP_EXECUTE: SECTION_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_EXTEND_SIZE: SECTION_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub const SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = 32u32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub type UNMAP_VIEW_OF_FILE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -545,6 +599,36 @@ pub struct MEMORY_BASIC_INFORMATION64 {
 }
 impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION64 {}
 impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
+    pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
+    pub Reserved: u32,
+    pub Value: u64,
+}
+impl ::core::marker::Copy for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {}
+impl ::core::clone::Clone for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub SizeOfInformation: u32,
+    pub Flags: u32,
+    pub AttributesOffset: u32,
+    pub AttributeCount: u32,
+    pub Reserved: u32,
+    pub TypeId: u64,
+}
+impl ::core::marker::Copy for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
+impl ::core::clone::Clone for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }

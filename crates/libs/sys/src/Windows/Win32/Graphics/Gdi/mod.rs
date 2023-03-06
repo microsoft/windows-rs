@@ -59,7 +59,8 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCA ( pwszdriver : :: windows_sys::core::PCSTR , pwszdevice : :: windows_sys::core::PCSTR , pszport : :: windows_sys::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDCW ( pwszdriver : :: windows_sys::core::PCWSTR , pwszdevice : :: windows_sys::core::PCWSTR , pszport : :: windows_sys::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateDIBPatternBrush ( h : isize , iusage : DIB_USAGE ) -> HBRUSH );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDIBPatternBrush ( h : super::super::Foundation:: HGLOBAL , iusage : DIB_USAGE ) -> HBRUSH );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateDIBPatternBrushPt ( lppackeddib : *const ::core::ffi::c_void , iusage : DIB_USAGE ) -> HBRUSH );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateDIBSection ( hdc : HDC , pbmi : *const BITMAPINFO , usage : DIB_USAGE , ppvbits : *mut *mut ::core::ffi::c_void , hsection : super::super::Foundation:: HANDLE , offset : u32 ) -> HBITMAP );
