@@ -3,7 +3,7 @@ use windows::{core::*, Win32::Data::Xml::XmlLite::*, Win32::System::Com::Structu
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(0, true)?;
+        let stream = CreateStreamOnHGlobal(None, true)?;
 
         let mut writer: Option<IXmlWriter> = None;
         CreateXmlWriter(&IXmlWriter::IID, &mut writer as *mut _ as _, None)?;
@@ -87,7 +87,7 @@ fn test() -> Result<()> {
 #[test]
 fn lite() -> Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(0, true)?;
+        let stream = CreateStreamOnHGlobal(None, true)?;
 
         let mut writer: Option<IXmlWriterLite> = None;
         CreateXmlWriter(&IXmlWriterLite::IID, &mut writer as *mut _ as _, None)?;
