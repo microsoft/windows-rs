@@ -3781,8 +3781,8 @@ impl ::core::default::Default for CF_FS_METADATA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_HYDRATION_POLICY {
-    pub Primary: CF_HYDRATION_POLICY_PRIMARY_USHORT,
-    pub Modifier: CF_HYDRATION_POLICY_MODIFIER_USHORT,
+    pub Primary: CF_HYDRATION_POLICY_PRIMARY,
+    pub Modifier: CF_HYDRATION_POLICY_MODIFIER,
 }
 impl ::core::marker::Copy for CF_HYDRATION_POLICY {}
 impl ::core::clone::Clone for CF_HYDRATION_POLICY {
@@ -3805,66 +3805,6 @@ impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY {
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY {}
 impl ::core::default::Default for CF_HYDRATION_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
-    }
-}
-impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
-impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
-    }
-}
-impl ::windows::core::TypeKind for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
-impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -4461,8 +4401,8 @@ impl ::core::default::Default for CF_PLATFORM_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_POPULATION_POLICY {
-    pub Primary: CF_POPULATION_POLICY_PRIMARY_USHORT,
-    pub Modifier: CF_POPULATION_POLICY_MODIFIER_USHORT,
+    pub Primary: CF_POPULATION_POLICY_PRIMARY,
+    pub Modifier: CF_POPULATION_POLICY_MODIFIER,
 }
 impl ::core::marker::Copy for CF_POPULATION_POLICY {}
 impl ::core::clone::Clone for CF_POPULATION_POLICY {
@@ -4485,66 +4425,6 @@ impl ::core::cmp::PartialEq for CF_POPULATION_POLICY {
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY {}
 impl ::core::default::Default for CF_POPULATION_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_POPULATION_POLICY_MODIFIER_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_POPULATION_POLICY_MODIFIER_USHORT {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
-    }
-}
-impl ::windows::core::TypeKind for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
-impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_POPULATION_POLICY_PRIMARY_USHORT {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
-    }
-}
-impl ::windows::core::TypeKind for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_POPULATION_POLICY_PRIMARY_USHORT {}
-impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY_USHORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

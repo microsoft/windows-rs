@@ -78,13 +78,14 @@ impl IRichEditOle {
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipboardData)(::windows::core::Interface::as_raw(self), lpchrg, reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportDataObject<P0>(&self, lpdataobj: P0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn ImportDataObject<P0, P1>(&self, lpdataobj: P0, cf: u16, hmetapict: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::super::System::Com::IDataObject>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
     {
-        (::windows::core::Interface::vtable(self).ImportDataObject)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), cf, hmetapict).ok()
+        (::windows::core::Interface::vtable(self).ImportDataObject)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), cf, hmetapict.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IRichEditOle, ::windows::core::IUnknown);
@@ -150,9 +151,9 @@ pub struct IRichEditOle_Vtbl {
     pub GetClipboardData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetClipboardData: usize,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportDataObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, cf: u16, hmetapict: isize) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub ImportDataObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, cf: u16, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ImportDataObject: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
@@ -196,12 +197,13 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn QueryAcceptData<P0, P1>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAcceptData<P0, P1, P2>(&self, lpdataobj: P0, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: P1, hmetapict: P2) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::super::System::Com::IDataObject>,
         P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
     {
-        (::windows::core::Interface::vtable(self).QueryAcceptData)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), lpcfformat, reco, freally.into_param().abi(), hmetapict).ok()
+        (::windows::core::Interface::vtable(self).QueryAcceptData)(::windows::core::Interface::as_raw(self), lpdataobj.into_param().abi(), lpcfformat, reco, freally.into_param().abi(), hmetapict.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -281,7 +283,7 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     DeleteObject: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-    pub QueryAcceptData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT,
+    pub QueryAcceptData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
     QueryAcceptData: usize,
     #[cfg(feature = "Win32_Foundation")]

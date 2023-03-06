@@ -364,8 +364,8 @@ pub struct IWiaDataCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDataTransfer(::windows::core::IUnknown);
 impl IWiaDataTransfer {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn idtGetData<P0>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: P0) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<IWiaDataCallback>,
@@ -418,9 +418,9 @@ unsafe impl ::windows::core::ComInterface for IWiaDataTransfer {
 #[doc(hidden)]
 pub struct IWiaDataTransfer_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub idtGetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     idtGetData: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub idtGetBandedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5118,7 +5118,7 @@ pub struct VAL {
     pub dblVal: f64,
     pub pGuid: *mut ::windows::core::GUID,
     pub pScanInfo: *mut SCANINFO,
-    pub handle: isize,
+    pub handle: super::super::Foundation::HGLOBAL,
     pub ppButtonNames: *mut *mut u16,
     pub pHandle: *mut super::super::Foundation::HANDLE,
     pub lReserved: i32,

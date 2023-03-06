@@ -193,8 +193,8 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super:
     ::windows::imp::link ! ( "urlmon.dll""system" fn CopyBindInfo ( pcbisrc : *const super:: BINDINFO , pbidest : *mut super:: BINDINFO ) -> :: windows::core::HRESULT );
     CopyBindInfo(pcbisrc, pbidest).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
     ::windows::imp::link ! ( "urlmon.dll""system" fn CopyStgMedium ( pcstgmedsrc : *const super:: STGMEDIUM , pstgmeddest : *mut super:: STGMEDIUM ) -> :: windows::core::HRESULT );

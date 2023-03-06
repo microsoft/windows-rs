@@ -32,24 +32,26 @@ where
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateILockBytesOnHGlobal<P0>(hglobal: isize, fdeleteonrelease: P0) -> ::windows::core::Result<ILockBytes>
+pub unsafe fn CreateILockBytesOnHGlobal<P0, P1>(hglobal: P0, fdeleteonrelease: P1) -> ::windows::core::Result<ILockBytes>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CreateILockBytesOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateILockBytesOnHGlobal ( hglobal : super::super::super::Foundation:: HGLOBAL , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ILockBytes>();
-    CreateILockBytesOnHGlobal(hglobal, fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
+    CreateILockBytesOnHGlobal(hglobal.into_param().abi(), fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStreamOnHGlobal<P0>(hglobal: isize, fdeleteonrelease: P0) -> ::windows::core::Result<super::IStream>
+pub unsafe fn CreateStreamOnHGlobal<P0, P1>(hglobal: P0, fdeleteonrelease: P1) -> ::windows::core::Result<super::IStream>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HGLOBAL>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CreateStreamOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CreateStreamOnHGlobal ( hglobal : super::super::super::Foundation:: HGLOBAL , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::IStream>();
-    CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
+    CreateStreamOnHGlobal(hglobal.into_param().abi(), fdeleteonrelease.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -73,24 +75,26 @@ where
     ::windows::imp::link ! ( "ole32.dll""system" fn GetConvertStg ( pstg : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     GetConvertStg(pstg.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> ::windows::core::Result<isize>
+pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> ::windows::core::Result<super::super::super::Foundation::HGLOBAL>
 where
     P0: ::windows::core::IntoParam<ILockBytes>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn GetHGlobalFromILockBytes ( plkbyt : * mut::core::ffi::c_void , phglobal : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<isize>();
+    ::windows::imp::link ! ( "ole32.dll""system" fn GetHGlobalFromILockBytes ( plkbyt : * mut::core::ffi::c_void , phglobal : *mut super::super::super::Foundation:: HGLOBAL ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HGLOBAL>();
     GetHGlobalFromILockBytes(plkbyt.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> ::windows::core::Result<isize>
+pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> ::windows::core::Result<super::super::super::Foundation::HGLOBAL>
 where
     P0: ::windows::core::IntoParam<super::IStream>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn GetHGlobalFromStream ( pstm : * mut::core::ffi::c_void , phglobal : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<isize>();
+    ::windows::imp::link ! ( "ole32.dll""system" fn GetHGlobalFromStream ( pstm : * mut::core::ffi::c_void , phglobal : *mut super::super::super::Foundation:: HGLOBAL ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HGLOBAL>();
     GetHGlobalFromStream(pstm.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -103,8 +107,8 @@ where
     let mut result__ = ::windows::core::zeroed::<OLESTREAM>();
     OleConvertIStorageToOLESTREAM(pstg.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAMEx<P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM) -> ::windows::core::Result<OLESTREAM>
 where
@@ -123,8 +127,8 @@ where
     ::windows::imp::link ! ( "ole32.dll""system" fn OleConvertOLESTREAMToIStorage ( lpolestream : *const OLESTREAM , pstg : * mut::core::ffi::c_void , ptd : *const super:: DVTARGETDEVICE ) -> :: windows::core::HRESULT );
     OleConvertOLESTREAMToIStorage(lpolestream, pstg.into_param().abi(), ptd).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorageEx<P0>(polestm: *const OLESTREAM, pstg: P0, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::Result<()>
 where

@@ -16,7 +16,7 @@ pub trait IRichEditOle_Impl: Sized {
     fn InPlaceDeactivate(&self) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn ImportDataObject(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn ImportDataObject(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRichEditOle {}
@@ -104,7 +104,7 @@ impl IRichEditOle_Vtbl {
             let this = (*this).get_impl();
             this.GetClipboardData(::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&lplpdataobj)).into()
         }
-        unsafe extern "system" fn ImportDataObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, cf: u16, hmetapict: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportDataObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, cf: u16, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImportDataObject(::windows::core::from_raw_borrowed(&lpdataobj), ::core::mem::transmute_copy(&cf), ::core::mem::transmute_copy(&hmetapict)).into()
@@ -141,7 +141,7 @@ pub trait IRichEditOleCallback_Impl: Sized {
     fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn QueryInsertObject(&self, lpclsid: *mut ::windows::core::GUID, lpstg: ::core::option::Option<&super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
     fn DeleteObject(&self, lpoleobj: ::core::option::Option<&super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
@@ -183,7 +183,7 @@ impl IRichEditOleCallback_Vtbl {
             let this = (*this).get_impl();
             this.DeleteObject(::windows::core::from_raw_borrowed(&lpoleobj)).into()
         }
-        unsafe extern "system" fn QueryAcceptData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryAcceptData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueryAcceptData(::windows::core::from_raw_borrowed(&lpdataobj), ::core::mem::transmute_copy(&lpcfformat), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&freally), ::core::mem::transmute_copy(&hmetapict)).into()

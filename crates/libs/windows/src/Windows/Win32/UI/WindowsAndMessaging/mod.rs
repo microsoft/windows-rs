@@ -3929,6 +3929,13 @@ where
     ::windows::imp::link ! ( "user32.dll""system" fn UnregisterClassW ( lpclassname : :: windows::core::PCWSTR , hinstance : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
     UnregisterClassW(lpclassname.into_param().abi(), hinstance.into_param().abi())
 }
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn UnregisterDeviceNotification ( handle : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    UnregisterDeviceNotification(handle)
+}
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -4069,6 +4076,10 @@ pub const BN_UNHILITE: u32 = 3u32;
 pub const BN_UNPUSHED: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -4311,6 +4322,72 @@ pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 pub const CWF_CREATE_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_SLOWNET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_XPORT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_APPYBEGIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_APPYEND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGCHANGED: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGMGAPI32: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_CUSTOMEVENT: u32 = 32774u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_NET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_MONITORCHANGE: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_NO_DISK_SPACE: u32 = 71u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_SHELLLOGGEDON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_USERDEFINED: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VPOWERDAPI: u32 = 33024u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -4723,6 +4800,72 @@ pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GIDC_REMOVAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_DEVICE_EVENT_RBC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0744792_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc56c139_7a10_47ee_a294_4c6a38f0149a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3b6d27d_5e35_4885_81e5_ee18c00ed779);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433f0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a61885b_7c39_43dd_9b56_b8ac22a549aa);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1bd644_3916_49c5_b063_991940118fb2);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dff54c_8469_41f9_b3de_ef836487c54a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7207877c_90ed_44e5_a000_81428d4c79bb);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_ARRIVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c0_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433d1_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_MEDIA_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07433c1_a98e_11d2_917a_00a0c9068ff3);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_TAPE_ERASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852d11eb_4bb8_4507_9d9b_417cc2b1b438);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e5fc86_d5cd_4038_b2e3_4445065c2377);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7373654a_812a_11d0_bec7_08002be2092f);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1625be_ad03_49f1_8ef8_6bbac182d1fd);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DISMOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16a55e8_1059_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c5b178_105d_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x411ad84f_433e_4dc2_a5ae_4a2d1a2de654);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062998b2_ee1f_4b6a_b857_e76cbbe9a6da);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab9a0d2_ef80_45cf_8cdc_cbe02a212906);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_LOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50708874_c9af_11d1_8fef_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2eed10_0ba8_11d2_8ffb_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_MOUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5804878_1a96_11d2_8ffd_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x873113ca_1486_4508_82ac_c3b2e5297aaa);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3bfff82_f3de_48d2_af95_457f80b763f2);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const GUI_16BITTASK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5226,6 +5369,22 @@ pub const LB_SETTOPINDEX: u32 = 407u32;
 pub const LLMHF_INJECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKF_LOGICAL_LOCK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKF_PHYSICAL_LOCK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_ALLOW_MEM_MAPPING: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_ALLOW_WRITES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_FAIL_MEM_MAPPING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_FAIL_WRITES: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const LOCKP_USER_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const LR_COLOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6968,6 +7127,66 @@ impl ::core::ops::Not for CWP_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
+impl ::core::marker::Copy for DEV_BROADCAST_HDR_DEVICE_TYPE {}
+impl ::core::clone::Clone for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEV_BROADCAST_HDR_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
+impl ::core::marker::Copy for DEV_BROADCAST_VOLUME_FLAGS {}
+impl ::core::clone::Clone for DEV_BROADCAST_VOLUME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEV_BROADCAST_VOLUME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_VOLUME_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_VOLUME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEV_BROADCAST_VOLUME_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -11550,6 +11769,636 @@ impl ::core::default::Default for DEBUGHOOKINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_BECOMING_READY {
+    pub Version: u32,
+    pub Reason: u32,
+    pub Estimated100msToReady: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_BECOMING_READY {}
+impl ::core::clone::Clone for DEVICE_EVENT_BECOMING_READY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_EVENT_BECOMING_READY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_EVENT_BECOMING_READY").field("Version", &self.Version).field("Reason", &self.Reason).field("Estimated100msToReady", &self.Estimated100msToReady).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEVICE_EVENT_BECOMING_READY {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEVICE_EVENT_BECOMING_READY {
+    fn eq(&self, other: &Self) -> bool {
+        self.Version == other.Version && self.Reason == other.Reason && self.Estimated100msToReady == other.Estimated100msToReady
+    }
+}
+impl ::core::cmp::Eq for DEVICE_EVENT_BECOMING_READY {}
+impl ::core::default::Default for DEVICE_EVENT_BECOMING_READY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
+    pub Version: u32,
+    pub DeviceClass: u32,
+    pub ButtonStatus: u16,
+    pub Request: u16,
+    pub SystemTime: i64,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_EXTERNAL_REQUEST {}
+impl ::core::clone::Clone for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_EVENT_EXTERNAL_REQUEST").field("Version", &self.Version).field("DeviceClass", &self.DeviceClass).field("ButtonStatus", &self.ButtonStatus).field("Request", &self.Request).field("SystemTime", &self.SystemTime).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEVICE_EVENT_EXTERNAL_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        self.Version == other.Version && self.DeviceClass == other.DeviceClass && self.ButtonStatus == other.ButtonStatus && self.Request == other.Request && self.SystemTime == other.SystemTime
+    }
+}
+impl ::core::cmp::Eq for DEVICE_EVENT_EXTERNAL_REQUEST {}
+impl ::core::default::Default for DEVICE_EVENT_EXTERNAL_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_GENERIC_DATA {
+    pub EventNumber: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_GENERIC_DATA {}
+impl ::core::clone::Clone for DEVICE_EVENT_GENERIC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_EVENT_GENERIC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_EVENT_GENERIC_DATA").field("EventNumber", &self.EventNumber).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEVICE_EVENT_GENERIC_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEVICE_EVENT_GENERIC_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.EventNumber == other.EventNumber
+    }
+}
+impl ::core::cmp::Eq for DEVICE_EVENT_GENERIC_DATA {}
+impl ::core::default::Default for DEVICE_EVENT_GENERIC_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_MOUNT {
+    pub Version: u32,
+    pub Flags: u32,
+    pub FileSystemNameLength: u32,
+    pub FileSystemNameOffset: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_MOUNT {}
+impl ::core::clone::Clone for DEVICE_EVENT_MOUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_EVENT_MOUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_EVENT_MOUNT").field("Version", &self.Version).field("Flags", &self.Flags).field("FileSystemNameLength", &self.FileSystemNameLength).field("FileSystemNameOffset", &self.FileSystemNameOffset).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEVICE_EVENT_MOUNT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEVICE_EVENT_MOUNT {
+    fn eq(&self, other: &Self) -> bool {
+        self.Version == other.Version && self.Flags == other.Flags && self.FileSystemNameLength == other.FileSystemNameLength && self.FileSystemNameOffset == other.FileSystemNameOffset
+    }
+}
+impl ::core::cmp::Eq for DEVICE_EVENT_MOUNT {}
+impl ::core::default::Default for DEVICE_EVENT_MOUNT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEVICE_EVENT_RBC_DATA {
+    pub EventNumber: u32,
+    pub SenseQualifier: u8,
+    pub SenseCode: u8,
+    pub SenseKey: u8,
+    pub Reserved: u8,
+    pub Information: u32,
+}
+impl ::core::marker::Copy for DEVICE_EVENT_RBC_DATA {}
+impl ::core::clone::Clone for DEVICE_EVENT_RBC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVICE_EVENT_RBC_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVICE_EVENT_RBC_DATA").field("EventNumber", &self.EventNumber).field("SenseQualifier", &self.SenseQualifier).field("SenseCode", &self.SenseCode).field("SenseKey", &self.SenseKey).field("Reserved", &self.Reserved).field("Information", &self.Information).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEVICE_EVENT_RBC_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEVICE_EVENT_RBC_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.EventNumber == other.EventNumber && self.SenseQualifier == other.SenseQualifier && self.SenseCode == other.SenseCode && self.SenseKey == other.SenseKey && self.Reserved == other.Reserved && self.Information == other.Information
+    }
+}
+impl ::core::cmp::Eq for DEVICE_EVENT_RBC_DATA {}
+impl ::core::default::Default for DEVICE_EVENT_RBC_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: ::windows::core::GUID,
+    pub dbcc_name: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_A").field("dbcc_size", &self.dbcc_size).field("dbcc_devicetype", &self.dbcc_devicetype).field("dbcc_reserved", &self.dbcc_reserved).field("dbcc_classguid", &self.dbcc_classguid).field("dbcc_name", &self.dbcc_name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_A {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcc_size == other.dbcc_size && self.dbcc_devicetype == other.dbcc_devicetype && self.dbcc_reserved == other.dbcc_reserved && self.dbcc_classguid == other.dbcc_classguid && self.dbcc_name == other.dbcc_name
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEV_BROADCAST_DEVICEINTERFACE_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
+    pub dbcc_size: u32,
+    pub dbcc_devicetype: u32,
+    pub dbcc_reserved: u32,
+    pub dbcc_classguid: ::windows::core::GUID,
+    pub dbcc_name: [u16; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_W {}
+impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_W").field("dbcc_size", &self.dbcc_size).field("dbcc_devicetype", &self.dbcc_devicetype).field("dbcc_reserved", &self.dbcc_reserved).field("dbcc_classguid", &self.dbcc_classguid).field("dbcc_name", &self.dbcc_name).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_W {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcc_size == other.dbcc_size && self.dbcc_devicetype == other.dbcc_devicetype && self.dbcc_reserved == other.dbcc_reserved && self.dbcc_classguid == other.dbcc_classguid && self.dbcc_name == other.dbcc_name
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_W {}
+impl ::core::default::Default for DEV_BROADCAST_DEVICEINTERFACE_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_DEVNODE {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+    pub dbcd_devnode: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_DEVNODE {}
+impl ::core::clone::Clone for DEV_BROADCAST_DEVNODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_DEVNODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_DEVNODE").field("dbcd_size", &self.dbcd_size).field("dbcd_devicetype", &self.dbcd_devicetype).field("dbcd_reserved", &self.dbcd_reserved).field("dbcd_devnode", &self.dbcd_devnode).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_DEVNODE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVNODE {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcd_size == other.dbcd_size && self.dbcd_devicetype == other.dbcd_devicetype && self.dbcd_reserved == other.dbcd_reserved && self.dbcd_devnode == other.dbcd_devnode
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_DEVNODE {}
+impl ::core::default::Default for DEV_BROADCAST_DEVNODE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_HANDLE {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: super::super::Foundation::HANDLE,
+    pub dbch_hdevnotify: *mut ::core::ffi::c_void,
+    pub dbch_eventguid: ::windows::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_HANDLE").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DEV_BROADCAST_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEV_BROADCAST_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HANDLE32 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u32,
+    pub dbch_hdevnotify: u32,
+    pub dbch_eventguid: ::windows::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE32 {}
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_HANDLE32").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_HANDLE32 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE32 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE32 {}
+impl ::core::default::Default for DEV_BROADCAST_HANDLE32 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HANDLE64 {
+    pub dbch_size: u32,
+    pub dbch_devicetype: u32,
+    pub dbch_reserved: u32,
+    pub dbch_handle: u64,
+    pub dbch_hdevnotify: u64,
+    pub dbch_eventguid: ::windows::core::GUID,
+    pub dbch_nameoffset: i32,
+    pub dbch_data: [u8; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HANDLE64 {}
+impl ::core::clone::Clone for DEV_BROADCAST_HANDLE64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_HANDLE64 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_HANDLE64").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).field("dbch_handle", &self.dbch_handle).field("dbch_hdevnotify", &self.dbch_hdevnotify).field("dbch_eventguid", &self.dbch_eventguid).field("dbch_nameoffset", &self.dbch_nameoffset).field("dbch_data", &self.dbch_data).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_HANDLE64 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_HANDLE64 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_HANDLE64 {}
+impl ::core::default::Default for DEV_BROADCAST_HANDLE64 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_HDR {
+    pub dbch_size: u32,
+    pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
+    pub dbch_reserved: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_HDR {}
+impl ::core::clone::Clone for DEV_BROADCAST_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_HDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_HDR").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_HDR {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_HDR {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_HDR {}
+impl ::core::default::Default for DEV_BROADCAST_HDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_NET {
+    pub dbcn_size: u32,
+    pub dbcn_devicetype: u32,
+    pub dbcn_reserved: u32,
+    pub dbcn_resource: u32,
+    pub dbcn_flags: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_NET {}
+impl ::core::clone::Clone for DEV_BROADCAST_NET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_NET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_NET").field("dbcn_size", &self.dbcn_size).field("dbcn_devicetype", &self.dbcn_devicetype).field("dbcn_reserved", &self.dbcn_reserved).field("dbcn_resource", &self.dbcn_resource).field("dbcn_flags", &self.dbcn_flags).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_NET {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_NET {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcn_size == other.dbcn_size && self.dbcn_devicetype == other.dbcn_devicetype && self.dbcn_reserved == other.dbcn_reserved && self.dbcn_resource == other.dbcn_resource && self.dbcn_flags == other.dbcn_flags
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_NET {}
+impl ::core::default::Default for DEV_BROADCAST_NET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_OEM {
+    pub dbco_size: u32,
+    pub dbco_devicetype: u32,
+    pub dbco_reserved: u32,
+    pub dbco_identifier: u32,
+    pub dbco_suppfunc: u32,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_OEM {}
+impl ::core::clone::Clone for DEV_BROADCAST_OEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_OEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_OEM").field("dbco_size", &self.dbco_size).field("dbco_devicetype", &self.dbco_devicetype).field("dbco_reserved", &self.dbco_reserved).field("dbco_identifier", &self.dbco_identifier).field("dbco_suppfunc", &self.dbco_suppfunc).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_OEM {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_OEM {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbco_size == other.dbco_size && self.dbco_devicetype == other.dbco_devicetype && self.dbco_reserved == other.dbco_reserved && self.dbco_identifier == other.dbco_identifier && self.dbco_suppfunc == other.dbco_suppfunc
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_OEM {}
+impl ::core::default::Default for DEV_BROADCAST_OEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEV_BROADCAST_PORT_A {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEV_BROADCAST_PORT_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_PORT_A").field("dbcp_size", &self.dbcp_size).field("dbcp_devicetype", &self.dbcp_devicetype).field("dbcp_reserved", &self.dbcp_reserved).field("dbcp_name", &self.dbcp_name).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DEV_BROADCAST_PORT_A {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEV_BROADCAST_PORT_A {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcp_size == other.dbcp_size && self.dbcp_devicetype == other.dbcp_devicetype && self.dbcp_reserved == other.dbcp_reserved && self.dbcp_name == other.dbcp_name
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEV_BROADCAST_PORT_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEV_BROADCAST_PORT_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_PORT_W {
+    pub dbcp_size: u32,
+    pub dbcp_devicetype: u32,
+    pub dbcp_reserved: u32,
+    pub dbcp_name: [u16; 1],
+}
+impl ::core::marker::Copy for DEV_BROADCAST_PORT_W {}
+impl ::core::clone::Clone for DEV_BROADCAST_PORT_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_PORT_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_PORT_W").field("dbcp_size", &self.dbcp_size).field("dbcp_devicetype", &self.dbcp_devicetype).field("dbcp_reserved", &self.dbcp_reserved).field("dbcp_name", &self.dbcp_name).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_PORT_W {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_PORT_W {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcp_size == other.dbcp_size && self.dbcp_devicetype == other.dbcp_devicetype && self.dbcp_reserved == other.dbcp_reserved && self.dbcp_name == other.dbcp_name
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_PORT_W {}
+impl ::core::default::Default for DEV_BROADCAST_PORT_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DEV_BROADCAST_VOLUME {
+    pub dbcv_size: u32,
+    pub dbcv_devicetype: u32,
+    pub dbcv_reserved: u32,
+    pub dbcv_unitmask: u32,
+    pub dbcv_flags: DEV_BROADCAST_VOLUME_FLAGS,
+}
+impl ::core::marker::Copy for DEV_BROADCAST_VOLUME {}
+impl ::core::clone::Clone for DEV_BROADCAST_VOLUME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_VOLUME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEV_BROADCAST_VOLUME").field("dbcv_size", &self.dbcv_size).field("dbcv_devicetype", &self.dbcv_devicetype).field("dbcv_reserved", &self.dbcv_reserved).field("dbcv_unitmask", &self.dbcv_unitmask).field("dbcv_flags", &self.dbcv_flags).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEV_BROADCAST_VOLUME {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEV_BROADCAST_VOLUME {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcv_size == other.dbcv_size && self.dbcv_devicetype == other.dbcv_devicetype && self.dbcv_reserved == other.dbcv_reserved && self.dbcv_unitmask == other.dbcv_unitmask && self.dbcv_flags == other.dbcv_flags
+    }
+}
+impl ::core::cmp::Eq for DEV_BROADCAST_VOLUME {}
+impl ::core::default::Default for DEV_BROADCAST_VOLUME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct DISK_HEALTH_NOTIFICATION_DATA {
+    pub DeviceGuid: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DISK_HEALTH_NOTIFICATION_DATA {}
+impl ::core::clone::Clone for DISK_HEALTH_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DISK_HEALTH_NOTIFICATION_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISK_HEALTH_NOTIFICATION_DATA").field("DeviceGuid", &self.DeviceGuid).finish()
+    }
+}
+impl ::windows::core::TypeKind for DISK_HEALTH_NOTIFICATION_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DISK_HEALTH_NOTIFICATION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.DeviceGuid == other.DeviceGuid
+    }
+}
+impl ::core::cmp::Eq for DISK_HEALTH_NOTIFICATION_DATA {}
+impl ::core::default::Default for DISK_HEALTH_NOTIFICATION_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DLGITEMTEMPLATE {
@@ -11723,6 +12572,36 @@ impl ::core::cmp::PartialEq for FLASHWINFO {
 impl ::core::cmp::Eq for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FLASHWINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    pub DiskNumber: u32,
+}
+impl ::core::marker::Copy for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {}
+impl ::core::clone::Clone for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION").field("DiskNumber", &self.DiskNumber).finish()
+    }
+}
+impl ::windows::core::TypeKind for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.DiskNumber == other.DiskNumber
+    }
+}
+impl ::core::cmp::Eq for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {}
+impl ::core::default::Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -13679,6 +14558,41 @@ impl ::core::default::Default for UPDATELAYEREDWINDOWINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct VolLockBroadcast {
+    pub vlb_dbh: DEV_BROADCAST_HDR,
+    pub vlb_owner: u32,
+    pub vlb_perms: u8,
+    pub vlb_lockType: u8,
+    pub vlb_drive: u8,
+    pub vlb_flags: u8,
+}
+impl ::core::marker::Copy for VolLockBroadcast {}
+impl ::core::clone::Clone for VolLockBroadcast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for VolLockBroadcast {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VolLockBroadcast").field("vlb_dbh", &self.vlb_dbh).field("vlb_owner", &self.vlb_owner).field("vlb_perms", &self.vlb_perms).field("vlb_lockType", &self.vlb_lockType).field("vlb_drive", &self.vlb_drive).field("vlb_flags", &self.vlb_flags).finish()
+    }
+}
+impl ::windows::core::TypeKind for VolLockBroadcast {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for VolLockBroadcast {
+    fn eq(&self, other: &Self) -> bool {
+        self.vlb_dbh == other.vlb_dbh && self.vlb_owner == other.vlb_owner && self.vlb_perms == other.vlb_perms && self.vlb_lockType == other.vlb_lockType && self.vlb_drive == other.vlb_drive && self.vlb_flags == other.vlb_flags
+    }
+}
+impl ::core::cmp::Eq for VolLockBroadcast {}
+impl ::core::default::Default for VolLockBroadcast {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWINFO {
@@ -13968,6 +14882,77 @@ impl ::windows::core::TypeKind for WNDCLASSW {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct _DEV_BROADCAST_HEADER {
+    pub dbcd_size: u32,
+    pub dbcd_devicetype: u32,
+    pub dbcd_reserved: u32,
+}
+impl ::core::marker::Copy for _DEV_BROADCAST_HEADER {}
+impl ::core::clone::Clone for _DEV_BROADCAST_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for _DEV_BROADCAST_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_DEV_BROADCAST_HEADER").field("dbcd_size", &self.dbcd_size).field("dbcd_devicetype", &self.dbcd_devicetype).field("dbcd_reserved", &self.dbcd_reserved).finish()
+    }
+}
+impl ::windows::core::TypeKind for _DEV_BROADCAST_HEADER {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for _DEV_BROADCAST_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbcd_size == other.dbcd_size && self.dbcd_devicetype == other.dbcd_devicetype && self.dbcd_reserved == other.dbcd_reserved
+    }
+}
+impl ::core::cmp::Eq for _DEV_BROADCAST_HEADER {}
+impl ::core::default::Default for _DEV_BROADCAST_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct _DEV_BROADCAST_USERDEFINED {
+    pub dbud_dbh: DEV_BROADCAST_HDR,
+    pub dbud_szName: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for _DEV_BROADCAST_USERDEFINED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_DEV_BROADCAST_USERDEFINED").field("dbud_dbh", &self.dbud_dbh).field("dbud_szName", &self.dbud_szName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for _DEV_BROADCAST_USERDEFINED {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for _DEV_BROADCAST_USERDEFINED {
+    fn eq(&self, other: &Self) -> bool {
+        self.dbud_dbh == other.dbud_dbh && self.dbud_szName == other.dbud_szName
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for _DEV_BROADCAST_USERDEFINED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for _DEV_BROADCAST_USERDEFINED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

@@ -580,23 +580,23 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::core::option:
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleGetIconOfClass<P0, P1>(rclsid: *const ::windows::core::GUID, lpszlabel: P0, fusetypeaslabel: P1) -> isize
+pub unsafe fn OleGetIconOfClass<P0, P1>(rclsid: *const ::windows::core::GUID, lpszlabel: P0, fusetypeaslabel: P1) -> super::super::Foundation::HGLOBAL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn OleGetIconOfClass ( rclsid : *const :: windows::core::GUID , lpszlabel : :: windows::core::PCWSTR , fusetypeaslabel : super::super::Foundation:: BOOL ) -> isize );
+    ::windows::imp::link ! ( "ole32.dll""system" fn OleGetIconOfClass ( rclsid : *const :: windows::core::GUID , lpszlabel : :: windows::core::PCWSTR , fusetypeaslabel : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HGLOBAL );
     OleGetIconOfClass(rclsid, lpszlabel.into_param().abi(), fusetypeaslabel.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleGetIconOfFile<P0, P1>(lpszpath: P0, fusefileaslabel: P1) -> isize
+pub unsafe fn OleGetIconOfFile<P0, P1>(lpszpath: P0, fusefileaslabel: P1) -> super::super::Foundation::HGLOBAL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn OleGetIconOfFile ( lpszpath : :: windows::core::PCWSTR , fusefileaslabel : super::super::Foundation:: BOOL ) -> isize );
+    ::windows::imp::link ! ( "ole32.dll""system" fn OleGetIconOfFile ( lpszpath : :: windows::core::PCWSTR , fusefileaslabel : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HGLOBAL );
     OleGetIconOfFile(lpszpath.into_param().abi(), fusefileaslabel.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -717,17 +717,18 @@ where
     ::windows::imp::link ! ( "ole32.dll""system" fn OleLockRunning ( punknown : * mut::core::ffi::c_void , flock : super::super::Foundation:: BOOL , flastunlockcloses : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     OleLockRunning(punknown.into_param().abi(), flock.into_param().abi(), flastunlockcloses.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn OleMetafilePictFromIconAndLabel<P0, P1, P2>(hicon: P0, lpszlabel: P1, lpszsourcefile: P2, iiconindex: u32) -> isize
+pub unsafe fn OleMetafilePictFromIconAndLabel<P0, P1, P2>(hicon: P0, lpszlabel: P1, lpszsourcefile: P2, iiconindex: u32) -> ::windows::core::Result<super::super::Foundation::HGLOBAL>
 where
     P0: ::windows::core::IntoParam<super::super::UI::WindowsAndMessaging::HICON>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn OleMetafilePictFromIconAndLabel ( hicon : super::super::UI::WindowsAndMessaging:: HICON , lpszlabel : :: windows::core::PCWSTR , lpszsourcefile : :: windows::core::PCWSTR , iiconindex : u32 ) -> isize );
-    OleMetafilePictFromIconAndLabel(hicon.into_param().abi(), lpszlabel.into_param().abi(), lpszsourcefile.into_param().abi(), iiconindex)
+    ::windows::imp::link ! ( "ole32.dll""system" fn OleMetafilePictFromIconAndLabel ( hicon : super::super::UI::WindowsAndMessaging:: HICON , lpszlabel : :: windows::core::PCWSTR , lpszsourcefile : :: windows::core::PCWSTR , iiconindex : u32 ) -> super::super::Foundation:: HGLOBAL );
+    let result__ = OleMetafilePictFromIconAndLabel(hicon.into_param().abi(), lpszlabel.into_param().abi(), lpszsourcefile.into_param().abi(), iiconindex);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1141,8 +1142,8 @@ where
     ::windows::imp::link ! ( "oleaut32.dll""system" fn RegisterTypeLibForUser ( ptlib : * mut::core::ffi::c_void , szfullpath : :: windows::core::PCWSTR , szhelpdir : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     RegisterTypeLibForUser(ptlib.into_param().abi(), szfullpath.into_param().abi(), szhelpdir.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     ::windows::imp::link ! ( "ole32.dll""system" fn ReleaseStgMedium ( param0 : *mut super::Com:: STGMEDIUM ) -> ( ) );
@@ -3794,8 +3795,8 @@ pub unsafe fn VectorFromBstr(bstr: &::windows::core::BSTR) -> ::windows::core::R
 pub struct IAdviseSinkEx(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAdviseSinkEx {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM) {
         (::windows::core::Interface::vtable(self).base__.OnDataChange)(::windows::core::Interface::as_raw(self), pformatetc, pstgmed)
     }
@@ -8432,16 +8433,19 @@ impl IOleUIObjInfoA {
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), dwobject, clsidnew).ok()
     }
-    pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: ::core::option::Option<*const isize>, pdvaspect: ::core::option::Option<*const u32>, pncurrentscale: ::core::option::Option<*const i32>) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: ::core::option::Option<*const super::super::Foundation::HGLOBAL>, pdvaspect: ::core::option::Option<*const u32>, pncurrentscale: ::core::option::Option<*const i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, ::core::mem::transmute(phmetapict.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdvaspect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pncurrentscale.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetViewInfo<P0>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetViewInfo<P0, P1>(&self, dwobject: u32, hmetapict: P0, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, hmetapict, dvaspect, ncurrentscale, brelativetoorig.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, hmetapict.into_param().abi(), dvaspect, ncurrentscale, brelativetoorig.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOleUIObjInfoA, ::windows::core::IUnknown);
@@ -8474,9 +8478,12 @@ pub struct IOleUIObjInfoA_Vtbl {
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut ::windows::core::PSTR, lplpsztype: *mut ::windows::core::PSTR, lplpszshorttype: *mut ::windows::core::PSTR, lplpszlocation: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT,
     pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const super::super::Foundation::HGLOBAL, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetViewInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: super::super::Foundation::HGLOBAL, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetViewInfo: usize,
 }
@@ -8493,16 +8500,19 @@ impl IOleUIObjInfoW {
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConvertObject)(::windows::core::Interface::as_raw(self), dwobject, clsidnew).ok()
     }
-    pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: ::core::option::Option<*const isize>, pdvaspect: ::core::option::Option<*const u32>, pncurrentscale: ::core::option::Option<*const i32>) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: ::core::option::Option<*const super::super::Foundation::HGLOBAL>, pdvaspect: ::core::option::Option<*const u32>, pncurrentscale: ::core::option::Option<*const i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, ::core::mem::transmute(phmetapict.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdvaspect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pncurrentscale.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetViewInfo<P0>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetViewInfo<P0, P1>(&self, dwobject: u32, hmetapict: P0, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, hmetapict, dvaspect, ncurrentscale, brelativetoorig.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetViewInfo)(::windows::core::Interface::as_raw(self), dwobject, hmetapict.into_param().abi(), dvaspect, ncurrentscale, brelativetoorig.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IOleUIObjInfoW, ::windows::core::IUnknown);
@@ -8535,9 +8545,12 @@ pub struct IOleUIObjInfoW_Vtbl {
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut ::windows::core::PWSTR, lplpsztype: *mut ::windows::core::PWSTR, lplpszshorttype: *mut ::windows::core::PWSTR, lplpszlocation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, phmetapict: *const super::super::Foundation::HGLOBAL, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetViewInfo: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetViewInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, hmetapict: super::super::Foundation::HGLOBAL, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetViewInfo: usize,
 }
@@ -16379,7 +16392,7 @@ pub struct OLEUICHANGEICONA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub clsid: ::windows::core::GUID,
     pub szIconExe: [super::super::Foundation::CHAR; 260],
     pub cchIconExe: i32,
@@ -16421,7 +16434,7 @@ pub struct OLEUICHANGEICONW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub clsid: ::windows::core::GUID,
     pub szIconExe: [u16; 260],
     pub cchIconExe: i32,
@@ -16592,7 +16605,7 @@ pub struct OLEUICONVERTA {
     pub dvAspect: u32,
     pub wFormat: u16,
     pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub lpszUserType: ::windows::core::PSTR,
     pub fObjectsIconChanged: super::super::Foundation::BOOL,
     pub lpszDefLabel: ::windows::core::PSTR,
@@ -16665,7 +16678,7 @@ pub struct OLEUICONVERTW {
     pub dvAspect: u32,
     pub wFormat: u16,
     pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub lpszUserType: ::windows::core::PWSTR,
     pub fObjectsIconChanged: super::super::Foundation::BOOL,
     pub lpszDefLabel: ::windows::core::PWSTR,
@@ -16889,7 +16902,7 @@ pub struct OLEUIINSERTOBJECTA {
     pub lpIStorage: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::StructuredStorage::IStorage>>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for OLEUIINSERTOBJECTA {
@@ -16960,7 +16973,7 @@ pub struct OLEUIINSERTOBJECTW {
     pub lpIStorage: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::StructuredStorage::IStorage>>,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for OLEUIINSERTOBJECTW {
@@ -17274,7 +17287,7 @@ pub struct OLEUIPASTESPECIALA {
     pub lpClsidExclude: *mut ::windows::core::GUID,
     pub nSelectedIndex: i32,
     pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -17341,7 +17354,7 @@ pub struct OLEUIPASTESPECIALW {
     pub lpClsidExclude: *mut ::windows::core::GUID,
     pub nSelectedIndex: i32,
     pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
