@@ -31,7 +31,8 @@ jobs:
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
           cargo run -p tool_msvc
-      - uses: actions/upload-artifact@v3
+      - name: Upload libs
+        uses: actions/upload-artifact@v3
         with:
           name: libs
           path: crates/targets/*/lib/*
