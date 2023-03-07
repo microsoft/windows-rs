@@ -6,5 +6,4 @@ publish = false
 
 [dependencies]
 metadata = { package = "windows-metadata", path = "../../libs/metadata" }
-prettyplease = "0.1"
 syn = "1.0"
