@@ -25,7 +25,7 @@ fn main() {
         for tool in tools {
             if Command::new(tool).stdout(Stdio::null()).stderr(Stdio::null()).spawn().is_err() {
                 eprintln!("Could not find {tool}. Is it in your $PATH?");
-                return;
+                std::process::exit(1);
             }
         }
 
