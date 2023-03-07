@@ -16,11 +16,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Prepare
+      - name: Build i686_msvc
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
           cargo run -p tool_msvc
+      - name: Build x86_64_msvc
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64
+          cargo run -p tool_msvc
+      - name: Build aarch64_msvc
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
+          cargo run -p tool_msvc
+      - uses: actions/upload-artifact@v3
+        with:
+          name: libs
+          path: crates/targets/*/lib/*
       - name: Check baseline
         shell: bash
         run: |
