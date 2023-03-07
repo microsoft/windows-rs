@@ -23,6 +23,7 @@ jobs:
       - name: Build gnu libs
         shell: cmd
         run: |
+          set PATH=%PATH%;%GITHUB_PATH%
           cargo run -p tool_gnu -- all
 
       - name: Build i686_msvc
