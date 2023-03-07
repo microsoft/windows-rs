@@ -31,9 +31,8 @@ jobs:
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
 
-      - name: Setup GNU
-        uses: ./.github/actions/setup-gnu
-        if: contains(matrix.target, 'windows-gnu')
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
           
       - name: Test
         run: cargo test -p test_calling_convention

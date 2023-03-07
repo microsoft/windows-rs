@@ -1,5 +1,5 @@
-name: Setup GNU
-description: GitHub VMs don't configure GNU correctly
+name: Fix environment
+description: GitHub VMs aren't configured correctly
 runs:
   using: "composite"
   steps:
@@ -14,6 +14,7 @@ runs:
             linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
             ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
         "@
+      if: contains(matrix.target, 'windows-gnu')
     - name: Configure environment
       shell: pwsh
       run: |
