@@ -16,31 +16,45 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
+
+      - name: Build gnu libs
+        shell: cmd
+        run: |
+          cargo run -p tool_gnu -- all
+
       - name: Build i686_msvc
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
           cargo run -p tool_msvc
+
       - name: Build x86_64_msvc
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64
           cargo run -p tool_msvc
+
       - name: Build aarch64_msvc
         shell: cmd
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
           cargo run -p tool_msvc
+
       - name: Upload libs
         uses: actions/upload-artifact@v3
         with:
           name: libs
           path: crates/targets/*/lib/*
+
       - name: Check baseline
         shell: bash
         run: |
           git add -N .
           git diff --exit-code crates/targets/baseline || (echo '::error::Generated target libs are out-of-date.'; exit 1)
+
       - name: Check dumpbin
         shell: pwsh
         run: |
