@@ -316,8 +316,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterActivationFactories ( activatableclassids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , activationfactorycallbacks : *const isize , count : u32 , cookie : *mut isize ) -> :: windows::core::HRESULT );
+pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> ::windows::core::Result<isize> {
+    ::windows::imp::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoRegisterActivationFactories ( activatableclassids : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY , count : u32 , cookie : *mut isize ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<isize>();
     RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).from_abi(result__)
 }
@@ -2994,6 +2994,8 @@ impl ::core::default::Default for ServerInformation {
 }
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub type PFNGETACTIVATIONFACTORY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::HSTRING, param1: *mut ::core::option::Option<IActivationFactory>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PINSPECT_HSTRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

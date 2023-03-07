@@ -123,11 +123,14 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "dciman32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetWindowRegionData ( hwnd : super::super::Foundation:: HWND , size : u32 , prd : *mut super::super::Graphics::Gdi:: RGNDATA ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn GlobalCompact ( dwminfree : u32 ) -> usize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn GlobalFix ( hmem : isize ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn GlobalUnWire ( hmem : isize ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn GlobalUnfix ( hmem : isize ) -> ( ) );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn GlobalWire ( hmem : isize ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn GlobalFix ( hmem : super::super::Foundation:: HGLOBAL ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn GlobalUnWire ( hmem : super::super::Foundation:: HGLOBAL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn GlobalUnfix ( hmem : super::super::Foundation:: HGLOBAL ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn GlobalWire ( hmem : super::super::Foundation:: HGLOBAL ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn IMPGetIMEA ( param0 : super::super::Foundation:: HWND , param1 : *mut IMEPROA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -157,7 +160,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advpack.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn LaunchINFSectionW ( hwndowner : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , pszparams : :: windows_sys::core::PWSTR , nshow : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn LocalCompact ( uminfree : u32 ) -> usize );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn LocalShrink ( hmem : isize , cbnewsize : u32 ) -> usize );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn LocalShrink ( hmem : super::super::Foundation:: HLOCAL , cbnewsize : u32 ) -> usize );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn MulDiv ( nnumber : i32 , nnumerator : i32 , ndenominator : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advpack.dll""system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NeedReboot ( dwrebootcheck : u32 ) -> super::super::Foundation:: BOOL );

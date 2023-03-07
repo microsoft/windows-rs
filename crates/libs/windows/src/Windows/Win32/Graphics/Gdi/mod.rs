@@ -353,11 +353,15 @@ where
     ::windows::imp::link ! ( "gdi32.dll""system" fn CreateDCW ( pwszdriver : :: windows::core::PCWSTR , pwszdevice : :: windows::core::PCWSTR , pszport : :: windows::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
     CreateDCW(pwszdriver.into_param().abi(), pwszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn CreateDIBPatternBrush ( h : isize , iusage : DIB_USAGE ) -> HBRUSH );
-    CreateDIBPatternBrush(h, iusage)
+pub unsafe fn CreateDIBPatternBrush<P0>(h: P0, iusage: DIB_USAGE) -> HBRUSH
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+{
+    ::windows::imp::link ! ( "gdi32.dll""system" fn CreateDIBPatternBrush ( h : super::super::Foundation:: HGLOBAL , iusage : DIB_USAGE ) -> HBRUSH );
+    CreateDIBPatternBrush(h.into_param().abi(), iusage)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]

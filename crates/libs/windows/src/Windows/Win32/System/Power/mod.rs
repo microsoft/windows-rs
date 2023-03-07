@@ -1071,6 +1071,86 @@ pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_ACPI1C2: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_ACPI1C3: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_CPC: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_CSD: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_CST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_LPI: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_OSC: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PCCH: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PCCP: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PCT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PDC: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PPC: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PSD: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PSS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_PTC: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLESTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67abd39_81f8_4a5e_8152_72e31ec912ee);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFSTATES_DATA_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5708cc20_7d40_4bf4_b4aa_2b01338d0126);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_THERMALCONSTRAINT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1u32 };
@@ -1850,6 +1930,170 @@ impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POWER_MONITOR_REQUEST_REASON {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POWER_MONITOR_REQUEST_REASON {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_REASON").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POWER_MONITOR_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
@@ -1951,6 +2195,43 @@ impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POWER_SETTING_ALTITUDE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
+impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
+impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POWER_SETTING_ALTITUDE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POWER_SETTING_ALTITUDE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POWER_SETTING_ALTITUDE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_SETTING_ALTITUDE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(1u32);
@@ -1975,6 +2256,35 @@ impl ::windows::core::TypeKind for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
 impl ::core::fmt::Debug for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("POWER_SETTING_REGISTER_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POWER_USER_PRESENCE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
+impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POWER_USER_PRESENCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POWER_USER_PRESENCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_USER_PRESENCE_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -2074,6 +2384,39 @@ impl ::windows::core::TypeKind for USB_CHARGER_PORT {
 impl ::core::fmt::Debug for USB_CHARGER_PORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USB_CHARGER_PORT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USER_ACTIVITY_PRESENCE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
+impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_ACTIVITY_PRESENCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for USER_ACTIVITY_PRESENCE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for USER_ACTIVITY_PRESENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_ACTIVITY_PRESENCE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -3107,6 +3450,114 @@ impl ::core::default::Default for POWER_ACTION_POLICY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct POWER_IDLE_RESILIENCY {
+    pub CoalescingTimeout: u32,
+    pub IdleResiliencyPeriod: u32,
+}
+impl ::core::marker::Copy for POWER_IDLE_RESILIENCY {}
+impl ::core::clone::Clone for POWER_IDLE_RESILIENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POWER_IDLE_RESILIENCY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_IDLE_RESILIENCY").field("CoalescingTimeout", &self.CoalescingTimeout).field("IdleResiliencyPeriod", &self.IdleResiliencyPeriod).finish()
+    }
+}
+impl ::windows::core::TypeKind for POWER_IDLE_RESILIENCY {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for POWER_IDLE_RESILIENCY {
+    fn eq(&self, other: &Self) -> bool {
+        self.CoalescingTimeout == other.CoalescingTimeout && self.IdleResiliencyPeriod == other.IdleResiliencyPeriod
+    }
+}
+impl ::core::cmp::Eq for POWER_IDLE_RESILIENCY {}
+impl ::core::default::Default for POWER_IDLE_RESILIENCY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_MONITOR_INVOCATION {
+    pub Console: super::super::Foundation::BOOLEAN,
+    pub RequestReason: POWER_MONITOR_REQUEST_REASON,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_MONITOR_INVOCATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_MONITOR_INVOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_MONITOR_INVOCATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_MONITOR_INVOCATION").field("Console", &self.Console).field("RequestReason", &self.RequestReason).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_MONITOR_INVOCATION {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_MONITOR_INVOCATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.Console == other.Console && self.RequestReason == other.RequestReason
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_MONITOR_INVOCATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_MONITOR_INVOCATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_PLATFORM_INFORMATION {
+    pub AoAc: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_PLATFORM_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_PLATFORM_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_PLATFORM_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_PLATFORM_INFORMATION").field("AoAc", &self.AoAc).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_PLATFORM_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_PLATFORM_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.AoAc == other.AoAc
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_PLATFORM_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_PLATFORM_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POWER_POLICY {
@@ -3141,6 +3592,941 @@ impl ::core::cmp::PartialEq for POWER_POLICY {
 impl ::core::cmp::Eq for POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for POWER_POLICY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    pub IsAllowed: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES").field("IsAllowed", &self.IsAllowed).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    fn eq(&self, other: &Self) -> bool {
+        self.IsAllowed == other.IsAllowed
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_SESSION_CONNECT {
+    pub Connected: super::super::Foundation::BOOLEAN,
+    pub Console: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_SESSION_CONNECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_SESSION_CONNECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_SESSION_CONNECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_SESSION_CONNECT").field("Connected", &self.Connected).field("Console", &self.Console).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_SESSION_CONNECT {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_SESSION_CONNECT {
+    fn eq(&self, other: &Self) -> bool {
+        self.Connected == other.Connected && self.Console == other.Console
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_SESSION_CONNECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_SESSION_CONNECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_SESSION_RIT_STATE {
+    pub Active: super::super::Foundation::BOOLEAN,
+    pub LastInputTime: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_SESSION_RIT_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_SESSION_RIT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_SESSION_RIT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_SESSION_RIT_STATE").field("Active", &self.Active).field("LastInputTime", &self.LastInputTime).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_SESSION_RIT_STATE {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_SESSION_RIT_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Active == other.Active && self.LastInputTime == other.LastInputTime
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_SESSION_RIT_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_SESSION_RIT_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct POWER_SESSION_TIMEOUTS {
+    pub InputTimeout: u32,
+    pub DisplayTimeout: u32,
+}
+impl ::core::marker::Copy for POWER_SESSION_TIMEOUTS {}
+impl ::core::clone::Clone for POWER_SESSION_TIMEOUTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POWER_SESSION_TIMEOUTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_SESSION_TIMEOUTS").field("InputTimeout", &self.InputTimeout).field("DisplayTimeout", &self.DisplayTimeout).finish()
+    }
+}
+impl ::windows::core::TypeKind for POWER_SESSION_TIMEOUTS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for POWER_SESSION_TIMEOUTS {
+    fn eq(&self, other: &Self) -> bool {
+        self.InputTimeout == other.InputTimeout && self.DisplayTimeout == other.DisplayTimeout
+    }
+}
+impl ::core::cmp::Eq for POWER_SESSION_TIMEOUTS {}
+impl ::core::default::Default for POWER_SESSION_TIMEOUTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_SESSION_WINLOGON {
+    pub SessionId: u32,
+    pub Console: super::super::Foundation::BOOLEAN,
+    pub Locked: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_SESSION_WINLOGON {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_SESSION_WINLOGON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for POWER_SESSION_WINLOGON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_SESSION_WINLOGON").field("SessionId", &self.SessionId).field("Console", &self.Console).field("Locked", &self.Locked).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for POWER_SESSION_WINLOGON {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_SESSION_WINLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        self.SessionId == other.SessionId && self.Console == other.Console && self.Locked == other.Locked
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_SESSION_WINLOGON {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for POWER_SESSION_WINLOGON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct POWER_USER_PRESENCE {
+    pub UserPresence: POWER_USER_PRESENCE_TYPE,
+}
+impl ::core::marker::Copy for POWER_USER_PRESENCE {}
+impl ::core::clone::Clone for POWER_USER_PRESENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POWER_USER_PRESENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POWER_USER_PRESENCE").field("UserPresence", &self.UserPresence).finish()
+    }
+}
+impl ::windows::core::TypeKind for POWER_USER_PRESENCE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for POWER_USER_PRESENCE {
+    fn eq(&self, other: &Self) -> bool {
+        self.UserPresence == other.UserPresence
+    }
+}
+impl ::core::cmp::Eq for POWER_USER_PRESENCE {}
+impl ::core::default::Default for POWER_USER_PRESENCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLESTATE_EVENT {
+    pub NewState: u32,
+    pub OldState: u32,
+    pub Processors: u64,
+}
+impl ::core::marker::Copy for PPM_IDLESTATE_EVENT {}
+impl ::core::clone::Clone for PPM_IDLESTATE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLESTATE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLESTATE_EVENT").field("NewState", &self.NewState).field("OldState", &self.OldState).field("Processors", &self.Processors).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLESTATE_EVENT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLESTATE_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.NewState == other.NewState && self.OldState == other.OldState && self.Processors == other.Processors
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLESTATE_EVENT {}
+impl ::core::default::Default for PPM_IDLESTATE_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLE_ACCOUNTING {
+    pub StateCount: u32,
+    pub TotalTransitions: u32,
+    pub ResetCount: u32,
+    pub StartTime: u64,
+    pub State: [PPM_IDLE_STATE_ACCOUNTING; 1],
+}
+impl ::core::marker::Copy for PPM_IDLE_ACCOUNTING {}
+impl ::core::clone::Clone for PPM_IDLE_ACCOUNTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLE_ACCOUNTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLE_ACCOUNTING").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLE_ACCOUNTING {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLE_ACCOUNTING {
+    fn eq(&self, other: &Self) -> bool {
+        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.StartTime == other.StartTime && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLE_ACCOUNTING {}
+impl ::core::default::Default for PPM_IDLE_ACCOUNTING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLE_ACCOUNTING_EX {
+    pub StateCount: u32,
+    pub TotalTransitions: u32,
+    pub ResetCount: u32,
+    pub AbortCount: u32,
+    pub StartTime: u64,
+    pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
+}
+impl ::core::marker::Copy for PPM_IDLE_ACCOUNTING_EX {}
+impl ::core::clone::Clone for PPM_IDLE_ACCOUNTING_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLE_ACCOUNTING_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLE_ACCOUNTING_EX").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("AbortCount", &self.AbortCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLE_ACCOUNTING_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLE_ACCOUNTING_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.AbortCount == other.AbortCount && self.StartTime == other.StartTime && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLE_ACCOUNTING_EX {}
+impl ::core::default::Default for PPM_IDLE_ACCOUNTING_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLE_STATE_ACCOUNTING {
+    pub IdleTransitions: u32,
+    pub FailedTransitions: u32,
+    pub InvalidBucketIndex: u32,
+    pub TotalTime: u64,
+    pub IdleTimeBuckets: [u32; 6],
+}
+impl ::core::marker::Copy for PPM_IDLE_STATE_ACCOUNTING {}
+impl ::core::clone::Clone for PPM_IDLE_STATE_ACCOUNTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLE_STATE_ACCOUNTING").field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("TotalTime", &self.TotalTime).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLE_STATE_ACCOUNTING {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING {
+    fn eq(&self, other: &Self) -> bool {
+        self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.TotalTime == other.TotalTime && self.IdleTimeBuckets == other.IdleTimeBuckets
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING {}
+impl ::core::default::Default for PPM_IDLE_STATE_ACCOUNTING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
+    pub TotalTime: u64,
+    pub IdleTransitions: u32,
+    pub FailedTransitions: u32,
+    pub InvalidBucketIndex: u32,
+    pub MinTimeUs: u32,
+    pub MaxTimeUs: u32,
+    pub CancelledTransitions: u32,
+    pub IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
+}
+impl ::core::marker::Copy for PPM_IDLE_STATE_ACCOUNTING_EX {}
+impl ::core::clone::Clone for PPM_IDLE_STATE_ACCOUNTING_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLE_STATE_ACCOUNTING_EX").field("TotalTime", &self.TotalTime).field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("CancelledTransitions", &self.CancelledTransitions).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLE_STATE_ACCOUNTING_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.TotalTime == other.TotalTime && self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.CancelledTransitions == other.CancelledTransitions && self.IdleTimeBuckets == other.IdleTimeBuckets
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING_EX {}
+impl ::core::default::Default for PPM_IDLE_STATE_ACCOUNTING_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_IDLE_STATE_BUCKET_EX {
+    pub TotalTimeUs: u64,
+    pub MinTimeUs: u32,
+    pub MaxTimeUs: u32,
+    pub Count: u32,
+}
+impl ::core::marker::Copy for PPM_IDLE_STATE_BUCKET_EX {}
+impl ::core::clone::Clone for PPM_IDLE_STATE_BUCKET_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_IDLE_STATE_BUCKET_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_IDLE_STATE_BUCKET_EX").field("TotalTimeUs", &self.TotalTimeUs).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("Count", &self.Count).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_IDLE_STATE_BUCKET_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_IDLE_STATE_BUCKET_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.TotalTimeUs == other.TotalTimeUs && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.Count == other.Count
+    }
+}
+impl ::core::cmp::Eq for PPM_IDLE_STATE_BUCKET_EX {}
+impl ::core::default::Default for PPM_IDLE_STATE_BUCKET_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_PERFSTATE_DOMAIN_EVENT {
+    pub State: u32,
+    pub Latency: u32,
+    pub Speed: u32,
+    pub Processors: u64,
+}
+impl ::core::marker::Copy for PPM_PERFSTATE_DOMAIN_EVENT {}
+impl ::core::clone::Clone for PPM_PERFSTATE_DOMAIN_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_PERFSTATE_DOMAIN_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_PERFSTATE_DOMAIN_EVENT").field("State", &self.State).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processors", &self.Processors).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_PERFSTATE_DOMAIN_EVENT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_PERFSTATE_DOMAIN_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.State == other.State && self.Latency == other.Latency && self.Speed == other.Speed && self.Processors == other.Processors
+    }
+}
+impl ::core::cmp::Eq for PPM_PERFSTATE_DOMAIN_EVENT {}
+impl ::core::default::Default for PPM_PERFSTATE_DOMAIN_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_PERFSTATE_EVENT {
+    pub State: u32,
+    pub Status: u32,
+    pub Latency: u32,
+    pub Speed: u32,
+    pub Processor: u32,
+}
+impl ::core::marker::Copy for PPM_PERFSTATE_EVENT {}
+impl ::core::clone::Clone for PPM_PERFSTATE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_PERFSTATE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_PERFSTATE_EVENT").field("State", &self.State).field("Status", &self.Status).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processor", &self.Processor).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_PERFSTATE_EVENT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_PERFSTATE_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.State == other.State && self.Status == other.Status && self.Latency == other.Latency && self.Speed == other.Speed && self.Processor == other.Processor
+    }
+}
+impl ::core::cmp::Eq for PPM_PERFSTATE_EVENT {}
+impl ::core::default::Default for PPM_PERFSTATE_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_THERMALCHANGE_EVENT {
+    pub ThermalConstraint: u32,
+    pub Processors: u64,
+}
+impl ::core::marker::Copy for PPM_THERMALCHANGE_EVENT {}
+impl ::core::clone::Clone for PPM_THERMALCHANGE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_THERMALCHANGE_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_THERMALCHANGE_EVENT").field("ThermalConstraint", &self.ThermalConstraint).field("Processors", &self.Processors).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_THERMALCHANGE_EVENT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_THERMALCHANGE_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ThermalConstraint == other.ThermalConstraint && self.Processors == other.Processors
+    }
+}
+impl ::core::cmp::Eq for PPM_THERMALCHANGE_EVENT {}
+impl ::core::default::Default for PPM_THERMALCHANGE_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_THERMAL_POLICY_EVENT {
+    pub Mode: u8,
+    pub Processors: u64,
+}
+impl ::core::marker::Copy for PPM_THERMAL_POLICY_EVENT {}
+impl ::core::clone::Clone for PPM_THERMAL_POLICY_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_THERMAL_POLICY_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_THERMAL_POLICY_EVENT").field("Mode", &self.Mode).field("Processors", &self.Processors).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_THERMAL_POLICY_EVENT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_THERMAL_POLICY_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.Mode == other.Mode && self.Processors == other.Processors
+    }
+}
+impl ::core::cmp::Eq for PPM_THERMAL_POLICY_EVENT {}
+impl ::core::default::Default for PPM_THERMAL_POLICY_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_IDLE_STATE {
+    pub Latency: u32,
+    pub Power: u32,
+    pub TimeCheck: u32,
+    pub PromotePercent: u8,
+    pub DemotePercent: u8,
+    pub StateType: u8,
+    pub Reserved: u8,
+    pub StateFlags: u32,
+    pub Context: u32,
+    pub IdleHandler: u32,
+    pub Reserved1: u32,
+}
+impl ::core::marker::Copy for PPM_WMI_IDLE_STATE {}
+impl ::core::clone::Clone for PPM_WMI_IDLE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_IDLE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_IDLE_STATE").field("Latency", &self.Latency).field("Power", &self.Power).field("TimeCheck", &self.TimeCheck).field("PromotePercent", &self.PromotePercent).field("DemotePercent", &self.DemotePercent).field("StateType", &self.StateType).field("Reserved", &self.Reserved).field("StateFlags", &self.StateFlags).field("Context", &self.Context).field("IdleHandler", &self.IdleHandler).field("Reserved1", &self.Reserved1).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_IDLE_STATE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Latency == other.Latency && self.Power == other.Power && self.TimeCheck == other.TimeCheck && self.PromotePercent == other.PromotePercent && self.DemotePercent == other.DemotePercent && self.StateType == other.StateType && self.Reserved == other.Reserved && self.StateFlags == other.StateFlags && self.Context == other.Context && self.IdleHandler == other.IdleHandler && self.Reserved1 == other.Reserved1
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_IDLE_STATE {}
+impl ::core::default::Default for PPM_WMI_IDLE_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_IDLE_STATES {
+    pub Type: u32,
+    pub Count: u32,
+    pub TargetState: u32,
+    pub OldState: u32,
+    pub TargetProcessors: u64,
+    pub State: [PPM_WMI_IDLE_STATE; 1],
+}
+impl ::core::marker::Copy for PPM_WMI_IDLE_STATES {}
+impl ::core::clone::Clone for PPM_WMI_IDLE_STATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_IDLE_STATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_IDLE_STATES").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_IDLE_STATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATES {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_IDLE_STATES {}
+impl ::core::default::Default for PPM_WMI_IDLE_STATES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_IDLE_STATES_EX {
+    pub Type: u32,
+    pub Count: u32,
+    pub TargetState: u32,
+    pub OldState: u32,
+    pub TargetProcessors: *mut ::core::ffi::c_void,
+    pub State: [PPM_WMI_IDLE_STATE; 1],
+}
+impl ::core::marker::Copy for PPM_WMI_IDLE_STATES_EX {}
+impl ::core::clone::Clone for PPM_WMI_IDLE_STATES_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_IDLE_STATES_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_IDLE_STATES_EX").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_IDLE_STATES_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_IDLE_STATES_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_IDLE_STATES_EX {}
+impl ::core::default::Default for PPM_WMI_IDLE_STATES_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_LEGACY_PERFSTATE {
+    pub Frequency: u32,
+    pub Flags: u32,
+    pub PercentFrequency: u32,
+}
+impl ::core::marker::Copy for PPM_WMI_LEGACY_PERFSTATE {}
+impl ::core::clone::Clone for PPM_WMI_LEGACY_PERFSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_LEGACY_PERFSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_LEGACY_PERFSTATE").field("Frequency", &self.Frequency).field("Flags", &self.Flags).field("PercentFrequency", &self.PercentFrequency).finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_LEGACY_PERFSTATE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_LEGACY_PERFSTATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Frequency == other.Frequency && self.Flags == other.Flags && self.PercentFrequency == other.PercentFrequency
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_LEGACY_PERFSTATE {}
+impl ::core::default::Default for PPM_WMI_LEGACY_PERFSTATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_PERF_STATE {
+    pub Frequency: u32,
+    pub Power: u32,
+    pub PercentFrequency: u8,
+    pub IncreaseLevel: u8,
+    pub DecreaseLevel: u8,
+    pub Type: u8,
+    pub IncreaseTime: u32,
+    pub DecreaseTime: u32,
+    pub Control: u64,
+    pub Status: u64,
+    pub HitCount: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u64,
+    pub Reserved3: u64,
+}
+impl ::core::marker::Copy for PPM_WMI_PERF_STATE {}
+impl ::core::clone::Clone for PPM_WMI_PERF_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_PERF_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_PERF_STATE")
+            .field("Frequency", &self.Frequency)
+            .field("Power", &self.Power)
+            .field("PercentFrequency", &self.PercentFrequency)
+            .field("IncreaseLevel", &self.IncreaseLevel)
+            .field("DecreaseLevel", &self.DecreaseLevel)
+            .field("Type", &self.Type)
+            .field("IncreaseTime", &self.IncreaseTime)
+            .field("DecreaseTime", &self.DecreaseTime)
+            .field("Control", &self.Control)
+            .field("Status", &self.Status)
+            .field("HitCount", &self.HitCount)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("Reserved3", &self.Reserved3)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_PERF_STATE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Frequency == other.Frequency && self.Power == other.Power && self.PercentFrequency == other.PercentFrequency && self.IncreaseLevel == other.IncreaseLevel && self.DecreaseLevel == other.DecreaseLevel && self.Type == other.Type && self.IncreaseTime == other.IncreaseTime && self.DecreaseTime == other.DecreaseTime && self.Control == other.Control && self.Status == other.Status && self.HitCount == other.HitCount && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_PERF_STATE {}
+impl ::core::default::Default for PPM_WMI_PERF_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_PERF_STATES {
+    pub Count: u32,
+    pub MaxFrequency: u32,
+    pub CurrentState: u32,
+    pub MaxPerfState: u32,
+    pub MinPerfState: u32,
+    pub LowestPerfState: u32,
+    pub ThermalConstraint: u32,
+    pub BusyAdjThreshold: u8,
+    pub PolicyType: u8,
+    pub Type: u8,
+    pub Reserved: u8,
+    pub TimerInterval: u32,
+    pub TargetProcessors: u64,
+    pub PStateHandler: u32,
+    pub PStateContext: u32,
+    pub TStateHandler: u32,
+    pub TStateContext: u32,
+    pub FeedbackHandler: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u64,
+    pub State: [PPM_WMI_PERF_STATE; 1],
+}
+impl ::core::marker::Copy for PPM_WMI_PERF_STATES {}
+impl ::core::clone::Clone for PPM_WMI_PERF_STATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_PERF_STATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_PERF_STATES")
+            .field("Count", &self.Count)
+            .field("MaxFrequency", &self.MaxFrequency)
+            .field("CurrentState", &self.CurrentState)
+            .field("MaxPerfState", &self.MaxPerfState)
+            .field("MinPerfState", &self.MinPerfState)
+            .field("LowestPerfState", &self.LowestPerfState)
+            .field("ThermalConstraint", &self.ThermalConstraint)
+            .field("BusyAdjThreshold", &self.BusyAdjThreshold)
+            .field("PolicyType", &self.PolicyType)
+            .field("Type", &self.Type)
+            .field("Reserved", &self.Reserved)
+            .field("TimerInterval", &self.TimerInterval)
+            .field("TargetProcessors", &self.TargetProcessors)
+            .field("PStateHandler", &self.PStateHandler)
+            .field("PStateContext", &self.PStateContext)
+            .field("TStateHandler", &self.TStateHandler)
+            .field("TStateContext", &self.TStateContext)
+            .field("FeedbackHandler", &self.FeedbackHandler)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("State", &self.State)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_PERF_STATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATES {
+    fn eq(&self, other: &Self) -> bool {
+        self.Count == other.Count
+            && self.MaxFrequency == other.MaxFrequency
+            && self.CurrentState == other.CurrentState
+            && self.MaxPerfState == other.MaxPerfState
+            && self.MinPerfState == other.MinPerfState
+            && self.LowestPerfState == other.LowestPerfState
+            && self.ThermalConstraint == other.ThermalConstraint
+            && self.BusyAdjThreshold == other.BusyAdjThreshold
+            && self.PolicyType == other.PolicyType
+            && self.Type == other.Type
+            && self.Reserved == other.Reserved
+            && self.TimerInterval == other.TimerInterval
+            && self.TargetProcessors == other.TargetProcessors
+            && self.PStateHandler == other.PStateHandler
+            && self.PStateContext == other.PStateContext
+            && self.TStateHandler == other.TStateHandler
+            && self.TStateContext == other.TStateContext
+            && self.FeedbackHandler == other.FeedbackHandler
+            && self.Reserved1 == other.Reserved1
+            && self.Reserved2 == other.Reserved2
+            && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_PERF_STATES {}
+impl ::core::default::Default for PPM_WMI_PERF_STATES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PPM_WMI_PERF_STATES_EX {
+    pub Count: u32,
+    pub MaxFrequency: u32,
+    pub CurrentState: u32,
+    pub MaxPerfState: u32,
+    pub MinPerfState: u32,
+    pub LowestPerfState: u32,
+    pub ThermalConstraint: u32,
+    pub BusyAdjThreshold: u8,
+    pub PolicyType: u8,
+    pub Type: u8,
+    pub Reserved: u8,
+    pub TimerInterval: u32,
+    pub TargetProcessors: *mut ::core::ffi::c_void,
+    pub PStateHandler: u32,
+    pub PStateContext: u32,
+    pub TStateHandler: u32,
+    pub TStateContext: u32,
+    pub FeedbackHandler: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u64,
+    pub State: [PPM_WMI_PERF_STATE; 1],
+}
+impl ::core::marker::Copy for PPM_WMI_PERF_STATES_EX {}
+impl ::core::clone::Clone for PPM_WMI_PERF_STATES_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PPM_WMI_PERF_STATES_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PPM_WMI_PERF_STATES_EX")
+            .field("Count", &self.Count)
+            .field("MaxFrequency", &self.MaxFrequency)
+            .field("CurrentState", &self.CurrentState)
+            .field("MaxPerfState", &self.MaxPerfState)
+            .field("MinPerfState", &self.MinPerfState)
+            .field("LowestPerfState", &self.LowestPerfState)
+            .field("ThermalConstraint", &self.ThermalConstraint)
+            .field("BusyAdjThreshold", &self.BusyAdjThreshold)
+            .field("PolicyType", &self.PolicyType)
+            .field("Type", &self.Type)
+            .field("Reserved", &self.Reserved)
+            .field("TimerInterval", &self.TimerInterval)
+            .field("TargetProcessors", &self.TargetProcessors)
+            .field("PStateHandler", &self.PStateHandler)
+            .field("PStateContext", &self.PStateContext)
+            .field("TStateHandler", &self.TStateHandler)
+            .field("TStateContext", &self.TStateContext)
+            .field("FeedbackHandler", &self.FeedbackHandler)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("State", &self.State)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for PPM_WMI_PERF_STATES_EX {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PPM_WMI_PERF_STATES_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.Count == other.Count
+            && self.MaxFrequency == other.MaxFrequency
+            && self.CurrentState == other.CurrentState
+            && self.MaxPerfState == other.MaxPerfState
+            && self.MinPerfState == other.MinPerfState
+            && self.LowestPerfState == other.LowestPerfState
+            && self.ThermalConstraint == other.ThermalConstraint
+            && self.BusyAdjThreshold == other.BusyAdjThreshold
+            && self.PolicyType == other.PolicyType
+            && self.Type == other.Type
+            && self.Reserved == other.Reserved
+            && self.TimerInterval == other.TimerInterval
+            && self.TargetProcessors == other.TargetProcessors
+            && self.PStateHandler == other.PStateHandler
+            && self.PStateContext == other.PStateContext
+            && self.TStateHandler == other.TStateHandler
+            && self.TStateContext == other.TStateContext
+            && self.FeedbackHandler == other.FeedbackHandler
+            && self.Reserved1 == other.Reserved1
+            && self.Reserved2 == other.Reserved2
+            && self.State == other.State
+    }
+}
+impl ::core::cmp::Eq for PPM_WMI_PERF_STATES_EX {}
+impl ::core::default::Default for PPM_WMI_PERF_STATES_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -3312,6 +4698,38 @@ impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
 }
 impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
 impl ::core::default::Default for PROCESSOR_POWER_POLICY_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct RESUME_PERFORMANCE {
+    pub PostTimeMs: u32,
+    pub TotalResumeTimeMs: u64,
+    pub ResumeCompleteTimestamp: u64,
+}
+impl ::core::marker::Copy for RESUME_PERFORMANCE {}
+impl ::core::clone::Clone for RESUME_PERFORMANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RESUME_PERFORMANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESUME_PERFORMANCE").field("PostTimeMs", &self.PostTimeMs).field("TotalResumeTimeMs", &self.TotalResumeTimeMs).field("ResumeCompleteTimestamp", &self.ResumeCompleteTimestamp).finish()
+    }
+}
+impl ::windows::core::TypeKind for RESUME_PERFORMANCE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for RESUME_PERFORMANCE {
+    fn eq(&self, other: &Self) -> bool {
+        self.PostTimeMs == other.PostTimeMs && self.TotalResumeTimeMs == other.TotalResumeTimeMs && self.ResumeCompleteTimestamp == other.ResumeCompleteTimestamp
+    }
+}
+impl ::core::cmp::Eq for RESUME_PERFORMANCE {}
+impl ::core::default::Default for RESUME_PERFORMANCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

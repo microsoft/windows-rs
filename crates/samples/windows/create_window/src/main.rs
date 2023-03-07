@@ -40,7 +40,7 @@ fn main() -> Result<()> {
 
         let mut message = MSG::default();
 
-        while GetMessageA(&mut message, HWND(0), 0, 0).into() {
+        while GetMessageA(&mut message, None, 0, 0).into() {
             DispatchMessageA(&message);
         }
 

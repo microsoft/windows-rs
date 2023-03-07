@@ -808,33 +808,11 @@ impl ::core::clone::Clone for CF_FS_METADATA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_HYDRATION_POLICY {
-    pub Primary: CF_HYDRATION_POLICY_PRIMARY_USHORT,
-    pub Modifier: CF_HYDRATION_POLICY_MODIFIER_USHORT,
+    pub Primary: CF_HYDRATION_POLICY_PRIMARY,
+    pub Modifier: CF_HYDRATION_POLICY_MODIFIER,
 }
 impl ::core::marker::Copy for CF_HYDRATION_POLICY {}
 impl ::core::clone::Clone for CF_HYDRATION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn clone(&self) -> Self {
         *self
     }
@@ -1103,33 +1081,11 @@ impl ::core::clone::Clone for CF_PLATFORM_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_POPULATION_POLICY {
-    pub Primary: CF_POPULATION_POLICY_PRIMARY_USHORT,
-    pub Modifier: CF_POPULATION_POLICY_MODIFIER_USHORT,
+    pub Primary: CF_POPULATION_POLICY_PRIMARY,
+    pub Modifier: CF_POPULATION_POLICY_MODIFIER,
 }
 impl ::core::marker::Copy for CF_POPULATION_POLICY {}
 impl ::core::clone::Clone for CF_POPULATION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_POPULATION_POLICY_MODIFIER_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_POPULATION_POLICY_MODIFIER_USHORT {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
-pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
-    pub us: u16,
-}
-impl ::core::marker::Copy for CF_POPULATION_POLICY_PRIMARY_USHORT {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY_USHORT {
     fn clone(&self) -> Self {
         *self
     }

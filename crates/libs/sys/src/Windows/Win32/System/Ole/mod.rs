@@ -112,9 +112,9 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn OleGetClipboardWithEnterpriseInfo ( dataobject : *mut super::Com:: IDataObject , dataenterpriseid : *mut :: windows_sys::core::PWSTR , sourcedescription : *mut :: windows_sys::core::PWSTR , targetdescription : *mut :: windows_sys::core::PWSTR , datadescription : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleGetIconOfClass ( rclsid : *const :: windows_sys::core::GUID , lpszlabel : :: windows_sys::core::PCWSTR , fusetypeaslabel : super::super::Foundation:: BOOL ) -> isize );
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleGetIconOfClass ( rclsid : *const :: windows_sys::core::GUID , lpszlabel : :: windows_sys::core::PCWSTR , fusetypeaslabel : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HGLOBAL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleGetIconOfFile ( lpszpath : :: windows_sys::core::PCWSTR , fusefileaslabel : super::super::Foundation:: BOOL ) -> isize );
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleGetIconOfFile ( lpszpath : :: windows_sys::core::PCWSTR , fusefileaslabel : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HGLOBAL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn OleIconToCursor ( hinstexe : super::super::Foundation:: HINSTANCE , hicon : super::super::UI::WindowsAndMessaging:: HICON ) -> super::super::UI::WindowsAndMessaging:: HCURSOR );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn OleInitialize ( pvreserved : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
@@ -137,8 +137,8 @@
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn OleLoadPicturePath ( szurlorpath : :: windows_sys::core::PCWSTR , punkcaller : :: windows_sys::core::IUnknown , dwreserved : u32 , clrreserved : u32 , riid : *const :: windows_sys::core::GUID , ppvret : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleLockRunning ( punknown : :: windows_sys::core::IUnknown , flock : super::super::Foundation:: BOOL , flastunlockcloses : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn OleMetafilePictFromIconAndLabel ( hicon : super::super::UI::WindowsAndMessaging:: HICON , lpszlabel : :: windows_sys::core::PCWSTR , lpszsourcefile : :: windows_sys::core::PCWSTR , iiconindex : u32 ) -> isize );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn OleMetafilePictFromIconAndLabel ( hicon : super::super::UI::WindowsAndMessaging:: HICON , lpszlabel : :: windows_sys::core::PCWSTR , lpszsourcefile : :: windows_sys::core::PCWSTR , iiconindex : u32 ) -> super::super::Foundation:: HGLOBAL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleNoteObjectVisible ( punknown : :: windows_sys::core::IUnknown , fvisible : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com")]
@@ -223,8 +223,8 @@
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn RegisterTypeLib ( ptlib : super::Com:: ITypeLib , szfullpath : :: windows_sys::core::PCWSTR , szhelpdir : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com")]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn RegisterTypeLibForUser ( ptlib : super::Com:: ITypeLib , szfullpath : :: windows_sys::core::PCWSTR , szhelpdir : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn ReleaseStgMedium ( param0 : *mut super::Com:: STGMEDIUM ) -> ( ) );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn ReleaseStgMedium ( param0 : *mut super::Com:: STGMEDIUM ) -> ( ) );
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn RevokeActiveObject ( dwregister : u32 , pvreserved : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn RevokeDragDrop ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
@@ -3469,7 +3469,7 @@ pub struct OLEUICHANGEICONA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows_sys::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub clsid: ::windows_sys::core::GUID,
     pub szIconExe: [super::super::Foundation::CHAR; 260],
     pub cchIconExe: i32,
@@ -3495,7 +3495,7 @@ pub struct OLEUICHANGEICONW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: ::windows_sys::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub clsid: ::windows_sys::core::GUID,
     pub szIconExe: [u16; 260],
     pub cchIconExe: i32,
@@ -3588,7 +3588,7 @@ pub struct OLEUICONVERTA {
     pub dvAspect: u32,
     pub wFormat: u16,
     pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub lpszUserType: ::windows_sys::core::PSTR,
     pub fObjectsIconChanged: super::super::Foundation::BOOL,
     pub lpszDefLabel: ::windows_sys::core::PSTR,
@@ -3623,7 +3623,7 @@ pub struct OLEUICONVERTW {
     pub dvAspect: u32,
     pub wFormat: u16,
     pub fIsLinkedObject: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub lpszUserType: ::windows_sys::core::PWSTR,
     pub fObjectsIconChanged: super::super::Foundation::BOOL,
     pub lpszDefLabel: ::windows_sys::core::PWSTR,
@@ -3749,7 +3749,7 @@ pub struct OLEUIINSERTOBJECTA {
     pub lpIStorage: super::Com::StructuredStorage::IStorage,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for OLEUIINSERTOBJECTA {}
@@ -3784,7 +3784,7 @@ pub struct OLEUIINSERTOBJECTW {
     pub lpIStorage: super::Com::StructuredStorage::IStorage,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for OLEUIINSERTOBJECTW {}
@@ -3938,7 +3938,7 @@ pub struct OLEUIPASTESPECIALA {
     pub lpClsidExclude: *mut ::windows_sys::core::GUID,
     pub nSelectedIndex: i32,
     pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3971,7 +3971,7 @@ pub struct OLEUIPASTESPECIALW {
     pub lpClsidExclude: *mut ::windows_sys::core::GUID,
     pub nSelectedIndex: i32,
     pub fLink: super::super::Foundation::BOOL,
-    pub hMetaPict: isize,
+    pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

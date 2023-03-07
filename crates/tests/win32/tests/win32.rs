@@ -130,7 +130,7 @@ fn bool_as_error() {
 #[test]
 fn com() -> windows::core::Result<()> {
     unsafe {
-        let stream = CreateStreamOnHGlobal(0, true)?;
+        let stream = CreateStreamOnHGlobal(None, true)?;
         let values = vec![1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;

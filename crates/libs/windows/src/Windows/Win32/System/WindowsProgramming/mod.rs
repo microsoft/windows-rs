@@ -751,30 +751,45 @@ pub unsafe fn GlobalCompact(dwminfree: u32) -> usize {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalCompact ( dwminfree : u32 ) -> usize );
     GlobalCompact(dwminfree)
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalFix(hmem: isize) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFix ( hmem : isize ) -> ( ) );
-    GlobalFix(hmem)
+pub unsafe fn GlobalFix<P0>(hmem: P0)
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFix ( hmem : super::super::Foundation:: HGLOBAL ) -> ( ) );
+    GlobalFix(hmem.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalUnWire(hmem: isize) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalUnWire ( hmem : isize ) -> super::super::Foundation:: BOOL );
-    GlobalUnWire(hmem)
+pub unsafe fn GlobalUnWire<P0>(hmem: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalUnWire ( hmem : super::super::Foundation:: HGLOBAL ) -> super::super::Foundation:: BOOL );
+    GlobalUnWire(hmem.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalUnfix(hmem: isize) {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalUnfix ( hmem : isize ) -> ( ) );
-    GlobalUnfix(hmem)
+pub unsafe fn GlobalUnfix<P0>(hmem: P0)
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalUnfix ( hmem : super::super::Foundation:: HGLOBAL ) -> ( ) );
+    GlobalUnfix(hmem.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalWire(hmem: isize) -> *mut ::core::ffi::c_void {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalWire ( hmem : isize ) -> *mut ::core::ffi::c_void );
-    GlobalWire(hmem)
+pub unsafe fn GlobalWire<P0>(hmem: P0) -> *mut ::core::ffi::c_void
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HGLOBAL>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalWire ( hmem : super::super::Foundation:: HGLOBAL ) -> *mut ::core::ffi::c_void );
+    GlobalWire(hmem.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -907,11 +922,15 @@ pub unsafe fn LocalCompact(uminfree: u32) -> usize {
     ::windows::imp::link ! ( "kernel32.dll""system" fn LocalCompact ( uminfree : u32 ) -> usize );
     LocalCompact(uminfree)
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LocalShrink ( hmem : isize , cbnewsize : u32 ) -> usize );
-    LocalShrink(hmem, cbnewsize)
+pub unsafe fn LocalShrink<P0>(hmem: P0, cbnewsize: u32) -> usize
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::HLOCAL>,
+{
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LocalShrink ( hmem : super::super::Foundation:: HLOCAL , cbnewsize : u32 ) -> usize );
+    LocalShrink(hmem.into_param().abi(), cbnewsize)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]

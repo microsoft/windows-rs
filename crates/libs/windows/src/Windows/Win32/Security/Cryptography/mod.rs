@@ -81,11 +81,11 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptDecrypt<P0>(hkey: P0, pbinput: ::core::option::Option<&[u8]>, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbiv: ::core::option::Option<&mut [u8]>, pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptDecrypt<P0>(hkey: P0, pbinput: ::core::option::Option<&[u8]>, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbiv: ::core::option::Option<&mut [u8]>, pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<BCRYPT_KEY_HANDLE>,
 {
-    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptDecrypt ( hkey : BCRYPT_KEY_HANDLE , pbinput : *const u8 , cbinput : u32 , ppaddinginfo : *const ::core::ffi::c_void , pbiv : *mut u8 , cbiv : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : NCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptDecrypt ( hkey : BCRYPT_KEY_HANDLE , pbinput : *const u8 , cbinput : u32 , ppaddinginfo : *const ::core::ffi::c_void , pbiv : *mut u8 , cbiv : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : BCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
     BCryptDecrypt(
         hkey.into_param().abi(),
         ::core::mem::transmute(pbinput.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -195,11 +195,11 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptEncrypt<P0>(hkey: P0, pbinput: ::core::option::Option<&[u8]>, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbiv: ::core::option::Option<&mut [u8]>, pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptEncrypt<P0>(hkey: P0, pbinput: ::core::option::Option<&[u8]>, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbiv: ::core::option::Option<&mut [u8]>, pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<BCRYPT_KEY_HANDLE>,
 {
-    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEncrypt ( hkey : BCRYPT_KEY_HANDLE , pbinput : *const u8 , cbinput : u32 , ppaddinginfo : *const ::core::ffi::c_void , pbiv : *mut u8 , cbiv : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : NCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEncrypt ( hkey : BCRYPT_KEY_HANDLE , pbinput : *const u8 , cbinput : u32 , ppaddinginfo : *const ::core::ffi::c_void , pbiv : *mut u8 , cbiv : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : BCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
     BCryptEncrypt(
         hkey.into_param().abi(),
         ::core::mem::transmute(pbinput.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -537,11 +537,11 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptSignHash<P0>(hkey: P0, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbinput: &[u8], pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptSignHash<P0>(hkey: P0, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbinput: &[u8], pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: BCRYPT_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<BCRYPT_KEY_HANDLE>,
 {
-    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptSignHash ( hkey : BCRYPT_KEY_HANDLE , ppaddinginfo : *const ::core::ffi::c_void , pbinput : *const u8 , cbinput : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : NCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptSignHash ( hkey : BCRYPT_KEY_HANDLE , ppaddinginfo : *const ::core::ffi::c_void , pbinput : *const u8 , cbinput : u32 , pboutput : *mut u8 , cboutput : u32 , pcbresult : *mut u32 , dwflags : BCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
     BCryptSignHash(hkey.into_param().abi(), ::core::mem::transmute(ppaddinginfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbinput.as_ptr()), pbinput.len() as _, ::core::mem::transmute(pboutput.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len() as _), pcbresult, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -557,11 +557,11 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptVerifySignature<P0>(hkey: P0, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbhash: &[u8], pbsignature: &[u8], dwflags: NCRYPT_FLAGS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptVerifySignature<P0>(hkey: P0, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pbhash: &[u8], pbsignature: &[u8], dwflags: BCRYPT_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<BCRYPT_KEY_HANDLE>,
 {
-    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptVerifySignature ( hkey : BCRYPT_KEY_HANDLE , ppaddinginfo : *const ::core::ffi::c_void , pbhash : *const u8 , cbhash : u32 , pbsignature : *const u8 , cbsignature : u32 , dwflags : NCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptVerifySignature ( hkey : BCRYPT_KEY_HANDLE , ppaddinginfo : *const ::core::ffi::c_void , pbhash : *const u8 , cbhash : u32 , pbsignature : *const u8 , cbsignature : u32 , dwflags : BCRYPT_FLAGS ) -> super::super::Foundation:: NTSTATUS );
     BCryptVerifySignature(hkey.into_param().abi(), ::core::mem::transmute(ppaddinginfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbhash.as_ptr()), pbhash.len() as _, ::core::mem::transmute(pbsignature.as_ptr()), pbsignature.len() as _, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -4421,8 +4421,6 @@ pub const BCRYPT_AUTH_TAG_LENGTH: ::windows::core::PCWSTR = ::windows::w!("AuthT
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_BLOCK_LENGTH: ::windows::core::PCWSTR = ::windows::w!("BlockLength");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_BLOCK_PADDING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_BLOCK_SIZE_LIST: ::windows::core::PCWSTR = ::windows::w!("BlockSizeList");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64u32;
@@ -6720,6 +6718,8 @@ pub const CRYPTPROTECT_AUDIT: u32 = 16u32;
 pub const CRYPTPROTECT_CRED_REGENERATE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPTPROTECT_CRED_SYNC: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPTPROTECT_DEFAULT_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf9d8cd0_1501_11d1_8c7a_00c04fc297eb);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: u32 = 268435455u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -9954,6 +9954,72 @@ impl ::windows::core::TypeKind for BCRYPT_DSA_MAGIC {
 impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_DSA_MAGIC").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BCRYPT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_BLOCK_PADDING: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_NONE: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_OAEP: BCRYPT_FLAGS = BCRYPT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_PKCS1: BCRYPT_FLAGS = BCRYPT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_PSS: BCRYPT_FLAGS = BCRYPT_FLAGS(8u32);
+impl ::core::marker::Copy for BCRYPT_FLAGS {}
+impl ::core::clone::Clone for BCRYPT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BCRYPT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for BCRYPT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for BCRYPT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_FLAGS").field(&self.0).finish()
+    }
+}
+impl BCRYPT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -13450,14 +13516,6 @@ impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_NONE: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_OAEP: NCRYPT_FLAGS = NCRYPT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_PKCS1: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_PSS: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(64u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]

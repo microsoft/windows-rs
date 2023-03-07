@@ -2719,7 +2719,7 @@ pub struct VAL {
     pub dblVal: f64,
     pub pGuid: *mut ::windows_sys::core::GUID,
     pub pScanInfo: *mut SCANINFO,
-    pub handle: isize,
+    pub handle: super::super::Foundation::HGLOBAL,
     pub ppButtonNames: *mut *mut u16,
     pub pHandle: *mut super::super::Foundation::HANDLE,
     pub lReserved: i32,

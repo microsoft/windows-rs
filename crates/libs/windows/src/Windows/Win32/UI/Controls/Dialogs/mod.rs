@@ -2494,8 +2494,8 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub Flags: PAGESETUPDLG_FLAGS,
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
@@ -2505,7 +2505,7 @@ pub struct PAGESETUPDLGA {
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: ::windows::core::PCSTR,
-    pub hPageSetupTemplate: isize,
+    pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2536,8 +2536,8 @@ impl ::core::default::Default for PAGESETUPDLGA {
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub Flags: PAGESETUPDLG_FLAGS,
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
@@ -2547,7 +2547,7 @@ pub struct PAGESETUPDLGA {
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: ::windows::core::PCSTR,
-    pub hPageSetupTemplate: isize,
+    pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -2578,8 +2578,8 @@ impl ::core::default::Default for PAGESETUPDLGA {
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub Flags: PAGESETUPDLG_FLAGS,
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
@@ -2589,7 +2589,7 @@ pub struct PAGESETUPDLGW {
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPageSetupTemplate: isize,
+    pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2620,8 +2620,8 @@ impl ::core::default::Default for PAGESETUPDLGW {
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub Flags: PAGESETUPDLG_FLAGS,
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
@@ -2631,7 +2631,7 @@ pub struct PAGESETUPDLGW {
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPageSetupTemplate: isize,
+    pub hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -2662,8 +2662,8 @@ impl ::core::default::Default for PAGESETUPDLGW {
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub nFromPage: u16,
@@ -2677,8 +2677,8 @@ pub struct PRINTDLGA {
     pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
     pub lpSetupTemplateName: ::windows::core::PCSTR,
-    pub hPrintTemplate: isize,
-    pub hSetupTemplate: isize,
+    pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+    pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2709,8 +2709,8 @@ impl ::core::default::Default for PRINTDLGA {
 pub struct PRINTDLGA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub nFromPage: u16,
@@ -2724,8 +2724,8 @@ pub struct PRINTDLGA {
     pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
     pub lpSetupTemplateName: ::windows::core::PCSTR,
-    pub hPrintTemplate: isize,
-    pub hSetupTemplate: isize,
+    pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+    pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2756,8 +2756,8 @@ impl ::core::default::Default for PRINTDLGA {
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub Flags2: u32,
@@ -2802,8 +2802,8 @@ impl ::core::default::Default for PRINTDLGEXA {
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub Flags2: u32,
@@ -2841,8 +2841,8 @@ impl ::core::default::Default for PRINTDLGEXA {
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub Flags2: u32,
@@ -2887,8 +2887,8 @@ impl ::core::default::Default for PRINTDLGEXW {
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub Flags2: u32,
@@ -2926,8 +2926,8 @@ impl ::core::default::Default for PRINTDLGEXW {
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub nFromPage: u16,
@@ -2941,8 +2941,8 @@ pub struct PRINTDLGW {
     pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
     pub lpSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPrintTemplate: isize,
-    pub hSetupTemplate: isize,
+    pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+    pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2973,8 +2973,8 @@ impl ::core::default::Default for PRINTDLGW {
 pub struct PRINTDLGW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
+    pub hDevMode: super::super::super::Foundation::HGLOBAL,
+    pub hDevNames: super::super::super::Foundation::HGLOBAL,
     pub hDC: super::super::super::Graphics::Gdi::HDC,
     pub Flags: PRINTDLGEX_FLAGS,
     pub nFromPage: u16,
@@ -2988,8 +2988,8 @@ pub struct PRINTDLGW {
     pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
     pub lpSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPrintTemplate: isize,
-    pub hSetupTemplate: isize,
+    pub hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+    pub hSetupTemplate: super::super::super::Foundation::HGLOBAL,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

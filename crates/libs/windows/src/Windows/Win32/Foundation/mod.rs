@@ -3690,6 +3690,186 @@ pub const IORING_E_SUBMIT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::cor
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const IORING_E_VERSION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142896125i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_BAD_BLOCK_WITH_NAME: NTSTATUS = NTSTATUS(-1073479649i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_CDROM_EXCLUSIVE_LOCK: NTSTATUS = NTSTATUS(1074004101i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DRIVER_CANCEL_TIMEOUT: NTSTATUS = NTSTATUS(-2147221450i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_CALLBACK_EXCEPTION: NTSTATUS = NTSTATUS(-1073479517i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_CREATION_SUCCESS: NTSTATUS = NTSTATUS(262306i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_DIRECT_CONFIG_FAILED: NTSTATUS = NTSTATUS(-1073479632i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_DRIVER_LOAD_FAILURE: NTSTATUS = NTSTATUS(-1073479635i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_DUMPFILE_CONFLICT: NTSTATUS = NTSTATUS(-1073479633i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_INITIALIZATION_FAILURE: NTSTATUS = NTSTATUS(-1073479634i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_PAGE_CONFIG_FAILED: NTSTATUS = NTSTATUS(-1073479631i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_DUMP_POINTER_FAILURE: NTSTATUS = NTSTATUS(-1073479636i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERROR_DISK_RESOURCES_EXHAUSTED: NTSTATUS = NTSTATUS(-1073479530i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERROR_DUMP_CREATION_ERROR: NTSTATUS = NTSTATUS(-1073479519i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERROR_IO_HARDWARE_ERROR: NTSTATUS = NTSTATUS(-1073479526i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_BAD_BLOCK: NTSTATUS = NTSTATUS(-1073479673i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_BAD_FIRMWARE: NTSTATUS = NTSTATUS(-1073479655i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_CONFIGURATION_ERROR: NTSTATUS = NTSTATUS(-1073479677i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_CONTROLLER_ERROR: NTSTATUS = NTSTATUS(-1073479669i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_DMA_CONFLICT_DETECTED: NTSTATUS = NTSTATUS(-1073479657i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_DMA_RESOURCE_CONFLICT: NTSTATUS = NTSTATUS(-1073479653i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_DRIVER_ERROR: NTSTATUS = NTSTATUS(-1073479676i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INCORRECT_IRQL: NTSTATUS = NTSTATUS(-1073479667i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INSUFFICIENT_RESOURCES: NTSTATUS = NTSTATUS(-1073479678i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INTERNAL_ERROR: NTSTATUS = NTSTATUS(-1073479668i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INTERRUPT_RESOURCE_CONFLICT: NTSTATUS = NTSTATUS(-1073479652i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INVALID_IOBASE: NTSTATUS = NTSTATUS(-1073479666i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_INVALID_REQUEST: NTSTATUS = NTSTATUS(-1073479664i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_IRQ_CONFLICT_DETECTED: NTSTATUS = NTSTATUS(-1073479656i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_LAYERED_FAILURE: NTSTATUS = NTSTATUS(-1073479662i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_MEMORY_CONFLICT_DETECTED: NTSTATUS = NTSTATUS(-1073479659i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_MEMORY_RESOURCE_CONFLICT: NTSTATUS = NTSTATUS(-1073479651i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_NOT_READY: NTSTATUS = NTSTATUS(-1073479665i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_OVERRUN_ERROR: NTSTATUS = NTSTATUS(-1073479672i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_PARITY: NTSTATUS = NTSTATUS(-1073479675i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_PORT_CONFLICT_DETECTED: NTSTATUS = NTSTATUS(-1073479658i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_PORT_RESOURCE_CONFLICT: NTSTATUS = NTSTATUS(-1073479650i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_PORT_TIMEOUT: NTSTATUS = NTSTATUS(-1073479563i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_PROTOCOL: NTSTATUS = NTSTATUS(-1073479660i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_RESET: NTSTATUS = NTSTATUS(-1073479661i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_RETRY_SUCCEEDED: NTSTATUS = NTSTATUS(262145i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_SEEK_ERROR: NTSTATUS = NTSTATUS(-1073479674i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_SEQUENCE: NTSTATUS = NTSTATUS(-1073479670i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_THREAD_STUCK_IN_DEVICE_DRIVER: NTSTATUS = NTSTATUS(-1073479572i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_TIMEOUT: NTSTATUS = NTSTATUS(-1073479671i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_ERR_VERSION: NTSTATUS = NTSTATUS(-1073479663i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_CORRUPT: NTSTATUS = NTSTATUS(-1073479638i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_FAILED: NTSTATUS = NTSTATUS(-2147221464i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_LIMIT: NTSTATUS = NTSTATUS(1074004005i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_STARTED: NTSTATUS = NTSTATUS(1074004006i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_SUCCEEDED: NTSTATUS = NTSTATUS(1074004007i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_QUOTA_THRESHOLD: NTSTATUS = NTSTATUS(1074004004i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_SYSTEM_CORRUPT: NTSTATUS = NTSTATUS(-1073479639i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_FILE_SYSTEM_CORRUPT_WITH_NAME: NTSTATUS = NTSTATUS(-1073479625i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_INFO_THROTTLE_COMPLETE: NTSTATUS = NTSTATUS(1074004087i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_LOST_DELAYED_WRITE: NTSTATUS = NTSTATUS(-2147221454i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_LOST_DELAYED_WRITE_NETWORK_DISCONNECTED: NTSTATUS = NTSTATUS(-2147221365i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_LOST_DELAYED_WRITE_NETWORK_LOCAL_DISK_ERROR: NTSTATUS = NTSTATUS(-2147221363i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_LOST_DELAYED_WRITE_NETWORK_SERVER_ERROR: NTSTATUS = NTSTATUS(-2147221364i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_RECOVERED_VIA_ECC: NTSTATUS = NTSTATUS(-2147221471i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_SYSTEM_SLEEP_FAILED: NTSTATUS = NTSTATUS(-1073479637i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_ADAPTER_FIRMWARE_UPDATED: NTSTATUS = NTSTATUS(1074004128i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_ALLOCATION_FAILED: NTSTATUS = NTSTATUS(-2147221448i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_BUS_RESET: NTSTATUS = NTSTATUS(-2147221386i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_COMPLETION_TIME: NTSTATUS = NTSTATUS(-2147221349i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DEVICE_HAS_INTERNAL_DUMP: NTSTATUS = NTSTATUS(-2147221361i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DISK_CAPACITY_CHANGED: NTSTATUS = NTSTATUS(-2147221353i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DISK_FIRMWARE_UPDATED: NTSTATUS = NTSTATUS(1074004127i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DISK_PROVISIONING_TYPE_CHANGED: NTSTATUS = NTSTATUS(-2147221352i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DISK_SURPRISE_REMOVED: NTSTATUS = NTSTATUS(-2147221347i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DUMP_DISABLED_DEVICE_GONE: NTSTATUS = NTSTATUS(-2147221348i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DUPLICATE_PATH: NTSTATUS = NTSTATUS(-2147221445i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_DUPLICATE_SIGNATURE: NTSTATUS = NTSTATUS(-2147221446i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_INTERRUPT_STILL_PENDING: NTSTATUS = NTSTATUS(-2147221451i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_IO_OPERATION_RETRIED: NTSTATUS = NTSTATUS(-2147221351i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_LOG_FLUSH_FAILED: NTSTATUS = NTSTATUS(-2147221447i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_PAGING_FAILURE: NTSTATUS = NTSTATUS(-2147221453i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_REPEATED_DISK_GUID: NTSTATUS = NTSTATUS(-2147221346i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_RESET: NTSTATUS = NTSTATUS(-2147221375i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED: NTSTATUS = NTSTATUS(-2147221360i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX: NTSTATUS = NTSTATUS(-2147221359i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_LUN: NTSTATUS = NTSTATUS(-2147221358i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_POOL: NTSTATUS = NTSTATUS(-2147221357i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_LUN: NTSTATUS = NTSTATUS(-2147221356i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_POOL: NTSTATUS = NTSTATUS(-2147221355i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_VOLUME_LOST_DISK_EXTENT: NTSTATUS = NTSTATUS(-2147221362i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WARNING_WRITE_FUA_PROBLEM: NTSTATUS = NTSTATUS(-2147221372i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WRITE_CACHE_DISABLED: NTSTATUS = NTSTATUS(-2147221470i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WRITE_CACHE_ENABLED: NTSTATUS = NTSTATUS(-2147221472i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WRN_BAD_FIRMWARE: NTSTATUS = NTSTATUS(-2147221478i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const IO_WRN_FAILURE_PREDICTED: NTSTATUS = NTSTATUS(-2147221452i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1996357631i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215484i32);
@@ -3705,6 +3885,134 @@ pub const MARSHAL_S_FIRST: i32 = 262432i32;
 pub const MARSHAL_S_LAST: i32 = 262447i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const MAX_PATH: u32 = 260u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_BUS_ERROR: NTSTATUS = NTSTATUS(-1073414022i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_BUS_TIMEOUT_ERROR: NTSTATUS = NTSTATUS(-1073414021i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_CACHE: NTSTATUS = NTSTATUS(-1073414083i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_CPU: NTSTATUS = NTSTATUS(-1073414030i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_CPU_BUS: NTSTATUS = NTSTATUS(-1073414079i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_MAS: NTSTATUS = NTSTATUS(-1073414075i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_MEM_1_2: NTSTATUS = NTSTATUS(-1073414071i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_MEM_1_2_5: NTSTATUS = NTSTATUS(-1073414069i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_MEM_1_2_5_4: NTSTATUS = NTSTATUS(-1073414067i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_MEM_UNKNOWN: NTSTATUS = NTSTATUS(-1073414073i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_MASTER_ABORT: NTSTATUS = NTSTATUS(-1073414055i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_MASTER_ABORT_NO_INFO: NTSTATUS = NTSTATUS(-1073414053i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_PARITY: NTSTATUS = NTSTATUS(-1073414063i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_PARITY_NO_INFO: NTSTATUS = NTSTATUS(-1073414061i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_SERR: NTSTATUS = NTSTATUS(-1073414059i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_SERR_NO_INFO: NTSTATUS = NTSTATUS(-1073414057i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_TIMEOUT: NTSTATUS = NTSTATUS(-1073414051i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_TIMEOUT_NO_INFO: NTSTATUS = NTSTATUS(-1073414049i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_BUS_UNKNOWN: NTSTATUS = NTSTATUS(-1073414047i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PCI_DEVICE: NTSTATUS = NTSTATUS(-1073414045i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_PLATFORM_SPECIFIC: NTSTATUS = NTSTATUS(-1073414041i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_REGISTER_FILE: NTSTATUS = NTSTATUS(-1073414077i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_SMBIOS: NTSTATUS = NTSTATUS(-1073414043i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_SYSTEM_EVENT: NTSTATUS = NTSTATUS(-1073414065i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_TLB: NTSTATUS = NTSTATUS(-1073414081i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_UNKNOWN: NTSTATUS = NTSTATUS(-1073414039i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_ERROR_UNKNOWN_NO_CPU: NTSTATUS = NTSTATUS(-1073414037i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_EXTERNAL_ERROR: NTSTATUS = NTSTATUS(-1073414017i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_FRC_ERROR: NTSTATUS = NTSTATUS(-1073414016i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_INFO_CPU_THERMAL_THROTTLING_REMOVED: NTSTATUS = NTSTATUS(1074069616i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_INFO_MEMORY_PAGE_MARKED_BAD: NTSTATUS = NTSTATUS(1074069620i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_INFO_NO_MORE_CORRECTED_ERROR_LOGS: NTSTATUS = NTSTATUS(1074069619i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_INTERNALTIMER_ERROR: NTSTATUS = NTSTATUS(-1073414020i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_MEMORYHIERARCHY_ERROR: NTSTATUS = NTSTATUS(-1073414024i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_MICROCODE_ROM_PARITY_ERROR: NTSTATUS = NTSTATUS(-1073414018i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_TLB_ERROR: NTSTATUS = NTSTATUS(-1073414023i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CACHE: NTSTATUS = NTSTATUS(-2147155908i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CMC_THRESHOLD_EXCEEDED: NTSTATUS = NTSTATUS(-2147155859i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CPE_THRESHOLD_EXCEEDED: NTSTATUS = NTSTATUS(-2147155858i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CPU: NTSTATUS = NTSTATUS(-2147155855i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CPU_BUS: NTSTATUS = NTSTATUS(-2147155904i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_CPU_THERMAL_THROTTLED: NTSTATUS = NTSTATUS(-2147155857i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_MAS: NTSTATUS = NTSTATUS(-2147155900i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_MEM_1_2: NTSTATUS = NTSTATUS(-2147155896i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_MEM_1_2_5: NTSTATUS = NTSTATUS(-2147155894i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_MEM_1_2_5_4: NTSTATUS = NTSTATUS(-2147155892i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_MEM_UNKNOWN: NTSTATUS = NTSTATUS(-2147155898i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_MASTER_ABORT: NTSTATUS = NTSTATUS(-2147155880i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_MASTER_ABORT_NO_INFO: NTSTATUS = NTSTATUS(-2147155878i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_PARITY: NTSTATUS = NTSTATUS(-2147155888i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_PARITY_NO_INFO: NTSTATUS = NTSTATUS(-2147155886i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_SERR: NTSTATUS = NTSTATUS(-2147155884i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_SERR_NO_INFO: NTSTATUS = NTSTATUS(-2147155882i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_TIMEOUT: NTSTATUS = NTSTATUS(-2147155876i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_TIMEOUT_NO_INFO: NTSTATUS = NTSTATUS(-2147155874i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_BUS_UNKNOWN: NTSTATUS = NTSTATUS(-2147155872i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PCI_DEVICE: NTSTATUS = NTSTATUS(-2147155870i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_PLATFORM_SPECIFIC: NTSTATUS = NTSTATUS(-2147155866i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_REGISTER_FILE: NTSTATUS = NTSTATUS(-2147155902i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_SMBIOS: NTSTATUS = NTSTATUS(-2147155868i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_SYSTEM_EVENT: NTSTATUS = NTSTATUS(-2147155890i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_TLB: NTSTATUS = NTSTATUS(-2147155906i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_UNKNOWN: NTSTATUS = NTSTATUS(-2147155864i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const MCA_WARNING_UNKNOWN_NO_CPU: NTSTATUS = NTSTATUS(-2147155862i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const MEM_E_INVALID_LINK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146959344i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12502,6 +12810,12 @@ pub const VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED: ::windows::core::HRESULT = :
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const VM_SAVED_STATE_DUMP_E_WINDOWS_KERNEL_IMAGE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1070136060i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VOLMGR_KSR_BYPASS: NTSTATUS = NTSTATUS(-2143813629i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VOLMGR_KSR_ERROR: NTSTATUS = NTSTATUS(-2143813631i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VOLMGR_KSR_READ_ERROR: NTSTATUS = NTSTATUS(-2143813630i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WARNING_IPSEC_MM_POLICY_PRUNED: i32 = 13024i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WARNING_IPSEC_QM_POLICY_PRUNED: i32 = 13025i32;
@@ -13296,6 +13610,8 @@ impl ::core::ops::Not for HANDLE_FLAGS {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_MCA_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(5u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FACILITY_RPC_RUNTIME: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(2u32);
@@ -13422,6 +13738,37 @@ impl ::windows::core::TypeKind for NTSTATUS_FACILITY_CODE {
 impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NTSTATUS_SEVERITY_CODE(pub u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const STATUS_SEVERITY_SUCCESS: NTSTATUS_SEVERITY_CODE = NTSTATUS_SEVERITY_CODE(0u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const STATUS_SEVERITY_INFORMATIONAL: NTSTATUS_SEVERITY_CODE = NTSTATUS_SEVERITY_CODE(1u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const STATUS_SEVERITY_WARNING: NTSTATUS_SEVERITY_CODE = NTSTATUS_SEVERITY_CODE(2u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const STATUS_SEVERITY_ERROR: NTSTATUS_SEVERITY_CODE = NTSTATUS_SEVERITY_CODE(3u32);
+impl ::core::marker::Copy for NTSTATUS_SEVERITY_CODE {}
+impl ::core::clone::Clone for NTSTATUS_SEVERITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NTSTATUS_SEVERITY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for NTSTATUS_SEVERITY_CODE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS_SEVERITY_CODE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20218,6 +20565,33 @@ impl ::windows::core::TypeKind for HANDLE_PTR {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HGLOBAL(pub isize);
+impl HGLOBAL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HGLOBAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HGLOBAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HGLOBAL {}
+impl ::core::fmt::Debug for HGLOBAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HGLOBAL").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for HGLOBAL {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -20241,6 +20615,33 @@ impl ::core::fmt::Debug for HINSTANCE {
     }
 }
 impl ::windows::core::TypeKind for HINSTANCE {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HLOCAL(pub isize);
+impl HLOCAL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HLOCAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HLOCAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HLOCAL {}
+impl ::core::fmt::Debug for HLOCAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HLOCAL").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for HLOCAL {
     type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
