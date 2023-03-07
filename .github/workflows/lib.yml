@@ -23,7 +23,8 @@ jobs:
       - name: Build gnu libs
         shell: cmd
         run: |
-          PATH=$USERPROFILE/.cargo/bin:$PATH cargo run -p tool_gnu -- all
+          PATH=$USERPROFILE/.cargo/bin:$PATH
+          cargo run -p tool_gnu -- all
 
       - name: Build i686_msvc
         shell: cmd
