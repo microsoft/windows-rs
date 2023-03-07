@@ -5,12 +5,10 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 14] = ["Windows.AI.MachineLearning.Preview", "Windows.ApplicationModel.SocialInfo", "Windows.Devices.AllJoyn", "Windows.Devices.Perception", "Windows.Security.Authentication.Identity.Provider", "Windows.Services.Cortana", "Windows.System.Power.Diagnostics", "Windows.System.Preview", "Windows.UI.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Web.MsHtml", "Windows.Win32.UI.Xaml"];
 
 fn main() {
-    let mut rustfmt = true;
     let mut expect_namespace = false;
     let mut namespace = String::new();
     for arg in std::env::args() {
         match arg.as_str() {
-            "-p" => rustfmt = false,
             "-n" => expect_namespace = true,
             _ => {
                 if expect_namespace {
@@ -28,12 +26,12 @@ fn main() {
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
         let tree = reader.tree(&namespace, &[]).expect("Namespace not found");
-        gen_tree(reader, &output, &tree, rustfmt);
+        gen_tree(reader, &output, &tree);
         return;
     }
     let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
     let trees = root.flatten();
-    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
+    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
     output.pop();
     output.push("Cargo.toml");
     let mut file = std::fs::File::create(&output).unwrap();
@@ -88,7 +86,7 @@ implement = ["windows-implement", "windows-interface"]
     }
 }
 
-fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree, rustfmt: bool) {
+fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
@@ -100,9 +98,9 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
     tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
-    lib::format(tree.namespace, &mut tokens, rustfmt);
+    lib::format(tree.namespace, &mut tokens);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
     let mut tokens = bindgen::namespace_impl(&gen, tree);
-    lib::format(tree.namespace, &mut tokens, rustfmt);
+    lib::format(tree.namespace, &mut tokens);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();
 }
