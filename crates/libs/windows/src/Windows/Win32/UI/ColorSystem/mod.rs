@@ -1041,8 +1041,11 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(::windows::core::IUnknown);
 impl IDeviceModelPlugIn {
-    pub unsafe fn Initialize(&self, bstrxml: &::windows::core::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrxml), cnummodels, imodelposition).ok()
+    pub unsafe fn Initialize<P0>(&self, bstrxml: P0, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi(), cnummodels, imodelposition).ok()
     }
     pub unsafe fn GetNumChannels(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
@@ -1130,12 +1133,13 @@ pub struct IDeviceModelPlugIn_Vtbl {
 #[repr(transparent)]
 pub struct IGamutMapModelPlugIn(::windows::core::IUnknown);
 impl IGamutMapModelPlugIn {
-    pub unsafe fn Initialize<P0, P1>(&self, bstrxml: &::windows::core::BSTR, psrcplugin: P0, pdestplugin: P1, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxml: P0, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDeviceModelPlugIn>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<IDeviceModelPlugIn>,
+        P2: ::windows::core::IntoParam<IDeviceModelPlugIn>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrxml), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), psrcgbd, pdestgbd).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), psrcgbd, pdestgbd).ok()
     }
     pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::windows::core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors).ok()

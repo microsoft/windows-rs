@@ -276,19 +276,21 @@ pub struct DDiscMaster2Events(::windows::core::IUnknown);
 impl DDiscMaster2Events {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NotifyDeviceAdded<P0>(&self, object: P0, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn NotifyDeviceAdded<P0, P1>(&self, object: P0, uniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).NotifyDeviceAdded)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute_copy(uniqueid)).ok()
+        (::windows::core::Interface::vtable(self).NotifyDeviceAdded)(::windows::core::Interface::as_raw(self), object.into_param().abi(), uniqueid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NotifyDeviceRemoved<P0>(&self, object: P0, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn NotifyDeviceRemoved<P0, P1>(&self, object: P0, uniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).NotifyDeviceRemoved)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute_copy(uniqueid)).ok()
+        (::windows::core::Interface::vtable(self).NotifyDeviceRemoved)(::windows::core::Interface::as_raw(self), object.into_param().abi(), uniqueid.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -343,11 +345,12 @@ pub struct DFileSystemImageEvents(::windows::core::IUnknown);
 impl DFileSystemImageEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Update<P0>(&self, object: P0, currentfile: &::windows::core::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Update<P0, P1>(&self, object: P0, currentfile: P1, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute_copy(currentfile), copiedsectors, totalsectors).ok()
+        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), object.into_param().abi(), currentfile.into_param().abi(), copiedsectors, totalsectors).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -398,11 +401,12 @@ pub struct DFileSystemImageImportEvents(::windows::core::IUnknown);
 impl DFileSystemImageImportEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateImport<P0>(&self, object: P0, filesystem: FsiFileSystems, currentitem: &::windows::core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateImport<P0, P1>(&self, object: P0, filesystem: FsiFileSystems, currentitem: P1, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).UpdateImport)(::windows::core::Interface::as_raw(self), object.into_param().abi(), filesystem, ::core::mem::transmute_copy(currentitem), importeddirectoryitems, totaldirectoryitems, importedfileitems, totalfileitems).ok()
+        (::windows::core::Interface::vtable(self).UpdateImport)(::windows::core::Interface::as_raw(self), object.into_param().abi(), filesystem, currentitem.into_param().abi(), importeddirectoryitems, totaldirectoryitems, importedfileitems, totalfileitems).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -623,8 +627,11 @@ impl IBootOptions {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Manufacturer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetManufacturer(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManufacturer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetManufacturer<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetManufacturer)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn PlatformId(&self) -> ::windows::core::Result<PlatformId> {
         let mut result__ = ::windows::core::zeroed::<PlatformId>();
@@ -989,8 +996,11 @@ impl IDiscFormat2Data {
         let mut result__ = ::windows::core::zeroed::<IMAPI_MEDIA_PHYSICAL_TYPE>();
         (::windows::core::Interface::vtable(self).CurrentPhysicalMediaType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientName<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1358,8 +1368,11 @@ impl IDiscFormat2Erase {
         let mut result__ = ::windows::core::zeroed::<IMAPI_MEDIA_PHYSICAL_TYPE>();
         (::windows::core::Interface::vtable(self).CurrentPhysicalMediaType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientName<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1553,8 +1566,11 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::windows::core::zeroed::<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>();
         (::windows::core::Interface::vtable(self).RequestedSectorType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientName<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1910,8 +1926,11 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::windows::core::zeroed::<IMAPI_MEDIA_PHYSICAL_TYPE>();
         (::windows::core::Interface::vtable(self).CurrentPhysicalMediaType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientName<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn ClientName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -2501,11 +2520,12 @@ impl IDiscRecorder2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AcquireExclusiveAccess<P0>(&self, force: P0, __midl__idiscrecorder20000: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AcquireExclusiveAccess<P0, P1>(&self, force: P0, __midl__idiscrecorder20000: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AcquireExclusiveAccess)(::windows::core::Interface::as_raw(self), force.into_param().abi(), ::core::mem::transmute_copy(__midl__idiscrecorder20000)).ok()
+        (::windows::core::Interface::vtable(self).AcquireExclusiveAccess)(::windows::core::Interface::as_raw(self), force.into_param().abi(), __midl__idiscrecorder20000.into_param().abi()).ok()
     }
     pub unsafe fn ReleaseExclusiveAccess(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseExclusiveAccess)(::windows::core::Interface::as_raw(self)).ok()
@@ -2516,8 +2536,11 @@ impl IDiscRecorder2 {
     pub unsafe fn EnableMcn(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnableMcn)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn InitializeDiscRecorder(&self, recorderuniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeDiscRecorder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(recorderuniqueid)).ok()
+    pub unsafe fn InitializeDiscRecorder<P0>(&self, recorderuniqueid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).InitializeDiscRecorder)(::windows::core::Interface::as_raw(self), recorderuniqueid.into_param().abi()).ok()
     }
     pub unsafe fn ActiveDiscRecorder(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3055,8 +3078,11 @@ impl IFileSystemImage {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).VolumeName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetVolumeName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetVolumeName<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetVolumeName)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ImportedVolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3088,8 +3114,11 @@ impl IFileSystemImage {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).WorkingDirectory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetWorkingDirectory(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetWorkingDirectory<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ChangePoint(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3177,9 +3206,12 @@ impl IFileSystemImage {
         let mut result__ = ::windows::core::zeroed::<IFileSystemImageResult>();
         (::windows::core::Interface::vtable(self).CreateResultImage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Exists(&self, fullpath: &::windows::core::BSTR) -> ::windows::core::Result<FsiItemType> {
+    pub unsafe fn Exists<P0>(&self, fullpath: P0) -> ::windows::core::Result<FsiItemType>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<FsiItemType>();
-        (::windows::core::Interface::vtable(self).Exists)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(fullpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Exists)(::windows::core::Interface::as_raw(self), fullpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3213,15 +3245,21 @@ impl IFileSystemImage {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDirectoryItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiDirectoryItem> {
+    pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiDirectoryItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiDirectoryItem>();
-        (::windows::core::Interface::vtable(self).CreateDirectoryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDirectoryItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateFileItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiFileItem> {
+    pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiFileItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiFileItem>();
-        (::windows::core::Interface::vtable(self).CreateFileItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateFileItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeNameUDF(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3446,8 +3484,11 @@ impl IFileSystemImage2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.VolumeName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetVolumeName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetVolumeName<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetVolumeName)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ImportedVolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3479,8 +3520,11 @@ impl IFileSystemImage2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.WorkingDirectory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetWorkingDirectory(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetWorkingDirectory<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ChangePoint(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3568,9 +3612,12 @@ impl IFileSystemImage2 {
         let mut result__ = ::windows::core::zeroed::<IFileSystemImageResult>();
         (::windows::core::Interface::vtable(self).base__.CreateResultImage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Exists(&self, fullpath: &::windows::core::BSTR) -> ::windows::core::Result<FsiItemType> {
+    pub unsafe fn Exists<P0>(&self, fullpath: P0) -> ::windows::core::Result<FsiItemType>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<FsiItemType>();
-        (::windows::core::Interface::vtable(self).base__.Exists)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(fullpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.Exists)(::windows::core::Interface::as_raw(self), fullpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3604,15 +3651,21 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDirectoryItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiDirectoryItem> {
+    pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiDirectoryItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiDirectoryItem>();
-        (::windows::core::Interface::vtable(self).base__.CreateDirectoryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDirectoryItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateFileItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiFileItem> {
+    pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiFileItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiFileItem>();
-        (::windows::core::Interface::vtable(self).base__.CreateFileItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateFileItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeNameUDF(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3749,8 +3802,11 @@ impl IFileSystemImage3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.VolumeName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetVolumeName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetVolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetVolumeName<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetVolumeName)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ImportedVolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3782,8 +3838,11 @@ impl IFileSystemImage3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.WorkingDirectory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetWorkingDirectory(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetWorkingDirectory<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn ChangePoint(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3871,9 +3930,12 @@ impl IFileSystemImage3 {
         let mut result__ = ::windows::core::zeroed::<IFileSystemImageResult>();
         (::windows::core::Interface::vtable(self).base__.base__.CreateResultImage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Exists(&self, fullpath: &::windows::core::BSTR) -> ::windows::core::Result<FsiItemType> {
+    pub unsafe fn Exists<P0>(&self, fullpath: P0) -> ::windows::core::Result<FsiItemType>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<FsiItemType>();
-        (::windows::core::Interface::vtable(self).base__.base__.Exists)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(fullpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Exists)(::windows::core::Interface::as_raw(self), fullpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -3907,15 +3969,21 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDirectoryItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiDirectoryItem> {
+    pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiDirectoryItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiDirectoryItem>();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateDirectoryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateDirectoryItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateFileItem(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IFsiFileItem> {
+    pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows::core::Result<IFsiFileItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiFileItem>();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateFileItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateFileItem)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeNameUDF(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -4254,9 +4322,12 @@ impl IFsiDirectoryItem {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_Item(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IFsiItem> {
+    pub unsafe fn get_Item<P0>(&self, path: P0) -> ::windows::core::Result<IFsiItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiItem>();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -4266,24 +4337,29 @@ impl IFsiDirectoryItem {
         let mut result__ = ::windows::core::zeroed::<IEnumFsiItems>();
         (::windows::core::Interface::vtable(self).EnumFsiItems)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddDirectory(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn AddDirectory<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddDirectory)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddFile<P0>(&self, path: &::windows::core::BSTR, filedata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, path: P0, filedata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Interface::vtable(self).AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), filedata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddFile)(::windows::core::Interface::as_raw(self), path.into_param().abi(), filedata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTree<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddTree<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddTree)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddTree)(::windows::core::Interface::as_raw(self), sourcedirectory.into_param().abi(), includebasedirectory.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4293,11 +4369,17 @@ impl IFsiDirectoryItem {
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into_param().abi()).ok()
     }
-    pub unsafe fn Remove(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn Remove<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveTree(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveTree)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn RemoveTree<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemoveTree)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4426,9 +4508,12 @@ impl IFsiDirectoryItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_Item(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IFsiItem> {
+    pub unsafe fn get_Item<P0>(&self, path: P0) -> ::windows::core::Result<IFsiItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IFsiItem>();
-        (::windows::core::Interface::vtable(self).base__.get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Item)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -4438,24 +4523,29 @@ impl IFsiDirectoryItem2 {
         let mut result__ = ::windows::core::zeroed::<IEnumFsiItems>();
         (::windows::core::Interface::vtable(self).base__.EnumFsiItems)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddDirectory(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn AddDirectory<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.AddDirectory)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddFile<P0>(&self, path: &::windows::core::BSTR, filedata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddFile<P0, P1>(&self, path: P0, filedata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Interface::vtable(self).base__.AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), filedata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.AddFile)(::windows::core::Interface::as_raw(self), path.into_param().abi(), filedata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTree<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddTree<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.AddTree)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.AddTree)(::windows::core::Interface::as_raw(self), sourcedirectory.into_param().abi(), includebasedirectory.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4465,19 +4555,26 @@ impl IFsiDirectoryItem2 {
     {
         (::windows::core::Interface::vtable(self).base__.Add)(::windows::core::Interface::as_raw(self), item.into_param().abi()).ok()
     }
-    pub unsafe fn Remove(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn Remove<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveTree(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveTree)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn RemoveTree<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.RemoveTree)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddTreeWithNamedStreams<P0>(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddTreeWithNamedStreams<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddTreeWithNamedStreams)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sourcedirectory), includebasedirectory.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddTreeWithNamedStreams)(::windows::core::Interface::as_raw(self), sourcedirectory.into_param().abi(), includebasedirectory.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4748,14 +4845,18 @@ impl IFsiFileItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddStream<P0>(&self, name: &::windows::core::BSTR, streamdata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddStream<P0, P1>(&self, name: P0, streamdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Interface::vtable(self).AddStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), streamdata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddStream)(::windows::core::Interface::as_raw(self), name.into_param().abi(), streamdata.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveStream(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn RemoveStream<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemoveStream)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5030,8 +5131,11 @@ impl IIsoImageManager {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
         (::windows::core::Interface::vtable(self).Stream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPath(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(val)).ok()
+    pub unsafe fn SetPath<P0>(&self, val: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5631,9 +5735,12 @@ impl IProgressItems {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ProgressItemFromDescription(&self, description: &::windows::core::BSTR) -> ::windows::core::Result<IProgressItem> {
+    pub unsafe fn ProgressItemFromDescription<P0>(&self, description: P0) -> ::windows::core::Result<IProgressItem>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IProgressItem>();
-        (::windows::core::Interface::vtable(self).ProgressItemFromDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(description), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ProgressItemFromDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumProgressItems(&self) -> ::windows::core::Result<IEnumProgressItems> {
         let mut result__ = ::windows::core::zeroed::<IEnumProgressItems>();
@@ -5763,8 +5870,11 @@ impl IRawCDImageCreator {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
         (::windows::core::Interface::vtable(self).DisableGaplessAudio)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMediaCatalogNumber(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMediaCatalogNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetMediaCatalogNumber<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMediaCatalogNumber)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn MediaCatalogNumber(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5903,8 +6013,11 @@ impl IRawCDImageTrackInfo {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ISRC)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetISRC(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetISRC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetISRC<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetISRC)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn DigitalAudioCopySetting(&self) -> ::windows::core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING> {
         let mut result__ = ::windows::core::zeroed::<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>();

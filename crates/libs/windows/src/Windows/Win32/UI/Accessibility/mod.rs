@@ -501,14 +501,15 @@ where
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TextRange_FindText<P0, P1, P2>(hobj: P0, text: &::windows::core::BSTR, backward: P1, ignorecase: P2, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+pub unsafe fn TextRange_FindText<P0, P1, P2, P3>(hobj: P0, text: P1, backward: P2, ignorecase: P3, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HUIATEXTRANGE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows::imp::link ! ( "uiautomationcore.dll""system" fn TextRange_FindText ( hobj : HUIATEXTRANGE , text : ::std::mem::MaybeUninit <::windows::core::BSTR > , backward : super::super::Foundation:: BOOL , ignorecase : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextRange_FindText(hobj.into_param().abi(), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), pretval).ok()
+    TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -974,12 +975,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
-pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &::windows::core::BSTR, activityid: &::windows::core::BSTR) -> ::windows::core::Result<()>
+pub unsafe fn UiaRaiseNotificationEvent<P0, P1, P2>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IRawElementProviderSimple>,
+    P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::BSTR>,
 {
     ::windows::imp::link ! ( "uiautomationcore.dll""system" fn UiaRaiseNotificationEvent ( provider : * mut::core::ffi::c_void , notificationkind : NotificationKind , notificationprocessing : NotificationProcessing , displaystring : ::std::mem::MaybeUninit <::windows::core::BSTR > , activityid : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
-    UiaRaiseNotificationEvent(provider.into_param().abi(), notificationkind, notificationprocessing, ::core::mem::transmute_copy(displaystring), ::core::mem::transmute_copy(activityid)).ok()
+    UiaRaiseNotificationEvent(provider.into_param().abi(), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1525,13 +1528,19 @@ impl IAccessible {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_accName(&self, varchild: super::super::System::Com::VARIANT, szname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_accName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szname)).ok()
+    pub unsafe fn put_accName<P0>(&self, varchild: super::super::System::Com::VARIANT, szname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_accName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_accValue(&self, varchild: super::super::System::Com::VARIANT, szvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_accValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szvalue)).ok()
+    pub unsafe fn put_accValue<P0>(&self, varchild: super::super::System::Com::VARIANT, szvalue: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_accValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), szvalue.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4265,13 +4274,14 @@ impl ITextRangeProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<P0, P1>(&self, text: &::windows::core::BSTR, backward: P0, ignorecase: P1) -> ::windows::core::Result<ITextRangeProvider>
+    pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows::core::Result<ITextRangeProvider>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<ITextRangeProvider>();
-        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4436,13 +4446,14 @@ impl ITextRangeProvider2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<P0, P1>(&self, text: &::windows::core::BSTR, backward: P0, ignorecase: P1) -> ::windows::core::Result<ITextRangeProvider>
+    pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows::core::Result<ITextRangeProvider>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<ITextRangeProvider>();
-        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13879,11 +13890,13 @@ pub struct IUIAutomationNotCondition_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationNotificationEventHandler(::windows::core::IUnknown);
 impl IUIAutomationNotificationEventHandler {
-    pub unsafe fn HandleNotificationEvent<P0>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &::windows::core::BSTR, activityid: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn HandleNotificationEvent<P0, P1, P2>(&self, sender: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<IUIAutomationElement>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).HandleNotificationEvent)(::windows::core::Interface::as_raw(self), sender.into_param().abi(), notificationkind, notificationprocessing, ::core::mem::transmute_copy(displaystring), ::core::mem::transmute_copy(activityid)).ok()
+        (::windows::core::Interface::vtable(self).HandleNotificationEvent)(::windows::core::Interface::as_raw(self), sender.into_param().abi(), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IUIAutomationNotificationEventHandler, ::windows::core::IUnknown);
@@ -15145,9 +15158,12 @@ pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationSpreadsheetPattern(::windows::core::IUnknown);
 impl IUIAutomationSpreadsheetPattern {
-    pub unsafe fn GetItemByName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<IUIAutomationElement> {
+    pub unsafe fn GetItemByName<P0>(&self, name: P0) -> ::windows::core::Result<IUIAutomationElement>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUIAutomationElement>();
-        (::windows::core::Interface::vtable(self).GetItemByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetItemByName)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IUIAutomationSpreadsheetPattern, ::windows::core::IUnknown);
@@ -15840,13 +15856,14 @@ impl IUIAutomationTextRange {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<P0, P1>(&self, text: &::windows::core::BSTR, backward: P0, ignorecase: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows::core::Result<IUIAutomationTextRange>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IUIAutomationTextRange>();
-        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16006,13 +16023,14 @@ impl IUIAutomationTextRange2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<P0, P1>(&self, text: &::windows::core::BSTR, backward: P0, ignorecase: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows::core::Result<IUIAutomationTextRange>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IUIAutomationTextRange>();
-        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16140,13 +16158,14 @@ impl IUIAutomationTextRange3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindText<P0, P1>(&self, text: &::windows::core::BSTR, backward: P0, ignorecase: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows::core::Result<IUIAutomationTextRange>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IUIAutomationTextRange>();
-        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16736,8 +16755,11 @@ pub struct IUIAutomationTreeWalker_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationValuePattern(::windows::core::IUnknown);
 impl IUIAutomationValuePattern {
-    pub unsafe fn SetValue(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(val)).ok()
+    pub unsafe fn SetValue<P0>(&self, val: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
     }
     pub unsafe fn CurrentValue(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();

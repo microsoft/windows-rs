@@ -746,13 +746,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_WriteBSTR<P0, P1>(propbag: P0, propname: P1, value: &::windows::core::BSTR) -> ::windows::core::Result<()>
+pub unsafe fn PSPropertyBag_WriteBSTR<P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::BSTR>,
 {
     ::windows::imp::link ! ( "propsys.dll""system" fn PSPropertyBag_WriteBSTR ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , value : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
-    PSPropertyBag_WriteBSTR(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute_copy(value)).ok()
+    PSPropertyBag_WriteBSTR(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

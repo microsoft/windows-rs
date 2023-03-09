@@ -542,8 +542,11 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
 #[repr(transparent)]
 pub struct IRDPSRAPIDebug(::windows::core::IUnknown);
 impl IRDPSRAPIDebug {
-    pub unsafe fn SetCLXCmdLine(&self, clxcmdline: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(clxcmdline)).ok()
+    pub unsafe fn SetCLXCmdLine<P0>(&self, clxcmdline: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::windows::core::Interface::as_raw(self), clxcmdline.into_param().abi()).ok()
     }
     pub unsafe fn CLXCmdLine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -759,9 +762,14 @@ impl IRDPSRAPIInvitationManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateInvitation(&self, bstrauthstring: &::windows::core::BSTR, bstrgroupname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn CreateInvitation<P0, P1, P2>(&self, bstrauthstring: P0, bstrgroupname: P1, bstrpassword: P2, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IRDPSRAPIInvitation>();
-        (::windows::core::Interface::vtable(self).CreateInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrauthstring), ::core::mem::transmute_copy(bstrgroupname), ::core::mem::transmute_copy(bstrpassword), attendeelimit, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateInvitation)(::windows::core::Interface::as_raw(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), attendeelimit, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -851,9 +859,12 @@ pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
 #[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(::windows::core::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
-    pub unsafe fn CreateLogger(&self, bstrcountername: &::windows::core::BSTR) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger> {
+    pub unsafe fn CreateLogger<P0>(&self, bstrcountername: P0) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IRDPSRAPIPerfCounterLogger>();
-        (::windows::core::Interface::vtable(self).CreateLogger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcountername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateLogger)(::windows::core::Interface::as_raw(self), bstrcountername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows::core::IUnknown);
@@ -893,14 +904,20 @@ pub struct IRDPSRAPISessionProperties(::windows::core::IUnknown);
 impl IRDPSRAPISessionProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_Property<P0>(&self, propertyname: P0) -> ::windows::core::Result<super::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_Property(&self, propertyname: &::windows::core::BSTR, newval: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn put_Property<P0>(&self, propertyname: P0, newval: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1002,8 +1019,11 @@ impl IRDPSRAPISharingSession {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ConnectToClient(&self, bstrconnectionstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnectionstring)).ok()
+    pub unsafe fn ConnectToClient<P0>(&self, bstrconnectionstring: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
     }
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom).ok()
@@ -1132,8 +1152,11 @@ impl IRDPSRAPISharingSession2 {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ConnectToClient(&self, bstrconnectionstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnectionstring)).ok()
+    pub unsafe fn ConnectToClient<P0>(&self, bstrconnectionstring: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
     }
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom).ok()
@@ -1141,11 +1164,13 @@ impl IRDPSRAPISharingSession2 {
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Interface::as_raw(self), pleft, ptop, pright, pbottom).ok()
     }
-    pub unsafe fn ConnectUsingTransportStream<P0>(&self, pstream: P0, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectUsingTransportStream<P0, P1, P2>(&self, pstream: P0, bstrgroup: P1, bstrauthenticatedattendeename: P2) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<IRDPSRAPITransportStream>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), ::core::mem::transmute_copy(bstrgroup), ::core::mem::transmute_copy(bstrauthenticatedattendeename)).ok()
+        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), bstrgroup.into_param().abi(), bstrauthenticatedattendeename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1484,8 +1509,13 @@ pub struct IRDPSRAPITransportStreamEvents_Vtbl {
 pub struct IRDPSRAPIViewer(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIViewer {
-    pub unsafe fn Connect(&self, bstrconnectionstring: &::windows::core::BSTR, bstrname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnectionstring), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrpassword)).ok()
+    pub unsafe fn Connect<P0, P1, P2>(&self, bstrconnectionstring: P0, bstrname: P1, bstrpassword: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self)).ok()
@@ -1531,8 +1561,11 @@ impl IRDPSRAPIViewer {
     pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ctrllevel).ok()
     }
-    pub unsafe fn SetDisconnectedText(&self, bstrdisconnectedtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdisconnectedtext)).ok()
+    pub unsafe fn SetDisconnectedText<P0>(&self, bstrdisconnectedtext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::windows::core::Interface::as_raw(self), bstrdisconnectedtext.into_param().abi()).ok()
     }
     pub unsafe fn DisconnectedText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1547,9 +1580,14 @@ impl IRDPSRAPIViewer {
         let mut result__ = ::windows::core::zeroed::<IRDPSRAPISessionProperties>();
         (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn StartReverseConnectListener(&self, bstrconnectionstring: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn StartReverseConnectListener<P0, P1, P2>(&self, bstrconnectionstring: P0, bstrusername: P1, bstrpassword: P2) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnectionstring), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrpassword), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1629,8 +1667,11 @@ pub struct IRDPSRAPIViewer_Vtbl {
 pub struct IRDPSRAPIVirtualChannel(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannel {
-    pub unsafe fn SendData(&self, bstrdata: &::windows::core::BSTR, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdata), lattendeeid, channelsendflags).ok()
+    pub unsafe fn SendData<P0>(&self, bstrdata: P0, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi(), lattendeeid, channelsendflags).ok()
     }
     pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), lattendeeid, accesstype).ok()
@@ -1707,9 +1748,12 @@ impl IRDPSRAPIVirtualChannelManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateVirtualChannel(&self, bstrchannelname: &::windows::core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
+    pub unsafe fn CreateVirtualChannel<P0>(&self, bstrchannelname: P0, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IRDPSRAPIVirtualChannel>();
-        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrchannelname), priority, channelflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into_param().abi(), priority, channelflags, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

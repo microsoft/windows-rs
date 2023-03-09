@@ -46,8 +46,11 @@ where
 pub struct IWSCDefaultProduct(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
-    pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype, ::core::mem::transmute_copy(pguid)).ok()
+    pub unsafe fn SetDefaultProduct<P0>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype, pguid.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

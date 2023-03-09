@@ -44,11 +44,10 @@ impl Error {
         if let Some(info) = &self.info {
             let mut fallback = BSTR::default();
             let mut message = BSTR::default();
-            let mut unused = BSTR::default();
             let mut code = HRESULT(0);
 
             unsafe {
-                let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
+                let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut BSTR::default());
             }
 
             if self.code == code {

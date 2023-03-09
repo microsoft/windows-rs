@@ -1325,8 +1325,11 @@ impl ITextFont {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetName<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -1637,8 +1640,11 @@ impl ITextFont2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetName<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetOutline(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3265,8 +3271,11 @@ impl ITextRange {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3448,17 +3457,26 @@ impl ITextRange {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).MoveEndUntil)(::windows::core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3665,8 +3683,11 @@ impl ITextRange2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.GetText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3848,17 +3869,26 @@ impl ITextRange2 {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3942,8 +3972,11 @@ impl ITextRange2 {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.EndKey)(::windows::core::Interface::as_raw(self), unit, extend, &mut result__).from_abi(result__)
     }
-    pub unsafe fn TypeText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TypeText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn TypeText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -4034,8 +4067,11 @@ impl ITextRange2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetURL)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetURL(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetURL<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddSubrange)(::windows::core::Interface::as_raw(self), cp1, cp2, activate).ok()
@@ -4096,8 +4132,11 @@ impl ITextRange2 {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    pub unsafe fn SetText2(&self, flags: i32, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText2)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText2<P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetText2)(::windows::core::Interface::as_raw(self), flags, bstr.into_param().abi()).ok()
     }
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnicodeToHex)(::windows::core::Interface::as_raw(self)).ok()
@@ -4105,17 +4144,21 @@ impl ITextRange2 {
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInlineObject)(::windows::core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol).ok()
     }
-    pub unsafe fn GetMathFunctionType(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetMathFunctionType<P0>(&self, bstr: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).GetMathFunctionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
     {
-        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), width, height, ascent, r#type, ::core::mem::transmute_copy(bstralttext), pstream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), width, height, ascent, r#type, bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4490,8 +4533,11 @@ impl ITextSelection {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.GetText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -4673,17 +4719,26 @@ impl ITextSelection {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -4767,8 +4822,11 @@ impl ITextSelection {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).EndKey)(::windows::core::Interface::as_raw(self), unit, extend, &mut result__).from_abi(result__)
     }
-    pub unsafe fn TypeText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TypeText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn TypeText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4827,8 +4885,11 @@ impl ITextSelection2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetChar(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -5010,17 +5071,26 @@ impl ITextSelection2 {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindText<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextStart(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextStart<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn FindTextEnd(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
+    pub unsafe fn FindTextEnd<P0>(&self, bstr: P0, count: i32, flags: tomConstants) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), count, flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextEnd)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), count, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -5104,8 +5174,11 @@ impl ITextSelection2 {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.base__.EndKey)(::windows::core::Interface::as_raw(self), unit, extend, &mut result__).from_abi(result__)
     }
-    pub unsafe fn TypeText(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.TypeText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn TypeText<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.TypeText)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn GetCch(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -5196,8 +5269,11 @@ impl ITextSelection2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.GetURL)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetURL(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetURL<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.AddSubrange)(::windows::core::Interface::as_raw(self), cp1, cp2, activate).ok()
@@ -5258,8 +5334,11 @@ impl ITextSelection2 {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    pub unsafe fn SetText2(&self, flags: i32, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetText2)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText2<P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetText2)(::windows::core::Interface::as_raw(self), flags, bstr.into_param().abi()).ok()
     }
     pub unsafe fn UnicodeToHex(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.UnicodeToHex)(::windows::core::Interface::as_raw(self)).ok()
@@ -5267,17 +5346,21 @@ impl ITextSelection2 {
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetInlineObject)(::windows::core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol).ok()
     }
-    pub unsafe fn GetMathFunctionType(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetMathFunctionType<P0>(&self, bstr: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.GetMathFunctionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: P0) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
     {
-        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), width, height, ascent, r#type, ::core::mem::transmute_copy(bstralttext), pstream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), width, height, ascent, r#type, bstralttext.into_param().abi(), pstream.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5693,8 +5776,11 @@ impl ITextStory {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    pub unsafe fn SetText(&self, flags: i32, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn SetText<P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), flags, bstr.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITextStory, ::windows::core::IUnknown);
@@ -5886,8 +5972,11 @@ impl ITextStrings {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Add(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn Add<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5900,8 +5989,11 @@ impl ITextStrings {
     pub unsafe fn Cat2(&self, istring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cat2)(::windows::core::Interface::as_raw(self), istring).ok()
     }
-    pub unsafe fn CatTop2(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CatTop2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn CatTop2<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).CatTop2)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5929,8 +6021,11 @@ impl ITextStrings {
     pub unsafe fn MoveBoundary(&self, istring: i32, cch: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MoveBoundary)(::windows::core::Interface::as_raw(self), istring, cch).ok()
     }
-    pub unsafe fn PrefixTop(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrefixTop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn PrefixTop<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).PrefixTop)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), istring, cstring).ok()
@@ -5949,11 +6044,12 @@ impl ITextStrings {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SuffixTop<P0>(&self, bstr: &::windows::core::BSTR, prange: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SuffixTop<P0, P1>(&self, bstr: P0, prange: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<ITextRange2>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<ITextRange2>,
     {
-        (::windows::core::Interface::vtable(self).SuffixTop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr), prange.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SuffixTop)(::windows::core::Interface::as_raw(self), bstr.into_param().abi(), prange.into_param().abi()).ok()
     }
     pub unsafe fn Swap(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Swap)(::windows::core::Interface::as_raw(self)).ok()

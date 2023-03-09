@@ -1320,11 +1320,12 @@ impl IInkCustomStrokes {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<P0>(&self, name: &::windows::core::BSTR, strokes: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Add<P0, P1>(&self, name: P0, strokes: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IInkStrokes>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IInkStrokes>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), strokes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), name.into_param().abi(), strokes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2273,8 +2274,11 @@ impl IInkEdit {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFactoid(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
+    pub unsafe fn SetFactoid<P0>(&self, newval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2356,8 +2360,11 @@ impl IInkEdit {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Text)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetText(&self, pbstrtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbstrtext)).ok()
+    pub unsafe fn SetText<P0>(&self, pbstrtext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), pbstrtext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2550,8 +2557,11 @@ impl IInkEdit {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).TextRTF)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetTextRTF(&self, pbstrtextrtf: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTextRTF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbstrtextrtf)).ok()
+    pub unsafe fn SetTextRTF<P0>(&self, pbstrtextrtf: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetTextRTF)(::windows::core::Interface::as_raw(self), pbstrtextrtf.into_param().abi()).ok()
     }
     pub unsafe fn SelStart(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -2571,15 +2581,21 @@ impl IInkEdit {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).SelText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSelText(&self, pbstrseltext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbstrseltext)).ok()
+    pub unsafe fn SetSelText<P0>(&self, pbstrseltext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSelText)(::windows::core::Interface::as_raw(self), pbstrseltext.into_param().abi()).ok()
     }
     pub unsafe fn SelRTF(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).SelRTF)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSelRTF(&self, pbstrselrtf: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelRTF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbstrselrtf)).ok()
+    pub unsafe fn SetSelRTF<P0>(&self, pbstrselrtf: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSelRTF)(::windows::core::Interface::as_raw(self), pbstrselrtf.into_param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
@@ -2840,9 +2856,12 @@ impl IInkExtendedProperties {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add(&self, guid: &::windows::core::BSTR, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty> {
+    pub unsafe fn Add<P0>(&self, guid: P0, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInkExtendedProperty>();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(guid), ::core::mem::transmute(data), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), guid.into_param().abi(), ::core::mem::transmute(data), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2854,9 +2873,12 @@ impl IInkExtendedProperties {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesPropertyExist(&self, guid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DoesPropertyExist<P0>(&self, guid: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).DoesPropertyExist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(guid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).DoesPropertyExist)(::windows::core::Interface::as_raw(self), guid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4271,15 +4293,21 @@ impl IInkRecognitionAlternate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AlternatesWithConstantPropertyValues(&self, propertytype: &::windows::core::BSTR) -> ::windows::core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn AlternatesWithConstantPropertyValues<P0>(&self, propertytype: P0) -> ::windows::core::Result<IInkRecognitionAlternates>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInkRecognitionAlternates>();
-        (::windows::core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertytype), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Interface::as_raw(self), propertytype.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertytype: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue<P0>(&self, propertytype: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetPropertyValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertytype), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyValue)(::windows::core::Interface::as_raw(self), propertytype.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4728,8 +4756,11 @@ impl IInkRecognizerContext {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFactoid(&self, factoid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(factoid)).ok()
+    pub unsafe fn SetFactoid<P0>(&self, factoid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4749,15 +4780,21 @@ impl IInkRecognizerContext {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PrefixText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrefixText(&self, prefix: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrefixText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(prefix)).ok()
+    pub unsafe fn SetPrefixText<P0>(&self, prefix: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPrefixText)(::windows::core::Interface::as_raw(self), prefix.into_param().abi()).ok()
     }
     pub unsafe fn SuffixText(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).SuffixText)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSuffixText(&self, suffix: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSuffixText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(suffix)).ok()
+    pub unsafe fn SetSuffixText<P0>(&self, suffix: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSuffixText)(::windows::core::Interface::as_raw(self), suffix.into_param().abi()).ok()
     }
     pub unsafe fn RecognitionFlags(&self) -> ::windows::core::Result<InkRecognitionModes> {
         let mut result__ = ::windows::core::zeroed::<InkRecognitionModes>();
@@ -4815,9 +4852,12 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsStringSupported(&self, string: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsStringSupported<P0>(&self, string: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsStringSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(string), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsStringSupported)(::windows::core::Interface::as_raw(self), string.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5605,8 +5645,11 @@ impl IInkStrokeDisp {
         let mut result__ = ::windows::core::zeroed::<IInkStrokeDisp>();
         (::windows::core::Interface::vtable(self).Split)(::windows::core::Interface::as_raw(self), splitat, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &::windows::core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), minimum, maximum, units, resolution).ok()
+    pub unsafe fn GetPacketDescriptionPropertyMetrics<P0>(&self, propertyname: P0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), minimum, maximum, units, resolution).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5628,15 +5671,21 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &::windows::core::BSTR, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPacketValuesByProperty<P0>(&self, propertyname: P0, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), index, count, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), index, count, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &::windows::core::BSTR, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn SetPacketValuesByProperty<P0>(&self, bstrpropertyname: P0, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute(packetvalues), index, count, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), ::core::mem::transmute(packetvalues), index, count, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6056,12 +6105,18 @@ impl IInkTablet {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPacketPropertySupported<P0>(&self, packetpropertyname: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(packetpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPropertyMetrics(&self, propertyname: &::windows::core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyMetrics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), minimum, maximum, units, resolution).ok()
+    pub unsafe fn GetPropertyMetrics<P0>(&self, propertyname: P0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), minimum, maximum, units, resolution).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6246,9 +6301,12 @@ impl IInkTablets {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPacketPropertySupported<P0>(&self, packetpropertyname: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(packetpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6463,11 +6521,17 @@ pub struct IInkTransform_Vtbl {
 pub struct IInkWordList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList {
-    pub unsafe fn AddWord(&self, newword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newword)).ok()
+    pub unsafe fn AddWord<P0>(&self, newword: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddWord)(::windows::core::Interface::as_raw(self), newword.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveWord(&self, removeword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveWord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(removeword)).ok()
+    pub unsafe fn RemoveWord<P0>(&self, removeword: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemoveWord)(::windows::core::Interface::as_raw(self), removeword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6526,8 +6590,11 @@ pub struct IInkWordList_Vtbl {
 pub struct IInkWordList2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList2 {
-    pub unsafe fn AddWords(&self, newwords: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newwords)).ok()
+    pub unsafe fn AddWords<P0>(&self, newwords: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddWords)(::windows::core::Interface::as_raw(self), newwords.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6653,8 +6720,11 @@ impl IMathInputControl {
     {
         (::windows::core::Interface::vtable(self).SetCustomPaint)(::windows::core::Interface::as_raw(self), element, paint.into_param().abi()).ok()
     }
-    pub unsafe fn SetCaptionText(&self, captiontext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaptionText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(captiontext)).ok()
+    pub unsafe fn SetCaptionText<P0>(&self, captiontext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetCaptionText)(::windows::core::Interface::as_raw(self), captiontext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6690,11 +6760,17 @@ impl IMathInputControl {
     {
         (::windows::core::Interface::vtable(self).EnableAutoGrow)(::windows::core::Interface::as_raw(self), autogrow.into_param().abi()).ok()
     }
-    pub unsafe fn AddFunctionName(&self, functionname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFunctionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(functionname)).ok()
+    pub unsafe fn AddFunctionName<P0>(&self, functionname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddFunctionName)(::windows::core::Interface::as_raw(self), functionname.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveFunctionName(&self, functionname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveFunctionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(functionname)).ok()
+    pub unsafe fn RemoveFunctionName<P0>(&self, functionname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemoveFunctionName)(::windows::core::Interface::as_raw(self), functionname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6790,8 +6866,11 @@ impl IPenInputPanel {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFactoid(&self, factoid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(factoid)).ok()
+    pub unsafe fn SetFactoid<P0>(&self, factoid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into_param().abi()).ok()
     }
     pub unsafe fn AttachedEditWindow(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -8447,8 +8526,11 @@ pub struct ITipAutoCompleteClient_Vtbl {
 #[repr(transparent)]
 pub struct ITipAutoCompleteProvider(::windows::core::IUnknown);
 impl ITipAutoCompleteProvider {
-    pub unsafe fn UpdatePendingText(&self, bstrpendingtext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdatePendingText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpendingtext)).ok()
+    pub unsafe fn UpdatePendingText<P0>(&self, bstrpendingtext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).UpdatePendingText)(::windows::core::Interface::as_raw(self), bstrpendingtext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

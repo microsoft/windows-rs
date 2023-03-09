@@ -1058,11 +1058,12 @@ pub struct IDownloadBehavior(::windows::core::IUnknown);
 impl IDownloadBehavior {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn startDownload<P0>(&self, bstrurl: &::windows::core::BSTR, pdispcallback: P0) -> ::windows::core::Result<()>
+    pub unsafe fn startDownload<P0, P1>(&self, bstrurl: P0, pdispcallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).startDownload)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), pdispcallback.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).startDownload)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), pdispcallback.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1512,17 +1513,26 @@ impl IHTMLPersistDataOM {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).getAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).getAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute(&self, name: &::windows::core::BSTR, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).setAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
-    pub unsafe fn removeAttribute(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).removeAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn removeAttribute<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).removeAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1586,28 +1596,46 @@ impl IHTMLUserDataOM {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
         (::windows::core::Interface::vtable(self).XMLDocument)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn save(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(strname)).ok()
+    pub unsafe fn save<P0>(&self, strname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).save)(::windows::core::Interface::as_raw(self), strname.into_param().abi()).ok()
     }
-    pub unsafe fn load(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).load)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(strname)).ok()
+    pub unsafe fn load<P0>(&self, strname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).load)(::windows::core::Interface::as_raw(self), strname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).getAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).getAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute(&self, name: &::windows::core::BSTR, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).setAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
-    pub unsafe fn removeAttribute(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).removeAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn removeAttribute<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).removeAttribute)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn Setexpires(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setexpires)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstr)).ok()
+    pub unsafe fn Setexpires<P0>(&self, bstr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Setexpires)(::windows::core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn expires(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1681,15 +1709,21 @@ impl IHeaderFooter {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).htmlFoot)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettextHead(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SettextHead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettextHead<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SettextHead)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textHead(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).textHead)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettextFoot(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SettextFoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettextFoot<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SettextFoot)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textFoot(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1709,43 +1743,61 @@ impl IHeaderFooter {
         let mut result__ = ::windows::core::zeroed::<u32>();
         (::windows::core::Interface::vtable(self).pageTotal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetURL(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetURL<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn URL(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).URL)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Settitle(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Settitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn Settitle<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Settitle)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn title(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).title)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetdateShort(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetdateShort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetdateShort<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetdateShort)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateShort(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).dateShort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetdateLong(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetdateLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetdateLong<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetdateLong)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateLong(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).dateLong)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettimeShort(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SettimeShort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettimeShort<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SettimeShort)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeShort(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).timeShort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettimeLong(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SettimeLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettimeLong<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SettimeLong)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeLong(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1824,15 +1876,21 @@ impl IHeaderFooter2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.htmlFoot)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettextHead(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SettextHead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettextHead<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SettextHead)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textHead(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.textHead)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettextFoot(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SettextFoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettextFoot<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SettextFoot)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textFoot(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1852,50 +1910,71 @@ impl IHeaderFooter2 {
         let mut result__ = ::windows::core::zeroed::<u32>();
         (::windows::core::Interface::vtable(self).base__.pageTotal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetURL(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetURL<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn URL(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.URL)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Settitle(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Settitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn Settitle<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Settitle)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn title(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.title)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetdateShort(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetdateShort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetdateShort<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetdateShort)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateShort(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.dateShort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetdateLong(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetdateLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SetdateLong<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetdateLong)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateLong(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.dateLong)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettimeShort(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SettimeShort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettimeShort<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SettimeShort)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeShort(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.timeShort)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SettimeLong(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SettimeLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn SettimeLong<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SettimeLong)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeLong(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.timeLong)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Setfont(&self, v: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setfont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(v)).ok()
+    pub unsafe fn Setfont<P0>(&self, v: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Setfont)(::windows::core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn font(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1949,14 +2028,20 @@ impl IHomePage {
     pub unsafe fn navigateHomePage(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).navigateHomePage)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn setHomePage(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setHomePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
+    pub unsafe fn setHomePage<P0>(&self, bstrurl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).setHomePage)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isHomePage(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn isHomePage<P0>(&self, bstrurl: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).isHomePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).isHomePage)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2524,8 +2609,11 @@ pub struct IInternetExplorerManager2_Vtbl {
 pub struct ILayoutRect(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILayoutRect {
-    pub unsafe fn SetnextRect(&self, bstrelementid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetnextRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrelementid)).ok()
+    pub unsafe fn SetnextRect<P0>(&self, bstrelementid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetnextRect)(::windows::core::Interface::as_raw(self), bstrelementid.into_param().abi()).ok()
     }
     pub unsafe fn nextRect(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5266,19 +5354,28 @@ pub struct IWebBrowserEventsUrlService_Vtbl {
 pub struct Iwfolders(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Iwfolders {
-    pub unsafe fn navigate(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).navigate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn navigateFrame(&self, bstrurl: &::windows::core::BSTR, bstrtargetframe: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).navigateFrame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(bstrtargetframe), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn navigateNoSite<P0>(&self, bstrurl: &::windows::core::BSTR, bstrtargetframe: &::windows::core::BSTR, dwhwnd: u32, pwb: P0) -> ::windows::core::Result<()>
+    pub unsafe fn navigate<P0>(&self, bstrurl: P0) -> ::windows::core::Result<::windows::core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).navigateNoSite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(bstrtargetframe), dwhwnd, pwb.into_param().abi()).ok()
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).navigate)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn navigateFrame<P0, P1>(&self, bstrurl: P0, bstrtargetframe: P1) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).navigateFrame)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), bstrtargetframe.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn navigateNoSite<P0, P1, P2>(&self, bstrurl: P0, bstrtargetframe: P1, dwhwnd: u32, pwb: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    {
+        (::windows::core::Interface::vtable(self).navigateNoSite)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), bstrtargetframe.into_param().abi(), dwhwnd, pwb.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -1,14 +1,11 @@
-use windows::{
-    core::*, Win32::Security::*, Win32::System::Com::*, Win32::System::Ole::*,
-    Win32::System::Wmi::*,
-};
+use windows::{core::*, Win32::System::Com::*, Win32::System::Ole::*, Win32::System::Wmi::*};
 
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED)?;
 
         CoInitializeSecurity(
-            PSECURITY_DESCRIPTOR::default(),
+            None,
             -1,
             None,
             None,
@@ -21,15 +18,8 @@ fn main() -> Result<()> {
 
         let locator: IWbemLocator = CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER)?;
 
-        let server = locator.ConnectServer(
-            &BSTR::from("root\\cimv2"),
-            &BSTR::new(),
-            &BSTR::new(),
-            &BSTR::new(),
-            0,
-            &BSTR::new(),
-            None,
-        )?;
+        let server =
+            locator.ConnectServer(&BSTR::from("root\\cimv2"), None, None, None, 0, None, None)?;
 
         let query = server.ExecQuery(
             &BSTR::from("WQL"),

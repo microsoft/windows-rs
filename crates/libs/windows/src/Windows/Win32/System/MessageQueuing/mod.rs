@@ -4,9 +4,12 @@
 pub struct IMSMQApplication(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication {
-    pub unsafe fn MachineIdOfMachineName(&self, machinename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(machinename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -52,18 +55,24 @@ pub struct IMSMQApplication_Vtbl {
 pub struct IMSMQApplication2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication2 {
-    pub unsafe fn MachineIdOfMachineName(&self, machinename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(machinename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterCertificate)(::windows::core::Interface::as_raw(self), flags, externalcertificate).ok()
     }
-    pub unsafe fn MachineNameOfMachineId(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -148,18 +157,24 @@ pub struct IMSMQApplication2_Vtbl {
 pub struct IMSMQApplication3(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication3 {
-    pub unsafe fn MachineIdOfMachineName(&self, machinename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(machinename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RegisterCertificate)(::windows::core::Interface::as_raw(self), flags, externalcertificate).ok()
     }
-    pub unsafe fn MachineNameOfMachineId(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -213,8 +228,11 @@ impl IMSMQApplication3 {
         let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
         (::windows::core::Interface::vtable(self).BytesInAllQueues)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMachine(&self, bstrmachine: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMachine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmachine)).ok()
+    pub unsafe fn SetMachine<P0>(&self, bstrmachine: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMachine)(::windows::core::Interface::as_raw(self), bstrmachine.into_param().abi()).ok()
     }
     pub unsafe fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -566,22 +584,31 @@ impl IMSMQDestination {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ADsPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetADsPath(&self, bstradspath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstradspath)).ok()
+    pub unsafe fn SetADsPath<P0>(&self, bstradspath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetADsPath)(::windows::core::Interface::as_raw(self), bstradspath.into_param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpathname)).ok()
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrformatname)).ok()
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1056,8 +1083,11 @@ impl IMSMQMessage {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -1412,8 +1442,11 @@ impl IMSMQMessage2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -1515,8 +1548,11 @@ impl IMSMQMessage2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidconnectortype)).ok()
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1557,8 +1593,11 @@ impl IMSMQMessage2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrauthprovname)).ok()
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1964,8 +2003,11 @@ impl IMSMQMessage3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -2067,8 +2109,11 @@ impl IMSMQMessage3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidconnectortype)).ok()
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2109,8 +2154,11 @@ impl IMSMQMessage3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrauthprovname)).ok()
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2261,11 +2309,17 @@ impl IMSMQMessage3 {
         let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
         (::windows::core::Interface::vtable(self).CompoundMessage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSoapHeader(&self, bstrsoapheader: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsoapheader)).ok()
+    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
     }
-    pub unsafe fn SetSoapBody(&self, bstrsoapbody: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsoapbody)).ok()
+    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2659,8 +2713,11 @@ impl IMSMQMessage4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -2762,8 +2819,11 @@ impl IMSMQMessage4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidconnectortype)).ok()
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2804,8 +2864,11 @@ impl IMSMQMessage4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName(&self, bstrauthprovname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrauthprovname)).ok()
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2956,11 +3019,17 @@ impl IMSMQMessage4 {
         let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
         (::windows::core::Interface::vtable(self).CompoundMessage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSoapHeader(&self, bstrsoapheader: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsoapheader)).ok()
+    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
     }
-    pub unsafe fn SetSoapBody(&self, bstrsoapbody: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsoapbody)).ok()
+    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4757,29 +4826,41 @@ impl IMSMQQueueInfo {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidservicetype)).ok()
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpathname)).ok()
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrformatname)).ok()
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -4956,29 +5037,41 @@ impl IMSMQQueueInfo2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidservicetype)).ok()
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpathname)).ok()
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrformatname)).ok()
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -5189,29 +5282,41 @@ impl IMSMQQueueInfo3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidservicetype)).ok()
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpathname)).ok()
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrformatname)).ok()
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -5332,8 +5437,11 @@ impl IMSMQQueueInfo3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).MulticastAddress)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmulticastaddress)).ok()
+    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
     }
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5456,29 +5564,41 @@ impl IMSMQQueueInfo4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid(&self, bstrguidservicetype: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrguidservicetype)).ok()
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
     pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel(&self, bstrlabel: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName(&self, bstrpathname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpathname)).ok()
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
     pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName(&self, bstrformatname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrformatname)).ok()
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::windows::core::zeroed::<i16>();
@@ -5599,8 +5719,11 @@ impl IMSMQQueueInfo4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).MulticastAddress)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmulticastaddress)).ok()
+    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
     }
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();

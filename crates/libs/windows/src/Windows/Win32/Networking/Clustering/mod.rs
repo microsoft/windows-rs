@@ -3124,15 +3124,21 @@ impl ISClusApplication {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_ClusterNames(&self, bstrdomainname: &::windows::core::BSTR) -> ::windows::core::Result<ISClusterNames> {
+    pub unsafe fn get_ClusterNames<P0>(&self, bstrdomainname: P0) -> ::windows::core::Result<ISClusterNames>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusterNames>();
-        (::windows::core::Interface::vtable(self).get_ClusterNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdomainname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_ClusterNames)(::windows::core::Interface::as_raw(self), bstrdomainname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenCluster(&self, bstrclustername: &::windows::core::BSTR) -> ::windows::core::Result<ISCluster> {
+    pub unsafe fn OpenCluster<P0>(&self, bstrclustername: P0) -> ::windows::core::Result<ISCluster>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISCluster>();
-        (::windows::core::Interface::vtable(self).OpenCluster)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrclustername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).OpenCluster)(::windows::core::Interface::as_raw(self), bstrclustername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3206,8 +3212,11 @@ impl ISClusCryptoKeys {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddItem(&self, bstrcryptokey: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcryptokey)).ok()
+    pub unsafe fn AddItem<P0>(&self, bstrcryptokey: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), bstrcryptokey.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3612,8 +3621,11 @@ impl ISClusNetwork {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstrnetworkname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrnetworkname)).ok()
+    pub unsafe fn SetName<P0>(&self, bstrnetworkname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrnetworkname.into_param().abi()).ok()
     }
     pub unsafe fn NetworkID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -4376,9 +4388,12 @@ impl ISClusProperties {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty> {
+    pub unsafe fn CreateItem<P0>(&self, bstrname: P0, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusProperty>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4840,9 +4855,12 @@ impl ISClusPropertyValues {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue> {
+    pub unsafe fn CreateItem<P0>(&self, bstrname: P0, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusPropertyValue>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4971,8 +4989,11 @@ impl ISClusRegistryKeys {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddItem(&self, bstrregistrykey: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrregistrykey)).ok()
+    pub unsafe fn AddItem<P0>(&self, bstrregistrykey: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), bstrregistrykey.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5053,9 +5074,13 @@ impl ISClusResDependencies {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource> {
+    pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResource>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename), ::core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5160,9 +5185,13 @@ impl ISClusResDependents {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource> {
+    pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResource>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename), ::core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5280,8 +5309,11 @@ impl ISClusResGroup {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstrgroupname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgroupname)).ok()
+    pub unsafe fn SetName<P0>(&self, bstrgroupname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrgroupname.into_param().abi()).ok()
     }
     pub unsafe fn State(&self) -> ::windows::core::Result<CLUSTER_GROUP_STATE> {
         let mut result__ = ::windows::core::zeroed::<CLUSTER_GROUP_STATE>();
@@ -5557,9 +5589,13 @@ impl ISClusResGroupResources {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource> {
+    pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResource>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename), ::core::mem::transmute_copy(bstrresourcetype), dwflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5643,9 +5679,12 @@ impl ISClusResGroups {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcegroupname: &::windows::core::BSTR) -> ::windows::core::Result<ISClusResGroup> {
+    pub unsafe fn CreateItem<P0>(&self, bstrresourcegroupname: P0) -> ::windows::core::Result<ISClusResGroup>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResGroup>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcegroupname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcegroupname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6026,9 +6065,13 @@ impl ISClusResTypeResources {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrgroupname: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource> {
+    pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrgroupname: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResource>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename), ::core::mem::transmute_copy(bstrgroupname), dwflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrgroupname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6112,9 +6155,14 @@ impl ISClusResTypes {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcetypename: &::windows::core::BSTR, bstrdisplayname: &::windows::core::BSTR, bstrresourcetypedll: &::windows::core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows::core::Result<ISClusResType> {
+    pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcetypename: P0, bstrdisplayname: P1, bstrresourcetypedll: P2, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows::core::Result<ISClusResType>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResType>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcetypename), ::core::mem::transmute_copy(bstrdisplayname), ::core::mem::transmute_copy(bstrresourcetypedll), dwlooksalivepollinterval, dwisalivepollinterval, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcetypename.into_param().abi(), bstrdisplayname.into_param().abi(), bstrresourcetypedll.into_param().abi(), dwlooksalivepollinterval, dwisalivepollinterval, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6211,8 +6259,11 @@ impl ISClusResource {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstrresourcename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename)).ok()
+    pub unsafe fn SetName<P0>(&self, bstrresourcename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi()).ok()
     }
     pub unsafe fn State(&self) -> ::windows::core::Result<CLUSTER_RESOURCE_STATE> {
         let mut result__ = ::windows::core::zeroed::<CLUSTER_RESOURCE_STATE>();
@@ -6222,8 +6273,11 @@ impl ISClusResource {
         let mut result__ = ::windows::core::zeroed::<CLUS_FLAGS>();
         (::windows::core::Interface::vtable(self).CoreFlag)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BecomeQuorumResource(&self, bstrdevicepath: &::windows::core::BSTR, lmaxlogsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BecomeQuorumResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdevicepath), lmaxlogsize).ok()
+    pub unsafe fn BecomeQuorumResource<P0>(&self, bstrdevicepath: P0, lmaxlogsize: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BecomeQuorumResource)(::windows::core::Interface::as_raw(self), bstrdevicepath.into_param().abi(), lmaxlogsize).ok()
     }
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
@@ -6518,9 +6572,14 @@ impl ISClusResources {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, bstrgroupname: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource> {
+    pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcename: P0, bstrresourcetype: P1, bstrgroupname: P2, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISClusResource>();
-        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourcename), ::core::mem::transmute_copy(bstrresourcetype), ::core::mem::transmute_copy(bstrgroupname), dwflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateItem)(::windows::core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), bstrgroupname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6794,15 +6853,21 @@ impl ISCluster {
         let mut result__ = ::windows::core::zeroed::<usize>();
         (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Open(&self, bstrclustername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrclustername)).ok()
+    pub unsafe fn Open<P0>(&self, bstrclustername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), bstrclustername.into_param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bstrclustername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrclustername)).ok()
+    pub unsafe fn SetName<P0>(&self, bstrclustername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrclustername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6835,8 +6900,11 @@ impl ISCluster {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).QuorumPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetQuorumPath(&self, ppath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuorumPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(ppath)).ok()
+    pub unsafe fn SetQuorumPath<P0>(&self, ppath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetQuorumPath)(::windows::core::Interface::as_raw(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7114,8 +7182,12 @@ pub struct ISDomainNames_Vtbl {
 #[repr(transparent)]
 pub struct IWCContextMenuCallback(::windows::core::IUnknown);
 impl IWCContextMenuCallback {
-    pub unsafe fn AddExtensionMenuItem(&self, lpszname: &::windows::core::BSTR, lpszstatusbartext: &::windows::core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddExtensionMenuItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(lpszname), ::core::mem::transmute_copy(lpszstatusbartext), ncommandid, nsubmenucommandid, uflags).ok()
+    pub unsafe fn AddExtensionMenuItem<P0, P1>(&self, lpszname: P0, lpszstatusbartext: P1, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddExtensionMenuItem)(::windows::core::Interface::as_raw(self), lpszname.into_param().abi(), lpszstatusbartext.into_param().abi(), ncommandid, nsubmenucommandid, uflags).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWCContextMenuCallback, ::windows::core::IUnknown);

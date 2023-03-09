@@ -503,8 +503,12 @@ impl IWMAddressAccess2 {
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut ::windows::core::BSTR, pbstrmask: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAccessEntryEx)(::windows::core::Interface::as_raw(self), aetype, dwentrynum, ::core::mem::transmute(pbstraddress), ::core::mem::transmute(pbstrmask)).ok()
     }
-    pub unsafe fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &::windows::core::BSTR, bstrmask: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAccessEntryEx)(::windows::core::Interface::as_raw(self), aetype, ::core::mem::transmute_copy(bstraddress), ::core::mem::transmute_copy(bstrmask)).ok()
+    pub unsafe fn AddAccessEntryEx<P0, P1>(&self, aetype: WM_AETYPE, bstraddress: P0, bstrmask: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddAccessEntryEx)(::windows::core::Interface::as_raw(self), aetype, bstraddress.into_param().abi(), bstrmask.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWMAddressAccess2, ::windows::core::IUnknown, IWMAddressAccess);
@@ -1385,11 +1389,12 @@ pub struct IWMDRMTranscryptionManager_Vtbl {
 #[repr(transparent)]
 pub struct IWMDRMTranscryptor(::windows::core::IUnknown);
 impl IWMDRMTranscryptor {
-    pub unsafe fn Initialize<P0>(&self, bstrfilename: &::windows::core::BSTR, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: P0, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IWMStatusCallback>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IWMStatusCallback>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfilename), pblicenserequestmsg, cblicenserequestmsg, ::core::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), pblicenserequestmsg, cblicenserequestmsg, ::core::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
     }
     pub unsafe fn Seek(&self, hnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), hnstime).ok()
@@ -1437,11 +1442,12 @@ pub struct IWMDRMTranscryptor_Vtbl {
 #[repr(transparent)]
 pub struct IWMDRMTranscryptor2(::windows::core::IUnknown);
 impl IWMDRMTranscryptor2 {
-    pub unsafe fn Initialize<P0>(&self, bstrfilename: &::windows::core::BSTR, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: P0, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IWMStatusCallback>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IWMStatusCallback>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfilename), pblicenserequestmsg, cblicenserequestmsg, ::core::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), pblicenserequestmsg, cblicenserequestmsg, ::core::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), pvcontext).ok()
     }
     pub unsafe fn Seek(&self, hnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), hnstime).ok()
@@ -6406,12 +6412,19 @@ impl IWMRegisteredDevice {
     pub unsafe fn GetAttributeByIndex(&self, dwindex: u32, pbstrname: *mut ::windows::core::BSTR, pbstrvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributeByIndex)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrvalue)).ok()
     }
-    pub unsafe fn GetAttributeByName(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetAttributeByName<P0>(&self, bstrname: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetAttributeByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAttributeByName(&self, bstrname: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttributeByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrvalue)).ok()
+    pub unsafe fn SetAttributeByName<P0, P1>(&self, bstrname: P0, bstrvalue: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAttributeByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6573,20 +6586,29 @@ impl IWMSInternalAdminNetSource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<P0, P1>(&self, bstrrealm: &::windows::core::BSTR, bstrname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, fpersist: P0, fconfirmedgood: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetCredentials<P0, P1, P2, P3, P4>(&self, bstrrealm: P0, bstrname: P1, bstrpassword: P2, fpersist: P3, fconfirmedgood: P4) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P4: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrpassword), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentials(&self, bstrrealm: &::windows::core::BSTR, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
+    pub unsafe fn GetCredentials<P0>(&self, bstrrealm: P0, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetCredentials)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
-    pub unsafe fn DeleteCredentials(&self, bstrrealm: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm)).ok()
+    pub unsafe fn DeleteCredentials<P0>(&self, bstrrealm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteCredentials)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi()).ok()
     }
     pub unsafe fn GetCredentialFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
@@ -6597,8 +6619,12 @@ impl IWMSInternalAdminNetSource {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURL(&self, bstrprotocol: &::windows::core::BSTR, bstrhost: &::windows::core::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindProxyForURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
+    pub unsafe fn FindProxyForURL<P0, P1>(&self, bstrprotocol: P0, bstrhost: P1, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).FindProxyForURL)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
     }
     pub unsafe fn RegisterProxyFailure(&self, hrparam: ::windows::core::HRESULT, dwproxycontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterProxyFailure)(::windows::core::Interface::as_raw(self), hrparam, dwproxycontext).ok()
@@ -6673,34 +6699,47 @@ pub struct IWMSInternalAdminNetSource2(::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx<P0, P1, P2>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, bstrname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, fpersist: P1, fconfirmedgood: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P5: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P6: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows::core::Interface::vtable(self).SetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrpassword), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx<P0>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).GetCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
+        (::windows::core::Interface::vtable(self).DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteCredentialsEx<P0>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindProxyForURLEx<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx(&self, bstrprotocol: &::windows::core::BSTR, bstrhost: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindProxyForURLEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), ::core::mem::transmute_copy(bstrurl), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
+        (::windows::core::Interface::vtable(self).FindProxyForURLEx)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWMSInternalAdminNetSource2, ::windows::core::IUnknown);
@@ -6753,34 +6792,47 @@ pub struct IWMSInternalAdminNetSource3(::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx<P0, P1, P2>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, bstrname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, fpersist: P1, fconfirmedgood: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P5: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P6: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrpassword), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx<P0>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteCredentialsEx<P0>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0) -> ::windows::core::Result<()>
+    pub unsafe fn FindProxyForURLEx<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx(&self, bstrprotocol: &::windows::core::BSTR, bstrhost: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.FindProxyForURLEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), ::core::mem::transmute_copy(bstrurl), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
+        (::windows::core::Interface::vtable(self).base__.FindProxyForURLEx)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
     }
     pub unsafe fn GetNetSourceCreator2(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
@@ -6788,8 +6840,13 @@ impl IWMSInternalAdminNetSource3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindProxyForURLEx2(&self, bstrprotocol: &::windows::core::BSTR, bstrhost: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindProxyForURLEx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), ::core::mem::transmute_copy(bstrurl), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pqwproxycontext).ok()
+    pub unsafe fn FindProxyForURLEx2<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::windows::core::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).FindProxyForURLEx2)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), pfproxyenabled, ::core::mem::transmute(pbstrproxyserver), pdwproxyport, pqwproxycontext).ok()
     }
     pub unsafe fn RegisterProxyFailure2(&self, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterProxyFailure2)(::windows::core::Interface::as_raw(self), hrparam, qwproxycontext).ok()
@@ -6805,23 +6862,29 @@ impl IWMSInternalAdminNetSource3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentialsEx2<P0, P1, P2, P3>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, bstrname: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR, fpersist: P1, fconfirmedgood: P2, fcleartextauthentication: P3) -> ::windows::core::Result<()>
+    pub unsafe fn SetCredentialsEx2<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6, fcleartextauthentication: P7) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P5: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P6: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P7: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCredentialsEx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrpassword), fpersist.into_param().abi(), fconfirmedgood.into_param().abi(), fcleartextauthentication.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentialsEx2)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi(), fcleartextauthentication.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCredentialsEx2<P0, P1>(&self, bstrrealm: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, fproxy: P0, fcleartextauthentication: P1, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    pub unsafe fn GetCredentialsEx2<P0, P1, P2, P3>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, fcleartextauthentication: P3, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::windows::core::BSTR, pbstrpassword: *mut ::windows::core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).GetCredentialsEx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into_param().abi(), fcleartextauthentication.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
+        (::windows::core::Interface::vtable(self).GetCredentialsEx2)(::windows::core::Interface::as_raw(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), fcleartextauthentication.into_param().abi(), pdwurlpolicy, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWMSInternalAdminNetSource3, ::windows::core::IUnknown, IWMSInternalAdminNetSource2);

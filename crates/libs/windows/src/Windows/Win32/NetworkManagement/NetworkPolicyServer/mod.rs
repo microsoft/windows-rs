@@ -94,8 +94,11 @@ impl ISdoCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add(&self, bstrname: &::windows::core::BSTR, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute(ppitem)).ok()
+    pub unsafe fn Add<P0>(&self, bstrname: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -113,9 +116,12 @@ impl ISdoCollection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsNameUnique(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsNameUnique<P0>(&self, bstrname: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsNameUnique)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsNameUnique)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -212,9 +218,12 @@ impl ISdoDictionaryOld {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
         (::windows::core::Interface::vtable(self).CreateAttribute)(::windows::core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetAttributeID(&self, bstrattributename: &::windows::core::BSTR) -> ::windows::core::Result<ATTRIBUTEID> {
+    pub unsafe fn GetAttributeID<P0>(&self, bstrattributename: P0) -> ::windows::core::Result<ATTRIBUTEID>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ATTRIBUTEID>();
-        (::windows::core::Interface::vtable(self).GetAttributeID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrattributename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeID)(::windows::core::Interface::as_raw(self), bstrattributename.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -276,20 +285,29 @@ pub struct ISdoDictionaryOld_Vtbl {
 pub struct ISdoMachine(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine {
-    pub unsafe fn Attach(&self, bstrcomputername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Attach)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcomputername)).ok()
+    pub unsafe fn Attach<P0>(&self, bstrcomputername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Attach)(::windows::core::Interface::as_raw(self), bstrcomputername.into_param().abi()).ok()
     }
     pub unsafe fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
         (::windows::core::Interface::vtable(self).GetDictionarySDO)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetServiceSDO(&self, edatastore: IASDATASTORE, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetServiceSDO<P0>(&self, edatastore: IASDATASTORE, bstrservicename: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self).GetServiceSDO)(::windows::core::Interface::as_raw(self), edatastore, ::core::mem::transmute_copy(bstrservicename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetServiceSDO)(::windows::core::Interface::as_raw(self), edatastore, bstrservicename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetUserSDO(&self, edatastore: IASDATASTORE, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetUserSDO<P0>(&self, edatastore: IASDATASTORE, bstrusername: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self).GetUserSDO)(::windows::core::Interface::as_raw(self), edatastore, ::core::mem::transmute_copy(bstrusername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUserSDO)(::windows::core::Interface::as_raw(self), edatastore, bstrusername.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOSType(&self) -> ::windows::core::Result<IASOSTYPE> {
         let mut result__ = ::windows::core::zeroed::<IASOSTYPE>();
@@ -368,20 +386,29 @@ pub struct ISdoMachine_Vtbl {
 pub struct ISdoMachine2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine2 {
-    pub unsafe fn Attach(&self, bstrcomputername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Attach)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcomputername)).ok()
+    pub unsafe fn Attach<P0>(&self, bstrcomputername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Attach)(::windows::core::Interface::as_raw(self), bstrcomputername.into_param().abi()).ok()
     }
     pub unsafe fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
         (::windows::core::Interface::vtable(self).base__.GetDictionarySDO)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetServiceSDO(&self, edatastore: IASDATASTORE, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetServiceSDO<P0>(&self, edatastore: IASDATASTORE, bstrservicename: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self).base__.GetServiceSDO)(::windows::core::Interface::as_raw(self), edatastore, ::core::mem::transmute_copy(bstrservicename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetServiceSDO)(::windows::core::Interface::as_raw(self), edatastore, bstrservicename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetUserSDO(&self, edatastore: IASDATASTORE, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetUserSDO<P0>(&self, edatastore: IASDATASTORE, bstrusername: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self).base__.GetUserSDO)(::windows::core::Interface::as_raw(self), edatastore, ::core::mem::transmute_copy(bstrusername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUserSDO)(::windows::core::Interface::as_raw(self), edatastore, bstrusername.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOSType(&self) -> ::windows::core::Result<IASOSTYPE> {
         let mut result__ = ::windows::core::zeroed::<IASOSTYPE>();
@@ -405,26 +432,31 @@ impl ISdoMachine2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
         (::windows::core::Interface::vtable(self).base__.GetSDOSchema)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetTemplatesSDO(&self, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetTemplatesSDO<P0>(&self, bstrservicename: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self).GetTemplatesSDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrservicename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTemplatesSDO)(::windows::core::Interface::as_raw(self), bstrservicename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnableTemplates(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnableTemplates)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConfigAgainstTemplates<P0>(&self, bstrservicename: &::windows::core::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConfigAgainstTemplates<P0, P1>(&self, bstrservicename: P0, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrservicename), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), bforcedsync.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Interface::as_raw(self), bstrservicename.into_param().abi(), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), bforcedsync.into_param().abi()).ok()
     }
-    pub unsafe fn ImportRemoteTemplates<P0>(&self, plocaltemplatesroot: P0, bstrremotemachinename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ImportRemoteTemplates<P0, P1>(&self, plocaltemplatesroot: P0, bstrremotemachinename: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ImportRemoteTemplates)(::windows::core::Interface::as_raw(self), plocaltemplatesroot.into_param().abi(), ::core::mem::transmute_copy(bstrremotemachinename)).ok()
+        (::windows::core::Interface::vtable(self).ImportRemoteTemplates)(::windows::core::Interface::as_raw(self), plocaltemplatesroot.into_param().abi(), bstrremotemachinename.into_param().abi()).ok()
     }
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reload)(::windows::core::Interface::as_raw(self)).ok()
@@ -570,19 +602,21 @@ impl ITemplateSdo {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddToCollection<P0>(&self, bstrname: &::windows::core::BSTR, pcollection: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
+    pub unsafe fn AddToCollection<P0, P1>(&self, bstrname: P0, pcollection: P1, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).AddToCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), pcollection.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).AddToCollection)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), pcollection.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddToSdo<P0>(&self, bstrname: &::windows::core::BSTR, psdotarget: P0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
+    pub unsafe fn AddToSdo<P0, P1>(&self, bstrname: P0, psdotarget: P1, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).AddToSdo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), psdotarget.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).AddToSdo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), psdotarget.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

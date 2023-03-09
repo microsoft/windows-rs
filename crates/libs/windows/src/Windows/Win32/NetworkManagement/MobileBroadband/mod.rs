@@ -687,8 +687,11 @@ pub struct IMbnDeviceService_Vtbl {
 #[repr(transparent)]
 pub struct IMbnDeviceServiceStateEvents(::windows::core::IUnknown);
 impl IMbnDeviceServiceStateEvents {
-    pub unsafe fn OnSessionsStateChange(&self, interfaceid: &::windows::core::BSTR, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSessionsStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
+    pub unsafe fn OnSessionsStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OnSessionsStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows::core::IUnknown);
@@ -730,9 +733,12 @@ impl IMbnDeviceServicesContext {
         let mut result__ = ::windows::core::zeroed::<*mut super::super::System::Com::SAFEARRAY>();
         (::windows::core::Interface::vtable(self).EnumerateDeviceServices)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDeviceService(&self, deviceserviceid: &::windows::core::BSTR) -> ::windows::core::Result<IMbnDeviceService> {
+    pub unsafe fn GetDeviceService<P0>(&self, deviceserviceid: P0) -> ::windows::core::Result<IMbnDeviceService>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMbnDeviceService>();
-        (::windows::core::Interface::vtable(self).GetDeviceService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(deviceserviceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceService)(::windows::core::Interface::as_raw(self), deviceserviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn MaxCommandSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
@@ -852,8 +858,11 @@ impl IMbnDeviceServicesEvents {
     {
         (::windows::core::Interface::vtable(self).OnReadData)(::windows::core::Interface::as_raw(self), deviceservice.into_param().abi(), deviceservicedata).ok()
     }
-    pub unsafe fn OnInterfaceStateChange(&self, interfaceid: &::windows::core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnInterfaceStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
+    pub unsafe fn OnInterfaceStateChange<P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OnInterfaceStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into_param().abi(), statechange).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows::core::IUnknown);
@@ -914,9 +923,12 @@ pub struct IMbnDeviceServicesEvents_Vtbl {
 #[repr(transparent)]
 pub struct IMbnDeviceServicesManager(::windows::core::IUnknown);
 impl IMbnDeviceServicesManager {
-    pub unsafe fn GetDeviceServicesContext(&self, networkinterfaceid: &::windows::core::BSTR) -> ::windows::core::Result<IMbnDeviceServicesContext> {
+    pub unsafe fn GetDeviceServicesContext<P0>(&self, networkinterfaceid: P0) -> ::windows::core::Result<IMbnDeviceServicesContext>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMbnDeviceServicesContext>();
-        (::windows::core::Interface::vtable(self).GetDeviceServicesContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(networkinterfaceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceServicesContext)(::windows::core::Interface::as_raw(self), networkinterfaceid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMbnDeviceServicesManager, ::windows::core::IUnknown);

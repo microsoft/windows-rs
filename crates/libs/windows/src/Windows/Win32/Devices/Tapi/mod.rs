@@ -3171,9 +3171,13 @@ impl IMcastAddressAllocation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: super::super::System::Com::VARIANT, prequestid: &::windows::core::BSTR, pserveraddress: &::windows::core::BSTR) -> ::windows::core::Result<IMcastLeaseInfo> {
+    pub unsafe fn CreateLeaseInfoFromVariant<P0, P1>(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: super::super::System::Com::VARIANT, prequestid: P0, pserveraddress: P1) -> ::windows::core::Result<IMcastLeaseInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMcastLeaseInfo>();
-        (::windows::core::Interface::vtable(self).CreateLeaseInfoFromVariant)(::windows::core::Interface::as_raw(self), leasestarttime, leasestoptime, ::core::mem::transmute(vaddresses), ::core::mem::transmute_copy(prequestid), ::core::mem::transmute_copy(pserveraddress), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateLeaseInfoFromVariant)(::windows::core::Interface::as_raw(self), leasestarttime, leasestoptime, ::core::mem::transmute(vaddresses), prequestid.into_param().abi(), pserveraddress.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3668,9 +3672,12 @@ impl ITAddress {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateCall(&self, pdestaddress: &::windows::core::BSTR, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl> {
+    pub unsafe fn CreateCall<P0>(&self, pdestaddress: P0, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITBasicCallControl>();
-        (::windows::core::Interface::vtable(self).CreateCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress), laddresstype, lmediatypes, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateCall)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi(), laddresstype, lmediatypes, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3843,9 +3850,12 @@ impl ITAddress2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateCall(&self, pdestaddress: &::windows::core::BSTR, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl> {
+    pub unsafe fn CreateCall<P0>(&self, pdestaddress: P0, laddresstype: i32, lmediatypes: i32) -> ::windows::core::Result<ITBasicCallControl>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITBasicCallControl>();
-        (::windows::core::Interface::vtable(self).base__.CreateCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress), laddresstype, lmediatypes, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateCall)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi(), laddresstype, lmediatypes, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4293,12 +4303,18 @@ pub struct ITAddressTranslation(::windows::core::IUnknown);
 impl ITAddressTranslation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TranslateAddress(&self, paddresstotranslate: &::windows::core::BSTR, lcard: i32, ltranslateoptions: i32) -> ::windows::core::Result<ITAddressTranslationInfo> {
+    pub unsafe fn TranslateAddress<P0>(&self, paddresstotranslate: P0, lcard: i32, ltranslateoptions: i32) -> ::windows::core::Result<ITAddressTranslationInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITAddressTranslationInfo>();
-        (::windows::core::Interface::vtable(self).TranslateAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(paddresstotranslate), lcard, ltranslateoptions, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).TranslateAddress)(::windows::core::Interface::as_raw(self), paddresstotranslate.into_param().abi(), lcard, ltranslateoptions, &mut result__).from_abi(result__)
     }
-    pub unsafe fn TranslateDialog(&self, hwndowner: isize, paddressin: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TranslateDialog)(::windows::core::Interface::as_raw(self), hwndowner, ::core::mem::transmute_copy(paddressin)).ok()
+    pub unsafe fn TranslateDialog<P0>(&self, hwndowner: isize, paddressin: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).TranslateDialog)(::windows::core::Interface::as_raw(self), hwndowner, paddressin.into_param().abi()).ok()
     }
     pub unsafe fn EnumerateLocations(&self) -> ::windows::core::Result<IEnumLocation> {
         let mut result__ = ::windows::core::zeroed::<IEnumLocation>();
@@ -4462,13 +4478,14 @@ impl ITAgent {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSessionWithPIN<P0, P1>(&self, pacdgroup: P0, paddress: P1, ppin: &::windows::core::BSTR) -> ::windows::core::Result<ITAgentSession>
+    pub unsafe fn CreateSessionWithPIN<P0, P1, P2>(&self, pacdgroup: P0, paddress: P1, ppin: P2) -> ::windows::core::Result<ITAgentSession>
     where
         P0: ::windows::core::IntoParam<ITACDGroup>,
         P1: ::windows::core::IntoParam<ITAddress>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<ITAgentSession>();
-        (::windows::core::Interface::vtable(self).CreateSessionWithPIN)(::windows::core::Interface::as_raw(self), pacdgroup.into_param().abi(), paddress.into_param().abi(), ::core::mem::transmute_copy(ppin), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSessionWithPIN)(::windows::core::Interface::as_raw(self), pacdgroup.into_param().abi(), paddress.into_param().abi(), ppin.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn ID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -4670,9 +4687,13 @@ impl ITAgentHandler {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAgentWithID(&self, pid: &::windows::core::BSTR, ppin: &::windows::core::BSTR) -> ::windows::core::Result<ITAgent> {
+    pub unsafe fn CreateAgentWithID<P0, P1>(&self, pid: P0, ppin: P1) -> ::windows::core::Result<ITAgent>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITAgent>();
-        (::windows::core::Interface::vtable(self).CreateAgentWithID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pid), ::core::mem::transmute_copy(ppin), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateAgentWithID)(::windows::core::Interface::as_raw(self), pid.into_param().abi(), ppin.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateACDGroups(&self) -> ::windows::core::Result<IEnumACDGroup> {
         let mut result__ = ::windows::core::zeroed::<IEnumACDGroup>();
@@ -5476,8 +5497,11 @@ impl ITBasicCallControl {
     {
         (::windows::core::Interface::vtable(self).Hold)(::windows::core::Interface::as_raw(self), fhold.into_param().abi()).ok()
     }
-    pub unsafe fn HandoffDirect(&self, papplicationname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandoffDirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(papplicationname)).ok()
+    pub unsafe fn HandoffDirect<P0>(&self, papplicationname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).HandoffDirect)(::windows::core::Interface::as_raw(self), papplicationname.into_param().abi()).ok()
     }
     pub unsafe fn HandoffIndirect(&self, lmediatype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandoffIndirect)(::windows::core::Interface::as_raw(self), lmediatype).ok()
@@ -5500,8 +5524,11 @@ impl ITBasicCallControl {
     {
         (::windows::core::Interface::vtable(self).Transfer)(::windows::core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
     }
-    pub unsafe fn BlindTransfer(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BlindTransfer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
+    pub unsafe fn BlindTransfer<P0>(&self, pdestaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BlindTransfer)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5511,8 +5538,11 @@ impl ITBasicCallControl {
     {
         (::windows::core::Interface::vtable(self).SwapHold)(::windows::core::Interface::as_raw(self), pcall.into_param().abi()).ok()
     }
-    pub unsafe fn ParkDirect(&self, pparkaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ParkDirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pparkaddress)).ok()
+    pub unsafe fn ParkDirect<P0>(&self, pparkaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ParkDirect)(::windows::core::Interface::as_raw(self), pparkaddress.into_param().abi()).ok()
     }
     pub unsafe fn ParkIndirect(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5524,11 +5554,17 @@ impl ITBasicCallControl {
     pub unsafe fn SetQOS(&self, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetQOS)(::windows::core::Interface::as_raw(self), lmediatype, servicelevel).ok()
     }
-    pub unsafe fn Pickup(&self, pgroupid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pickup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pgroupid)).ok()
+    pub unsafe fn Pickup<P0>(&self, pgroupid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Pickup)(::windows::core::Interface::as_raw(self), pgroupid.into_param().abi()).ok()
     }
-    pub unsafe fn Dial(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
+    pub unsafe fn Dial<P0>(&self, pdestaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
     }
     pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), finishmode).ok()
@@ -5634,8 +5670,11 @@ impl ITBasicCallControl2 {
     {
         (::windows::core::Interface::vtable(self).base__.Hold)(::windows::core::Interface::as_raw(self), fhold.into_param().abi()).ok()
     }
-    pub unsafe fn HandoffDirect(&self, papplicationname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.HandoffDirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(papplicationname)).ok()
+    pub unsafe fn HandoffDirect<P0>(&self, papplicationname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.HandoffDirect)(::windows::core::Interface::as_raw(self), papplicationname.into_param().abi()).ok()
     }
     pub unsafe fn HandoffIndirect(&self, lmediatype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.HandoffIndirect)(::windows::core::Interface::as_raw(self), lmediatype).ok()
@@ -5658,8 +5697,11 @@ impl ITBasicCallControl2 {
     {
         (::windows::core::Interface::vtable(self).base__.Transfer)(::windows::core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
     }
-    pub unsafe fn BlindTransfer(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.BlindTransfer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
+    pub unsafe fn BlindTransfer<P0>(&self, pdestaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.BlindTransfer)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5669,8 +5711,11 @@ impl ITBasicCallControl2 {
     {
         (::windows::core::Interface::vtable(self).base__.SwapHold)(::windows::core::Interface::as_raw(self), pcall.into_param().abi()).ok()
     }
-    pub unsafe fn ParkDirect(&self, pparkaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ParkDirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pparkaddress)).ok()
+    pub unsafe fn ParkDirect<P0>(&self, pparkaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.ParkDirect)(::windows::core::Interface::as_raw(self), pparkaddress.into_param().abi()).ok()
     }
     pub unsafe fn ParkIndirect(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5682,11 +5727,17 @@ impl ITBasicCallControl2 {
     pub unsafe fn SetQOS(&self, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetQOS)(::windows::core::Interface::as_raw(self), lmediatype, servicelevel).ok()
     }
-    pub unsafe fn Pickup(&self, pgroupid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Pickup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pgroupid)).ok()
+    pub unsafe fn Pickup<P0>(&self, pgroupid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Pickup)(::windows::core::Interface::as_raw(self), pgroupid.into_param().abi()).ok()
     }
-    pub unsafe fn Dial(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Dial)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress)).ok()
+    pub unsafe fn Dial<P0>(&self, pdestaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Dial)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
     }
     pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Finish)(::windows::core::Interface::as_raw(self), finishmode).ok()
@@ -5696,9 +5747,12 @@ impl ITBasicCallControl2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RequestTerminal(&self, bstrterminalclassguid: &::windows::core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
+    pub unsafe fn RequestTerminal<P0>(&self, bstrterminalclassguid: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITTerminal>();
-        (::windows::core::Interface::vtable(self).RequestTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrterminalclassguid), lmediatype, direction, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RequestTerminal)(::windows::core::Interface::as_raw(self), bstrterminalclassguid.into_param().abi(), lmediatype, direction, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5942,8 +5996,11 @@ impl ITCallInfo {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_CallInfoString(&self, callinfostring: CALLINFO_STRING, pcallinfostring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, ::core::mem::transmute_copy(pcallinfostring)).ok()
+    pub unsafe fn put_CallInfoString<P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, pcallinfostring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6064,8 +6121,11 @@ impl ITCallInfo2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.get_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_CallInfoString(&self, callinfostring: CALLINFO_STRING, pcallinfostring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, ::core::mem::transmute_copy(pcallinfostring)).ok()
+    pub unsafe fn put_CallInfoString<P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring, pcallinfostring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7045,8 +7105,13 @@ impl ITDirectory {
     {
         (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), fsecure.into_param().abi()).ok()
     }
-    pub unsafe fn Bind(&self, pdomainname: &::windows::core::BSTR, pusername: &::windows::core::BSTR, ppassword: &::windows::core::BSTR, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdomainname), ::core::mem::transmute_copy(pusername), ::core::mem::transmute_copy(ppassword), lflags).ok()
+    pub unsafe fn Bind<P0, P1, P2>(&self, pdomainname: P0, pusername: P1, ppassword: P2, lflags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), pdomainname.into_param().abi(), pusername.into_param().abi(), ppassword.into_param().abi(), lflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7082,13 +7147,19 @@ impl ITDirectory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn get_DirectoryObjects<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).get_DirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype, ::core::mem::transmute_copy(pname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_DirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumerateDirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &::windows::core::BSTR) -> ::windows::core::Result<IEnumDirectoryObject> {
+    pub unsafe fn EnumerateDirectoryObjects<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<IEnumDirectoryObject>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IEnumDirectoryObject>();
-        (::windows::core::Interface::vtable(self).EnumerateDirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype, ::core::mem::transmute_copy(pname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumerateDirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7179,8 +7250,11 @@ impl ITDirectoryObject {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, pname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pname)).ok()
+    pub unsafe fn SetName<P0>(&self, pname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), pname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7273,8 +7347,11 @@ impl ITDirectoryObjectConference {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Originator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetOriginator(&self, poriginator: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOriginator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(poriginator)).ok()
+    pub unsafe fn SetOriginator<P0>(&self, poriginator: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetOriginator)(::windows::core::Interface::as_raw(self), poriginator.into_param().abi()).ok()
     }
     pub unsafe fn AdvertisingScope(&self) -> ::windows::core::Result<RND_ADVERTISING_SCOPE> {
         let mut result__ = ::windows::core::zeroed::<RND_ADVERTISING_SCOPE>();
@@ -7287,15 +7364,21 @@ impl ITDirectoryObjectConference {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetUrl(&self, purl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl)).ok()
+    pub unsafe fn SetUrl<P0>(&self, purl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), purl.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, pdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, pdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), pdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7393,8 +7476,11 @@ impl ITDirectoryObjectUser {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).IPPhonePrimary)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetIPPhonePrimary(&self, pname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIPPhonePrimary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pname)).ok()
+    pub unsafe fn SetIPPhonePrimary<P0>(&self, pname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetIPPhonePrimary)(::windows::core::Interface::as_raw(self), pname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7443,12 +7529,13 @@ pub struct ITDispatchMapper(::windows::core::IUnknown);
 impl ITDispatchMapper {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryDispatchInterface<P0>(&self, piid: &::windows::core::BSTR, pinterfacetomap: P0) -> ::windows::core::Result<super::super::System::Com::IDispatch>
+    pub unsafe fn QueryDispatchInterface<P0, P1>(&self, piid: P0, pinterfacetomap: P1) -> ::windows::core::Result<super::super::System::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).QueryDispatchInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(piid), pinterfacetomap.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QueryDispatchInterface)(::windows::core::Interface::as_raw(self), piid.into_param().abi(), pinterfacetomap.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7696,8 +7783,12 @@ impl ITForwardInformation {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).NumRingsNoAnswer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetForwardType(&self, forwardtype: i32, pdestaddress: &::windows::core::BSTR, pcalleraddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForwardType)(::windows::core::Interface::as_raw(self), forwardtype, ::core::mem::transmute_copy(pdestaddress), ::core::mem::transmute_copy(pcalleraddress)).ok()
+    pub unsafe fn SetForwardType<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, pcalleraddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetForwardType)(::windows::core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), pcalleraddress.into_param().abi()).ok()
     }
     pub unsafe fn get_ForwardTypeDestination(&self, forwardtype: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -7770,8 +7861,12 @@ impl ITForwardInformation2 {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).base__.NumRingsNoAnswer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetForwardType(&self, forwardtype: i32, pdestaddress: &::windows::core::BSTR, pcalleraddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetForwardType)(::windows::core::Interface::as_raw(self), forwardtype, ::core::mem::transmute_copy(pdestaddress), ::core::mem::transmute_copy(pcalleraddress)).ok()
+    pub unsafe fn SetForwardType<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, pcalleraddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetForwardType)(::windows::core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), pcalleraddress.into_param().abi()).ok()
     }
     pub unsafe fn get_ForwardTypeDestination(&self, forwardtype: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -7787,8 +7882,12 @@ impl ITForwardInformation2 {
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &::windows::core::BSTR, destaddresstype: i32, pcalleraddress: &::windows::core::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForwardType2)(::windows::core::Interface::as_raw(self), forwardtype, ::core::mem::transmute_copy(pdestaddress), destaddresstype, ::core::mem::transmute_copy(pcalleraddress), calleraddresstype).ok()
+    pub unsafe fn SetForwardType2<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, destaddresstype: i32, pcalleraddress: P1, calleraddresstype: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetForwardType2)(::windows::core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), destaddresstype, pcalleraddress.into_param().abi(), calleraddresstype).ok()
     }
     pub unsafe fn GetForwardType2(&self, forwardtype: i32, ppdestinationaddress: *mut ::windows::core::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut ::windows::core::BSTR, pcalleraddresstype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetForwardType2)(::windows::core::Interface::as_raw(self), forwardtype, ::core::mem::transmute(ppdestinationaddress), pdestaddresstype, ::core::mem::transmute(ppcalleraddress), pcalleraddresstype).ok()
@@ -7898,14 +7997,23 @@ pub struct ITILSConfig_Vtbl {
 #[repr(transparent)]
 pub struct ITLegacyAddressMediaControl(::windows::core::IUnknown);
 impl ITLegacyAddressMediaControl {
-    pub unsafe fn GetID(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceid).ok()
+    pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
     }
-    pub unsafe fn GetDevConfig(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDevConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceconfig).ok()
+    pub unsafe fn GetDevConfig<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetDevConfig)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceconfig).ok()
     }
-    pub unsafe fn SetDevConfig(&self, pdeviceclass: &::windows::core::BSTR, pdeviceconfig: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDevConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdeviceconfig.len() as _, ::core::mem::transmute(pdeviceconfig.as_ptr())).ok()
+    pub unsafe fn SetDevConfig<P0>(&self, pdeviceclass: P0, pdeviceconfig: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDevConfig)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdeviceconfig.len() as _, ::core::mem::transmute(pdeviceconfig.as_ptr())).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITLegacyAddressMediaControl, ::windows::core::IUnknown);
@@ -7943,30 +8051,41 @@ pub struct ITLegacyAddressMediaControl_Vtbl {
 #[repr(transparent)]
 pub struct ITLegacyAddressMediaControl2(::windows::core::IUnknown);
 impl ITLegacyAddressMediaControl2 {
-    pub unsafe fn GetID(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceid).ok()
+    pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.GetID)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
     }
-    pub unsafe fn GetDevConfig(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDevConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceconfig).ok()
+    pub unsafe fn GetDevConfig<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.GetDevConfig)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceconfig).ok()
     }
-    pub unsafe fn SetDevConfig(&self, pdeviceclass: &::windows::core::BSTR, pdeviceconfig: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDevConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdeviceconfig.len() as _, ::core::mem::transmute(pdeviceconfig.as_ptr())).ok()
+    pub unsafe fn SetDevConfig<P0>(&self, pdeviceclass: P0, pdeviceconfig: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetDevConfig)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdeviceconfig.len() as _, ::core::mem::transmute(pdeviceconfig.as_ptr())).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigDialog<P0>(&self, hwndowner: P0, pdeviceclass: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ConfigDialog<P0, P1>(&self, hwndowner: P0, pdeviceclass: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ConfigDialog)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi(), ::core::mem::transmute_copy(pdeviceclass)).ok()
+        (::windows::core::Interface::vtable(self).ConfigDialog)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi(), pdeviceclass.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigDialogEdit<P0>(&self, hwndowner: P0, pdeviceclass: &::windows::core::BSTR, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn ConfigDialogEdit<P0, P1>(&self, hwndowner: P0, pdeviceclass: P1, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).ConfigDialogEdit)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi(), ::core::mem::transmute_copy(pdeviceclass), pdeviceconfigin.len() as _, ::core::mem::transmute(pdeviceconfigin.as_ptr()), pdwsizeout, ppdeviceconfigout).ok()
+        (::windows::core::Interface::vtable(self).ConfigDialogEdit)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi(), pdeviceclass.into_param().abi(), pdeviceconfigin.len() as _, ::core::mem::transmute(pdeviceconfigin.as_ptr()), pdwsizeout, ppdeviceconfigout).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITLegacyAddressMediaControl2, ::windows::core::IUnknown, ITLegacyAddressMediaControl);
@@ -8014,11 +8133,17 @@ impl ITLegacyCallMediaControl {
     pub unsafe fn DetectDigits(&self, digitmode: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DetectDigits)(::windows::core::Interface::as_raw(self), digitmode).ok()
     }
-    pub unsafe fn GenerateDigits(&self, pdigits: &::windows::core::BSTR, digitmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateDigits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdigits), digitmode).ok()
+    pub unsafe fn GenerateDigits<P0>(&self, pdigits: P0, digitmode: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GenerateDigits)(::windows::core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode).ok()
     }
-    pub unsafe fn GetID(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceid).ok()
+    pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn SetMediaType(&self, lmediatype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMediaType)(::windows::core::Interface::as_raw(self), lmediatype).ok()
@@ -8077,11 +8202,17 @@ impl ITLegacyCallMediaControl2 {
     pub unsafe fn DetectDigits(&self, digitmode: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DetectDigits)(::windows::core::Interface::as_raw(self), digitmode).ok()
     }
-    pub unsafe fn GenerateDigits(&self, pdigits: &::windows::core::BSTR, digitmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GenerateDigits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdigits), digitmode).ok()
+    pub unsafe fn GenerateDigits<P0>(&self, pdigits: P0, digitmode: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.GenerateDigits)(::windows::core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode).ok()
     }
-    pub unsafe fn GetID(&self, pdeviceclass: &::windows::core::BSTR, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdeviceclass), pdwsize, ppdeviceid).ok()
+    pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.GetID)(::windows::core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn SetMediaType(&self, lmediatype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetMediaType)(::windows::core::Interface::as_raw(self), lmediatype).ok()
@@ -8089,11 +8220,17 @@ impl ITLegacyCallMediaControl2 {
     pub unsafe fn MonitorMedia(&self, lmediatype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.MonitorMedia)(::windows::core::Interface::as_raw(self), lmediatype).ok()
     }
-    pub unsafe fn GenerateDigits2(&self, pdigits: &::windows::core::BSTR, digitmode: i32, lduration: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateDigits2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdigits), digitmode, lduration).ok()
+    pub unsafe fn GenerateDigits2<P0>(&self, pdigits: P0, digitmode: i32, lduration: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GenerateDigits2)(::windows::core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode, lduration).ok()
     }
-    pub unsafe fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &::windows::core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GatherDigits)(::windows::core::Interface::as_raw(self), digitmode, lnumdigits, ::core::mem::transmute_copy(pterminationdigits), lfirstdigittimeout, linterdigittimeout).ok()
+    pub unsafe fn GatherDigits<P0>(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: P0, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GatherDigits)(::windows::core::Interface::as_raw(self), digitmode, lnumdigits, pterminationdigits.into_param().abi(), lfirstdigittimeout, linterdigittimeout).ok()
     }
     pub unsafe fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DetectTones)(::windows::core::Interface::as_raw(self), ptonelist, lnumtones).ok()
@@ -8134,9 +8271,12 @@ impl ITLegacyCallMediaControl2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetIDAsVariant(&self, bstrdeviceclass: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetIDAsVariant<P0>(&self, bstrdeviceclass: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetIDAsVariant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdeviceclass), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetIDAsVariant)(::windows::core::Interface::as_raw(self), bstrdeviceclass.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8541,8 +8681,11 @@ pub struct ITMediaPlayback_Vtbl {
 pub struct ITMediaRecord(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITMediaRecord {
-    pub unsafe fn SetFileName(&self, bstrfilename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfilename)).ok()
+    pub unsafe fn SetFileName<P0>(&self, bstrfilename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFileName)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi()).ok()
     }
     pub unsafe fn FileName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -8801,8 +8944,11 @@ impl ITPhone {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_ButtonText)(::windows::core::Interface::as_raw(self), lbuttonid, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_ButtonText(&self, lbuttonid: i32, bstrbuttontext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_ButtonText)(::windows::core::Interface::as_raw(self), lbuttonid, ::core::mem::transmute_copy(bstrbuttontext)).ok()
+    pub unsafe fn put_ButtonText<P0>(&self, lbuttonid: i32, bstrbuttontext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_ButtonText)(::windows::core::Interface::as_raw(self), lbuttonid, bstrbuttontext.into_param().abi()).ok()
     }
     pub unsafe fn get_ButtonState(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_STATE> {
         let mut result__ = ::windows::core::zeroed::<PHONE_BUTTON_STATE>();
@@ -8853,8 +8999,11 @@ impl ITPhone {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Display)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDisplay(&self, lrow: i32, lcolumn: i32, bstrdisplay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), lrow, lcolumn, ::core::mem::transmute_copy(bstrdisplay)).ok()
+    pub unsafe fn SetDisplay<P0>(&self, lrow: i32, lcolumn: i32, bstrdisplay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), lrow, lcolumn, bstrdisplay.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9678,15 +9827,21 @@ impl ITRendezvous {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDirectory(&self, directorytype: DIRECTORY_TYPE, pname: &::windows::core::BSTR) -> ::windows::core::Result<ITDirectory> {
+    pub unsafe fn CreateDirectory<P0>(&self, directorytype: DIRECTORY_TYPE, pname: P0) -> ::windows::core::Result<ITDirectory>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITDirectory>();
-        (::windows::core::Interface::vtable(self).CreateDirectory)(::windows::core::Interface::as_raw(self), directorytype, ::core::mem::transmute_copy(pname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDirectory)(::windows::core::Interface::as_raw(self), directorytype, pname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDirectoryObject(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &::windows::core::BSTR) -> ::windows::core::Result<ITDirectoryObject> {
+    pub unsafe fn CreateDirectoryObject<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<ITDirectoryObject>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITDirectoryObject>();
-        (::windows::core::Interface::vtable(self).CreateDirectoryObject)(::windows::core::Interface::as_raw(self), directoryobjecttype, ::core::mem::transmute_copy(pname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateDirectoryObject)(::windows::core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9744,8 +9899,14 @@ pub struct ITRendezvous_Vtbl {
 pub struct ITRequest(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITRequest {
-    pub unsafe fn MakeCall(&self, pdestaddress: &::windows::core::BSTR, pappname: &::windows::core::BSTR, pcalledparty: &::windows::core::BSTR, pcomment: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pdestaddress), ::core::mem::transmute_copy(pappname), ::core::mem::transmute_copy(pcalledparty), ::core::mem::transmute_copy(pcomment)).ok()
+    pub unsafe fn MakeCall<P0, P1, P2, P3>(&self, pdestaddress: P0, pappname: P1, pcalledparty: P2, pcomment: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).MakeCall)(::windows::core::Interface::as_raw(self), pdestaddress.into_param().abi(), pappname.into_param().abi(), pcalledparty.into_param().abi(), pcomment.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10452,19 +10613,21 @@ impl ITTAPI {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAssistedTelephonyPriority<P0>(&self, pappfilename: &::windows::core::BSTR, fpriority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAssistedTelephonyPriority<P0, P1>(&self, pappfilename: P0, fpriority: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetAssistedTelephonyPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAssistedTelephonyPriority)(::windows::core::Interface::as_raw(self), pappfilename.into_param().abi(), fpriority.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetApplicationPriority<P0>(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetApplicationPriority<P0, P1>(&self, pappfilename: P0, lmediatype: i32, fpriority: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetApplicationPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetApplicationPriority)(::windows::core::Interface::as_raw(self), pappfilename.into_param().abi(), lmediatype, fpriority.into_param().abi()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventFilter)(::windows::core::Interface::as_raw(self), lfiltermask).ok()
@@ -10629,19 +10792,21 @@ impl ITTAPI2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAssistedTelephonyPriority<P0>(&self, pappfilename: &::windows::core::BSTR, fpriority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAssistedTelephonyPriority<P0, P1>(&self, pappfilename: P0, fpriority: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetAssistedTelephonyPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pappfilename), fpriority.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAssistedTelephonyPriority)(::windows::core::Interface::as_raw(self), pappfilename.into_param().abi(), fpriority.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetApplicationPriority<P0>(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetApplicationPriority<P0, P1>(&self, pappfilename: P0, lmediatype: i32, fpriority: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetApplicationPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pappfilename), lmediatype, fpriority.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetApplicationPriority)(::windows::core::Interface::as_raw(self), pappfilename.into_param().abi(), lmediatype, fpriority.into_param().abi()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEventFilter)(::windows::core::Interface::as_raw(self), lfiltermask).ok()
@@ -11172,9 +11337,12 @@ impl ITTerminalSupport {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTerminal(&self, pterminalclass: &::windows::core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
+    pub unsafe fn CreateTerminal<P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITTerminal>();
-        (::windows::core::Interface::vtable(self).CreateTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pterminalclass), lmediatype, direction, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into_param().abi(), lmediatype, direction, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11265,9 +11433,12 @@ impl ITTerminalSupport2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTerminal(&self, pterminalclass: &::windows::core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
+    pub unsafe fn CreateTerminal<P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITTerminal>();
-        (::windows::core::Interface::vtable(self).base__.CreateTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pterminalclass), lmediatype, direction, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into_param().abi(), lmediatype, direction, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11287,9 +11458,12 @@ impl ITTerminalSupport2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_PluggableTerminalClasses(&self, bstrterminalsuperclass: &::windows::core::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn get_PluggableTerminalClasses<P0>(&self, bstrterminalsuperclass: P0, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).get_PluggableTerminalClasses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrterminalsuperclass), lmediatype, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_PluggableTerminalClasses)(::windows::core::Interface::as_raw(self), bstrterminalsuperclass.into_param().abi(), lmediatype, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumeratePluggableTerminalClasses(&self, iidterminalsuperclass: ::windows::core::GUID, lmediatype: i32) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo> {
         let mut result__ = ::windows::core::zeroed::<IEnumPluggableTerminalClassInfo>();

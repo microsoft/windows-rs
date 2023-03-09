@@ -1278,11 +1278,12 @@ pub struct IInstallationAgent(::windows::core::IUnknown);
 impl IInstallationAgent {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RecordInstallationResult<P0>(&self, installationresultcookie: &::windows::core::BSTR, hresult: i32, extendedreportingdata: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RecordInstallationResult<P0, P1>(&self, installationresultcookie: P0, hresult: i32, extendedreportingdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IStringCollection>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IStringCollection>,
     {
-        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(installationresultcookie), hresult, extendedreportingdata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into_param().abi(), hresult, extendedreportingdata.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2124,8 +2125,11 @@ impl IStringCollection {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_Item(&self, index: i32, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn put_Item<P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), index, value.into_param().abi()).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
@@ -2141,9 +2145,12 @@ impl IStringCollection {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
         (::windows::core::Interface::vtable(self).ReadOnly)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Add(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
+    pub unsafe fn Add<P0>(&self, value: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
@@ -2154,8 +2161,11 @@ impl IStringCollection {
         let mut result__ = ::windows::core::zeroed::<IStringCollection>();
         (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Insert(&self, index: i32, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn Insert<P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), index, value.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
@@ -2502,11 +2512,12 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -2918,11 +2929,12 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -3244,11 +3256,12 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -3564,11 +3577,12 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -3890,11 +3904,12 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -4350,8 +4365,11 @@ impl IUpdateDownloader {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5028,8 +5046,11 @@ impl IUpdateInstaller {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5129,9 +5150,12 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard(&self, dialogtitle: &::windows::core::BSTR) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInstallationResult>();
-        (::windows::core::Interface::vtable(self).RunWizard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(dialogtitle), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5284,8 +5308,11 @@ impl IUpdateInstaller2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5385,9 +5412,12 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard(&self, dialogtitle: &::windows::core::BSTR) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInstallationResult>();
-        (::windows::core::Interface::vtable(self).base__.RunWizard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(dialogtitle), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5490,8 +5520,11 @@ impl IUpdateInstaller3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5591,9 +5624,12 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard(&self, dialogtitle: &::windows::core::BSTR) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInstallationResult>();
-        (::windows::core::Interface::vtable(self).base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(dialogtitle), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5710,8 +5746,11 @@ impl IUpdateInstaller4 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5811,9 +5850,12 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard(&self, dialogtitle: &::windows::core::BSTR) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IInstallationResult>();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(dialogtitle), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5977,8 +6019,11 @@ impl IUpdateSearcher {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6003,12 +6048,13 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    pub unsafe fn BeginSearch<P0, P1>(&self, criteria: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<ISearchJob>();
-        (::windows::core::Interface::vtable(self).BeginSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6019,9 +6065,12 @@ impl IUpdateSearcher {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
         (::windows::core::Interface::vtable(self).EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EscapeString(&self, unescaped: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn EscapeString<P0>(&self, unescaped: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).EscapeString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(unescaped), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6031,9 +6080,12 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Search(&self, criteria: &::windows::core::BSTR) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
-        (::windows::core::Interface::vtable(self).Search)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6057,8 +6109,11 @@ impl IUpdateSearcher {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ServiceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetServiceID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6169,8 +6224,11 @@ impl IUpdateSearcher2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6195,12 +6253,13 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    pub unsafe fn BeginSearch<P0, P1>(&self, criteria: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<ISearchJob>();
-        (::windows::core::Interface::vtable(self).base__.BeginSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6211,9 +6270,12 @@ impl IUpdateSearcher2 {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
         (::windows::core::Interface::vtable(self).base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EscapeString(&self, unescaped: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn EscapeString<P0>(&self, unescaped: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.EscapeString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(unescaped), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6223,9 +6285,12 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Search(&self, criteria: &::windows::core::BSTR) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
-        (::windows::core::Interface::vtable(self).base__.Search)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6249,8 +6314,11 @@ impl IUpdateSearcher2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ServiceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetServiceID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6335,8 +6403,11 @@ impl IUpdateSearcher3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6361,12 +6432,13 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    pub unsafe fn BeginSearch<P0, P1>(&self, criteria: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<ISearchJob>();
-        (::windows::core::Interface::vtable(self).base__.base__.BeginSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), ::core::mem::transmute(state), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6377,9 +6449,12 @@ impl IUpdateSearcher3 {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
         (::windows::core::Interface::vtable(self).base__.base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EscapeString(&self, unescaped: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn EscapeString<P0>(&self, unescaped: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.base__.EscapeString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(unescaped), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6389,9 +6464,12 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Search(&self, criteria: &::windows::core::BSTR) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISearchResult>();
-        (::windows::core::Interface::vtable(self).base__.base__.Search)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6415,8 +6493,11 @@ impl IUpdateSearcher3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ServiceID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetServiceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetServiceID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6817,29 +6898,49 @@ impl IUpdateServiceManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddService(&self, serviceid: &::windows::core::BSTR, authorizationcabpath: &::windows::core::BSTR) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<P0, P1>(&self, serviceid: P0, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateService>();
-        (::windows::core::Interface::vtable(self).AddService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid), ::core::mem::transmute_copy(authorizationcabpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), authorizationcabpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RegisterServiceWithAU(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn RegisterServiceWithAU<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveService(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn RemoveService<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
-    pub unsafe fn UnregisterServiceWithAU(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn UnregisterServiceWithAU<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddScanPackageService(&self, servicename: &::windows::core::BSTR, scanfilelocation: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<P0, P1>(&self, servicename: P0, scanfilelocation: P1, flags: i32) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateService>();
-        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(scanfilelocation), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into_param().abi(), scanfilelocation.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute(optionvalue)).ok()
+    pub unsafe fn SetOption<P0>(&self, optionname: P0, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), optionname.into_param().abi(), ::core::mem::transmute(optionvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6911,48 +7012,78 @@ impl IUpdateServiceManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddService(&self, serviceid: &::windows::core::BSTR, authorizationcabpath: &::windows::core::BSTR) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<P0, P1>(&self, serviceid: P0, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateService>();
-        (::windows::core::Interface::vtable(self).base__.AddService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid), ::core::mem::transmute_copy(authorizationcabpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.AddService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), authorizationcabpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RegisterServiceWithAU(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn RegisterServiceWithAU<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
-    pub unsafe fn RemoveService(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn RemoveService<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
-    pub unsafe fn UnregisterServiceWithAU(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid)).ok()
+    pub unsafe fn UnregisterServiceWithAU<P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddScanPackageService(&self, servicename: &::windows::core::BSTR, scanfilelocation: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<P0, P1>(&self, servicename: P0, scanfilelocation: P1, flags: i32) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateService>();
-        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(scanfilelocation), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into_param().abi(), scanfilelocation.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute(optionvalue)).ok()
+    pub unsafe fn SetOption<P0>(&self, optionname: P0, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetOption)(::windows::core::Interface::as_raw(self), optionname.into_param().abi(), ::core::mem::transmute(optionvalue)).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryServiceRegistration(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn QueryServiceRegistration<P0>(&self, serviceid: P0) -> ::windows::core::Result<IUpdateServiceRegistration>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateServiceRegistration>();
-        (::windows::core::Interface::vtable(self).QueryServiceRegistration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QueryServiceRegistration)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddService2(&self, serviceid: &::windows::core::BSTR, flags: i32, authorizationcabpath: &::windows::core::BSTR) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn AddService2<P0, P1>(&self, serviceid: P0, flags: i32, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateServiceRegistration>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateServiceRegistration>();
-        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(serviceid), flags, ::core::mem::transmute_copy(authorizationcabpath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), flags, authorizationcabpath.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7084,8 +7215,11 @@ impl IUpdateSession {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7198,8 +7332,11 @@ impl IUpdateSession2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7295,8 +7432,11 @@ impl IUpdateSession3 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ClientApplicationID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7351,9 +7491,12 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryHistory(&self, criteria: &::windows::core::BSTR, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
+    pub unsafe fn QueryHistory<P0>(&self, criteria: P0, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IUpdateHistoryEntryCollection>();
-        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(criteria), startindex, count, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), startindex, count, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7410,8 +7553,11 @@ impl IWebProxy {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Address)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAddress(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetAddress<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7451,25 +7597,33 @@ impl IWebProxy {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).UserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetUserName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetUserName<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    pub unsafe fn SetPassword(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetPassword<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    pub unsafe fn PromptForCredentials<P0>(&self, parentwindow: P0, title: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn PromptForCredentials<P0, P1>(&self, parentwindow: P0, title: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).PromptForCredentials)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), ::core::mem::transmute_copy(title)).ok()
+        (::windows::core::Interface::vtable(self).PromptForCredentials)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), title.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptForCredentialsFromHwnd<P0>(&self, parentwindow: P0, title: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn PromptForCredentialsFromHwnd<P0, P1>(&self, parentwindow: P0, title: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).PromptForCredentialsFromHwnd)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), ::core::mem::transmute_copy(title)).ok()
+        (::windows::core::Interface::vtable(self).PromptForCredentialsFromHwnd)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), title.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7791,11 +7945,12 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -8115,11 +8270,12 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -8473,11 +8629,12 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -8825,11 +8982,12 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();
@@ -9193,11 +9351,12 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<P0>(&self, path: &::windows::core::BSTR, toextractcabfiles: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), toextractcabfiles.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), toextractcabfiles.into_param().abi()).ok()
     }
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
         let mut result__ = ::windows::core::zeroed::<DownloadPriority>();

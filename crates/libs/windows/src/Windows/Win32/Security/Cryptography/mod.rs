@@ -3535,21 +3535,30 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetKeyLengthList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetKeyLengthList<P0>(&self, bstrprovidername: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetKeyLengthList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetKeyLengthList)(::windows::core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetHashAlgorithmList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetHashAlgorithmList<P0>(&self, bstrprovidername: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetHashAlgorithmList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetHashAlgorithmList)(::windows::core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPrivateKeyContainerList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPrivateKeyContainerList<P0>(&self, bstrprovidername: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows::core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3559,36 +3568,48 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CAImportPFX<P0>(&self, bstrfilename: &::windows::core::BSTR, bstrpasswd: &::windows::core::BSTR, boverwriteexistingkey: P0) -> ::windows::core::Result<ICertSrvSetupKeyInformation>
+    pub unsafe fn CAImportPFX<P0, P1, P2>(&self, bstrfilename: P0, bstrpasswd: P1, boverwriteexistingkey: P2) -> ::windows::core::Result<ICertSrvSetupKeyInformation>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = ::windows::core::zeroed::<ICertSrvSetupKeyInformation>();
-        (::windows::core::Interface::vtable(self).CAImportPFX)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey.into_param().abi(), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCADistinguishedName<P0, P1, P2>(&self, bstrcadn: &::windows::core::BSTR, bignoreunicode: P0, boverwriteexistingkey: P1, boverwriteexistingcainds: P2) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCADistinguishedName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcadn), bignoreunicode.into_param().abi(), boverwriteexistingkey.into_param().abi(), boverwriteexistingcainds.into_param().abi()).ok()
+        let mut result__ = ::windows::core::zeroed::<ICertSrvSetupKeyInformation>();
+        (::windows::core::Interface::vtable(self).CAImportPFX)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrpasswd.into_param().abi(), boverwriteexistingkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDatabaseInformation<P0>(&self, bstrdbdirectory: &::windows::core::BSTR, bstrlogdirectory: &::windows::core::BSTR, bstrsharedfolder: &::windows::core::BSTR, bforceoverwrite: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCADistinguishedName<P0, P1, P2, P3>(&self, bstrcadn: P0, bignoreunicode: P1, boverwriteexistingkey: P2, boverwriteexistingcainds: P3) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetDatabaseInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdbdirectory), ::core::mem::transmute_copy(bstrlogdirectory), ::core::mem::transmute_copy(bstrsharedfolder), bforceoverwrite.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCADistinguishedName)(::windows::core::Interface::as_raw(self), bstrcadn.into_param().abi(), bignoreunicode.into_param().abi(), boverwriteexistingkey.into_param().abi(), boverwriteexistingcainds.into_param().abi()).ok()
     }
-    pub unsafe fn SetParentCAInformation(&self, bstrcaconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentCAInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcaconfiguration)).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetDatabaseInformation<P0, P1, P2, P3>(&self, bstrdbdirectory: P0, bstrlogdirectory: P1, bstrsharedfolder: P2, bforceoverwrite: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+    {
+        (::windows::core::Interface::vtable(self).SetDatabaseInformation)(::windows::core::Interface::as_raw(self), bstrdbdirectory.into_param().abi(), bstrlogdirectory.into_param().abi(), bstrsharedfolder.into_param().abi(), bforceoverwrite.into_param().abi()).ok()
     }
-    pub unsafe fn SetWebCAInformation(&self, bstrcaconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWebCAInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcaconfiguration)).ok()
+    pub unsafe fn SetParentCAInformation<P0>(&self, bstrcaconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetParentCAInformation)(::windows::core::Interface::as_raw(self), bstrcaconfiguration.into_param().abi()).ok()
+    }
+    pub unsafe fn SetWebCAInformation<P0>(&self, bstrcaconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetWebCAInformation)(::windows::core::Interface::as_raw(self), bstrcaconfiguration.into_param().abi()).ok()
     }
     pub unsafe fn Install(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self)).ok()
@@ -3713,8 +3734,11 @@ impl ICertSrvSetupKeyInformation {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetProviderName(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
+    pub unsafe fn SetProviderName<P0>(&self, bstrval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetProviderName)(::windows::core::Interface::as_raw(self), bstrval.into_param().abi()).ok()
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -3741,15 +3765,21 @@ impl ICertSrvSetupKeyInformation {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ContainerName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContainerName(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
+    pub unsafe fn SetContainerName<P0>(&self, bstrval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetContainerName)(::windows::core::Interface::as_raw(self), bstrval.into_param().abi()).ok()
     }
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetHashAlgorithm(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
+    pub unsafe fn SetHashAlgorithm<P0>(&self, bstrval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), bstrval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4006,8 +4036,12 @@ impl ICertificateEnrollmentServerSetup {
     pub unsafe fn SetProperty(&self, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), propertyid, ppropertyvalue).ok()
     }
-    pub unsafe fn SetApplicationPoolCredentials(&self, bstrusername: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetApplicationPoolCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrpassword)).ok()
+    pub unsafe fn SetApplicationPoolCredentials<P0, P1>(&self, bstrusername: P0, bstrpassword: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetApplicationPoolCredentials)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     pub unsafe fn Install(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self)).ok()
@@ -4098,8 +4132,12 @@ impl IMSCEPSetup {
     pub unsafe fn SetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMSCEPSetupProperty)(::windows::core::Interface::as_raw(self), propertyid, ppropertyvalue).ok()
     }
-    pub unsafe fn SetAccountInformation(&self, bstrusername: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrpassword)).ok()
+    pub unsafe fn SetAccountInformation<P0, P1>(&self, bstrusername: P0, bstrpassword: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAccountInformation)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4118,12 +4156,13 @@ impl IMSCEPSetup {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetKeyLengthList<P0>(&self, bexchange: P0, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetKeyLengthList<P0, P1>(&self, bexchange: P0, bstrprovidername: P1) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetKeyLengthList)(::windows::core::Interface::as_raw(self), bexchange.into_param().abi(), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetKeyLengthList)(::windows::core::Interface::as_raw(self), bexchange.into_param().abi(), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Install(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self)).ok()

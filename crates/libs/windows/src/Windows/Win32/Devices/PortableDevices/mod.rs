@@ -201,11 +201,17 @@ impl IMediaRadioManagerNotifySink {
     {
         (::windows::core::Interface::vtable(self).OnInstanceAdd)(::windows::core::Interface::as_raw(self), pradioinstance.into_param().abi()).ok()
     }
-    pub unsafe fn OnInstanceRemove(&self, bstrradioinstanceid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnInstanceRemove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrradioinstanceid)).ok()
+    pub unsafe fn OnInstanceRemove<P0>(&self, bstrradioinstanceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OnInstanceRemove)(::windows::core::Interface::as_raw(self), bstrradioinstanceid.into_param().abi()).ok()
     }
-    pub unsafe fn OnInstanceRadioChange(&self, bstrradioinstanceid: &::windows::core::BSTR, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnInstanceRadioChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrradioinstanceid), radiostate).ok()
+    pub unsafe fn OnInstanceRadioChange<P0>(&self, bstrradioinstanceid: P0, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OnInstanceRadioChange)(::windows::core::Interface::as_raw(self), bstrradioinstanceid.into_param().abi(), radiostate).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows::core::IUnknown);
@@ -2398,18 +2404,22 @@ pub struct IPortableDeviceWebControl(::windows::core::IUnknown);
 impl IPortableDeviceWebControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetDeviceFromId(&self, deviceid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetDeviceFromId<P0>(&self, deviceid: P0) -> ::windows::core::Result<super::super::System::Com::IDispatch>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).GetDeviceFromId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceFromId)(::windows::core::Interface::as_raw(self), deviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetDeviceFromIdAsync<P0, P1>(&self, deviceid: &::windows::core::BSTR, pcompletionhandler: P0, perrorhandler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn GetDeviceFromIdAsync<P0, P1, P2>(&self, deviceid: P0, pcompletionhandler: P1, perrorhandler: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
         P1: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
+        P2: ::windows::core::IntoParam<super::super::System::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).GetDeviceFromIdAsync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(deviceid), pcompletionhandler.into_param().abi(), perrorhandler.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceFromIdAsync)(::windows::core::Interface::as_raw(self), deviceid.into_param().abi(), pcompletionhandler.into_param().abi(), perrorhandler.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

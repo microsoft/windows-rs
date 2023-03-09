@@ -56,25 +56,30 @@ pub struct IWPCGamesSettings_Vtbl {
 #[repr(transparent)]
 pub struct IWPCProviderConfig(::windows::core::IUnknown);
 impl IWPCProviderConfig {
-    pub unsafe fn GetUserSummary(&self, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetUserSummary<P0>(&self, bstrsid: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetUserSummary)(::windows::core::Interface::as_raw(self), bstrsid.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Configure<P0>(&self, hwnd: P0, bstrsid: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Configure<P0, P1>(&self, hwnd: P0, bstrsid: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute_copy(bstrsid)).ok()
+        (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), bstrsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestOverride<P0>(&self, hwnd: P0, bstrpath: &::windows::core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
+    pub unsafe fn RequestOverride<P0, P1>(&self, hwnd: P0, bstrpath: P1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
+        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), dwflags).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IWPCProviderConfig, ::windows::core::IUnknown);

@@ -3695,11 +3695,17 @@ impl IFELanguage {
     pub unsafe fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConversionModeCaps)(::windows::core::Interface::as_raw(self), pdwcaps).ok()
     }
-    pub unsafe fn GetPhonetic(&self, string: &::windows::core::BSTR, start: i32, length: i32, phonetic: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPhonetic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(string), start, length, ::core::mem::transmute(phonetic)).ok()
+    pub unsafe fn GetPhonetic<P0>(&self, string: P0, start: i32, length: i32, phonetic: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetPhonetic)(::windows::core::Interface::as_raw(self), string.into_param().abi(), start, length, ::core::mem::transmute(phonetic)).ok()
     }
-    pub unsafe fn GetConversion(&self, string: &::windows::core::BSTR, start: i32, length: i32, result: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConversion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(string), start, length, ::core::mem::transmute(result)).ok()
+    pub unsafe fn GetConversion<P0>(&self, string: P0, start: i32, length: i32, result: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetConversion)(::windows::core::Interface::as_raw(self), string.into_param().abi(), start, length, ::core::mem::transmute(result)).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IFELanguage, ::windows::core::IUnknown);
@@ -3871,8 +3877,11 @@ impl IImePlugInDictDictionaryList {
     pub unsafe fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDictionariesInUse)(::windows::core::Interface::as_raw(self), prgdictionaryguid, prgdatecreated, prgfencrypted).ok()
     }
-    pub unsafe fn DeleteDictionary(&self, bstrdictionaryguid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteDictionary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdictionaryguid)).ok()
+    pub unsafe fn DeleteDictionary<P0>(&self, bstrdictionaryguid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteDictionary)(::windows::core::Interface::as_raw(self), bstrdictionaryguid.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IImePlugInDictDictionaryList, ::windows::core::IUnknown);

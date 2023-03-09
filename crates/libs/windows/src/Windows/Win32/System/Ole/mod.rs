@@ -814,12 +814,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleSavePictureFile<P0>(lpdisppicture: P0, bstrfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>
+pub unsafe fn OleSavePictureFile<P0, P1>(lpdisppicture: P0, bstrfilename: P1) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+    P1: ::windows::core::IntoParam<::windows::core::BSTR>,
 {
     ::windows::imp::link ! ( "oleaut32.dll""system" fn OleSavePictureFile ( lpdisppicture : * mut::core::ffi::c_void , bstrfilename : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
-    OleSavePictureFile(lpdisppicture.into_param().abi(), ::core::mem::transmute_copy(bstrfilename)).ok()
+    OleSavePictureFile(lpdisppicture.into_param().abi(), bstrfilename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1575,16 +1576,24 @@ pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<super::super
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn VarBstrCat(bstrleft: &::windows::core::BSTR, bstrright: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+pub unsafe fn VarBstrCat<P0, P1>(bstrleft: P0, bstrright: P1) -> ::windows::core::Result<::windows::core::BSTR>
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn VarBstrCat ( bstrleft : ::std::mem::MaybeUninit <::windows::core::BSTR > , bstrright : ::std::mem::MaybeUninit <::windows::core::BSTR > , pbstrresult : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-    VarBstrCat(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), &mut result__).from_abi(result__)
+    VarBstrCat(bstrleft.into_param().abi(), bstrright.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
-pub unsafe fn VarBstrCmp(bstrleft: &::windows::core::BSTR, bstrright: &::windows::core::BSTR, lcid: u32, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn VarBstrCmp<P0, P1>(bstrleft: P0, bstrright: P1, lcid: u32, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn VarBstrCmp ( bstrleft : ::std::mem::MaybeUninit <::windows::core::BSTR > , bstrright : ::std::mem::MaybeUninit <::windows::core::BSTR > , lcid : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
-    VarBstrCmp(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), lcid, dwflags).ok()
+    VarBstrCmp(bstrleft.into_param().abi(), bstrright.into_param().abi(), lcid, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3784,10 +3793,13 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn VectorFromBstr(bstr: &::windows::core::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
+pub unsafe fn VectorFromBstr<P0>(bstr: P0) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn VectorFromBstr ( bstr : ::std::mem::MaybeUninit <::windows::core::BSTR > , ppsa : *mut *mut super::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut super::Com::SAFEARRAY>();
-    VectorFromBstr(::core::mem::transmute_copy(bstr), &mut result__).from_abi(result__)
+    VectorFromBstr(bstr.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3939,14 +3951,15 @@ impl IClassFactory2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).RequestLicKey)(::windows::core::Interface::as_raw(self), dwreserved, &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateInstanceLic<P0, P1, T>(&self, punkouter: P0, punkreserved: P1, bstrkey: &::windows::core::BSTR) -> ::windows::core::Result<T>
+    pub unsafe fn CreateInstanceLic<P0, P1, P2, T>(&self, punkouter: P0, punkreserved: P1, bstrkey: P2) -> ::windows::core::Result<T>
     where
         P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
         P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
         T: ::windows::core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).CreateInstanceLic)(::windows::core::Interface::as_raw(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, ::core::mem::transmute_copy(bstrkey), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateInstanceLic)(::windows::core::Interface::as_raw(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, bstrkey.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4230,8 +4243,11 @@ impl ICreateTypeInfo {
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetVarHelpContext)(::windows::core::Interface::as_raw(self), index, dwhelpcontext).ok()
     }
-    pub unsafe fn SetMops(&self, index: u32, bstrmops: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMops)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute_copy(bstrmops)).ok()
+    pub unsafe fn SetMops<P0>(&self, index: u32, bstrmops: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMops)(::windows::core::Interface::as_raw(self), index, bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4407,8 +4423,11 @@ impl ICreateTypeInfo2 {
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetVarHelpContext)(::windows::core::Interface::as_raw(self), index, dwhelpcontext).ok()
     }
-    pub unsafe fn SetMops(&self, index: u32, bstrmops: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMops)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute_copy(bstrmops)).ok()
+    pub unsafe fn SetMops<P0>(&self, index: u32, bstrmops: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetMops)(::windows::core::Interface::as_raw(self), index, bstrmops.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4804,9 +4823,12 @@ pub struct IDispError_Vtbl {
 pub struct IDispatchEx(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDispatchEx {
-    pub unsafe fn GetDispID(&self, bstrname: &::windows::core::BSTR, grfdex: u32) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetDispID<P0>(&self, bstrname: P0, grfdex: u32) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).GetDispID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), grfdex, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetDispID)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), grfdex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4816,8 +4838,11 @@ impl IDispatchEx {
     {
         (::windows::core::Interface::vtable(self).InvokeEx)(::windows::core::Interface::as_raw(self), id, lcid, wflags, pdp, ::core::mem::transmute(pvarres.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pei.unwrap_or(::std::ptr::null_mut())), pspcaller.into_param().abi()).ok()
     }
-    pub unsafe fn DeleteMemberByName(&self, bstrname: &::windows::core::BSTR, grfdex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteMemberByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrname), grfdex).ok()
+    pub unsafe fn DeleteMemberByName<P0>(&self, bstrname: P0, grfdex: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteMemberByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), grfdex).ok()
     }
     pub unsafe fn DeleteMemberByDispID(&self, id: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteMemberByDispID)(::windows::core::Interface::as_raw(self), id).ok()
@@ -5322,8 +5347,11 @@ impl IFont {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10553,8 +10581,11 @@ pub struct IVBFormat(::windows::core::IUnknown);
 impl IVBFormat {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Format(&self, vdata: *mut super::Com::VARIANT, bstrformat: &::windows::core::BSTR, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Format)(::windows::core::Interface::as_raw(self), vdata, ::core::mem::transmute_copy(bstrformat), lpbuffer, cb, lcid, sfirstdayofweek, sfirstweekofyear, rcb).ok()
+    pub unsafe fn Format<P0>(&self, vdata: *mut super::Com::VARIANT, bstrformat: P0, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Format)(::windows::core::Interface::as_raw(self), vdata, bstrformat.into_param().abi(), lpbuffer, cb, lcid, sfirstdayofweek, sfirstweekofyear, rcb).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IVBFormat, ::windows::core::IUnknown);

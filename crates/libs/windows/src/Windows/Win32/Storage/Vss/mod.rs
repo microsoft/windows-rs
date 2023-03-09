@@ -309,13 +309,14 @@ impl IVssComponent {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute_copy(bstrlsnstring)).ok()
+        (::windows::core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), bstrlsnstring.into_param().abi()).ok()
     }
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDifferencedFilesCount)(::windows::core::Interface::as_raw(self), pcdifferencedfiles).ok()
@@ -550,13 +551,14 @@ impl IVssComponentEx {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute_copy(bstrlsnstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), bstrlsnstring.into_param().abi()).ok()
     }
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDifferencedFilesCount)(::windows::core::Interface::as_raw(self), pcdifferencedfiles).ok()
@@ -782,13 +784,14 @@ impl IVssComponentEx2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute_copy(bstrlsnstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.AddDifferencedFilesByLastModifyLSN)(::windows::core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), bstrlsnstring.into_param().abi()).ok()
     }
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetDifferencedFilesCount)(::windows::core::Interface::as_raw(self), pcdifferencedfiles).ok()

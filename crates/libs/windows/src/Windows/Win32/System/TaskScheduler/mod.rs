@@ -7,8 +7,11 @@ impl IAction {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -75,8 +78,11 @@ impl IActionCollection {
     pub unsafe fn XmlText(&self, ptext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    pub unsafe fn SetXmlText(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetXmlText<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -95,8 +101,11 @@ impl IActionCollection {
     pub unsafe fn Context(&self, pcontext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Context)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontext)).ok()
     }
-    pub unsafe fn SetContext(&self, context: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(context)).ok()
+    pub unsafe fn SetContext<P0>(&self, context: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), context.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -166,8 +175,11 @@ impl IBootTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -186,20 +198,29 @@ impl IBootTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -217,8 +238,11 @@ impl IBootTrigger {
     pub unsafe fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetDelay<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -268,8 +292,11 @@ impl IComHandlerAction {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -277,14 +304,20 @@ impl IComHandlerAction {
     pub unsafe fn ClassId(&self, pclsid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClassId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclsid)).ok()
     }
-    pub unsafe fn SetClassId(&self, clsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(clsid)).ok()
+    pub unsafe fn SetClassId<P0>(&self, clsid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetClassId)(::windows::core::Interface::as_raw(self), clsid.into_param().abi()).ok()
     }
     pub unsafe fn Data(&self, pdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn SetData(&self, data: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(data)).ok()
+    pub unsafe fn SetData<P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -339,8 +372,11 @@ impl IDailyTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -359,20 +395,29 @@ impl IDailyTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -396,8 +441,11 @@ impl IDailyTrigger {
     pub unsafe fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    pub unsafe fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(randomdelay)).ok()
+    pub unsafe fn SetRandomDelay<P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -449,8 +497,11 @@ impl IEmailAction {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -458,44 +509,65 @@ impl IEmailAction {
     pub unsafe fn Server(&self, pserver: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Server)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pserver)).ok()
     }
-    pub unsafe fn SetServer(&self, server: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(server)).ok()
+    pub unsafe fn SetServer<P0>(&self, server: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), server.into_param().abi()).ok()
     }
     pub unsafe fn Subject(&self, psubject: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psubject)).ok()
     }
-    pub unsafe fn SetSubject(&self, subject: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subject)).ok()
+    pub unsafe fn SetSubject<P0>(&self, subject: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), subject.into_param().abi()).ok()
     }
     pub unsafe fn To(&self, pto: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).To)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pto)).ok()
     }
-    pub unsafe fn SetTo(&self, to: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(to)).ok()
+    pub unsafe fn SetTo<P0>(&self, to: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetTo)(::windows::core::Interface::as_raw(self), to.into_param().abi()).ok()
     }
     pub unsafe fn Cc(&self, pcc: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcc)).ok()
     }
-    pub unsafe fn SetCc(&self, cc: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(cc)).ok()
+    pub unsafe fn SetCc<P0>(&self, cc: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetCc)(::windows::core::Interface::as_raw(self), cc.into_param().abi()).ok()
     }
     pub unsafe fn Bcc(&self, pbcc: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Bcc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbcc)).ok()
     }
-    pub unsafe fn SetBcc(&self, bcc: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBcc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bcc)).ok()
+    pub unsafe fn SetBcc<P0>(&self, bcc: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetBcc)(::windows::core::Interface::as_raw(self), bcc.into_param().abi()).ok()
     }
     pub unsafe fn ReplyTo(&self, preplyto: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReplyTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(preplyto)).ok()
     }
-    pub unsafe fn SetReplyTo(&self, replyto: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplyTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(replyto)).ok()
+    pub unsafe fn SetReplyTo<P0>(&self, replyto: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetReplyTo)(::windows::core::Interface::as_raw(self), replyto.into_param().abi()).ok()
     }
     pub unsafe fn From(&self, pfrom: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).From)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfrom)).ok()
     }
-    pub unsafe fn SetFrom(&self, from: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(from)).ok()
+    pub unsafe fn SetFrom<P0>(&self, from: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFrom)(::windows::core::Interface::as_raw(self), from.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -514,8 +586,11 @@ impl IEmailAction {
     pub unsafe fn Body(&self, pbody: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbody)).ok()
     }
-    pub unsafe fn SetBody(&self, body: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(body)).ok()
+    pub unsafe fn SetBody<P0>(&self, body: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), body.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -658,8 +733,11 @@ impl IEventTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -678,20 +756,29 @@ impl IEventTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -709,14 +796,20 @@ impl IEventTrigger {
     pub unsafe fn Subscription(&self, pquery: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Subscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pquery)).ok()
     }
-    pub unsafe fn SetSubscription(&self, query: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(query)).ok()
+    pub unsafe fn SetSubscription<P0>(&self, query: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSubscription)(::windows::core::Interface::as_raw(self), query.into_param().abi()).ok()
     }
     pub unsafe fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetDelay<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -790,8 +883,11 @@ impl IExecAction {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -799,20 +895,29 @@ impl IExecAction {
     pub unsafe fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppath)).ok()
     }
-    pub unsafe fn SetPath(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn SetPath<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     pub unsafe fn Arguments(&self, pargument: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Arguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pargument)).ok()
     }
-    pub unsafe fn SetArguments(&self, argument: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(argument)).ok()
+    pub unsafe fn SetArguments<P0>(&self, argument: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), argument.into_param().abi()).ok()
     }
     pub unsafe fn WorkingDirectory(&self, pworkingdirectory: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pworkingdirectory)).ok()
     }
-    pub unsafe fn SetWorkingDirectory(&self, workingdirectory: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(workingdirectory)).ok()
+    pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -866,8 +971,11 @@ impl IExecAction2 {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -875,20 +983,29 @@ impl IExecAction2 {
     pub unsafe fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppath)).ok()
     }
-    pub unsafe fn SetPath(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn SetPath<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     pub unsafe fn Arguments(&self, pargument: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Arguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pargument)).ok()
     }
-    pub unsafe fn SetArguments(&self, argument: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(argument)).ok()
+    pub unsafe fn SetArguments<P0>(&self, argument: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetArguments)(::windows::core::Interface::as_raw(self), argument.into_param().abi()).ok()
     }
     pub unsafe fn WorkingDirectory(&self, pworkingdirectory: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.WorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pworkingdirectory)).ok()
     }
-    pub unsafe fn SetWorkingDirectory(&self, workingdirectory: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(workingdirectory)).ok()
+    pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -957,14 +1074,20 @@ impl IIdleSettings {
     pub unsafe fn IdleDuration(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IdleDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetIdleDuration(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIdleDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetIdleDuration<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetIdleDuration)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
     pub unsafe fn WaitTimeout(&self, ptimeout: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WaitTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimeout)).ok()
     }
-    pub unsafe fn SetWaitTimeout(&self, timeout: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWaitTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timeout)).ok()
+    pub unsafe fn SetWaitTimeout<P0>(&self, timeout: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetWaitTimeout)(::windows::core::Interface::as_raw(self), timeout.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1061,8 +1184,11 @@ impl IIdleTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1081,20 +1207,29 @@ impl IIdleTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1158,8 +1293,11 @@ impl ILogonTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1178,20 +1316,29 @@ impl ILogonTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1209,14 +1356,20 @@ impl ILogonTrigger {
     pub unsafe fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetDelay<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
     pub unsafe fn UserId(&self, puser: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    pub unsafe fn SetUserId(&self, user: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(user)).ok()
+    pub unsafe fn SetUserId<P0>(&self, user: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1265,14 +1418,20 @@ pub struct ILogonTrigger_Vtbl {
 pub struct IMaintenanceSettings(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMaintenanceSettings {
-    pub unsafe fn SetPeriod(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPeriod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetPeriod<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPeriod)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn Period(&self, target: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Period)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target)).ok()
     }
-    pub unsafe fn SetDeadline(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeadline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetDeadline<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDeadline)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     pub unsafe fn Deadline(&self, target: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deadline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target)).ok()
@@ -1351,8 +1510,11 @@ impl IMonthlyDOWTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1371,20 +1533,29 @@ impl IMonthlyDOWTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1433,8 +1604,11 @@ impl IMonthlyDOWTrigger {
     pub unsafe fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    pub unsafe fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(randomdelay)).ok()
+    pub unsafe fn SetRandomDelay<P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1501,8 +1675,11 @@ impl IMonthlyTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1521,20 +1698,29 @@ impl IMonthlyTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1577,8 +1763,11 @@ impl IMonthlyTrigger {
     pub unsafe fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    pub unsafe fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(randomdelay)).ok()
+    pub unsafe fn SetRandomDelay<P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1640,14 +1829,20 @@ impl INetworkSettings {
     pub unsafe fn Name(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1699,20 +1894,29 @@ impl IPrincipal {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn DisplayName(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    pub unsafe fn SetDisplayName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetDisplayName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     pub unsafe fn UserId(&self, puser: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    pub unsafe fn SetUserId(&self, user: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(user)).ok()
+    pub unsafe fn SetUserId<P0>(&self, user: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
     }
     pub unsafe fn LogonType(&self, plogon: *mut TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LogonType)(::windows::core::Interface::as_raw(self), plogon).ok()
@@ -1723,8 +1927,11 @@ impl IPrincipal {
     pub unsafe fn GroupId(&self, pgroup: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GroupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgroup)).ok()
     }
-    pub unsafe fn SetGroupId(&self, group: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(group)).ok()
+    pub unsafe fn SetGroupId<P0>(&self, group: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetGroupId)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     pub unsafe fn RunLevel(&self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RunLevel)(::windows::core::Interface::as_raw(self), prunlevel).ok()
@@ -1799,8 +2006,11 @@ impl IPrincipal2 {
     pub unsafe fn get_RequiredPrivilege(&self, index: i32, pprivilege: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_RequiredPrivilege)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(pprivilege)).ok()
     }
-    pub unsafe fn AddRequiredPrivilege(&self, privilege: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRequiredPrivilege)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(privilege)).ok()
+    pub unsafe fn AddRequiredPrivilege<P0>(&self, privilege: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddRequiredPrivilege)(::windows::core::Interface::as_raw(self), privilege.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1930,9 +2140,12 @@ impl IRegisteredTask {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RunEx(&self, params: super::Com::VARIANT, flags: i32, sessionid: i32, user: &::windows::core::BSTR) -> ::windows::core::Result<IRunningTask> {
+    pub unsafe fn RunEx<P0>(&self, params: super::Com::VARIANT, flags: i32, sessionid: i32, user: P0) -> ::windows::core::Result<IRunningTask>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IRunningTask>();
-        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(params), flags, sessionid, ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(params), flags, sessionid, user.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1970,8 +2183,11 @@ impl IRegisteredTask {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSecurityDescriptor(&self, sddl: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sddl), flags).ok()
+    pub unsafe fn SetSecurityDescriptor<P0>(&self, sddl: P0, flags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into_param().abi(), flags).ok()
     }
     pub unsafe fn Stop(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), flags).ok()
@@ -2129,44 +2345,65 @@ impl IRegistrationInfo {
     pub unsafe fn Description(&self, pdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescription)).ok()
     }
-    pub unsafe fn SetDescription(&self, description: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(description)).ok()
+    pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
     pub unsafe fn Author(&self, pauthor: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pauthor)).ok()
     }
-    pub unsafe fn SetAuthor(&self, author: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(author)).ok()
+    pub unsafe fn SetAuthor<P0>(&self, author: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAuthor)(::windows::core::Interface::as_raw(self), author.into_param().abi()).ok()
     }
     pub unsafe fn Version(&self, pversion: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pversion)).ok()
     }
-    pub unsafe fn SetVersion(&self, version: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(version)).ok()
+    pub unsafe fn SetVersion<P0>(&self, version: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into_param().abi()).ok()
     }
     pub unsafe fn Date(&self, pdate: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Date)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdate)).ok()
     }
-    pub unsafe fn SetDate(&self, date: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(date)).ok()
+    pub unsafe fn SetDate<P0>(&self, date: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), date.into_param().abi()).ok()
     }
     pub unsafe fn Documentation(&self, pdocumentation: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Documentation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdocumentation)).ok()
     }
-    pub unsafe fn SetDocumentation(&self, documentation: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(documentation)).ok()
+    pub unsafe fn SetDocumentation<P0>(&self, documentation: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDocumentation)(::windows::core::Interface::as_raw(self), documentation.into_param().abi()).ok()
     }
     pub unsafe fn XmlText(&self, ptext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    pub unsafe fn SetXmlText(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetXmlText<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     pub unsafe fn URI(&self, puri: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).URI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puri)).ok()
     }
-    pub unsafe fn SetURI(&self, uri: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(uri)).ok()
+    pub unsafe fn SetURI<P0>(&self, uri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetURI)(::windows::core::Interface::as_raw(self), uri.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2181,8 +2418,11 @@ impl IRegistrationInfo {
     pub unsafe fn Source(&self, psource: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Source)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psource)).ok()
     }
-    pub unsafe fn SetSource(&self, source: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(source)).ok()
+    pub unsafe fn SetSource<P0>(&self, source: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), source.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2257,8 +2497,11 @@ impl IRegistrationTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2277,20 +2520,29 @@ impl IRegistrationTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2308,8 +2560,11 @@ impl IRegistrationTrigger {
     pub unsafe fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetDelay<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2359,14 +2614,20 @@ impl IRepetitionPattern {
     pub unsafe fn Interval(&self, pinterval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinterval)).ok()
     }
-    pub unsafe fn SetInterval(&self, interval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(interval)).ok()
+    pub unsafe fn SetInterval<P0>(&self, interval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), interval.into_param().abi()).ok()
     }
     pub unsafe fn Duration(&self, pduration: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pduration)).ok()
     }
-    pub unsafe fn SetDuration(&self, duration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(duration)).ok()
+    pub unsafe fn SetDuration<P0>(&self, duration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2780,8 +3041,11 @@ impl ISessionStateChangeTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2800,20 +3064,29 @@ impl ISessionStateChangeTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2831,14 +3104,20 @@ impl ISessionStateChangeTrigger {
     pub unsafe fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    pub unsafe fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(delay)).ok()
+    pub unsafe fn SetDelay<P0>(&self, delay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into_param().abi()).ok()
     }
     pub unsafe fn UserId(&self, puser: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    pub unsafe fn SetUserId(&self, user: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(user)).ok()
+    pub unsafe fn SetUserId<P0>(&self, user: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUserId)(::windows::core::Interface::as_raw(self), user.into_param().abi()).ok()
     }
     pub unsafe fn StateChange(&self, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StateChange)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -2898,8 +3177,11 @@ impl IShowMessageAction {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ptype).ok()
@@ -2907,14 +3189,20 @@ impl IShowMessageAction {
     pub unsafe fn Title(&self, ptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptitle)).ok()
     }
-    pub unsafe fn SetTitle(&self, title: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(title)).ok()
+    pub unsafe fn SetTitle<P0>(&self, title: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), title.into_param().abi()).ok()
     }
     pub unsafe fn MessageBody(&self, pmessagebody: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MessageBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmessagebody)).ok()
     }
-    pub unsafe fn SetMessageBody(&self, messagebody: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessageBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(messagebody)).ok()
+    pub unsafe fn SetMessageBody<P0>(&self, messagebody: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetMessageBody)(::windows::core::Interface::as_raw(self), messagebody.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3224,8 +3512,11 @@ impl ITaskDefinition {
     pub unsafe fn Data(&self, pdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn SetData(&self, data: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(data)).ok()
+    pub unsafe fn SetData<P0>(&self, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3258,8 +3549,11 @@ impl ITaskDefinition {
     pub unsafe fn XmlText(&self, pxml: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxml)).ok()
     }
-    pub unsafe fn SetXmlText(&self, xml: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(xml)).ok()
+    pub unsafe fn SetXmlText<P0>(&self, xml: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), xml.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3358,9 +3652,12 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetFolder(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn GetFolder<P0>(&self, path: P0) -> ::windows::core::Result<ITaskFolder>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITaskFolder>();
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3370,18 +3667,27 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateFolder(&self, subfoldername: &::windows::core::BSTR, sddl: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn CreateFolder<P0>(&self, subfoldername: P0, sddl: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITaskFolder>();
-        (::windows::core::Interface::vtable(self).CreateFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subfoldername), ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateFolder)(::windows::core::Interface::as_raw(self), subfoldername.into_param().abi(), ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
     }
-    pub unsafe fn DeleteFolder(&self, subfoldername: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subfoldername), flags).ok()
+    pub unsafe fn DeleteFolder<P0>(&self, subfoldername: P0, flags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into_param().abi(), flags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTask(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IRegisteredTask> {
+    pub unsafe fn GetTask<P0>(&self, path: P0) -> ::windows::core::Result<IRegisteredTask>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IRegisteredTask>();
-        (::windows::core::Interface::vtable(self).GetTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetTask)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3389,30 +3695,41 @@ impl ITaskFolder {
         let mut result__ = ::windows::core::zeroed::<IRegisteredTaskCollection>();
         (::windows::core::Interface::vtable(self).GetTasks)(::windows::core::Interface::as_raw(self), flags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn DeleteTask(&self, name: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), flags).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTask(&self, path: &::windows::core::BSTR, xmltext: &::windows::core::BSTR, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask> {
-        let mut result__ = ::windows::core::zeroed::<IRegisteredTask>();
-        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(xmltext), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTaskDefinition<P0>(&self, path: &::windows::core::BSTR, pdefinition: P0, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
+    pub unsafe fn DeleteTask<P0>(&self, name: P0, flags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<ITaskDefinition>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into_param().abi(), flags).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn RegisterTask<P0, P1>(&self, path: P0, xmltext: P1, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<IRegisteredTask>();
-        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), pdefinition.into_param().abi(), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into_param().abi(), xmltext.into_param().abi(), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn RegisterTaskDefinition<P0, P1>(&self, path: P0, pdefinition: P1, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<ITaskDefinition>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IRegisteredTask>();
+        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into_param().abi(), pdefinition.into_param().abi(), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSecurityDescriptor(&self, sddl: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sddl), flags).ok()
+    pub unsafe fn SetSecurityDescriptor<P0>(&self, sddl: P0, flags: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into_param().abi(), flags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3552,11 +3869,12 @@ pub struct ITaskFolderCollection_Vtbl {
 #[repr(transparent)]
 pub struct ITaskHandler(::windows::core::IUnknown);
 impl ITaskHandler {
-    pub unsafe fn Start<P0>(&self, phandlerservices: P0, data: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Start<P0, P1>(&self, phandlerservices: P0, data: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), phandlerservices.into_param().abi(), ::core::mem::transmute_copy(data)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), phandlerservices.into_param().abi(), data.into_param().abi()).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
@@ -3605,8 +3923,11 @@ pub struct ITaskHandler_Vtbl {
 #[repr(transparent)]
 pub struct ITaskHandlerStatus(::windows::core::IUnknown);
 impl ITaskHandlerStatus {
-    pub unsafe fn UpdateStatus(&self, percentcomplete: i16, statusmessage: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), percentcomplete, ::core::mem::transmute_copy(statusmessage)).ok()
+    pub unsafe fn UpdateStatus<P0>(&self, percentcomplete: i16, statusmessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).UpdateStatus)(::windows::core::Interface::as_raw(self), percentcomplete, statusmessage.into_param().abi()).ok()
     }
     pub unsafe fn TaskCompleted(&self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TaskCompleted)(::windows::core::Interface::as_raw(self), taskerrcode).ok()
@@ -3663,9 +3984,13 @@ impl ITaskNamedValueCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create(&self, name: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<ITaskNamedValuePair> {
+    pub unsafe fn Create<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<ITaskNamedValuePair>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITaskNamedValuePair>();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index).ok()
@@ -3731,14 +4056,20 @@ impl ITaskNamedValuePair {
     pub unsafe fn Name(&self, pname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     pub unsafe fn Value(&self, pvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalue)).ok()
     }
-    pub unsafe fn SetValue(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetValue<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3877,9 +4208,12 @@ pub struct ITaskService(::windows::core::IUnknown);
 impl ITaskService {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetFolder(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<ITaskFolder> {
+    pub unsafe fn GetFolder<P0>(&self, path: P0) -> ::windows::core::Result<ITaskFolder>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITaskFolder>();
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4003,8 +4337,11 @@ impl ITaskSettings {
     pub unsafe fn RestartInterval(&self, prestartinterval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prestartinterval)).ok()
     }
-    pub unsafe fn SetRestartInterval(&self, restartinterval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(restartinterval)).ok()
+    pub unsafe fn SetRestartInterval<P0>(&self, restartinterval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into_param().abi()).ok()
     }
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestartCount)(::windows::core::Interface::as_raw(self), prestartcount).ok()
@@ -4073,8 +4410,11 @@ impl ITaskSettings {
     pub unsafe fn XmlText(&self, ptext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    pub unsafe fn SetXmlText(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetXmlText<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4092,8 +4432,11 @@ impl ITaskSettings {
     pub unsafe fn ExecutionTimeLimit(&self, pexecutiontimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexecutiontimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, executiontimelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(executiontimelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, executiontimelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4111,8 +4454,11 @@ impl ITaskSettings {
     pub unsafe fn DeleteExpiredTaskAfter(&self, pexpirationdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexpirationdelay)).ok()
     }
-    pub unsafe fn SetDeleteExpiredTaskAfter(&self, expirationdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(expirationdelay)).ok()
+    pub unsafe fn SetDeleteExpiredTaskAfter<P0>(&self, expirationdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into_param().abi()).ok()
     }
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ppriority).ok()
@@ -4449,8 +4795,11 @@ impl ITaskSettings3 {
     pub unsafe fn RestartInterval(&self, prestartinterval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prestartinterval)).ok()
     }
-    pub unsafe fn SetRestartInterval(&self, restartinterval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(restartinterval)).ok()
+    pub unsafe fn SetRestartInterval<P0>(&self, restartinterval: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetRestartInterval)(::windows::core::Interface::as_raw(self), restartinterval.into_param().abi()).ok()
     }
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RestartCount)(::windows::core::Interface::as_raw(self), prestartcount).ok()
@@ -4519,8 +4868,11 @@ impl ITaskSettings3 {
     pub unsafe fn XmlText(&self, ptext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    pub unsafe fn SetXmlText(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetXmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetXmlText<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetXmlText)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4538,8 +4890,11 @@ impl ITaskSettings3 {
     pub unsafe fn ExecutionTimeLimit(&self, pexecutiontimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexecutiontimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, executiontimelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(executiontimelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, executiontimelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), executiontimelimit.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4557,8 +4912,11 @@ impl ITaskSettings3 {
     pub unsafe fn DeleteExpiredTaskAfter(&self, pexpirationdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexpirationdelay)).ok()
     }
-    pub unsafe fn SetDeleteExpiredTaskAfter(&self, expirationdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(expirationdelay)).ok()
+    pub unsafe fn SetDeleteExpiredTaskAfter<P0>(&self, expirationdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetDeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), expirationdelay.into_param().abi()).ok()
     }
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Priority)(::windows::core::Interface::as_raw(self), ppriority).ok()
@@ -4825,8 +5183,11 @@ impl ITaskVariables {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetInput)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetOutput(&self, input: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(input)).ok()
+    pub unsafe fn SetOutput<P0>(&self, input: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), input.into_param().abi()).ok()
     }
     pub unsafe fn GetContext(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -4876,8 +5237,11 @@ impl ITimeTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4896,20 +5260,29 @@ impl ITimeTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4927,8 +5300,11 @@ impl ITimeTrigger {
     pub unsafe fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    pub unsafe fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(randomdelay)).ok()
+    pub unsafe fn SetRandomDelay<P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4981,8 +5357,11 @@ impl ITrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5001,20 +5380,29 @@ impl ITrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5188,8 +5576,11 @@ impl IWeeklyTrigger {
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    pub unsafe fn SetId(&self, id: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id)).ok()
+    pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5208,20 +5599,29 @@ impl IWeeklyTrigger {
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    pub unsafe fn SetExecutionTimeLimit(&self, timelimit: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(timelimit)).ok()
+    pub unsafe fn SetExecutionTimeLimit<P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into_param().abi()).ok()
     }
     pub unsafe fn StartBoundary(&self, pstart: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    pub unsafe fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(start)).ok()
+    pub unsafe fn SetStartBoundary<P0>(&self, start: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     pub unsafe fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    pub unsafe fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(end)).ok()
+    pub unsafe fn SetEndBoundary<P0>(&self, end: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetEndBoundary)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5251,8 +5651,11 @@ impl IWeeklyTrigger {
     pub unsafe fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    pub unsafe fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(randomdelay)).ok()
+    pub unsafe fn SetRandomDelay<P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetRandomDelay)(::windows::core::Interface::as_raw(self), randomdelay.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

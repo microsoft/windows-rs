@@ -1534,9 +1534,12 @@ pub struct IWdsTransportManager(::windows::core::IUnknown);
 impl IWdsTransportManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWdsTransportServer(&self, bszservername: &::windows::core::BSTR) -> ::windows::core::Result<IWdsTransportServer> {
+    pub unsafe fn GetWdsTransportServer<P0>(&self, bszservername: P0) -> ::windows::core::Result<IWdsTransportServer>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IWdsTransportServer>();
-        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszservername), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), bszservername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1704,36 +1707,51 @@ impl IWdsTransportNamespace {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn SetName<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).ContentProvider)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider)).ok()
+    pub unsafe fn SetContentProvider<P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Configuration)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszconfiguration)).ok()
+    pub unsafe fn SetConfiguration<P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1877,36 +1895,51 @@ impl IWdsTransportNamespaceAutoCast {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn SetName<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.FriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ContentProvider)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider)).ok()
+    pub unsafe fn SetContentProvider<P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Configuration)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszconfiguration)).ok()
+    pub unsafe fn SetConfiguration<P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2001,24 +2034,34 @@ pub struct IWdsTransportNamespaceManager(::windows::core::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateNamespace(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: &::windows::core::BSTR, bszcontentprovider: &::windows::core::BSTR, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn CreateNamespace<P0, P1, P2>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: P0, bszcontentprovider: P1, bszconfiguration: P2) -> ::windows::core::Result<IWdsTransportNamespace>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IWdsTransportNamespace>();
-        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype, ::core::mem::transmute_copy(bsznamespacename), ::core::mem::transmute_copy(bszcontentprovider), ::core::mem::transmute_copy(bszconfiguration), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype, bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RetrieveNamespace(&self, bsznamespacename: &::windows::core::BSTR) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn RetrieveNamespace<P0>(&self, bsznamespacename: P0) -> ::windows::core::Result<IWdsTransportNamespace>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IWdsTransportNamespace>();
-        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bsznamespacename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), bsznamespacename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespaces<P0>(&self, bszcontentprovider: &::windows::core::BSTR, bsznamespacename: &::windows::core::BSTR, bincludetombstones: P0) -> ::windows::core::Result<IWdsTransportCollection>
+    pub unsafe fn RetrieveNamespaces<P0, P1, P2>(&self, bszcontentprovider: P0, bsznamespacename: P1, bincludetombstones: P2) -> ::windows::core::Result<IWdsTransportCollection>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = ::windows::core::zeroed::<IWdsTransportCollection>();
-        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider), ::core::mem::transmute_copy(bsznamespacename), bincludetombstones.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), bincludetombstones.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2087,36 +2130,51 @@ impl IWdsTransportNamespaceScheduledCast {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn SetName<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.FriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.ContentProvider)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider)).ok()
+    pub unsafe fn SetContentProvider<P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.Configuration)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszconfiguration)).ok()
+    pub unsafe fn SetConfiguration<P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2225,36 +2283,51 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn SetName<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider)).ok()
+    pub unsafe fn SetContentProvider<P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszconfiguration)).ok()
+    pub unsafe fn SetConfiguration<P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2380,36 +2453,51 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn SetName<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFriendlyName(&self, bszfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszfriendlyname)).ok()
+    pub unsafe fn SetFriendlyName<P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDescription(&self, bszdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszdescription)).ok()
+    pub unsafe fn SetDescription<P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetContentProvider(&self, bszcontentprovider: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszcontentprovider)).ok()
+    pub unsafe fn SetContentProvider<P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetConfiguration(&self, bszconfiguration: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszconfiguration)).ok()
+    pub unsafe fn SetConfiguration<P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2691,15 +2779,21 @@ impl IWdsTransportServicePolicy {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute_copy(bszstartipaddress)).ok()
+    pub unsafe fn put_StartIpAddress<P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszstartipaddress.into_param().abi()).ok()
     }
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute_copy(bszendipaddress)).ok()
+    pub unsafe fn put_EndIpAddress<P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszendipaddress.into_param().abi()).ok()
     }
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
@@ -2803,15 +2897,21 @@ impl IWdsTransportServicePolicy2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute_copy(bszstartipaddress)).ok()
+    pub unsafe fn put_StartIpAddress<P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszstartipaddress.into_param().abi()).ok()
     }
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn put_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute_copy(bszendipaddress)).ok()
+    pub unsafe fn put_EndIpAddress<P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszendipaddress.into_param().abi()).ok()
     }
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
@@ -3021,11 +3121,20 @@ impl IWdsTransportSetupManager {
         let mut result__ = ::windows::core::zeroed::<u32>();
         (::windows::core::Interface::vtable(self).Protocols)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RegisterContentProvider(&self, bszname: &::windows::core::BSTR, bszdescription: &::windows::core::BSTR, bszfilepath: &::windows::core::BSTR, bszinitializationroutine: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname), ::core::mem::transmute_copy(bszdescription), ::core::mem::transmute_copy(bszfilepath), ::core::mem::transmute_copy(bszinitializationroutine)).ok()
+    pub unsafe fn RegisterContentProvider<P0, P1, P2, P3>(&self, bszname: P0, bszdescription: P1, bszfilepath: P2, bszinitializationroutine: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
-    pub unsafe fn DeregisterContentProvider(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn DeregisterContentProvider<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3087,11 +3196,20 @@ impl IWdsTransportSetupManager2 {
         let mut result__ = ::windows::core::zeroed::<u32>();
         (::windows::core::Interface::vtable(self).base__.Protocols)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RegisterContentProvider(&self, bszname: &::windows::core::BSTR, bszdescription: &::windows::core::BSTR, bszfilepath: &::windows::core::BSTR, bszinitializationroutine: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname), ::core::mem::transmute_copy(bszdescription), ::core::mem::transmute_copy(bszfilepath), ::core::mem::transmute_copy(bszinitializationroutine)).ok()
+    pub unsafe fn RegisterContentProvider<P0, P1, P2, P3>(&self, bszname: P0, bszdescription: P1, bszfilepath: P2, bszinitializationroutine: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
-    pub unsafe fn DeregisterContentProvider(&self, bszname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszname)).ok()
+    pub unsafe fn DeregisterContentProvider<P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     pub unsafe fn TftpCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::windows::core::zeroed::<u32>();
