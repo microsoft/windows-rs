@@ -78,7 +78,7 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
             #features
             pub const #name: #kind = #kind { #value };
         }
-    // TODO: remove this branch one https://github.com/microsoft/win32metadata/issues/1483 arrives
+    // TODO: remove this branch once https://github.com/microsoft/win32metadata/issues/1483 arrives
     } else if let Some((guid, id)) = get_property_key(gen, def) {
         let kind = gen.type_default_name(&ty);
         let guid = gen.guid(&guid);
