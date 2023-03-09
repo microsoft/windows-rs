@@ -76,9 +76,12 @@ pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAddRefString(bstrstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
-    SysAddRefString(::core::mem::transmute_copy(bstrstring)).ok()
+    SysAddRefString(bstrstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -103,9 +106,12 @@ pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::wind
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysFreeString(bstrstring: &::windows::core::BSTR) {
+pub unsafe fn SysFreeString<P0>(bstrstring: P0)
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysFreeString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
-    SysFreeString(::core::mem::transmute_copy(bstrstring))
+    SysFreeString(bstrstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -127,21 +133,30 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReleaseString(bstrstring: &::windows::core::BSTR) {
+pub unsafe fn SysReleaseString<P0>(bstrstring: P0)
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReleaseString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
-    SysReleaseString(::core::mem::transmute_copy(bstrstring))
+    SysReleaseString(bstrstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringByteLen(bstr: &::windows::core::BSTR) -> u32 {
+pub unsafe fn SysStringByteLen<P0>(bstr: P0) -> u32
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysStringByteLen ( bstr : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
-    SysStringByteLen(::core::mem::transmute_copy(bstr))
+    SysStringByteLen(bstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringLen(pbstr: &::windows::core::BSTR) -> u32 {
+pub unsafe fn SysStringLen<P0>(pbstr: P0) -> u32
+where
+    P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+{
     ::windows::imp::link ! ( "oleaut32.dll""system" fn SysStringLen ( pbstr : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
-    SysStringLen(::core::mem::transmute_copy(pbstr))
+    SysStringLen(pbstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPX_E_BLOCK_HASH_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146958841i32);

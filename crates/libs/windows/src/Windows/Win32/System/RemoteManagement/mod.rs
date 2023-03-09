@@ -275,12 +275,13 @@ pub struct IWSMan(::windows::core::IUnknown);
 impl IWSMan {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSession<P0>(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn CreateSession<P0, P1>(&self, connection: P0, flags: i32, connectionoptions: P1) -> ::windows::core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::Com::IDispatch>,
     {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(connection), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), connection.into_param().abi(), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -353,11 +354,17 @@ impl IWSManConnectionOptions {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).UserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetUserName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetUserName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn SetPassword(&self, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(password)).ok()
+    pub unsafe fn SetPassword<P0>(&self, password: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), password.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -409,18 +416,27 @@ impl IWSManConnectionOptionsEx {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.UserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetUserName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetUserName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetUserName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn SetPassword(&self, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(password)).ok()
+    pub unsafe fn SetPassword<P0>(&self, password: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetPassword)(::windows::core::Interface::as_raw(self), password.into_param().abi()).ok()
     }
     pub unsafe fn CertificateThumbprint(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).CertificateThumbprint)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetCertificateThumbprint(&self, thumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCertificateThumbprint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(thumbprint)).ok()
+    pub unsafe fn SetCertificateThumbprint<P0>(&self, thumbprint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetCertificateThumbprint)(::windows::core::Interface::as_raw(self), thumbprint.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -471,21 +487,34 @@ impl IWSManConnectionOptionsEx2 {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.base__.UserName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetUserName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetUserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetUserName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetUserName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn SetPassword(&self, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(password)).ok()
+    pub unsafe fn SetPassword<P0>(&self, password: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPassword)(::windows::core::Interface::as_raw(self), password.into_param().abi()).ok()
     }
     pub unsafe fn CertificateThumbprint(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.CertificateThumbprint)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetCertificateThumbprint(&self, thumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCertificateThumbprint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(thumbprint)).ok()
+    pub unsafe fn SetCertificateThumbprint<P0>(&self, thumbprint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetCertificateThumbprint)(::windows::core::Interface::as_raw(self), thumbprint.into_param().abi()).ok()
     }
-    pub unsafe fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProxy)(::windows::core::Interface::as_raw(self), accesstype, authenticationmechanism, ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password)).ok()
+    pub unsafe fn SetProxy<P0, P1>(&self, accesstype: i32, authenticationmechanism: i32, username: P0, password: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetProxy)(::windows::core::Interface::as_raw(self), accesstype, authenticationmechanism, username.into_param().abi(), password.into_param().abi()).ok()
     }
     pub unsafe fn ProxyIEConfig(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -631,12 +660,13 @@ pub struct IWSManEx(::windows::core::IUnknown);
 impl IWSManEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSession<P0>(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn CreateSession<P0, P1>(&self, connection: P0, flags: i32, connectionoptions: P1) -> ::windows::core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::Com::IDispatch>,
     {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(connection), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), connection.into_param().abi(), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -654,9 +684,12 @@ impl IWSManEx {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch> {
+    pub unsafe fn CreateResourceLocator<P0>(&self, strresourcelocator: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).CreateResourceLocator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(strresourcelocator), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateResourceLocator)(::windows::core::Interface::as_raw(self), strresourcelocator.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -802,12 +835,13 @@ pub struct IWSManEx2(::windows::core::IUnknown);
 impl IWSManEx2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSession<P0>(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn CreateSession<P0, P1>(&self, connection: P0, flags: i32, connectionoptions: P1) -> ::windows::core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::Com::IDispatch>,
     {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(connection), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateSession)(::windows::core::Interface::as_raw(self), connection.into_param().abi(), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -825,9 +859,12 @@ impl IWSManEx2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch> {
+    pub unsafe fn CreateResourceLocator<P0>(&self, strresourcelocator: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.CreateResourceLocator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(strresourcelocator), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateResourceLocator)(::windows::core::Interface::as_raw(self), strresourcelocator.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -955,12 +992,13 @@ pub struct IWSManEx3(::windows::core::IUnknown);
 impl IWSManEx3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSession<P0>(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    pub unsafe fn CreateSession<P0, P1>(&self, connection: P0, flags: i32, connectionoptions: P1) -> ::windows::core::Result<super::Com::IDispatch>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::Com::IDispatch>,
     {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(connection), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSession)(::windows::core::Interface::as_raw(self), connection.into_param().abi(), flags, connectionoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -978,9 +1016,12 @@ impl IWSManEx3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch> {
+    pub unsafe fn CreateResourceLocator<P0>(&self, strresourcelocator: P0) -> ::windows::core::Result<super::Com::IDispatch>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateResourceLocator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(strresourcelocator), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateResourceLocator)(::windows::core::Interface::as_raw(self), strresourcelocator.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
@@ -1196,8 +1237,11 @@ pub struct IWSManInternal_Vtbl {
 pub struct IWSManResourceLocator(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManResourceLocator {
-    pub unsafe fn SetResourceURI(&self, uri: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResourceURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(uri)).ok()
+    pub unsafe fn SetResourceURI<P0>(&self, uri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetResourceURI)(::windows::core::Interface::as_raw(self), uri.into_param().abi()).ok()
     }
     pub unsafe fn ResourceURI(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -1205,8 +1249,11 @@ impl IWSManResourceLocator {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddSelector(&self, resourceselname: &::windows::core::BSTR, selvalue: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddSelector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(resourceselname), ::core::mem::transmute(selvalue)).ok()
+    pub unsafe fn AddSelector<P0>(&self, resourceselname: P0, selvalue: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddSelector)(::windows::core::Interface::as_raw(self), resourceselname.into_param().abi(), ::core::mem::transmute(selvalue)).ok()
     }
     pub unsafe fn ClearSelectors(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClearSelectors)(::windows::core::Interface::as_raw(self)).ok()
@@ -1215,23 +1262,30 @@ impl IWSManResourceLocator {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FragmentPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFragmentPath(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFragmentPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetFragmentPath<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFragmentPath)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     pub unsafe fn FragmentDialect(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).FragmentDialect)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFragmentDialect(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFragmentDialect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text)).ok()
+    pub unsafe fn SetFragmentDialect<P0>(&self, text: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetFragmentDialect)(::windows::core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddOption<P0>(&self, optionname: &::windows::core::BSTR, optionvalue: super::Com::VARIANT, mustcomply: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddOption<P0, P1>(&self, optionname: P0, optionvalue: super::Com::VARIANT, mustcomply: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).AddOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute(optionvalue), mustcomply.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddOption)(::windows::core::Interface::as_raw(self), optionname.into_param().abi(), ::core::mem::transmute(optionvalue), mustcomply.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1362,15 +1416,21 @@ impl IWSManSession {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put(&self, resourceuri: super::Com::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn Put<P0>(&self, resourceuri: super::Com::VARIANT, resource: P0, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), ::core::mem::transmute_copy(resource), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), resource.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create(&self, resourceuri: super::Com::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn Create<P0>(&self, resourceuri: super::Com::VARIANT, resource: P0, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), ::core::mem::transmute_copy(resource), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), resource.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1379,15 +1439,23 @@ impl IWSManSession {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke2(&self, actionuri: &::windows::core::BSTR, resourceuri: super::Com::VARIANT, parameters: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn Invoke2<P0, P1>(&self, actionuri: P0, resourceuri: super::Com::VARIANT, parameters: P1, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Invoke2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(actionuri), ::core::mem::transmute(resourceuri), ::core::mem::transmute_copy(parameters), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Invoke2)(::windows::core::Interface::as_raw(self), actionuri.into_param().abi(), ::core::mem::transmute(resourceuri), parameters.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Enumerate(&self, resourceuri: super::Com::VARIANT, filter: &::windows::core::BSTR, dialect: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch> {
+    pub unsafe fn Enumerate<P0, P1>(&self, resourceuri: super::Com::VARIANT, filter: P0, dialect: P1, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Enumerate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), ::core::mem::transmute_copy(filter), ::core::mem::transmute_copy(dialect), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Enumerate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), filter.into_param().abi(), dialect.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Identify(&self, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();

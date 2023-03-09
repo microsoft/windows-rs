@@ -4685,8 +4685,11 @@ impl ISpeechAudioFormat {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetGuid(&self, guid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(guid)).ok()
+    pub unsafe fn SetGuid<P0>(&self, guid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetGuid)(::windows::core::Interface::as_raw(self), guid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5017,46 +5020,77 @@ pub struct ISpeechDataKey(::windows::core::IUnknown);
 impl ISpeechDataKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBinaryValue(&self, valuename: &::windows::core::BSTR, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBinaryValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetBinaryValue<P0>(&self, valuename: P0, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetBinaryValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetBinaryValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetBinaryValue<P0>(&self, valuename: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).GetBinaryValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetBinaryValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetStringValue(&self, valuename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStringValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), ::core::mem::transmute_copy(value)).ok()
+    pub unsafe fn SetStringValue<P0, P1>(&self, valuename: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetStringValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), value.into_param().abi()).ok()
     }
-    pub unsafe fn GetStringValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetStringValue<P0>(&self, valuename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetStringValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetStringValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLongValue(&self, valuename: &::windows::core::BSTR, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLongValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), value).ok()
+    pub unsafe fn SetLongValue<P0>(&self, valuename: P0, value: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetLongValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), value).ok()
     }
-    pub unsafe fn GetLongValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetLongValue<P0>(&self, valuename: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).GetLongValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetLongValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenKey(&self, subkeyname: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechDataKey> {
+    pub unsafe fn OpenKey<P0>(&self, subkeyname: P0) -> ::windows::core::Result<ISpeechDataKey>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechDataKey>();
-        (::windows::core::Interface::vtable(self).OpenKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subkeyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).OpenKey)(::windows::core::Interface::as_raw(self), subkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateKey(&self, subkeyname: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechDataKey> {
+    pub unsafe fn CreateKey<P0>(&self, subkeyname: P0) -> ::windows::core::Result<ISpeechDataKey>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechDataKey>();
-        (::windows::core::Interface::vtable(self).CreateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subkeyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateKey)(::windows::core::Interface::as_raw(self), subkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn DeleteKey(&self, subkeyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subkeyname)).ok()
+    pub unsafe fn DeleteKey<P0>(&self, subkeyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteKey)(::windows::core::Interface::as_raw(self), subkeyname.into_param().abi()).ok()
     }
-    pub unsafe fn DeleteValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(valuename)).ok()
+    pub unsafe fn DeleteValue<P0>(&self, valuename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteValue)(::windows::core::Interface::as_raw(self), valuename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -5166,11 +5200,12 @@ impl ISpeechFileStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open<P0>(&self, filename: &::windows::core::BSTR, filemode: SpeechStreamFileMode, doevents: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0, P1>(&self, filename: P0, filemode: SpeechStreamFileMode, doevents: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename), filemode, doevents.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), filemode, doevents.into_param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -5244,8 +5279,12 @@ impl ISpeechGrammarRule {
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AddResource(&self, resourcename: &::windows::core::BSTR, resourcevalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(resourcename), ::core::mem::transmute_copy(resourcevalue)).ok()
+    pub unsafe fn AddResource<P0, P1>(&self, resourcename: P0, resourcevalue: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddResource)(::windows::core::Interface::as_raw(self), resourcename.into_param().abi(), resourcevalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5323,28 +5362,33 @@ impl ISpeechGrammarRuleState {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &::windows::core::BSTR, separators: &::windows::core::BSTR, r#type: SpeechGrammarWordType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddWordTransition<P0, P1, P2, P3>(&self, deststate: P0, words: P1, separators: P2, r#type: SpeechGrammarWordType, propertyname: P3, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<ISpeechGrammarRuleState>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddWordTransition)(::windows::core::Interface::as_raw(self), deststate.into_param().abi(), ::core::mem::transmute_copy(words), ::core::mem::transmute_copy(separators), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Interface::vtable(self).AddWordTransition)(::windows::core::Interface::as_raw(self), deststate.into_param().abi(), words.into_param().abi(), separators.into_param().abi(), r#type, propertyname.into_param().abi(), propertyid, propertyvalue, weight).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddRuleTransition<P0, P1, P2>(&self, destinationstate: P0, rule: P1, propertyname: P2, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<ISpeechGrammarRuleState>,
         P1: ::windows::core::IntoParam<ISpeechGrammarRule>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddRuleTransition)(::windows::core::Interface::as_raw(self), destinationstate.into_param().abi(), rule.into_param().abi(), ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Interface::vtable(self).AddRuleTransition)(::windows::core::Interface::as_raw(self), destinationstate.into_param().abi(), rule.into_param().abi(), propertyname.into_param().abi(), propertyid, propertyvalue, weight).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    pub unsafe fn AddSpecialTransition<P0, P1>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: P1, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<ISpeechGrammarRuleState>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddSpecialTransition)(::windows::core::Interface::as_raw(self), destinationstate.into_param().abi(), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Interface::vtable(self).AddSpecialTransition)(::windows::core::Interface::as_raw(self), destinationstate.into_param().abi(), r#type, propertyname.into_param().abi(), propertyid, propertyvalue, weight).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5603,9 +5647,12 @@ impl ISpeechGrammarRules {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add(&self, rulename: &::windows::core::BSTR, attributes: SpeechRuleAttributes, ruleid: i32) -> ::windows::core::Result<ISpeechGrammarRule> {
+    pub unsafe fn Add<P0>(&self, rulename: P0, attributes: SpeechRuleAttributes, ruleid: i32) -> ::windows::core::Result<ISpeechGrammarRule>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechGrammarRule>();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(rulename), attributes, ruleid, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), rulename.into_param().abi(), attributes, ruleid, &mut result__).from_abi(result__)
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
@@ -5690,27 +5737,44 @@ impl ISpeechLexicon {
     pub unsafe fn GetWords(&self, flags: SpeechLexiconType, generationid: *mut i32, words: *mut ::core::option::Option<ISpeechLexiconWords>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWords)(::windows::core::Interface::as_raw(self), flags, generationid, ::core::mem::transmute(words)).ok()
     }
-    pub unsafe fn AddPronunciation(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPronunciation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute_copy(bstrpronunciation)).ok()
+    pub unsafe fn AddPronunciation<P0, P1>(&self, bstrword: P0, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddPronunciation)(::windows::core::Interface::as_raw(self), bstrword.into_param().abi(), langid, partofspeech, bstrpronunciation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddPronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPronunciationByPhoneIds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids).ok()
+    pub unsafe fn AddPronunciationByPhoneIds<P0>(&self, bstrword: P0, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddPronunciationByPhoneIds)(::windows::core::Interface::as_raw(self), bstrword.into_param().abi(), langid, partofspeech, phoneids).ok()
     }
-    pub unsafe fn RemovePronunciation(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemovePronunciation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute_copy(bstrpronunciation)).ok()
+    pub unsafe fn RemovePronunciation<P0, P1>(&self, bstrword: P0, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemovePronunciation)(::windows::core::Interface::as_raw(self), bstrword.into_param().abi(), langid, partofspeech, bstrpronunciation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RemovePronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemovePronunciationByPhoneIds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids).ok()
+    pub unsafe fn RemovePronunciationByPhoneIds<P0>(&self, bstrword: P0, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RemovePronunciationByPhoneIds)(::windows::core::Interface::as_raw(self), bstrword.into_param().abi(), langid, partofspeech, phoneids).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPronunciations(&self, bstrword: &::windows::core::BSTR, langid: i32, typeflags: SpeechLexiconType) -> ::windows::core::Result<ISpeechLexiconPronunciations> {
+    pub unsafe fn GetPronunciations<P0>(&self, bstrword: P0, langid: i32, typeflags: SpeechLexiconType) -> ::windows::core::Result<ISpeechLexiconPronunciations>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechLexiconPronunciations>();
-        (::windows::core::Interface::vtable(self).GetPronunciations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, typeflags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetPronunciations)(::windows::core::Interface::as_raw(self), bstrword.into_param().abi(), langid, typeflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6301,15 +6365,20 @@ impl ISpeechObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<P0>(&self, id: &::windows::core::BSTR, categoryid: &::windows::core::BSTR, createifnotexist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetId<P0, P1, P2>(&self, id: P0, categoryid: P1, createifnotexist: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(categoryid), createifnotexist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi(), categoryid.into_param().abi(), createifnotexist.into_param().abi()).ok()
     }
-    pub unsafe fn GetAttribute(&self, attributename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetAttribute<P0>(&self, attributename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(attributename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), attributename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, clscontext: SpeechTokenContext) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -6318,43 +6387,59 @@ impl ISpeechObjectToken {
         let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
         (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), punkouter.into_param().abi(), clscontext, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Remove(&self, objectstorageclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid)).ok()
+    pub unsafe fn Remove<P0>(&self, objectstorageclsid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), objectstorageclsid.into_param().abi()).ok()
     }
-    pub unsafe fn GetStorageFileName(&self, objectstorageclsid: &::windows::core::BSTR, keyname: &::windows::core::BSTR, filename: &::windows::core::BSTR, folder: SpeechTokenShellFolder) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetStorageFileName<P0, P1, P2>(&self, objectstorageclsid: P0, keyname: P1, filename: P2, folder: SpeechTokenShellFolder) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetStorageFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid), ::core::mem::transmute_copy(keyname), ::core::mem::transmute_copy(filename), folder, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetStorageFileName)(::windows::core::Interface::as_raw(self), objectstorageclsid.into_param().abi(), keyname.into_param().abi(), filename.into_param().abi(), folder, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveStorageFileName<P0>(&self, objectstorageclsid: &::windows::core::BSTR, keyname: &::windows::core::BSTR, deletefile: P0) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveStorageFileName<P0, P1, P2>(&self, objectstorageclsid: P0, keyname: P1, deletefile: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid), ::core::mem::transmute_copy(keyname), deletefile.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::windows::core::Interface::as_raw(self), objectstorageclsid.into_param().abi(), keyname.into_param().abi(), deletefile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported<P0>(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn IsUISupported<P0, P1>(&self, typeofui: P0, extradata: *const super::super::System::Com::VARIANT, object: P1) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, object.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, object.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI<P0>(&self, hwnd: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0, P1, P2>(&self, hwnd: i32, title: P0, typeofui: P1, extradata: *const super::super::System::Com::VARIANT, object: P2) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwnd, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata, object.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwnd, title.into_param().abi(), typeofui.into_param().abi(), extradata, object.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesAttributes(&self, attributes: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MatchesAttributes<P0>(&self, attributes: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).MatchesAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(attributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).MatchesAttributes)(::windows::core::Interface::as_raw(self), attributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6437,8 +6522,11 @@ impl ISpeechObjectTokenCategory {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDefault(&self, tokenid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefault)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(tokenid)).ok()
+    pub unsafe fn SetDefault<P0>(&self, tokenid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetDefault)(::windows::core::Interface::as_raw(self), tokenid.into_param().abi()).ok()
     }
     pub unsafe fn Default(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -6446,11 +6534,12 @@ impl ISpeechObjectTokenCategory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetId<P0>(&self, id: &::windows::core::BSTR, createifnotexist: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetId<P0, P1>(&self, id: P0, createifnotexist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(id), createifnotexist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into_param().abi(), createifnotexist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6460,9 +6549,13 @@ impl ISpeechObjectTokenCategory {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumerateTokens(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn EnumerateTokens<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).EnumerateTokens)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).EnumerateTokens)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6594,9 +6687,12 @@ impl ISpeechPhoneConverter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PhoneToId(&self, phonemes: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PhoneToId<P0>(&self, phonemes: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).PhoneToId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(phonemes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).PhoneToId)(::windows::core::Interface::as_raw(self), phonemes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7772,8 +7868,11 @@ impl ISpeechRecoContext {
     pub unsafe fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: super::super::System::Com::VARIANT, bookmarkid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Bookmark)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(streampos), ::core::mem::transmute(bookmarkid)).ok()
     }
-    pub unsafe fn SetAdaptationData(&self, adaptationstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAdaptationData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(adaptationstring)).ok()
+    pub unsafe fn SetAdaptationData<P0>(&self, adaptationstring: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetAdaptationData)(::windows::core::Interface::as_raw(self), adaptationstring.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7901,11 +8000,18 @@ impl ISpeechRecoGrammar {
     pub unsafe fn Reset(&self, newlanguage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), newlanguage).ok()
     }
-    pub unsafe fn CmdLoadFromFile(&self, filename: &::windows::core::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CmdLoadFromFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename), loadoption).ok()
+    pub unsafe fn CmdLoadFromFile<P0>(&self, filename: P0, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).CmdLoadFromFile)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), loadoption).ok()
     }
-    pub unsafe fn CmdLoadFromObject(&self, classid: &::windows::core::BSTR, grammarname: &::windows::core::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CmdLoadFromObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(classid), ::core::mem::transmute_copy(grammarname), loadoption).ok()
+    pub unsafe fn CmdLoadFromObject<P0, P1>(&self, classid: P0, grammarname: P1, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).CmdLoadFromObject)(::windows::core::Interface::as_raw(self), classid.into_param().abi(), grammarname.into_param().abi(), loadoption).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7919,17 +8025,27 @@ impl ISpeechRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &::windows::core::BSTR, proprietarystring: &::windows::core::BSTR, proprietarydata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CmdLoadFromProprietaryGrammar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(proprietaryguid), ::core::mem::transmute_copy(proprietarystring), ::core::mem::transmute(proprietarydata), loadoption).ok()
+    pub unsafe fn CmdLoadFromProprietaryGrammar<P0, P1>(&self, proprietaryguid: P0, proprietarystring: P1, proprietarydata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).CmdLoadFromProprietaryGrammar)(::windows::core::Interface::as_raw(self), proprietaryguid.into_param().abi(), proprietarystring.into_param().abi(), ::core::mem::transmute(proprietarydata), loadoption).ok()
     }
-    pub unsafe fn CmdSetRuleState(&self, name: &::windows::core::BSTR, state: SpeechRuleState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CmdSetRuleState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), state).ok()
+    pub unsafe fn CmdSetRuleState<P0>(&self, name: P0, state: SpeechRuleState) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).CmdSetRuleState)(::windows::core::Interface::as_raw(self), name.into_param().abi(), state).ok()
     }
     pub unsafe fn CmdSetRuleIdState(&self, ruleid: i32, state: SpeechRuleState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CmdSetRuleIdState)(::windows::core::Interface::as_raw(self), ruleid, state).ok()
     }
-    pub unsafe fn DictationLoad(&self, topicname: &::windows::core::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DictationLoad)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(topicname), loadoption).ok()
+    pub unsafe fn DictationLoad<P0>(&self, topicname: P0, loadoption: SpeechLoadOption) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DictationLoad)(::windows::core::Interface::as_raw(self), topicname.into_param().abi(), loadoption).ok()
     }
     pub unsafe fn DictationUnload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DictationUnload)(::windows::core::Interface::as_raw(self)).ok()
@@ -7939,11 +8055,12 @@ impl ISpeechRecoGrammar {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWordSequenceData<P0>(&self, text: &::windows::core::BSTR, textlength: i32, info: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetWordSequenceData<P0, P1>(&self, text: P0, textlength: i32, info: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<ISpeechTextSelectionInformation>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<ISpeechTextSelectionInformation>,
     {
-        (::windows::core::Interface::vtable(self).SetWordSequenceData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), textlength, info.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWordSequenceData)(::windows::core::Interface::as_raw(self), text.into_param().abi(), textlength, info.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7953,9 +8070,12 @@ impl ISpeechRecoGrammar {
     {
         (::windows::core::Interface::vtable(self).SetTextSelection)(::windows::core::Interface::as_raw(self), info.into_param().abi()).ok()
     }
-    pub unsafe fn IsPronounceable(&self, word: &::windows::core::BSTR) -> ::windows::core::Result<SpeechWordPronounceable> {
+    pub unsafe fn IsPronounceable<P0>(&self, word: P0) -> ::windows::core::Result<SpeechWordPronounceable>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<SpeechWordPronounceable>();
-        (::windows::core::Interface::vtable(self).IsPronounceable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(word), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsPronounceable)(::windows::core::Interface::as_raw(self), word.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8236,11 +8356,12 @@ impl ISpeechRecoResult2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextFeedback<P0>(&self, feedback: &::windows::core::BSTR, wassuccessful: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTextFeedback<P0, P1>(&self, feedback: P0, wassuccessful: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetTextFeedback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTextFeedback)(::windows::core::Interface::as_raw(self), feedback.into_param().abi(), wassuccessful.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8357,11 +8478,12 @@ impl ISpeechRecoResultDispatch {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextFeedback<P0>(&self, feedback: &::windows::core::BSTR, wassuccessful: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetTextFeedback<P0, P1>(&self, feedback: P0, wassuccessful: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetTextFeedback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(feedback), wassuccessful.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTextFeedback)(::windows::core::Interface::as_raw(self), feedback.into_param().abi(), wassuccessful.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8635,54 +8757,86 @@ impl ISpeechRecognizer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPropertyNumber(&self, name: &::windows::core::BSTR, value: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SetPropertyNumber<P0>(&self, name: P0, value: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).SetPropertyNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), value, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetPropertyNumber)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyNumber(&self, name: &::windows::core::BSTR, value: *mut i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), value, supported).ok()
+    pub unsafe fn GetPropertyNumber<P0>(&self, name: P0, value: *mut i32, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetPropertyNumber)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value, supported).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPropertyString(&self, name: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SetPropertyString<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).SetPropertyString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).SetPropertyString)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyString(&self, name: &::windows::core::BSTR, value: *mut ::windows::core::BSTR, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value), supported).ok()
+    pub unsafe fn GetPropertyString<P0>(&self, name: P0, value: *mut ::windows::core::BSTR, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetPropertyString)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(value), supported).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsUISupported<P0>(&self, typeofui: P0, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata).ok()
+    pub unsafe fn DisplayUI<P0, P1>(&self, hwndparent: i32, title: P0, typeofui: P1, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwndparent, title.into_param().abi(), typeofui.into_param().abi(), extradata).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRecognizers(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn GetRecognizers<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).GetRecognizers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetRecognizers)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAudioInputs(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn GetAudioInputs<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).GetAudioInputs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAudioInputs)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProfiles(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn GetProfiles<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).GetProfiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetProfiles)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8915,17 +9069,24 @@ pub struct ISpeechResourceLoader(::windows::core::IUnknown);
 impl ISpeechResourceLoader {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadResource<P0>(&self, bstrresourceuri: &::windows::core::BSTR, falwaysreload: P0, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()>
+    pub unsafe fn LoadResource<P0, P1>(&self, bstrresourceuri: P0, falwaysreload: P1, pstream: *mut ::core::option::Option<::windows::core::IUnknown>, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Interface::vtable(self).LoadResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourceuri), falwaysreload.into_param().abi(), ::core::mem::transmute(pstream), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), pfmodified, ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).LoadResource)(::windows::core::Interface::as_raw(self), bstrresourceuri.into_param().abi(), falwaysreload.into_param().abi(), ::core::mem::transmute(pstream), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), pfmodified, ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetLocalCopy(&self, bstrresourceuri: &::windows::core::BSTR, pbstrlocalpath: *mut ::windows::core::BSTR, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocalCopy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrresourceuri), ::core::mem::transmute(pbstrlocalpath), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetLocalCopy<P0>(&self, bstrresourceuri: P0, pbstrlocalpath: *mut ::windows::core::BSTR, pbstrmimetype: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrredirecturl: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GetLocalCopy)(::windows::core::Interface::as_raw(self), bstrresourceuri.into_param().abi(), ::core::mem::transmute(pbstrlocalpath), ::core::mem::transmute(pbstrmimetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrredirecturl.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn ReleaseLocalCopy(&self, pbstrlocalpath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseLocalCopy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(pbstrlocalpath)).ok()
+    pub unsafe fn ReleaseLocalCopy<P0>(&self, pbstrlocalpath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ReleaseLocalCopy)(::windows::core::Interface::as_raw(self), pbstrlocalpath.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9159,9 +9320,12 @@ impl ISpeechVoice {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).SynchronousSpeakTimeout)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Speak(&self, text: &::windows::core::BSTR, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32> {
+    pub unsafe fn Speak<P0>(&self, text: P0, flags: SpeechVoiceSpeakFlags) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Speak)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(text), flags, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Speak)(::windows::core::Interface::as_raw(self), text.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9178,21 +9342,32 @@ impl ISpeechVoice {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Skip(&self, r#type: &::windows::core::BSTR, numitems: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn Skip<P0>(&self, r#type: P0, numitems: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), numitems, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), numitems, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVoices(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn GetVoices<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).GetVoices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetVoices)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAudioOutputs(&self, requiredattributes: &::windows::core::BSTR, optionalattributes: &::windows::core::BSTR) -> ::windows::core::Result<ISpeechObjectTokens> {
+    pub unsafe fn GetAudioOutputs<P0, P1>(&self, requiredattributes: P0, optionalattributes: P1) -> ::windows::core::Result<ISpeechObjectTokens>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ISpeechObjectTokens>();
-        (::windows::core::Interface::vtable(self).GetAudioOutputs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(requiredattributes), ::core::mem::transmute_copy(optionalattributes), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetAudioOutputs)(::windows::core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9206,14 +9381,21 @@ impl ISpeechVoice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsUISupported<P0>(&self, typeofui: P0, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsUISupported)(::windows::core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata).ok()
+    pub unsafe fn DisplayUI<P0, P1>(&self, hwndparent: i32, title: P0, typeofui: P1, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DisplayUI)(::windows::core::Interface::as_raw(self), hwndparent, title.into_param().abi(), typeofui.into_param().abi(), extradata).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

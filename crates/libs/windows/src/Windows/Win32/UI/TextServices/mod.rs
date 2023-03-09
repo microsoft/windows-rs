@@ -106,9 +106,12 @@ impl IAccDictionary {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetMnemonicString)(::windows::core::Interface::as_raw(self), term, &mut result__).from_abi(result__)
     }
-    pub unsafe fn LookupMnemonicTerm(&self, bstrmnemonic: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn LookupMnemonicTerm<P0>(&self, bstrmnemonic: P0) -> ::windows::core::Result<::windows::core::GUID>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
-        (::windows::core::Interface::vtable(self).LookupMnemonicTerm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrmnemonic), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).LookupMnemonicTerm)(::windows::core::Interface::as_raw(self), bstrmnemonic.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4729,11 +4732,12 @@ impl ITfFnConfigureRegisterEudc {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Show<P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, ::core::mem::transmute_copy(bstrregistered)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, bstrregistered.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITfFnConfigureRegisterEudc, ::windows::core::IUnknown, ITfFunction);
@@ -4778,11 +4782,12 @@ impl ITfFnConfigureRegisterWord {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn Show<P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, ::core::mem::transmute_copy(bstrregistered)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), langid, rguidprofile, bstrregistered.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITfFnConfigureRegisterWord, ::windows::core::IUnknown, ITfFunction);
@@ -5422,12 +5427,21 @@ impl ITfFnSearchCandidateProvider {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetSearchCandidates(&self, bstrquery: &::windows::core::BSTR, bstrapplicationid: &::windows::core::BSTR) -> ::windows::core::Result<ITfCandidateList> {
+    pub unsafe fn GetSearchCandidates<P0, P1>(&self, bstrquery: P0, bstrapplicationid: P1) -> ::windows::core::Result<ITfCandidateList>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<ITfCandidateList>();
-        (::windows::core::Interface::vtable(self).GetSearchCandidates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrquery), ::core::mem::transmute_copy(bstrapplicationid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetSearchCandidates)(::windows::core::Interface::as_raw(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetResult(&self, bstrquery: &::windows::core::BSTR, bstrapplicationid: &::windows::core::BSTR, bstrresult: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrquery), ::core::mem::transmute_copy(bstrapplicationid), ::core::mem::transmute_copy(bstrresult)).ok()
+    pub unsafe fn SetResult<P0, P1, P2>(&self, bstrquery: P0, bstrapplicationid: P1, bstrresult: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetResult)(::windows::core::Interface::as_raw(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), bstrresult.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(ITfFnSearchCandidateProvider, ::windows::core::IUnknown, ITfFunction);

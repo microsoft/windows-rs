@@ -2288,8 +2288,15 @@ pub struct ICameraUIControlEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct IClipServiceNotificationHelper(::windows::core::IUnknown);
 impl IClipServiceNotificationHelper {
-    pub unsafe fn ShowToast(&self, titletext: &::windows::core::BSTR, bodytext: &::windows::core::BSTR, packagename: &::windows::core::BSTR, appid: &::windows::core::BSTR, launchcommand: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(titletext), ::core::mem::transmute_copy(bodytext), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(appid), ::core::mem::transmute_copy(launchcommand)).ok()
+    pub unsafe fn ShowToast<P0, P1, P2, P3, P4>(&self, titletext: P0, bodytext: P1, packagename: P2, appid: P3, launchcommand: P4) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi(), packagename.into_param().abi(), appid.into_param().abi(), launchcommand.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IClipServiceNotificationHelper, ::windows::core::IUnknown);
@@ -2455,8 +2462,11 @@ impl IEditionUpgradeBroker {
     {
         (::windows::core::Interface::vtable(self).InitializeParentWindow)(::windows::core::Interface::as_raw(self), parenthandle.into_param().abi()).ok()
     }
-    pub unsafe fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(parameter)).ok()
+    pub unsafe fn UpdateOperatingSystem<P0>(&self, parameter: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), parameter.into_param().abi()).ok()
     }
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()

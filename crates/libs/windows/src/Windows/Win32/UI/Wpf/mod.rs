@@ -278,11 +278,12 @@ pub struct IMILBitmapEffectConnectorInfo_Vtbl {
 #[repr(transparent)]
 pub struct IMILBitmapEffectEvents(::windows::core::IUnknown);
 impl IMILBitmapEffectEvents {
-    pub unsafe fn PropertyChange<P0>(&self, peffect: P0, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn PropertyChange<P0, P1>(&self, peffect: P0, bstrpropertyname: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<IMILBitmapEffect>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into_param().abi(), ::core::mem::transmute_copy(bstrpropertyname)).ok()
+        (::windows::core::Interface::vtable(self).PropertyChange)(::windows::core::Interface::as_raw(self), peffect.into_param().abi(), bstrpropertyname.into_param().abi()).ok()
     }
     pub unsafe fn DirtyRegion<P0>(&self, peffect: P0, prect: *const MilRectD) -> ::windows::core::Result<()>
     where

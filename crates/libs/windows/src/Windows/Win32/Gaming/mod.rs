@@ -231,8 +231,12 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
 #[repr(transparent)]
 pub struct IGameExplorer(::windows::core::IUnknown);
 impl IGameExplorer {
-    pub unsafe fn AddGame(&self, bstrgdfbinarypath: &::windows::core::BSTR, bstrgameinstalldirectory: &::windows::core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute_copy(bstrgameinstalldirectory), installscope, pguidinstanceid).ok()
+    pub unsafe fn AddGame<P0, P1>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into_param().abi(), bstrgameinstalldirectory.into_param().abi(), installscope, pguidinstanceid).ok()
     }
     pub unsafe fn RemoveGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveGame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidinstanceid)).ok()
@@ -242,9 +246,12 @@ impl IGameExplorer {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &::windows::core::BSTR) -> ::windows::core::Result<super::Foundation::BOOL> {
+    pub unsafe fn VerifyAccess<P0>(&self, bstrgdfbinarypath: P0) -> ::windows::core::Result<super::Foundation::BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).VerifyAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).VerifyAccess)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IGameExplorer, ::windows::core::IUnknown);

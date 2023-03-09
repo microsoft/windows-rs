@@ -116,13 +116,19 @@ impl IAccessibleWinSAT {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn put_accName(&self, varchild: super::Com::VARIANT, szname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_accName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szname)).ok()
+    pub unsafe fn put_accName<P0>(&self, varchild: super::Com::VARIANT, szname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.put_accName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), szname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn put_accValue(&self, varchild: super::Com::VARIANT, szvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_accValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szvalue)).ok()
+    pub unsafe fn put_accValue<P0>(&self, varchild: super::Com::VARIANT, szvalue: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.put_accValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varchild), szvalue.into_param().abi()).ok()
     }
     pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> ::windows::core::Result<()>
     where
@@ -421,9 +427,13 @@ pub struct IQueryAllWinSATAssessments(::windows::core::IUnknown);
 impl IQueryAllWinSATAssessments {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub unsafe fn get_AllXML(&self, xpath: &::windows::core::BSTR, namespaces: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
+    pub unsafe fn get_AllXML<P0, P1>(&self, xpath: P0, namespaces: P1) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>();
-        (::windows::core::Interface::vtable(self).get_AllXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(xpath), ::core::mem::transmute_copy(namespaces), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_AllXML)(::windows::core::Interface::as_raw(self), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -512,9 +522,13 @@ pub struct IQueryRecentWinSATAssessment(::windows::core::IUnknown);
 impl IQueryRecentWinSATAssessment {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub unsafe fn get_XML(&self, xpath: &::windows::core::BSTR, namespaces: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
+    pub unsafe fn get_XML<P0, P1>(&self, xpath: P0, namespaces: P1) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>();
-        (::windows::core::Interface::vtable(self).get_XML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(xpath), ::core::mem::transmute_copy(namespaces), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_XML)(::windows::core::Interface::as_raw(self), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

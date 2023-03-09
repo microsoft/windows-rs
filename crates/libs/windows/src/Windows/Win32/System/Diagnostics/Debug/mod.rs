@@ -4159,8 +4159,12 @@ pub struct IActiveScriptGarbageCollector_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptHostEncode(::windows::core::IUnknown);
 impl IActiveScriptHostEncode {
-    pub unsafe fn EncodeScriptHostFile(&self, bstrinfile: &::windows::core::BSTR, pbstroutfile: *mut ::windows::core::BSTR, cflags: u32, bstrdefaultlang: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EncodeScriptHostFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrinfile), ::core::mem::transmute(pbstroutfile), cflags, ::core::mem::transmute_copy(bstrdefaultlang)).ok()
+    pub unsafe fn EncodeScriptHostFile<P0, P1>(&self, bstrinfile: P0, pbstroutfile: *mut ::windows::core::BSTR, cflags: u32, bstrdefaultlang: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).EncodeScriptHostFile)(::windows::core::Interface::as_raw(self), bstrinfile.into_param().abi(), ::core::mem::transmute(pbstroutfile), cflags, bstrdefaultlang.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IActiveScriptHostEncode, ::windows::core::IUnknown);
@@ -5707,9 +5711,13 @@ pub struct IActiveScriptStats_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptStringCompare(::windows::core::IUnknown);
 impl IActiveScriptStringCompare {
-    pub unsafe fn StrComp(&self, bszstr1: &::windows::core::BSTR, bszstr2: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
+    pub unsafe fn StrComp<P0, P1>(&self, bszstr1: P0, bszstr2: P1) -> ::windows::core::Result<i32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).StrComp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bszstr1), ::core::mem::transmute_copy(bszstr2), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).StrComp)(::windows::core::Interface::as_raw(self), bszstr1.into_param().abi(), bszstr2.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IActiveScriptStringCompare, ::windows::core::IUnknown);

@@ -96,11 +96,17 @@ impl IRendezvousSession {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SendContextData(&self, bstrdata: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdata)).ok()
+    pub unsafe fn SendContextData<P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi()).ok()
     }
-    pub unsafe fn Terminate(&self, hr: ::windows::core::HRESULT, bstrappdata: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), hr, ::core::mem::transmute_copy(bstrappdata)).ok()
+    pub unsafe fn Terminate<P0>(&self, hr: ::windows::core::HRESULT, bstrappdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), hr, bstrappdata.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IRendezvousSession, ::windows::core::IUnknown);

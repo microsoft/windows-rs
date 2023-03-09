@@ -91,11 +91,12 @@ impl IFhConfigMgr {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddRemoveExcludeRule<P0>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn AddRemoveExcludeRule<P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddRemoveExcludeRule)(::windows::core::Interface::as_raw(self), add.into_param().abi(), category, ::core::mem::transmute_copy(item)).ok()
+        (::windows::core::Interface::vtable(self).AddRemoveExcludeRule)(::windows::core::Interface::as_raw(self), add.into_param().abi(), category, item.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -124,12 +125,19 @@ impl IFhConfigMgr {
         let mut result__ = ::windows::core::zeroed::<IFhTarget>();
         (::windows::core::Interface::vtable(self).GetDefaultTarget)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ValidateTarget(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
+    pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<FH_DEVICE_VALIDATION_RESULT>();
-        (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(targeturl), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), targeturl.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ProvisionAndSetNewTarget(&self, targeturl: &::windows::core::BSTR, targetname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(targeturl), ::core::mem::transmute_copy(targetname)).ok()
+    pub unsafe fn ProvisionAndSetNewTarget<P0, P1>(&self, targeturl: P0, targetname: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows::core::Interface::as_raw(self), targeturl.into_param().abi(), targetname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -201,12 +209,18 @@ pub struct IFhConfigMgr_Vtbl {
 #[repr(transparent)]
 pub struct IFhReassociation(::windows::core::IUnknown);
 impl IFhReassociation {
-    pub unsafe fn ValidateTarget(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
+    pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<FH_DEVICE_VALIDATION_RESULT>();
-        (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(targeturl), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), targeturl.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ScanTargetForConfigurations(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScanTargetForConfigurations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(targeturl)).ok()
+    pub unsafe fn ScanTargetForConfigurations<P0>(&self, targeturl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ScanTargetForConfigurations)(::windows::core::Interface::as_raw(self), targeturl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

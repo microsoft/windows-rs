@@ -783,13 +783,19 @@ pub struct ITraceEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct ITraceRelogger(::windows::core::IUnknown);
 impl ITraceRelogger {
-    pub unsafe fn AddLogfileTraceStream(&self, logfilename: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
+    pub unsafe fn AddLogfileTraceStream<P0>(&self, logfilename: P0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<RELOGSTREAM_HANDLE>();
-        (::windows::core::Interface::vtable(self).AddLogfileTraceStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(logfilename), usercontext, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddLogfileTraceStream)(::windows::core::Interface::as_raw(self), logfilename.into_param().abi(), usercontext, &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddRealtimeTraceStream(&self, loggername: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
+    pub unsafe fn AddRealtimeTraceStream<P0>(&self, loggername: P0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<RELOGSTREAM_HANDLE>();
-        (::windows::core::Interface::vtable(self).AddRealtimeTraceStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(loggername), usercontext, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddRealtimeTraceStream)(::windows::core::Interface::as_raw(self), loggername.into_param().abi(), usercontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> ::windows::core::Result<()>
     where
@@ -813,8 +819,11 @@ impl ITraceRelogger {
     pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessTrace)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetOutputFilename(&self, logfilename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutputFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(logfilename)).ok()
+    pub unsafe fn SetOutputFilename<P0>(&self, logfilename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetOutputFilename)(::windows::core::Interface::as_raw(self), logfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

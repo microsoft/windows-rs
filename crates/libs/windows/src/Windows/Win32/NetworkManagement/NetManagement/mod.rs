@@ -3053,9 +3053,13 @@ pub struct IProvisioningDomain_Vtbl {
 #[repr(transparent)]
 pub struct IProvisioningProfileWireless(::windows::core::IUnknown);
 impl IProvisioningProfileWireless {
-    pub unsafe fn CreateProfile(&self, bstrxmlwirelessconfigprofile: &::windows::core::BSTR, bstrxmlconnectionconfigprofile: &::windows::core::BSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+    pub unsafe fn CreateProfile<P0, P1>(&self, bstrxmlwirelessconfigprofile: P0, bstrxmlconnectionconfigprofile: P1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrxmlwirelessconfigprofile), ::core::mem::transmute_copy(bstrxmlconnectionconfigprofile), padapterinstanceguid, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), padapterinstanceguid, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IProvisioningProfileWireless, ::windows::core::IUnknown);

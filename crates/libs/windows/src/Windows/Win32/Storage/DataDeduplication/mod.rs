@@ -205,13 +205,19 @@ impl IDedupDataPortManager {
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConfiguration)(::windows::core::Interface::as_raw(self), pminchunksize, pmaxchunksize, pchunkingalgorithm, phashingalgorithm, pcompressionalgorithm).ok()
     }
-    pub unsafe fn GetVolumeStatus(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus> {
+    pub unsafe fn GetVolumeStatus<P0>(&self, options: u32, path: P0) -> ::windows::core::Result<DedupDataPortVolumeStatus>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<DedupDataPortVolumeStatus>();
-        (::windows::core::Interface::vtable(self).GetVolumeStatus)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetVolumeStatus)(::windows::core::Interface::as_raw(self), options, path.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetVolumeDataPort(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<IDedupDataPort> {
+    pub unsafe fn GetVolumeDataPort<P0>(&self, options: u32, path: P0) -> ::windows::core::Result<IDedupDataPort>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IDedupDataPort>();
-        (::windows::core::Interface::vtable(self).GetVolumeDataPort)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetVolumeDataPort)(::windows::core::Interface::as_raw(self), options, path.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IDedupDataPortManager, ::windows::core::IUnknown);
@@ -298,14 +304,20 @@ pub struct IDedupIterateChunksHash32_Vtbl {
 #[repr(transparent)]
 pub struct IDedupReadFileCallback(::windows::core::IUnknown);
 impl IDedupReadFileCallback {
-    pub unsafe fn ReadBackupFile(&self, filefullpath: &::windows::core::BSTR, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadBackupFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filefullpath), fileoffset, filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_ptr()), returnedsize, flags).ok()
+    pub unsafe fn ReadBackupFile<P0>(&self, filefullpath: P0, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ReadBackupFile)(::windows::core::Interface::as_raw(self), filefullpath.into_param().abi(), fileoffset, filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_ptr()), returnedsize, flags).ok()
     }
     pub unsafe fn OrderContainersRestore(&self, containerpaths: &[::windows::core::BSTR], readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OrderContainersRestore)(::windows::core::Interface::as_raw(self), containerpaths.len() as _, ::core::mem::transmute(containerpaths.as_ptr()), readplanentries, readplan).ok()
     }
-    pub unsafe fn PreviewContainerRead(&self, filefullpath: &::windows::core::BSTR, readoffsets: &[DDP_FILE_EXTENT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreviewContainerRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filefullpath), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
+    pub unsafe fn PreviewContainerRead<P0>(&self, filefullpath: P0, readoffsets: &[DDP_FILE_EXTENT]) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).PreviewContainerRead)(::windows::core::Interface::as_raw(self), filefullpath.into_param().abi(), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows::core::IUnknown);

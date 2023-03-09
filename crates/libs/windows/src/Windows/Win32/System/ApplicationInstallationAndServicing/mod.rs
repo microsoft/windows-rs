@@ -3898,11 +3898,17 @@ pub struct IMsmGetFiles_Vtbl {
 pub struct IMsmMerge(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmMerge {
-    pub unsafe fn OpenDatabase(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn OpenDatabase<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    pub unsafe fn OpenModule(&self, path: &::windows::core::BSTR, language: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenModule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), language).ok()
+    pub unsafe fn OpenModule<P0>(&self, path: P0, language: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OpenModule)(::windows::core::Interface::as_raw(self), path.into_param().abi(), language).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3915,14 +3921,20 @@ impl IMsmMerge {
     pub unsafe fn CloseModule(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CloseModule)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn OpenLog(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn OpenLog<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).OpenLog)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     pub unsafe fn CloseLog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CloseLog)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Log(&self, message: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(message)).ok()
+    pub unsafe fn Log<P0>(&self, message: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), message.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3936,17 +3948,30 @@ impl IMsmMerge {
         let mut result__ = ::windows::core::zeroed::<IMsmDependencies>();
         (::windows::core::Interface::vtable(self).Dependencies)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Merge(&self, feature: &::windows::core::BSTR, redirectdir: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(feature), ::core::mem::transmute_copy(redirectdir)).ok()
+    pub unsafe fn Merge<P0, P1>(&self, feature: P0, redirectdir: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), feature.into_param().abi(), redirectdir.into_param().abi()).ok()
     }
-    pub unsafe fn Connect(&self, feature: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(feature)).ok()
+    pub unsafe fn Connect<P0>(&self, feature: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), feature.into_param().abi()).ok()
     }
-    pub unsafe fn ExtractCAB(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractCAB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename)).ok()
+    pub unsafe fn ExtractCAB<P0>(&self, filename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExtractCAB)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
-    pub unsafe fn ExtractFiles(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path)).ok()
+    pub unsafe fn ExtractFiles<P0>(&self, path: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExtractFiles)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4208,8 +4233,11 @@ impl IPMApplicationInfo {
     {
         (::windows::core::Interface::vtable(self).set_NotificationState)(::windows::core::Interface::as_raw(self), isnotified.into_param().abi()).ok()
     }
-    pub unsafe fn set_IconPath(&self, appiconpath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(appiconpath)).ok()
+    pub unsafe fn set_IconPath<P0>(&self, appiconpath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).set_IconPath)(::windows::core::Interface::as_raw(self), appiconpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4340,8 +4368,11 @@ impl IPMApplicationInfo {
     {
         (::windows::core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(::windows::core::Interface::as_raw(self), fismdilmaintenanceneeded.into_param().abi()).ok()
     }
-    pub unsafe fn set_Title(&self, apptitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(apptitle)).ok()
+    pub unsafe fn set_Title<P0>(&self, apptitle: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).set_Title)(::windows::core::Interface::as_raw(self), apptitle.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPMApplicationInfo, ::windows::core::IUnknown);
@@ -4868,10 +4899,13 @@ impl IPMDeploymentManager {
     pub unsafe fn BeginUpdateLicense(&self, productid: ::windows::core::GUID, offerid: ::windows::core::GUID, pblicense: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(offerid), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _).ok()
     }
-    pub unsafe fn GetLicenseChallenge(&self, packagepath: &::windows::core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: ::core::option::Option<*mut *mut u8>, pcbkid: ::core::option::Option<*mut u32>, ppbdeviceid: ::core::option::Option<*mut *mut u8>, pcbdeviceid: ::core::option::Option<*mut u32>, ppbsaltvalue: ::core::option::Option<*mut *mut u8>, pcbsaltvalue: ::core::option::Option<*mut u32>, ppbkgvvalue: ::core::option::Option<*mut *mut u8>, pcbkgvvalue: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLicenseChallenge<P0>(&self, packagepath: P0, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: ::core::option::Option<*mut *mut u8>, pcbkid: ::core::option::Option<*mut u32>, ppbdeviceid: ::core::option::Option<*mut *mut u8>, pcbdeviceid: ::core::option::Option<*mut u32>, ppbsaltvalue: ::core::option::Option<*mut *mut u8>, pcbsaltvalue: ::core::option::Option<*mut u32>, ppbkgvvalue: ::core::option::Option<*mut *mut u8>, pcbkgvvalue: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         (::windows::core::Interface::vtable(self).GetLicenseChallenge)(
             ::windows::core::Interface::as_raw(self),
-            ::core::mem::transmute_copy(packagepath),
+            packagepath.into_param().abi(),
             ppbchallenge,
             pcbchallenge,
             ::core::mem::transmute(ppbkid.unwrap_or(::std::ptr::null_mut())),
@@ -4924,8 +4958,11 @@ impl IPMDeploymentManager {
     pub unsafe fn GenerateXbfForCurrentLocale(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GenerateXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid)).ok()
     }
-    pub unsafe fn BeginProvision(&self, productid: ::windows::core::GUID, xmlpath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginProvision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute_copy(xmlpath)).ok()
+    pub unsafe fn BeginProvision<P0>(&self, productid: ::windows::core::GUID, xmlpath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BeginProvision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), xmlpath.into_param().abi()).ok()
     }
     pub unsafe fn BeginDeprovision(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginDeprovision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid)).ok()
@@ -4973,8 +5010,11 @@ impl IPMDeploymentManager {
     pub unsafe fn BindDeferredMdilBinaries(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BindDeferredMdilBinaries)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(packagefamilyname)).ok()
+    pub unsafe fn GenerateXamlLightupXbfForCurrentLocale<P0>(&self, packagefamilyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), packagefamilyname.into_param().abi()).ok()
     }
     pub unsafe fn AddLicenseForAppx(&self, productid: ::windows::core::GUID, pblicense: &[u8], pbplayreadyheader: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _, ::core::mem::transmute(pbplayreadyheader.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbplayreadyheader.as_deref().map_or(0, |slice| slice.len() as _)).ok()
@@ -5090,13 +5130,19 @@ impl IPMEnumerationManager {
         let mut result__ = ::windows::core::zeroed::<IPMApplicationInfo>();
         (::windows::core::Interface::vtable(self).get_ApplicationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_TileInfo(&self, productid: ::windows::core::GUID, tileid: &::windows::core::BSTR) -> ::windows::core::Result<IPMTileInfo> {
+    pub unsafe fn get_TileInfo<P0>(&self, productid: ::windows::core::GUID, tileid: P0) -> ::windows::core::Result<IPMTileInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IPMTileInfo>();
-        (::windows::core::Interface::vtable(self).get_TileInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_TileInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), tileid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_TaskInfo(&self, productid: ::windows::core::GUID, taskid: &::windows::core::BSTR) -> ::windows::core::Result<IPMTaskInfo> {
+    pub unsafe fn get_TaskInfo<P0>(&self, productid: ::windows::core::GUID, taskid: P0) -> ::windows::core::Result<IPMTaskInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IPMTaskInfo>();
-        (::windows::core::Interface::vtable(self).get_TaskInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute_copy(taskid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_TaskInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), taskid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_TaskInfoEx<P0>(&self, productid: ::windows::core::GUID, taskid: P0) -> ::windows::core::Result<IPMTaskInfo>
     where
@@ -5113,20 +5159,30 @@ impl IPMEnumerationManager {
         let mut result__ = ::windows::core::zeroed::<IPMLiveTileJobInfoEnumerator>();
         (::windows::core::Interface::vtable(self).AllLiveTileJobs)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_LiveTileJob(&self, productid: ::windows::core::GUID, tileid: &::windows::core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo> {
+    pub unsafe fn get_LiveTileJob<P0>(&self, productid: ::windows::core::GUID, tileid: P0, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IPMLiveTileJobInfo>();
-        (::windows::core::Interface::vtable(self).get_LiveTileJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute_copy(tileid), recurrencetype, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_LiveTileJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), tileid.into_param().abi(), recurrencetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn get_ApplicationInfoExternal(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__ = ::windows::core::zeroed::<IPMApplicationInfo>();
         (::windows::core::Interface::vtable(self).get_ApplicationInfoExternal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(productid), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_FileHandlerGenericLogo(&self, filetype: &::windows::core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_FileHandlerGenericLogo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filetype), logosize, ::core::mem::transmute(plogo)).ok()
+    pub unsafe fn get_FileHandlerGenericLogo<P0>(&self, filetype: P0, logosize: PM_LOGO_SIZE, plogo: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).get_FileHandlerGenericLogo)(::windows::core::Interface::as_raw(self), filetype.into_param().abi(), logosize, ::core::mem::transmute(plogo)).ok()
     }
-    pub unsafe fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &::windows::core::BSTR, sysappid1: &::windows::core::BSTR) -> ::windows::core::Result<IPMApplicationInfo> {
+    pub unsafe fn get_ApplicationInfoFromAccessClaims<P0, P1>(&self, sysappid0: P0, sysappid1: P1) -> ::windows::core::Result<IPMApplicationInfo>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IPMApplicationInfo>();
-        (::windows::core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(sysappid0), ::core::mem::transmute_copy(sysappid1), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(::windows::core::Interface::as_raw(self), sysappid0.into_param().abi(), sysappid1.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5284,11 +5340,17 @@ impl IPMExtensionFileExtensionInfo {
     pub unsafe fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_Logo)(::windows::core::Interface::as_raw(self), logosize, ::core::mem::transmute(plogo)).ok()
     }
-    pub unsafe fn get_ContentType(&self, filetype: &::windows::core::BSTR, pcontenttype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_ContentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filetype), ::core::mem::transmute(pcontenttype)).ok()
+    pub unsafe fn get_ContentType<P0>(&self, filetype: P0, pcontenttype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).get_ContentType)(::windows::core::Interface::as_raw(self), filetype.into_param().abi(), ::core::mem::transmute(pcontenttype)).ok()
     }
-    pub unsafe fn get_FileType(&self, contenttype: &::windows::core::BSTR, pfiletype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_FileType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(contenttype), ::core::mem::transmute(pfiletype)).ok()
+    pub unsafe fn get_FileType<P0>(&self, contenttype: P0, pfiletype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).get_FileType)(::windows::core::Interface::as_raw(self), contenttype.into_param().abi(), ::core::mem::transmute(pfiletype)).ok()
     }
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut ::windows::core::BSTR, pparameters: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
@@ -6098,8 +6160,12 @@ impl IPMTileInfo {
     pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).set_HubTileSize)(::windows::core::Interface::as_raw(self), hubtype, size).ok()
     }
-    pub unsafe fn set_InvocationInfo(&self, taskname: &::windows::core::BSTR, taskparameters: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(taskname), ::core::mem::transmute_copy(taskparameters)).ok()
+    pub unsafe fn set_InvocationInfo<P0, P1>(&self, taskname: P0, taskparameters: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).set_InvocationInfo)(::windows::core::Interface::as_raw(self), taskname.into_param().abi(), taskparameters.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6307,8 +6373,11 @@ impl IPMTilePropertyInfo {
     pub unsafe fn PropertyValue(&self, ppropvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PropertyValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvalue)).ok()
     }
-    pub unsafe fn set_Property(&self, propvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propvalue)).ok()
+    pub unsafe fn set_Property<P0>(&self, propvalue: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).set_Property)(::windows::core::Interface::as_raw(self), propvalue.into_param().abi()).ok()
     }
 }
 ::windows::imp::interface_hierarchy!(IPMTilePropertyInfo, ::windows::core::IUnknown);

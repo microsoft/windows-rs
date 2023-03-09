@@ -134,9 +134,12 @@ pub struct IBITSExtensionSetupFactory(::windows::core::IUnknown);
 impl IBITSExtensionSetupFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetObject(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IBITSExtensionSetup> {
+    pub unsafe fn GetObject<P0>(&self, path: P0) -> ::windows::core::Result<IBITSExtensionSetup>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IBITSExtensionSetup>();
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(path), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

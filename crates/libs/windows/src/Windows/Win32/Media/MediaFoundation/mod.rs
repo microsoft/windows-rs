@@ -12976,9 +12976,13 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
 #[repr(transparent)]
 pub struct IMFExtendedDRMTypeSupport(::windows::core::IUnknown);
 impl IMFExtendedDRMTypeSupport {
-    pub unsafe fn IsTypeSupportedEx(&self, r#type: &::windows::core::BSTR, keysystem: &::windows::core::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY> {
+    pub unsafe fn IsTypeSupportedEx<P0, P1>(&self, r#type: P0, keysystem: P1) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<MF_MEDIA_ENGINE_CANPLAY>();
-        (::windows::core::Interface::vtable(self).IsTypeSupportedEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsTypeSupportedEx)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), keysystem.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMFExtendedDRMTypeSupport, ::windows::core::IUnknown);
@@ -13519,9 +13523,12 @@ pub struct IMFImageSharingEngine_Vtbl {
 #[repr(transparent)]
 pub struct IMFImageSharingEngineClassFactory(::windows::core::IUnknown);
 impl IMFImageSharingEngineClassFactory {
-    pub unsafe fn CreateInstanceFromUDN(&self, puniquedevicename: &::windows::core::BSTR) -> ::windows::core::Result<IMFImageSharingEngine> {
+    pub unsafe fn CreateInstanceFromUDN<P0>(&self, puniquedevicename: P0) -> ::windows::core::Result<IMFImageSharingEngine>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMFImageSharingEngine>();
-        (::windows::core::Interface::vtable(self).CreateInstanceFromUDN)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(puniquedevicename), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateInstanceFromUDN)(::windows::core::Interface::as_raw(self), puniquedevicename.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMFImageSharingEngineClassFactory, ::windows::core::IUnknown);
@@ -13721,8 +13728,11 @@ impl IMFMediaEngine {
     {
         (::windows::core::Interface::vtable(self).SetSourceElements)(::windows::core::Interface::as_raw(self), psrcelements.into_param().abi()).ok()
     }
-    pub unsafe fn SetSource(&self, purl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl)).ok()
+    pub unsafe fn SetSource<P0>(&self, purl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetSource)(::windows::core::Interface::as_raw(self), purl.into_param().abi()).ok()
     }
     pub unsafe fn GetCurrentSource(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -13744,9 +13754,12 @@ impl IMFMediaEngine {
     pub unsafe fn Load(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CanPlayType(&self, r#type: &::windows::core::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY> {
+    pub unsafe fn CanPlayType<P0>(&self, r#type: P0) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<MF_MEDIA_ENGINE_CANPLAY>();
-        (::windows::core::Interface::vtable(self).CanPlayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows::core::Interface::vtable(self).GetReadyState)(::windows::core::Interface::as_raw(self))
@@ -14087,9 +14100,14 @@ pub struct IMFMediaEngineClassFactory_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory2(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory2 {
-    pub unsafe fn CreateMediaKeys2(&self, keysystem: &::windows::core::BSTR, defaultcdmstorepath: &::windows::core::BSTR, inprivatecdmstorepath: &::windows::core::BSTR) -> ::windows::core::Result<IMFMediaKeys> {
+    pub unsafe fn CreateMediaKeys2<P0, P1, P2>(&self, keysystem: P0, defaultcdmstorepath: P1, inprivatecdmstorepath: P2) -> ::windows::core::Result<IMFMediaKeys>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMFMediaKeys>();
-        (::windows::core::Interface::vtable(self).CreateMediaKeys2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute_copy(defaultcdmstorepath), ::core::mem::transmute_copy(inprivatecdmstorepath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMediaKeys2)(::windows::core::Interface::as_raw(self), keysystem.into_param().abi(), defaultcdmstorepath.into_param().abi(), inprivatecdmstorepath.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory2, ::windows::core::IUnknown);
@@ -14127,9 +14145,12 @@ pub struct IMFMediaEngineClassFactory3(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory3 {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn CreateMediaKeySystemAccess(&self, keysystem: &::windows::core::BSTR, ppsupportedconfigurationsarray: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows::core::Result<IMFMediaKeySystemAccess> {
+    pub unsafe fn CreateMediaKeySystemAccess<P0>(&self, keysystem: P0, ppsupportedconfigurationsarray: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows::core::Result<IMFMediaKeySystemAccess>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMFMediaKeySystemAccess>();
-        (::windows::core::Interface::vtable(self).CreateMediaKeySystemAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len() as _, &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMediaKeySystemAccess)(::windows::core::Interface::as_raw(self), keysystem.into_param().abi(), ::core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len() as _, &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactory3, ::windows::core::IUnknown);
@@ -14230,15 +14251,23 @@ impl IMFMediaEngineClassFactoryEx {
         let mut result__ = ::windows::core::zeroed::<IMFMediaSourceExtension>();
         (::windows::core::Interface::vtable(self).CreateMediaSourceExtension)(::windows::core::Interface::as_raw(self), dwflags, pattr.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateMediaKeys(&self, keysystem: &::windows::core::BSTR, cdmstorepath: &::windows::core::BSTR) -> ::windows::core::Result<IMFMediaKeys> {
+    pub unsafe fn CreateMediaKeys<P0, P1>(&self, keysystem: P0, cdmstorepath: P1) -> ::windows::core::Result<IMFMediaKeys>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<IMFMediaKeys>();
-        (::windows::core::Interface::vtable(self).CreateMediaKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute_copy(cdmstorepath), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateMediaKeys)(::windows::core::Interface::as_raw(self), keysystem.into_param().abi(), cdmstorepath.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTypeSupported(&self, r#type: &::windows::core::BSTR, keysystem: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsTypeSupported<P0, P1>(&self, r#type: P0, keysystem: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(keysystem), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), keysystem.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(IMFMediaEngineClassFactoryEx, ::windows::core::IUnknown, IMFMediaEngineClassFactory);
@@ -14324,8 +14353,11 @@ pub struct IMFMediaEngineEME_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaEngineEMENotify(::windows::core::IUnknown);
 impl IMFMediaEngineEMENotify {
-    pub unsafe fn Encrypted(&self, pbinitdata: ::core::option::Option<&[u8]>, bstrinitdatatype: &::windows::core::BSTR) {
-        (::windows::core::Interface::vtable(self).Encrypted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbinitdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute_copy(bstrinitdatatype))
+    pub unsafe fn Encrypted<P0>(&self, pbinitdata: ::core::option::Option<&[u8]>, bstrinitdatatype: P0)
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Encrypted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbinitdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.as_deref().map_or(0, |slice| slice.len() as _), bstrinitdatatype.into_param().abi())
     }
     pub unsafe fn WaitingForKey(&self) {
         (::windows::core::Interface::vtable(self).WaitingForKey)(::windows::core::Interface::as_raw(self))
@@ -14378,8 +14410,11 @@ impl IMFMediaEngineEx {
     {
         (::windows::core::Interface::vtable(self).base__.SetSourceElements)(::windows::core::Interface::as_raw(self), psrcelements.into_param().abi()).ok()
     }
-    pub unsafe fn SetSource(&self, purl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl)).ok()
+    pub unsafe fn SetSource<P0>(&self, purl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), purl.into_param().abi()).ok()
     }
     pub unsafe fn GetCurrentSource(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -14401,9 +14436,12 @@ impl IMFMediaEngineEx {
     pub unsafe fn Load(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CanPlayType(&self, r#type: &::windows::core::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY> {
+    pub unsafe fn CanPlayType<P0>(&self, r#type: P0) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<MF_MEDIA_ENGINE_CANPLAY>();
-        (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self))
@@ -14537,11 +14575,12 @@ impl IMFMediaEngineEx {
         let mut result__ = ::windows::core::zeroed::<i64>();
         (::windows::core::Interface::vtable(self).base__.OnVideoStreamTick)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSourceFromByteStream<P0>(&self, pbytestream: P0, purl: &::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn SetSourceFromByteStream<P0, P1>(&self, pbytestream: P0, purl: P1) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<IMFByteStream>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetSourceFromByteStream)(::windows::core::Interface::as_raw(self), pbytestream.into_param().abi(), ::core::mem::transmute_copy(purl)).ok()
+        (::windows::core::Interface::vtable(self).SetSourceFromByteStream)(::windows::core::Interface::as_raw(self), pbytestream.into_param().abi(), purl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -14853,20 +14892,22 @@ pub struct IMFMediaEngineExtension(::windows::core::IUnknown);
 impl IMFMediaEngineExtension {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanPlayType<P0>(&self, audioonly: P0, mimetype: &::windows::core::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
+    pub unsafe fn CanPlayType<P0, P1>(&self, audioonly: P0, mimetype: P1) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
     where
         P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<MF_MEDIA_ENGINE_CANPLAY>();
-        (::windows::core::Interface::vtable(self).CanPlayType)(::windows::core::Interface::as_raw(self), audioonly.into_param().abi(), ::core::mem::transmute_copy(mimetype), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CanPlayType)(::windows::core::Interface::as_raw(self), audioonly.into_param().abi(), mimetype.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BeginCreateObject<P0, P1, P2>(&self, bstrurl: &::windows::core::BSTR, pbytestream: P0, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: P1, punkstate: P2) -> ::windows::core::Result<()>
+    pub unsafe fn BeginCreateObject<P0, P1, P2, P3>(&self, bstrurl: P0, pbytestream: P1, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: P2, punkstate: P3) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMFByteStream>,
-        P1: ::windows::core::IntoParam<IMFAsyncCallback>,
-        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IMFByteStream>,
+        P2: ::windows::core::IntoParam<IMFAsyncCallback>,
+        P3: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).BeginCreateObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrurl), pbytestream.into_param().abi(), r#type, ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeginCreateObject)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), pbytestream.into_param().abi(), r#type, ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn CancelObjectCreation<P0>(&self, piunknowncancelcookie: P0) -> ::windows::core::Result<()>
     where
@@ -15133,8 +15174,13 @@ impl IMFMediaEngineSrcElements {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).GetMedia)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddElement(&self, purl: &::windows::core::BSTR, ptype: &::windows::core::BSTR, pmedia: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl), ::core::mem::transmute_copy(ptype), ::core::mem::transmute_copy(pmedia)).ok()
+    pub unsafe fn AddElement<P0, P1, P2>(&self, purl: P0, ptype: P1, pmedia: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddElement)(::windows::core::Interface::as_raw(self), purl.into_param().abi(), ptype.into_param().abi(), pmedia.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllElements(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAllElements)(::windows::core::Interface::as_raw(self)).ok()
@@ -15193,14 +15239,25 @@ impl IMFMediaEngineSrcElementsEx {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).base__.GetMedia)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    pub unsafe fn AddElement(&self, purl: &::windows::core::BSTR, ptype: &::windows::core::BSTR, pmedia: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl), ::core::mem::transmute_copy(ptype), ::core::mem::transmute_copy(pmedia)).ok()
+    pub unsafe fn AddElement<P0, P1, P2>(&self, purl: P0, ptype: P1, pmedia: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.AddElement)(::windows::core::Interface::as_raw(self), purl.into_param().abi(), ptype.into_param().abi(), pmedia.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAllElements(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RemoveAllElements)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AddElementEx(&self, purl: &::windows::core::BSTR, ptype: &::windows::core::BSTR, pmedia: &::windows::core::BSTR, keysystem: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddElementEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl), ::core::mem::transmute_copy(ptype), ::core::mem::transmute_copy(pmedia), ::core::mem::transmute_copy(keysystem)).ok()
+    pub unsafe fn AddElementEx<P0, P1, P2, P3>(&self, purl: P0, ptype: P1, pmedia: P2, keysystem: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddElementEx)(::windows::core::Interface::as_raw(self), purl.into_param().abi(), ptype.into_param().abi(), pmedia.into_param().abi(), keysystem.into_param().abi()).ok()
     }
     pub unsafe fn GetKeySystem(&self, index: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -15842,12 +15899,18 @@ impl IMFMediaKeySession2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Load(&self, bstrsessionid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn Load<P0>(&self, bstrsessionid: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
-        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsessionid), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), bstrsessionid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GenerateRequest(&self, initdatatype: &::windows::core::BSTR, pbinitdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(initdatatype), ::core::mem::transmute(pbinitdata.as_ptr()), pbinitdata.len() as _).ok()
+    pub unsafe fn GenerateRequest<P0>(&self, initdatatype: P0, pbinitdata: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).GenerateRequest)(::windows::core::Interface::as_raw(self), initdatatype.into_param().abi(), ::core::mem::transmute(pbinitdata.as_ptr()), pbinitdata.len() as _).ok()
     }
     pub unsafe fn Expiration(&self) -> ::windows::core::Result<f64> {
         let mut result__ = ::windows::core::zeroed::<f64>();
@@ -15901,8 +15964,11 @@ pub struct IMFMediaKeySession2_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify {
-    pub unsafe fn KeyMessage(&self, destinationurl: &::windows::core::BSTR, message: &[u8]) {
-        (::windows::core::Interface::vtable(self).KeyMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(destinationurl), ::core::mem::transmute(message.as_ptr()), message.len() as _)
+    pub unsafe fn KeyMessage<P0>(&self, destinationurl: P0, message: &[u8])
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).KeyMessage)(::windows::core::Interface::as_raw(self), destinationurl.into_param().abi(), ::core::mem::transmute(message.as_ptr()), message.len() as _)
     }
     pub unsafe fn KeyAdded(&self) {
         (::windows::core::Interface::vtable(self).KeyAdded)(::windows::core::Interface::as_raw(self))
@@ -15946,8 +16012,11 @@ pub struct IMFMediaKeySessionNotify_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify2(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify2 {
-    pub unsafe fn KeyMessage(&self, destinationurl: &::windows::core::BSTR, message: &[u8]) {
-        (::windows::core::Interface::vtable(self).base__.KeyMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(destinationurl), ::core::mem::transmute(message.as_ptr()), message.len() as _)
+    pub unsafe fn KeyMessage<P0>(&self, destinationurl: P0, message: &[u8])
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.KeyMessage)(::windows::core::Interface::as_raw(self), destinationurl.into_param().abi(), ::core::mem::transmute(message.as_ptr()), message.len() as _)
     }
     pub unsafe fn KeyAdded(&self) {
         (::windows::core::Interface::vtable(self).base__.KeyAdded)(::windows::core::Interface::as_raw(self))
@@ -15955,8 +16024,11 @@ impl IMFMediaKeySessionNotify2 {
     pub unsafe fn KeyError(&self, code: u16, systemcode: u32) {
         (::windows::core::Interface::vtable(self).base__.KeyError)(::windows::core::Interface::as_raw(self), code, systemcode)
     }
-    pub unsafe fn KeyMessage2(&self, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: &::windows::core::BSTR, pbmessage: &[u8]) {
-        (::windows::core::Interface::vtable(self).KeyMessage2)(::windows::core::Interface::as_raw(self), emessagetype, ::core::mem::transmute_copy(destinationurl), ::core::mem::transmute(pbmessage.as_ptr()), pbmessage.len() as _)
+    pub unsafe fn KeyMessage2<P0>(&self, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: P0, pbmessage: &[u8])
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).KeyMessage2)(::windows::core::Interface::as_raw(self), emessagetype, destinationurl.into_param().abi(), ::core::mem::transmute(pbmessage.as_ptr()), pbmessage.len() as _)
     }
     pub unsafe fn KeyStatusChange(&self) {
         (::windows::core::Interface::vtable(self).KeyStatusChange)(::windows::core::Interface::as_raw(self))
@@ -16057,12 +16129,13 @@ pub struct IMFMediaKeySystemAccess_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaKeys(::windows::core::IUnknown);
 impl IMFMediaKeys {
-    pub unsafe fn CreateSession<P0>(&self, mimetype: &::windows::core::BSTR, initdata: ::core::option::Option<&[u8]>, customdata: ::core::option::Option<&[u8]>, notify: P0) -> ::windows::core::Result<IMFMediaKeySession>
+    pub unsafe fn CreateSession<P0, P1>(&self, mimetype: P0, initdata: ::core::option::Option<&[u8]>, customdata: ::core::option::Option<&[u8]>, notify: P1) -> ::windows::core::Result<IMFMediaKeySession>
     where
-        P0: ::windows::core::IntoParam<IMFMediaKeySessionNotify>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IMFMediaKeySessionNotify>,
     {
         let mut result__ = ::windows::core::zeroed::<IMFMediaKeySession>();
-        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(mimetype), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(customdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), customdata.as_deref().map_or(0, |slice| slice.len() as _), notify.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), mimetype.into_param().abi(), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(customdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), customdata.as_deref().map_or(0, |slice| slice.len() as _), notify.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn KeySystem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -16112,12 +16185,13 @@ pub struct IMFMediaKeys_Vtbl {
 #[repr(transparent)]
 pub struct IMFMediaKeys2(::windows::core::IUnknown);
 impl IMFMediaKeys2 {
-    pub unsafe fn CreateSession<P0>(&self, mimetype: &::windows::core::BSTR, initdata: ::core::option::Option<&[u8]>, customdata: ::core::option::Option<&[u8]>, notify: P0) -> ::windows::core::Result<IMFMediaKeySession>
+    pub unsafe fn CreateSession<P0, P1>(&self, mimetype: P0, initdata: ::core::option::Option<&[u8]>, customdata: ::core::option::Option<&[u8]>, notify: P1) -> ::windows::core::Result<IMFMediaKeySession>
     where
-        P0: ::windows::core::IntoParam<IMFMediaKeySessionNotify>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IMFMediaKeySessionNotify>,
     {
         let mut result__ = ::windows::core::zeroed::<IMFMediaKeySession>();
-        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(mimetype), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(customdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), customdata.as_deref().map_or(0, |slice| slice.len() as _), notify.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), mimetype.into_param().abi(), ::core::mem::transmute(initdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(customdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), customdata.as_deref().map_or(0, |slice| slice.len() as _), notify.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn KeySystem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -16300,8 +16374,11 @@ impl IMFMediaSharingEngine {
     {
         (::windows::core::Interface::vtable(self).base__.SetSourceElements)(::windows::core::Interface::as_raw(self), psrcelements.into_param().abi()).ok()
     }
-    pub unsafe fn SetSource(&self, purl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(purl)).ok()
+    pub unsafe fn SetSource<P0>(&self, purl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetSource)(::windows::core::Interface::as_raw(self), purl.into_param().abi()).ok()
     }
     pub unsafe fn GetCurrentSource(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -16323,9 +16400,12 @@ impl IMFMediaSharingEngine {
     pub unsafe fn Load(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CanPlayType(&self, r#type: &::windows::core::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY> {
+    pub unsafe fn CanPlayType<P0>(&self, r#type: P0) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<MF_MEDIA_ENGINE_CANPLAY>();
-        (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).base__.CanPlayType)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows::core::Interface::vtable(self).base__.GetReadyState)(::windows::core::Interface::as_raw(self))
@@ -16960,12 +17040,13 @@ impl IMFMediaSourceExtension {
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration).ok()
     }
-    pub unsafe fn AddSourceBuffer<P0>(&self, r#type: &::windows::core::BSTR, pnotify: P0) -> ::windows::core::Result<IMFSourceBuffer>
+    pub unsafe fn AddSourceBuffer<P0, P1>(&self, r#type: P0, pnotify: P1) -> ::windows::core::Result<IMFSourceBuffer>
     where
-        P0: ::windows::core::IntoParam<IMFSourceBufferNotify>,
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<IMFSourceBufferNotify>,
     {
         let mut result__ = ::windows::core::zeroed::<IMFSourceBuffer>();
-        (::windows::core::Interface::vtable(self).AddSourceBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type), pnotify.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).AddSourceBuffer)(::windows::core::Interface::as_raw(self), r#type.into_param().abi(), pnotify.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveSourceBuffer<P0>(&self, psourcebuffer: P0) -> ::windows::core::Result<()>
     where
@@ -16978,8 +17059,11 @@ impl IMFMediaSourceExtension {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTypeSupported(&self, r#type: &::windows::core::BSTR) -> super::super::Foundation::BOOL {
-        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(r#type))
+    pub unsafe fn IsTypeSupported<P0>(&self, r#type: P0) -> super::super::Foundation::BOOL
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).IsTypeSupported)(::windows::core::Interface::as_raw(self), r#type.into_param().abi())
     }
     pub unsafe fn GetSourceBuffer(&self, dwstreamindex: u32) -> ::core::option::Option<IMFSourceBuffer> {
         (::windows::core::Interface::vtable(self).GetSourceBuffer)(::windows::core::Interface::as_raw(self), dwstreamindex)

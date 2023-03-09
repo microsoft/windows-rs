@@ -277,8 +277,11 @@ impl Document {
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SaveAs(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename)).ok()
+    pub unsafe fn SaveAs<P0>(&self, filename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -310,8 +313,11 @@ impl Document {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     pub unsafe fn Location(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -2739,12 +2745,13 @@ pub struct INodeProperties(::windows::core::IUnknown);
 impl INodeProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProperty<P0>(&self, pdataobject: P0, szpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn GetProperty<P0, P1>(&self, pdataobject: P0, szpropertyname: P1) -> ::windows::core::Result<::windows::core::BSTR>
     where
         P0: ::windows::core::IntoParam<super::Com::IDataObject>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
     {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pdataobject.into_param().abi(), ::core::mem::transmute_copy(szpropertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pdataobject.into_param().abi(), szpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::imp::interface_hierarchy!(INodeProperties, ::windows::core::IUnknown);
@@ -3879,9 +3886,12 @@ impl Node {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn get_Property<P0>(&self, propertyname: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Bookmark(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
@@ -4017,16 +4027,22 @@ impl Properties {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<Property> {
+    pub unsafe fn Item<P0>(&self, name: P0) -> ::windows::core::Result<Property>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<Property>();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::windows::core::zeroed::<i32>();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Remove(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(name)).ok()
+    pub unsafe fn Remove<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4360,9 +4376,12 @@ impl SnapIns {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add(&self, snapinnameorclsid: &::windows::core::BSTR, parentsnapin: super::Com::VARIANT, properties: super::Com::VARIANT) -> ::windows::core::Result<SnapIn> {
+    pub unsafe fn Add<P0>(&self, snapinnameorclsid: P0, parentsnapin: super::Com::VARIANT, properties: super::Com::VARIANT) -> ::windows::core::Result<SnapIn>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
         let mut result__ = ::windows::core::zeroed::<SnapIn>();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(snapinnameorclsid), ::core::mem::transmute(parentsnapin), ::core::mem::transmute(properties), &mut result__).from_abi(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), snapinnameorclsid.into_param().abi(), ::core::mem::transmute(parentsnapin), ::core::mem::transmute(properties), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4536,11 +4555,17 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RenameScopeNode(&self, newname: &::windows::core::BSTR, scopenode: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameScopeNode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newname), ::core::mem::transmute(scopenode)).ok()
+    pub unsafe fn RenameScopeNode<P0>(&self, newname: P0, scopenode: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RenameScopeNode)(::windows::core::Interface::as_raw(self), newname.into_param().abi(), ::core::mem::transmute(scopenode)).ok()
     }
-    pub unsafe fn RenameSelectedItem(&self, newname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameSelectedItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(newname)).ok()
+    pub unsafe fn RenameSelectedItem<P0>(&self, newname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).RenameSelectedItem)(::windows::core::Interface::as_raw(self), newname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4562,16 +4587,28 @@ impl View {
     pub unsafe fn RefreshSelection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RefreshSelection)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn ExecuteSelectionMenuItem(&self, menuitempath: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecuteSelectionMenuItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(menuitempath)).ok()
+    pub unsafe fn ExecuteSelectionMenuItem<P0>(&self, menuitempath: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExecuteSelectionMenuItem)(::windows::core::Interface::as_raw(self), menuitempath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ExecuteScopeNodeMenuItem(&self, menuitempath: &::windows::core::BSTR, scopenode: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecuteScopeNodeMenuItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(menuitempath), ::core::mem::transmute(scopenode)).ok()
+    pub unsafe fn ExecuteScopeNodeMenuItem<P0>(&self, menuitempath: P0, scopenode: super::Com::VARIANT) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExecuteScopeNodeMenuItem)(::windows::core::Interface::as_raw(self), menuitempath.into_param().abi(), ::core::mem::transmute(scopenode)).ok()
     }
-    pub unsafe fn ExecuteShellCommand(&self, command: &::windows::core::BSTR, directory: &::windows::core::BSTR, parameters: &::windows::core::BSTR, windowstate: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExecuteShellCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(command), ::core::mem::transmute_copy(directory), ::core::mem::transmute_copy(parameters), ::core::mem::transmute_copy(windowstate)).ok()
+    pub unsafe fn ExecuteShellCommand<P0, P1, P2, P3>(&self, command: P0, directory: P1, parameters: P2, windowstate: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExecuteShellCommand)(::windows::core::Interface::as_raw(self), command.into_param().abi(), directory.into_param().abi(), parameters.into_param().abi(), windowstate.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4602,15 +4639,21 @@ impl View {
     pub unsafe fn Forward(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Forward)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetStatusBarText(&self, statusbartext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatusBarText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(statusbartext)).ok()
+    pub unsafe fn SetStatusBarText<P0>(&self, statusbartext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetStatusBarText)(::windows::core::Interface::as_raw(self), statusbartext.into_param().abi()).ok()
     }
     pub unsafe fn Memento(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).Memento)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ViewMemento(&self, memento: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ViewMemento)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(memento)).ok()
+    pub unsafe fn ViewMemento<P0>(&self, memento: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ViewMemento)(::windows::core::Interface::as_raw(self), memento.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4627,8 +4670,11 @@ impl View {
         let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
         (::windows::core::Interface::vtable(self).get_CellContents)(::windows::core::Interface::as_raw(self), node.into_param().abi(), column, &mut result__).from_abi(result__)
     }
-    pub unsafe fn ExportList(&self, file: &::windows::core::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExportList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(file), exportoptions).ok()
+    pub unsafe fn ExportList<P0>(&self, file: P0, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ExportList)(::windows::core::Interface::as_raw(self), file.into_param().abi(), exportoptions).ok()
     }
     pub unsafe fn ListViewMode(&self) -> ::windows::core::Result<_ListViewMode> {
         let mut result__ = ::windows::core::zeroed::<_ListViewMode>();
@@ -5074,8 +5120,11 @@ impl _Application {
         let mut result__ = ::windows::core::zeroed::<Document>();
         (::windows::core::Interface::vtable(self).Document)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Load(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename)).ok()
+    pub unsafe fn Load<P0>(&self, filename: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
