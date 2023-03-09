@@ -12,6 +12,7 @@ pub fn format(namespace: &str, tokens: &mut String) {
     if output.status.success() {
         *tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
     } else {
+        // TODO: This doesn't print anything useful
         println!("rustfmt failed for `{namespace}` with status {}\nError:\n{}", output.status, String::from_utf8_lossy(&output.stderr));
     }
 }

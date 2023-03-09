@@ -70,6 +70,15 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
             #doc
             pub const #name: #guid = #value;
         }
+    } else if let Some(value) = initializer(gen, def) {
+        let kind = gen.type_default_name(&ty);
+
+        quote! {
+            #doc
+            #features
+            pub const #name: #kind = #kind { #value };
+        }
+    // TODO: remove this branch one https://github.com/microsoft/win32metadata/issues/1483 arrives
     } else if let Some((guid, id)) = get_property_key(gen, def) {
         let kind = gen.type_default_name(&ty);
         let guid = gen.guid(&guid);
@@ -84,6 +93,110 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     } else {
         quote! {}
     }
+}
+
+fn initializer(gen: &Gen, def: Field) -> Option<TokenStream> {
+    let Some(value) = constant(gen, def) else {
+        return None;
+    };
+
+    let mut input = value.as_str();
+
+    let Type::TypeDef((def, _)) = gen.reader.field_type(def, None) else {
+        unimplemented!();
+    };
+
+    let mut result = quote! {};
+
+    for field in gen.reader.type_def_fields(def) {
+        let (value, rest) = field_initializer(gen, field, input);
+        input = rest;
+        result.combine(&value);
+    }
+
+    Some(result)
+}
+
+fn field_initializer<'a>(gen: &Gen, field: Field, input: &'a str) -> (TokenStream, &'a str) {
+    let name = to_ident(gen.reader.field_name(field));
+
+    match gen.reader.field_type(field, None) {
+        Type::GUID => {
+            let (literals, rest) = read_literal_array(input, 11);
+            let value = gen.guid(&GUID::from_string_args(&literals));
+            (quote! { #name: #value, }, rest)
+        }
+        Type::Win32Array((_, len)) => {
+            let (literals, rest) = read_literal_array(input, len);
+            let literals = literals.iter().map(|literal| TokenStream::from(*literal));
+            (quote! { #name: [#(#literals,)*], }, rest)
+        }
+        _ => {
+            let (literal, rest) = read_literal(input);
+            let literal: TokenStream = literal.into();
+            (quote! { #name: #literal, }, rest)
+        }
+    }
+}
+
+fn constant(gen: &Gen, def: Field) -> Option<String> {
+    gen.reader
+        .field_attributes(def)
+        .find(|attribute| gen.reader.attribute_name(*attribute) == "ConstantAttribute")
+        .map(|attribute| {
+            let args = gen.reader.attribute_args(attribute);
+            match &args[0].1 {
+                Value::String(value) => value.clone(),
+                _ => unimplemented!(),
+            }
+        })
+}
+
+fn read_literal(input: &str) -> (&str, &str) {
+    let mut start = None;
+    let mut end = 0;
+
+    for (pos, c) in input.bytes().enumerate() {
+        if start.is_none() {
+            if c != b' ' && c != b',' {
+                start = Some(pos);
+            }
+        } else if c == b' ' || c == b',' || c == b'}' {
+            break;
+        }
+        end += 1;
+    }
+
+    let Some(start) = start else {
+        unimplemented!();
+    };
+
+    (&input[start..end], &input[end..])
+}
+
+fn read_token(input: &str, token: u8) -> &str {
+    for (pos, c) in input.bytes().enumerate() {
+        if c == token {
+            return &input[pos + 1..];
+        } else if c != b' ' && c != b',' {
+            break;
+        }
+    }
+
+    panic!("`{}` expected", token.escape_ascii());
+}
+
+fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
+    let mut input = read_token(input, b'{');
+    let mut result = vec![];
+
+    for _ in 0..len {
+        let (literal, rest) = read_literal(input);
+        result.push(literal);
+        input = rest;
+    }
+
+    (result, read_token(input, b'}'))
 }
 
 fn get_property_key(gen: &Gen, def: Field) -> Option<(GUID, u32)> {
