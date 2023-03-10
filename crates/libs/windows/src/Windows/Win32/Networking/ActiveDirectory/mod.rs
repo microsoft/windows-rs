@@ -15842,7 +15842,7 @@ pub struct DSOP_INIT_INFO {
     pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
     pub flOptions: u32,
     pub cAttributesToFetch: u32,
-    pub apwzAttributeNames: *mut ::windows::core::PWSTR,
+    pub apwzAttributeNames: *const ::windows::core::PCWSTR,
 }
 impl ::core::marker::Copy for DSOP_INIT_INFO {}
 impl ::core::clone::Clone for DSOP_INIT_INFO {

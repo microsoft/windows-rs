@@ -8116,15 +8116,15 @@ impl ::core::ops::Not for CLSCTX {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COINIT(pub u32);
+pub struct COINIT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
+pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
+pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
+pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
+pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
 impl ::core::marker::Copy for COINIT {}
 impl ::core::clone::Clone for COINIT {
     fn clone(&self) -> Self {
@@ -9602,17 +9602,17 @@ impl ::core::fmt::Debug for STATFLAG {
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STGC(pub u32);
+pub struct STGC(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_DEFAULT: STGC = STGC(0u32);
+pub const STGC_DEFAULT: STGC = STGC(0i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_OVERWRITE: STGC = STGC(1u32);
+pub const STGC_OVERWRITE: STGC = STGC(1i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_ONLYIFCURRENT: STGC = STGC(2u32);
+pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4u32);
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_CONSOLIDATE: STGC = STGC(8u32);
+pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
 impl ::core::marker::Copy for STGC {}
 impl ::core::clone::Clone for STGC {
     fn clone(&self) -> Self {

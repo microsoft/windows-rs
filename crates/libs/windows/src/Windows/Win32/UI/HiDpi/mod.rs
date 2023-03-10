@@ -258,9 +258,9 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini, dpi)
+pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
@@ -275,13 +275,13 @@ pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_A
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub u32);
+pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0u32);
+pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1u32);
+pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2u32);
+pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2i32);
 impl ::core::marker::Copy for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {}
 impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     fn clone(&self) -> Self {
@@ -337,15 +337,15 @@ impl ::core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub u32);
+pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0u32);
+pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1u32);
+pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2u32);
+pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2i32);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4u32);
+pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4i32);
 impl ::core::marker::Copy for DIALOG_DPI_CHANGE_BEHAVIORS {}
 impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
     fn clone(&self) -> Self {

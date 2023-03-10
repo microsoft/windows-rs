@@ -267,17 +267,17 @@ impl ::core::fmt::Debug for PRJ_EXT_INFO_TYPE {
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRJ_FILE_STATE(pub u32);
+pub struct PRJ_FILE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(1u32);
+pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(1i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(2u32);
+pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(2i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(4u32);
+pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(4i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = PRJ_FILE_STATE(8u32);
+pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = PRJ_FILE_STATE(8i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = PRJ_FILE_STATE(16u32);
+pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = PRJ_FILE_STATE(16i32);
 impl ::core::marker::Copy for PRJ_FILE_STATE {}
 impl ::core::clone::Clone for PRJ_FILE_STATE {
     fn clone(&self) -> Self {
@@ -491,11 +491,11 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_ID {
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
+pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(0u32);
+pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(1u32);
+pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(1i32);
 impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_FLAGS {}
 impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_FLAGS {
     fn clone(&self) -> Self {
@@ -551,17 +551,17 @@ impl ::core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
+pub struct PRJ_UPDATE_FAILURE_CAUSES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(0u32);
+pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(0i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(1u32);
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(1i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(2u32);
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(2i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(4u32);
+pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(4i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(8u32);
+pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(8i32);
 impl ::core::marker::Copy for PRJ_UPDATE_FAILURE_CAUSES {}
 impl ::core::clone::Clone for PRJ_UPDATE_FAILURE_CAUSES {
     fn clone(&self) -> Self {
@@ -617,23 +617,23 @@ impl ::core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRJ_UPDATE_TYPES(pub u32);
+pub struct PRJ_UPDATE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0u32);
+pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(1u32);
+pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(1i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(2u32);
+pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(2i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(4u32);
+pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(4i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8u32);
+pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16u32);
+pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(32u32);
+pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(32i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(64u32);
+pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(64i32);
 impl ::core::marker::Copy for PRJ_UPDATE_TYPES {}
 impl ::core::clone::Clone for PRJ_UPDATE_TYPES {
     fn clone(&self) -> Self {

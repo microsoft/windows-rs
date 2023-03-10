@@ -447,9 +447,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadIconW ( hinstance : super::super::Foundation:: HINSTANCE , lpiconname : :: windows_sys::core::PCWSTR ) -> HICON );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadImageA ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows_sys::core::PCSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadImageA ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows_sys::core::PCSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> LOADIMAGE_HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadImageW ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows_sys::core::PCWSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadImageW ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows_sys::core::PCWSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> LOADIMAGE_HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn LoadMenuA ( hinstance : super::super::Foundation:: HINSTANCE , lpmenuname : :: windows_sys::core::PCSTR ) -> HMENU );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn LoadMenuIndirectA ( lpmenutemplate : *const ::core::ffi::c_void ) -> HMENU );
@@ -709,9 +709,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SwitchToThisWindow ( hwnd : super::super::Foundation:: HWND , funknown : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn TileWindows ( hwndparent : super::super::Foundation:: HWND , whow : TILE_WINDOWS_HOW , lprect : *const super::super::Foundation:: RECT , ckids : u32 , lpkids : *const super::super::Foundation:: HWND ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
@@ -6186,6 +6186,7 @@ impl ::core::clone::Clone for KBDLLHOOKSTRUCT {
         *self
     }
 }
+pub type LOADIMAGE_HANDLE = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

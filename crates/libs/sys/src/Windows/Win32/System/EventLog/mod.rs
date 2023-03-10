@@ -648,7 +648,7 @@ pub union EVT_VARIANT_0 {
     pub SizeTArr: *mut usize,
     pub EvtHandleVal: EVT_HANDLE,
     pub XmlVal: ::windows_sys::core::PCWSTR,
-    pub XmlValArr: *mut ::windows_sys::core::PWSTR,
+    pub XmlValArr: *const ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVT_VARIANT_0 {}

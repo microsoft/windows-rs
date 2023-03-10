@@ -1001,11 +1001,11 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
+pub struct DML_CREATE_DEVICE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
+pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1u32);
+pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1i32);
 impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
 impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
     fn clone(&self) -> Self {
@@ -1088,15 +1088,15 @@ impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DML_EXECUTION_FLAGS(pub u32);
+pub struct DML_EXECUTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u32);
+pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1u32);
+pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2u32);
+pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4u32);
+pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4i32);
 impl ::core::marker::Copy for DML_EXECUTION_FLAGS {}
 impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
     fn clone(&self) -> Self {
@@ -1888,11 +1888,11 @@ impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DML_TENSOR_FLAGS(pub u32);
+pub struct DML_TENSOR_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
+pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1u32);
+pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1i32);
 impl ::core::marker::Copy for DML_TENSOR_FLAGS {}
 impl ::core::clone::Clone for DML_TENSOR_FLAGS {
     fn clone(&self) -> Self {

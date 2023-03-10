@@ -3889,19 +3889,19 @@ pub const PropertySystem: ::windows::core::GUID = ::windows::core::GUID::from_u1
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DRAWPROGRESSFLAGS(pub u32);
+pub struct DRAWPROGRESSFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0u32);
+pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1u32);
+pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2u32);
+pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4u32);
+pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8u32);
+pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16u32);
+pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16i32);
 impl ::core::marker::Copy for DRAWPROGRESSFLAGS {}
 impl ::core::clone::Clone for DRAWPROGRESSFLAGS {
     fn clone(&self) -> Self {
@@ -3957,37 +3957,37 @@ impl ::core::ops::Not for DRAWPROGRESSFLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GETPROPERTYSTOREFLAGS(pub u32);
+pub struct GETPROPERTYSTOREFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(0u32);
+pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_HANDLERPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1u32);
+pub const GPS_HANDLERPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2u32);
+pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4u32);
+pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_FASTPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8u32);
+pub const GPS_FASTPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_OPENSLOWITEM: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(16u32);
+pub const GPS_OPENSLOWITEM: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(32u32);
+pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(64u32);
+pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_NO_OPLOCK: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(128u32);
+pub const GPS_NO_OPLOCK: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(128i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_PREFERQUERYPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(256u32);
+pub const GPS_PREFERQUERYPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(256i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_EXTRINSICPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(512u32);
+pub const GPS_EXTRINSICPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(512i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_EXTRINSICPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1024u32);
+pub const GPS_EXTRINSICPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1024i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2048u32);
+pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4096u32);
+pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4096i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const GPS_MASK_VALID: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8191u32);
+pub const GPS_MASK_VALID: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8191i32);
 impl ::core::marker::Copy for GETPROPERTYSTOREFLAGS {}
 impl ::core::clone::Clone for GETPROPERTYSTOREFLAGS {
     fn clone(&self) -> Self {
@@ -4076,13 +4076,13 @@ impl ::core::fmt::Debug for PDOPSTATUS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PKA_FLAGS(pub u32);
+pub struct PKA_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PKA_SET: PKA_FLAGS = PKA_FLAGS(0u32);
+pub const PKA_SET: PKA_FLAGS = PKA_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PKA_APPEND: PKA_FLAGS = PKA_FLAGS(1u32);
+pub const PKA_APPEND: PKA_FLAGS = PKA_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PKA_DELETE: PKA_FLAGS = PKA_FLAGS(2u32);
+pub const PKA_DELETE: PKA_FLAGS = PKA_FLAGS(2i32);
 impl ::core::marker::Copy for PKA_FLAGS {}
 impl ::core::clone::Clone for PKA_FLAGS {
     fn clone(&self) -> Self {
@@ -4138,21 +4138,21 @@ impl ::core::ops::Not for PKA_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PLACEHOLDER_STATES(pub u32);
+pub struct PLACEHOLDER_STATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_NONE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(0u32);
+pub const PS_NONE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = PLACEHOLDER_STATES(1u32);
+pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = PLACEHOLDER_STATES(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(2u32);
+pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(4u32);
+pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = PLACEHOLDER_STATES(8u32);
+pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = PLACEHOLDER_STATES(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_DEFAULT: PLACEHOLDER_STATES = PLACEHOLDER_STATES(7u32);
+pub const PS_DEFAULT: PLACEHOLDER_STATES = PLACEHOLDER_STATES(7i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PS_ALL: PLACEHOLDER_STATES = PLACEHOLDER_STATES(15u32);
+pub const PS_ALL: PLACEHOLDER_STATES = PLACEHOLDER_STATES(15i32);
 impl ::core::marker::Copy for PLACEHOLDER_STATES {}
 impl ::core::clone::Clone for PLACEHOLDER_STATES {
     fn clone(&self) -> Self {
@@ -4387,37 +4387,37 @@ impl ::core::fmt::Debug for PROPDESC_ENUMFILTER {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPDESC_FORMAT_FLAGS(pub u32);
+pub struct PROPDESC_FORMAT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(0u32);
+pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1u32);
+pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_FILENAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2u32);
+pub const PDFF_FILENAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_ALWAYSKB: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4u32);
+pub const PDFF_ALWAYSKB: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_RESERVED_RIGHTTOLEFT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8u32);
+pub const PDFF_RESERVED_RIGHTTOLEFT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_SHORTTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(16u32);
+pub const PDFF_SHORTTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(32u32);
+pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(64u32);
+pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_SHORTDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(128u32);
+pub const PDFF_SHORTDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(128i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(256u32);
+pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_HIDEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(512u32);
+pub const PDFF_HIDEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(512i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1024u32);
+pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1024i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_USEEDITINVITATION: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2048u32);
+pub const PDFF_USEEDITINVITATION: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4096u32);
+pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4096i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8192u32);
+pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8192i32);
 impl ::core::marker::Copy for PROPDESC_FORMAT_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_FORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -4555,19 +4555,19 @@ impl ::core::fmt::Debug for PROPDESC_RELATIVEDESCRIPTION_TYPE {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPDESC_SEARCHINFO_FLAGS(pub u32);
+pub struct PROPDESC_SEARCHINFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(0u32);
+pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_ININVERTEDINDEX: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(1u32);
+pub const PDSIF_ININVERTEDINDEX: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_ISCOLUMN: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(2u32);
+pub const PDSIF_ISCOLUMN: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_ISCOLUMNSPARSE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(4u32);
+pub const PDSIF_ISCOLUMNSPARSE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_ALWAYSINCLUDE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(8u32);
+pub const PDSIF_ALWAYSINCLUDE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDSIF_USEFORTYPEAHEAD: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(16u32);
+pub const PDSIF_USEFORTYPEAHEAD: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(16i32);
 impl ::core::marker::Copy for PROPDESC_SEARCHINFO_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_SEARCHINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -4744,35 +4744,35 @@ impl ::core::ops::Not for PROPDESC_TYPE_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPDESC_VIEW_FLAGS(pub u32);
+pub struct PROPDESC_VIEW_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(0u32);
+pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_CENTERALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(1u32);
+pub const PDVF_CENTERALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_RIGHTALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2u32);
+pub const PDVF_RIGHTALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_BEGINNEWGROUP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4u32);
+pub const PDVF_BEGINNEWGROUP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_FILLAREA: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(8u32);
+pub const PDVF_FILLAREA: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(16u32);
+pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(32u32);
+pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_SHOWBYDEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(64u32);
+pub const PDVF_SHOWBYDEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(128u32);
+pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(128i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(256u32);
+pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_HIDELABEL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(512u32);
+pub const PDVF_HIDELABEL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(512i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_HIDDEN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2048u32);
+pub const PDVF_HIDDEN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_CANWRAP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4096u32);
+pub const PDVF_CANWRAP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4096i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PDVF_MASK_ALL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(7167u32);
+pub const PDVF_MASK_ALL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(7167i32);
 impl ::core::marker::Copy for PROPDESC_VIEW_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_VIEW_FLAGS {
     fn clone(&self) -> Self {
@@ -4859,13 +4859,13 @@ impl ::core::fmt::Debug for PROPENUMTYPE {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPERTYUI_FLAGS(pub u32);
+pub struct PROPERTYUI_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0u32);
+pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(1u32);
+pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(2u32);
+pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(2i32);
 impl ::core::marker::Copy for PROPERTYUI_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_FLAGS {
     fn clone(&self) -> Self {
@@ -4921,17 +4921,17 @@ impl ::core::ops::Not for PROPERTYUI_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPERTYUI_FORMAT_FLAGS(pub u32);
+pub struct PROPERTYUI_FORMAT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(0u32);
+pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(1u32);
+pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(2u32);
+pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(4u32);
+pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(8u32);
+pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(8i32);
 impl ::core::marker::Copy for PROPERTYUI_FORMAT_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_FORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -4987,11 +4987,11 @@ impl ::core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPERTYUI_NAME_FLAGS(pub u32);
+pub struct PROPERTYUI_NAME_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0u32);
+pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(1u32);
+pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(1i32);
 impl ::core::marker::Copy for PROPERTYUI_NAME_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_NAME_FLAGS {
     fn clone(&self) -> Self {
@@ -5047,19 +5047,19 @@ impl ::core::ops::Not for PROPERTYUI_NAME_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPVAR_CHANGE_FLAGS(pub u32);
+pub struct PROPVAR_CHANGE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0u32);
+pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1u32);
+pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2u32);
+pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4u32);
+pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8u32);
+pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16u32);
+pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16i32);
 impl ::core::marker::Copy for PROPVAR_CHANGE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -5115,21 +5115,21 @@ impl ::core::ops::Not for PROPVAR_CHANGE_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPVAR_COMPARE_FLAGS(pub u32);
+pub struct PROPVAR_COMPARE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0u32);
+pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1u32);
+pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2u32);
+pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4u32);
+pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8u32);
+pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16u32);
+pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32u32);
+pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32i32);
 impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
     fn clone(&self) -> Self {
@@ -5253,11 +5253,11 @@ impl ::core::fmt::Debug for PSC_STATE {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PSTIME_FLAGS(pub u32);
+pub struct PSTIME_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0u32);
+pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1u32);
+pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1i32);
 impl ::core::marker::Copy for PSTIME_FLAGS {}
 impl ::core::clone::Clone for PSTIME_FLAGS {
     fn clone(&self) -> Self {
@@ -5313,29 +5313,29 @@ impl ::core::ops::Not for PSTIME_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYNC_ENGINE_STATE_FLAGS(pub u32);
+pub struct SYNC_ENGINE_STATE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0u32);
+pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(1u32);
+pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(2u32);
+pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(4u32);
+pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_PAUSED_DUE_TO_METERED_NETWORK: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(8u32);
+pub const SESF_PAUSED_DUE_TO_METERED_NETWORK: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_PAUSED_DUE_TO_DISK_SPACE_FULL: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(16u32);
+pub const SESF_PAUSED_DUE_TO_DISK_SPACE_FULL: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_PAUSED_DUE_TO_CLIENT_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(32u32);
+pub const SESF_PAUSED_DUE_TO_CLIENT_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_PAUSED_DUE_TO_SERVICE_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(64u32);
+pub const SESF_PAUSED_DUE_TO_SERVICE_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(128u32);
+pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(128i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(256u32);
+pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(511u32);
+pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(511i32);
 impl ::core::marker::Copy for SYNC_ENGINE_STATE_FLAGS {}
 impl ::core::clone::Clone for SYNC_ENGINE_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -5391,31 +5391,31 @@ impl ::core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYNC_TRANSFER_STATUS(pub u32);
+pub struct SYNC_TRANSFER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_NONE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(0u32);
+pub const STS_NONE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_NEEDSUPLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1u32);
+pub const STS_NEEDSUPLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_NEEDSDOWNLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(2u32);
+pub const STS_NEEDSDOWNLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(4u32);
+pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_PAUSED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(8u32);
+pub const STS_PAUSED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_HASERROR: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(16u32);
+pub const STS_HASERROR: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_FETCHING_METADATA: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(32u32);
+pub const STS_FETCHING_METADATA: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(64u32);
+pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_HASWARNING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(128u32);
+pub const STS_HASWARNING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(128i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_EXCLUDED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(256u32);
+pub const STS_EXCLUDED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(256i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_INCOMPLETE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(512u32);
+pub const STS_INCOMPLETE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(512i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1024u32);
+pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1024i32);
 impl ::core::marker::Copy for SYNC_TRANSFER_STATUS {}
 impl ::core::clone::Clone for SYNC_TRANSFER_STATUS {
     fn clone(&self) -> Self {

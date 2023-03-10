@@ -1177,23 +1177,23 @@ impl ::core::fmt::Debug for IDENTITY_URL {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IdentityUpdateEvent(pub u32);
+pub struct IdentityUpdateEvent(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1u32);
+pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2u32);
+pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4u32);
+pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8u32);
+pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16u32);
+pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32u32);
+pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64u32);
+pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128u32);
+pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
 impl ::core::marker::Copy for IdentityUpdateEvent {}
 impl ::core::clone::Clone for IdentityUpdateEvent {
     fn clone(&self) -> Self {

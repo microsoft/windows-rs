@@ -4495,13 +4495,13 @@ pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub u32);
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1u32);
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(2u32);
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(3u32);
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(3i32);
 impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {}
 impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     fn clone(&self) -> Self {
@@ -4557,9 +4557,9 @@ impl ::core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub u32);
+pub struct FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1u32);
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1i32);
 impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
 impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     fn clone(&self) -> Self {

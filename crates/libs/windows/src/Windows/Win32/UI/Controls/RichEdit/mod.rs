@@ -10455,20 +10455,51 @@ impl ::core::default::Default for GROUPTYPINGCHANGE {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
     pub pfnHyphenate: isize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for HYPHENATEINFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for HYPHENATEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows::core::TypeKind for HYPHENATEINFO {
     type TypeKind = ::windows::core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for HYPHENATEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct HYPHENATEINFO {
+    pub cbSize: i16,
+    pub dxHyphenateZone: i16,
+    pub pfnHyphenate: isize,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for HYPHENATEINFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for HYPHENATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows::core::TypeKind for HYPHENATEINFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for HYPHENATEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

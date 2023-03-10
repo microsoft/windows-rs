@@ -14731,21 +14731,21 @@ impl ::core::fmt::Debug for POINTERINACTIVE {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRINTFLAG(pub u32);
+pub struct PRINTFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1u32);
+pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2u32);
+pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4u32);
+pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8u32);
+pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16u32);
+pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32u32);
+pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64u32);
+pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64i32);
 impl ::core::marker::Copy for PRINTFLAG {}
 impl ::core::clone::Clone for PRINTFLAG {
     fn clone(&self) -> Self {

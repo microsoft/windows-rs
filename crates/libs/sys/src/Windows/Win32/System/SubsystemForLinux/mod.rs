@@ -9,12 +9,12 @@
 ::windows_sys::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"] fn WslRegisterDistribution ( distributionname : :: windows_sys::core::PCWSTR , targzfilename : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"] fn WslUnregisterDistribution ( distributionname : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub type WSL_DISTRIBUTION_FLAGS = u32;
+pub type WSL_DISTRIBUTION_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = 0u32;
+pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = 1u32;
+pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = 2u32;
+pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = 4u32;
+pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = 4i32;

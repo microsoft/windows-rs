@@ -1243,13 +1243,13 @@ impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_MMIO_MAPPING_FLAGS(pub u32);
+pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0u32);
+pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1u32);
+pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2u32);
+pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2i32);
 impl ::core::marker::Copy for HDV_MMIO_MAPPING_FLAGS {}
 impl ::core::clone::Clone for HDV_MMIO_MAPPING_FLAGS {
     fn clone(&self) -> Self {
@@ -1836,11 +1836,11 @@ impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_CODE {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub u32);
+pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(0u32);
+pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(1u32);
+pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(1i32);
 impl ::core::marker::Copy for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {}
 impl ::core::clone::Clone for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     fn clone(&self) -> Self {
@@ -1984,13 +1984,13 @@ impl ::core::fmt::Debug for WHV_CAPABILITY_CODE {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub u32);
+pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCreateVpciDeviceFlagNone: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(0u32);
+pub const WHvCreateVpciDeviceFlagNone: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCreateVpciDeviceFlagPhysicallyBacked: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(1u32);
+pub const WHvCreateVpciDeviceFlagPhysicallyBacked: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCreateVpciDeviceFlagUseLogicalInterrupts: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(2u32);
+pub const WHvCreateVpciDeviceFlagUseLogicalInterrupts: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(2i32);
 impl ::core::marker::Copy for WHV_CREATE_VPCI_DEVICE_FLAGS {}
 impl ::core::clone::Clone for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn clone(&self) -> Self {
@@ -2192,17 +2192,17 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_MAP_GPA_RANGE_FLAGS(pub u32);
+pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagNone: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(0u32);
+pub const WHvMapGpaRangeFlagNone: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagRead: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(1u32);
+pub const WHvMapGpaRangeFlagRead: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(2u32);
+pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(4u32);
+pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(8u32);
+pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(8i32);
 impl ::core::marker::Copy for WHV_MAP_GPA_RANGE_FLAGS {}
 impl ::core::clone::Clone for WHV_MAP_GPA_RANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -3101,23 +3101,23 @@ impl ::core::fmt::Debug for WHV_RUN_VP_EXIT_REASON {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_TRANSLATE_GVA_FLAGS(pub u32);
+pub struct WHV_TRANSLATE_GVA_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagNone: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(0u32);
+pub const WHvTranslateGvaFlagNone: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateRead: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(1u32);
+pub const WHvTranslateGvaFlagValidateRead: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateWrite: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(2u32);
+pub const WHvTranslateGvaFlagValidateWrite: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateExecute: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(4u32);
+pub const WHvTranslateGvaFlagValidateExecute: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagPrivilegeExempt: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(8u32);
+pub const WHvTranslateGvaFlagPrivilegeExempt: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagSetPageTableBits: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(16u32);
+pub const WHvTranslateGvaFlagSetPageTableBits: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagEnforceSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(256u32);
+pub const WHvTranslateGvaFlagEnforceSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagOverrideSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(512u32);
+pub const WHvTranslateGvaFlagOverrideSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(512i32);
 impl ::core::marker::Copy for WHV_TRANSLATE_GVA_FLAGS {}
 impl ::core::clone::Clone for WHV_TRANSLATE_GVA_FLAGS {
     fn clone(&self) -> Self {
@@ -3396,11 +3396,11 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER_SPACE {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub u32);
+pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0u32);
+pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciInterruptTargetFlagMulticast: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(1u32);
+pub const WHvVpciInterruptTargetFlagMulticast: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(1i32);
 impl ::core::marker::Copy for WHV_VPCI_INTERRUPT_TARGET_FLAGS {}
 impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn clone(&self) -> Self {
@@ -3456,11 +3456,11 @@ impl ::core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub u32);
+pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1u32);
+pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciMmioRangeFlagWriteAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(2u32);
+pub const WHvVpciMmioRangeFlagWriteAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(2i32);
 impl ::core::marker::Copy for WHV_VPCI_MMIO_RANGE_FLAGS {}
 impl ::core::clone::Clone for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -3549,11 +3549,11 @@ impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_TYPE {
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub u32);
+pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1u32);
+pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64CpuidResult2FlagVpSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(2u32);
+pub const WHvX64CpuidResult2FlagVpSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(2i32);
 impl ::core::marker::Copy for WHV_X64_CPUID_RESULT2_FLAGS {}
 impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2_FLAGS {
     fn clone(&self) -> Self {
