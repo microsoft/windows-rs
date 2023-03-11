@@ -165,14 +165,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]
-pub unsafe fn WinHttpOpenRequest<P0, P1, P2, P3>(hconnect: *mut ::core::ffi::c_void, pwszverb: P0, pwszobjectname: P1, pwszversion: P2, pwszreferrer: P3, ppwszaccepttypes: *mut ::windows::core::PWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void
+pub unsafe fn WinHttpOpenRequest<P0, P1, P2, P3>(hconnect: *mut ::core::ffi::c_void, pwszverb: P0, pwszobjectname: P1, pwszversion: P2, pwszreferrer: P3, ppwszaccepttypes: *const ::windows::core::PCWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winhttp.dll""system" fn WinHttpOpenRequest ( hconnect : *mut ::core::ffi::c_void , pwszverb : :: windows::core::PCWSTR , pwszobjectname : :: windows::core::PCWSTR , pwszversion : :: windows::core::PCWSTR , pwszreferrer : :: windows::core::PCWSTR , ppwszaccepttypes : *mut :: windows::core::PWSTR , dwflags : WINHTTP_OPEN_REQUEST_FLAGS ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "winhttp.dll""system" fn WinHttpOpenRequest ( hconnect : *mut ::core::ffi::c_void , pwszverb : :: windows::core::PCWSTR , pwszobjectname : :: windows::core::PCWSTR , pwszversion : :: windows::core::PCWSTR , pwszreferrer : :: windows::core::PCWSTR , ppwszaccepttypes : *const :: windows::core::PCWSTR , dwflags : WINHTTP_OPEN_REQUEST_FLAGS ) -> *mut ::core::ffi::c_void );
     WinHttpOpenRequest(hconnect, pwszverb.into_param().abi(), pwszobjectname.into_param().abi(), pwszversion.into_param().abi(), pwszreferrer.into_param().abi(), ppwszaccepttypes, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]

@@ -2378,24 +2378,24 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadImageA<P0, P1>(hinst: P0, name: P1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn LoadImageA<P0, P1>(hinst: P0, name: P1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> ::windows::core::Result<LOADIMAGE_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn LoadImageA ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows::core::PCSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "user32.dll""system" fn LoadImageA ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows::core::PCSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> LOADIMAGE_HANDLE );
     let result__ = LoadImageA(hinst.into_param().abi(), name.into_param().abi(), r#type, cx, cy, fuload);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadImageW<P0, P1>(hinst: P0, name: P1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn LoadImageW<P0, P1>(hinst: P0, name: P1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> ::windows::core::Result<LOADIMAGE_HANDLE>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn LoadImageW ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows::core::PCWSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "user32.dll""system" fn LoadImageW ( hinst : super::super::Foundation:: HINSTANCE , name : :: windows::core::PCWSTR , r#type : GDI_IMAGE_TYPE , cx : i32 , cy : i32 , fuload : IMAGE_FLAGS ) -> LOADIMAGE_HANDLE );
     let result__ = LoadImageW(hinst.into_param().abi(), name.into_param().abi(), r#type, cx, cy, fuload);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -3808,16 +3808,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini)
+pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoA ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoA(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*const ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *const ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())), fwinini)
+pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn SystemParametersInfoW ( uiaction : SYSTEM_PARAMETERS_INFO_ACTION , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS ) -> super::super::Foundation:: BOOL );
+    SystemParametersInfoW(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13138,6 +13138,33 @@ impl ::core::default::Default for KBDLLHOOKSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LOADIMAGE_HANDLE(pub isize);
+impl LOADIMAGE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for LOADIMAGE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LOADIMAGE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LOADIMAGE_HANDLE {}
+impl ::core::fmt::Debug for LOADIMAGE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOADIMAGE_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for LOADIMAGE_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]

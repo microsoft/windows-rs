@@ -1443,6 +1443,39 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_CONFIGURATION").field(&self.0).finish()
     }
 }
+impl DIRECTMANIPULATION_CONFIGURATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_CONFIGURATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_CONFIGURATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_CONFIGURATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_CONFIGURATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_CONFIGURATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1474,6 +1507,39 @@ impl ::windows::core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
 impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION").field(&self.0).finish()
+    }
+}
+impl DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -1544,6 +1610,39 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_GESTURE_CONFIGURATION").field(&self.0).finish()
     }
 }
+impl DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1571,6 +1670,39 @@ impl ::windows::core::TypeKind for DIRECTMANIPULATION_HITTEST_TYPE {
 impl ::core::fmt::Debug for DIRECTMANIPULATION_HITTEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIRECTMANIPULATION_HITTEST_TYPE").field(&self.0).finish()
+    }
+}
+impl DIRECTMANIPULATION_HITTEST_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_HITTEST_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_HITTEST_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_HITTEST_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_HITTEST_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_HITTEST_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -1604,6 +1736,39 @@ impl ::windows::core::TypeKind for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
 impl ::core::fmt::Debug for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIRECTMANIPULATION_HORIZONTALALIGNMENT").field(&self.0).finish()
+    }
+}
+impl DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -1707,6 +1872,39 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_MOTION_TYPES {
         f.debug_tuple("DIRECTMANIPULATION_MOTION_TYPES").field(&self.0).finish()
     }
 }
+impl DIRECTMANIPULATION_MOTION_TYPES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_MOTION_TYPES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_MOTION_TYPES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_MOTION_TYPES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_MOTION_TYPES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_MOTION_TYPES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1734,6 +1932,39 @@ impl ::windows::core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
 impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIRECTMANIPULATION_SNAPPOINT_COORDINATE").field(&self.0).finish()
+    }
+}
+impl DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -1837,6 +2068,39 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_VERTICALALIGNMENT {
         f.debug_tuple("DIRECTMANIPULATION_VERTICALALIGNMENT").field(&self.0).finish()
     }
 }
+impl DIRECTMANIPULATION_VERTICALALIGNMENT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_VERTICALALIGNMENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1870,6 +2134,39 @@ impl ::windows::core::TypeKind for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
 impl ::core::fmt::Debug for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIRECTMANIPULATION_VIEWPORT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[cfg(feature = "implement")]

@@ -18422,7 +18422,7 @@ impl ::core::default::Default for CERT_X942_DH_VALIDATION_PARAMS {
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct CLAIMLIST {
     pub count: u32,
-    pub claims: *mut ::windows::core::PWSTR,
+    pub claims: *const ::windows::core::PCWSTR,
 }
 impl ::core::marker::Copy for CLAIMLIST {}
 impl ::core::clone::Clone for CLAIMLIST {
@@ -23500,7 +23500,7 @@ impl ::core::default::Default for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO 
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
-    pub rgpwszCNGHashAlgid: *mut ::windows::core::PWSTR,
+    pub rgpwszCNGHashAlgid: *const ::windows::core::PCWSTR,
     pub dwWeakIndex: u32,
 }
 impl ::core::marker::Copy for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}

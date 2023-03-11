@@ -2799,13 +2799,13 @@ impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPC_READ_FLAGS(pub u32);
+pub struct OPC_READ_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0u32);
+pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1u32);
+pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = OPC_READ_FLAGS(2u32);
+pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = OPC_READ_FLAGS(2i32);
 impl ::core::marker::Copy for OPC_READ_FLAGS {}
 impl ::core::clone::Clone for OPC_READ_FLAGS {
     fn clone(&self) -> Self {
@@ -3031,11 +3031,11 @@ impl ::core::fmt::Debug for OPC_URI_TARGET_MODE {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPC_WRITE_FLAGS(pub u32);
+pub struct OPC_WRITE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);
+pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
-pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1u32);
+pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1i32);
 impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
 impl ::core::clone::Clone for OPC_WRITE_FLAGS {
     fn clone(&self) -> Self {

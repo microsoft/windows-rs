@@ -410,15 +410,15 @@ pub struct IProtectionPolicyManagerInterop3_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENTERPRISE_DATA_POLICIES(pub u32);
+pub struct ENTERPRISE_DATA_POLICIES(pub i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
+pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1u32);
+pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
+pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
+pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4i32);
 impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
 impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
     fn clone(&self) -> Self {

@@ -5684,7 +5684,7 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: ::windows_sys::core::PCWSTR,
     pub cNodes: u32,
-    pub ppszNodeNames: *mut ::windows_sys::core::PWSTR,
+    pub ppszNodeNames: *const ::windows_sys::core::PCWSTR,
     pub cIpEntries: u32,
     pub pIpEntries: *mut CLUSTER_IP_ENTRY,
     pub fEmptyCluster: super::super::Foundation::BOOLEAN,

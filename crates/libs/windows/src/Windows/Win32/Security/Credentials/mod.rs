@@ -1948,23 +1948,23 @@ impl ::core::fmt::Debug for CRED_TYPE {
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KeyCredentialManagerOperationErrorStates(pub u32);
+pub struct KeyCredentialManagerOperationErrorStates(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0u32);
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1u32);
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2u32);
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4u32);
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8u32);
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16u32);
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32u32);
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64u32);
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64i32);
 impl ::core::marker::Copy for KeyCredentialManagerOperationErrorStates {}
 impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
     fn clone(&self) -> Self {

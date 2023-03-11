@@ -16600,19 +16600,19 @@ impl ::core::fmt::Debug for TA_PROPERTY {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TA_PROPERTY_FLAG(pub u32);
+pub struct TA_PROPERTY_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0u32);
+pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1u32);
+pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2u32);
+pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4u32);
+pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8u32);
+pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16u32);
+pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16i32);
 impl ::core::marker::Copy for TA_PROPERTY_FLAG {}
 impl ::core::clone::Clone for TA_PROPERTY_FLAG {
     fn clone(&self) -> Self {
@@ -16721,6 +16721,39 @@ impl ::windows::core::TypeKind for TA_TRANSFORM_FLAG {
 impl ::core::fmt::Debug for TA_TRANSFORM_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TA_TRANSFORM_FLAG").field(&self.0).finish()
+    }
+}
+impl TA_TRANSFORM_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TA_TRANSFORM_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TA_TRANSFORM_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]

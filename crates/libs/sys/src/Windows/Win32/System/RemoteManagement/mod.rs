@@ -1408,7 +1408,7 @@ pub struct WSMAN_COMMAND(pub u8);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_COMMAND_ARG_SET {
     pub argsCount: u32,
-    pub args: *mut ::windows_sys::core::PWSTR,
+    pub args: *const ::windows_sys::core::PCWSTR,
 }
 impl ::core::marker::Copy for WSMAN_COMMAND_ARG_SET {}
 impl ::core::clone::Clone for WSMAN_COMMAND_ARG_SET {
@@ -1642,7 +1642,7 @@ pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
     pub options: *mut WSMAN_OPTION,
     pub optionsMustUnderstand: super::super::Foundation::BOOL,
-    pub optionTypes: *mut ::windows_sys::core::PWSTR,
+    pub optionTypes: *const ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSMAN_OPTION_SETEX {}
@@ -1799,7 +1799,7 @@ impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_STREAM_ID_SET {
     pub streamIDsCount: u32,
-    pub streamIDs: *mut ::windows_sys::core::PWSTR,
+    pub streamIDs: *const ::windows_sys::core::PCWSTR,
 }
 impl ::core::marker::Copy for WSMAN_STREAM_ID_SET {}
 impl ::core::clone::Clone for WSMAN_STREAM_ID_SET {

@@ -251,17 +251,17 @@ pub struct IUnbufferedFileHandleProvider_Vtbl {
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HANDLE_ACCESS_OPTIONS(pub u32);
+pub struct HANDLE_ACCESS_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HAO_NONE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(0u32);
+pub const HAO_NONE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HAO_READ_ATTRIBUTES: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(128u32);
+pub const HAO_READ_ATTRIBUTES: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(128i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HAO_READ: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(1179785u32);
+pub const HAO_READ: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(1179785i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HAO_WRITE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(1179926u32);
+pub const HAO_WRITE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(1179926i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HAO_DELETE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(65536u32);
+pub const HAO_DELETE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(65536i32);
 impl ::core::marker::Copy for HANDLE_ACCESS_OPTIONS {}
 impl ::core::clone::Clone for HANDLE_ACCESS_OPTIONS {
     fn clone(&self) -> Self {
@@ -422,15 +422,15 @@ impl ::core::ops::Not for HANDLE_OPTIONS {
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HANDLE_SHARING_OPTIONS(pub u32);
+pub struct HANDLE_SHARING_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(0u32);
+pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(1u32);
+pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(1i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(2u32);
+pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(2i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-pub const HSO_SHARE_DELETE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(4u32);
+pub const HSO_SHARE_DELETE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(4i32);
 impl ::core::marker::Copy for HANDLE_SHARING_OPTIONS {}
 impl ::core::clone::Clone for HANDLE_SHARING_OPTIONS {
     fn clone(&self) -> Self {

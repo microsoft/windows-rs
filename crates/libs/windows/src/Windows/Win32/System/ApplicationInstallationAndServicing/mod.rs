@@ -7815,19 +7815,19 @@ impl ::core::fmt::Debug for ADVERTISEFLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ASM_BIND_FLAGS(pub u32);
+pub struct ASM_BIND_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = ASM_BIND_FLAGS(1u32);
+pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = ASM_BIND_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(2u32);
+pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(4u32);
+pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = ASM_BIND_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = ASM_BIND_FLAGS(8u32);
+pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = ASM_BIND_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(16u32);
+pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(32u32);
+pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = ASM_BIND_FLAGS(32i32);
 impl ::core::marker::Copy for ASM_BIND_FLAGS {}
 impl ::core::clone::Clone for ASM_BIND_FLAGS {
     fn clone(&self) -> Self {
@@ -12271,7 +12271,7 @@ pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
     pub NewFileSymbolPath: ::windows::core::PCSTR,
-    pub OldFileSymbolPathArray: *mut ::windows::core::PSTR,
+    pub OldFileSymbolPathArray: *const ::windows::core::PCSTR,
     pub ExtendedOptionFlags: u32,
     pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
     pub SymLoadContext: *mut ::core::ffi::c_void,

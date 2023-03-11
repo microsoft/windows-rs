@@ -78,18 +78,6 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
             #features
             pub const #name: #kind = #kind { #value };
         }
-    // TODO: remove this branch once https://github.com/microsoft/win32metadata/issues/1483 arrives
-    } else if let Some((guid, id)) = get_property_key(gen, def) {
-        let kind = gen.type_default_name(&ty);
-        let guid = gen.guid(&guid);
-        quote! {
-            #doc
-            #features
-            pub const #name: #kind = #kind {
-                fmtid: #guid,
-                pid: #id,
-            };
-        }
     } else {
         quote! {}
     }
@@ -197,18 +185,4 @@ fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
     }
 
     (result, read_token(input, b'}'))
-}
-
-fn get_property_key(gen: &Gen, def: Field) -> Option<(GUID, u32)> {
-    gen.reader
-        .field_attributes(def)
-        .find(|attribute| gen.reader.attribute_name(*attribute) == "PropertyKeyAttribute")
-        .map(|attribute| {
-            let args = gen.reader.attribute_args(attribute);
-            let id = match args[11].1 {
-                Value::U32(value) => value,
-                _ => unimplemented!(),
-            };
-            (GUID::from_args(&args), id)
-        })
 }

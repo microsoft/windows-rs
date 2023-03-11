@@ -3193,7 +3193,7 @@ pub struct UIAutomationMethodInfo {
     pub cInParameters: u32,
     pub cOutParameters: u32,
     pub pParameterTypes: *mut UIAutomationType,
-    pub pParameterNames: *mut ::windows_sys::core::PWSTR,
+    pub pParameterNames: *const ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationMethodInfo {}

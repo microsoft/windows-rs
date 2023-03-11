@@ -674,11 +674,11 @@ impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCS_EVENT_OPTIONS(pub u32);
+pub struct HCS_EVENT_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
+pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
+pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
 impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
 impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
     fn clone(&self) -> Self {

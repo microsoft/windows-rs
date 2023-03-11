@@ -51296,19 +51296,19 @@ pub const iTRUECOLOR: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADVISE_TYPE(pub u32);
+pub struct ADVISE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0u32);
+pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1u32);
+pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2u32);
+pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4u32);
+pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8u32);
+pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16u32);
+pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16i32);
 impl ::core::marker::Copy for ADVISE_TYPE {}
 impl ::core::clone::Clone for ADVISE_TYPE {
     fn clone(&self) -> Self {
@@ -51401,9 +51401,9 @@ impl ::core::fmt::Debug for AMExtendedSeekingCapabilities {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AMMSF_MMS_INIT_FLAGS(pub u32);
+pub struct AMMSF_MMS_INIT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1u32);
+pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1i32);
 impl ::core::marker::Copy for AMMSF_MMS_INIT_FLAGS {}
 impl ::core::clone::Clone for AMMSF_MMS_INIT_FLAGS {
     fn clone(&self) -> Self {
@@ -51459,15 +51459,15 @@ impl ::core::ops::Not for AMMSF_MMS_INIT_FLAGS {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AMMSF_MS_FLAGS(pub u32);
+pub struct AMMSF_MS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1u32);
+pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2u32);
+pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4u32);
+pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8u32);
+pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8i32);
 impl ::core::marker::Copy for AMMSF_MS_FLAGS {}
 impl ::core::clone::Clone for AMMSF_MS_FLAGS {
     fn clone(&self) -> Self {
@@ -51523,19 +51523,19 @@ impl ::core::ops::Not for AMMSF_MS_FLAGS {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AMMSF_RENDER_FLAGS(pub u32);
+pub struct AMMSF_RENDER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3u32);
+pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0u32);
+pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1u32);
+pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2u32);
+pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4u32);
+pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8u32);
+pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8i32);
 impl ::core::marker::Copy for AMMSF_RENDER_FLAGS {}
 impl ::core::clone::Clone for AMMSF_RENDER_FLAGS {
     fn clone(&self) -> Self {
@@ -54795,9 +54795,9 @@ impl ::core::fmt::Debug for CompressionCaps {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DDSFF_FLAGS(pub u32);
+pub struct DDSFF_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1u32);
+pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1i32);
 impl ::core::marker::Copy for DDSFF_FLAGS {}
 impl ::core::clone::Clone for DDSFF_FLAGS {
     fn clone(&self) -> Self {
@@ -58406,13 +58406,13 @@ impl ::core::fmt::Debug for KSPROPERTY_IDS_BDA_TABLE {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_IPSINK(pub u32);
+pub struct KSPROPERTY_IPSINK(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0u32);
+pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1u32);
+pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2u32);
+pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2i32);
 impl ::core::marker::Copy for KSPROPERTY_IPSINK {}
 impl ::core::clone::Clone for KSPROPERTY_IPSINK {
     fn clone(&self) -> Self {
@@ -58594,13 +58594,13 @@ impl ::core::fmt::Debug for MEDIA_SAMPLE_CONTENT {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMSSF_GET_INFORMATION_FLAGS(pub u32);
+pub struct MMSSF_GET_INFORMATION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1u32);
+pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2u32);
+pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4u32);
+pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4i32);
 impl ::core::marker::Copy for MMSSF_GET_INFORMATION_FLAGS {}
 impl ::core::clone::Clone for MMSSF_GET_INFORMATION_FLAGS {
     fn clone(&self) -> Self {
@@ -59336,13 +59336,13 @@ impl ::core::fmt::Debug for OA_BOOL {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OUTPUT_STATE(pub u32);
+pub struct OUTPUT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0u32);
+pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1u32);
+pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2u32);
+pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
 impl ::core::marker::Copy for OUTPUT_STATE {}
 impl ::core::clone::Clone for OUTPUT_STATE {
     fn clone(&self) -> Self {
@@ -59692,15 +59692,15 @@ impl ::core::fmt::Debug for RECORDING_TYPE {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct REG_PINFLAG(pub u32);
+pub struct REG_PINFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1u32);
+pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2u32);
+pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4u32);
+pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8u32);
+pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8i32);
 impl ::core::marker::Copy for REG_PINFLAG {}
 impl ::core::clone::Clone for REG_PINFLAG {
     fn clone(&self) -> Self {

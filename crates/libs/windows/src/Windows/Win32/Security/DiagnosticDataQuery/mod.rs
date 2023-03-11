@@ -660,7 +660,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_RECORD {
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    pub producerNames: *mut ::windows::core::PWSTR,
+    pub producerNames: *const ::windows::core::PCWSTR,
     pub producerNameCount: u32,
     pub textToMatch: ::windows::core::PCWSTR,
     pub categoryIds: *const i32,

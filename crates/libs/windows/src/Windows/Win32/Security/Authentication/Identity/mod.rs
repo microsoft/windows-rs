@@ -7403,11 +7403,11 @@ impl ::core::fmt::Debug for SL_GENUINE_STATE {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SchGetExtensionsOptions(pub u32);
+pub struct SchGetExtensionsOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0u32);
+pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = SchGetExtensionsOptions(1u32);
+pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = SchGetExtensionsOptions(1i32);
 impl ::core::marker::Copy for SchGetExtensionsOptions {}
 impl ::core::clone::Clone for SchGetExtensionsOptions {
     fn clone(&self) -> Self {

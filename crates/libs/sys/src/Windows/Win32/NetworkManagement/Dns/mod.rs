@@ -1019,7 +1019,7 @@ pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub cbAppSid: u32,
     pub pbAppSid: *mut u8,
     pub nConnections: u32,
-    pub ppwszConnections: *mut ::windows_sys::core::PWSTR,
+    pub ppwszConnections: *const ::windows_sys::core::PCWSTR,
     pub dwPolicyEntryFlags: u32,
 }
 impl ::core::marker::Copy for DNS_CONNECTION_POLICY_ENTRY {}

@@ -77,15 +77,15 @@ where
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WSL_DISTRIBUTION_FLAGS(pub u32);
+pub struct WSL_DISTRIBUTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0u32);
+pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(1u32);
+pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(2u32);
+pub const WSL_DISTRIBUTION_FLAGS_APPEND_NT_PATH: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
-pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(4u32);
+pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(4i32);
 impl ::core::marker::Copy for WSL_DISTRIBUTION_FLAGS {}
 impl ::core::clone::Clone for WSL_DISTRIBUTION_FLAGS {
     fn clone(&self) -> Self {

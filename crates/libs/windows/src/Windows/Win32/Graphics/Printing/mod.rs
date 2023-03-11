@@ -4017,7 +4017,7 @@ impl IPrintCoreHelper {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *const *const *const ::windows::core::PCSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
@@ -4041,7 +4041,7 @@ impl IPrintCoreHelper {
     {
         (::windows::core::Interface::vtable(self).EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into_param().abi(), poptionlist, pdwnumoptions).ok()
     }
-    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -4097,7 +4097,7 @@ pub struct IPrintCoreHelper_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     SetOptions: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub EnumConstrainedOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::HRESULT,
+    pub EnumConstrainedOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: ::windows::core::PCSTR, pconstrainedoptionlist: *const *const *const ::windows::core::PCSTR, pdwnumoptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     EnumConstrainedOptions: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4106,7 +4106,7 @@ pub struct IPrintCoreHelper_Vtbl {
     WhyConstrained: usize,
     pub EnumFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfeaturelist: *mut *mut *mut ::windows::core::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::HRESULT,
     pub EnumOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfeaturekeyword: ::windows::core::PCSTR, poptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::HRESULT,
-    pub GetFontSubstitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub GetFontSubstitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztruetypefontname: ::windows::core::PCWSTR, ppszdevfontname: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetFontSubstitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztruetypefontname: ::windows::core::PCWSTR, pszdevfontname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub CreateInstanceOfMSXMLObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4133,7 +4133,7 @@ impl IPrintCoreHelperPS {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *const *const *const ::windows::core::PCSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
@@ -4157,7 +4157,7 @@ impl IPrintCoreHelperPS {
     {
         (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into_param().abi(), poptionlist, pdwnumoptions).ok()
     }
-    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -4252,7 +4252,7 @@ impl IPrintCoreHelperUni {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *const *const *const ::windows::core::PCSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
@@ -4276,7 +4276,7 @@ impl IPrintCoreHelperUni {
     {
         (::windows::core::Interface::vtable(self).base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into_param().abi(), poptionlist, pdwnumoptions).ok()
     }
-    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -4366,7 +4366,7 @@ impl IPrintCoreHelperUni2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *mut *mut *mut ::windows::core::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn EnumConstrainedOptions<P0>(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: P0, pconstrainedoptionlist: *const *const *const ::windows::core::PCSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
@@ -4390,7 +4390,7 @@ impl IPrintCoreHelperUni2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.EnumOptions)(::windows::core::Interface::as_raw(self), pszfeaturekeyword.into_param().abi(), poptionlist, pdwnumoptions).ok()
     }
-    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn GetFontSubstitution<P0>(&self, psztruetypefontname: P0, ppszdevfontname: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {

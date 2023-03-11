@@ -167,7 +167,7 @@ impl ::core::clone::Clone for DIAGNOSTIC_DATA_RECORD {
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    pub producerNames: *mut ::windows_sys::core::PWSTR,
+    pub producerNames: *const ::windows_sys::core::PCWSTR,
     pub producerNameCount: u32,
     pub textToMatch: ::windows_sys::core::PCWSTR,
     pub categoryIds: *const i32,

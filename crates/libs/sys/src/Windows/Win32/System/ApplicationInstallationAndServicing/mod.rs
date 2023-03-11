@@ -1695,19 +1695,19 @@ pub const ADVERTISEFLAGS_MACHINEASSIGN: ADVERTISEFLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const ADVERTISEFLAGS_USERASSIGN: ADVERTISEFLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub type ASM_BIND_FLAGS = u32;
+pub type ASM_BIND_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = 1u32;
+pub const ASM_BINDF_FORCE_CACHE_INSTALL: ASM_BIND_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = 2u32;
+pub const ASM_BINDF_RFS_INTEGRITY_CHECK: ASM_BIND_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = 4u32;
+pub const ASM_BINDF_RFS_MODULE_CHECK: ASM_BIND_FLAGS = 4i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = 8u32;
+pub const ASM_BINDF_BINPATH_PROBE_ONLY: ASM_BIND_FLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = 16u32;
+pub const ASM_BINDF_SHARED_BINPATH_HINT: ASM_BIND_FLAGS = 16i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
-pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = 32u32;
+pub const ASM_BINDF_PARENT_ASM_HINT: ASM_BIND_FLAGS = 32i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub type ASM_CMP_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -3649,7 +3649,7 @@ pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
     pub NewFileSymbolPath: ::windows_sys::core::PCSTR,
-    pub OldFileSymbolPathArray: *mut ::windows_sys::core::PSTR,
+    pub OldFileSymbolPathArray: *const ::windows_sys::core::PCSTR,
     pub ExtendedOptionFlags: u32,
     pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
     pub SymLoadContext: *mut ::core::ffi::c_void,
