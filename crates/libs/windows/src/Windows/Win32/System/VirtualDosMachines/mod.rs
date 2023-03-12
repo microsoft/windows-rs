@@ -225,41 +225,33 @@ impl ::core::default::Default for GLOBALENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct IMAGE_NOTE {
-    pub Module: [super::super::Foundation::CHAR; 10],
-    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub Module: [u8; 10],
+    pub FileName: [u8; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_NOTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGE_NOTE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGE_NOTE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGE_NOTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -270,10 +262,10 @@ impl ::core::default::Default for IMAGE_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY {
     pub dwSize: u32,
-    pub szModule: [super::super::Foundation::CHAR; 10],
+    pub szModule: [u8; 10],
     pub hModule: super::super::Foundation::HANDLE,
     pub wcUsage: u16,
-    pub szExePath: [super::super::Foundation::CHAR; 256],
+    pub szExePath: [u8; 256],
     pub wNext: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -295,44 +287,36 @@ impl ::core::default::Default for MODULEENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
     pub Segment: u16,
-    pub Module: [super::super::Foundation::CHAR; 10],
-    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub Module: [u8; 10],
+    pub FileName: [u8; 256],
     pub Type: u16,
     pub Length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SEGMENT_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SEGMENT_NOTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SEGMENT_NOTE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SEGMENT_NOTE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
         self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SEGMENT_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SEGMENT_NOTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -691,43 +675,35 @@ impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,
     pub Length: u32,
     pub Type: u16,
-    pub ModuleName: [super::super::Foundation::CHAR; 9],
-    pub FileName: [super::super::Foundation::CHAR; 255],
+    pub ModuleName: [u8; 9],
+    pub FileName: [u8; 255],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDM_SEGINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDM_SEGINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VDM_SEGINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for VDM_SEGINFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
         self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VDM_SEGINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VDM_SEGINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

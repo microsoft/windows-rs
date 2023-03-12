@@ -1468,23 +1468,19 @@ impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct CHANNEL_DEF {
-    pub name: [super::super::Foundation::CHAR; 8],
+    pub name: [u8; 8],
     pub options: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_DEF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANNEL_DEF {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -1493,9 +1489,7 @@ pub struct CHANNEL_ENTRY_POINTS {
     pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
     pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
     fn clone(&self) -> Self {
         *self
@@ -1528,15 +1522,12 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
 }
 pub type HwtsVirtualChannelHandle = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct PRODUCT_INFOA {
-    pub CompanyName: [super::super::Foundation::CHAR; 256],
-    pub ProductID: [super::super::Foundation::CHAR; 4],
+    pub CompanyName: [u8; 256],
+    pub ProductID: [u8; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRODUCT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRODUCT_INFOA {
     fn clone(&self) -> Self {
         *self
@@ -1992,32 +1983,29 @@ impl ::core::clone::Clone for WRDS_SETTINGS_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSCLIENTA {
-    pub ClientName: [super::super::Foundation::CHAR; 21],
-    pub Domain: [super::super::Foundation::CHAR; 18],
-    pub UserName: [super::super::Foundation::CHAR; 21],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
+    pub ClientName: [u8; 21],
+    pub Domain: [u8; 18],
+    pub UserName: [u8; 21],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
     pub EncryptionLevel: u8,
     pub ClientAddressFamily: u32,
     pub ClientAddress: [u16; 31],
     pub HRes: u16,
     pub VRes: u16,
     pub ColorDepth: u16,
-    pub ClientDirectory: [super::super::Foundation::CHAR; 261],
+    pub ClientDirectory: [u8; 261],
     pub ClientBuildNumber: u32,
     pub ClientHardwareId: u32,
     pub ClientProductId: u16,
     pub OutBufCountHost: u16,
     pub OutBufCountClient: u16,
     pub OutBufLength: u16,
-    pub DeviceId: [super::super::Foundation::CHAR; 261],
+    pub DeviceId: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSCLIENTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSCLIENTA {
     fn clone(&self) -> Self {
         *self
@@ -2053,8 +2041,7 @@ impl ::core::clone::Clone for WTSCLIENTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -2062,15 +2049,13 @@ pub struct WTSCONFIGINFOA {
     pub fDisablePrinterRedirection: u32,
     pub fDisableDefaultMainClientPrinter: u32,
     pub ShadowSettings: u32,
-    pub LogonUserName: [super::super::Foundation::CHAR; 21],
-    pub LogonDomain: [super::super::Foundation::CHAR; 18],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
-    pub ApplicationName: [super::super::Foundation::CHAR; 261],
+    pub LogonUserName: [u8; 21],
+    pub LogonDomain: [u8; 18],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
+    pub ApplicationName: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSCONFIGINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSCONFIGINFOA {
     fn clone(&self) -> Self {
         *self
@@ -2098,8 +2083,7 @@ impl ::core::clone::Clone for WTSCONFIGINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -2109,33 +2093,28 @@ pub struct WTSINFOA {
     pub OutgoingFrames: u32,
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBy: u32,
-    pub WinStationName: [super::super::Foundation::CHAR; 32],
-    pub Domain: [super::super::Foundation::CHAR; 17],
-    pub UserName: [super::super::Foundation::CHAR; 21],
+    pub WinStationName: [u8; 32],
+    pub Domain: [u8; 17],
+    pub UserName: [u8; 21],
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
     pub LastInputTime: i64,
     pub LogonTime: i64,
     pub CurrentTime: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEXA {
     fn clone(&self) -> Self {
         *self
@@ -2154,15 +2133,14 @@ impl ::core::clone::Clone for WTSINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
     pub SessionFlags: i32,
-    pub WinStationName: [super::super::Foundation::CHAR; 33],
-    pub UserName: [super::super::Foundation::CHAR; 21],
-    pub DomainName: [super::super::Foundation::CHAR; 18],
+    pub WinStationName: [u8; 33],
+    pub UserName: [u8; 21],
+    pub DomainName: [u8; 18],
     pub LogonTime: i64,
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
@@ -2175,9 +2153,7 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBytes: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEX_LEVEL1_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEX_LEVEL1_A {
     fn clone(&self) -> Self {
         *self
@@ -2211,14 +2187,11 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL1_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSINFOEX_LEVEL_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSINFOEX_LEVEL_A {
     fn clone(&self) -> Self {
         *self
@@ -2262,8 +2235,7 @@ impl ::core::clone::Clone for WTSINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -2291,15 +2263,13 @@ pub struct WTSLISTENERCONFIGA {
     pub SecurityLayer: u32,
     pub MinEncryptionLevel: u32,
     pub UserAuthentication: u32,
-    pub Comment: [super::super::Foundation::CHAR; 61],
-    pub LogonUserName: [super::super::Foundation::CHAR; 21],
-    pub LogonDomain: [super::super::Foundation::CHAR; 18],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
+    pub Comment: [u8; 61],
+    pub LogonUserName: [u8; 21],
+    pub LogonDomain: [u8; 18],
+    pub WorkDirectory: [u8; 261],
+    pub InitialProgram: [u8; 261],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSLISTENERCONFIGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSLISTENERCONFIGA {
     fn clone(&self) -> Self {
         *self
@@ -2425,8 +2395,7 @@ impl ::core::clone::Clone for WTSSESSION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -2441,15 +2410,13 @@ pub struct WTSUSERCONFIGA {
     pub ReconnectSettings: u32,
     pub ShadowingSettings: u32,
     pub TerminalServerRemoteHomeDir: u32,
-    pub InitialProgram: [super::super::Foundation::CHAR; 261],
-    pub WorkDirectory: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerProfilePath: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerHomeDir: [super::super::Foundation::CHAR; 261],
-    pub TerminalServerHomeDirDrive: [super::super::Foundation::CHAR; 4],
+    pub InitialProgram: [u8; 261],
+    pub WorkDirectory: [u8; 261],
+    pub TerminalServerProfilePath: [u8; 261],
+    pub TerminalServerHomeDir: [u8; 261],
+    pub TerminalServerHomeDirDrive: [u8; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTSUSERCONFIGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTSUSERCONFIGA {
     fn clone(&self) -> Self {
         *self
@@ -3094,8 +3061,7 @@ impl ::core::clone::Clone for WTS_USER_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -3103,9 +3069,7 @@ pub struct WTS_VALIDATION_INFORMATIONA {
     pub HardwareID: [u8; 20],
     pub HardwareIDLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WTS_VALIDATION_INFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WTS_VALIDATION_INFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -3186,8 +3150,7 @@ pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub type PVIRTUALCHANNELOPEN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: ::windows_sys::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;

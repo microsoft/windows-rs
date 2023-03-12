@@ -86,16 +86,16 @@
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameA ( param0 : super::super::TextServices:: HKL , lpszfilename : :: windows_sys::core::PSTR , ubuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameW ( param0 : super::super::TextServices:: HKL , lpszfilename : :: windows_sys::core::PWSTR , ubuflen : u32 ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImmGetImeMenuItemsA ( param0 : super::super::super::Globalization:: HIMC , param1 : u32 , param2 : u32 , lpimeparentmenu : *mut IMEMENUITEMINFOA , lpimemenu : *mut IMEMENUITEMINFOA , dwsize : u32 ) -> u32 );
+#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImmGetImeMenuItemsA ( param0 : super::super::super::Globalization:: HIMC , param1 : u32 , param2 : u32 , lpimeparentmenu : *mut IMEMENUITEMINFOA , lpimemenu : *mut IMEMENUITEMINFOA , dwsize : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImmGetImeMenuItemsW ( param0 : super::super::super::Globalization:: HIMC , param1 : u32 , param2 : u32 , lpimeparentmenu : *mut IMEMENUITEMINFOW , lpimemenu : *mut IMEMENUITEMINFOW , dwsize : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmGetOpenStatus ( param0 : super::super::super::Globalization:: HIMC ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetProperty ( param0 : super::super::TextServices:: HKL , param1 : u32 ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetRegisterWordStyleA ( param0 : super::super::TextServices:: HKL , nitem : u32 , lpstylebuf : *mut STYLEBUFA ) -> u32 );
+#[cfg(feature = "Win32_UI_TextServices")]
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetRegisterWordStyleA ( param0 : super::super::TextServices:: HKL , nitem : u32 , lpstylebuf : *mut STYLEBUFA ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetRegisterWordStyleW ( param0 : super::super::TextServices:: HKL , nitem : u32 , lpstylebuf : *mut STYLEBUFW ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -2208,8 +2208,8 @@ impl ::core::clone::Clone for IMEKMSNTFY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -2218,12 +2218,12 @@ pub struct IMEMENUITEMINFOA {
     pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
     pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
     pub dwItemData: u32,
-    pub szString: [super::super::super::Foundation::CHAR; 80],
+    pub szString: [u8; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for IMEMENUITEMINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for IMEMENUITEMINFOA {
     fn clone(&self) -> Self {
         *self
@@ -2252,18 +2252,15 @@ impl ::core::clone::Clone for IMEMENUITEMINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
-    pub szTitle: [super::super::super::Foundation::CHAR; 48],
-    pub szDescription: [super::super::super::Foundation::CHAR; 256],
-    pub szCopyright: [super::super::super::Foundation::CHAR; 128],
+    pub szTitle: [u8; 48],
+    pub szDescription: [u8; 256],
+    pub szCopyright: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMESHF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMESHF {
     fn clone(&self) -> Self {
         *self
@@ -2521,15 +2518,12 @@ impl ::core::clone::Clone for SOFTKBDDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
-    pub szDescription: [super::super::super::Foundation::CHAR; 32],
+    pub szDescription: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STYLEBUFA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STYLEBUFA {
     fn clone(&self) -> Self {
         *self

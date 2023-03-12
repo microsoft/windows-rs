@@ -12002,41 +12002,33 @@ impl ::core::default::Default for KSFRAMETIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
-    pub l21Data: [super::super::Foundation::CHAR; 3],
+    pub l21Data: [u8; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSGOP_USERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSGOP_USERDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KSGOP_USERDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("KSGOP_USERDATA").field("sc", &self.sc).field("reserved1", &self.reserved1).field("cFields", &self.cFields).field("l21Data", &self.l21Data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for KSGOP_USERDATA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KSGOP_USERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.sc == other.sc && self.reserved1 == other.reserved1 && self.cFields == other.cFields && self.l21Data == other.l21Data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for KSGOP_USERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for KSGOP_USERDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1111,16 +1111,13 @@ impl ::core::clone::Clone for GNSS_NI_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
     pub Version: u32,
-    pub NmeaSentences: [super::super::Foundation::CHAR; 256],
+    pub NmeaSentences: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_NMEA_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_NMEA_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1227,57 +1224,48 @@ impl ::core::clone::Clone for GNSS_STOPFIXSESSION_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
     pub Version: u32,
     pub CertAction: GNSS_SUPL_CERT_ACTION,
-    pub SuplCertName: [super::super::Foundation::CHAR; 260],
+    pub SuplCertName: [u8; 260],
     pub CertSize: u32,
     pub Unused: [u8; 512],
     pub CertData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_CERT_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_CERT_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub SuplHslp: [super::super::Foundation::CHAR; 260],
-    pub SuplHslpFromImsi: [super::super::Foundation::CHAR; 260],
+    pub SuplHslp: [u8; 260],
+    pub SuplHslpFromImsi: [u8; 260],
     pub Reserved: u32,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_HSLP_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_HSLP_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_SUPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
     pub RequestorId: [u16; 260],
     pub ClientName: [u16; 260],
-    pub SuplNiUrl: [super::super::Foundation::CHAR; 260],
+    pub SuplNiUrl: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_SUPL_NI_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_SUPL_NI_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1309,19 +1297,16 @@ impl ::core::clone::Clone for GNSS_SUPL_VERSION_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub MPC: [super::super::Foundation::CHAR; 260],
-    pub PDE: [super::super::Foundation::CHAR; 260],
+    pub MPC: [u8; 260],
+    pub PDE: [u8; 260],
     pub ApplicationTypeIndicator_MR: u8,
     pub Unused: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GNSS_V2UPL_CONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GNSS_V2UPL_CONFIG {
     fn clone(&self) -> Self {
         *self

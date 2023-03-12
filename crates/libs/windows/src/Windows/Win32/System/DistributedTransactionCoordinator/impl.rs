@@ -977,17 +977,14 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
         iid == &<IDtcToXaHelperSinglePipe as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 pub trait IDtcToXaMapper_Impl: Sized {
     fn RequestNewResourceManager(&self, pszdsn: &::windows::core::PCSTR, pszclientdllname: &::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
     fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::Result<()>;
     fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()>;
     fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDtcToXaMapper {}
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>() -> IDtcToXaMapper_Vtbl {
         unsafe extern "system" fn RequestNewResourceManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdllname: ::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -1236,15 +1233,12 @@ impl IResourceManager_Vtbl {
         iid == &<IResourceManager as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 pub trait IResourceManager2_Impl: Sized + IResourceManager_Impl {
     fn Enlist2(&self, ptransaction: ::core::option::Option<&ITransaction>, presasync: ::core::option::Option<&ITransactionResourceAsync>, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>;
     fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IResourceManager2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResourceManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>() -> IResourceManager2_Vtbl {
         unsafe extern "system" fn Enlist2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1315,14 +1309,11 @@ impl IResourceManagerFactory2_Vtbl {
         iid == &<IResourceManagerFactory2 as ::windows::core::ComInterface>::IID || iid == &<IResourceManagerFactory as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 pub trait IResourceManagerRejoinable_Impl: Sized + IResourceManager2_Impl {
     fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IResourceManagerRejoinable {}
-#[cfg(feature = "Win32_Foundation")]
 impl IResourceManagerRejoinable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManagerRejoinable_Impl, const OFFSET: isize>() -> IResourceManagerRejoinable_Vtbl {
         unsafe extern "system" fn Rejoin<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IResourceManagerRejoinable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
@@ -2404,14 +2395,11 @@ impl IXATransLookup_Vtbl {
         iid == &<IXATransLookup as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
 pub trait IXATransLookup2_Impl: Sized {
     fn Lookup(&self, pxid: *const XID) -> ::windows::core::Result<ITransaction>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IXATransLookup2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXATransLookup2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXATransLookup2_Impl, const OFFSET: isize>() -> IXATransLookup2_Vtbl {
         unsafe extern "system" fn Lookup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXATransLookup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const XID, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

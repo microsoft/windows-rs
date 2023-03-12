@@ -77,8 +77,7 @@ where
     ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileGetStream ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , fcctype : u32 , lparam : i32 ) -> :: windows::core::HRESULT );
     AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), fcctype, lparam).ok()
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::Result<()>
 where
@@ -1016,8 +1015,7 @@ pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], 
     ::windows::imp::link ! ( "avicap32.dll""system" fn capGetDriverDescriptionW ( wdriverindex : u32 , lpszname : :: windows::core::PWSTR , cbname : i32 , lpszver : :: windows::core::PWSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
     capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     ::windows::imp::link ! ( "winmm.dll""system" fn joyGetDevCapsA ( ujoyid : usize , pjc : *mut JOYCAPSA , cbjc : u32 ) -> u32 );
@@ -11361,8 +11359,7 @@ impl ::core::default::Default for AVICOMPRESSOPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -11375,17 +11372,14 @@ pub struct AVIFILEINFOA {
     pub dwRate: u32,
     pub dwLength: u32,
     pub dwEditCount: u32,
-    pub szFileType: [super::super::Foundation::CHAR; 64],
+    pub szFileType: [u8; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AVIFILEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AVIFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for AVIFILEINFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("AVIFILEINFOA")
@@ -11404,19 +11398,15 @@ impl ::core::fmt::Debug for AVIFILEINFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for AVIFILEINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVIFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AVIFILEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AVIFILEINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11497,7 +11487,7 @@ pub struct AVISTREAMINFOA {
     pub rcFrame: super::super::Foundation::RECT,
     pub dwEditCount: u32,
     pub dwFormatChangeCount: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szName: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AVISTREAMINFOA {}
@@ -13262,12 +13252,11 @@ impl ::core::default::Default for IMAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -13287,25 +13276,21 @@ pub struct JOYCAPS2A {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+    pub szRegKey: [u8; 32],
+    pub szOEMVxD: [u8; 260],
     pub ManufacturerGuid: ::windows::core::GUID,
     pub ProductGuid: ::windows::core::GUID,
     pub NameGuid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JOYCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JOYCAPS2A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for JOYCAPS2A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13357,12 +13342,11 @@ impl ::core::default::Default for JOYCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -13382,22 +13366,18 @@ pub struct JOYCAPSA {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+    pub szRegKey: [u8; 32],
+    pub szOEMVxD: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JOYCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JOYCAPSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for JOYCAPSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16040,44 +16020,36 @@ impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
-    pub chFineTune: super::super::Foundation::CHAR,
-    pub chGain: super::super::Foundation::CHAR,
+    pub chFineTune: u8,
+    pub chGain: u8,
     pub bLowNote: u8,
     pub bHighNote: u8,
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for s_RIFFWAVE_inst {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for s_RIFFWAVE_inst {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for s_RIFFWAVE_inst {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("s_RIFFWAVE_inst").field("bUnshiftedNote", &self.bUnshiftedNote).field("chFineTune", &self.chFineTune).field("chGain", &self.chGain).field("bLowNote", &self.bLowNote).field("bHighNote", &self.bHighNote).field("bLowVelocity", &self.bLowVelocity).field("bHighVelocity", &self.bHighVelocity).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for s_RIFFWAVE_inst {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for s_RIFFWAVE_inst {
     fn eq(&self, other: &Self) -> bool {
         self.bUnshiftedNote == other.bUnshiftedNote && self.chFineTune == other.chFineTune && self.chGain == other.chGain && self.bLowNote == other.bLowNote && self.bHighNote == other.bHighNote && self.bLowVelocity == other.bLowVelocity && self.bHighVelocity == other.bHighVelocity
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for s_RIFFWAVE_inst {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for s_RIFFWAVE_inst {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

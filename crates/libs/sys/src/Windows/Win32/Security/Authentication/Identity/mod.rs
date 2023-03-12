@@ -4413,14 +4413,11 @@ impl ::core::clone::Clone for CENTRAL_ACCESS_POLICY_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub struct CLEAR_BLOCK {
-    pub data: [super::super::super::Foundation::CHAR; 8],
+    pub data: [u8; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLEAR_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLEAR_BLOCK {
     fn clone(&self) -> Self {
         *self
@@ -9678,14 +9675,14 @@ impl ::core::clone::Clone for USER_ALL_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_PasswordManagement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_System_PasswordManagement\"`*"]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 pub struct USER_SESSION_KEY {
     pub data: [super::super::super::System::PasswordManagement::CYPHER_BLOCK; 2],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::marker::Copy for USER_SESSION_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
+#[cfg(feature = "Win32_System_PasswordManagement")]
 impl ::core::clone::Clone for USER_SESSION_KEY {
     fn clone(&self) -> Self {
         *self

@@ -7302,15 +7302,12 @@ impl ::core::clone::Clone for IMAGE_HOT_PATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
-    pub Name: [super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_IMPORT_BY_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_IMPORT_BY_NAME {
     fn clone(&self) -> Self {
         *self
@@ -7390,12 +7387,11 @@ impl ::core::clone::Clone for IMAGE_LINENUMBER_0 {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
-    pub ne_ver: super::super::Foundation::CHAR,
-    pub ne_rev: super::super::Foundation::CHAR,
+    pub ne_ver: u8,
+    pub ne_rev: u8,
     pub ne_enttab: u16,
     pub ne_cbenttab: u16,
     pub ne_crc: i32,
@@ -7424,9 +7420,7 @@ pub struct IMAGE_OS2_HEADER {
     pub ne_swaparea: u16,
     pub ne_expver: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_OS2_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_OS2_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -7616,15 +7610,12 @@ impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
-    pub NameString: [super::super::Foundation::CHAR; 1],
+    pub NameString: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn clone(&self) -> Self {
         *self

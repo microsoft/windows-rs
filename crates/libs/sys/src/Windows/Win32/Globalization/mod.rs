@@ -7765,19 +7765,16 @@ impl ::core::clone::Clone for CPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
     pub LeadByte: [u8; 12],
     pub UnicodeDefaultChar: u16,
     pub CodePage: u32,
-    pub CodePageName: [super::Foundation::CHAR; 260],
+    pub CodePageName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CPINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CPINFOEXA {
     fn clone(&self) -> Self {
         *self

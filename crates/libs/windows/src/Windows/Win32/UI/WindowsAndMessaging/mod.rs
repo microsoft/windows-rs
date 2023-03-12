@@ -2090,22 +2090,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsCharAlphaA<P0>(ch: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn IsCharAlphaA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    IsCharAlphaA(ch.into_param().abi())
+pub unsafe fn IsCharAlphaA(ch: u8) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn IsCharAlphaA ( ch : u8 ) -> super::super::Foundation:: BOOL );
+    IsCharAlphaA(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsCharAlphaNumericA<P0>(ch: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn IsCharAlphaNumericA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    IsCharAlphaNumericA(ch.into_param().abi())
+pub unsafe fn IsCharAlphaNumericA(ch: u8) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn IsCharAlphaNumericA ( ch : u8 ) -> super::super::Foundation:: BOOL );
+    IsCharAlphaNumericA(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2124,22 +2118,16 @@ pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsCharLowerA<P0>(ch: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn IsCharLowerA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    IsCharLowerA(ch.into_param().abi())
+pub unsafe fn IsCharLowerA(ch: u8) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn IsCharLowerA ( ch : u8 ) -> super::super::Foundation:: BOOL );
+    IsCharLowerA(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsCharUpperA<P0>(ch: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn IsCharUpperA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    IsCharUpperA(ch.into_param().abi())
+pub unsafe fn IsCharUpperA(ch: u8) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "user32.dll""system" fn IsCharUpperA ( ch : u8 ) -> super::super::Foundation:: BOOL );
+    IsCharUpperA(ch)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11934,42 +11922,34 @@ impl ::core::default::Default for DEVICE_EVENT_RBC_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
     pub dbcc_classguid: ::windows::core::GUID,
-    pub dbcc_name: [super::super::Foundation::CHAR; 1],
+    pub dbcc_name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_A").field("dbcc_size", &self.dbcc_size).field("dbcc_devicetype", &self.dbcc_devicetype).field("dbcc_reserved", &self.dbcc_reserved).field("dbcc_classguid", &self.dbcc_classguid).field("dbcc_name", &self.dbcc_name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEV_BROADCAST_DEVICEINTERFACE_A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn eq(&self, other: &Self) -> bool {
         self.dbcc_size == other.dbcc_size && self.dbcc_devicetype == other.dbcc_devicetype && self.dbcc_reserved == other.dbcc_reserved && self.dbcc_classguid == other.dbcc_classguid && self.dbcc_name == other.dbcc_name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12262,41 +12242,33 @@ impl ::core::default::Default for DEV_BROADCAST_OEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
-    pub dbcp_name: [super::super::Foundation::CHAR; 1],
+    pub dbcp_name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEV_BROADCAST_PORT_A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEV_BROADCAST_PORT_A").field("dbcp_size", &self.dbcp_size).field("dbcp_devicetype", &self.dbcp_devicetype).field("dbcp_reserved", &self.dbcp_reserved).field("dbcp_name", &self.dbcp_name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEV_BROADCAST_PORT_A {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEV_BROADCAST_PORT_A {
     fn eq(&self, other: &Self) -> bool {
         self.dbcp_size == other.dbcp_size && self.dbcp_devicetype == other.dbcp_devicetype && self.dbcp_reserved == other.dbcp_reserved && self.dbcp_name == other.dbcp_name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEV_BROADCAST_PORT_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEV_BROADCAST_PORT_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12909,8 +12881,8 @@ pub struct ICONINFOEXA {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
     pub wResID: u16,
-    pub szModName: [super::super::Foundation::CHAR; 260],
-    pub szResName: [super::super::Foundation::CHAR; 260],
+    pub szModName: [u8; 260],
+    pub szResName: [u8; 260],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for ICONINFOEXA {}
@@ -12991,8 +12963,8 @@ impl ::core::default::Default for ICONINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -13000,33 +12972,33 @@ pub struct ICONMETRICSA {
     pub iTitleWrap: i32,
     pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for ICONMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for ICONMETRICSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for ICONMETRICSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ICONMETRICSA").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for ICONMETRICSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICONMETRICSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for ICONMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for ICONMETRICSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14095,8 +14067,8 @@ impl ::core::default::Default for NCCALCSIZE_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -14115,15 +14087,15 @@ pub struct NONCLIENTMETRICSA {
     pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for NONCLIENTMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for NONCLIENTMETRICSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for NONCLIENTMETRICSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NONCLIENTMETRICSA")
@@ -14146,19 +14118,19 @@ impl ::core::fmt::Debug for NONCLIENTMETRICSA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for NONCLIENTMETRICSA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for NONCLIENTMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for NONCLIENTMETRICSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14946,39 +14918,31 @@ impl ::core::default::Default for _DEV_BROADCAST_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [super::super::Foundation::CHAR; 1],
+    pub dbud_szName: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for _DEV_BROADCAST_USERDEFINED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("_DEV_BROADCAST_USERDEFINED").field("dbud_dbh", &self.dbud_dbh).field("dbud_szName", &self.dbud_szName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for _DEV_BROADCAST_USERDEFINED {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for _DEV_BROADCAST_USERDEFINED {
     fn eq(&self, other: &Self) -> bool {
         self.dbud_dbh == other.dbud_dbh && self.dbud_szName == other.dbud_szName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for _DEV_BROADCAST_USERDEFINED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DEV_BROADCAST_USERDEFINED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

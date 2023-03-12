@@ -252,7 +252,7 @@ pub mod PropertiesSystem;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn IntlStrEqWorkerW ( fcasesens : super::super::Foundation:: BOOL , lpstring1 : :: windows_sys::core::PCWSTR , lpstring2 : :: windows_sys::core::PCWSTR , nchar : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn IsCharSpaceA ( wch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn IsCharSpaceA ( wch : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn IsCharSpaceW ( wch : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -688,8 +688,8 @@ pub mod PropertiesSystem;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHGetDiskFreeSpaceExW ( pszdirectoryname : :: windows_sys::core::PCWSTR , pulfreebytesavailabletocaller : *mut u64 , pultotalnumberofbytes : *mut u64 , pultotalnumberoffreebytes : *mut u64 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHGetDriveMedia ( pszdrive : :: windows_sys::core::PCWSTR , pdwmediacontent : *mut u32 ) -> :: windows_sys::core::HRESULT );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SHGetFileInfoA ( pszpath : :: windows_sys::core::PCSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOA , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SHGetFileInfoA ( pszpath : :: windows_sys::core::PCSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOA , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SHGetFileInfoW ( pszpath : :: windows_sys::core::PCWSTR , dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , psfi : *mut SHFILEINFOW , cbfileinfo : u32 , uflags : SHGFI_FLAGS ) -> usize );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -928,8 +928,7 @@ pub mod PropertiesSystem;
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHStartNetConnectionDialogW ( hwnd : super::super::Foundation:: HWND , pszremotename : :: windows_sys::core::PCWSTR , dwtype : u32 ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHStrDupA ( psz : :: windows_sys::core::PCSTR , ppwsz : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHStrDupW ( psz : :: windows_sys::core::PCWSTR , ppwsz : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHStripMneumonicA ( pszmenu : :: windows_sys::core::PSTR ) -> super::super::Foundation:: CHAR );
+::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHStripMneumonicA ( pszmenu : :: windows_sys::core::PSTR ) -> u8 );
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHStripMneumonicW ( pszmenu : :: windows_sys::core::PWSTR ) -> u16 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHTestTokenMembership ( htoken : super::super::Foundation:: HANDLE , ulrid : u32 ) -> super::super::Foundation:: BOOL );
@@ -10540,16 +10539,13 @@ impl ::core::clone::Clone for DROPFILES {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
-    pub szDarwinID: [super::super::Foundation::CHAR; 260],
+    pub szDarwinID: [u8; 260],
     pub szwDarwinID: [u16; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXP_DARWIN_LINK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXP_DARWIN_LINK {
     fn clone(&self) -> Self {
         *self
@@ -10583,17 +10579,14 @@ impl ::core::clone::Clone for EXP_SPECIAL_FOLDER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct EXP_SZ_LINK {
     pub cbSize: u32,
     pub dwSignature: u32,
-    pub szTarget: [super::super::Foundation::CHAR; 260],
+    pub szTarget: [u8; 260],
     pub swzTarget: [u16; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXP_SZ_LINK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXP_SZ_LINK {
     fn clone(&self) -> Self {
         *self
@@ -10626,7 +10619,7 @@ pub struct FILEDESCRIPTORA {
     pub ftLastWriteTime: super::super::Foundation::FILETIME,
     pub nFileSizeHigh: u32,
     pub nFileSizeLow: u32,
-    pub cFileName: [super::super::Foundation::CHAR; 260],
+    pub cFileName: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILEDESCRIPTORA {}
@@ -10750,8 +10743,7 @@ impl ::core::clone::Clone for HELPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct HELPWININFOA {
     pub wStructSize: i32,
     pub x: i32,
@@ -10759,11 +10751,9 @@ pub struct HELPWININFOA {
     pub dx: i32,
     pub dy: i32,
     pub wMax: i32,
-    pub rgchMember: [super::super::Foundation::CHAR; 2],
+    pub rgchMember: [u8; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HELPWININFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HELPWININFOA {
     fn clone(&self) -> Self {
         *self
@@ -10870,16 +10860,13 @@ impl ::core::clone::Clone for KNOWNFOLDER_DEFINITION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
-    pub mkKeylist: super::super::Foundation::CHAR,
-    pub szKeyphrase: [super::super::Foundation::CHAR; 1],
+    pub mkKeylist: u8,
+    pub szKeyphrase: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MULTIKEYHELPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MULTIKEYHELPA {
     fn clone(&self) -> Self {
         *self
@@ -10914,21 +10901,21 @@ impl ::core::clone::Clone for NC_ADDRESS {
 #[repr(C)]
 pub struct NC_ADDRESS_0(pub u8);
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct NEWCPLINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwHelpContext: u32,
     pub lData: isize,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szName: [super::super::Foundation::CHAR; 32],
-    pub szInfo: [super::super::Foundation::CHAR; 64],
-    pub szHelpFile: [super::super::Foundation::CHAR; 128],
+    pub szName: [u8; 32],
+    pub szInfo: [u8; 64],
+    pub szHelpFile: [u8; 128],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for NEWCPLINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for NEWCPLINFOA {
     fn clone(&self) -> Self {
         *self
@@ -10966,12 +10953,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub szTip: [u8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub szInfo: [u8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub szInfoTitle: [u8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -11015,12 +11002,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub szTip: [u8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub szInfo: [u8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub szInfoTitle: [u8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -12100,42 +12087,42 @@ impl ::core::clone::Clone for SHELL_ITEM_RESOURCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 260],
-    pub szTypeName: [super::super::Foundation::CHAR; 80],
+    pub szDisplayName: [u8; 260],
+    pub szTypeName: [u8; 80],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for SHFILEINFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 260],
-    pub szTypeName: [super::super::Foundation::CHAR; 80],
+    pub szDisplayName: [u8; 260],
+    pub szTypeName: [u8; 80],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for SHFILEINFOA {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self

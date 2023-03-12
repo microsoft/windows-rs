@@ -26,8 +26,8 @@ pub mod XAudio2;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverClose ( had : HACMDRIVER , fdwclose : u32 ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsA ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSA , fdwdetails : u32 ) -> u32 );
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsA ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSA , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsW ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSW , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -42,15 +42,13 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterChooseA ( pafltrc : *mut ACMFILTERCHOOSEA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterChooseW ( pafltrc : *mut ACMFILTERCHOOSEW ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterDetailsA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fdwdetails : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFilterDetailsA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fdwdetails : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFilterDetailsW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterEnumA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fncallback : ACMFILTERENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterEnumW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fncallback : ACMFILTERENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fdwdetails : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFilterTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fdwdetails : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFilterTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFilterTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fncallback : ACMFILTERTAGENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
@@ -60,16 +58,14 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatChooseA ( pafmtc : *mut ACMFORMATCHOOSEA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatChooseW ( pafmtc : *mut ACMFORMATCHOOSEW ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatDetailsA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fdwdetails : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFormatDetailsA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fdwdetails : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFormatDetailsW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatEnumA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fncallback : ACMFORMATENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatEnumW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fncallback : ACMFORMATENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFormatSuggest ( had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , cbwfxdst : u32 , fdwsuggest : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fdwdetails : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFormatTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fdwdetails : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmFormatTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmFormatTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fncallback : ACMFORMATTAGENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
@@ -86,8 +82,7 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamReset ( has : HACMSTREAM , fdwreset : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamSize ( has : HACMSTREAM , cbinput : u32 , pdwoutputbytes : *mut u32 , fdwsize : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamUnprepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwunprepare : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn auxGetDevCapsA ( udeviceid : usize , pac : *mut AUXCAPSA , cbac : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn auxGetDevCapsA ( udeviceid : usize , pac : *mut AUXCAPSA , cbac : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn auxGetDevCapsW ( udeviceid : usize , pac : *mut AUXCAPSW , cbac : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn auxGetNumDevs ( ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn auxGetVolume ( udeviceid : u32 , pdwvolume : *mut u32 ) -> u32 );
@@ -97,8 +92,7 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiDisconnect ( hmi : HMIDI , hmo : HMIDIOUT , preserved : *const ::core::ffi::c_void ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInAddBuffer ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInClose ( hmi : HMIDIIN ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn midiInGetDevCapsA ( udeviceid : usize , pmic : *mut MIDIINCAPSA , cbmic : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInGetDevCapsA ( udeviceid : usize , pmic : *mut MIDIINCAPSA , cbmic : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInGetDevCapsW ( udeviceid : usize , pmic : *mut MIDIINCAPSW , cbmic : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInGetErrorTextA ( mmrerror : u32 , psztext : :: windows_sys::core::PSTR , cchtext : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiInGetErrorTextW ( mmrerror : u32 , psztext : :: windows_sys::core::PWSTR , cchtext : u32 ) -> u32 );
@@ -114,8 +108,7 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutCacheDrumPatches ( hmo : HMIDIOUT , upatch : u32 , pwkya : *const u16 , fucache : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutCachePatches ( hmo : HMIDIOUT , ubank : u32 , pwpa : *const u16 , fucache : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutClose ( hmo : HMIDIOUT ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn midiOutGetDevCapsA ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSA , cbmoc : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutGetDevCapsA ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSA , cbmoc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutGetDevCapsW ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSW , cbmoc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows_sys::core::PSTR , cchtext : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows_sys::core::PWSTR , cchtext : u32 ) -> u32 );
@@ -143,15 +136,12 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerGetControlDetailsA ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerGetControlDetailsW ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerGetDevCapsA ( umxid : usize , pmxcaps : *mut MIXERCAPSA , cbmxcaps : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetDevCapsA ( umxid : usize , pmxcaps : *mut MIXERCAPSA , cbmxcaps : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetDevCapsW ( umxid : usize , pmxcaps : *mut MIXERCAPSW , cbmxcaps : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetID ( hmxobj : HMIXEROBJ , pumxid : *mut u32 , fdwid : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerGetLineControlsA ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSA , fdwcontrols : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetLineControlsA ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSA , fdwcontrols : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetLineControlsW ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSW , fdwcontrols : u32 ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerGetLineInfoA ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEA , fdwinfo : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetLineInfoA ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEA , fdwinfo : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetLineInfoW ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEW , fdwinfo : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetNumDevs ( ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerMessage ( hmx : HMIXER , umsg : u32 , dwparam1 : usize , dwparam2 : usize ) -> u32 );
@@ -164,8 +154,7 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn sndPlaySoundW ( pszsound : :: windows_sys::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInAddBuffer ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInClose ( hwi : HWAVEIN ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn waveInGetDevCapsA ( udeviceid : usize , pwic : *mut WAVEINCAPSA , cbwic : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInGetDevCapsA ( udeviceid : usize , pwic : *mut WAVEINCAPSA , cbwic : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInGetDevCapsW ( udeviceid : usize , pwic : *mut WAVEINCAPSW , cbwic : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInGetErrorTextA ( mmrerror : u32 , psztext : :: windows_sys::core::PSTR , cchtext : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInGetErrorTextW ( mmrerror : u32 , psztext : :: windows_sys::core::PWSTR , cchtext : u32 ) -> u32 );
@@ -181,8 +170,7 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveInUnprepareHeader ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutBreakLoop ( hwo : HWAVEOUT ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutClose ( hwo : HWAVEOUT ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn waveOutGetDevCapsA ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSA , cbwoc : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutGetDevCapsA ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSA , cbwoc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutGetDevCapsW ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSW , cbwoc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows_sys::core::PSTR , cchtext : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows_sys::core::PWSTR , cchtext : u32 ) -> u32 );
@@ -1639,8 +1627,8 @@ pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = 4i32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -1653,15 +1641,15 @@ pub struct ACMDRIVERDETAILSA {
     pub cFormatTags: u32,
     pub cFilterTags: u32,
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [super::super::Foundation::CHAR; 32],
-    pub szLongName: [super::super::Foundation::CHAR; 128],
-    pub szCopyright: [super::super::Foundation::CHAR; 80],
-    pub szLicensing: [super::super::Foundation::CHAR; 128],
-    pub szFeatures: [super::super::Foundation::CHAR; 512],
+    pub szShortName: [u8; 32],
+    pub szLongName: [u8; 128],
+    pub szCopyright: [u8; 80],
+    pub szLicensing: [u8; 128],
+    pub szFeatures: [u8; 512],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for ACMDRIVERDETAILSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for ACMDRIVERDETAILSA {
     fn clone(&self) -> Self {
         *self
@@ -1825,8 +1813,8 @@ pub struct ACMFILTERCHOOSEA {
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
     pub pszTitle: ::windows_sys::core::PCSTR,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
-    pub szFilter: [super::super::Foundation::CHAR; 128],
+    pub szFilterTag: [u8; 48],
+    pub szFilter: [u8; 128],
     pub pszName: ::windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -1874,8 +1862,7 @@ impl ::core::clone::Clone for ACMFILTERCHOOSEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -1883,11 +1870,9 @@ pub struct ACMFILTERDETAILSA {
     pub fdwSupport: u32,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub szFilter: [super::super::Foundation::CHAR; 128],
+    pub szFilter: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFILTERDETAILSA {
     fn clone(&self) -> Self {
         *self
@@ -1911,8 +1896,7 @@ impl ::core::clone::Clone for ACMFILTERDETAILSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -1920,11 +1904,9 @@ pub struct ACMFILTERTAGDETAILSA {
     pub cbFilterSize: u32,
     pub fdwSupport: u32,
     pub cStandardFilters: u32,
-    pub szFilterTag: [super::super::Foundation::CHAR; 48],
+    pub szFilterTag: [u8; 48],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
@@ -1957,8 +1939,8 @@ pub struct ACMFORMATCHOOSEA {
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
     pub pszTitle: ::windows_sys::core::PCSTR,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
-    pub szFormat: [super::super::Foundation::CHAR; 128],
+    pub szFormatTag: [u8; 48],
+    pub szFormat: [u8; 128],
     pub pszName: ::windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -2006,8 +1988,7 @@ impl ::core::clone::Clone for ACMFORMATCHOOSEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,
@@ -2015,19 +1996,16 @@ pub struct ACMFORMATDETAILSA {
     pub fdwSupport: u32,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub szFormat: [super::super::Foundation::CHAR; 128],
+    pub szFormat: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATDETAILSA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -2035,11 +2013,9 @@ pub struct ACMFORMATTAGDETAILSA {
     pub cbFormatSize: u32,
     pub fdwSupport: u32,
     pub cStandardFormats: u32,
-    pub szFormatTag: [super::super::Foundation::CHAR; 48],
+    pub szFormatTag: [u8; 48],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
     fn clone(&self) -> Self {
         *self
@@ -2200,13 +2176,12 @@ impl ::core::clone::Clone for AUDIO_VOLUME_NOTIFICATION_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
@@ -2214,9 +2189,7 @@ pub struct AUXCAPS2A {
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUXCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUXCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -2243,20 +2216,17 @@ impl ::core::clone::Clone for AUXCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUXCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUXCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -2397,21 +2367,18 @@ impl ::core::clone::Clone for MIDIHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwSupport: u32,
     pub ManufacturerGuid: ::windows_sys::core::GUID,
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIINCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -2436,18 +2403,15 @@ impl ::core::clone::Clone for MIDIINCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIINCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -2469,13 +2433,12 @@ impl ::core::clone::Clone for MIDIINCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
@@ -2485,9 +2448,7 @@ pub struct MIDIOUTCAPS2A {
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -2516,22 +2477,19 @@ impl ::core::clone::Clone for MIDIOUTCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIOUTCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -2594,22 +2552,19 @@ impl ::core::clone::Clone for MIDISTRMBUFFVER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
     pub ManufacturerGuid: ::windows_sys::core::GUID,
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -2635,19 +2590,16 @@ impl ::core::clone::Clone for MIXERCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -2670,84 +2622,69 @@ impl ::core::clone::Clone for MIXERCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
     pub dwControlID: u32,
     pub dwControlType: u32,
     pub fdwControl: u32,
     pub cMultipleItems: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szShortName: [u8; 16],
+    pub szName: [u8; 64],
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLA_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLA_1 {
     fn clone(&self) -> Self {
         *self
@@ -2799,16 +2736,13 @@ impl ::core::clone::Clone for MIXERCONTROLDETAILS_BOOLEAN {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szName: [u8; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
     fn clone(&self) -> Self {
         *self
@@ -2919,8 +2853,7 @@ impl ::core::clone::Clone for MIXERCONTROLW_1 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -2932,40 +2865,34 @@ pub struct MIXERLINEA {
     pub cChannels: u32,
     pub cConnections: u32,
     pub cControls: u32,
-    pub szShortName: [super::super::Foundation::CHAR; 16],
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szShortName: [u8; 16],
+    pub szName: [u8; 64],
     pub Target: MIXERLINEA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINEA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINEA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -2974,24 +2901,19 @@ pub struct MIXERLINECONTROLSA {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIXERLINECONTROLSA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIXERLINECONTROLSA_0 {
     fn clone(&self) -> Self {
         *self
@@ -3412,13 +3334,12 @@ impl ::core::clone::Clone for WAVEHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -3426,9 +3347,7 @@ pub struct WAVEINCAPS2A {
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEINCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEINCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -3455,20 +3374,17 @@ impl ::core::clone::Clone for WAVEINCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEINCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEINCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -3492,13 +3408,12 @@ impl ::core::clone::Clone for WAVEINCAPSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -3507,9 +3422,7 @@ pub struct WAVEOUTCAPS2A {
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEOUTCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -3537,21 +3450,18 @@ impl ::core::clone::Clone for WAVEOUTCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEOUTCAPSA {
     fn clone(&self) -> Self {
         *self

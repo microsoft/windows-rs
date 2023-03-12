@@ -391,17 +391,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn InternalGetWindowText ( hwnd : super::super::Foundation:: HWND , pstring : :: windows_sys::core::PWSTR , cchmaxcount : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaA ( ch : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaNumericA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaNumericA ( ch : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaNumericW ( ch : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharAlphaW ( ch : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharLowerA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharLowerA ( ch : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharUpperA ( ch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharUpperA ( ch : u8 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn IsCharUpperW ( ch : u16 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -5713,18 +5713,15 @@ impl ::core::clone::Clone for DEVICE_EVENT_RBC_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
     pub dbcc_classguid: ::windows_sys::core::GUID,
-    pub dbcc_name: [super::super::Foundation::CHAR; 1],
+    pub dbcc_name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn clone(&self) -> Self {
         *self
@@ -5860,17 +5857,14 @@ impl ::core::clone::Clone for DEV_BROADCAST_OEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
-    pub dbcp_name: [super::super::Foundation::CHAR; 1],
+    pub dbcp_name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
     fn clone(&self) -> Self {
         *self
@@ -6090,8 +6084,8 @@ pub struct ICONINFOEXA {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
     pub wResID: u16,
-    pub szModName: [super::super::Foundation::CHAR; 260],
-    pub szResName: [super::super::Foundation::CHAR; 260],
+    pub szModName: [u8; 260],
+    pub szResName: [u8; 260],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for ICONINFOEXA {}
@@ -6124,8 +6118,8 @@ impl ::core::clone::Clone for ICONINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -6133,9 +6127,9 @@ pub struct ICONMETRICSA {
     pub iTitleWrap: i32,
     pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for ICONMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for ICONMETRICSA {
     fn clone(&self) -> Self {
         *self
@@ -6601,8 +6595,8 @@ impl ::core::clone::Clone for NCCALCSIZE_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -6621,9 +6615,9 @@ pub struct NONCLIENTMETRICSA {
     pub lfMessageFont: super::super::Graphics::Gdi::LOGFONTA,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for NONCLIENTMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for NONCLIENTMETRICSA {
     fn clone(&self) -> Self {
         *self
@@ -6995,15 +6989,12 @@ impl ::core::clone::Clone for _DEV_BROADCAST_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [super::super::Foundation::CHAR; 1],
+    pub dbud_szName: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {
     fn clone(&self) -> Self {
         *self

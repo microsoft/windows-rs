@@ -16,8 +16,7 @@ where
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn AddISNSServerW ( address : :: windows::core::PCWSTR ) -> u32 );
     AddISNSServerW(address.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: ::core::option::Option<&[u8]>, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn AddIScsiConnectionA ( uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , reserved : *mut ::core::ffi::c_void , initiatorportnumber : u32 , targetportal : *mut ISCSI_TARGET_PORTALA , securityflags : u64 , loginoptions : *mut ISCSI_LOGIN_OPTIONS , keysize : u32 , key : :: windows::core::PCSTR , connectionid : *mut ISCSI_UNIQUE_SESSION_ID ) -> u32 );
@@ -29,8 +28,7 @@ pub unsafe fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn AddIScsiConnectionW ( uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , reserved : *mut ::core::ffi::c_void , initiatorportnumber : u32 , targetportal : *mut ISCSI_TARGET_PORTALW , securityflags : u64 , loginoptions : *mut ISCSI_LOGIN_OPTIONS , keysize : u32 , key : :: windows::core::PCSTR , connectionid : *mut ISCSI_UNIQUE_SESSION_ID ) -> u32 );
     AddIScsiConnectionW(uniquesessionid, reserved, initiatorportnumber, targetportal, securityflags, loginoptions, key.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(key.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionid)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn AddIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
@@ -114,8 +112,8 @@ pub unsafe fn ClearPersistentIScsiDevices() -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ClearPersistentIScsiDevices ( ) -> u32 );
     ClearPersistentIScsiDevices()
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ioctl\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_System_Ioctl\"`*"]
+#[cfg(feature = "Win32_System_Ioctl")]
 #[inline]
 pub unsafe fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn GetDevicesForIScsiSessionA ( uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , devicecount : *mut u32 , devices : *mut ISCSI_DEVICE_ON_SESSIONA ) -> u32 );
@@ -253,8 +251,7 @@ where
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn RefreshISNSServerW ( address : :: windows::core::PCWSTR ) -> u32 );
     RefreshISNSServerW(address.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
@@ -296,8 +293,7 @@ pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_I
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn RemoveIScsiConnection ( uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID , connectionid : *mut ISCSI_UNIQUE_SESSION_ID ) -> u32 );
     RemoveIScsiConnection(uniquesessionid, connectionid)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiPersistentTargetA<P0, P1>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P1, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
@@ -317,8 +313,7 @@ where
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn RemoveIScsiPersistentTargetW ( initiatorinstance : :: windows::core::PCWSTR , initiatorportnumber : u32 , targetname : :: windows::core::PCWSTR , portal : *mut ISCSI_TARGET_PORTALW ) -> u32 );
     RemoveIScsiPersistentTargetW(initiatorinstance.into_param().abi(), initiatorportnumber, targetname.into_param().abi(), portal)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalA<P0>(initiatorinstance: P0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
@@ -390,8 +385,7 @@ where
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn RemoveRadiusServerW ( address : :: windows::core::PCWSTR ) -> u32 );
     RemoveRadiusServerW(address.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ReportActiveIScsiTargetMappingsA ( buffersize : *mut u32 , mappingcount : *mut u32 , mappings : *mut ISCSI_TARGET_MAPPINGA ) -> u32 );
@@ -441,15 +435,13 @@ pub unsafe fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo:
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ReportIScsiPersistentLoginsW ( count : *mut u32 , persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOW , buffersizeinbytes : *mut u32 ) -> u32 );
     ReportIScsiPersistentLoginsW(count, persistentlogininfo, buffersizeinbytes)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA) -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ReportIScsiSendTargetPortalsA ( portalcount : *mut u32 , portalinfo : *mut ISCSI_TARGET_PORTAL_INFOA ) -> u32 );
     ReportIScsiSendTargetPortalsA(portalcount, portalinfo)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32 {
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ReportIScsiSendTargetPortalsExA ( portalcount : *mut u32 , portalinfosize : *mut u32 , portalinfo : *mut ISCSI_TARGET_PORTAL_INFO_EXA ) -> u32 );
@@ -467,8 +459,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *
     ::windows::imp::link ! ( "iscsidsc.dll""system" fn ReportIScsiSendTargetPortalsW ( portalcount : *mut u32 , portalinfo : *mut ISCSI_TARGET_PORTAL_INFOW ) -> u32 );
     ReportIScsiSendTargetPortalsW(portalcount, portalinfo)
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
 pub unsafe fn ReportIScsiTargetPortalsA<P0, P1>(initiatorname: P0, targetname: P1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32
 where
@@ -2364,45 +2355,45 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ioctl\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_System_Ioctl\"`*"]
+#[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
-    pub InitiatorName: [super::super::Foundation::CHAR; 256],
-    pub TargetName: [super::super::Foundation::CHAR; 224],
+    pub InitiatorName: [u8; 256],
+    pub TargetName: [u8; 224],
     pub ScsiAddress: SCSI_ADDRESS,
     pub DeviceInterfaceType: ::windows::core::GUID,
-    pub DeviceInterfaceName: [super::super::Foundation::CHAR; 260],
-    pub LegacyName: [super::super::Foundation::CHAR; 260],
+    pub DeviceInterfaceName: [u8; 260],
+    pub LegacyName: [u8; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::marker::Copy for ISCSI_DEVICE_ON_SESSIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_DEVICE_ON_SESSIONA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("ScsiAddress", &self.ScsiAddress).field("DeviceInterfaceType", &self.DeviceInterfaceType).field("DeviceInterfaceName", &self.DeviceInterfaceName).field("LegacyName", &self.LegacyName).field("StorageDeviceNumber", &self.StorageDeviceNumber).field("DeviceInstance", &self.DeviceInstance).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::windows::core::TypeKind for ISCSI_DEVICE_ON_SESSIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.ScsiAddress == other.ScsiAddress && self.DeviceInterfaceType == other.DeviceInterfaceType && self.DeviceInterfaceName == other.DeviceInterfaceName && self.LegacyName == other.LegacyName && self.StorageDeviceNumber == other.StorageDeviceNumber && self.DeviceInstance == other.DeviceInstance
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::cmp::Eq for ISCSI_DEVICE_ON_SESSIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
+#[cfg(feature = "Win32_System_Ioctl")]
 impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2648,45 +2639,37 @@ impl ::core::default::Default for ISCSI_SESSION_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_TARGET_MAPPINGA {
-    pub InitiatorName: [super::super::Foundation::CHAR; 256],
-    pub TargetName: [super::super::Foundation::CHAR; 224],
-    pub OSDeviceName: [super::super::Foundation::CHAR; 260],
+    pub InitiatorName: [u8; 256],
+    pub TargetName: [u8; 224],
+    pub OSDeviceName: [u8; 260],
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub OSBusNumber: u32,
     pub OSTargetNumber: u32,
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_TARGET_MAPPINGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_TARGET_MAPPINGA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_MAPPINGA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_TARGET_MAPPINGA").field("InitiatorName", &self.InitiatorName).field("TargetName", &self.TargetName).field("OSDeviceName", &self.OSDeviceName).field("SessionId", &self.SessionId).field("OSBusNumber", &self.OSBusNumber).field("OSTargetNumber", &self.OSTargetNumber).field("LUNCount", &self.LUNCount).field("LUNList", &self.LUNList).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ISCSI_TARGET_MAPPINGA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_TARGET_MAPPINGA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.OSDeviceName == other.OSDeviceName && self.SessionId == other.SessionId && self.OSBusNumber == other.OSBusNumber && self.OSTargetNumber == other.OSTargetNumber && self.LUNCount == other.LUNCount && self.LUNList == other.LUNList
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_MAPPINGA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ISCSI_TARGET_MAPPINGA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2730,40 +2713,32 @@ impl ::core::default::Default for ISCSI_TARGET_MAPPINGW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_TARGET_PORTALA {
-    pub SymbolicName: [super::super::Foundation::CHAR; 256],
-    pub Address: [super::super::Foundation::CHAR; 256],
+    pub SymbolicName: [u8; 256],
+    pub Address: [u8; 256],
     pub Socket: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_TARGET_PORTALA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_TARGET_PORTALA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTALA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_TARGET_PORTALA").field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ISCSI_TARGET_PORTALA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTALA {
     fn eq(&self, other: &Self) -> bool {
         self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTALA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ISCSI_TARGET_PORTALA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2802,39 +2777,31 @@ impl ::core::default::Default for ISCSI_TARGET_PORTALW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_TARGET_PORTAL_GROUPA {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALA; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_GROUPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_GROUPA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_TARGET_PORTAL_GROUPA").field("Count", &self.Count).field("Portals", &self.Portals).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ISCSI_TARGET_PORTAL_GROUPA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPA {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.Portals == other.Portals
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ISCSI_TARGET_PORTAL_GROUPA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2872,42 +2839,34 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_GROUPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_TARGET_PORTAL_INFOA {
-    pub InitiatorName: [super::super::Foundation::CHAR; 256],
+    pub InitiatorName: [u8; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [super::super::Foundation::CHAR; 256],
-    pub Address: [super::super::Foundation::CHAR; 256],
+    pub SymbolicName: [u8; 256],
+    pub Address: [u8; 256],
     pub Socket: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_TARGET_PORTAL_INFOA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ISCSI_TARGET_PORTAL_INFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2948,44 +2907,36 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
-    pub InitiatorName: [super::super::Foundation::CHAR; 256],
+    pub InitiatorName: [u8; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [super::super::Foundation::CHAR; 256],
-    pub Address: [super::super::Foundation::CHAR; 256],
+    pub SymbolicName: [u8; 256],
+    pub Address: [u8; 256],
     pub Socket: u16,
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFO_EXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ISCSI_TARGET_PORTAL_INFO_EXA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).field("SecurityFlags", &self.SecurityFlags).field("LoginOptions", &self.LoginOptions).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ISCSI_TARGET_PORTAL_INFO_EXA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn eq(&self, other: &Self) -> bool {
         self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket && self.SecurityFlags == other.SecurityFlags && self.LoginOptions == other.LoginOptions
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3731,9 +3682,9 @@ impl ::core::default::Default for NV_SEP_CACHE_PARAMETER_0_0 {
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
-    pub TargetName: [super::super::Foundation::CHAR; 224],
+    pub TargetName: [u8; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
-    pub InitiatorInstance: [super::super::Foundation::CHAR; 256],
+    pub InitiatorInstance: [u8; 256],
     pub InitiatorPortNumber: u32,
     pub TargetPortal: ISCSI_TARGET_PORTALA,
     pub SecurityFlags: u64,

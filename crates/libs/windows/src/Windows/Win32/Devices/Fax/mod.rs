@@ -10195,40 +10195,40 @@ impl ::core::default::Default for FAX_CONFIGURATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
-    pub ServerName: [super::super::Foundation::CHAR; 16],
+    pub ServerName: [u8; 16],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for FAX_CONTEXT_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for FAX_CONTEXT_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for FAX_CONTEXT_INFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FAX_CONTEXT_INFOA").field("SizeOfStruct", &self.SizeOfStruct).field("hDC", &self.hDC).field("ServerName", &self.ServerName).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for FAX_CONTEXT_INFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for FAX_CONTEXT_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for FAX_CONTEXT_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for FAX_CONTEXT_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

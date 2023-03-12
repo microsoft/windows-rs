@@ -3948,15 +3948,12 @@ impl ::core::clone::Clone for WS_INT64_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_INT8_DESCRIPTION {
-    pub minValue: super::super::Foundation::CHAR,
-    pub maxValue: super::super::Foundation::CHAR,
+    pub minValue: u8,
+    pub maxValue: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_INT8_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_INT8_DESCRIPTION {
     fn clone(&self) -> Self {
         *self

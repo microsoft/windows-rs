@@ -9065,9 +9065,7 @@ impl IMLangStringBufA {
     pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<*mut i32>, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchbuf.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::Foundation::CHAR, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockBuf)(::windows::core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, ::core::mem::transmute(pcchbuf.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> ::windows::core::Result<()>
@@ -9111,10 +9109,7 @@ unsafe impl ::windows::core::ComInterface for IMLangStringBufA {
 pub struct IMLangStringBufA_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::Foundation::CHAR, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    LockBuf: usize,
+    pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
     pub UnlockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuf: ::windows::core::PCSTR, cchoffset: i32, cchwrite: i32) -> ::windows::core::HRESULT,
     pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows::core::HRESULT,
@@ -20526,43 +20521,35 @@ impl ::core::default::Default for CPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
     pub LeadByte: [u8; 12],
     pub UnicodeDefaultChar: u16,
     pub CodePage: u32,
-    pub CodePageName: [super::Foundation::CHAR; 260],
+    pub CodePageName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CPINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CPINFOEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CPINFOEXA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CPINFOEXA").field("MaxCharSize", &self.MaxCharSize).field("DefaultChar", &self.DefaultChar).field("LeadByte", &self.LeadByte).field("UnicodeDefaultChar", &self.UnicodeDefaultChar).field("CodePage", &self.CodePage).field("CodePageName", &self.CodePageName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CPINFOEXA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CPINFOEXA {
     fn eq(&self, other: &Self) -> bool {
         self.MaxCharSize == other.MaxCharSize && self.DefaultChar == other.DefaultChar && self.LeadByte == other.LeadByte && self.UnicodeDefaultChar == other.UnicodeDefaultChar && self.CodePage == other.CodePage && self.CodePageName == other.CodePageName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CPINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CPINFOEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -20301,28 +20301,6 @@ impl ::windows::core::TypeKind for BOOLEAN {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CHAR(pub u8);
-impl ::core::default::Default for CHAR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for CHAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for CHAR {}
-impl ::core::fmt::Debug for CHAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHAR").field(&self.0).finish()
-    }
-}
-impl ::windows::core::TypeKind for CHAR {
-    type TypeKind = ::windows::core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORREF(pub u32);
 impl ::core::default::Default for COLORREF {
     fn default() -> Self {

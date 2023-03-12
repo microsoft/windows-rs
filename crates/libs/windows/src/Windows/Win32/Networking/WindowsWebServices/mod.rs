@@ -9303,39 +9303,31 @@ impl ::core::default::Default for WS_INT64_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_INT8_DESCRIPTION {
-    pub minValue: super::super::Foundation::CHAR,
-    pub maxValue: super::super::Foundation::CHAR,
+    pub minValue: u8,
+    pub maxValue: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_INT8_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_INT8_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_INT8_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_INT8_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for WS_INT8_DESCRIPTION {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_INT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
         self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_INT8_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_INT8_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -5167,7 +5167,7 @@ pub struct DIACTIONFORMATA {
     pub hInstString: super::super::Foundation::HINSTANCE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
-    pub tszActionMap: [super::super::Foundation::CHAR; 260],
+    pub tszActionMap: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIACTIONFORMATA {}
@@ -5392,7 +5392,7 @@ impl ::core::clone::Clone for DIDEVCAPS_DX3 {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA {
-    pub tszImagePath: [super::super::Foundation::CHAR; 260],
+    pub tszImagePath: [u8; 260],
     pub dwFlags: u32,
     pub dwViewID: u32,
     pub rcOverlay: super::super::Foundation::RECT,
@@ -5477,22 +5477,19 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
     pub guidProduct: ::windows_sys::core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
-    pub tszProductName: [super::super::Foundation::CHAR; 260],
+    pub tszInstanceName: [u8; 260],
+    pub tszProductName: [u8; 260],
     pub guidFFDriver: ::windows_sys::core::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEINSTANCEA {
     fn clone(&self) -> Self {
         *self
@@ -5518,19 +5515,16 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
     pub guidProduct: ::windows_sys::core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
-    pub tszProductName: [super::super::Foundation::CHAR; 260],
+    pub tszInstanceName: [u8; 260],
+    pub tszProductName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
@@ -5582,15 +5576,14 @@ impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
     pub guidType: ::windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
     pub wCollectionNumber: u16,
@@ -5601,9 +5594,7 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
     fn clone(&self) -> Self {
         *self
@@ -5635,19 +5626,16 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidType: ::windows_sys::core::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
     fn clone(&self) -> Self {
         *self
@@ -5736,19 +5724,16 @@ impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
     pub guid: ::windows_sys::core::GUID,
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
-    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub tszName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIEFFECTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIEFFECTINFOA {
     fn clone(&self) -> Self {
         *self
@@ -5850,17 +5835,14 @@ impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: ::windows_sys::core::GUID,
     pub lpDiEffect: *mut DIEFFECT,
-    pub szFriendlyName: [super::super::Foundation::CHAR; 260],
+    pub szFriendlyName: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIFILEEFFECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIFILEEFFECT {
     fn clone(&self) -> Self {
         *self

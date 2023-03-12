@@ -1,7 +1,6 @@
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsAcquireContextHandle_A ( credentialflags : u32 , credentials : *const ::core::ffi::c_void , pcontext : *mut DnsContextHandle ) -> i32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsAcquireContextHandle_W ( credentialflags : u32 , credentials : *const ::core::ffi::c_void , pcontext : *mut DnsContextHandle ) -> i32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsCancelQuery ( pcancelhandle : *const DNS_QUERY_CANCEL ) -> i32 );
+::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsCancelQuery ( pcancelhandle : *const DNS_QUERY_CANCEL ) -> i32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionDeletePolicyEntries ( policyentrytag : DNS_CONNECTION_POLICY_TAG ) -> u32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionDeleteProxyInfo ( pwszconnectionname : :: windows_sys::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE ) -> u32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionFreeNameList ( pnamelist : *mut DNS_CONNECTION_NAME_LIST ) -> ( ) );
@@ -22,11 +21,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsExtractRecordsFromMessage_W ( pdnsbuffer : *const DNS_MESSAGE_BUFFER , wmessagelength : u16 , pprecord : *mut *mut DNS_RECORDA ) -> i32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsFree ( pdata : *const ::core::ffi::c_void , freetype : DNS_FREE_TYPE ) -> ( ) );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsFreeCustomServers ( pcservers : *mut u32 , ppservers : *mut *mut DNS_CUSTOM_SERVER ) -> ( ) );
+::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsFreeCustomServers ( pcservers : *mut u32 , ppservers : *mut *mut DNS_CUSTOM_SERVER ) -> ( ) );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsFreeProxyName ( proxyname : :: windows_sys::core::PCWSTR ) -> ( ) );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsGetApplicationSettings ( pcservers : *mut u32 , ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER , psettings : *mut DNS_APPLICATION_SETTINGS ) -> u32 );
+::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsGetApplicationSettings ( pcservers : *mut u32 , ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER , psettings : *mut DNS_APPLICATION_SETTINGS ) -> u32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsGetProxyInformation ( hostname : :: windows_sys::core::PCWSTR , proxyinformation : *mut DNS_PROXY_INFORMATION , defaultproxyinformation : *mut DNS_PROXY_INFORMATION , completionroutine : DNS_PROXY_COMPLETION_ROUTINE , completioncontext : *const ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsModifyRecordsInSet_A ( paddrecords : *const DNS_RECORDA , pdeleterecords : *const DNS_RECORDA , options : u32 , hcredentials : super::super::Foundation:: HANDLE , pextralist : *mut ::core::ffi::c_void , preserved : *mut ::core::ffi::c_void ) -> i32 );
@@ -78,8 +75,7 @@
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsServiceRegisterCancel ( pcancelhandle : *const DNS_SERVICE_CANCEL ) -> u32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsServiceResolve ( prequest : *const DNS_SERVICE_RESOLVE_REQUEST , pcancel : *mut DNS_SERVICE_CANCEL ) -> i32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsServiceResolveCancel ( pcancelhandle : *const DNS_SERVICE_CANCEL ) -> i32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsSetApplicationSettings ( cservers : u32 , pservers : *const DNS_CUSTOM_SERVER , psettings : *const DNS_APPLICATION_SETTINGS ) -> u32 );
+::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsSetApplicationSettings ( cservers : u32 , pservers : *const DNS_CUSTOM_SERVER , psettings : *const DNS_APPLICATION_SETTINGS ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsStartMulticastQuery ( pqueryrequest : *const MDNS_QUERY_REQUEST , phandle : *mut MDNS_QUERY_HANDLE ) -> i32 );
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsStopMulticastQuery ( phandle : *mut MDNS_QUERY_HANDLE ) -> i32 );
@@ -878,37 +874,30 @@ impl ::core::clone::Clone for DNS_AAAA_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_ADDR {
-    pub MaxSa: [super::super::Foundation::CHAR; 32],
+    pub MaxSa: [u8; 32],
     pub Data: DNS_ADDR_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_ADDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_ADDR_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_ADDR_ARRAY {
     pub MaxCount: u32,
     pub AddrCount: u32,
@@ -921,9 +910,7 @@ pub struct DNS_ADDR_ARRAY {
     pub Reserved2: u32,
     pub AddrArray: [DNS_ADDR; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_ADDR_ARRAY {
     fn clone(&self) -> Self {
         *self
@@ -1139,45 +1126,36 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
     pub ullFlags: u64,
     pub Anonymous1: DNS_CUSTOM_SERVER_0,
     pub Anonymous2: DNS_CUSTOM_SERVER_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_CUSTOM_SERVER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_CUSTOM_SERVER_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub union DNS_CUSTOM_SERVER_1 {
-    pub MaxSa: [super::super::Foundation::CHAR; 32],
+    pub MaxSa: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_CUSTOM_SERVER_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
     fn clone(&self) -> Self {
         *self
@@ -1275,15 +1253,12 @@ impl ::core::clone::Clone for DNS_LOC_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
-    pub MessageBody: [super::super::Foundation::CHAR; 1],
+    pub MessageBody: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_MESSAGE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_MESSAGE_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -1519,14 +1494,11 @@ impl ::core::clone::Clone for DNS_PTR_DATAW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_QUERY_CANCEL {
-    pub Reserved: [super::super::Foundation::CHAR; 32],
+    pub Reserved: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DNS_QUERY_CANCEL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DNS_QUERY_CANCEL {
     fn clone(&self) -> Self {
         *self

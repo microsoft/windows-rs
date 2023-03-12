@@ -1910,13 +1910,13 @@ impl IWSDUdpAddress {
     {
         (::windows::core::Interface::vtable(self).base__.SetTransportAddress)(::windows::core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSockaddr)(::windows::core::Interface::as_raw(self), psockaddr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSockaddr)(::windows::core::Interface::as_raw(self), psockaddr).ok()
     }
@@ -1980,13 +1980,13 @@ unsafe impl ::windows::core::ComInterface for IWSDUdpAddress {
 #[doc(hidden)]
 pub struct IWSDUdpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub SetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock")))]
+    #[cfg(not(feature = "Win32_Networking_WinSock"))]
     SetSockaddr: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub GetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock")))]
+    #[cfg(not(feature = "Win32_Networking_WinSock"))]
     GetSockaddr: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fexclusive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,

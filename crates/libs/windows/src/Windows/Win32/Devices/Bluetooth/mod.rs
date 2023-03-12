@@ -315,22 +315,19 @@ pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLU
     ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpEnumAttributes ( psdpstream : *const u8 , cbstreamsize : u32 , pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK , pvparam : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream.as_ptr()), psdpstream.len() as _, pfncallback, pvparam)
 }
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
 pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: &[u8], usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32 {
     ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpGetAttributeValue ( precordstream : *const u8 , cbrecordlength : u32 , usattributeid : u16 , pattributedata : *mut SDP_ELEMENT_DATA ) -> u32 );
     BluetoothSdpGetAttributeValue(::core::mem::transmute(precordstream.as_ptr()), precordstream.len() as _, usattributeid, pattributedata)
 }
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
 pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: &[u8], pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpGetContainerElementData ( pcontainerstream : *const u8 , cbcontainerlength : u32 , pelement : *mut isize , pdata : *mut SDP_ELEMENT_DATA ) -> u32 );
     BluetoothSdpGetContainerElementData(::core::mem::transmute(pcontainerstream.as_ptr()), pcontainerstream.len() as _, pelement, pdata)
 }
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
 pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpGetElementData ( psdpstream : *const u8 , cbsdpstreamlength : u32 , pdata : *mut SDP_ELEMENT_DATA ) -> u32 );
@@ -2889,41 +2886,33 @@ impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct BTH_DEVICE_INFO {
     pub flags: u32,
     pub address: u64,
     pub classOfDevice: u32,
-    pub name: [super::super::Foundation::CHAR; 248],
+    pub name: [u8; 248],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BTH_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BTH_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for BTH_DEVICE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("BTH_DEVICE_INFO").field("flags", &self.flags).field("address", &self.address).field("classOfDevice", &self.classOfDevice).field("name", &self.name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for BTH_DEVICE_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.flags == other.flags && self.address == other.address && self.classOfDevice == other.classOfDevice && self.name == other.name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BTH_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3519,39 +3508,31 @@ impl ::core::default::Default for BTH_QUERY_SERVICE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BTH_RADIO_IN_RANGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BTH_RADIO_IN_RANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for BTH_RADIO_IN_RANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("BTH_RADIO_IN_RANGE").field("deviceInfo", &self.deviceInfo).field("previousDeviceFlags", &self.previousDeviceFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for BTH_RADIO_IN_RANGE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
     fn eq(&self, other: &Self) -> bool {
         self.deviceInfo == other.deviceInfo && self.previousDeviceFlags == other.previousDeviceFlags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for BTH_RADIO_IN_RANGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_RADIO_IN_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3752,40 +3733,34 @@ impl ::core::default::Default for RFCOMM_RPN_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct SDP_ELEMENT_DATA {
     pub r#type: SDP_TYPE,
     pub specificType: SDP_SPECIFICTYPE,
     pub data: SDP_ELEMENT_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub union SDP_ELEMENT_DATA_0 {
     pub int128: SDP_LARGE_INTEGER_16,
     pub int64: i64,
     pub int32: i32,
     pub int16: i16,
-    pub int8: super::super::Foundation::CHAR,
+    pub int8: u8,
     pub uint128: SDP_ULARGE_INTEGER_16,
     pub uint64: u64,
     pub uint32: u32,
@@ -3800,175 +3775,139 @@ pub union SDP_ELEMENT_DATA_0 {
     pub sequence: SDP_ELEMENT_DATA_0_1,
     pub alternative: SDP_ELEMENT_DATA_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SDP_ELEMENT_DATA_0_0").field("value", &self.value).field("length", &self.length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SDP_ELEMENT_DATA_0_1").field("value", &self.value).field("length", &self.length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_1 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SDP_ELEMENT_DATA_0_2").field("value", &self.value).field("length", &self.length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_2 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SDP_ELEMENT_DATA_0_3").field("value", &self.value).field("length", &self.length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_3 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

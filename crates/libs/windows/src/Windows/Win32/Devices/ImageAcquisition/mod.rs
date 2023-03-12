@@ -5230,7 +5230,7 @@ pub struct VAL {
     pub ppButtonNames: *mut *mut u16,
     pub pHandle: *mut super::super::Foundation::HANDLE,
     pub lReserved: i32,
-    pub szVal: [super::super::Foundation::CHAR; 255],
+    pub szVal: [u8; 255],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VAL {}

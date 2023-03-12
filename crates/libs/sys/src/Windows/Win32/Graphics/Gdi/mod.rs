@@ -74,10 +74,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateEnhMetaFileW ( hdc : HDC , lpfilename : :: windows_sys::core::PCWSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : :: windows_sys::core::PCWSTR ) -> HdcMetdataEnhFileHandle );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontA ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : :: windows_sys::core::PCSTR ) -> HFONT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateFontIndirectA ( lplf : *const LOGFONTA ) -> HFONT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn CreateFontIndirectExA ( param0 : *const ENUMLOGFONTEXDVA ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectA ( lplf : *const LOGFONTA ) -> HFONT );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectExA ( param0 : *const ENUMLOGFONTEXDVA ) -> HFONT );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectExW ( param0 : *const ENUMLOGFONTEXDVW ) -> HFONT );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontIndirectW ( lplf : *const LOGFONTW ) -> HFONT );
 ::windows_sys::core::link ! ( "fontsub.dll""cdecl" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"] fn CreateFontPackage ( puchsrcbuffer : *const u8 , ulsrcbuffersize : u32 , ppuchfontpackagebuffer : *mut *mut u8 , pulfontpackagebuffersize : *mut u32 , pulbyteswritten : *mut u32 , usflag : u16 , usttcindex : u16 , ussubsetformat : u16 , ussubsetlanguage : u16 , ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM , ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING , pussubsetkeeplist : *const u16 , ussubsetlistcount : u16 , lpfnallocate : CFP_ALLOCPROC , lpfnreallocate : CFP_REALLOCPROC , lpfnfree : CFP_FREEPROC , lpvreserved : *mut ::core::ffi::c_void ) -> u32 );
@@ -4751,19 +4749,16 @@ impl ::core::clone::Clone for DIBSECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
-    pub DeviceName: [super::super::Foundation::CHAR; 32],
-    pub DeviceString: [super::super::Foundation::CHAR; 128],
+    pub DeviceName: [u8; 32],
+    pub DeviceString: [u8; 128],
     pub StateFlags: u32,
-    pub DeviceID: [super::super::Foundation::CHAR; 128],
-    pub DeviceKey: [super::super::Foundation::CHAR; 128],
+    pub DeviceID: [u8; 128],
+    pub DeviceKey: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAY_DEVICEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAY_DEVICEA {
     fn clone(&self) -> Self {
         *self
@@ -5998,48 +5993,39 @@ impl ::core::clone::Clone for ENHMETARECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
     pub elfScript: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENUMLOGFONTEXDVA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENUMLOGFONTEXDVA {
     fn clone(&self) -> Self {
         *self
@@ -6085,8 +6071,7 @@ impl ::core::clone::Clone for ENUMLOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -6099,9 +6084,7 @@ pub struct EXTLOGFONTA {
     pub elfCulture: u32,
     pub elfPanose: PANOSE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTLOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTLOGFONTA {
     fn clone(&self) -> Self {
         *self
@@ -6345,8 +6328,7 @@ impl ::core::clone::Clone for LOGBRUSH32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -6361,11 +6343,9 @@ pub struct LOGFONTA {
     pub lfClipPrecision: FONT_CLIP_PRECISION,
     pub lfQuality: FONT_QUALITY,
     pub lfPitchAndFamily: u8,
-    pub lfFaceName: [super::super::Foundation::CHAR; 32],
+    pub lfFaceName: [u8; 32],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOGFONTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOGFONTA {
     fn clone(&self) -> Self {
         *self
@@ -6490,7 +6470,7 @@ impl ::core::clone::Clone for MONITORINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
-    pub szDevice: [super::super::Foundation::CHAR; 32],
+    pub szDevice: [u8; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MONITORINFOEXA {}
@@ -6838,7 +6818,7 @@ impl ::core::clone::Clone for RGBTRIPLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
-    pub Buffer: [super::super::Foundation::CHAR; 1],
+    pub Buffer: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RGNDATA {}

@@ -1708,30 +1708,30 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_SET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn clone(&self) -> Self {
         *self
@@ -1750,105 +1750,105 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_SET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn clone(&self) -> Self {
         *self
@@ -1904,141 +1904,141 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_QUERY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SET {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
     pub Host: ::windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn clone(&self) -> Self {
         *self
@@ -2213,15 +2213,15 @@ impl ::core::clone::Clone for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
     pub pLocalAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for HTTP_TRANSPORT_ADDRESS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for HTTP_TRANSPORT_ADDRESS {
     fn clone(&self) -> Self {
         *self

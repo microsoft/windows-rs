@@ -6079,17 +6079,14 @@ impl ::core::clone::Clone for KSFRAMETIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
-    pub l21Data: [super::super::Foundation::CHAR; 3],
+    pub l21Data: [u8; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSGOP_USERDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSGOP_USERDATA {
     fn clone(&self) -> Self {
         *self

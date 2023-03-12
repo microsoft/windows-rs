@@ -6647,7 +6647,7 @@ pub struct GROUP_POLICY_OBJECTA {
     pub lpDSPath: ::windows::core::PSTR,
     pub lpFileSysPath: ::windows::core::PSTR,
     pub lpDisplayName: ::windows::core::PSTR,
-    pub szGPOName: [super::super::Foundation::CHAR; 50],
+    pub szGPOName: [u8; 50],
     pub GPOLink: GPO_LINK,
     pub lParam: super::super::Foundation::LPARAM,
     pub pNext: *mut GROUP_POLICY_OBJECTA,

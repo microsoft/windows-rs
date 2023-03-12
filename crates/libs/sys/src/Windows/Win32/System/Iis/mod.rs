@@ -2,8 +2,7 @@
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
+::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
 pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
@@ -2019,14 +2018,13 @@ impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
     pub ConnID: *mut ::core::ffi::c_void,
     pub dwHttpStatusCode: u32,
-    pub lpszLogData: [super::super::Foundation::CHAR; 80],
+    pub lpszLogData: [u8; 80],
     pub lpszMethod: ::windows_sys::core::PSTR,
     pub lpszQueryString: ::windows_sys::core::PSTR,
     pub lpszPathInfo: ::windows_sys::core::PSTR,
@@ -2040,9 +2038,7 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub ReadClient: isize,
     pub ServerSupportFunction: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
     fn clone(&self) -> Self {
         *self
@@ -2248,19 +2244,16 @@ impl ::core::clone::Clone for HSE_UNICODE_URL_MAPEX_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [super::super::Foundation::CHAR; 260],
+    pub lpszPath: [u8; 260],
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSE_URL_MAPEX_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2281,15 +2274,12 @@ impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [super::super::Foundation::CHAR; 256],
+    pub lpszExtensionDesc: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSE_VERSION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSE_VERSION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2447,17 +2437,14 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [super::super::Foundation::CHAR; 257],
+    pub lpszFilterDesc: [u8; 257],
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_FILTER_VERSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     fn clone(&self) -> Self {
         *self
@@ -2703,11 +2690,9 @@ pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system"
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszurl: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: ::windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: ::windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32) -> ()>;
-#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

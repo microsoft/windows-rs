@@ -5836,7 +5836,7 @@ impl ::core::default::Default for TOKEN_PRIVILEGES {
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_SOURCE {
-    pub SourceName: [super::Foundation::CHAR; 8],
+    pub SourceName: [u8; 8],
     pub SourceIdentifier: super::Foundation::LUID,
 }
 #[cfg(feature = "Win32_Foundation")]

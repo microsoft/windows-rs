@@ -23,114 +23,90 @@ where
     MSChapSrvChangePassword2(servername.into_param().abi(), username.into_param().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into_param().abi(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct CYPHER_BLOCK {
-    pub data: [super::super::Foundation::CHAR; 8],
+    pub data: [u8; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CYPHER_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CYPHER_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CYPHER_BLOCK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CYPHER_BLOCK").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CYPHER_BLOCK {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CYPHER_BLOCK {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CYPHER_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CYPHER_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENCRYPTED_LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENCRYPTED_LM_OWF_PASSWORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ENCRYPTED_LM_OWF_PASSWORD").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ENCRYPTED_LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENCRYPTED_LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LM_OWF_PASSWORD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LM_OWF_PASSWORD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LM_OWF_PASSWORD").field("data", &self.data).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for LM_OWF_PASSWORD {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LM_OWF_PASSWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LM_OWF_PASSWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

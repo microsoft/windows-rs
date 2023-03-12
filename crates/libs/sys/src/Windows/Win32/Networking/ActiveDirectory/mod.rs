@@ -40,14 +40,14 @@
 ::windows_sys::core::link ! ( "ntdsapi.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsAddSidHistoryA ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : :: windows_sys::core::PCSTR , srcprincipal : :: windows_sys::core::PCSTR , srcdomaincontroller : :: windows_sys::core::PCSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : :: windows_sys::core::PCSTR , dstprincipal : :: windows_sys::core::PCSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ntdsapi.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsAddSidHistoryW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : :: windows_sys::core::PCWSTR , srcprincipal : :: windows_sys::core::PCWSTR , srcdomaincontroller : :: windows_sys::core::PCWSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : :: windows_sys::core::PCWSTR , dstprincipal : :: windows_sys::core::PCWSTR ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesA ( computername : :: windows_sys::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PSTR ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesExA ( computername : :: windows_sys::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PSTR , subnetnames : *mut *mut :: windows_sys::core::PSTR ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesExW ( computername : :: windows_sys::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PWSTR , subnetnames : *mut *mut :: windows_sys::core::PWSTR ) -> u32 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesW ( computername : :: windows_sys::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PWSTR ) -> u32 );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesA ( computername : :: windows_sys::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PSTR ) -> u32 );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesExA ( computername : :: windows_sys::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PSTR , subnetnames : *mut *mut :: windows_sys::core::PSTR ) -> u32 );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesExW ( computername : :: windows_sys::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PWSTR , subnetnames : *mut *mut :: windows_sys::core::PWSTR ) -> u32 );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"] fn DsAddressToSiteNamesW ( computername : :: windows_sys::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows_sys::core::PWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ntdsapi.dll""system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsBindA ( domaincontrollername : :: windows_sys::core::PCSTR , dnsdomainname : :: windows_sys::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -3095,8 +3095,7 @@ impl ::core::clone::Clone for DSA_NEWOBJ_DISPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub struct DSBITEMA {
     pub cbStruct: u32,
     pub pszADsPath: ::windows_sys::core::PCWSTR,
@@ -3104,13 +3103,11 @@ pub struct DSBITEMA {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStateMask: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 64],
-    pub szIconLocation: [super::super::Foundation::CHAR; 260],
+    pub szDisplayName: [u8; 64],
+    pub szIconLocation: [u8; 260],
     pub iIconResID: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSBITEMA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSBITEMA {
     fn clone(&self) -> Self {
         *self

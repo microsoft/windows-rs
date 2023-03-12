@@ -2057,62 +2057,62 @@ impl ::core::default::Default for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows::core::TypeKind for WINHTTP_CONNECTION_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows::core::TypeKind for WINHTTP_CONNECTION_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

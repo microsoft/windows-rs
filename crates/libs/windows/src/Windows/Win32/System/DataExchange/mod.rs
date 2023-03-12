@@ -1852,7 +1852,7 @@ pub struct MONHSZSTRUCTA {
     pub dwTime: u32,
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
-    pub str: [super::super::Foundation::CHAR; 1],
+    pub str: [u8; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MONHSZSTRUCTA {}

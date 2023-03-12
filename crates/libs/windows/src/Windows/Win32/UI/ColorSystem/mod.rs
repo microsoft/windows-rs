@@ -87,15 +87,15 @@ pub unsafe fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata:
     ::windows::imp::link ! ( "icm32.dll""system" fn CMCreateProfileW ( lpcolorspace : *mut LOGCOLORSPACEW , lpprofiledata : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CMCreateProfileW(lpcolorspace, lpprofiledata)
 }
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize {
     ::windows::imp::link ! ( "icm32.dll""system" fn CMCreateTransform ( lpcolorspace : *const LOGCOLORSPACEA , lpdevcharacter : *const ::core::ffi::c_void , lptargetdevcharacter : *const ::core::ffi::c_void ) -> isize );
     CMCreateTransform(lpcolorspace, lpdevcharacter, lptargetdevcharacter)
 }
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize {
     ::windows::imp::link ! ( "icm32.dll""system" fn CMCreateTransformExt ( lpcolorspace : *const LOGCOLORSPACEA , lpdevcharacter : *const ::core::ffi::c_void , lptargetdevcharacter : *const ::core::ffi::c_void , dwflags : u32 ) -> isize );
@@ -302,8 +302,8 @@ pub unsafe fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, paco
     ::windows::imp::link ! ( "mscms.dll""system" fn ConvertIndexToColorName ( hprofile : isize , paindex : *const u32 , pacolorname : *mut *mut i8 , dwcount : u32 ) -> super::super::Foundation:: BOOL );
     ConvertIndexToColorName(hprofile, paindex, pacolorname, dwcount)
 }
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     ::windows::imp::link ! ( "gdi32.dll""system" fn CreateColorSpaceA ( lplcs : *const LOGCOLORSPACEA ) -> HCOLORSPACE );
@@ -316,8 +316,8 @@ pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     ::windows::imp::link ! ( "gdi32.dll""system" fn CreateColorSpaceW ( lplcs : *const LOGCOLORSPACEW ) -> HCOLORSPACE );
     CreateColorSpaceW(lplcs)
 }
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize {
     ::windows::imp::link ! ( "mscms.dll""system" fn CreateColorTransformA ( plogcolorspace : *const LOGCOLORSPACEA , hdestprofile : isize , htargetprofile : isize , dwflags : u32 ) -> isize );
@@ -2017,40 +2017,40 @@ impl ::core::default::Default for COLORMATCHSETUPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EMRCREATECOLORSPACE {
     pub emr: super::super::Graphics::Gdi::EMR,
     pub ihCS: u32,
     pub lcs: LOGCOLORSPACEA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for EMRCREATECOLORSPACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for EMRCREATECOLORSPACE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for EMRCREATECOLORSPACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EMRCREATECOLORSPACE").field("emr", &self.emr).field("ihCS", &self.ihCS).field("lcs", &self.lcs).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for EMRCREATECOLORSPACE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
     fn eq(&self, other: &Self) -> bool {
         self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for EMRCREATECOLORSPACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for EMRCREATECOLORSPACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2561,8 +2561,8 @@ impl ::core::default::Default for JabColorF {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -2573,35 +2573,35 @@ pub struct LOGCOLORSPACEA {
     pub lcsGammaRed: u32,
     pub lcsGammaGreen: u32,
     pub lcsGammaBlue: u32,
-    pub lcsFilename: [super::super::Foundation::CHAR; 260],
+    pub lcsFilename: [u8; 260],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for LOGCOLORSPACEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for LOGCOLORSPACEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for LOGCOLORSPACEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LOGCOLORSPACEA").field("lcsSignature", &self.lcsSignature).field("lcsVersion", &self.lcsVersion).field("lcsSize", &self.lcsSize).field("lcsCSType", &self.lcsCSType).field("lcsIntent", &self.lcsIntent).field("lcsEndpoints", &self.lcsEndpoints).field("lcsGammaRed", &self.lcsGammaRed).field("lcsGammaGreen", &self.lcsGammaGreen).field("lcsGammaBlue", &self.lcsGammaBlue).field("lcsFilename", &self.lcsFilename).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::windows::core::TypeKind for LOGCOLORSPACEA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
     fn eq(&self, other: &Self) -> bool {
         self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for LOGCOLORSPACEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for LOGCOLORSPACEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

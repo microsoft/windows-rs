@@ -215,17 +215,14 @@ impl ::core::clone::Clone for GLOBALENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct IMAGE_NOTE {
-    pub Module: [super::super::Foundation::CHAR; 10],
-    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub Module: [u8; 10],
+    pub FileName: [u8; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_NOTE {
     fn clone(&self) -> Self {
         *self
@@ -236,10 +233,10 @@ impl ::core::clone::Clone for IMAGE_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY {
     pub dwSize: u32,
-    pub szModule: [super::super::Foundation::CHAR; 10],
+    pub szModule: [u8; 10],
     pub hModule: super::super::Foundation::HANDLE,
     pub wcUsage: u16,
-    pub szExePath: [super::super::Foundation::CHAR; 256],
+    pub szExePath: [u8; 256],
     pub wNext: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -251,20 +248,17 @@ impl ::core::clone::Clone for MODULEENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
     pub Segment: u16,
-    pub Module: [super::super::Foundation::CHAR; 10],
-    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub Module: [u8; 10],
+    pub FileName: [u8; 256],
     pub Type: u16,
     pub Length: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SEGMENT_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SEGMENT_NOTE {
     fn clone(&self) -> Self {
         *self
@@ -427,19 +421,16 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,
     pub Length: u32,
     pub Type: u16,
-    pub ModuleName: [super::super::Foundation::CHAR; 9],
-    pub FileName: [super::super::Foundation::CHAR; 255],
+    pub ModuleName: [u8; 9],
+    pub FileName: [u8; 255],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDM_SEGINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDM_SEGINFO {
     fn clone(&self) -> Self {
         *self

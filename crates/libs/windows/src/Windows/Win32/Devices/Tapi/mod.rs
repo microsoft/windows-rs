@@ -16226,42 +16226,34 @@ impl ::core::fmt::Debug for TERMINAL_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct ADDRALIAS {
-    pub rgchName: [super::super::Foundation::CHAR; 41],
-    pub rgchEName: [super::super::Foundation::CHAR; 11],
-    pub rgchSrvr: [super::super::Foundation::CHAR; 12],
+    pub rgchName: [u8; 41],
+    pub rgchEName: [u8; 11],
+    pub rgchSrvr: [u8; 12],
     pub dibDetail: u32,
     pub r#type: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ADDRALIAS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ADDRALIAS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ADDRALIAS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ADDRALIAS").field("rgchName", &self.rgchName).field("rgchEName", &self.rgchEName).field("rgchSrvr", &self.rgchSrvr).field("dibDetail", &self.dibDetail).field("type", &self.r#type).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for ADDRALIAS {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ADDRALIAS {
     fn eq(&self, other: &Self) -> bool {
         self.rgchName == other.rgchName && self.rgchEName == other.rgchEName && self.rgchSrvr == other.rgchSrvr && self.dibDetail == other.dibDetail && self.r#type == other.r#type
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ADDRALIAS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ADDRALIAS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18540,41 +18532,33 @@ impl ::core::default::Default for LINEQUEUELIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct LINEREQMAKECALL {
-    pub szDestAddress: [super::super::Foundation::CHAR; 80],
-    pub szAppName: [super::super::Foundation::CHAR; 40],
-    pub szCalledParty: [super::super::Foundation::CHAR; 40],
-    pub szComment: [super::super::Foundation::CHAR; 80],
+    pub szDestAddress: [u8; 80],
+    pub szAppName: [u8; 40],
+    pub szCalledParty: [u8; 40],
+    pub szComment: [u8; 80],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LINEREQMAKECALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LINEREQMAKECALL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LINEREQMAKECALL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LINEREQMAKECALL").field("szDestAddress", &self.szDestAddress).field("szAppName", &self.szAppName).field("szCalledParty", &self.szCalledParty).field("szComment", &self.szComment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for LINEREQMAKECALL {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LINEREQMAKECALL {
     fn eq(&self, other: &Self) -> bool {
         self.szDestAddress == other.szDestAddress && self.szAppName == other.szAppName && self.szCalledParty == other.szCalledParty && self.szComment == other.szComment
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LINEREQMAKECALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEREQMAKECALL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18608,14 +18592,14 @@ impl ::core::default::Default for LINEREQMAKECALLW {
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [super::super::Foundation::CHAR; 40],
+    pub szDeviceClass: [u8; 40],
     pub ucDeviceID: [u8; 40],
     pub dwSize: u32,
     pub dwSecure: u32,
-    pub szDestAddress: [super::super::Foundation::CHAR; 80],
-    pub szAppName: [super::super::Foundation::CHAR; 40],
-    pub szCalledParty: [super::super::Foundation::CHAR; 40],
-    pub szComment: [super::super::Foundation::CHAR; 80],
+    pub szDestAddress: [u8; 80],
+    pub szAppName: [u8; 40],
+    pub szCalledParty: [u8; 40],
+    pub szComment: [u8; 80],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LINEREQMEDIACALL {}
@@ -19105,8 +19089,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct NSID {
     pub dwSize: u32,
     pub uchType: [u8; 16],
@@ -19114,44 +19097,35 @@ pub struct NSID {
     pub lTime: i32,
     pub address: NSID_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NSID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NSID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NSID {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NSID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub union NSID_0 {
     pub alias: ADDRALIAS,
-    pub rgchInterNet: [super::super::Foundation::CHAR; 1],
+    pub rgchInterNet: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NSID_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NSID_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NSID_0 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NSID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

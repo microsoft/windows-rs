@@ -9165,39 +9165,31 @@ impl ::core::default::Default for IMAGE_HOT_PATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
-    pub Name: [super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_IMPORT_BY_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_IMPORT_BY_NAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGE_IMPORT_BY_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGE_IMPORT_BY_NAME").field("Hint", &self.Hint).field("Name", &self.Name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGE_IMPORT_BY_NAME {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGE_IMPORT_BY_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.Hint == other.Hint && self.Name == other.Name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_IMPORT_BY_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGE_IMPORT_BY_NAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9325,12 +9317,11 @@ impl ::core::default::Default for IMAGE_LINENUMBER_0 {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
-    pub ne_ver: super::super::Foundation::CHAR,
-    pub ne_rev: super::super::Foundation::CHAR,
+    pub ne_ver: u8,
+    pub ne_rev: u8,
     pub ne_enttab: u16,
     pub ne_cbenttab: u16,
     pub ne_crc: i32,
@@ -9359,19 +9350,15 @@ pub struct IMAGE_OS2_HEADER {
     pub ne_swaparea: u16,
     pub ne_expver: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_OS2_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_OS2_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGE_OS2_HEADER {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGE_OS2_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9726,39 +9713,31 @@ impl ::core::default::Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
-    pub NameString: [super::super::Foundation::CHAR; 1],
+    pub NameString: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGE_RESOURCE_DIRECTORY_STRING").field("Length", &self.Length).field("NameString", &self.NameString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGE_RESOURCE_DIRECTORY_STRING {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.NameString == other.NameString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGE_RESOURCE_DIRECTORY_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -2608,7 +2608,7 @@ impl ::core::default::Default for PROPVARIANT_0_0 {
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPVARIANT_0_0_0 {
-    pub cVal: super::super::super::Foundation::CHAR,
+    pub cVal: u8,
     pub bVal: u8,
     pub iVal: i16,
     pub uiVal: u16,

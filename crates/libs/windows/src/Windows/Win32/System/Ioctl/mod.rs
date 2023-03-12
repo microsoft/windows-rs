@@ -7122,27 +7122,22 @@ impl ::core::default::Default for DEVICEDUMP_PRIVATE_SUBSECTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: u32,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
-    pub szDescription: [super::super::Foundation::CHAR; 16],
+    pub szDescription: [u8; 16],
     pub bData: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVICEDUMP_PUBLIC_SUBSECTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVICEDUMP_PUBLIC_SUBSECTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEVICEDUMP_PUBLIC_SUBSECTION {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVICEDUMP_PUBLIC_SUBSECTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11408,38 +11403,30 @@ impl ::core::default::Default for FILE_STORAGE_TIER_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
-    pub FileSystem: [super::super::Foundation::CHAR; 9],
+    pub FileSystem: [u8; 9],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_SYSTEM_RECOGNITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FILE_SYSTEM_RECOGNITION_INFORMATION").field("FileSystem", &self.FileSystem).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for FILE_SYSTEM_RECOGNITION_INFORMATION {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.FileSystem == other.FileSystem
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FILE_SYSTEM_RECOGNITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15878,8 +15865,7 @@ impl ::core::default::Default for SCM_PD_DEVICE_HANDLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct SCM_PD_DEVICE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -15902,17 +15888,14 @@ pub struct SCM_PD_DEVICE_INFO {
     pub ManufacturingYear: u8,
     pub SerialNumber4Byte: u32,
     pub SerialNumberLengthInChars: u32,
-    pub SerialNumber: [super::super::Foundation::CHAR; 1],
+    pub SerialNumber: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_PD_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_PD_DEVICE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCM_PD_DEVICE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SCM_PD_DEVICE_INFO")
@@ -15941,11 +15924,9 @@ impl ::core::fmt::Debug for SCM_PD_DEVICE_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SCM_PD_DEVICE_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_PD_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
@@ -15972,9 +15953,7 @@ impl ::core::cmp::PartialEq for SCM_PD_DEVICE_INFO {
             && self.SerialNumber == other.SerialNumber
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_PD_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_PD_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

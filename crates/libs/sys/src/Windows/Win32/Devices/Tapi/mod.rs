@@ -3682,18 +3682,15 @@ pub const TT_STATIC: TERMINAL_TYPE = 0i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TT_DYNAMIC: TERMINAL_TYPE = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct ADDRALIAS {
-    pub rgchName: [super::super::Foundation::CHAR; 41],
-    pub rgchEName: [super::super::Foundation::CHAR; 11],
-    pub rgchSrvr: [super::super::Foundation::CHAR; 12],
+    pub rgchName: [u8; 41],
+    pub rgchEName: [u8; 11],
+    pub rgchSrvr: [u8; 12],
     pub dibDetail: u32,
     pub r#type: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ADDRALIAS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ADDRALIAS {
     fn clone(&self) -> Self {
         *self
@@ -5195,17 +5192,14 @@ impl ::core::clone::Clone for LINEQUEUELIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct LINEREQMAKECALL {
-    pub szDestAddress: [super::super::Foundation::CHAR; 80],
-    pub szAppName: [super::super::Foundation::CHAR; 40],
-    pub szCalledParty: [super::super::Foundation::CHAR; 40],
-    pub szComment: [super::super::Foundation::CHAR; 80],
+    pub szDestAddress: [u8; 80],
+    pub szAppName: [u8; 40],
+    pub szCalledParty: [u8; 40],
+    pub szComment: [u8; 80],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LINEREQMAKECALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LINEREQMAKECALL {
     fn clone(&self) -> Self {
         *self
@@ -5231,14 +5225,14 @@ impl ::core::clone::Clone for LINEREQMAKECALLW {
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [super::super::Foundation::CHAR; 40],
+    pub szDeviceClass: [u8; 40],
     pub ucDeviceID: [u8; 40],
     pub dwSize: u32,
     pub dwSecure: u32,
-    pub szDestAddress: [super::super::Foundation::CHAR; 80],
-    pub szAppName: [super::super::Foundation::CHAR; 40],
-    pub szCalledParty: [super::super::Foundation::CHAR; 40],
-    pub szComment: [super::super::Foundation::CHAR; 80],
+    pub szDestAddress: [u8; 80],
+    pub szAppName: [u8; 40],
+    pub szCalledParty: [u8; 40],
+    pub szComment: [u8; 80],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LINEREQMEDIACALL {}
@@ -5490,8 +5484,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct NSID {
     pub dwSize: u32,
     pub uchType: [u8; 16],
@@ -5499,24 +5492,19 @@ pub struct NSID {
     pub lTime: i32,
     pub address: NSID_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NSID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NSID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub union NSID_0 {
     pub alias: ADDRALIAS,
-    pub rgchInterNet: [super::super::Foundation::CHAR; 1],
+    pub rgchInterNet: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NSID_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NSID_0 {
     fn clone(&self) -> Self {
         *self

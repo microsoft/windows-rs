@@ -953,25 +953,22 @@ impl ::core::clone::Clone for PROPERTYKEY {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,
-    pub achTitle: [super::super::super::Foundation::CHAR; 30],
-    pub achCmdLine: [super::super::super::Foundation::CHAR; 128],
-    pub achWorkDir: [super::super::super::Foundation::CHAR; 64],
+    pub achTitle: [u8; 30],
+    pub achCmdLine: [u8; 128],
+    pub achWorkDir: [u8; 64],
     pub wHotKey: u16,
-    pub achIconFile: [super::super::super::Foundation::CHAR; 80],
+    pub achIconFile: [u8; 80],
     pub wIconIndex: u16,
     pub dwEnhModeFlags: u32,
     pub dwRealModeFlags: u32,
-    pub achOtherFile: [super::super::super::Foundation::CHAR; 80],
-    pub achPIFFile: [super::super::super::Foundation::CHAR; 260],
+    pub achOtherFile: [u8; 80],
+    pub achPIFFile: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROPPRG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPPRG {
     fn clone(&self) -> Self {
         *self
