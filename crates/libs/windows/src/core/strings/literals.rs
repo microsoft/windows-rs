@@ -35,11 +35,7 @@ macro_rules! w {
     }};
 }
 
-/// A literal HSTRING, length-prefixed wide string with a trailing null terminator for use with WinRT APIs.
-///
-/// Converts the literal UTF-8 string into a UTF-16 string adding a terminator and then wrapping
-/// that in an HSTRING reference so that it can be used for calling both WinRT APIs expecting an
-/// HSTRING.
+/// A literal HSTRING, length-prefixed wide string with a trailing null terminator.
 #[macro_export]
 macro_rules! h {
     ($s:literal) => {{

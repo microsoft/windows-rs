@@ -1,5 +1,6 @@
 use super::*;
 
+#[doc(hidden)]
 pub trait RuntimeType: Type<Self> {
     // TODO: hidden?
     const SIGNATURE: imp::ConstBuffer;

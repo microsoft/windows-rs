@@ -1,5 +1,6 @@
 use super::*;
 
+#[doc(hidden)]
 pub enum Param<T: Type<T>> {
     Owned(T),
     Borrowed(T::Abi),
@@ -16,6 +17,7 @@ impl<T: Type<T>> Param<T> {
     }
 }
 
+#[doc(hidden)]
 pub trait TryIntoParam<T: Type<T>> {
     fn try_into_param(self) -> Result<Param<T>>;
 }
@@ -47,6 +49,7 @@ where
     }
 }
 
+#[doc(hidden)]
 pub trait CanTryInto<T>: ComInterface
 where
     T: ComInterface,
@@ -63,6 +66,7 @@ where
     const CAN_INTO: bool = true;
 }
 
+#[doc(hidden)]
 pub trait CanInto<T>: Sized
 where
     T: Clone,
@@ -77,6 +81,7 @@ where
 }
 impl<T> CanInto<T> for T where T: Clone {}
 
+#[doc(hidden)]
 pub trait IntoParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
     T: Type<T>,
