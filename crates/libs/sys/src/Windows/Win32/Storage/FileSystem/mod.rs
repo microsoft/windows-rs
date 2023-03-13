@@ -383,10 +383,8 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZCopy ( hfsource : i32 , hfdest : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZDone ( ) -> ( ) );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZInit ( hfsource : i32 ) -> i32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn LZOpenFileA ( lpfilename : :: windows_sys::core::PCSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn LZOpenFileW ( lpfilename : :: windows_sys::core::PCWSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZOpenFileA ( lpfilename : :: windows_sys::core::PCSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZOpenFileW ( lpfilename : :: windows_sys::core::PCWSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZRead ( hfile : i32 , lpbuffer : :: windows_sys::core::PSTR , cbread : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZSeek ( hfile : i32 , loffset : i32 , iorigin : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZStart ( ) -> i32 );
@@ -457,8 +455,7 @@
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn OpenEncryptedFileRawW ( lpfilename : :: windows_sys::core::PCWSTR , ulflags : u32 , pvcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ktmw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenEnlistment ( dwdesiredaccess : u32 , resourcemanagerhandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows_sys::core::GUID ) -> super::super::Foundation:: HANDLE );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenFile ( lpfilename : :: windows_sys::core::PCSTR , lpreopenbuff : *mut OFSTRUCT , ustyle : u32 ) -> i32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn OpenFile ( lpfilename : :: windows_sys::core::PCSTR , lpreopenbuff : *mut OFSTRUCT , ustyle : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn OpenFileById ( hvolumehint : super::super::Foundation:: HANDLE , lpfileid : *const FILE_ID_DESCRIPTOR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
@@ -4501,23 +4498,20 @@ impl ::core::clone::Clone for NTMS_ASYNC_IO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: ::windows_sys::core::GUID,
-    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
-    pub szRevision: [super::super::Foundation::CHAR; 32],
-    pub szDeviceName: [super::super::Foundation::CHAR; 64],
+    pub szSerialNumber: [u8; 32],
+    pub szRevision: [u8; 32],
+    pub szDeviceName: [u8; 64],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
     pub ScsiLun: u16,
     pub Library: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_CHANGERINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -4544,16 +4538,13 @@ impl ::core::clone::Clone for NTMS_CHANGERINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
-    pub szVendor: [super::super::Foundation::CHAR; 128],
-    pub szProduct: [super::super::Foundation::CHAR; 128],
+    pub szVendor: [u8; 128],
+    pub szProduct: [u8; 128],
     pub DeviceType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_CHANGERTYPEINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -4594,9 +4585,9 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: NtmsDriveState,
     pub DriveType: ::windows_sys::core::GUID,
-    pub szDeviceName: [super::super::Foundation::CHAR; 64],
-    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
-    pub szRevision: [super::super::Foundation::CHAR; 32],
+    pub szDeviceName: [u8; 64],
+    pub szSerialNumber: [u8; 32],
+    pub szRevision: [u8; 32],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
@@ -4646,17 +4637,14 @@ impl ::core::clone::Clone for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
-    pub szVendor: [super::super::Foundation::CHAR; 128],
-    pub szProduct: [super::super::Foundation::CHAR; 128],
+    pub szVendor: [u8; 128],
+    pub szProduct: [u8; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_DRIVETYPEINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -4737,9 +4725,9 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows_sys::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_LIBREQUESTINFORMATIONA {}
@@ -4786,8 +4774,8 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows_sys::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub szDescription: [super::super::Foundation::CHAR; 127],
+    pub szName: [u8; 64],
+    pub szDescription: [u8; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4884,14 +4872,14 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: u32,
-    pub szMessage: [super::super::Foundation::CHAR; 127],
+    pub szMessage: [u8; 127],
     pub Arg1Type: u32,
     pub Arg1: ::windows_sys::core::GUID,
     pub Arg2Type: u32,
     pub Arg2: ::windows_sys::core::GUID,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_OPREQUESTINFORMATIONA {}
@@ -4926,8 +4914,7 @@ impl ::core::clone::Clone for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows_sys::core::GUID,
     pub LogicalMedia: ::windows_sys::core::GUID,
@@ -4935,14 +4922,12 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
+    pub szOmidLabelType: [u8; 64],
+    pub szOmidLabelInfo: [u8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_PARTITIONINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -4969,8 +4954,7 @@ impl ::core::clone::Clone for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows_sys::core::GUID,
     pub MediaPool: ::windows_sys::core::GUID,
@@ -4978,15 +4962,13 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows_sys::core::GUID,
     pub HomeSlot: ::windows_sys::core::GUID,
-    pub szBarCode: [super::super::Foundation::CHAR; 64],
+    pub szBarCode: [u8; 64],
     pub BarCodeState: u32,
-    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
+    pub szSequenceNumber: [u8; 32],
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_PMIDINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -5092,9 +5074,9 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows_sys::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
     pub dwErrorCode: u32,
     pub WorkItemId: ::windows_sys::core::GUID,
     pub dwPriority: u32,
@@ -5216,8 +5198,8 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows_sys::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: NtmsOperationalState,
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub szDescription: [super::super::Foundation::CHAR; 127],
+    pub szName: [u8; 64],
+    pub szDescription: [u8; 127],
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5316,14 +5298,14 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: NtmsOpreqCommand,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: NtmsOpreqState,
-    pub szMessage: [super::super::Foundation::CHAR; 256],
+    pub szMessage: [u8; 256],
     pub Arg1Type: NtmsObjectsTypes,
     pub Arg1: ::windows_sys::core::GUID,
     pub Arg2Type: NtmsObjectsTypes,
     pub Arg2: ::windows_sys::core::GUID,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_OPREQUESTINFORMATIONA {}
@@ -5358,8 +5340,7 @@ impl ::core::clone::Clone for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows_sys::core::GUID,
     pub LogicalMedia: ::windows_sys::core::GUID,
@@ -5367,15 +5348,13 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
+    pub szOmidLabelType: [u8; 64],
+    pub szOmidLabelInfo: [u8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_PARTITIONINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -5403,8 +5382,7 @@ impl ::core::clone::Clone for NTMS_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows_sys::core::GUID,
     pub MediaPool: ::windows_sys::core::GUID,
@@ -5412,18 +5390,16 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows_sys::core::GUID,
     pub HomeSlot: ::windows_sys::core::GUID,
-    pub szBarCode: [super::super::Foundation::CHAR; 64],
+    pub szBarCode: [u8; 64],
     pub BarCodeState: NtmsBarCodeState,
-    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
+    pub szSequenceNumber: [u8; 32],
     pub MediaState: NtmsMediaState,
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
     pub dwDensityCode: u32,
     pub MountedPartition: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_PMIDINFORMATIONA {
     fn clone(&self) -> Self {
         *self
@@ -5467,19 +5443,16 @@ impl ::core::clone::Clone for NTMS_STORAGESLOTINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
     pub nErrCode: u16,
     pub Reserved1: u16,
     pub Reserved2: u16,
-    pub szPathName: [super::super::Foundation::CHAR; 128],
+    pub szPathName: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFSTRUCT {
     fn clone(&self) -> Self {
         *self
@@ -6398,8 +6371,8 @@ pub struct WIN32_FIND_DATAA {
     pub nFileSizeLow: u32,
     pub dwReserved0: u32,
     pub dwReserved1: u32,
-    pub cFileName: [super::super::Foundation::CHAR; 260],
-    pub cAlternateFileName: [super::super::Foundation::CHAR; 14],
+    pub cFileName: [u8; 260],
+    pub cAlternateFileName: [u8; 14],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIN32_FIND_DATAA {}

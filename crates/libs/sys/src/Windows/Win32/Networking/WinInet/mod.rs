@@ -2974,12 +2974,12 @@ impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE_0 {
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_FIND_DATAA {
-    pub DisplayString: [super::super::Foundation::CHAR; 129],
+    pub DisplayString: [u8; 129],
     pub GopherType: GOPHER_TYPE,
     pub SizeLow: u32,
     pub SizeHigh: u32,
     pub LastModificationTime: super::super::Foundation::FILETIME,
-    pub Locator: [super::super::Foundation::CHAR; 654],
+    pub Locator: [u8; 654],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GOPHER_FIND_DATAA {}
@@ -3338,7 +3338,7 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0 {
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub CachePath: [u8; 260],
     pub dwCacheSize: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3403,15 +3403,12 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub CachePath: [u8; 260],
     pub dwCacheSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn clone(&self) -> Self {
         *self
@@ -3548,8 +3545,7 @@ impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -3557,11 +3553,9 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwDiskUsage: u32,
     pub dwDiskQuota: u32,
     pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [super::super::Foundation::CHAR; 120],
+    pub szGroupName: [u8; 120],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_GROUP_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOA {
     fn clone(&self) -> Self {
         *self

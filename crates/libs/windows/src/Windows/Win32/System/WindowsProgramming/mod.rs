@@ -4727,42 +4727,34 @@ impl ::core::default::Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct CABINFOA {
     pub pszCab: ::windows::core::PSTR,
     pub pszInf: ::windows::core::PSTR,
     pub pszSection: ::windows::core::PSTR,
-    pub szSrcPath: [super::super::Foundation::CHAR; 260],
+    pub szSrcPath: [u8; 260],
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CABINFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CABINFOA").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CABINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.pszCab == other.pszCab && self.pszInf == other.pszInf && self.pszSection == other.pszSection && self.szSrcPath == other.szSrcPath && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CABINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CABINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5451,40 +5443,32 @@ impl ::windows::core::TypeKind for HWINWATCH {
     type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct HW_PROFILE_INFOA {
     pub dwDockInfo: u32,
-    pub szHwProfileGuid: [super::super::Foundation::CHAR; 39],
-    pub szHwProfileName: [super::super::Foundation::CHAR; 80],
+    pub szHwProfileGuid: [u8; 39],
+    pub szHwProfileName: [u8; 80],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HW_PROFILE_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HW_PROFILE_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HW_PROFILE_INFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HW_PROFILE_INFOA").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for HW_PROFILE_INFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HW_PROFILE_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwDockInfo == other.dwDockInfo && self.szHwProfileGuid == other.szHwProfileGuid && self.szHwProfileName == other.szHwProfileName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HW_PROFILE_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HW_PROFILE_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6105,12 +6089,12 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERUSERSECTIONA {
-    pub szGUID: [super::super::Foundation::CHAR; 59],
-    pub szDispName: [super::super::Foundation::CHAR; 128],
-    pub szLocale: [super::super::Foundation::CHAR; 10],
-    pub szStub: [super::super::Foundation::CHAR; 1040],
-    pub szVersion: [super::super::Foundation::CHAR; 32],
-    pub szCompID: [super::super::Foundation::CHAR; 128],
+    pub szGUID: [u8; 59],
+    pub szDispName: [u8; 128],
+    pub szLocale: [u8; 10],
+    pub szStub: [u8; 1040],
+    pub szVersion: [u8; 32],
+    pub szCompID: [u8; 128],
     pub dwIsInstalled: u32,
     pub bRollback: super::super::Foundation::BOOL,
 }

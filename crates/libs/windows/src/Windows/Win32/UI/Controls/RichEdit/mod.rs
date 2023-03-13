@@ -9828,7 +9828,7 @@ pub struct CHARFORMATA {
     pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: super::super::super::Graphics::Gdi::FONT_CHARSET,
     pub bPitchAndFamily: u8,
-    pub szFaceName: [super::super::super::Foundation::CHAR; 32],
+    pub szFaceName: [u8; 32],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHARFORMATA {}

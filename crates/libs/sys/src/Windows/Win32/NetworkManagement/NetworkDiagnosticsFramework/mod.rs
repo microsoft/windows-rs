@@ -2,8 +2,8 @@
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfCloseIncident ( handle : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfCreateConnectivityIncident ( handle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfCreateDNSIncident ( hostname : :: windows_sys::core::PCWSTR , querytype : u16 , handle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn NdfCreateGroupingIncident ( cloudname : :: windows_sys::core::PCWSTR , groupname : :: windows_sys::core::PCWSTR , identity : :: windows_sys::core::PCWSTR , invitation : :: windows_sys::core::PCWSTR , addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST , appid : :: windows_sys::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Networking_WinSock")]
+::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`*"] fn NdfCreateGroupingIncident ( cloudname : :: windows_sys::core::PCWSTR , groupname : :: windows_sys::core::PCWSTR , identity : :: windows_sys::core::PCWSTR , invitation : :: windows_sys::core::PCWSTR , addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST , appid : :: windows_sys::core::PCWSTR , handle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"] fn NdfCreateIncident ( helperclassname : :: windows_sys::core::PCWSTR , celt : u32 , attributes : *const HELPER_ATTRIBUTE , handle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfCreateNetConnectionIncident ( handle : *mut *mut ::core::ffi::c_void , id : :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
@@ -190,15 +190,12 @@ pub const UIT_HELP_PANE: UI_INFO_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub const UIT_DUI: UI_INFO_TYPE = 4i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
-    pub data: [super::super::Foundation::CHAR; 126],
+    pub data: [u8; 126],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DIAG_SOCKADDR {
     fn clone(&self) -> Self {
         *self

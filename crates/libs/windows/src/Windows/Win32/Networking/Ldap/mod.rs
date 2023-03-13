@@ -47,11 +47,10 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
     ::windows::imp::link ! ( "wldap32.dll""cdecl" fn ber_bvfree ( bv : *mut LDAP_BERVAL ) -> ( ) );
     ber_bvfree(bv)
 }
-#[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ber_first_element(pberelement: *mut BerElement, plen: *mut u32, ppopaque: *mut *mut super::super::Foundation::CHAR) -> u32 {
-    ::windows::imp::link ! ( "wldap32.dll""cdecl" fn ber_first_element ( pberelement : *mut BerElement , plen : *mut u32 , ppopaque : *mut *mut super::super::Foundation:: CHAR ) -> u32 );
+pub unsafe fn ber_first_element(pberelement: *mut BerElement, plen: *mut u32, ppopaque: *mut *mut u8) -> u32 {
+    ::windows::imp::link ! ( "wldap32.dll""cdecl" fn ber_first_element ( pberelement : *mut BerElement , plen : *mut u32 , ppopaque : *mut *mut u8 ) -> u32 );
     ber_first_element(pberelement, plen, ppopaque)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]

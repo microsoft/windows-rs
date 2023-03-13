@@ -74,10 +74,9 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn UnloadKeyboardLayout ( hkl : super::super::TextServices:: HKL ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"] fn UnregisterHotKey ( hwnd : super::super::super::Foundation:: HWND , id : i32 ) -> super::super::super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"] fn VkKeyScanA ( ch : super::super::super::Foundation:: CHAR ) -> i16 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn VkKeyScanExA ( ch : super::super::super::Foundation:: CHAR , dwhkl : super::super::TextServices:: HKL ) -> i16 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"] fn VkKeyScanA ( ch : u8 ) -> i16 );
+#[cfg(feature = "Win32_UI_TextServices")]
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"] fn VkKeyScanExA ( ch : u8 , dwhkl : super::super::TextServices:: HKL ) -> i16 );
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"] fn VkKeyScanExW ( ch : u16 , dwhkl : super::super::TextServices:: HKL ) -> i16 );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"] fn VkKeyScanW ( ch : u16 ) -> i16 );

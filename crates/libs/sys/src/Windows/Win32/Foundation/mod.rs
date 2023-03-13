@@ -19926,7 +19926,6 @@ impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
 }
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
-pub type CHAR = u8;
 pub type COLORREF = u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]

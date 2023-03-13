@@ -7,8 +7,7 @@
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_bvdup ( pberval : *mut LDAP_BERVAL ) -> *mut LDAP_BERVAL );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_bvecfree ( pberval : *mut *mut LDAP_BERVAL ) -> ( ) );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_bvfree ( bv : *mut LDAP_BERVAL ) -> ( ) );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"] fn ber_first_element ( pberelement : *mut BerElement , plen : *mut u32 , ppopaque : *mut *mut super::super::Foundation:: CHAR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_first_element ( pberelement : *mut BerElement , plen : *mut u32 , ppopaque : *mut *mut u8 ) -> u32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_flatten ( pberelement : *mut BerElement , pberval : *mut *mut LDAP_BERVAL ) -> i32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_free ( pberelement : *mut BerElement , fbuf : i32 ) -> ( ) );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ber_init ( pberval : *mut LDAP_BERVAL ) -> *mut BerElement );

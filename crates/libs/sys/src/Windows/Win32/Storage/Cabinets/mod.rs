@@ -163,8 +163,7 @@ pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const fdintENUMERATE: FDINOTIFICATIONTYPE = 5i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -175,13 +174,11 @@ pub struct CCAB {
     pub iDisk: i32,
     pub fFailOnIncompressible: i32,
     pub setID: u16,
-    pub szDisk: [super::super::Foundation::CHAR; 256],
-    pub szCab: [super::super::Foundation::CHAR; 256],
-    pub szCabPath: [super::super::Foundation::CHAR; 256],
+    pub szDisk: [u8; 256],
+    pub szCab: [u8; 256],
+    pub szCabPath: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CCAB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CCAB {
     fn clone(&self) -> Self {
         *self
@@ -332,36 +329,30 @@ impl ::core::clone::Clone for FDINOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE {
-    pub ach: [super::super::Foundation::CHAR; 2],
+    pub ach: [u8; 2],
     pub cbFile: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDISPILLFILE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct FDISPILLFILE {
-    pub ach: [super::super::Foundation::CHAR; 2],
+    pub ach: [u8; 2],
     pub cbFile: i32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDISPILLFILE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDISPILLFILE {
     fn clone(&self) -> Self {
         *self

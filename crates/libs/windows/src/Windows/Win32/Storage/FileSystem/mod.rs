@@ -2131,8 +2131,7 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn LZInit ( hfsource : i32 ) -> i32 );
     LZInit(hfsource)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZOpenFileA<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
 where
@@ -2141,8 +2140,7 @@ where
     ::windows::imp::link ! ( "kernel32.dll""system" fn LZOpenFileA ( lpfilename : :: windows::core::PCSTR , lpreopenbuf : *mut OFSTRUCT , wstyle : LZOPENFILE_STYLE ) -> i32 );
     LZOpenFileA(lpfilename.into_param().abi(), lpreopenbuf, wstyle)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
 where
@@ -2599,8 +2597,7 @@ where
     let result__ = OpenEnlistment(dwdesiredaccess, resourcemanagerhandle.into_param().abi(), enlistmentid);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn OpenFile<P0>(lpfilename: P0, lpreopenbuff: *mut OFSTRUCT, ustyle: u32) -> i32
 where
@@ -13723,47 +13720,39 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: ::windows::core::GUID,
-    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
-    pub szRevision: [super::super::Foundation::CHAR; 32],
-    pub szDeviceName: [super::super::Foundation::CHAR; 64],
+    pub szSerialNumber: [u8; 32],
+    pub szRevision: [u8; 32],
+    pub szDeviceName: [u8; 64],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
     pub ScsiLun: u16,
     pub Library: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_CHANGERINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_CHANGERINFORMATIONA").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_CHANGERINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number && self.ChangerType == other.ChangerType && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.szDeviceName == other.szDeviceName && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.Library == other.Library
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13809,40 +13798,32 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
-    pub szVendor: [super::super::Foundation::CHAR; 128],
-    pub szProduct: [super::super::Foundation::CHAR; 128],
+    pub szVendor: [u8; 128],
+    pub szProduct: [u8; 128],
     pub DeviceType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_CHANGERTYPEINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_CHANGERTYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_CHANGERTYPEINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.DeviceType == other.DeviceType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13921,9 +13902,9 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: NtmsDriveState,
     pub DriveType: ::windows::core::GUID,
-    pub szDeviceName: [super::super::Foundation::CHAR; 64],
-    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
-    pub szRevision: [super::super::Foundation::CHAR; 32],
+    pub szDeviceName: [u8; 64],
+    pub szSerialNumber: [u8; 32],
+    pub szRevision: [u8; 32],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
@@ -14055,41 +14036,33 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
-    pub szVendor: [super::super::Foundation::CHAR; 128],
-    pub szProduct: [super::super::Foundation::CHAR; 128],
+    pub szVendor: [u8; 128],
+    pub szProduct: [u8; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_DRIVETYPEINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_DRIVETYPEINFORMATIONA").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_DRIVETYPEINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor && self.szProduct == other.szProduct && self.NumberOfHeads == other.NumberOfHeads && self.DeviceType == other.DeviceType
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14274,9 +14247,9 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_LIBREQUESTINFORMATIONA {}
@@ -14399,8 +14372,8 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub szDescription: [super::super::Foundation::CHAR; 127],
+    pub szName: [u8; 64],
+    pub szDescription: [u8; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14537,14 +14510,14 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: u32,
-    pub szMessage: [super::super::Foundation::CHAR; 127],
+    pub szMessage: [u8; 127],
     pub Arg1Type: u32,
     pub Arg1: ::windows::core::GUID,
     pub Arg2Type: u32,
     pub Arg2: ::windows::core::GUID,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_OPREQUESTINFORMATIONA {}
@@ -14627,8 +14600,7 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -14636,38 +14608,31 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
+    pub szOmidLabelType: [u8; 64],
+    pub szOmidLabelInfo: [u8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_PARTITIONINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_I1_PARTITIONINFORMATIONA").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_I1_PARTITIONINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14713,8 +14678,7 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -14722,21 +14686,18 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows::core::GUID,
     pub HomeSlot: ::windows::core::GUID,
-    pub szBarCode: [super::super::Foundation::CHAR; 64],
+    pub szBarCode: [u8; 64],
     pub BarCodeState: u32,
-    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
+    pub szSequenceNumber: [u8; 32],
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_I1_PMIDINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_I1_PMIDINFORMATIONA")
@@ -14754,19 +14715,15 @@ impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_I1_PMIDINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15011,9 +14968,9 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows::core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
     pub dwErrorCode: u32,
     pub WorkItemId: ::windows::core::GUID,
     pub dwPriority: u32,
@@ -15322,8 +15279,8 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows::core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: NtmsOperationalState,
-    pub szName: [super::super::Foundation::CHAR; 64],
-    pub szDescription: [super::super::Foundation::CHAR; 127],
+    pub szName: [u8; 64],
+    pub szDescription: [u8; 127],
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15462,14 +15419,14 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: NtmsOpreqCommand,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: NtmsOpreqState,
-    pub szMessage: [super::super::Foundation::CHAR; 256],
+    pub szMessage: [u8; 256],
     pub Arg1Type: NtmsObjectsTypes,
     pub Arg1: ::windows::core::GUID,
     pub Arg2Type: NtmsObjectsTypes,
     pub Arg2: ::windows::core::GUID,
-    pub szApplication: [super::super::Foundation::CHAR; 64],
-    pub szUser: [super::super::Foundation::CHAR; 64],
-    pub szComputer: [super::super::Foundation::CHAR; 64],
+    pub szApplication: [u8; 64],
+    pub szUser: [u8; 64],
+    pub szComputer: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_OPREQUESTINFORMATIONA {}
@@ -15552,8 +15509,7 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -15561,21 +15517,18 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
+    pub szOmidLabelType: [u8; 64],
+    pub szOmidLabelInfo: [u8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_PARTITIONINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_PARTITIONINFORMATIONA")
@@ -15593,19 +15546,15 @@ impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_PARTITIONINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia && self.LogicalMedia == other.LogicalMedia && self.State == other.State && self.Side == other.Side && self.dwOmidLabelIdLength == other.dwOmidLabelIdLength && self.OmidLabelId == other.OmidLabelId && self.szOmidLabelType == other.szOmidLabelType && self.szOmidLabelInfo == other.szOmidLabelInfo && self.dwMountCount == other.dwMountCount && self.dwAllocateCount == other.dwAllocateCount && self.Capacity == other.Capacity
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15664,8 +15613,7 @@ impl ::core::default::Default for NTMS_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -15673,24 +15621,21 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows::core::GUID,
     pub HomeSlot: ::windows::core::GUID,
-    pub szBarCode: [super::super::Foundation::CHAR; 64],
+    pub szBarCode: [u8; 64],
     pub BarCodeState: NtmsBarCodeState,
-    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
+    pub szSequenceNumber: [u8; 32],
     pub MediaState: NtmsMediaState,
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
     pub dwDensityCode: u32,
     pub MountedPartition: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTMS_PMIDINFORMATIONA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NTMS_PMIDINFORMATIONA")
@@ -15711,19 +15656,15 @@ impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for NTMS_PMIDINFORMATIONA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions && self.dwMediaTypeCode == other.dwMediaTypeCode && self.dwDensityCode == other.dwDensityCode && self.MountedPartition == other.MountedPartition
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15820,43 +15761,35 @@ impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
     pub nErrCode: u16,
     pub Reserved1: u16,
     pub Reserved2: u16,
-    pub szPathName: [super::super::Foundation::CHAR; 128],
+    pub szPathName: [u8; 128],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFSTRUCT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OFSTRUCT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("OFSTRUCT").field("cBytes", &self.cBytes).field("fFixedDisk", &self.fFixedDisk).field("nErrCode", &self.nErrCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("szPathName", &self.szPathName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for OFSTRUCT {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.cBytes == other.cBytes && self.fFixedDisk == other.fFixedDisk && self.nErrCode == other.nErrCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.szPathName == other.szPathName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18030,8 +17963,8 @@ pub struct WIN32_FIND_DATAA {
     pub nFileSizeLow: u32,
     pub dwReserved0: u32,
     pub dwReserved1: u32,
-    pub cFileName: [super::super::Foundation::CHAR; 260],
-    pub cAlternateFileName: [super::super::Foundation::CHAR; 14],
+    pub cFileName: [u8; 260],
+    pub cAlternateFileName: [u8; 14],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIN32_FIND_DATAA {}

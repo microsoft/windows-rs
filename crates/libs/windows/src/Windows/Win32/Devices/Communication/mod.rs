@@ -276,13 +276,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TransmitCommChar<P0, P1>(hfile: P0, cchar: P1) -> super::super::Foundation::BOOL
+pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: u8) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    TransmitCommChar(hfile.into_param().abi(), cchar.into_param().abi())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : u8 ) -> super::super::Foundation:: BOOL );
+    TransmitCommChar(hfile.into_param().abi(), cchar)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1176,8 +1175,7 @@ impl ::core::ops::Not for PURGE_COMM_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -1188,33 +1186,26 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMMCONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMMCONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMMCONFIG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("COMMCONFIG").field("dwSize", &self.dwSize).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).field("dcb", &self.dcb).field("dwProviderSubType", &self.dwProviderSubType).field("dwProviderOffset", &self.dwProviderOffset).field("dwProviderSize", &self.dwProviderSize).field("wcProviderData", &self.wcProviderData).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for COMMCONFIG {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COMMCONFIG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COMMCONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1370,8 +1361,7 @@ impl ::core::default::Default for COMSTAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -1382,22 +1372,19 @@ pub struct DCB {
     pub ByteSize: u8,
     pub Parity: DCB_PARITY,
     pub StopBits: DCB_STOP_BITS,
-    pub XonChar: super::super::Foundation::CHAR,
-    pub XoffChar: super::super::Foundation::CHAR,
-    pub ErrorChar: super::super::Foundation::CHAR,
-    pub EofChar: super::super::Foundation::CHAR,
-    pub EvtChar: super::super::Foundation::CHAR,
+    pub XonChar: u8,
+    pub XoffChar: u8,
+    pub ErrorChar: u8,
+    pub EofChar: u8,
+    pub EvtChar: u8,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DCB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DCB {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DCB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DCB")
@@ -1419,19 +1406,15 @@ impl ::core::fmt::Debug for DCB {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DCB {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
         self.DCBlength == other.DCBlength && self.BaudRate == other.BaudRate && self._bitfield == other._bitfield && self.wReserved == other.wReserved && self.XonLim == other.XonLim && self.XoffLim == other.XoffLim && self.ByteSize == other.ByteSize && self.Parity == other.Parity && self.StopBits == other.StopBits && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ErrorChar == other.ErrorChar && self.EofChar == other.EofChar && self.EvtChar == other.EvtChar && self.wReserved1 == other.wReserved1
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DCB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DCB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

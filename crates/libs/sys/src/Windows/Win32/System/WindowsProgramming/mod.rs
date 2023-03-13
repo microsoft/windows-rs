@@ -1980,18 +1980,15 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct CABINFOA {
     pub pszCab: ::windows_sys::core::PSTR,
     pub pszInf: ::windows_sys::core::PSTR,
     pub pszSection: ::windows_sys::core::PSTR,
-    pub szSrcPath: [super::super::Foundation::CHAR; 260],
+    pub szSrcPath: [u8; 260],
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABINFOA {
     fn clone(&self) -> Self {
         *self
@@ -2276,16 +2273,13 @@ impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
 }
 pub type HWINWATCH = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct HW_PROFILE_INFOA {
     pub dwDockInfo: u32,
-    pub szHwProfileGuid: [super::super::Foundation::CHAR; 39],
-    pub szHwProfileName: [super::super::Foundation::CHAR; 80],
+    pub szHwProfileGuid: [u8; 39],
+    pub szHwProfileName: [u8; 80],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HW_PROFILE_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HW_PROFILE_INFOA {
     fn clone(&self) -> Self {
         *self
@@ -2604,12 +2598,12 @@ impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERUSERSECTIONA {
-    pub szGUID: [super::super::Foundation::CHAR; 59],
-    pub szDispName: [super::super::Foundation::CHAR; 128],
-    pub szLocale: [super::super::Foundation::CHAR; 10],
-    pub szStub: [super::super::Foundation::CHAR; 1040],
-    pub szVersion: [super::super::Foundation::CHAR; 32],
-    pub szCompID: [super::super::Foundation::CHAR; 128],
+    pub szGUID: [u8; 59],
+    pub szDispName: [u8; 128],
+    pub szLocale: [u8; 10],
+    pub szStub: [u8; 1040],
+    pub szVersion: [u8; 32],
+    pub szCompID: [u8; 128],
     pub dwIsInstalled: u32,
     pub bRollback: super::super::Foundation::BOOL,
 }

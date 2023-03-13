@@ -6272,12 +6272,12 @@ impl ::core::default::Default for GOPHER_ATTRIBUTE_TYPE_0 {
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_FIND_DATAA {
-    pub DisplayString: [super::super::Foundation::CHAR; 129],
+    pub DisplayString: [u8; 129],
     pub GopherType: GOPHER_TYPE,
     pub SizeLow: u32,
     pub SizeHigh: u32,
     pub LastModificationTime: super::super::Foundation::FILETIME,
-    pub Locator: [super::super::Foundation::CHAR; 654],
+    pub Locator: [u8; 654],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GOPHER_FIND_DATAA {}
@@ -7157,7 +7157,7 @@ impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOA_0 {
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub CachePath: [u8; 260],
     pub dwCacheSize: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7290,39 +7290,31 @@ impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub CachePath: [u8; 260],
     pub dwCacheSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYA").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn eq(&self, other: &Self) -> bool {
         self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7556,8 +7548,7 @@ impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -7565,35 +7556,28 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwDiskUsage: u32,
     pub dwDiskQuota: u32,
     pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [super::super::Foundation::CHAR; 120],
+    pub szGroupName: [u8; 120],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_GROUP_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("INTERNET_CACHE_GROUP_INFOA").field("dwGroupSize", &self.dwGroupSize).field("dwGroupFlags", &self.dwGroupFlags).field("dwGroupType", &self.dwGroupType).field("dwDiskUsage", &self.dwDiskUsage).field("dwDiskQuota", &self.dwDiskQuota).field("dwOwnerStorage", &self.dwOwnerStorage).field("szGroupName", &self.szGroupName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for INTERNET_CACHE_GROUP_INFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwGroupSize == other.dwGroupSize && self.dwGroupFlags == other.dwGroupFlags && self.dwGroupType == other.dwGroupType && self.dwDiskUsage == other.dwDiskUsage && self.dwDiskQuota == other.dwDiskQuota && self.dwOwnerStorage == other.dwOwnerStorage && self.szGroupName == other.szGroupName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_GROUP_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_GROUP_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

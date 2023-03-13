@@ -357,26 +357,21 @@ where
     ::windows::imp::link ! ( "user32.dll""system" fn UnregisterHotKey ( hwnd : super::super::super::Foundation:: HWND , id : i32 ) -> super::super::super::Foundation:: BOOL );
     UnregisterHotKey(hwnd.into_param().abi(), id)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn VkKeyScanA<P0>(ch: P0) -> i16
-where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanA ( ch : super::super::super::Foundation:: CHAR ) -> i16 );
-    VkKeyScanA(ch.into_param().abi())
+pub unsafe fn VkKeyScanA(ch: u8) -> i16 {
+    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanA ( ch : u8 ) -> i16 );
+    VkKeyScanA(ch)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExA<P0, P1>(ch: P0, dwhkl: P1) -> i16
+pub unsafe fn VkKeyScanExA<P0>(ch: u8, dwhkl: P0) -> i16
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::CHAR>,
-    P1: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanExA ( ch : super::super::super::Foundation:: CHAR , dwhkl : super::super::TextServices:: HKL ) -> i16 );
-    VkKeyScanExA(ch.into_param().abi(), dwhkl.into_param().abi())
+    ::windows::imp::link ! ( "user32.dll""system" fn VkKeyScanExA ( ch : u8 , dwhkl : super::super::TextServices:: HKL ) -> i16 );
+    VkKeyScanExA(ch, dwhkl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]

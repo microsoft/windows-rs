@@ -11,8 +11,7 @@
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileEndRecord ( pfile : IAVIFile ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileExit ( ) -> ( ) );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileGetStream ( pfile : IAVIFile , ppavi : *mut IAVIStream , fcctype : u32 , lparam : i32 ) -> :: windows_sys::core::HRESULT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn AVIFileInfoA ( pfile : IAVIFile , pfi : *mut AVIFILEINFOA , lsize : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileInfoA ( pfile : IAVIFile , pfi : *mut AVIFILEINFOA , lsize : i32 ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileInfoW ( pfile : IAVIFile , pfi : *mut AVIFILEINFOW , lsize : i32 ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileInit ( ) -> ( ) );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn AVIFileOpenA ( ppfile : *mut IAVIFile , szfile : :: windows_sys::core::PCSTR , umode : u32 , lphandler : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
@@ -178,8 +177,7 @@
 ::windows_sys::core::link ! ( "avicap32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn capGetDriverDescriptionA ( wdriverindex : u32 , lpszname : :: windows_sys::core::PSTR , cbname : i32 , lpszver : :: windows_sys::core::PSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "avicap32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn capGetDriverDescriptionW ( wdriverindex : u32 , lpszname : :: windows_sys::core::PWSTR , cbname : i32 , lpszver : :: windows_sys::core::PWSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn joyGetDevCapsA ( ujoyid : usize , pjc : *mut JOYCAPSA , cbjc : u32 ) -> u32 );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn joyGetDevCapsA ( ujoyid : usize , pjc : *mut JOYCAPSA , cbjc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn joyGetDevCapsW ( ujoyid : usize , pjc : *mut JOYCAPSW , cbjc : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn joyGetNumDevs ( ) -> u32 );
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn joyGetPos ( ujoyid : u32 , pji : *mut JOYINFO ) -> u32 );
@@ -9670,8 +9668,7 @@ impl ::core::clone::Clone for AVICOMPRESSOPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -9684,11 +9681,9 @@ pub struct AVIFILEINFOA {
     pub dwRate: u32,
     pub dwLength: u32,
     pub dwEditCount: u32,
-    pub szFileType: [super::super::Foundation::CHAR; 64],
+    pub szFileType: [u8; 64],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AVIFILEINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AVIFILEINFOA {
     fn clone(&self) -> Self {
         *self
@@ -9737,7 +9732,7 @@ pub struct AVISTREAMINFOA {
     pub rcFrame: super::super::Foundation::RECT,
     pub dwEditCount: u32,
     pub dwFormatChangeCount: u32,
-    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szName: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AVISTREAMINFOA {}
@@ -10541,12 +10536,11 @@ impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -10566,15 +10560,13 @@ pub struct JOYCAPS2A {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+    pub szRegKey: [u8; 32],
+    pub szOEMVxD: [u8; 260],
     pub ManufacturerGuid: ::windows_sys::core::GUID,
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JOYCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JOYCAPS2A {
     fn clone(&self) -> Self {
         *self
@@ -10618,12 +10610,11 @@ impl ::core::clone::Clone for JOYCAPS2W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub szPname: [u8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -10643,12 +10634,10 @@ pub struct JOYCAPSA {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::Foundation::CHAR; 32],
-    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
+    pub szRegKey: [u8; 32],
+    pub szOEMVxD: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JOYCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JOYCAPSA {
     fn clone(&self) -> Self {
         *self
@@ -12332,20 +12321,17 @@ impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
-    pub chFineTune: super::super::Foundation::CHAR,
-    pub chGain: super::super::Foundation::CHAR,
+    pub chFineTune: u8,
+    pub chGain: u8,
     pub bLowNote: u8,
     pub bHighNote: u8,
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for s_RIFFWAVE_inst {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for s_RIFFWAVE_inst {
     fn clone(&self) -> Self {
         *self

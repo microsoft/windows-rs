@@ -4119,7 +4119,7 @@ pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: ::windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
     pub dwlDriverVersion: u64,
-    pub szPackageID: [super::super::Foundation::CHAR; 260],
+    pub szPackageID: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CORE_PRINTER_DRIVERA {}

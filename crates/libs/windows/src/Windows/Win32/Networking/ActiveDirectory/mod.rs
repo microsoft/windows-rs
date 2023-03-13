@@ -240,8 +240,8 @@ where
     ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsAddSidHistoryW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : :: windows::core::PCWSTR , srcprincipal : :: windows::core::PCWSTR , srcdomaincontroller : :: windows::core::PCWSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : :: windows::core::PCWSTR , dstprincipal : :: windows::core::PCWSTR ) -> u32 );
     DsAddSidHistoryW(hds.into_param().abi(), flags, srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds.unwrap_or(::std::ptr::null())), dstdomain.into_param().abi(), dstprincipal.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR) -> u32
 where
@@ -250,8 +250,8 @@ where
     ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesA ( computername : :: windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PSTR ) -> u32 );
     DsAddressToSiteNamesA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames)
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR, subnetnames: *mut *mut ::windows::core::PSTR) -> u32
 where
@@ -260,8 +260,8 @@ where
     ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExA ( computername : :: windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PSTR , subnetnames : *mut *mut :: windows::core::PSTR ) -> u32 );
     DsAddressToSiteNamesExA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR, subnetnames: *mut *mut ::windows::core::PWSTR) -> u32
 where
@@ -270,8 +270,8 @@ where
     ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExW ( computername : :: windows::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PWSTR , subnetnames : *mut *mut :: windows::core::PWSTR ) -> u32 );
     DsAddressToSiteNamesExW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR) -> u32
 where
@@ -15431,8 +15431,7 @@ impl ::core::default::Default for DSA_NEWOBJ_DISPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub struct DSBITEMA {
     pub cbStruct: u32,
     pub pszADsPath: ::windows::core::PCWSTR,
@@ -15440,37 +15439,30 @@ pub struct DSBITEMA {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStateMask: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 64],
-    pub szIconLocation: [super::super::Foundation::CHAR; 260],
+    pub szDisplayName: [u8; 64],
+    pub szIconLocation: [u8; 260],
     pub iIconResID: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSBITEMA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSBITEMA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSBITEMA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DSBITEMA").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DSBITEMA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSBITEMA {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.pszADsPath == other.pszADsPath && self.pszClass == other.pszClass && self.dwMask == other.dwMask && self.dwState == other.dwState && self.dwStateMask == other.dwStateMask && self.szDisplayName == other.szDisplayName && self.szIconLocation == other.szIconLocation && self.iIconResID == other.iIconResID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DSBITEMA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSBITEMA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

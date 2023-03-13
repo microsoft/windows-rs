@@ -16,7 +16,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn FillConsoleOutputAttribute ( hconsoleoutput : super::super::Foundation:: HANDLE , wattribute : u16 , nlength : u32 , dwwritecoord : COORD , lpnumberofattrswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn FillConsoleOutputCharacterA ( hconsoleoutput : super::super::Foundation:: HANDLE , ccharacter : super::super::Foundation:: CHAR , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn FillConsoleOutputCharacterA ( hconsoleoutput : super::super::Foundation:: HANDLE , ccharacter : u8 , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn FillConsoleOutputCharacterW ( hconsoleoutput : super::super::Foundation:: HANDLE , ccharacter : u16 , nlength : u32 , dwwritecoord : COORD , lpnumberofcharswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -334,30 +334,24 @@ pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHAR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHAR_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: super::super::Foundation::CHAR,
+    pub AsciiChar: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHAR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHAR_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -568,7 +562,7 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: super::super::Foundation::CHAR,
+    pub AsciiChar: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KEY_EVENT_RECORD_0 {}

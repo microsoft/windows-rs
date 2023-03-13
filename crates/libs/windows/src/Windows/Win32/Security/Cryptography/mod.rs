@@ -26938,49 +26938,40 @@ impl ::core::default::Default for PRIVKEYVER3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: u32,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
-    pub szName: [super::super::Foundation::CHAR; 20],
+    pub szName: [u8; 20],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROV_ENUMALGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROV_ENUMALGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROV_ENUMALGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PROV_ENUMALGS").field("aiAlgid", &self.aiAlgid).field("dwBitLen", &self.dwBitLen).field("dwNameLen", &self.dwNameLen).field("szName", &self.szName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for PROV_ENUMALGS {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROV_ENUMALGS {
     fn eq(&self, other: &Self) -> bool {
         self.aiAlgid == other.aiAlgid && self.dwBitLen == other.dwBitLen && self.dwNameLen == other.dwNameLen && self.szName == other.szName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROV_ENUMALGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROV_ENUMALGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: u32,
     pub dwDefaultLen: u32,
@@ -26988,37 +26979,30 @@ pub struct PROV_ENUMALGS_EX {
     pub dwMaxLen: u32,
     pub dwProtocols: u32,
     pub dwNameLen: u32,
-    pub szName: [super::super::Foundation::CHAR; 20],
+    pub szName: [u8; 20],
     pub dwLongNameLen: u32,
-    pub szLongName: [super::super::Foundation::CHAR; 40],
+    pub szLongName: [u8; 40],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROV_ENUMALGS_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROV_ENUMALGS_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROV_ENUMALGS_EX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PROV_ENUMALGS_EX").field("aiAlgid", &self.aiAlgid).field("dwDefaultLen", &self.dwDefaultLen).field("dwMinLen", &self.dwMinLen).field("dwMaxLen", &self.dwMaxLen).field("dwProtocols", &self.dwProtocols).field("dwNameLen", &self.dwNameLen).field("szName", &self.szName).field("dwLongNameLen", &self.dwLongNameLen).field("szLongName", &self.szLongName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for PROV_ENUMALGS_EX {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROV_ENUMALGS_EX {
     fn eq(&self, other: &Self) -> bool {
         self.aiAlgid == other.aiAlgid && self.dwDefaultLen == other.dwDefaultLen && self.dwMinLen == other.dwMinLen && self.dwMaxLen == other.dwMaxLen && self.dwProtocols == other.dwProtocols && self.dwNameLen == other.dwNameLen && self.szName == other.szName && self.dwLongNameLen == other.dwLongNameLen && self.szLongName == other.szLongName
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROV_ENUMALGS_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROV_ENUMALGS_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

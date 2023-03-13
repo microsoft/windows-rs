@@ -26,8 +26,7 @@
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetTimeout ( hentity : isize , npolicytimeout : *mut u32 , nactualtimeout : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetTranslateMode ( ntranslatemode : *mut SNMP_API_TRANSLATE_MODE ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetVb ( vbl : isize , index : u32 , name : *mut smiOID , value : *mut smiVALUE ) -> u32 );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"] fn SnmpGetVendorInfo ( vendorinfo : *mut smiVENDORINFO ) -> u32 );
+::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpGetVendorInfo ( vendorinfo : *mut smiVENDORINFO ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpListen ( hentity : isize , lstatus : SNMP_STATUS ) -> u32 );
 ::windows_sys::core::link ! ( "wsnmp32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"] fn SnmpListenEx ( hentity : isize , lstatus : u32 , nuseentityaddr : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -611,18 +610,15 @@ impl ::core::clone::Clone for smiVALUE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub struct smiVENDORINFO {
-    pub vendorName: [super::super::Foundation::CHAR; 64],
-    pub vendorContact: [super::super::Foundation::CHAR; 64],
-    pub vendorVersionId: [super::super::Foundation::CHAR; 32],
-    pub vendorVersionDate: [super::super::Foundation::CHAR; 32],
+    pub vendorName: [u8; 64],
+    pub vendorContact: [u8; 64],
+    pub vendorVersionId: [u8; 32],
+    pub vendorVersionDate: [u8; 32],
     pub vendorEnterprise: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for smiVENDORINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for smiVENDORINFO {
     fn clone(&self) -> Self {
         *self

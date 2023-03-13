@@ -7778,8 +7778,7 @@ impl ::core::clone::Clone for DEBUG_OFFSET_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
     pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
@@ -7788,9 +7787,7 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn clone(&self) -> Self {
         *self
@@ -7809,84 +7806,69 @@ impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
     pub Family: u32,
     pub ArchRev: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn clone(&self) -> Self {
         *self
@@ -8276,7 +8258,7 @@ pub struct DUMP_HEADER32 {
     pub BugCheckParameter2: u32,
     pub BugCheckParameter3: u32,
     pub BugCheckParameter4: u32,
-    pub VersionUser: [super::super::super::Foundation::CHAR; 32],
+    pub VersionUser: [u8; 32],
     pub PaeEnabled: u8,
     pub KdSecondaryVersion: u8,
     pub Spare3: [u8; 2],
@@ -8284,7 +8266,7 @@ pub struct DUMP_HEADER32 {
     pub Anonymous: DUMP_HEADER32_0,
     pub ContextRecord: [u8; 1200],
     pub Exception: EXCEPTION_RECORD32,
-    pub Comment: [super::super::super::Foundation::CHAR; 128],
+    pub Comment: [u8; 128],
     pub Attributes: DUMP_FILE_ATTRIBUTES,
     pub BootId: u32,
     pub _reserved0: [u8; 1760],
@@ -8342,7 +8324,7 @@ pub struct DUMP_HEADER64 {
     pub BugCheckParameter2: u64,
     pub BugCheckParameter3: u64,
     pub BugCheckParameter4: u64,
-    pub VersionUser: [super::super::super::Foundation::CHAR; 32],
+    pub VersionUser: [u8; 32],
     pub KdDebuggerDataBlock: u64,
     pub Anonymous: DUMP_HEADER64_0,
     pub ContextRecord: [u8; 3000],
@@ -8350,7 +8332,7 @@ pub struct DUMP_HEADER64 {
     pub DumpType: u32,
     pub RequiredDumpSpace: i64,
     pub SystemTime: i64,
-    pub Comment: [super::super::super::Foundation::CHAR; 128],
+    pub Comment: [u8; 128],
     pub SystemUpTime: i64,
     pub MiniDumpFields: u32,
     pub SecondaryDataState: u32,
@@ -8908,7 +8890,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub BaseOfImage: u32,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [super::super::super::Foundation::CHAR; 260],
+    pub FileName: [u8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
@@ -8930,7 +8912,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub BaseOfImage: u64,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [super::super::super::Foundation::CHAR; 260],
+    pub FileName: [u8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
@@ -8965,9 +8947,8 @@ impl ::core::clone::Clone for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -8975,27 +8956,22 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SelectedSymbol: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DUPLICATE_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DUPLICATE_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: *mut IMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DUPLICATE_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn clone(&self) -> Self {
         *self
@@ -9109,9 +9085,8 @@ impl ::core::clone::Clone for IMAGEHLP_LINEW64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -9120,15 +9095,13 @@ pub struct IMAGEHLP_MODULE {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [super::super::super::Foundation::CHAR; 32],
-    pub ImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedImageName: [super::super::super::Foundation::CHAR; 256],
+    pub ModuleName: [u8; 32],
+    pub ImageName: [u8; 256],
+    pub LoadedImageName: [u8; 256],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_MODULE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_MODULE {
     fn clone(&self) -> Self {
         *self
@@ -9145,12 +9118,12 @@ pub struct IMAGEHLP_MODULE64 {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [super::super::super::Foundation::CHAR; 32],
-    pub ImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedPdbName: [super::super::super::Foundation::CHAR; 256],
+    pub ModuleName: [u8; 32],
+    pub ImageName: [u8; 256],
+    pub LoadedImageName: [u8; 256],
+    pub LoadedPdbName: [u8; 256],
     pub CVSig: u32,
-    pub CVData: [super::super::super::Foundation::CHAR; 780],
+    pub CVData: [u8; 780],
     pub PdbSig: u32,
     pub PdbSig70: ::windows_sys::core::GUID,
     pub PdbAge: u32,
@@ -9287,56 +9260,47 @@ impl ::core::clone::Clone for IMAGEHLP_STACK_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
     pub Address: u32,
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64_PACKAGE {
     fn clone(&self) -> Self {
         *self
@@ -9405,34 +9369,28 @@ impl ::core::clone::Clone for IMAGEHLP_SYMBOLW_PACKAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_PACKAGE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
-    pub file: [super::super::super::Foundation::CHAR; 260],
+    pub file: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_SRC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_SRC {
     fn clone(&self) -> Self {
         *self
@@ -12585,20 +12543,17 @@ impl ::core::clone::Clone for SOURCEFILEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut ::core::ffi::c_void,
     pub ModBase: u64,
-    pub Obj: [super::super::super::Foundation::CHAR; 261],
-    pub FileName: [super::super::super::Foundation::CHAR; 261],
+    pub Obj: [u8; 261],
+    pub FileName: [u8; 261],
     pub LineNumber: u32,
     pub Address: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SRCCODEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SRCCODEINFO {
     fn clone(&self) -> Self {
         *self
@@ -12730,8 +12685,7 @@ impl ::core::clone::Clone for STACK_SYM_FRAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -12747,11 +12701,9 @@ pub struct SYMBOL_INFO {
     pub Tag: u32,
     pub NameLen: u32,
     pub MaxNameLen: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYMBOL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYMBOL_INFO {
     fn clone(&self) -> Self {
         *self
@@ -12799,15 +12751,12 @@ impl ::core::clone::Clone for SYMBOL_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYMBOL_INFO_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYMBOL_INFO_PACKAGE {
     fn clone(&self) -> Self {
         *self
@@ -12843,12 +12792,12 @@ impl ::core::clone::Clone for SYMSRV_EXTENDED_OUTPUT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
-    pub file: [super::super::super::Foundation::CHAR; 261],
+    pub file: [u8; 261],
     pub stripped: super::super::super::Foundation::BOOL,
     pub timestamp: u32,
     pub size: u32,
-    pub dbgfile: [super::super::super::Foundation::CHAR; 261],
-    pub pdbfile: [super::super::super::Foundation::CHAR; 261],
+    pub dbgfile: [u8; 261],
+    pub pdbfile: [u8; 261],
     pub guid: ::windows_sys::core::GUID,
     pub sig: u32,
     pub age: u32,

@@ -68247,78 +68247,62 @@ impl ::core::default::Default for DualMonoInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DvbParentalRatingDescriptor {
     pub ulNumParams: u32,
     pub pParams: [DvbParentalRatingParam; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DvbParentalRatingDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DvbParentalRatingDescriptor {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DvbParentalRatingDescriptor {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DvbParentalRatingDescriptor").field("ulNumParams", &self.ulNumParams).field("pParams", &self.pParams).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DvbParentalRatingDescriptor {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DvbParentalRatingDescriptor {
     fn eq(&self, other: &Self) -> bool {
         self.ulNumParams == other.ulNumParams && self.pParams == other.pParams
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DvbParentalRatingDescriptor {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DvbParentalRatingDescriptor {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub struct DvbParentalRatingParam {
-    pub szCountryCode: [super::super::Foundation::CHAR; 4],
+    pub szCountryCode: [u8; 4],
     pub bRating: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DvbParentalRatingParam {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DvbParentalRatingParam {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DvbParentalRatingParam {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DvbParentalRatingParam").field("szCountryCode", &self.szCountryCode).field("bRating", &self.bRating).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DvbParentalRatingParam {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DvbParentalRatingParam {
     fn eq(&self, other: &Self) -> bool {
         self.szCountryCode == other.szCountryCode && self.bRating == other.bRating
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DvbParentalRatingParam {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DvbParentalRatingParam {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -68521,84 +68505,84 @@ impl ::core::default::Default for KSM_BDA_CAS_CAPTURETOKEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub ulDialogNumber: u32,
     pub ulReason: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_CAS_CLOSEMMIDIALOG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_CAS_CLOSEMMIDIALOG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_CAS_CLOSEMMIDIALOG {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_CAS_CLOSEMMIDIALOG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub ulRequestType: u32,
     pub ulEntitlementTokenLen: u32,
     pub argbEntitlementToken: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_CAS_ENTITLEMENTTOKEN {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_CAS_ENTITLEMENTTOKEN {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_CAS_ENTITLEMENTTOKEN {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_CAS_ENTITLEMENTTOKEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub ulEventId: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_CAS_OPENBROADCASTMMI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_CAS_OPENBROADCASTMMI {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_CAS_OPENBROADCASTMMI {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_CAS_OPENBROADCASTMMI {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -68734,27 +68718,27 @@ impl ::core::default::Default for KSM_BDA_GDDS_TUNEXMLFROMIDX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::KernelStreaming::KSIDENTIFIER,
     pub ulNameLength: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub argbData: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_GPNV_GETVALUE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_GPNV_GETVALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_GPNV_GETVALUE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_GPNV_GETVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -68786,29 +68770,29 @@ impl ::core::default::Default for KSM_BDA_GPNV_NAMEINDEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::KernelStreaming::KSIDENTIFIER,
     pub ulDialogRequest: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub ulNameLength: u32,
     pub ulValueLength: u32,
     pub argbName: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_GPNV_SETVALUE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_GPNV_SETVALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_GPNV_SETVALUE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_GPNV_SETVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -69148,28 +69132,28 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [super::super::Foundation::CHAR; 12],
+    pub cLanguage: [u8; 12],
     pub ulPurchaseTokenLength: u32,
     pub argbDataBuffer: [u8; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::windows::core::TypeKind for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
+#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::default::Default for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
