@@ -88,7 +88,7 @@ targets = []
 all-features = true
 
 [target.'cfg(not(windows_raw_dylib))'.dependencies]
-windows-targets = { path = "../targets",  version = "0.42.1" }
+windows-targets = { path = "../targets",  version = "0.42.2" }
 
 [features]
 default = []
