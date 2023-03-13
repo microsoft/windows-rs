@@ -14,7 +14,6 @@ extern crate self as windows;
 pub use Windows::*;
 pub mod core;
 
-#[doc(hidden)]
 mod Windows;
 
 #[doc(hidden)]
