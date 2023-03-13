@@ -40,7 +40,7 @@ fn main() {
         r#"
 [package]
 name = "windows"
-version = "0.44.0"
+version = "0.46.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -57,11 +57,11 @@ targets = []
 rustc-args = ["--cfg", "docsrs"]
 
 [target.'cfg(not(windows_raw_dylib))'.dependencies]
-windows-targets = { path = "../targets",  version = "0.42.1" }
+windows-targets = { path = "../targets",  version = "0.42.2" }
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.44.0", optional = true }
-windows-interface = { path = "../interface",  version = "0.44.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.46.0", optional = true }
+windows-interface = { path = "../interface",  version = "0.46.0", optional = true }
 
 [features]
 default = []
