@@ -92,8 +92,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_does_not_return &&
           cargo test --target ${{ matrix.target }} -p test_enums &&
           cargo test --target ${{ matrix.target }} -p test_error &&
-          cargo test --target ${{ matrix.target }} -p test_event &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
@@ -113,7 +113,6 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_reserved &&
           cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
-          cargo test --target ${{ matrix.target }} -p test_riddle &&
           cargo test --target ${{ matrix.target }} -p test_simple_component &&
           cargo test --target ${{ matrix.target }} -p test_string_param &&
           cargo test --target ${{ matrix.target }} -p test_structs &&

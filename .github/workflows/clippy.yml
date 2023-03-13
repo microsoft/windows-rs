@@ -106,7 +106,6 @@ jobs:
           cargo clippy -p test_reserved &&
           cargo clippy -p test_resources &&
           cargo clippy -p test_return_struct &&
-          cargo clippy -p test_riddle &&
           cargo clippy -p test_simple_component &&
           cargo clippy -p test_string_param &&
           cargo clippy -p test_structs &&
