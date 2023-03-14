@@ -1680,12 +1680,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathCchFindExtension<P0>(pszpath: P0, cchpath: usize) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn PathCchFindExtension<P0>(pszpath: P0, cchpath: usize) -> ::windows::core::Result<::windows::core::PCWSTR>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchFindExtension ( pszpath : :: windows::core::PCWSTR , cchpath : usize , ppszext : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchFindExtension ( pszpath : :: windows::core::PCWSTR , cchpath : usize , ppszext : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     PathCchFindExtension(pszpath.into_param().abi(), cchpath, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -1733,12 +1733,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn PathCchSkipRoot<P0>(pszpath: P0) -> ::windows::core::Result<::windows::core::PCWSTR>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchSkipRoot ( pszpath : :: windows::core::PCWSTR , ppszrootend : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathCchSkipRoot ( pszpath : :: windows::core::PCWSTR , ppszrootend : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     PathCchSkipRoot(pszpath.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -1959,20 +1959,20 @@ pub unsafe fn PathFindOnPathW(pszpath: &mut [u16; 260], ppszotherdirs: ::core::o
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: &[::windows::core::PCSTR]) -> ::windows::core::PSTR
+pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: &[::windows::core::PCSTR]) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PCSTR , iarraysize : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PCSTR , iarraysize : i32 ) -> :: windows::core::PCSTR );
     PathFindSuffixArrayA(pszpath.into_param().abi(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: &[::windows::core::PCWSTR]) -> ::windows::core::PWSTR
+pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: &[::windows::core::PCWSTR]) -> ::windows::core::PCWSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PCWSTR , iarraysize : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PCWSTR , iarraysize : i32 ) -> :: windows::core::PCWSTR );
     PathFindSuffixArrayW(pszpath.into_param().abi(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -2298,11 +2298,11 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PathIsUNCEx<P0>(pszpath: P0, ppszserver: ::core::option::Option<*mut ::windows::core::PWSTR>) -> super::super::Foundation::BOOL
+pub unsafe fn PathIsUNCEx<P0>(pszpath: P0, ppszserver: ::core::option::Option<*mut ::windows::core::PCWSTR>) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathIsUNCEx ( pszpath : :: windows::core::PCWSTR , ppszserver : *mut :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "api-ms-win-core-path-l1-1-0.dll""system" fn PathIsUNCEx ( pszpath : :: windows::core::PCWSTR , ppszserver : *mut :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     PathIsUNCEx(pszpath.into_param().abi(), ::core::mem::transmute(ppszserver.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -6316,20 +6316,20 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn UrlGetLocationA<P0>(pszurl: P0) -> ::windows::core::PSTR
+pub unsafe fn UrlGetLocationA<P0>(pszurl: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationA ( pszurl : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationA ( pszurl : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
     UrlGetLocationA(pszurl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn UrlGetLocationW<P0>(pszurl: P0) -> ::windows::core::PWSTR
+pub unsafe fn UrlGetLocationW<P0>(pszurl: P0) -> ::windows::core::PCWSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationW ( pszurl : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn UrlGetLocationW ( pszurl : :: windows::core::PCWSTR ) -> :: windows::core::PCWSTR );
     UrlGetLocationW(pszurl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -25011,7 +25011,7 @@ impl IPackageDebugSettings {
     pub unsafe fn SetTargetSessionId(&self, sessionid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetSessionId)(::windows::core::Interface::as_raw(self), sessionid).ok()
     }
-    pub unsafe fn EnumerateBackgroundTasks<P0>(&self, packagefullname: P0, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn EnumerateBackgroundTasks<P0>(&self, packagefullname: P0, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -25096,7 +25096,7 @@ pub struct IPackageDebugSettings_Vtbl {
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub TerminateAllProcesses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetTargetSessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: u32) -> ::windows::core::HRESULT,
-    pub EnumerateBackgroundTasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub EnumerateBackgroundTasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub ActivateBackgroundTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub StartServicing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub StopServicing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -25145,7 +25145,7 @@ impl IPackageDebugSettings2 {
     pub unsafe fn SetTargetSessionId(&self, sessionid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetTargetSessionId)(::windows::core::Interface::as_raw(self), sessionid).ok()
     }
-    pub unsafe fn EnumerateBackgroundTasks<P0>(&self, packagefullname: P0, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn EnumerateBackgroundTasks<P0>(&self, packagefullname: P0, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {

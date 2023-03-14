@@ -8,7 +8,7 @@
 ::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNFreeCredentialAttestation ( pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION ) -> ( ) );
 ::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetApiVersionNumber ( ) -> u32 );
 ::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetCancellationId ( pcancellationid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetErrorName ( hr : :: windows_sys::core::HRESULT ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetErrorName ( hr : :: windows_sys::core::HRESULT ) -> :: windows_sys::core::PCWSTR );
 ::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetW3CExceptionDOMError ( hr : :: windows_sys::core::HRESULT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "webauthn.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable ( pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );

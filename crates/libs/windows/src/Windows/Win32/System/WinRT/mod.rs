@@ -307,11 +307,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> ::windows::core::PSTR
+pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ROPARAMIIDHANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : ROPARAMIIDHANDLE ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : ROPARAMIIDHANDLE ) -> :: windows::core::PCSTR );
     RoParameterizedTypeExtraGetTypeSignature(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -469,8 +469,8 @@ pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<*mut u32>) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringRawBuffer ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , length : *mut u32 ) -> :: windows::core::PWSTR );
+pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<*mut u32>) -> ::windows::core::PCWSTR {
+    ::windows::imp::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsGetStringRawBuffer ( string : ::std::mem::MaybeUninit <::windows::core::HSTRING > , length : *mut u32 ) -> :: windows::core::PCWSTR );
     WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

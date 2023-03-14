@@ -787,7 +787,7 @@ pub unsafe fn DrawTextA<P0>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::supe
 where
     P0: ::windows::core::IntoParam<HDC>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DrawTextA ( hdc : HDC , lpchtext : :: windows::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DrawTextA ( hdc : HDC , lpchtext : :: windows::core::PCSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
     DrawTextA(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -817,7 +817,7 @@ pub unsafe fn DrawTextW<P0>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::sup
 where
     P0: ::windows::core::IntoParam<HDC>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DrawTextW ( hdc : HDC , lpchtext : :: windows::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DrawTextW ( hdc : HDC , lpchtext : :: windows::core::PCWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
     DrawTextW(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]

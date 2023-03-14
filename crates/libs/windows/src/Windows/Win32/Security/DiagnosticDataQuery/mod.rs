@@ -179,12 +179,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordPayload<P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn DdqGetDiagnosticRecordPayload<P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PCWSTR>
 where
     P0: ::windows::core::IntoParam<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPayload ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , rowid : i64 , payload : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    ::windows::imp::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPayload ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , rowid : i64 , payload : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     DdqGetDiagnosticRecordPayload(hsession.into_param().abi(), rowid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]

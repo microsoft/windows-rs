@@ -3659,7 +3659,7 @@ pub trait ID3D12ShaderReflectionType_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> ::windows::core::Result<()>;
     fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetMemberTypeByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionType>;
-    fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR;
+    fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PCSTR;
     fn IsEqual(&self, ptype: ::core::option::Option<&ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
     fn GetSubType(&self) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetBaseClass(&self) -> ::core::option::Option<ID3D12ShaderReflectionType>;
@@ -3686,7 +3686,7 @@ impl ID3D12ShaderReflectionType_Vtbl {
             let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeName<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
+        unsafe extern "system" fn GetMemberTypeName<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.GetMemberTypeName(::core::mem::transmute_copy(&index))

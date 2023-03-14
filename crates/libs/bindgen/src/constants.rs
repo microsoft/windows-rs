@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     let name = to_ident(gen.reader.field_name(def));
-    let ty = gen.reader.field_type(def, None).to_const();
+    let ty = gen.reader.field_type(def, None).to_const_type();
     let cfg = gen.reader.field_cfg(def);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);

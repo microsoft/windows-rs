@@ -29,7 +29,7 @@
 ::windows_sys::core::link ! ( "wsdapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"] fn WSDXMLCleanupElement ( pany : *mut WSDXML_ELEMENT ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "wsdapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"] fn WSDXMLCreateContext ( ppcontext : *mut IWSDXMLContext ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "wsdapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"] fn WSDXMLGetNameFromBuiltinNamespace ( psznamespace : :: windows_sys::core::PCWSTR , pszname : :: windows_sys::core::PCWSTR , ppname : *mut *mut WSDXML_NAME ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "wsdapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"] fn WSDXMLGetValueFromAny ( psznamespace : :: windows_sys::core::PCWSTR , pszname : :: windows_sys::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wsdapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"] fn WSDXMLGetValueFromAny ( psznamespace : :: windows_sys::core::PCWSTR , pszname : :: windows_sys::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 pub type IWSDAddress = *mut ::core::ffi::c_void;
 pub type IWSDAsyncCallback = *mut ::core::ffi::c_void;
 pub type IWSDAsyncResult = *mut ::core::ffi::c_void;

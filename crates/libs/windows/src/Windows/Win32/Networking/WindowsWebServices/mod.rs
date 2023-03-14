@@ -55,8 +55,8 @@ pub unsafe fn WebAuthNGetCancellationId() -> ::windows::core::Result<::windows::
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "webauthn.dll""system" fn WebAuthNGetErrorName ( hr : :: windows::core::HRESULT ) -> :: windows::core::PWSTR );
+pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PCWSTR {
+    ::windows::imp::link ! ( "webauthn.dll""system" fn WebAuthNGetErrorName ( hr : :: windows::core::HRESULT ) -> :: windows::core::PCWSTR );
     WebAuthNGetErrorName(hr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]

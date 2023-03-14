@@ -10,13 +10,13 @@ pub trait IXmlReader_Impl: Sized {
     fn MoveToNextAttribute(&self) -> ::windows::core::HRESULT;
     fn MoveToAttributeByName(&self, pwszlocalname: &::windows::core::PCWSTR, pwsznamespaceuri: &::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     fn MoveToElement(&self) -> ::windows::core::Result<()>;
-    fn GetQualifiedName(&self, ppwszqualifiedname: *mut ::windows::core::PWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut ::windows::core::PWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::Result<()>;
-    fn GetLocalName(&self, ppwszlocalname: *mut ::windows::core::PWSTR, pcwchlocalname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPrefix(&self, ppwszprefix: *mut ::windows::core::PWSTR, pcwchprefix: *mut u32) -> ::windows::core::Result<()>;
-    fn GetValue(&self, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: *mut u32) -> ::windows::core::Result<()>;
+    fn GetQualifiedName(&self, ppwszqualifiedname: *mut ::windows::core::PCWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut ::windows::core::PCWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLocalName(&self, ppwszlocalname: *mut ::windows::core::PCWSTR, pcwchlocalname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPrefix(&self, ppwszprefix: *mut ::windows::core::PCWSTR, pcwchprefix: *mut u32) -> ::windows::core::Result<()>;
+    fn GetValue(&self, ppwszvalue: *mut ::windows::core::PCWSTR, pcwchvalue: *mut u32) -> ::windows::core::Result<()>;
     fn ReadValueChunk(&self, pwchbuffer: ::windows::core::PWSTR, cwchchunksize: u32, pcwchread: *mut u32) -> ::windows::core::HRESULT;
-    fn GetBaseUri(&self, ppwszbaseuri: *mut ::windows::core::PWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBaseUri(&self, ppwszbaseuri: *mut ::windows::core::PCWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::Result<()>;
     fn IsDefault(&self) -> super::super::super::Foundation::BOOL;
     fn IsEmptyElement(&self) -> super::super::super::Foundation::BOOL;
     fn GetLineNumber(&self) -> ::windows::core::Result<u32>;
@@ -87,27 +87,27 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             this.MoveToElement().into()
         }
-        unsafe extern "system" fn GetQualifiedName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszqualifiedname: *mut ::windows::core::PWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetQualifiedName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszqualifiedname: *mut ::windows::core::PCWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetQualifiedName(::core::mem::transmute_copy(&ppwszqualifiedname), ::core::mem::transmute_copy(&pcwchqualifiedname)).into()
         }
-        unsafe extern "system" fn GetNamespaceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsznamespaceuri: *mut ::windows::core::PWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamespaceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsznamespaceuri: *mut ::windows::core::PCWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNamespaceUri(::core::mem::transmute_copy(&ppwsznamespaceuri), ::core::mem::transmute_copy(&pcwchnamespaceuri)).into()
         }
-        unsafe extern "system" fn GetLocalName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszlocalname: *mut ::windows::core::PWSTR, pcwchlocalname: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszlocalname: *mut ::windows::core::PCWSTR, pcwchlocalname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLocalName(::core::mem::transmute_copy(&ppwszlocalname), ::core::mem::transmute_copy(&pcwchlocalname)).into()
         }
-        unsafe extern "system" fn GetPrefix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszprefix: *mut ::windows::core::PWSTR, pcwchprefix: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrefix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszprefix: *mut ::windows::core::PCWSTR, pcwchprefix: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPrefix(::core::mem::transmute_copy(&ppwszprefix), ::core::mem::transmute_copy(&pcwchprefix)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszvalue: *mut ::windows::core::PCWSTR, pcwchvalue: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetValue(::core::mem::transmute_copy(&ppwszvalue), ::core::mem::transmute_copy(&pcwchvalue)).into()
@@ -117,7 +117,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             this.ReadValueChunk(::core::mem::transmute_copy(&pwchbuffer), ::core::mem::transmute_copy(&cwchchunksize), ::core::mem::transmute_copy(&pcwchread))
         }
-        unsafe extern "system" fn GetBaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszbaseuri: *mut ::windows::core::PWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszbaseuri: *mut ::windows::core::PCWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBaseUri(::core::mem::transmute_copy(&ppwszbaseuri), ::core::mem::transmute_copy(&pcwchbaseuri)).into()

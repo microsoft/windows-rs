@@ -12057,7 +12057,7 @@ pub trait IPackageDebugSettings_Impl: Sized {
     fn Resume(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn TerminateAllProcesses(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetTargetSessionId(&self, sessionid: u32) -> ::windows::core::Result<()>;
-    fn EnumerateBackgroundTasks(&self, packagefullname: &::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumerateBackgroundTasks(&self, packagefullname: &::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ActivateBackgroundTask(&self, taskid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn StartServicing(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn StopServicing(&self, packagefullname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -12100,7 +12100,7 @@ impl IPackageDebugSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetTargetSessionId(::core::mem::transmute_copy(&sessionid)).into()
         }
-        unsafe extern "system" fn EnumerateBackgroundTasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageDebugSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateBackgroundTasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageDebugSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, taskcount: *mut u32, taskids: *mut *mut ::windows::core::GUID, tasknames: *mut *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateBackgroundTasks(::core::mem::transmute(&packagefullname), ::core::mem::transmute_copy(&taskcount), ::core::mem::transmute_copy(&taskids), ::core::mem::transmute_copy(&tasknames)).into()

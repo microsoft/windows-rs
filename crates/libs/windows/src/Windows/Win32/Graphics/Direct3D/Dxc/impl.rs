@@ -74,7 +74,7 @@ impl IDxcBlobEncoding_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlobEncoding_Impl {
-    fn GetStringPointer(&self) -> ::windows::core::PWSTR;
+    fn GetStringPointer(&self) -> ::windows::core::PCWSTR;
     fn GetStringLength(&self) -> usize;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -82,7 +82,7 @@ impl ::windows::core::RuntimeName for IDxcBlobUtf16 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf16_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>() -> IDxcBlobUtf16_Vtbl {
-        unsafe extern "system" fn GetStringPointer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::PWSTR {
+        unsafe extern "system" fn GetStringPointer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::PCWSTR {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStringPointer()
@@ -105,7 +105,7 @@ impl IDxcBlobUtf16_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlobEncoding_Impl {
-    fn GetStringPointer(&self) -> ::windows::core::PSTR;
+    fn GetStringPointer(&self) -> ::windows::core::PCSTR;
     fn GetStringLength(&self) -> usize;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -113,7 +113,7 @@ impl ::windows::core::RuntimeName for IDxcBlobUtf8 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>() -> IDxcBlobUtf8_Vtbl {
-        unsafe extern "system" fn GetStringPointer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::PSTR {
+        unsafe extern "system" fn GetStringPointer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::PCSTR {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStringPointer()
@@ -248,7 +248,7 @@ impl IDxcCompiler3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"implement\"`*"]
 pub trait IDxcCompilerArgs_Impl: Sized {
-    fn GetArguments(&self) -> *mut ::windows::core::PWSTR;
+    fn GetArguments(&self) -> *mut ::windows::core::PCWSTR;
     fn GetCount(&self) -> u32;
     fn AddArguments(&self, parguments: *const ::windows::core::PCWSTR, argcount: u32) -> ::windows::core::Result<()>;
     fn AddArgumentsUTF8(&self, parguments: *const ::windows::core::PCSTR, argcount: u32) -> ::windows::core::Result<()>;
@@ -257,7 +257,7 @@ pub trait IDxcCompilerArgs_Impl: Sized {
 impl ::windows::core::RuntimeName for IDxcCompilerArgs {}
 impl IDxcCompilerArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcCompilerArgs_Impl, const OFFSET: isize>() -> IDxcCompilerArgs_Vtbl {
-        unsafe extern "system" fn GetArguments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcCompilerArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR {
+        unsafe extern "system" fn GetArguments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDxcCompilerArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PCWSTR {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetArguments()
