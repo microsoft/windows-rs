@@ -67,11 +67,3 @@ impl PCWSTR {
 impl TypeKind for PCWSTR {
     type TypeKind = CopyType;
 }
-
-// This just ensures that `None` can be used for optional PCWSTR parameters, which can be quite common
-// with some Windows APIs.
-impl From<Option<PCWSTR>> for PCWSTR {
-    fn from(from: Option<PCWSTR>) -> Self {
-        from.unwrap_or_else(Self::null)
-    }
-}

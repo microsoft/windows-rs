@@ -394,7 +394,7 @@ impl<'a> Reader<'a> {
         let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
 
         if self.field_is_const(row) {
-            def.to_const()
+            def.to_const_type().to_const_ptr()
         } else {
             def
         }
@@ -563,15 +563,25 @@ impl<'a> Reader<'a> {
         blob.read_usize();
         blob.read_usize();
 
-        let return_type = self.type_from_blob(&mut blob, None, generics);
+        let mut return_type = self.type_from_blob(&mut blob, None, generics);
+
         let mut params: Vec<SignatureParam> = self
             .method_def_params(row)
             .filter_map(|param| {
                 if self.param_sequence(param) == 0 {
+                    if self.param_is_const(param) {
+                        return_type = return_type.clone().map(|ty| ty.to_const_type());
+                    }
                     None
                 } else {
-                    let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                    let ty = if !self.param_flags(param).contains(ParamAttributes::OUTPUT) { ty.to_const() } else { ty };
+                    let is_output = self.param_flags(param).contains(ParamAttributes::OUTPUT);
+                    let mut ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
+                    if self.param_is_const(param) || !is_output {
+                        ty = ty.to_const_type();
+                    }
+                    if !is_output {
+                        ty = ty.to_const_ptr();
+                    }
                     let kind = self.param_kind(param);
                     Some(SignatureParam { def: param, ty, kind })
                 }
@@ -787,6 +797,9 @@ impl<'a> Reader<'a> {
             }
         }
         None
+    }
+    pub fn param_is_const(&self, row: Param) -> bool {
+        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
 
     //
