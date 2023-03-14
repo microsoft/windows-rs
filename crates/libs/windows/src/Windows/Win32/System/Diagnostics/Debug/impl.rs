@@ -1142,7 +1142,7 @@ pub trait IActiveScriptProfilerHeapEnum_Impl: Sized {
     fn Next(&self, celt: u32, heapobjects: *mut *mut PROFILER_HEAP_OBJECT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn GetOptionalInfo(&self, heapobject: *const PROFILER_HEAP_OBJECT, celt: u32, optionalinfo: *mut PROFILER_HEAP_OBJECT_OPTIONAL_INFO) -> ::windows::core::Result<()>;
     fn FreeObjectAndOptionalInfo(&self, celt: u32, heapobjects: *const *const PROFILER_HEAP_OBJECT) -> ::windows::core::Result<()>;
-    fn GetNameIdMap(&self, pnamelist: *mut *mut *mut ::windows::core::PWSTR, pcelt: *mut u32) -> ::windows::core::Result<()>;
+    fn GetNameIdMap(&self, pnamelist: *mut *mut *mut ::windows::core::PCWSTR, pcelt: *mut u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IActiveScriptProfilerHeapEnum {}
 impl IActiveScriptProfilerHeapEnum_Vtbl {
@@ -1162,7 +1162,7 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
             let this = (*this).get_impl();
             this.FreeObjectAndOptionalInfo(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&heapobjects)).into()
         }
-        unsafe extern "system" fn GetNameIdMap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProfilerHeapEnum_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnamelist: *mut *mut *mut ::windows::core::PWSTR, pcelt: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNameIdMap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProfilerHeapEnum_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnamelist: *mut *mut *mut ::windows::core::PCWSTR, pcelt: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNameIdMap(::core::mem::transmute_copy(&pnamelist), ::core::mem::transmute_copy(&pcelt)).into()

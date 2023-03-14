@@ -3648,15 +3648,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupFreeSourceListA(list: &mut [*mut ::windows::core::PSTR]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupFreeSourceListA ( list : *mut *mut :: windows::core::PSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupFreeSourceListA(list: &mut [*mut ::windows::core::PCSTR]) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupFreeSourceListA ( list : *mut *mut :: windows::core::PCSTR , count : u32 ) -> super::super::Foundation:: BOOL );
     SetupFreeSourceListA(::core::mem::transmute(list.as_ptr()), list.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupFreeSourceListW(list: &mut [*mut ::windows::core::PWSTR]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupFreeSourceListW ( list : *mut *mut :: windows::core::PWSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupFreeSourceListW(list: &mut [*mut ::windows::core::PCWSTR]) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupFreeSourceListW ( list : *mut *mut :: windows::core::PCWSTR , count : u32 ) -> super::super::Foundation:: BOOL );
     SetupFreeSourceListW(::core::mem::transmute(list.as_ptr()), list.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -4457,15 +4457,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut ::windows::core::PSTR, count: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupQuerySourceListA ( flags : u32 , list : *mut *mut :: windows::core::PSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut ::windows::core::PCSTR, count: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupQuerySourceListA ( flags : u32 , list : *mut *mut :: windows::core::PCSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
     SetupQuerySourceListA(flags, list, count)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupQuerySourceListW ( flags : u32 , list : *mut *mut :: windows::core::PWSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut ::windows::core::PCWSTR, count: *mut u32) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "setupapi.dll""system" fn SetupQuerySourceListW ( flags : u32 , list : *mut *mut :: windows::core::PCWSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
     SetupQuerySourceListW(flags, list, count)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]

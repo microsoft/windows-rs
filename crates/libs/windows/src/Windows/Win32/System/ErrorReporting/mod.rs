@@ -222,20 +222,20 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerStoreGetFirstReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn WerStoreGetFirstReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PCWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HREPORTSTORE>,
 {
-    ::windows::imp::link ! ( "wer.dll""system" fn WerStoreGetFirstReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wer.dll""system" fn WerStoreGetFirstReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     WerStoreGetFirstReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(ppszreportkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
-pub unsafe fn WerStoreGetNextReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn WerStoreGetNextReportKey<P0>(hreportstore: P0, ppszreportkey: ::core::option::Option<*mut ::windows::core::PCWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<HREPORTSTORE>,
 {
-    ::windows::imp::link ! ( "wer.dll""system" fn WerStoreGetNextReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wer.dll""system" fn WerStoreGetNextReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     WerStoreGetNextReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(ppszreportkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]

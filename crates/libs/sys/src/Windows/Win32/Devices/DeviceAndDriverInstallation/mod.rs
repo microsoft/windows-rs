@@ -658,9 +658,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindNextMatchLineW ( contextin : *const INFCONTEXT , key : :: windows_sys::core::PCWSTR , contextout : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListA ( list : *mut *mut :: windows_sys::core::PSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListA ( list : *mut *mut :: windows_sys::core::PCSTR , count : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListW ( list : *mut *mut :: windows_sys::core::PWSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListW ( list : *mut *mut :: windows_sys::core::PCWSTR , count : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetBackupInformationA ( queuehandle : *const ::core::ffi::c_void , backupparams : *mut SP_BACKUP_QUEUE_PARAMS_V2_A ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -816,9 +816,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryInfVersionInformationW ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , key : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListA ( flags : u32 , list : *mut *mut :: windows_sys::core::PSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListA ( flags : u32 , list : *mut *mut :: windows_sys::core::PCSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListW ( flags : u32 , list : *mut *mut :: windows_sys::core::PWSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListW ( flags : u32 , list : *mut *mut :: windows_sys::core::PCWSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySpaceRequiredOnDriveA ( diskspace : *const ::core::ffi::c_void , drivespec : :: windows_sys::core::PCSTR , spacerequired : *mut i64 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]

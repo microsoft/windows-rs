@@ -128,9 +128,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PCWSTR> {
+    ::windows::imp::link ! ( "ndfapi.dll""system" fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
     NdfGetTraceFile(handle, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]

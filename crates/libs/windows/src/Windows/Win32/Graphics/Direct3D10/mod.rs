@@ -131,11 +131,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetGeometryShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetGeometryShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PCSTR );
     D3D10GetGeometryShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -164,11 +164,11 @@ pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetPixelShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetPixelShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PCSTR );
     D3D10GetPixelShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -181,11 +181,11 @@ pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> ::windows::core::PSTR
+pub unsafe fn D3D10GetVertexShaderProfile<P0>(pdevice: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<ID3D10Device>,
 {
-    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "d3d10.dll""system" fn D3D10GetVertexShaderProfile ( pdevice : * mut::core::ffi::c_void ) -> :: windows::core::PCSTR );
     D3D10GetVertexShaderProfile(pdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
@@ -3851,11 +3851,11 @@ impl ID3D10EffectStringVariable {
     pub unsafe fn GetRawValue(&self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRawValue)(::windows::core::Interface::as_raw(self), pdata, offset, bytecount).ok()
     }
-    pub unsafe fn GetString(&self) -> ::windows::core::Result<::windows::core::PSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+    pub unsafe fn GetString(&self) -> ::windows::core::Result<::windows::core::PCSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PCSTR>();
         (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetStringArray(&self, ppstrings: &mut [::windows::core::PSTR], offset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStringArray(&self, ppstrings: &mut [::windows::core::PCSTR], offset: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStringArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstrings.as_ptr()), offset, ppstrings.len() as _).ok()
     }
 }
@@ -3885,8 +3885,8 @@ impl ::core::clone::Clone for ID3D10EffectStringVariable {
 #[doc(hidden)]
 pub struct ID3D10EffectStringVariable_Vtbl {
     pub base__: ID3D10EffectVariable_Vtbl,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT,
-    pub GetStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PCSTR) -> ::windows::core::HRESULT,
+    pub GetStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PCSTR, offset: u32, count: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
@@ -3986,10 +3986,10 @@ impl ID3D10EffectType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeBySemantic)(::windows::core::Interface::as_raw(self), semantic.into_param().abi())
     }
-    pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberName)(::windows::core::Interface::as_raw(self), index)
     }
-    pub unsafe fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberSemantic)(::windows::core::Interface::as_raw(self), index)
     }
 }
@@ -4028,8 +4028,8 @@ pub struct ID3D10EffectType_Vtbl {
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>,
     pub GetMemberTypeBySemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>,
-    pub GetMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
-    pub GetMemberSemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
+    pub GetMemberSemantic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
@@ -5503,7 +5503,7 @@ impl ID3D10ShaderReflectionType {
     {
         (::windows::core::Interface::vtable(self).GetMemberTypeByName)(::windows::core::Interface::as_raw(self), name.into_param().abi())
     }
-    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
+    pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PCSTR {
         (::windows::core::Interface::vtable(self).GetMemberTypeName)(::windows::core::Interface::as_raw(self), index)
     }
 }
@@ -5537,7 +5537,7 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
     GetDesc: usize,
     pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType>,
     pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>,
-    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR,
+    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PCSTR,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]

@@ -175,8 +175,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u16]) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows::core::PWSTR , stringbufsize : usize ) -> :: windows::core::PWSTR );
+pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u16]) -> ::windows::core::PCWSTR {
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows::core::PWSTR , stringbufsize : usize ) -> :: windows::core::PCWSTR );
     InetNtopW(family, paddr, ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -212,20 +212,20 @@ pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: &mut [u16; 1
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut ::windows::core::PSTR, addr: *mut DL_EUI48) -> i32
+pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut ::windows::core::PCSTR, addr: *mut DL_EUI48) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressA ( s : :: windows::core::PCSTR , terminator : *mut :: windows::core::PSTR , addr : *mut DL_EUI48 ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressA ( s : :: windows::core::PCSTR , terminator : *mut :: windows::core::PCSTR , addr : *mut DL_EUI48 ) -> i32 );
     RtlEthernetStringToAddressA(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlEthernetStringToAddressW<P0>(s: P0, terminator: *mut ::windows::core::PWSTR, addr: *mut DL_EUI48) -> i32
+pub unsafe fn RtlEthernetStringToAddressW<P0>(s: P0, terminator: *mut ::windows::core::PCWSTR, addr: *mut DL_EUI48) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressW ( s : :: windows::core::PCWSTR , terminator : *mut :: windows::core::PWSTR , addr : *mut DL_EUI48 ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlEthernetStringToAddressW ( s : :: windows::core::PCWSTR , terminator : *mut :: windows::core::PCWSTR , addr : *mut DL_EUI48 ) -> i32 );
     RtlEthernetStringToAddressW(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -255,12 +255,12 @@ pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: &mut [u16; 16]) -
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressA<P0, P1>(s: P0, strict: P1, terminator: *mut ::windows::core::PSTR, addr: *mut IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressA<P0, P1>(s: P0, strict: P1, terminator: *mut ::windows::core::PCSTR, addr: *mut IN_ADDR) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressA ( s : :: windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows::core::PSTR , addr : *mut IN_ADDR ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressA ( s : :: windows::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows::core::PCSTR , addr : *mut IN_ADDR ) -> i32 );
     RtlIpv4StringToAddressA(s.into_param().abi(), strict.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -288,12 +288,12 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressW<P0, P1>(s: P0, strict: P1, terminator: *mut ::windows::core::PWSTR, addr: *mut IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressW<P0, P1>(s: P0, strict: P1, terminator: *mut ::windows::core::PCWSTR, addr: *mut IN_ADDR) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressW ( s : :: windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows::core::PWSTR , addr : *mut IN_ADDR ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv4StringToAddressW ( s : :: windows::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows::core::PCWSTR , addr : *mut IN_ADDR ) -> i32 );
     RtlIpv4StringToAddressW(s.into_param().abi(), strict.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -322,11 +322,11 @@ pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: &mut [u16; 46]) 
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressA<P0>(s: P0, terminator: *mut ::windows::core::PSTR, addr: *mut IN6_ADDR) -> i32
+pub unsafe fn RtlIpv6StringToAddressA<P0>(s: P0, terminator: *mut ::windows::core::PCSTR, addr: *mut IN6_ADDR) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressA ( s : :: windows::core::PCSTR , terminator : *mut :: windows::core::PSTR , addr : *mut IN6_ADDR ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressA ( s : :: windows::core::PCSTR , terminator : *mut :: windows::core::PCSTR , addr : *mut IN6_ADDR ) -> i32 );
     RtlIpv6StringToAddressA(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -349,11 +349,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut ::windows::core::PWSTR, addr: *mut IN6_ADDR) -> i32
+pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut ::windows::core::PCWSTR, addr: *mut IN6_ADDR) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressW ( s : :: windows::core::PCWSTR , terminator : *mut :: windows::core::PWSTR , addr : *mut IN6_ADDR ) -> i32 );
+    ::windows::imp::link ! ( "ntdll.dll""system" fn RtlIpv6StringToAddressW ( s : :: windows::core::PCWSTR , terminator : *mut :: windows::core::PCWSTR , addr : *mut IN6_ADDR ) -> i32 );
     RtlIpv6StringToAddressW(s.into_param().abi(), terminator, addr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_IO\"`*"]
@@ -1606,8 +1606,8 @@ pub unsafe fn inet_ntoa(r#in: IN_ADDR) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows::core::PSTR , stringbufsize : usize ) -> :: windows::core::PSTR );
+pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: &mut [u8]) -> ::windows::core::PCSTR {
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows::core::PSTR , stringbufsize : usize ) -> :: windows::core::PCSTR );
     inet_ntop(family, paddr, ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

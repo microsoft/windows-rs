@@ -401,7 +401,7 @@ pub trait IWSDEndpointProxy_Impl: Sized {
     fn SendTwoWayRequestAsync(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pcallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
     fn AbortAsyncOperation(&self, pasyncresult: ::core::option::Option<&IWSDAsyncResult>) -> ::windows::core::Result<()>;
     fn ProcessFault(&self, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
-    fn GetErrorInfo(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetErrorInfo(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn GetFaultInfo(&self) -> ::windows::core::Result<*mut WSD_SOAP_FAULT>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -440,7 +440,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             this.ProcessFault(::core::mem::transmute_copy(&pfault)).into()
         }
-        unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszerrorinfo: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszerrorinfo: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetErrorInfo() {
@@ -517,7 +517,7 @@ impl IWSDEventingStatus_Vtbl {
 pub trait IWSDHttpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn GetSecure(&self) -> ::windows::core::Result<()>;
     fn SetSecure(&self, fsecure: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetPath(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn SetPath(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -535,7 +535,7 @@ impl IWSDHttpAddress_Vtbl {
             let this = (*this).get_impl();
             this.SetSecure(::core::mem::transmute_copy(&fsecure)).into()
         }
-        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPath() {
@@ -609,11 +609,11 @@ impl IWSDHttpAuthParameters_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDHttpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn SetInboundHttpHeaders(&self, pszheaders: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetInboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetInboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn SetOutboundHttpHeaders(&self, pszheaders: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetOutboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetOutboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn SetID(&self, pszid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn GetID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetID(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn SetContext(&self, pcontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetContext(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Clear(&self) -> ::windows::core::Result<()>;
@@ -626,7 +626,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             this.SetInboundHttpHeaders(::core::mem::transmute(&pszheaders)).into()
         }
-        unsafe extern "system" fn GetInboundHttpHeaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInboundHttpHeaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInboundHttpHeaders() {
@@ -642,7 +642,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             this.SetOutboundHttpHeaders(::core::mem::transmute(&pszheaders)).into()
         }
-        unsafe extern "system" fn GetOutboundHttpHeaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutboundHttpHeaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOutboundHttpHeaders() {
@@ -658,7 +658,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             this.SetID(::core::mem::transmute(&pszid)).into()
         }
-        unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszid: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetID() {
@@ -909,7 +909,7 @@ impl IWSDSSLClientCertificate_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDScopeMatchingRule_Impl: Sized {
-    fn GetScopeRule(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetScopeRule(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn MatchScopes(&self, pszscope1: &::windows::core::PCWSTR, pszscope2: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -917,7 +917,7 @@ impl ::windows::core::RuntimeName for IWSDScopeMatchingRule {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDScopeMatchingRule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDScopeMatchingRule_Impl, const OFFSET: isize>() -> IWSDScopeMatchingRule_Vtbl {
-        unsafe extern "system" fn GetScopeRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDScopeMatchingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetScopeRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDScopeMatchingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetScopeRule() {
@@ -1258,8 +1258,8 @@ impl IWSDSignatureProperty_Vtbl {
 pub trait IWSDTransportAddress_Impl: Sized + IWSDAddress_Impl {
     fn GetPort(&self) -> ::windows::core::Result<u16>;
     fn SetPort(&self, wport: u16) -> ::windows::core::Result<()>;
-    fn GetTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn GetTransportAddressEx(&self, fsafe: super::super::Foundation::BOOL) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetTransportAddress(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
+    fn GetTransportAddressEx(&self, fsafe: super::super::Foundation::BOOL) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn SetTransportAddress(&self, pszaddress: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1283,7 +1283,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             this.SetPort(::core::mem::transmute_copy(&wport)).into()
         }
-        unsafe extern "system" fn GetTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszaddress: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszaddress: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTransportAddress() {
@@ -1294,7 +1294,7 @@ impl IWSDTransportAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransportAddressEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransportAddressEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDTransportAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTransportAddressEx(::core::mem::transmute_copy(&fsafe)) {
@@ -1506,9 +1506,9 @@ pub trait IWSDiscoveredService_Impl: Sized {
     fn GetXAddrs(&self) -> ::windows::core::Result<*mut WSD_URI_LIST>;
     fn GetMetadataVersion(&self) -> ::windows::core::Result<u64>;
     fn GetExtendedDiscoXML(&self, ppheaderany: *mut *mut WSDXML_ELEMENT, ppbodyany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn GetProbeResolveTag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn GetRemoteTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn GetLocalTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetProbeResolveTag(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
+    fn GetRemoteTransportAddress(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
+    fn GetLocalTransportAddress(&self) -> ::windows::core::Result<::windows::core::PCWSTR>;
     fn GetLocalInterfaceGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetInstanceId(&self) -> ::windows::core::Result<u64>;
 }
@@ -1575,7 +1575,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             this.GetExtendedDiscoXML(::core::mem::transmute_copy(&ppheaderany), ::core::mem::transmute_copy(&ppbodyany)).into()
         }
-        unsafe extern "system" fn GetProbeResolveTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztag: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProbeResolveTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztag: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProbeResolveTag() {
@@ -1586,7 +1586,7 @@ impl IWSDiscoveredService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemoteTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszremotetransportaddress: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszremotetransportaddress: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRemoteTransportAddress() {
@@ -1597,7 +1597,7 @@ impl IWSDiscoveredService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocalTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocaltransportaddress: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalTransportAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocaltransportaddress: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLocalTransportAddress() {

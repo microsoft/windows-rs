@@ -18,7 +18,7 @@
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfDiagnoseIncident ( handle : *const ::core::ffi::c_void , rootcausecount : *mut u32 , rootcauses : *mut *mut RootCauseInfo , dwwait : u32 , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"] fn NdfExecuteDiagnosis ( handle : *const ::core::ffi::c_void , hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfGetTraceFile ( handle : *const ::core::ffi::c_void , tracefilelocation : *mut :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "ndfapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"] fn NdfRepairIncident ( handle : *const ::core::ffi::c_void , repairex : *const RepairInfoEx , dwwait : u32 ) -> :: windows_sys::core::HRESULT );
 pub type INetDiagExtensibleHelper = *mut ::core::ffi::c_void;
 pub type INetDiagHelper = *mut ::core::ffi::c_void;

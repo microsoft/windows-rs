@@ -642,7 +642,7 @@ impl IWinMLEvaluationContext_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinMLModel_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<*mut WINML_MODEL_DESC>;
-    fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PCWSTR, pvalue: *mut ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn EnumerateModelInputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
     fn EnumerateModelOutputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
 }
@@ -662,7 +662,7 @@ impl IWinMLModel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumerateMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut ::windows::core::PCWSTR, pvalue: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateMetadata(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pkey), ::core::mem::transmute_copy(&pvalue)).into()

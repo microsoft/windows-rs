@@ -2218,17 +2218,17 @@ impl IVssWriterImpl {
     pub unsafe fn Uninitialize(&self) {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PWSTR {
+    pub unsafe fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PCWSTR {
         (::windows::core::Interface::vtable(self).GetCurrentVolumeArray)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetCurrentVolumeCount(&self) -> u32 {
         (::windows::core::Interface::vtable(self).GetCurrentVolumeCount)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn GetSnapshotDeviceName<P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+    pub unsafe fn GetSnapshotDeviceName<P0>(&self, wszoriginalvolume: P0) -> ::windows::core::Result<::windows::core::PCWSTR>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PCWSTR>();
         (::windows::core::Interface::vtable(self).GetSnapshotDeviceName)(::windows::core::Interface::as_raw(self), wszoriginalvolume.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID {
@@ -2317,9 +2317,9 @@ pub struct IVssWriterImpl_Vtbl {
     pub Subscribe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::HRESULT,
     pub Unsubscribe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetCurrentVolumeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR,
+    pub GetCurrentVolumeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PCWSTR,
     pub GetCurrentVolumeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetSnapshotDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub GetSnapshotDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetCurrentSnapshotSetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID),
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
     pub GetCurrentLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> VSS_APPLICATION_LEVEL,

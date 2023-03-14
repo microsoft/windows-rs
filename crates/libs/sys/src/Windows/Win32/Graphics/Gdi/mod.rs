@@ -135,13 +135,13 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawStateW ( hdc : HDC , hbrfore : HBRUSH , qfncallback : DRAWSTATEPROC , ldata : super::super::Foundation:: LPARAM , wdata : super::super::Foundation:: WPARAM , x : i32 , y : i32 , cx : i32 , cy : i32 , uflags : DRAWSTATE_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextA ( hdc : HDC , lpchtext : :: windows_sys::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextA ( hdc : HDC , lpchtext : :: windows_sys::core::PCSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExA ( hdc : HDC , lpchtext : :: windows_sys::core::PSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextExW ( hdc : HDC , lpchtext : :: windows_sys::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT , lpdtp : *const DRAWTEXTPARAMS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextW ( hdc : HDC , lpchtext : :: windows_sys::core::PWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn DrawTextW ( hdc : HDC , lpchtext : :: windows_sys::core::PCWSTR , cchtext : i32 , lprc : *mut super::super::Foundation:: RECT , format : DRAW_TEXT_FORMAT ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"] fn Ellipse ( hdc : HDC , left : i32 , top : i32 , right : i32 , bottom : i32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]

@@ -2172,8 +2172,8 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
-pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "glu32.dll""system" fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> :: windows::core::PWSTR );
+pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PCWSTR {
+    ::windows::imp::link ! ( "glu32.dll""system" fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> :: windows::core::PCWSTR );
     gluErrorUnicodeStringEXT(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
