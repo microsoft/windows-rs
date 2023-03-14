@@ -78,6 +78,7 @@ jobs:
           cargo clippy -p test_component &&
           cargo clippy -p test_component_client &&
           cargo clippy -p test_const_fields &&
+          cargo clippy -p test_const_params &&
           cargo clippy -p test_const_ptrs &&
           cargo clippy -p test_core &&
           cargo clippy -p test_debug &&
