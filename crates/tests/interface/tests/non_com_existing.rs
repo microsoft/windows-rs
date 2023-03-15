@@ -162,7 +162,7 @@ fn test() -> Result<()> {
 
         // Pass the callback to another API (ignore the result)...
         let mut source = None;
-        let _ = audio.CreateSourceVoice(&mut source, std::ptr::null(), 0, 0.0, &*callback, None, None);
+        _ = audio.CreateSourceVoice(&mut source, std::ptr::null(), 0, 0.0, &*callback, None, None);
 
         Ok(())
     }

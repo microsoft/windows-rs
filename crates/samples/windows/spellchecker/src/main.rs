@@ -61,7 +61,7 @@ fn main() -> Result<()> {
                     // Get the next suggestion breaking if the call to `Next` failed
                     let mut suggestion = [PWSTR::null()];
                     unsafe {
-                        let _ = suggestions.Next(&mut suggestion, None);
+                        _ = suggestions.Next(&mut suggestion, None);
                     }
                     if suggestion[0].is_null() {
                         break;

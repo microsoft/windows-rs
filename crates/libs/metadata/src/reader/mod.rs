@@ -1,6 +1,7 @@
 mod blob;
 mod codes;
 mod file;
+mod filter;
 mod guid;
 mod row;
 mod tree;
@@ -11,6 +12,7 @@ pub use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
+pub use filter::*;
 pub use guid::*;
 pub use r#type::*;
 pub use row::*;
@@ -195,6 +197,9 @@ impl<'a> Reader<'a> {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
                 let key = Row::new(row, TABLE_TYPEDEF, file_index);
                 let namespace = file.str(key.row as _, key.table as _, 2);
+                if namespace.is_empty() {
+                    continue;
+                }
                 let name = trim_tick(file.str(key.row as _, key.table as _, 1));
                 types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
             }
@@ -208,22 +213,26 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Option<Tree> {
+    pub fn tree(&'a self, root: &'a str, filter: &Filter) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !exclude.iter().any(|x| ns.starts_with(x)) {
+            if filter.includes_namespace(ns) {
                 tree.insert_namespace(ns, 0);
             }
         }
-        tree.seek(root)
+        if root.is_empty() {
+            tree
+        } else {
+            tree.seek(root).expect("Namespace not found")
+        }
     }
 
     //
     // Hash functions for fast type lookup
     //
 
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types.get(namespace).map(|types| types.values().flatten().copied()).into_iter().flatten()
+    pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
+        self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()
     }
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()

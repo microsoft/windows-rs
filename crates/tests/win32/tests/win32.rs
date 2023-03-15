@@ -51,7 +51,7 @@ fn rect() {
 
 #[test]
 fn dxgi_mode_desc() {
-    let _ = DXGI_MODE_DESC {
+    _ = DXGI_MODE_DESC {
         Width: 1,
         Height: 2,
         RefreshRate: DXGI_RATIONAL { Numerator: 3, Denominator: 5 },

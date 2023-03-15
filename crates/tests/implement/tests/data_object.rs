@@ -116,7 +116,7 @@ fn test() -> Result<()> {
         assert!(!(*i).EnumDAdvise);
 
         d.DUnadvise(0)?;
-        let _ = d.EnumDAdvise();
+        _ = d.EnumDAdvise();
 
         assert!((*i).DUnadvise);
         assert!((*i).EnumDAdvise);
