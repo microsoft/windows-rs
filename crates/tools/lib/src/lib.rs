@@ -22,7 +22,7 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
-    let root = reader.tree("Windows", &[]).expect("`Windows` namespace not found");
+    let root = reader.tree("Windows", &Default::default());
 
     for tree in root.flatten() {
         if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {

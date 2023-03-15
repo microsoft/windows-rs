@@ -38,7 +38,7 @@ fn build_platform(platform: &str, dlltool: &str, ar: &str) {
 
     let libraries = lib::libraries();
     let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
-    let _ = std::fs::remove_dir_all(&output);
+    _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
     for (library, functions) in &libraries {
