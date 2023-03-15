@@ -13139,26 +13139,26 @@ impl ::core::fmt::Debug for MENUPARTS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MENU_POPUPSUBMENU_HCHOT(pub i32);
+pub struct POPUPSUBMENUHCHOTSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSMHC_HOT: MENU_POPUPSUBMENU_HCHOT = MENU_POPUPSUBMENU_HCHOT(1i32);
-impl ::core::marker::Copy for MENU_POPUPSUBMENU_HCHOT {}
-impl ::core::clone::Clone for MENU_POPUPSUBMENU_HCHOT {
+pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = POPUPSUBMENUHCHOTSTATES(1i32);
+impl ::core::marker::Copy for POPUPSUBMENUHCHOTSTATES {}
+impl ::core::clone::Clone for POPUPSUBMENUHCHOTSTATES {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for MENU_POPUPSUBMENU_HCHOT {
+impl ::core::default::Default for POPUPSUBMENUHCHOTSTATES {
     fn default() -> Self {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MENU_POPUPSUBMENU_HCHOT {
+impl ::windows::core::TypeKind for POPUPSUBMENUHCHOTSTATES {
     type TypeKind = ::windows::core::CopyType;
 }
-impl ::core::fmt::Debug for MENU_POPUPSUBMENU_HCHOT {
+impl ::core::fmt::Debug for POPUPSUBMENUHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MENU_POPUPSUBMENU_HCHOT").field(&self.0).finish()
+        f.debug_tuple("POPUPSUBMENUHCHOTSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
