@@ -3,10 +3,7 @@ use std::io::prelude::*;
 
 /// Namespaces to include/exclude from code generation for the `windows-sys` crate.
 
-const INCLUDE_NAMESPACES: [&str; 2] = [
-    "Windows.Win32",
-    "Windows.Wdk",
-];
+const INCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32", "Windows.Wdk"];
 
 const EXCLUDE_NAMESPACES: [&str; 28] = [
     "Windows.Win32.AI.MachineLearning",
