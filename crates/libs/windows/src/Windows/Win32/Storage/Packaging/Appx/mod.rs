@@ -561,6 +561,49 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+pub struct IAppxAppInstallerReader(::windows::core::IUnknown);
+impl IAppxAppInstallerReader {
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub unsafe fn GetXmlDom(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument> {
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::MsXml::IXMLDOMDocument>();
+        (::windows::core::Interface::vtable(self).GetXmlDom)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxAppInstallerReader, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxAppInstallerReader {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxAppInstallerReader {}
+impl ::core::fmt::Debug for IAppxAppInstallerReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxAppInstallerReader").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxAppInstallerReader {
+    type Vtable = IAppxAppInstallerReader_Vtbl;
+}
+impl ::core::clone::Clone for IAppxAppInstallerReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxAppInstallerReader {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf35bc38c_1d2f_43db_a1f4_586430d1fed2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxAppInstallerReader_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub GetXmlDom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
+    GetXmlDom: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
 pub struct IAppxBlockMapBlock(::windows::core::IUnknown);
 impl IAppxBlockMapBlock {
     pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()> {
@@ -920,6 +963,53 @@ pub struct IAppxBundleFactory_Vtbl {
     pub CreateBundleManifestReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateBundleManifestReader: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
+pub struct IAppxBundleFactory2(::windows::core::IUnknown);
+impl IAppxBundleFactory2 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateBundleReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxBundleReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Interface::vtable(self).CreateBundleReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxBundleFactory2, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxBundleFactory2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxBundleFactory2 {}
+impl ::core::fmt::Debug for IAppxBundleFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleFactory2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxBundleFactory2 {
+    type Vtable = IAppxBundleFactory2_Vtbl;
+}
+impl ::core::clone::Clone for IAppxBundleFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxBundleFactory2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7325b83d_0185_42c4_82ac_be34ab1a2a8a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxBundleFactory2_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateBundleReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateBundleReader2: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -1923,6 +2013,44 @@ pub struct IAppxContentGroupsEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+pub struct IAppxDigestProvider(::windows::core::IUnknown);
+impl IAppxDigestProvider {
+    pub unsafe fn GetDigest(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Interface::vtable(self).GetDigest)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxDigestProvider, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxDigestProvider {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxDigestProvider {}
+impl ::core::fmt::Debug for IAppxDigestProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxDigestProvider").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxDigestProvider {
+    type Vtable = IAppxDigestProvider_Vtbl;
+}
+impl ::core::clone::Clone for IAppxDigestProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxDigestProvider {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe2702b_7640_4659_8e6c_349e43c4cdbd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxDigestProvider_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetDigest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digest: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter(::windows::core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2491,6 +2619,67 @@ pub struct IAppxEncryptionFactory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+pub struct IAppxEncryptionFactory5(::windows::core::IUnknown);
+impl IAppxEncryptionFactory5 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateEncryptedPackageReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows::core::Result<IAppxPackageReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Interface::vtable(self).CreateEncryptedPackageReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateEncryptedBundleReader2<P0, P1>(&self, inputstream: P0, keyinfo: *const APPX_KEY_INFO, expecteddigest: P1) -> ::windows::core::Result<IAppxBundleReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxBundleReader>();
+        (::windows::core::Interface::vtable(self).CreateEncryptedBundleReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), keyinfo, expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxEncryptionFactory5, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxEncryptionFactory5 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxEncryptionFactory5 {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory5").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxEncryptionFactory5 {
+    type Vtable = IAppxEncryptionFactory5_Vtbl;
+}
+impl ::core::clone::Clone for IAppxEncryptionFactory5 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxEncryptionFactory5 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68d6e77a_f446_480f_b0f0_d91a24c60746);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxEncryptionFactory5_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateEncryptedPackageReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateEncryptedPackageReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateEncryptedBundleReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: ::windows::core::PCWSTR, bundlereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateEncryptedBundleReader2: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
 pub struct IAppxFactory(::windows::core::IUnknown);
 impl IAppxFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2659,6 +2848,81 @@ pub struct IAppxFactory2_Vtbl {
     pub CreateContentGroupMapWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, contentgroupmapwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateContentGroupMapWriter: usize,
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[repr(transparent)]
+pub struct IAppxFactory3(::windows::core::IUnknown);
+impl IAppxFactory3 {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreatePackageReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxPackageReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxPackageReader>();
+        (::windows::core::Interface::vtable(self).CreatePackageReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateManifestReader2<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxManifestReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxManifestReader>();
+        (::windows::core::Interface::vtable(self).CreateManifestReader2)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateAppInstallerReader<P0, P1>(&self, inputstream: P0, expecteddigest: P1) -> ::windows::core::Result<IAppxAppInstallerReader>
+    where
+        P0: ::windows::core::IntoParam<super::super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IAppxAppInstallerReader>();
+        (::windows::core::Interface::vtable(self).CreateAppInstallerReader)(::windows::core::Interface::as_raw(self), inputstream.into_param().abi(), expecteddigest.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IAppxFactory3, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAppxFactory3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAppxFactory3 {}
+impl ::core::fmt::Debug for IAppxFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFactory3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAppxFactory3 {
+    type Vtable = IAppxFactory3_Vtbl;
+}
+impl ::core::clone::Clone for IAppxFactory3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAppxFactory3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776b2c05_e21d_4e24_ba1a_cd529a8bfdbb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppxFactory3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreatePackageReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, packagereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreatePackageReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateManifestReader2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, manifestreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateManifestReader2: usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateAppInstallerReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, expecteddigest: ::windows::core::PCWSTR, appinstallerreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CreateAppInstallerReader: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]

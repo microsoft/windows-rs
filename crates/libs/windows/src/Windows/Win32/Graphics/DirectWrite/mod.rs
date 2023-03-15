@@ -6924,6 +6924,188 @@ pub struct IDWriteFontSet3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+pub struct IDWriteFontSet4(::windows::core::IUnknown);
+impl IDWriteFontSet4 {
+    pub unsafe fn GetFontCount(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetFontCount)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFontFaceReference(&self, listindex: u32) -> ::windows::core::Result<IDWriteFontFaceReference> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontFaceReference>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetFontFaceReference)(::windows::core::Interface::as_raw(self), listindex, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn FindFontFaceReference<P0>(&self, fontfacereference: P0, listindex: *mut u32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IDWriteFontFaceReference>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.FindFontFaceReference)(::windows::core::Interface::as_raw(self), fontfacereference.into_param().abi(), listindex, exists).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn FindFontFace<P0>(&self, fontface: P0, listindex: *mut u32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IDWriteFontFace>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.FindFontFace)(::windows::core::Interface::as_raw(self), fontface.into_param().abi(), listindex, exists).ok()
+    }
+    pub unsafe fn GetPropertyValues(&self, propertyid: DWRITE_FONT_PROPERTY_ID) -> ::windows::core::Result<IDWriteStringList> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteStringList>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPropertyValues)(::windows::core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetPropertyValues2<P0>(&self, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: P0) -> ::windows::core::Result<IDWriteStringList>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IDWriteStringList>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPropertyValues2)(::windows::core::Interface::as_raw(self), propertyid, preferredlocalenames.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut super::super::Foundation::BOOL, values: *mut ::core::option::Option<IDWriteLocalizedStrings>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPropertyValues3)(::windows::core::Interface::as_raw(self), listindex, propertyid, exists, ::core::mem::transmute(values)).ok()
+    }
+    pub unsafe fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPropertyOccurrenceCount)(::windows::core::Interface::as_raw(self), property, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetMatchingFonts<P0>(&self, familyname: P0, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> ::windows::core::Result<IDWriteFontSet>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetMatchingFonts)(::windows::core::Interface::as_raw(self), familyname.into_param().abi(), fontweight, fontstretch, fontstyle, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetMatchingFonts2(&self, properties: &[DWRITE_FONT_PROPERTY]) -> ::windows::core::Result<IDWriteFontSet> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetMatchingFonts2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(properties.as_ptr()), properties.len() as _, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetMatchingFonts3(&self, fontproperty: ::core::option::Option<*const DWRITE_FONT_PROPERTY>, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> ::windows::core::Result<IDWriteFontSet1> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetMatchingFonts3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontproperty.unwrap_or(::std::ptr::null())), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetFirstFontResources(&self) -> ::windows::core::Result<IDWriteFontSet1> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFirstFontResources)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetFilteredFonts(&self, indices: &[u32]) -> ::windows::core::Result<IDWriteFontSet1> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFilteredFonts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(indices.as_ptr()), indices.len() as _, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFilteredFonts2<P0>(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: P0) -> ::windows::core::Result<IDWriteFontSet1>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFilteredFonts2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontaxisranges.as_ptr()), fontaxisranges.len() as _, selectanyrange.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFilteredFonts3<P0>(&self, properties: ::core::option::Option<&[DWRITE_FONT_PROPERTY]>, selectanyproperty: P0) -> ::windows::core::Result<IDWriteFontSet1>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFilteredFonts3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), selectanyproperty.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFilteredFontIndices<P0>(&self, fontaxisranges: &[DWRITE_FONT_AXIS_RANGE], selectanyrange: P0, indices: &mut [u32], actualindexcount: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFilteredFontIndices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontaxisranges.as_ptr()), fontaxisranges.len() as _, selectanyrange.into_param().abi(), ::core::mem::transmute(indices.as_ptr()), indices.len() as _, actualindexcount).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFilteredFontIndices2<P0>(&self, properties: &[DWRITE_FONT_PROPERTY], selectanyproperty: P0, indices: &mut [u32], actualindexcount: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFilteredFontIndices2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(properties.as_ptr()), properties.len() as _, selectanyproperty.into_param().abi(), ::core::mem::transmute(indices.as_ptr()), indices.len() as _, actualindexcount).ok()
+    }
+    pub unsafe fn GetFontAxisRanges(&self, listindex: u32, fontaxisranges: &mut [DWRITE_FONT_AXIS_RANGE], actualfontaxisrangecount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFontAxisRanges)(::windows::core::Interface::as_raw(self), listindex, ::core::mem::transmute(fontaxisranges.as_ptr()), fontaxisranges.len() as _, actualfontaxisrangecount).ok()
+    }
+    pub unsafe fn GetFontAxisRanges2(&self, fontaxisranges: &mut [DWRITE_FONT_AXIS_RANGE], actualfontaxisrangecount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFontAxisRanges2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontaxisranges.as_ptr()), fontaxisranges.len() as _, actualfontaxisrangecount).ok()
+    }
+    pub unsafe fn GetFontFaceReference2(&self, listindex: u32) -> ::windows::core::Result<IDWriteFontFaceReference1> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontFaceReference1>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFontFaceReference2)(::windows::core::Interface::as_raw(self), listindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn CreateFontResource(&self, listindex: u32) -> ::windows::core::Result<IDWriteFontResource> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontResource>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateFontResource)(::windows::core::Interface::as_raw(self), listindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn CreateFontFace(&self, listindex: u32) -> ::windows::core::Result<IDWriteFontFace5> {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontFace5>();
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateFontFace)(::windows::core::Interface::as_raw(self), listindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetFontLocality(&self, listindex: u32) -> DWRITE_LOCALITY {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetFontLocality)(::windows::core::Interface::as_raw(self), listindex)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetExpirationEvent(&self) -> super::super::Foundation::HANDLE {
+        (::windows::core::Interface::vtable(self).base__.base__.GetExpirationEvent)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFontSourceType(&self, fontindex: u32) -> DWRITE_FONT_SOURCE_TYPE {
+        (::windows::core::Interface::vtable(self).base__.GetFontSourceType)(::windows::core::Interface::as_raw(self), fontindex)
+    }
+    pub unsafe fn GetFontSourceNameLength(&self, listindex: u32) -> u32 {
+        (::windows::core::Interface::vtable(self).base__.GetFontSourceNameLength)(::windows::core::Interface::as_raw(self), listindex)
+    }
+    pub unsafe fn GetFontSourceName(&self, listindex: u32, stringbuffer: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFontSourceName)(::windows::core::Interface::as_raw(self), listindex, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
+    }
+    pub unsafe fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: ::core::option::Option<&[DWRITE_FONT_AXIS_VALUE]>, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: &mut [DWRITE_FONT_AXIS_VALUE; 5]) -> u32 {
+        (::windows::core::Interface::vtable(self).ConvertWeightStretchStyleToFontAxisValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputaxisvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputaxisvalues.as_deref().map_or(0, |slice| slice.len() as _), fontweight, fontstretch, fontstyle, fontsize, ::core::mem::transmute(outputaxisvalues.as_ptr()))
+    }
+    pub unsafe fn GetMatchingFonts4<P0>(&self, familyname: P0, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE], allowedsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontSet4>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IDWriteFontSet4>();
+        (::windows::core::Interface::vtable(self).GetMatchingFonts4)(::windows::core::Interface::as_raw(self), familyname.into_param().abi(), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, allowedsimulations, &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IDWriteFontSet4, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2, IDWriteFontSet3);
+impl ::core::cmp::PartialEq for IDWriteFontSet4 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDWriteFontSet4 {}
+impl ::core::fmt::Debug for IDWriteFontSet4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDWriteFontSet4").field(&self.0).finish()
+    }
+}
+unsafe impl ::core::marker::Send for IDWriteFontSet4 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSet4 {}
+unsafe impl ::windows::core::Interface for IDWriteFontSet4 {
+    type Vtable = IDWriteFontSet4_Vtbl;
+}
+impl ::core::clone::Clone for IDWriteFontSet4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDWriteFontSet4 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDWriteFontSet4_Vtbl {
+    pub base__: IDWriteFontSet3_Vtbl,
+    pub ConvertWeightStretchStyleToFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32,
+    pub GetMatchingFonts4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, familyname: ::windows::core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, allowedsimulations: DWRITE_FONT_SIMULATIONS, matchingfonts: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
+#[repr(transparent)]
 pub struct IDWriteFontSetBuilder(::windows::core::IUnknown);
 impl IDWriteFontSetBuilder {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> ::windows::core::Result<()>
@@ -11686,6 +11868,8 @@ pub const DWRITE_E_DOWNLOADFAILED: ::windows::core::HRESULT = ::windows::core::H
 pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283955i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32);
+#[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
+pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]

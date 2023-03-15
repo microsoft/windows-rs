@@ -887,6 +887,8 @@ pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
@@ -912,6 +914,8 @@ pub const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u64 = 4u64;
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_STARE: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2901,6 +2905,35 @@ impl ::core::fmt::Debug for CONSTRICTOR_OPTION {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDeviceControlUseType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseMissing: EDeviceControlUseType = EDeviceControlUseType(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUsePrimary: EDeviceControlUseType = EDeviceControlUseType(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseSecondary: EDeviceControlUseType = EDeviceControlUseType(2i32);
+impl ::core::marker::Copy for EDeviceControlUseType {}
+impl ::core::clone::Clone for EDeviceControlUseType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDeviceControlUseType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for EDeviceControlUseType {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for EDeviceControlUseType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDeviceControlUseType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPcxConnectionType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const eConnTypeUnknown: EPcxConnectionType = EPcxConnectionType(0i32);
@@ -4774,6 +4807,8 @@ pub const KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE: KSPROPERTY_AUDIOENGINE = KSP
 pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(8i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_DEVICECONTROLS: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(10i32);
 impl ::core::marker::Copy for KSPROPERTY_AUDIOENGINE {}
 impl ::core::clone::Clone for KSPROPERTY_AUDIOENGINE {
     fn clone(&self) -> Self {
@@ -5841,6 +5876,8 @@ pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = KSPROPERTY_JACK(2i32);
 pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = KSPROPERTY_JACK(3i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = KSPROPERTY_JACK(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_DESCRIPTION3: KSPROPERTY_JACK = KSPROPERTY_JACK(5i32);
 impl ::core::marker::Copy for KSPROPERTY_JACK {}
 impl ::core::clone::Clone for KSPROPERTY_JACK {
     fn clone(&self) -> Self {
@@ -8926,6 +8963,38 @@ impl ::core::cmp::PartialEq for KSAUDIOENGINE_DESCRIPTOR {
 }
 impl ::core::cmp::Eq for KSAUDIOENGINE_DESCRIPTOR {}
 impl ::core::default::Default for KSAUDIOENGINE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSAUDIOENGINE_DEVICECONTROLS {
+    pub Volume: EDeviceControlUseType,
+    pub Mute: EDeviceControlUseType,
+    pub PeakMeter: EDeviceControlUseType,
+}
+impl ::core::marker::Copy for KSAUDIOENGINE_DEVICECONTROLS {}
+impl ::core::clone::Clone for KSAUDIOENGINE_DEVICECONTROLS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KSAUDIOENGINE_DEVICECONTROLS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KSAUDIOENGINE_DEVICECONTROLS").field("Volume", &self.Volume).field("Mute", &self.Mute).field("PeakMeter", &self.PeakMeter).finish()
+    }
+}
+impl ::windows::core::TypeKind for KSAUDIOENGINE_DEVICECONTROLS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KSAUDIOENGINE_DEVICECONTROLS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Volume == other.Volume && self.Mute == other.Mute && self.PeakMeter == other.PeakMeter
+    }
+}
+impl ::core::cmp::Eq for KSAUDIOENGINE_DEVICECONTROLS {}
+impl ::core::default::Default for KSAUDIOENGINE_DEVICECONTROLS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -12207,6 +12276,36 @@ impl ::core::cmp::PartialEq for KSJACK_DESCRIPTION2 {
 }
 impl ::core::cmp::Eq for KSJACK_DESCRIPTION2 {}
 impl ::core::default::Default for KSJACK_DESCRIPTION2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSJACK_DESCRIPTION3 {
+    pub ConfigId: u32,
+}
+impl ::core::marker::Copy for KSJACK_DESCRIPTION3 {}
+impl ::core::clone::Clone for KSJACK_DESCRIPTION3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KSJACK_DESCRIPTION3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KSJACK_DESCRIPTION3").field("ConfigId", &self.ConfigId).finish()
+    }
+}
+impl ::windows::core::TypeKind for KSJACK_DESCRIPTION3 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KSJACK_DESCRIPTION3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.ConfigId == other.ConfigId
+    }
+}
+impl ::core::cmp::Eq for KSJACK_DESCRIPTION3 {}
+impl ::core::default::Default for KSJACK_DESCRIPTION3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

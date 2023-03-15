@@ -456,6 +456,8 @@ pub const HTTP_LOG_FIELD_CORRELATION_ID: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOG_FIELD_DATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_LOG_FIELD_FAULT_CODE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOG_FIELD_HOST: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOG_FIELD_METHOD: u32 = 128u32;
@@ -563,6 +565,8 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_SESSION_ID: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -835,6 +839,8 @@ pub const HttpFeatureApiTimings: HTTP_FEATURE_ID = HTTP_FEATURE_ID(2i32);
 pub const HttpFeatureDelegateEx: HTTP_FEATURE_ID = HTTP_FEATURE_ID(3i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpFeatureHttp3: HTTP_FEATURE_ID = HTTP_FEATURE_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureLast: HTTP_FEATURE_ID = HTTP_FEATURE_ID(5i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpFeaturemax: HTTP_FEATURE_ID = HTTP_FEATURE_ID(-1i32);
 impl ::core::marker::Copy for HTTP_FEATURE_ID {}
@@ -3249,6 +3255,52 @@ impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
 }
 impl ::core::cmp::Eq for HTTP_QUIC_STREAM_API_TIMINGS {}
 impl ::core::default::Default for HTTP_QUIC_STREAM_API_TIMINGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
+    pub StreamWaitStart: u64,
+    pub StreamWaitEnd: u64,
+    pub RequestHeadersCompressionStart: u64,
+    pub RequestHeadersCompressionEnd: u64,
+    pub ResponseHeadersDecompressionStart: u64,
+    pub ResponseHeadersDecompressionEnd: u64,
+    pub RequestHeadersCompressedSize: u64,
+    pub ResponseHeadersCompressedSize: u64,
+}
+impl ::core::marker::Copy for HTTP_QUIC_STREAM_REQUEST_STATS {}
+impl ::core::clone::Clone for HTTP_QUIC_STREAM_REQUEST_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HTTP_QUIC_STREAM_REQUEST_STATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HTTP_QUIC_STREAM_REQUEST_STATS")
+            .field("StreamWaitStart", &self.StreamWaitStart)
+            .field("StreamWaitEnd", &self.StreamWaitEnd)
+            .field("RequestHeadersCompressionStart", &self.RequestHeadersCompressionStart)
+            .field("RequestHeadersCompressionEnd", &self.RequestHeadersCompressionEnd)
+            .field("ResponseHeadersDecompressionStart", &self.ResponseHeadersDecompressionStart)
+            .field("ResponseHeadersDecompressionEnd", &self.ResponseHeadersDecompressionEnd)
+            .field("RequestHeadersCompressedSize", &self.RequestHeadersCompressedSize)
+            .field("ResponseHeadersCompressedSize", &self.ResponseHeadersCompressedSize)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for HTTP_QUIC_STREAM_REQUEST_STATS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_REQUEST_STATS {
+    fn eq(&self, other: &Self) -> bool {
+        self.StreamWaitStart == other.StreamWaitStart && self.StreamWaitEnd == other.StreamWaitEnd && self.RequestHeadersCompressionStart == other.RequestHeadersCompressionStart && self.RequestHeadersCompressionEnd == other.RequestHeadersCompressionEnd && self.ResponseHeadersDecompressionStart == other.ResponseHeadersDecompressionStart && self.ResponseHeadersDecompressionEnd == other.ResponseHeadersDecompressionEnd && self.RequestHeadersCompressedSize == other.RequestHeadersCompressedSize && self.ResponseHeadersCompressedSize == other.ResponseHeadersCompressedSize
+    }
+}
+impl ::core::cmp::Eq for HTTP_QUIC_STREAM_REQUEST_STATS {}
+impl ::core::default::Default for HTTP_QUIC_STREAM_REQUEST_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

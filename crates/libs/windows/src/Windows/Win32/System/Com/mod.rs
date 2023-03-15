@@ -5997,6 +5997,38 @@ pub struct IStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
+pub struct ISupportAllowLowerTrustActivation(::windows::core::IUnknown);
+impl ISupportAllowLowerTrustActivation {}
+::windows::imp::interface_hierarchy!(ISupportAllowLowerTrustActivation, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for ISupportAllowLowerTrustActivation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ISupportAllowLowerTrustActivation {}
+impl ::core::fmt::Debug for ISupportAllowLowerTrustActivation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISupportAllowLowerTrustActivation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ISupportAllowLowerTrustActivation {
+    type Vtable = ISupportAllowLowerTrustActivation_Vtbl;
+}
+impl ::core::clone::Clone for ISupportAllowLowerTrustActivation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISupportAllowLowerTrustActivation {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9956ef2_3828_4b4b_8fa9_7db61dee4954);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportAllowLowerTrustActivation_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
 pub struct ISupportErrorInfo(::windows::core::IUnknown);
 impl ISupportErrorInfo {
     pub unsafe fn InterfaceSupportsErrorInfo(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -8056,6 +8088,8 @@ pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
@@ -8268,6 +8302,39 @@ impl ::core::fmt::Debug for COWAIT_FLAGS {
         f.debug_tuple("COWAIT_FLAGS").field(&self.0).finish()
     }
 }
+impl COWAIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for COWAIT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COWAIT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COWAIT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COWAIT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COWAIT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8356,6 +8423,39 @@ impl ::windows::core::TypeKind for CWMO_FLAGS {
 impl ::core::fmt::Debug for CWMO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CWMO_FLAGS").field(&self.0).finish()
+    }
+}
+impl CWMO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CWMO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CWMO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CWMO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CWMO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CWMO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9345,6 +9445,39 @@ impl ::windows::core::TypeKind for REGCLS {
 impl ::core::fmt::Debug for REGCLS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REGCLS").field(&self.0).finish()
+    }
+}
+impl REGCLS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for REGCLS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REGCLS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REGCLS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REGCLS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REGCLS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]

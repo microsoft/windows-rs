@@ -406,46 +406,6 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
 #[repr(transparent)]
-pub struct ISwapChainInterop(::windows::core::IUnknown);
-impl ISwapChainInterop {
-    pub unsafe fn SetSwapChain<P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
-    {
-        (::windows::core::Interface::vtable(self).SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into_param().abi()).ok()
-    }
-}
-::windows::imp::interface_hierarchy!(ISwapChainInterop, ::windows::core::IUnknown);
-impl ::core::cmp::PartialEq for ISwapChainInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISwapChainInterop {}
-impl ::core::fmt::Debug for ISwapChainInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISwapChainInterop").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for ISwapChainInterop {
-    type Vtable = ISwapChainInterop_Vtbl;
-}
-impl ::core::clone::Clone for ISwapChainInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-unsafe impl ::windows::core::ComInterface for ISwapChainInterop {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f496a0_7f38_45fb_88f7_faaabe67dd59);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISwapChainInterop_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub SetSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
-#[repr(transparent)]
 pub struct IVisualInteractionSourceInterop(::windows::core::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]

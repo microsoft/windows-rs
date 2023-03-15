@@ -57,6 +57,43 @@ impl IPrintDocumentPackageTarget_Vtbl {
         iid == &<IPrintDocumentPackageTarget as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub trait IPrintDocumentPackageTarget2_Impl: Sized {
+    fn GetIsTargetIppPrinter(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetTargetIppPrintDevice(&self, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPrintDocumentPackageTarget2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl IPrintDocumentPackageTarget2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>() -> IPrintDocumentPackageTarget2_Vtbl {
+        unsafe extern "system" fn GetIsTargetIppPrinter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isippprinter: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetIsTargetIppPrinter() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(isippprinter, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetTargetIppPrintDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetTargetIppPrintDevice(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvtarget)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetIsTargetIppPrinter: GetIsTargetIppPrinter::<Identity, Impl, OFFSET>,
+            GetTargetIppPrintDevice: GetTargetIppPrintDevice::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPrintDocumentPackageTarget2 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {

@@ -21646,6 +21646,555 @@ pub struct IDebugExtendedProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+pub struct IDebugFAEntryTags(::std::ptr::NonNull<::std::ffi::c_void>);
+impl IDebugFAEntryTags {
+    pub unsafe fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE {
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), tag)
+    }
+    pub unsafe fn SetType(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), tag, entrytype).ok()
+    }
+    pub unsafe fn GetProperties(&self, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PSTR, namesize: ::core::option::Option<*mut u32>, description: ::windows::core::PSTR, descsize: ::core::option::Option<*mut u32>, flags: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), tag, ::core::mem::transmute(name), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(description), ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(flags.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn SetProperties<P0, P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, name: P0, description: P1, flags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetProperties)(::windows::core::Interface::as_raw(self), tag, name.into_param().abi(), description.into_param().abi(), flags).ok()
+    }
+    pub unsafe fn GetTagByName<P0, P1>(&self, pluginid: P0, tagname: P1) -> ::windows::core::Result<DEBUG_FLR_PARAM_TYPE>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<DEBUG_FLR_PARAM_TYPE>();
+        (::windows::core::Interface::vtable(self).GetTagByName)(::windows::core::Interface::as_raw(self), pluginid.into_param().abi(), tagname.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::Foundation::BOOL {
+        (::windows::core::Interface::vtable(self).IsValidTagToSet)(::windows::core::Interface::as_raw(self), tag)
+    }
+}
+impl ::core::cmp::PartialEq for IDebugFAEntryTags {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDebugFAEntryTags {}
+impl ::core::fmt::Debug for IDebugFAEntryTags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDebugFAEntryTags").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IDebugFAEntryTags {
+    type Vtable = IDebugFAEntryTags_Vtbl;
+}
+impl ::core::clone::Clone for IDebugFAEntryTags {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDebugFAEntryTags_Vtbl {
+    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE,
+    pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE) -> ::windows::core::HRESULT,
+    pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PSTR, namesize: *mut u32, description: ::windows::core::PSTR, descsize: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT,
+    pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PCSTR, description: ::windows::core::PCSTR, flags: u32) -> ::windows::core::HRESULT,
+    pub GetTagByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pluginid: ::windows::core::PCSTR, tagname: ::windows::core::PCSTR, tag: *mut DEBUG_FLR_PARAM_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsValidTagToSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::Foundation::BOOL,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsValidTagToSet: usize,
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+pub struct IDebugFailureAnalysis(::windows::core::IUnknown);
+impl IDebugFailureAnalysis {
+    pub unsafe fn GetFailureClass(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureClass)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE {
+        (::windows::core::Interface::vtable(self).GetFailureType)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureCode(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureCode)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), tag)
+    }
+    pub unsafe fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), entry, tag, tagmask)
+    }
+    pub unsafe fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &mut [u8]) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), tag, ::core::mem::transmute(str.as_ptr()), str.len() as _)
+    }
+    pub unsafe fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), tag, buf, size)
+    }
+    pub unsafe fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn NextEntry(&self, entry: ::core::option::Option<*const FA_ENTRY>) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).NextEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entry.unwrap_or(::std::ptr::null())))
+    }
+}
+::windows::imp::interface_hierarchy!(IDebugFailureAnalysis, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IDebugFailureAnalysis {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDebugFailureAnalysis {}
+impl ::core::fmt::Debug for IDebugFailureAnalysis {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDebugFailureAnalysis").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IDebugFailureAnalysis {
+    type Vtable = IDebugFailureAnalysis_Vtbl;
+}
+impl ::core::clone::Clone for IDebugFailureAnalysis {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDebugFailureAnalysis {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed0de363_451f_4943_820c_62dccdfa7e6d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDebugFailureAnalysis_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetFailureClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetFailureType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE,
+    pub GetFailureCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY,
+    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub GetUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY,
+    pub GetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY,
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+pub struct IDebugFailureAnalysis2(::windows::core::IUnknown);
+impl IDebugFailureAnalysis2 {
+    pub unsafe fn GetFailureClass(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureClass)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE {
+        (::windows::core::Interface::vtable(self).GetFailureType)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureCode(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureCode)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), tag)
+    }
+    pub unsafe fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), entry, tag, tagmask)
+    }
+    pub unsafe fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &mut [u8]) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), tag, ::core::mem::transmute(str.as_ptr()), str.len() as _)
+    }
+    pub unsafe fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), tag, buf, size)
+    }
+    pub unsafe fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn NextEntry(&self, entry: ::core::option::Option<*const FA_ENTRY>) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).NextEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entry.unwrap_or(::std::ptr::null())))
+    }
+    pub unsafe fn SetString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetString)(::windows::core::Interface::as_raw(self), tag, str.into_param().abi())
+    }
+    pub unsafe fn SetExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetExtensionCommand)(::windows::core::Interface::as_raw(self), tag, extension.into_param().abi())
+    }
+    pub unsafe fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), tag, entrytype, buf, size)
+    }
+    pub unsafe fn AddString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddString)(::windows::core::Interface::as_raw(self), tag, str.into_param().abi())
+    }
+    pub unsafe fn AddExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddExtensionCommand)(::windows::core::Interface::as_raw(self), tag, extension.into_param().abi())
+    }
+    pub unsafe fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddBuffer)(::windows::core::Interface::as_raw(self), tag, entrytype, buf, size)
+    }
+    pub unsafe fn GetDebugFATagControl(&self) -> ::windows::core::Result<IDebugFAEntryTags> {
+        let mut result__ = ::windows::core::zeroed::<IDebugFAEntryTags>();
+        (::windows::core::Interface::vtable(self).GetDebugFATagControl)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub unsafe fn GetAnalysisXml(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::MsXml::IXMLDOMElement>();
+        (::windows::core::Interface::vtable(self).GetAnalysisXml)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IDebugFailureAnalysis2>,
+    {
+        (::windows::core::Interface::vtable(self).AddStructuredAnalysisData)(::windows::core::Interface::as_raw(self), tag, analysis.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IDebugFailureAnalysis2, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IDebugFailureAnalysis2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDebugFailureAnalysis2 {}
+impl ::core::fmt::Debug for IDebugFailureAnalysis2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDebugFailureAnalysis2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IDebugFailureAnalysis2 {
+    type Vtable = IDebugFailureAnalysis2_Vtbl;
+}
+impl ::core::clone::Clone for IDebugFailureAnalysis2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDebugFailureAnalysis2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea15c288_8226_4b70_acf6_0be6b189e3ad);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDebugFailureAnalysis2_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetFailureClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetFailureType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE,
+    pub GetFailureCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY,
+    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub GetUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY,
+    pub GetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY,
+    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub SetExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub SetUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY,
+    pub SetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY,
+    pub SetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub AddString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub AddExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub AddUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY,
+    pub AddUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY,
+    pub AddBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub GetDebugFATagControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fatagcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub GetAnalysisXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
+    GetAnalysisXml: usize,
+    pub AddStructuredAnalysisData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+pub struct IDebugFailureAnalysis3(::windows::core::IUnknown);
+impl IDebugFailureAnalysis3 {
+    pub unsafe fn GetFailureClass(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureClass)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE {
+        (::windows::core::Interface::vtable(self).GetFailureType)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetFailureCode(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetFailureCode)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), tag)
+    }
+    pub unsafe fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), entry, tag, tagmask)
+    }
+    pub unsafe fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &mut [u8]) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetString)(::windows::core::Interface::as_raw(self), tag, ::core::mem::transmute(str.as_ptr()), str.len() as _)
+    }
+    pub unsafe fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), tag, buf, size)
+    }
+    pub unsafe fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).GetUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn NextEntry(&self, entry: ::core::option::Option<*const FA_ENTRY>) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).NextEntry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entry.unwrap_or(::std::ptr::null())))
+    }
+    pub unsafe fn SetString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetString)(::windows::core::Interface::as_raw(self), tag, str.into_param().abi())
+    }
+    pub unsafe fn SetExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetExtensionCommand)(::windows::core::Interface::as_raw(self), tag, extension.into_param().abi())
+    }
+    pub unsafe fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), tag, entrytype, buf, size)
+    }
+    pub unsafe fn AddString<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddString)(::windows::core::Interface::as_raw(self), tag, str.into_param().abi())
+    }
+    pub unsafe fn AddExtensionCommand<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: P0) -> *mut FA_ENTRY
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    {
+        (::windows::core::Interface::vtable(self).AddExtensionCommand)(::windows::core::Interface::as_raw(self), tag, extension.into_param().abi())
+    }
+    pub unsafe fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddUlong)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddUlong64)(::windows::core::Interface::as_raw(self), tag, value)
+    }
+    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        (::windows::core::Interface::vtable(self).AddBuffer)(::windows::core::Interface::as_raw(self), tag, entrytype, buf, size)
+    }
+    pub unsafe fn GetDebugFATagControl(&self) -> ::windows::core::Result<IDebugFAEntryTags> {
+        let mut result__ = ::windows::core::zeroed::<IDebugFAEntryTags>();
+        (::windows::core::Interface::vtable(self).GetDebugFATagControl)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub unsafe fn GetAnalysisXml(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Data::Xml::MsXml::IXMLDOMElement>();
+        (::windows::core::Interface::vtable(self).GetAnalysisXml)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IDebugFailureAnalysis2>,
+    {
+        (::windows::core::Interface::vtable(self).AddStructuredAnalysisData)(::windows::core::Interface::as_raw(self), tag, analysis.into_param().abi()).ok()
+    }
+    pub unsafe fn AddThreads<P0>(&self, pdebugfailurethreadenum: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    {
+        (::windows::core::Interface::vtable(self).AddThreads)(::windows::core::Interface::as_raw(self), pdebugfailurethreadenum.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn AttributeGet(&self, nindex: u32) -> ::windows::core::Result<super::super::Com::VARIANT> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Com::VARIANT>();
+        (::windows::core::Interface::vtable(self).AttributeGet)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn AttributeGetName(&self, nindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).AttributeGetName)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn AttributeSet(&self, nindex: u32, value: super::super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttributeSet)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(value)).ok()
+    }
+    pub unsafe fn BlameApplication<P0>(&self, postfix: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BlameApplication)(::windows::core::Interface::as_raw(self), postfix.into_param().abi()).ok()
+    }
+    pub unsafe fn BlameProcess<P0>(&self, postfix: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BlameProcess)(::windows::core::Interface::as_raw(self), postfix.into_param().abi()).ok()
+    }
+    pub unsafe fn BlameThread<P0>(&self, pthread: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    {
+        (::windows::core::Interface::vtable(self).BlameThread)(::windows::core::Interface::as_raw(self), pthread.into_param().abi()).ok()
+    }
+    pub unsafe fn BlameStitch<P0, P1>(&self, pthread: P0, stitch: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).BlameStitch)(::windows::core::Interface::as_raw(self), pthread.into_param().abi(), stitch.into_param().abi()).ok()
+    }
+    pub unsafe fn BlameTEB(&self, address: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BlameTEB)(::windows::core::Interface::as_raw(self), address).ok()
+    }
+    pub unsafe fn BlameETHREAD(&self, address: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BlameETHREAD)(::windows::core::Interface::as_raw(self), address).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ProblemClassIsSet(&self, nindex: u32) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).ProblemClassIsSet)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn ProblemClassDelete(&self, nindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProblemClassDelete)(::windows::core::Interface::as_raw(self), nindex).ok()
+    }
+    pub unsafe fn ProblemClassSet(&self, nindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProblemClassSet)(::windows::core::Interface::as_raw(self), nindex).ok()
+    }
+    pub unsafe fn ProblemClassSetBSTR<P0>(&self, nindex: u32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ProblemClassSetBSTR)(::windows::core::Interface::as_raw(self), nindex, value.into_param().abi()).ok()
+    }
+    pub unsafe fn SetAdditionalXML<P0, P1>(&self, key: P0, pxmldomelement: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    {
+        (::windows::core::Interface::vtable(self).SetAdditionalXML)(::windows::core::Interface::as_raw(self), key.into_param().abi(), pxmldomelement.into_param().abi()).ok()
+    }
+    pub unsafe fn GetAdditionalXML<P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IUnknown>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Interface::vtable(self).GetAdditionalXML)(::windows::core::Interface::as_raw(self), key.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn DeleteAdditionalXML<P0>(&self, key: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).DeleteAdditionalXML)(::windows::core::Interface::as_raw(self), key.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IDebugFailureAnalysis3, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IDebugFailureAnalysis3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IDebugFailureAnalysis3 {}
+impl ::core::fmt::Debug for IDebugFailureAnalysis3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDebugFailureAnalysis3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IDebugFailureAnalysis3 {
+    type Vtable = IDebugFailureAnalysis3_Vtbl;
+}
+impl ::core::clone::Clone for IDebugFailureAnalysis3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDebugFailureAnalysis3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3627dc67_fd45_42ff_9ba4_4a67ee64619f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDebugFailureAnalysis3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetFailureClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetFailureType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE,
+    pub GetFailureCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY,
+    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub GetUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY,
+    pub GetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY,
+    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub SetExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub SetUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY,
+    pub SetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY,
+    pub SetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub AddString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub AddExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY,
+    pub AddUlong: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY,
+    pub AddUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY,
+    pub AddBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY,
+    pub GetDebugFATagControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fatagcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+    pub GetAnalysisXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
+    GetAnalysisXml: usize,
+    pub AddStructuredAnalysisData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugfailurethreadenum: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub AttributeGet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    AttributeGet: usize,
+    pub AttributeGetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub AttributeSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, value: super::super::Com::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    AttributeSet: usize,
+    pub BlameApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BlameProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BlameThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthread: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BlameStitch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthread: *mut ::core::ffi::c_void, stitch: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BlameTEB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64) -> ::windows::core::HRESULT,
+    pub BlameETHREAD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ProblemClassIsSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pset: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ProblemClassIsSet: usize,
+    pub ProblemClassDelete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT,
+    pub ProblemClassSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT,
+    pub ProblemClassSetBSTR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, value: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetAdditionalXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>, pxmldomelement: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetAdditionalXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeleteAdditionalXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
 pub struct IDebugFormatter(::windows::core::IUnknown);
 impl IDebugFormatter {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -32612,6 +33161,18 @@ pub const CHECKSUM_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const CHECKSUM_UNICODE_FAILURE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisBasic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74eed7f_1c7d_4c1b_959f_b96dd9175aa4);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisKernel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee433078_64af_4c33_ab2f_ecad7f2a002d);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisTarget: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba9bfb05_ef75_4bbd_a745_a6b5529458b8);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisUser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe60b0c93_cf49_4a32_8147_0362202dc56b);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisWinCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67d5e86f_f5e2_462a_9233_1bd616fcc7e8);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CLSID_DebugFailureAnalysisXBox360: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x901625bb_95f1_4318_ac80_9d733cee8c8b);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
@@ -33128,6 +33689,8 @@ pub const DEBUG_DATA_PROCESSOR_SPEED: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_DATA_PaeEnabled: u32 = 100000u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_DATA_PagingLevels: u32 = 100080u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_DATA_PoolTrackTableAddr: u32 = 440u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_DATA_ProductType: u32 = 100016u32;
@@ -33224,7 +33787,7 @@ pub const DEBUG_END_PASSIVE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_END_REENTRANT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_ENGOPT_ALL: u32 = 15728639u32;
+pub const DEBUG_ENGOPT_ALL: u32 = 32505855u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_ENGOPT_ALLOW_NETWORK_PATHS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -33269,6 +33832,8 @@ pub const DEBUG_ENGOPT_NO_EXECUTE_REPEAT: u32 = 256u32;
 pub const DEBUG_ENGOPT_PREFER_DML: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_ENGOPT_PREFER_TRACE_FILES: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_ENGOPT_RESOLVE_SHADOWED_VARIABLES: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -33788,6 +34353,8 @@ pub const DEBUG_PROC_DESC_NO_SESSION_ID: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_PROC_DESC_NO_USER_NAME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_REGISTERS_ALL: u32 = 7u32;
@@ -33827,6 +34394,8 @@ pub const DEBUG_REQUEST_GET_CAPTURED_EVENT_CODE_OFFSET: u32 = 10u32;
 pub const DEBUG_REQUEST_GET_DUMP_HEADER: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_REQUEST_GET_EXTENSION_SEARCH_PATH_WIDE: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_REQUEST_GET_IMAGE_ARCHITECTURE: u32 = 39u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_REQUEST_GET_INSTRUMENTATION_VERSION: u32 = 37u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34178,6 +34747,14 @@ pub const DSLFLAG_MISMATCHED_DBG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DSLFLAG_MISMATCHED_PDB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_HANDLE_FLAG_CID_TABLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_HANDLE_FLAG_KERNEL_TABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_HANDLE_FLAG_PRINT_FREE_ENTRY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DUMP_HANDLE_FLAG_PRINT_OBJECT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
@@ -34214,6 +34791,26 @@ pub const EVENT_SRCSPEW_START: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const EXIT_ON_CONTROLC: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_BINDIR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_BINDIR_SYMSRV: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_SYMDIR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_SYMDIR_SYMSRV: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_WOW64BINDIR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_WOW64BINDIR_SYMSRV: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const EXT_API_VERSION_NUMBER: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const EXT_API_VERSION_NUMBER32: u32 = 5u32;
@@ -34247,6 +34844,64 @@ pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows::core::HRESULT = ::wind
 pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338174i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const FACILITY_JsDEBUG: u32 = 3527u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_ASSUME_HANG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_AUTOBUG_PROCESSING: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_AUTOSET_SYMPATH: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_CALLSTACK_XML: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_CALLSTACK_XML_FULL_SOURCE_INFO: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_CREATE_INSTANCE: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_EXCEPTION_AS_HANG: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_HEAP_CORRUPTION_BLAME_FUNCTION: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_IGNORE_BREAKIN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_LIVE_DEBUG_HOLD_CHECK: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_MODULE_INFO_XML: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_MULTI_TARGET: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_NO_DB_LOOKUP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_NO_IMAGE_CORRUPTION: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_PERMIT_HEAP_ACCESS_VIOLATIONS: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_REGISTRY_DATA: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_SET_FAILURE_CONTEXT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_SHOW_SOURCE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_SHOW_WCT_STACKS: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_USER_ATTRIBUTES: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_USER_ATTRIBUTES_ALL: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_USER_ATTRIBUTES_FRAMES: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_VERBOSE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_WMI_QUERY_DATA: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_XML_FILE_OUTPUT: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_XML_OUTPUT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_XSD_VERIFY: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_XSLT_FILE_INPUT: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FAILURE_ANALYSIS_XSLT_FILE_OUTPUT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const FIELDS_DID_NOT_MATCH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34436,6 +35091,8 @@ pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const KDEXTS_LOCK_CALLBACKROUTINE_DEFINED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
@@ -34443,6 +35100,8 @@ pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const MAX_STACK_IN_BYTES: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const MAX_SYM_NAME: u32 = 2000u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34944,6 +35603,8 @@ pub const SYM_STKWALK_FORCE_FRAMEPTR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const SYM_STKWALK_ZEROEXTEND_PTRS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const TARGET_ATTRIBUTE_PACMASK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const TEXT_DOC_ATTR_READONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const TEXT_DOC_ATTR_TYPE_PRIMARY: u32 = 2u32;
@@ -34959,6 +35620,14 @@ pub const THREAD_OUT_OF_CONTEXT: u32 = 8u32;
 pub const THREAD_STATE_RUNNING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const THREAD_STATE_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const TRIAGE_FOLLOWUP_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const TRIAGE_FOLLOWUP_FAIL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const TRIAGE_FOLLOWUP_IGNORE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const TRIAGE_FOLLOWUP_SUCCESS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const UNAVAILABLE_ERROR: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -35120,6 +35789,12 @@ pub const WHEA_RESTORE_CMCI_ENABLED: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WHEA_RESTORE_CMCI_ERR_LIMIT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WHEA_ROW_FAIL_CHECK_ENABLE: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WHEA_ROW_FAIL_CHECK_EXTENT: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WHEA_ROW_FAIL_CHECK_THRESHOLD: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
@@ -35141,6 +35816,8 @@ pub const WOW64_CONTEXT_i486: u32 = 65536u32;
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const _EXTSAPI_VER_: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const fasaCaseSensitive: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36325,6 +37002,26 @@ pub const SECURE_PCI_CONFIG_SPACE_ACCESS_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ER
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DAM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(491u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const HANDLE_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(492u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const HANDLE_ERROR_ON_CRITICAL_THREAD: BUGCHECK_ERROR = BUGCHECK_ERROR(493u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const MPSDRV_QUERY_USER: BUGCHECK_ERROR = BUGCHECK_ERROR(1073742318u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const VMBUS_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(1073742319u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const USB4_HARDWARE_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(496u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const KASAN_ENLIGHTENMENT_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(497u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const KASAN_ILLEGAL_ACCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(498u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const IORING: BUGCHECK_ERROR = BUGCHECK_ERROR(499u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const MDL_CACHE: BUGCHECK_ERROR = BUGCHECK_ERROR(500u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const MISALIGNED_POINTER_PARAMETER: BUGCHECK_ERROR = BUGCHECK_ERROR(502u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const XBOX_VMCTRL_CS_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(854u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const XBOX_CORRUPTED_IMAGE: BUGCHECK_ERROR = BUGCHECK_ERROR(855u32);
@@ -36348,6 +37045,10 @@ pub const KERNEL_CFG_INIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(1058u32);
 pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(4552u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const HYPERVISOR_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(131073u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const XBOX_MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(196614u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const MANUALLY_INITIATED_BLACKSCREEN_HOTKEY_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(8648u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WINLOGON_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(3221226010u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36705,6 +37406,1695 @@ impl ::windows::core::TypeKind for DEBUG_EVENT_INFO_TYPE {
 impl ::core::fmt::Debug for DEBUG_EVENT_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DEBUG_EVENT_INFO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEBUG_FAILURE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNKNOWN: DEBUG_FAILURE_TYPE = DEBUG_FAILURE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KERNEL: DEBUG_FAILURE_TYPE = DEBUG_FAILURE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER: DEBUG_FAILURE_TYPE = DEBUG_FAILURE_TYPE(2i32);
+impl ::core::marker::Copy for DEBUG_FAILURE_TYPE {}
+impl ::core::clone::Clone for DEBUG_FAILURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEBUG_FAILURE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_FAILURE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEBUG_FAILURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEBUG_FAILURE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEBUG_FLR_PARAM_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_RESERVED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEVICE_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_PFN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WORKER_ROUTINE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WORK_ITEM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_DPC_FOUND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILED_INSTRUCTION_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LAST_CONTROL_TRANSFER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ACPI_EXTENSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ACPI_RESCONFLICT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ACPI_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_READ_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WRITE_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CRITICAL_SECTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BAD_HANDLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_HEAP_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CHKIMG_EXTENSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USBPORT_OCADATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WORK_QUEUE_ITEM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ERESOURCE_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(22i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP_TRIAGE_DATA_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(23i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HANDLE_VALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(24i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WHEA_ERROR_RECORD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(25i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_VERIFIER_FOUND_DEADLOCK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(26i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PG_MISMATCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(27i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEVICE_NODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(28i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POWERREQUEST_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXECUTE_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IRP_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IRP_MAJOR_FN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(257i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IRP_MINOR_FN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(258i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IRP_CANCEL_ROUTINE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(259i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IOSB_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(260i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_USEREVENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(261i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_VIDEO_TDR_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(262i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_VERIFIER_DRIVER_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(263i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP_IRP_ADDRESS_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(264i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PREVIOUS_MODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(265i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CURRENT_IRQL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PREVIOUS_IRQL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(513i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REQUESTED_IRQL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(514i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ASSERT_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(768i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ASSERT_FILE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(769i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_PARAMETER1: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(770i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_PARAMETER2: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(771i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_PARAMETER3: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(772i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_PARAMETER4: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(773i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_RECORD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(774i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IO_ERROR_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(775i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(776i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_DOESNOT_MATCH_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(777i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ASSERT_INSTRUCTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(778i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POOL_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1024i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SPECIAL_POOL_CORRUPTION_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1025i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CORRUPTING_POOL_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1026i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CORRUPTING_POOL_TAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1027i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FREED_POOL_TAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1028i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LEAKED_SESSION_POOL_TAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1029i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_SESSION_POOL_TAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1030i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CLIENT_DRIVER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1031i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILE_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1280i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILE_LINE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1281i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1536i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_SPECIFIER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1537i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_DESC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1538i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1792i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1793i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_OBJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1794i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1795i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_STACK_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1796i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_BITNESS_MISMATCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1797i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_OBJECT_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1798i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_CONTEXT_MESSAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1799i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_STACK_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1800i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_KERNEL_DEBUGGER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1801i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_HRESULT_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1802i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_ENGINE_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1803i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_ANALYSIS_PROVIDER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1804i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2048i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_HRESULT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2049i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2050i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2051i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_CALLSTACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2052i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_INNER_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2064i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_INNER_HRESULT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2065i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_INNER_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2066i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_INNER_MESSAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2067i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_INNER_CALLSTACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2068i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_NESTED_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2080i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_NESTED_HRESULT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2081i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_NESTED_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2082i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_NESTED_MESSAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2083i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_NESTED_CALLSTACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2084i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_EXCEPTION_CMD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2288i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_THREAD_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2304i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_THREAD_CMD_CALLSTACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2544i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_THREAD_CMD_STACKOBJECTS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2545i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_VERIFIER_IO_VIOLATION_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4096i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4097i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_CODE_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4098i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IOCONTROL_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4099i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MM_INTERNAL_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4100i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRVPOWERSTATE_SUBCODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4101i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STATUS_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4102i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYMBOL_STACK_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4103i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYMBOL_ON_RAW_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4104i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SECURITY_COOKIES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4105i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_THREADPOOL_WAITER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4106i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TARGET_MODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4107i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4108i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BADPAGES_DETECTED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4109i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DPC_TIMEOUT_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4110i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DPC_RUNTIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4111i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DPC_TIMELIMIT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4112i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMP_FILE_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4113i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PAGE_HASH_ERRORS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4114i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_P1: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4115i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_P2: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4116i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_P3: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4117i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECK_P4: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4118i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CRITICAL_PROCESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4119i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_RESOURCE_CALL_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4352i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_RESOURCE_CALL_TYPE_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(4353i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CORRUPT_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8192i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BAD_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8193i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ZEROED_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8194i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WRONG_SYMBOLS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8195i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_DRIVER_ONLY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8196i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNUSED001: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8197i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_OVERCLOCKED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8198i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POSSIBLE_INVALID_CONTROL_TRANSFER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8199i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POISONED_TB: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8200i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNKNOWN_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8201i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYZABLE_POOL_CORRUPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8202i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SINGLE_BIT_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8203i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TWO_BIT_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8204i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_KERNEL_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8205i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISK_HARDWARE_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8206i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SHOW_ERRORLOG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8207i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANUAL_BREAKIN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8208i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HANG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8209i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BAD_MEMORY_REFERENCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8210i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BAD_OBJECT_REFERENCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8211i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_APPKILL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8212i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SINGLE_BIT_PFN_PAGE_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8213i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HARDWARE_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8214i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_NO_IMAGE_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8215i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_NO_BUGCHECK_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8216i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SKIP_STACK_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8217i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_OPCODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8218i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ADD_PROCESS_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8219i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_RAISED_IRQL_USER_FAULT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8220i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USE_DEFAULT_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8221i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BOOST_FOLLOWUP_TO_SPECIFIC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8222i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SWITCH_PROCESS_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8223i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_VERIFIER_STOP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8224i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USERBREAK_PEB_PAGEDOUT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8225i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MOD_SPECIFIC_DATA_ONLY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8226i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OVERLAPPED_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8227i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_MICROCODE_ZERO_INTEL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8228i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTEL_CPU_BIOS_UPGRADE_NEEDED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8229i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OVERLAPPED_UNLOADED_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8230i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INVALID_USER_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8231i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MILCORE_BREAK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8232i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_NO_IMAGE_TIMESTAMP_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8233i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KERNEL_VERIFIER_ENABLED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8234i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SKIP_CORRUPT_MODULE_DETECTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8235i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_FALSE_POSITIVE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8236i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IGNORE_LARGE_MODULE_CORRUPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8237i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IGNORE_BUCKET_ID_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8238i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_NO_ARCH_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8239i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IGNORE_MODULE_HARDWARE_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8240i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ARM_WRITE_AV_CAVEAT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8241i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ON_DPC_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8242i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LIVE_KERNEL_DUMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8243i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_COVERAGE_BUILD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8244i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POSSIBLE_STACK_OVERFLOW: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8245i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WRONG_SYMBOLS_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8246i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WRONG_SYMBOLS_SIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8247i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MISSING_IMPORTANT_SYMBOL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8248i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MISSING_CLR_SYMBOL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8249i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TARGET_TIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8250i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LOW_SYSTEM_COMMIT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8251i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LEGACY_PAGE_TABLE_ACCESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8252i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HIGH_PROCESS_COMMIT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8253i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HIGH_SERVICE_COMMIT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8254i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HIGH_NONPAGED_POOL_USAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8255i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HIGH_PAGED_POOL_USAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8256i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HIGH_SHARED_COMMIT_USAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8257i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_APPS_NOT_TERMINATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(8258i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_POOL_CORRUPTOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12288i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MEMORY_CORRUPTOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12289i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNALIGNED_STACK_POINTER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12290i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_VERSION_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12291i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECKING_DRIVER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12292i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SOLUTION_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12293i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEFAULT_SOLUTION_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12294i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SOLUTION_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12295i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_RECURRING_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12296i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_INSTR_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12297i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSTEM_LOCALE_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12298i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOMER_CRASH_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12299i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TRAP_FRAME_RECURSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12300i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_OVERFLOW: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12301i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_POINTER_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12302i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_POINTER_ONEBIT_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12303i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_POINTER_MISALIGNED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12304i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_MISALIGNED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12305i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_CLIFAULT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12306i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REGISTRYTXT_STRESS_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12307i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CORRUPT_SERVICE_TABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12308i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LOP_STACKHASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12309i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_FUNCTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12310i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MODULE_COOKIE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12311i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_FRAME_COOKIE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12312i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_FRAME_COOKIE_COMPLEMENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12313i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_CORRUPTED_COOKIE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12314i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_CORRUPTED_EBP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12315i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12316i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12317i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_CORRUPTED_EBPESP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12318i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_POSITIVELY_CORRUPTED_EBPESP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12319i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MEMORY_READ_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12320i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_PROBABLY_NOT_USING_GS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12321i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_POSITIVE_BUFFER_OVERFLOW: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12322i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_ANALYSIS_TEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12323i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_OFF_BY_ONE_OVERRUN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12324i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_RA_SMASHED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12325i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_NOT_UP2DATE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12326i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_UP2DATE_UNKNOWN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12327i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TRIAGER_OS_BUILD_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12328i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_MICROCODE_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12329i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12330i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_SPEED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12331i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_VENDOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12332i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_FAMILY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12333i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_MODEL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12334i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CPU_STEPPING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12335i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_ON_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12336i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_ON_HEAP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12337i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EVENT_CODE_DATA_MISMATCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12338i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESSOR_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12339i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_UNLOADED_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12340i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MEMDIAG_LASTRUN_STATUS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12341i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MEMDIAG_LASTRUN_TIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12342i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_FREE_BLOCK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12343i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_RESERVED_BLOCK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12344i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_VM_MAPPED_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12345i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_MODULE_NOT_IN_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12346i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_NOT_IN_STREAM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12347i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MEMORY_CORRUPTION_SIGNATURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12348i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUILDNAME_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12349i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CANCELLATION_NOT_SUPPORTED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12350i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DETOURED_IMAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12351i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_CONTEXT_RECURSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12352i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKIO_READ_FAILURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12353i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKIO_WRITE_FAILURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12354i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MISSING_ESTABLISHER_FRAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12355i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_COOKIES_MATCH_EXH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12356i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MANAGED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12357i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MANAGED_FRAME_CHAIN_CORRUPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12358i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MANAGED_THREADID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12359i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_GSFAILURE_MANAGED_FRAMEID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12360i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKUSAGE_IMAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12361i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKUSAGE_IMAGE_SIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12362i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKUSAGE_FUNCTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12363i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKUSAGE_FUNCTION_SIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12364i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKUSAGE_RECURSION_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12365i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XBOX_SYSTEM_UPTIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12366i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XBOX_SYSTEM_CRASHTIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12367i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XBOX_LIVE_ENVIRONMENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12368i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LARGE_TICK_INCREMENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12369i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INSTR_POINTER_IN_PAGED_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12370i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICETABLE_MODIFIED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12371i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ALUREON: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(12372i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_RAID_BUG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16384i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_BUCKET_URL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16385i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_SOLUTION_TEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16386i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_BUCKET_HITCOUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16387i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_RAID_BUG_DATABASE_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16388i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_BUCKET_CONTINUABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16389i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_BUCKET_STATUS_TEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16390i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16640i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_MODULE_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16641i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_MODULE_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16642i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_PROCESS_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16643i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_IBUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16644i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_MODULE_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16645i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_PROCESS_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16646i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_EVENT_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16647i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_00: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16648i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_01: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16649i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_02: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16650i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_03: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16651i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_04: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16652i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_05: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16653i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_06: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16654i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_07: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16655i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_08: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16656i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_GENERIC_BUCKETING_09: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16657i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSXML_LOCALEID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16896i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSXML_CHECKSUM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16897i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WQL_EVENT_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16898i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WQL_EVENTLOG_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(16899i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_SYSTEM_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17152i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_SYSTEM_PRODUCT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17153i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_SYSTEM_SKU: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17154i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_SYSTEM_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17155i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BASEBOARD_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17156i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BASEBOARD_PRODUCT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17157i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BASEBOARD_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17158i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BIOS_VENDOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17159i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BIOS_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17160i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYSINFO_BIOS_DATE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17161i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_VIRTUAL_MACHINE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(17162i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20480i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20481i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_GROUP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20482i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_DISPLAYNAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20483i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20484i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_DEPENDONSERVICE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20485i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_DEPENDONGROUP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20486i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SVCHOST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20736i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SVCHOST_GROUP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20737i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SVCHOST_IMAGEPATH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20738i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SVCHOST_SERVICEDLL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20739i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(20992i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21232i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM_BLACKBOX_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21233i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM_BLACKBOX_ENTRY_CONTROLCODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21234i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM_BLACKBOX_ENTRY_STARTTIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21235i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SCM_BLACKBOX_ENTRY_SERVICENAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(21236i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ACPI: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(24576i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ACPI_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(24832i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PO_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(24833i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BOOTSTAT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(28672i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BOOTSTAT_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(28928i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29696i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_ORGID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29697i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_MODEL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29698i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_MFGID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29699i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_ISSUEDESCSTRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29700i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PUBLIC_TOTSIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29701i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PUBLIC_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29702i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PUBLIC_DATASIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29703i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PRIVATE_TOTSIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29704i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PRIVATE_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29705i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_PRIVATE_DATASIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29706i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_TOTALSIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29707i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_REASON: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29708i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORAGE_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(29936i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILESYSTEMS_NTFS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(30208i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILESYSTEMS_NTFS_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(30448i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILESYSTEMS_REFS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(30720i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILESYSTEMS_REFS_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(30960i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(32768i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP_TRIAGE_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(32769i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP_IRP_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(32770i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PNP_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(33024i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65536i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65537i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65538i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65539i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65540i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_TEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65541i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODULE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65542i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FIXED_IN_OSVERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65543i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEFAULT_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65544i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODULE_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65545i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ADDITIONAL_DEBUGTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65546i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65547i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65548i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MARKER_FILE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65549i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_INTERNAL_RESPONSE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65550i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_RESTORE_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65551i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWAREID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65552i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_VENDOR_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65553i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_DEVICE_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65554i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_SUBSYS_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65555i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_REV_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65556i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_ID_BUS_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65557i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MARKER_MODULE_FILE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65558i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUGCHECKING_DRIVER_IDTAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65559i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MARKER_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65560i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65561i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_XML_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65562i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_XML_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65563i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_XML_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65564i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_XML_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65565i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUILD_VERSION_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65566i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUILD_OS_FULL_VERSION_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65567i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ORIGINAL_CAB_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65568i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65569i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SERVICE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65570i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FILE_IN_CAB: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65571i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65572i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_FOLLOWUP_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65573i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65574i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65575i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODULE_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65576i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_COLLECT_DATA_FOR_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65577i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_COMPUTER_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65578i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IMAGE_CLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65579i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYMBOL_ROUTINE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65580i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HARDWARE_BUCKET_TAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65581i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KERNEL_LOG_PROCESS_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65582i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KERNEL_LOG_STATUS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65583i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REGISTRYTXT_SOURCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65584i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_LINE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65585i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_FILE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65586i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_LINE_NUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65587i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SKIP_MODULE_SPECIFIC_BUCKET_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65588i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_FUNC_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65589i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XHCI_FIRMWARE_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65590i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_ANALYSIS_SOURCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65591i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_ID_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65592i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_ID_HASH_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65593i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_ID_REPORT_LINK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65594i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65595i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_ACTIVE_HOLD_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65596i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_TENET_SOCRE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65597i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_HISTORIC_HOLD_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65598i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_ALWAYS_IGNORE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65599i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_ALWAYS_HOLD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65600i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_MAX_HOLD_LIMIT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65601i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_MANUAL_HOLD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65602i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_NOTIFICATION_ALIASES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65603i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_LAST_SEEN_HOLD_DATE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65604i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HOLDINFO_RECOMMEND_HOLD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65605i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65606i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_EXCEPTION_CODE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65607i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65608i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_FUNCTION_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65609i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65610i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_BEFORE_RETRACER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65611i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_END_MESSAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65612i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FEATURE_PATH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65613i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65614i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65615i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_EVENTTYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65616i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_REPORTGUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65617i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_REPORTCREATIONTIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65618i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P0: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65619i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P1: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65620i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P2: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65621i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P3: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65622i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P4: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65623i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P5: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65624i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P6: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65625i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_P7: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65626i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_MODE_BUCKET_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65627i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CRITICAL_PROCESS_REPORTGUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65628i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_MODULE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65629i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PLATFORM_BUCKET_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65630i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_VENDOR_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65631i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_SUBVENDOR_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65632i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DRIVER_HARDWARE_DEVICE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65633i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_COMMIT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65634i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_CONTROL_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65635i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_PROJECT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65636i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_REPO_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65637i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_REPO_URL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65638i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_SOURCE_SRV_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(65639i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USERMODE_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_THREAD_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048577i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROBLEM_CLASSES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048578i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PRIMARY_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048579i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PRIMARY_PROBLEM_CLASS_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048580i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048581i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048582i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DERIVED_WAIT_CHAIN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048583i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HANG_DATA_NEEDED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048584i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROBLEM_CODE_PATH_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048585i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SUSPECT_CODE_PATH_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048586i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LOADERLOCK_IN_WAIT_CHAIN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048587i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XPROC_HANG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048588i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEADLOCK_INPROC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048589i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEADLOCK_XPROC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048590i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WCT_XML_AVAILABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048591i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XPROC_DUMP_AVAILABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048592i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DESKTOP_HEAP_MISSING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048593i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_HANG_REPORT_THREAD_IS_IDLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048594i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MF: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048595i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048596i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULT_THREAD_SHA1_HASH_M: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048597i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WAIT_CHAIN_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048598i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_NTGLOBALFLAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048599i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_APPVERIFERFLAGS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048600i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODLIST_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048601i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMP_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048602i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XCS_PATH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048603i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LOADERLOCK_OWNER_API: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048604i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LOADERLOCK_BLOCKED_API: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048605i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODLIST_TSCHKSUM_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048606i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODLIST_UNLOADED_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048607i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MACHINE_INFO_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048608i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URLS_DISCOVERED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048609i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URLS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048610i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URL_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048611i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_IBUCKET_S1_RESP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048612i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WATSON_IBUCKETTABLE_S1_RESP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048613i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SEARCH_HANG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048614i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WER_DATA_COLLECTION_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048615i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WER_MACHINE_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048616i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ULS_SCRIPT_EXCEPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048617i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_LCIE_ISO_AVAILABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048618i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SHOW_LCIE_ISO_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048619i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URL_LCIE_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048620i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URL_URLMON_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048621i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_URL_XMLHTTPREQ_SYNC_ENTRY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048622i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_LOCAL_VARIABLE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048623i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048624i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMP_FLAGS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048625i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_APPLICATION_VERIFIER_LOADED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048626i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMP_CLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048627i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMP_QUALIFIER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048628i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KM_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1048629i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_CODE_STR_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052672i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_PREFIX_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052673i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_MODULE_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052674i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_MODVER_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052675i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_FUNCTION_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052676i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052677i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BUILD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052678i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_SERVICEPACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052679i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BRANCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052680i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BUILD_TIMESTAMP_LAB: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052681i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052682i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_TIMEDATESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052683i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_CHECKSUM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052684i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_FLAVOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052685i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_FLAVOR_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052686i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_SKU: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052687i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_PRODUCT_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052688i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_SUITE_MASK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052689i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_LCID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052690i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_REVISION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052691i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052692i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_NAME_EDITION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052693i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_PLATFORM_ARCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052694i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_SERVICEPACK_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052695i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_LOCALE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052696i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BUILD_TIMESTAMP_ISO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052697i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_LCID_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052698i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYSIS_SESSION_TIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052699i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYSIS_SESSION_HOST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052700i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYSIS_SESSION_ELAPSED_TIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052701i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYSIS_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052702i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_IMAGE_STR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052703i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUCKET_ID_PRIVATE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052704i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ANALYSIS_REPROCESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052705i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_MAJOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052706i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_MINOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052707i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BUILD_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052708i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_LOCALE_LCID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052709i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_PLATFORM_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052710i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OS_BUILD_LAYERS_XML: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052711i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_OSBUILD_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052928i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BUILDOSVER_STR_deprecated: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1052929i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DEBUG_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1118208i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KEYVALUE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1122304i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KEY_VALUES_STRING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1122560i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_KEY_VALUES_VARIANT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1122816i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TIMELINE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1126400i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TIMELINE_TIMES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1126401i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STREAM_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1130496i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MEMORY_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1134592i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACKHASH_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1138688i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESSES_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1142784i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SERVICE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1146880i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_ADDITIONAL_XML: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1150976i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097153i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097154i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097155i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097156i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_INSTRUCTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097157i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_SYMBOL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097158i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_SYMBOL_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097159i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097160i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_IMAGE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097161i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_FUNCTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097162i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_FLAGS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097163i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097164i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_FLAGS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097165i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_ORDER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097166i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_SYSTEM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097167i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097168i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097169i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097170i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097171i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097172i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_IMAGE_PATH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097173i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_CHECKSUM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097174i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097175i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_UNLOADED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097176i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_ON_STACK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097177i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_FIXED_FILE_VER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097178i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_FIXED_PROD_VER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097179i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_STRING_FILE_VER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097180i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_STRING_PROD_VER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097181i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_COMPANY_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097182i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_FILE_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097183i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_INTERNAL_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097184i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_ORIG_FILE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097185i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_BASE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097186i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097187i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_PRODUCT_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097188i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097189i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_EXCEPTION_MODULE_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097190i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_FOLLOWUP_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097191i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_GLOBALATTRIBUTE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097192i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097193i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097194i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097195i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_VALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097196i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_D1VALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097197i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_D2VALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097198i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_DOVALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097199i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_VALUE_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097200i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097201i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ATTRIBUTE_THREAD_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097202i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097203i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097204i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097205i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_VALUE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097206i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_VALUE_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097207i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097208i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PROBLEMCLASS_THREAD_INDEX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097209i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_STACK_FRAME_TRIAGE_STATUS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097210i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT_METADATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097211i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAMES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097212i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_ENCODED_OFFSETS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097213i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_PERF_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097214i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_PERF_ITEM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097215i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_PERF_ITEM_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097216i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_PERF_ITERATIONS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097217i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_PERF_ELAPSED_MS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097218i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_SHA1_HASH_MF: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097219i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_SHA1_HASH_MFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097220i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_SHA1_HASH_M: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097221i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMBOL_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097222i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_FILE_FLAGS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097223i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_MODULE_BASE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097224i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STACK_FRAME_SRC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097225i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_SYSTEMINFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097226i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMANUFACTURER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097227i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMODEL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097228i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMARKER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097229i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FA_ADHOC_ANALYSIS_ITEMS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097230i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_APPLICATION_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097231i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PACKAGE_MONIKER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097232i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PACKAGE_RELATIVE_APPLICATION_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097233i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODERN_ASYNC_REQUEST_OUTSTANDING: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097234i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_EVENTTYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097235i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PACKAGE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097236i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_PACKAGE_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097237i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_LIST: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097238i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAILURE_DISPLAY_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097239i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FRAME_SOURCE_FILE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097240i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FRAME_SOURCE_FILE_PATH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097241i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FRAME_SOURCE_LINE_NUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097242i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_STATUS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097243i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097244i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_DETAIL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097245i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_SEC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097246i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_STATUS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097247i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_ERROR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097248i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_DETAIL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097249i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_SEC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097250i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XML_MODULE_INFO_DRIVER_GROUP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(2097251i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REGISTRY_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3145728i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WMI_QUERY_DATA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3149824i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_GLOBAL_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3153920i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_THREAD_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3158016i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_USER_PROBLEM_CLASSES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(3162112i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_COMPRESSION_FORMAT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177280i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_SOURCE_PFN1: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177281i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_SOURCE_PFN2: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177282i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_SOURCE_OFFSET: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177283i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_SOURCE_SIZE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177284i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_TARGET_PFN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177285i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_BUFFER_HASH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177286i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SM_ONEBIT_SOLUTION_COUNT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1342177287i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612736i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PRODUCT_DISPLAY_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612737i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PRODUCT_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612738i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PRODUCT_EXTENDED_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612739i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PUBLISHER_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612740i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PUBLISHER_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612741i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PUBLISHER_CERTIFICATE_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612742i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_DEVELOPER_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612743i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PACKAGE_FAMILY_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612744i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PACKAGE_IDENTITY_NAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612745i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PRIMARY_PARENT_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612746i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_LEGACY_PARENT_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612747i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_LEGACY_WINDOWS_STORE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612748i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_LEGACY_WINDOWS_PHONE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612749i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_LEGACY_XBOX_ONE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612750i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_LEGACY_XBOX_360_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612751i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_XBOX_TITLE_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612752i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_PREFERRED_SKU_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612753i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_IS_MICROSOFT_PRODUCT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612754i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_URL_APP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612755i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_STORE_URL_APPHEALTH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1610612756i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_VERSIONMAJOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048192i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_VERSIONMINOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048193i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_BUILDNUMBER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048194i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_BUILDTIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048195i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_BUILDBRANCH: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048196i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_BUILDER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048197i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_LCID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048198i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_QFE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048199i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_OPERATOR: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048200i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_MCCMNC: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048201i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_FIRMWAREREVISION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048202i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_RAM: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048203i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_ROMVERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048204i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_SOCVERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048205i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_HARDWAREREVISION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048206i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_RADIOHARDWAREREVISION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048207i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_RADIOSOFTWAREREVISION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048208i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_BOOTLOADERVERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048209i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_REPORTGUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048210i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_SOURCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048211i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_SOURCEEXTERNAL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048212i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_USERALIAS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048213i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_REPORTTIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048214i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_APPID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048215i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_SKUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048216i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_APPVERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048217i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_UIF_COMMENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048218i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_UIF_APPNAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048219i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_UIF_APPID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048220i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_UIF_CATEGORY: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048221i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PHONE_UIF_ORIGIN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048222i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SIMULTANEOUS_TELSVC_INSTANCES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048223i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SIMULTANEOUS_TELWP_INSTANCES: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048224i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MINUTES_SINCE_LAST_EVENT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048225i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MINUTES_SINCE_LAST_EVENT_OF_THIS_TYPE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048226i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REPORT_INFO_GUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048227i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REPORT_INFO_SOURCE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048228i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_REPORT_INFO_CREATION_TIME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(1879048229i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_IP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_MODULE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483647i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IMAGE_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_IP: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483645i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FRAME_ONE_INVALID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483644i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_SYMBOL_FROM_RAW_STACK_ADDRESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483643i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_IMAGE_VERSION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483642i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FOLLOWUP_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-2147483641i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MIN: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1610612736i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MAX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1342177280i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_FAULTING_THREAD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CONTEXT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741823i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TRAP_FRAME: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741822i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TSS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741821i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BLOCKING_THREAD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741820i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_UNRESPONSIVE_UI_THREAD: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741819i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BLOCKED_THREAD0: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741818i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BLOCKED_THREAD1: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741817i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BLOCKED_THREAD2: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741816i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_BLOCKING_PROCESSID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741815i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESSOR_ID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741814i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XDV_VIOLATED_CONDITION: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741813i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XDV_STATE_VARIABLE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741812i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XDV_HELP_LINK: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741811i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_XDV_RULE_INFO: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741810i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DPC_STACK_BASE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1073741809i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TESTRESULTSERVER: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435456i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_TESTRESULTGUID: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435455i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOMREPORTTAG: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435454i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_ORGID_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435453i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_MODEL_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435452i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_MFGID_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435451i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_ISSUEDESCSTRING_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435450i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PUBLIC_TOTSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435449i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PUBLIC_OFFSET_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435448i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PUBLIC_DATASIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435447i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PRIVATE_TOTSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435446i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PRIVATE_OFFSET_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435445i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_PRIVATE_DATASIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435444i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_TOTALSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435443i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DISKSEC_REASON_DEPRECATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435442i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WERCOLLECTION_PROCESSTERMINATED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435441i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WERCOLLECTION_PROCESSHEAPDUMP_REQUEST_FAILURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435440i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WERCOLLECTION_MINIDUMP_WRITE_FAILURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435439i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WERCOLLECTION_DEFAULTCOLLECTION_FAILURE: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435438i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_BAM_CURRENT_THROTTLED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435437i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_PROCESS_BAM_PREVIOUS_THROTTLED: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435436i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMPSTREAM_COMMENTA: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435435i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_DUMPSTREAM_COMMENTW: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435434i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CHPE_PROCESS: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435433i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_WINLOGON_BLACKBOX: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435432i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOM_COMMAND: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435431i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_CUSTOM_COMMAND_OUTPUT: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-268435430i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FLR_MASK_ALL: DEBUG_FLR_PARAM_TYPE = DEBUG_FLR_PARAM_TYPE(-1i32);
+impl ::core::marker::Copy for DEBUG_FLR_PARAM_TYPE {}
+impl ::core::clone::Clone for DEBUG_FLR_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEBUG_FLR_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_FLR_PARAM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEBUG_FLR_PARAM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEBUG_FLR_PARAM_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEBUG_POOL_REGION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionUnknown: DEBUG_POOL_REGION = DEBUG_POOL_REGION(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionSpecial: DEBUG_POOL_REGION = DEBUG_POOL_REGION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionPaged: DEBUG_POOL_REGION = DEBUG_POOL_REGION(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionNonPaged: DEBUG_POOL_REGION = DEBUG_POOL_REGION(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionNonPagedExpansion: DEBUG_POOL_REGION = DEBUG_POOL_REGION(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionSessionPaged: DEBUG_POOL_REGION = DEBUG_POOL_REGION(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DbgPoolRegionMax: DEBUG_POOL_REGION = DEBUG_POOL_REGION(6i32);
+impl ::core::marker::Copy for DEBUG_POOL_REGION {}
+impl ::core::clone::Clone for DEBUG_POOL_REGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEBUG_POOL_REGION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_POOL_REGION {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DEBUG_POOL_REGION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEBUG_POOL_REGION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -37291,6 +39681,82 @@ impl ::windows::core::TypeKind for FACILITY_CODE {
 impl ::core::fmt::Debug for FACILITY_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FACILITY_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FA_ENTRY_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_NO_TYPE: FA_ENTRY_TYPE = FA_ENTRY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_ULONG: FA_ENTRY_TYPE = FA_ENTRY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_ULONG64: FA_ENTRY_TYPE = FA_ENTRY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_INSTRUCTION_OFFSET: FA_ENTRY_TYPE = FA_ENTRY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_POINTER: FA_ENTRY_TYPE = FA_ENTRY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_ANSI_STRING: FA_ENTRY_TYPE = FA_ENTRY_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_ANSI_STRINGs: FA_ENTRY_TYPE = FA_ENTRY_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_EXTENSION_CMD: FA_ENTRY_TYPE = FA_ENTRY_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_STRUCTURED_DATA: FA_ENTRY_TYPE = FA_ENTRY_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_UNICODE_STRING: FA_ENTRY_TYPE = FA_ENTRY_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DEBUG_FA_ENTRY_ARRAY: FA_ENTRY_TYPE = FA_ENTRY_TYPE(32768i32);
+impl ::core::marker::Copy for FA_ENTRY_TYPE {}
+impl ::core::clone::Clone for FA_ENTRY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FA_ENTRY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for FA_ENTRY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for FA_ENTRY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FA_ENTRY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FA_EXTENSION_PLUGIN_PHASE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FA_PLUGIN_INITIALIZATION: FA_EXTENSION_PLUGIN_PHASE = FA_EXTENSION_PLUGIN_PHASE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FA_PLUGIN_STACK_ANALYSIS: FA_EXTENSION_PLUGIN_PHASE = FA_EXTENSION_PLUGIN_PHASE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FA_PLUGIN_PRE_BUCKETING: FA_EXTENSION_PLUGIN_PHASE = FA_EXTENSION_PLUGIN_PHASE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const FA_PLUGIN_POST_BUCKETING: FA_EXTENSION_PLUGIN_PHASE = FA_EXTENSION_PLUGIN_PHASE(8i32);
+impl ::core::marker::Copy for FA_EXTENSION_PLUGIN_PHASE {}
+impl ::core::clone::Clone for FA_EXTENSION_PLUGIN_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FA_EXTENSION_PLUGIN_PHASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for FA_EXTENSION_PLUGIN_PHASE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for FA_EXTENSION_PLUGIN_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FA_EXTENSION_PLUGIN_PHASE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -39164,6 +41630,49 @@ impl ::core::fmt::Debug for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_95: OS_TYPE = OS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_98: OS_TYPE = OS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_ME: OS_TYPE = OS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT4: OS_TYPE = OS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT5: OS_TYPE = OS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT5_1: OS_TYPE = OS_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT5_2: OS_TYPE = OS_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT6_0: OS_TYPE = OS_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_NT6_1: OS_TYPE = OS_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WIN_UNDEFINED: OS_TYPE = OS_TYPE(255i32);
+impl ::core::marker::Copy for OS_TYPE {}
+impl ::core::clone::Clone for OS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for OS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for OS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESSOR_ARCHITECTURE(pub u16);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = PROCESSOR_ARCHITECTURE(9u16);
@@ -40691,6 +43200,41 @@ impl ::core::fmt::Debug for SymbolSearchOptions {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TANALYZE_RETURN(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const NO_TYPE: TANALYZE_RETURN = TANALYZE_RETURN(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const PROCESS_END: TANALYZE_RETURN = TANALYZE_RETURN(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const EXIT_STATUS: TANALYZE_RETURN = TANALYZE_RETURN(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DISK_READ_0_BYTES: TANALYZE_RETURN = TANALYZE_RETURN(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const DISK_WRITE: TANALYZE_RETURN = TANALYZE_RETURN(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const NT_STATUS_CODE: TANALYZE_RETURN = TANALYZE_RETURN(5i32);
+impl ::core::marker::Copy for TANALYZE_RETURN {}
+impl ::core::clone::Clone for TANALYZE_RETURN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TANALYZE_RETURN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for TANALYZE_RETURN {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for TANALYZE_RETURN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TANALYZE_RETURN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREAD_ERROR_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const SEM_ALL_ERRORS: THREAD_ERROR_MODE = THREAD_ERROR_MODE(0u32);
@@ -41081,7 +43625,11 @@ pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(15
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(17i32);
+pub const WheaErrSrcTypeSea: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WheaErrSrcTypeSei: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(19i32);
 impl ::core::marker::Copy for WHEA_ERROR_SOURCE_TYPE {}
 impl ::core::clone::Clone for WHEA_ERROR_SOURCE_TYPE {
     fn clone(&self) -> Self {
@@ -41286,6 +43834,47 @@ impl ::windows::core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(feature = "Win32_System_Kernel")]
+pub struct APC_CALLBACK_DATA {
+    pub Parameter: usize,
+    pub ContextRecord: *mut CONTEXT,
+    pub Reserved0: usize,
+    pub Reserved1: usize,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for APC_CALLBACK_DATA {}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::clone::Clone for APC_CALLBACK_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::fmt::Debug for APC_CALLBACK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APC_CALLBACK_DATA").field("Parameter", &self.Parameter).field("ContextRecord", &self.ContextRecord).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::windows::core::TypeKind for APC_CALLBACK_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::cmp::PartialEq for APC_CALLBACK_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.Parameter == other.Parameter && self.ContextRecord == other.ContextRecord && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1
+    }
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::cmp::Eq for APC_CALLBACK_DATA {}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::default::Default for APC_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -41600,6 +44189,77 @@ impl ::core::cmp::PartialEq for BUSDATA {
 }
 impl ::core::cmp::Eq for BUSDATA {}
 impl ::core::default::Default for BUSDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct CKCL_DATA {
+    pub NextLogEvent: *mut ::core::ffi::c_void,
+    pub TAnalyzeString: ::windows::core::PSTR,
+    pub TAnalyzeReturnType: TANALYZE_RETURN,
+}
+impl ::core::marker::Copy for CKCL_DATA {}
+impl ::core::clone::Clone for CKCL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CKCL_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CKCL_DATA").field("NextLogEvent", &self.NextLogEvent).field("TAnalyzeString", &self.TAnalyzeString).field("TAnalyzeReturnType", &self.TAnalyzeReturnType).finish()
+    }
+}
+impl ::windows::core::TypeKind for CKCL_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for CKCL_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.NextLogEvent == other.NextLogEvent && self.TAnalyzeString == other.TAnalyzeString && self.TAnalyzeReturnType == other.TAnalyzeReturnType
+    }
+}
+impl ::core::cmp::Eq for CKCL_DATA {}
+impl ::core::default::Default for CKCL_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CKCL_LISTHEAD {
+    pub LogEventListHead: *mut CKCL_DATA,
+    pub Heap: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CKCL_LISTHEAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CKCL_LISTHEAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CKCL_LISTHEAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CKCL_LISTHEAD").field("LogEventListHead", &self.LogEventListHead).field("Heap", &self.Heap).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for CKCL_LISTHEAD {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CKCL_LISTHEAD {
+    fn eq(&self, other: &Self) -> bool {
+        self.LogEventListHead == other.LogEventListHead && self.Heap == other.Heap
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CKCL_LISTHEAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CKCL_LISTHEAD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -42023,6 +44683,29 @@ impl ::core::default::Default for CONTEXT {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct CPU_INFO {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 2048],
+    pub Mhz: u32,
+}
+impl ::core::marker::Copy for CPU_INFO {}
+impl ::core::clone::Clone for CPU_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for CPU_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for CPU_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_1,
     pub OtherCpuInfo: CPU_INFORMATION_0,
@@ -42089,6 +44772,52 @@ impl ::core::cmp::PartialEq for CPU_INFORMATION_1 {
 }
 impl ::core::cmp::Eq for CPU_INFORMATION_1 {}
 impl ::core::default::Default for CPU_INFORMATION_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct CPU_INFO_v1 {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 32],
+    pub Mhz: u32,
+}
+impl ::core::marker::Copy for CPU_INFO_v1 {}
+impl ::core::clone::Clone for CPU_INFO_v1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for CPU_INFO_v1 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for CPU_INFO_v1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct CPU_INFO_v2 {
+    pub Type: u32,
+    pub NumCPUs: u32,
+    pub CurrentProc: u32,
+    pub ProcInfo: [DEBUG_PROCESSOR_IDENTIFICATION_ALL; 1280],
+    pub Mhz: u32,
+}
+impl ::core::marker::Copy for CPU_INFO_v2 {}
+impl ::core::clone::Clone for CPU_INFO_v2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for CPU_INFO_v2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for CPU_INFO_v2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -42393,6 +45122,106 @@ impl ::core::default::Default for DBGKD_GET_VERSION64 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DBG_THREAD_ATTRIBUTES {
+    pub ThreadIndex: u32,
+    pub ProcessID: u64,
+    pub ThreadID: u64,
+    pub AttributeBits: u64,
+    pub BoolBits: u32,
+    pub BlockedOnPID: u64,
+    pub BlockedOnTID: u64,
+    pub CritSecAddress: u64,
+    pub Timeout_msec: u32,
+    pub StringData: [u8; 100],
+    pub SymName: [u8; 100],
+}
+impl ::core::marker::Copy for DBG_THREAD_ATTRIBUTES {}
+impl ::core::clone::Clone for DBG_THREAD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DBG_THREAD_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DBG_THREAD_ATTRIBUTES").field("ThreadIndex", &self.ThreadIndex).field("ProcessID", &self.ProcessID).field("ThreadID", &self.ThreadID).field("AttributeBits", &self.AttributeBits).field("BoolBits", &self.BoolBits).field("BlockedOnPID", &self.BlockedOnPID).field("BlockedOnTID", &self.BlockedOnTID).field("CritSecAddress", &self.CritSecAddress).field("Timeout_msec", &self.Timeout_msec).field("StringData", &self.StringData).field("SymName", &self.SymName).finish()
+    }
+}
+impl ::windows::core::TypeKind for DBG_THREAD_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DBG_THREAD_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        self.ThreadIndex == other.ThreadIndex && self.ProcessID == other.ProcessID && self.ThreadID == other.ThreadID && self.AttributeBits == other.AttributeBits && self.BoolBits == other.BoolBits && self.BlockedOnPID == other.BlockedOnPID && self.BlockedOnTID == other.BlockedOnTID && self.CritSecAddress == other.CritSecAddress && self.Timeout_msec == other.Timeout_msec && self.StringData == other.StringData && self.SymName == other.SymName
+    }
+}
+impl ::core::cmp::Eq for DBG_THREAD_ATTRIBUTES {}
+impl ::core::default::Default for DBG_THREAD_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
+    pub SizeOfStruct: u32,
+    pub Model: u32,
+    pub Family: u32,
+    pub Stepping: u32,
+    pub Architecture: u32,
+    pub Revision: u32,
+    pub CurrentClockSpeed: u32,
+    pub CurrentVoltage: u32,
+    pub MaxClockSpeed: u32,
+    pub ProcessorType: u32,
+    pub DeviceID: [u8; 32],
+    pub Manufacturer: [u8; 64],
+    pub Name: [u8; 64],
+    pub Version: [u8; 64],
+    pub Description: [u8; 64],
+}
+impl ::core::marker::Copy for DEBUG_ANALYSIS_PROCESSOR_INFO {}
+impl ::core::clone::Clone for DEBUG_ANALYSIS_PROCESSOR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_ANALYSIS_PROCESSOR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_ANALYSIS_PROCESSOR_INFO")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Model", &self.Model)
+            .field("Family", &self.Family)
+            .field("Stepping", &self.Stepping)
+            .field("Architecture", &self.Architecture)
+            .field("Revision", &self.Revision)
+            .field("CurrentClockSpeed", &self.CurrentClockSpeed)
+            .field("CurrentVoltage", &self.CurrentVoltage)
+            .field("MaxClockSpeed", &self.MaxClockSpeed)
+            .field("ProcessorType", &self.ProcessorType)
+            .field("DeviceID", &self.DeviceID)
+            .field("Manufacturer", &self.Manufacturer)
+            .field("Name", &self.Name)
+            .field("Version", &self.Version)
+            .field("Description", &self.Description)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_ANALYSIS_PROCESSOR_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_ANALYSIS_PROCESSOR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.Model == other.Model && self.Family == other.Family && self.Stepping == other.Stepping && self.Architecture == other.Architecture && self.Revision == other.Revision && self.CurrentClockSpeed == other.CurrentClockSpeed && self.CurrentVoltage == other.CurrentVoltage && self.MaxClockSpeed == other.MaxClockSpeed && self.ProcessorType == other.ProcessorType && self.DeviceID == other.DeviceID && self.Manufacturer == other.Manufacturer && self.Name == other.Name && self.Version == other.Version && self.Description == other.Description
+    }
+}
+impl ::core::cmp::Eq for DEBUG_ANALYSIS_PROCESSOR_INFO {}
+impl ::core::default::Default for DEBUG_ANALYSIS_PROCESSOR_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -42512,6 +45341,75 @@ impl ::core::default::Default for DEBUG_CLIENT_CONTEXT {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_CPU_MICROCODE_VERSION {
+    pub SizeOfStruct: u32,
+    pub CachedSignature: i64,
+    pub InitialSignature: i64,
+    pub ProcessorModel: u32,
+    pub ProcessorFamily: u32,
+    pub ProcessorStepping: u32,
+    pub ProcessorArchRev: u32,
+}
+impl ::core::marker::Copy for DEBUG_CPU_MICROCODE_VERSION {}
+impl ::core::clone::Clone for DEBUG_CPU_MICROCODE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_CPU_MICROCODE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_CPU_MICROCODE_VERSION").field("SizeOfStruct", &self.SizeOfStruct).field("CachedSignature", &self.CachedSignature).field("InitialSignature", &self.InitialSignature).field("ProcessorModel", &self.ProcessorModel).field("ProcessorFamily", &self.ProcessorFamily).field("ProcessorStepping", &self.ProcessorStepping).field("ProcessorArchRev", &self.ProcessorArchRev).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_CPU_MICROCODE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_CPU_MICROCODE_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.CachedSignature == other.CachedSignature && self.InitialSignature == other.InitialSignature && self.ProcessorModel == other.ProcessorModel && self.ProcessorFamily == other.ProcessorFamily && self.ProcessorStepping == other.ProcessorStepping && self.ProcessorArchRev == other.ProcessorArchRev
+    }
+}
+impl ::core::cmp::Eq for DEBUG_CPU_MICROCODE_VERSION {}
+impl ::core::default::Default for DEBUG_CPU_MICROCODE_VERSION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_CPU_SPEED_INFO {
+    pub SizeOfStruct: u32,
+    pub CurrentSpeed: u32,
+    pub RatedSpeed: u32,
+    pub NameString: [u16; 256],
+}
+impl ::core::marker::Copy for DEBUG_CPU_SPEED_INFO {}
+impl ::core::clone::Clone for DEBUG_CPU_SPEED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_CPU_SPEED_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_CPU_SPEED_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("CurrentSpeed", &self.CurrentSpeed).field("RatedSpeed", &self.RatedSpeed).field("NameString", &self.NameString).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_CPU_SPEED_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_CPU_SPEED_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.CurrentSpeed == other.CurrentSpeed && self.RatedSpeed == other.RatedSpeed && self.NameString == other.NameString
+    }
+}
+impl ::core::cmp::Eq for DEBUG_CPU_SPEED_INFO {}
+impl ::core::default::Default for DEBUG_CPU_SPEED_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
@@ -42539,6 +45437,161 @@ impl ::core::cmp::PartialEq for DEBUG_CREATE_PROCESS_OPTIONS {
 }
 impl ::core::cmp::Eq for DEBUG_CREATE_PROCESS_OPTIONS {}
 impl ::core::default::Default for DEBUG_CREATE_PROCESS_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEBUG_DECODE_ERROR {
+    pub SizeOfStruct: u32,
+    pub Code: u32,
+    pub TreatAsStatus: super::super::super::Foundation::BOOL,
+    pub Source: [u8; 64],
+    pub Message: [u8; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEBUG_DECODE_ERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEBUG_DECODE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEBUG_DECODE_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_DECODE_ERROR").field("SizeOfStruct", &self.SizeOfStruct).field("Code", &self.Code).field("TreatAsStatus", &self.TreatAsStatus).field("Source", &self.Source).field("Message", &self.Message).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DEBUG_DECODE_ERROR {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEBUG_DECODE_ERROR {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.Code == other.Code && self.TreatAsStatus == other.TreatAsStatus && self.Source == other.Source && self.Message == other.Message
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEBUG_DECODE_ERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEBUG_DECODE_ERROR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEBUG_DEVICE_OBJECT_INFO {
+    pub SizeOfStruct: u32,
+    pub DevObjAddress: u64,
+    pub ReferenceCount: u32,
+    pub QBusy: super::super::super::Foundation::BOOL,
+    pub DriverObject: u64,
+    pub CurrentIrp: u64,
+    pub DevExtension: u64,
+    pub DevObjExtension: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEBUG_DEVICE_OBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEBUG_DEVICE_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DEBUG_DEVICE_OBJECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_DEVICE_OBJECT_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("DevObjAddress", &self.DevObjAddress).field("ReferenceCount", &self.ReferenceCount).field("QBusy", &self.QBusy).field("DriverObject", &self.DriverObject).field("CurrentIrp", &self.CurrentIrp).field("DevExtension", &self.DevExtension).field("DevObjExtension", &self.DevObjExtension).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DEBUG_DEVICE_OBJECT_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEBUG_DEVICE_OBJECT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.DevObjAddress == other.DevObjAddress && self.ReferenceCount == other.ReferenceCount && self.QBusy == other.QBusy && self.DriverObject == other.DriverObject && self.CurrentIrp == other.CurrentIrp && self.DevExtension == other.DevExtension && self.DevObjExtension == other.DevObjExtension
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEBUG_DEVICE_OBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DEBUG_DEVICE_OBJECT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_DRIVER_OBJECT_INFO {
+    pub SizeOfStruct: u32,
+    pub DriverSize: u32,
+    pub DriverObjAddress: u64,
+    pub DriverStart: u64,
+    pub DriverExtension: u64,
+    pub DeviceObject: u64,
+    pub DriverName: DEBUG_DRIVER_OBJECT_INFO_0,
+}
+impl ::core::marker::Copy for DEBUG_DRIVER_OBJECT_INFO {}
+impl ::core::clone::Clone for DEBUG_DRIVER_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_DRIVER_OBJECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_DRIVER_OBJECT_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("DriverSize", &self.DriverSize).field("DriverObjAddress", &self.DriverObjAddress).field("DriverStart", &self.DriverStart).field("DriverExtension", &self.DriverExtension).field("DeviceObject", &self.DeviceObject).field("DriverName", &self.DriverName).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_DRIVER_OBJECT_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_DRIVER_OBJECT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.DriverSize == other.DriverSize && self.DriverObjAddress == other.DriverObjAddress && self.DriverStart == other.DriverStart && self.DriverExtension == other.DriverExtension && self.DeviceObject == other.DeviceObject && self.DriverName == other.DriverName
+    }
+}
+impl ::core::cmp::Eq for DEBUG_DRIVER_OBJECT_INFO {}
+impl ::core::default::Default for DEBUG_DRIVER_OBJECT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: u64,
+}
+impl ::core::marker::Copy for DEBUG_DRIVER_OBJECT_INFO_0 {}
+impl ::core::clone::Clone for DEBUG_DRIVER_OBJECT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_DRIVER_OBJECT_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_DRIVER_OBJECT_INFO_0").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_DRIVER_OBJECT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_DRIVER_OBJECT_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
+    }
+}
+impl ::core::cmp::Eq for DEBUG_DRIVER_OBJECT_INFO_0 {}
+impl ::core::default::Default for DEBUG_DRIVER_OBJECT_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -42767,6 +45820,80 @@ impl ::core::cmp::PartialEq for DEBUG_HANDLE_DATA_BASIC {
 }
 impl ::core::cmp::Eq for DEBUG_HANDLE_DATA_BASIC {}
 impl ::core::default::Default for DEBUG_HANDLE_DATA_BASIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_IRP_INFO {
+    pub SizeOfStruct: u32,
+    pub IrpAddress: u64,
+    pub IoStatus: u32,
+    pub StackCount: u32,
+    pub CurrentLocation: u32,
+    pub MdlAddress: u64,
+    pub Thread: u64,
+    pub CancelRoutine: u64,
+    pub CurrentStack: DEBUG_IRP_STACK_INFO,
+    pub Stack: [DEBUG_IRP_STACK_INFO; 10],
+}
+impl ::core::marker::Copy for DEBUG_IRP_INFO {}
+impl ::core::clone::Clone for DEBUG_IRP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_IRP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_IRP_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("IrpAddress", &self.IrpAddress).field("IoStatus", &self.IoStatus).field("StackCount", &self.StackCount).field("CurrentLocation", &self.CurrentLocation).field("MdlAddress", &self.MdlAddress).field("Thread", &self.Thread).field("CancelRoutine", &self.CancelRoutine).field("CurrentStack", &self.CurrentStack).field("Stack", &self.Stack).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_IRP_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_IRP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.IrpAddress == other.IrpAddress && self.IoStatus == other.IoStatus && self.StackCount == other.StackCount && self.CurrentLocation == other.CurrentLocation && self.MdlAddress == other.MdlAddress && self.Thread == other.Thread && self.CancelRoutine == other.CancelRoutine && self.CurrentStack == other.CurrentStack && self.Stack == other.Stack
+    }
+}
+impl ::core::cmp::Eq for DEBUG_IRP_INFO {}
+impl ::core::default::Default for DEBUG_IRP_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_IRP_STACK_INFO {
+    pub Major: u8,
+    pub Minor: u8,
+    pub DeviceObject: u64,
+    pub FileObject: u64,
+    pub CompletionRoutine: u64,
+    pub StackAddress: u64,
+}
+impl ::core::marker::Copy for DEBUG_IRP_STACK_INFO {}
+impl ::core::clone::Clone for DEBUG_IRP_STACK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_IRP_STACK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_IRP_STACK_INFO").field("Major", &self.Major).field("Minor", &self.Minor).field("DeviceObject", &self.DeviceObject).field("FileObject", &self.FileObject).field("CompletionRoutine", &self.CompletionRoutine).field("StackAddress", &self.StackAddress).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_IRP_STACK_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_IRP_STACK_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.Major == other.Major && self.Minor == other.Minor && self.DeviceObject == other.DeviceObject && self.FileObject == other.FileObject && self.CompletionRoutine == other.CompletionRoutine && self.StackAddress == other.StackAddress
+    }
+}
+impl ::core::cmp::Eq for DEBUG_IRP_STACK_INFO {}
+impl ::core::default::Default for DEBUG_IRP_STACK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -43141,6 +46268,168 @@ impl ::core::default::Default for DEBUG_OFFSET_REGION {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_PNP_TRIAGE_INFO {
+    pub SizeOfStruct: u32,
+    pub Lock_Address: u64,
+    pub Lock_ActiveCount: i32,
+    pub Lock_ContentionCount: u32,
+    pub Lock_NumberOfExclusiveWaiters: u32,
+    pub Lock_NumberOfSharedWaiters: u32,
+    pub Lock_Flag: u16,
+    pub TriagedThread: u64,
+    pub ThreadCount: i32,
+    pub TriagedThread_WaitTime: u64,
+}
+impl ::core::marker::Copy for DEBUG_PNP_TRIAGE_INFO {}
+impl ::core::clone::Clone for DEBUG_PNP_TRIAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_PNP_TRIAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_PNP_TRIAGE_INFO")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Lock_Address", &self.Lock_Address)
+            .field("Lock_ActiveCount", &self.Lock_ActiveCount)
+            .field("Lock_ContentionCount", &self.Lock_ContentionCount)
+            .field("Lock_NumberOfExclusiveWaiters", &self.Lock_NumberOfExclusiveWaiters)
+            .field("Lock_NumberOfSharedWaiters", &self.Lock_NumberOfSharedWaiters)
+            .field("Lock_Flag", &self.Lock_Flag)
+            .field("TriagedThread", &self.TriagedThread)
+            .field("ThreadCount", &self.ThreadCount)
+            .field("TriagedThread_WaitTime", &self.TriagedThread_WaitTime)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_PNP_TRIAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_PNP_TRIAGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.Lock_Address == other.Lock_Address && self.Lock_ActiveCount == other.Lock_ActiveCount && self.Lock_ContentionCount == other.Lock_ContentionCount && self.Lock_NumberOfExclusiveWaiters == other.Lock_NumberOfExclusiveWaiters && self.Lock_NumberOfSharedWaiters == other.Lock_NumberOfSharedWaiters && self.Lock_Flag == other.Lock_Flag && self.TriagedThread == other.TriagedThread && self.ThreadCount == other.ThreadCount && self.TriagedThread_WaitTime == other.TriagedThread_WaitTime
+    }
+}
+impl ::core::cmp::Eq for DEBUG_PNP_TRIAGE_INFO {}
+impl ::core::default::Default for DEBUG_PNP_TRIAGE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_POOLTAG_DESCRIPTION {
+    pub SizeOfStruct: u32,
+    pub PoolTag: u32,
+    pub Description: [u8; 260],
+    pub Binary: [u8; 32],
+    pub Owner: [u8; 32],
+}
+impl ::core::marker::Copy for DEBUG_POOLTAG_DESCRIPTION {}
+impl ::core::clone::Clone for DEBUG_POOLTAG_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_POOLTAG_DESCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_POOLTAG_DESCRIPTION").field("SizeOfStruct", &self.SizeOfStruct).field("PoolTag", &self.PoolTag).field("Description", &self.Description).field("Binary", &self.Binary).field("Owner", &self.Owner).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_POOLTAG_DESCRIPTION {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_POOLTAG_DESCRIPTION {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.PoolTag == other.PoolTag && self.Description == other.Description && self.Binary == other.Binary && self.Owner == other.Owner
+    }
+}
+impl ::core::cmp::Eq for DEBUG_POOLTAG_DESCRIPTION {}
+impl ::core::default::Default for DEBUG_POOLTAG_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_POOL_DATA {
+    pub SizeofStruct: u32,
+    pub PoolBlock: u64,
+    pub Pool: u64,
+    pub PreviousSize: u32,
+    pub Size: u32,
+    pub PoolTag: u32,
+    pub ProcessBilled: u64,
+    pub Anonymous: DEBUG_POOL_DATA_0,
+    pub Reserved2: [u64; 4],
+    pub PoolTagDescription: [u8; 64],
+}
+impl ::core::marker::Copy for DEBUG_POOL_DATA {}
+impl ::core::clone::Clone for DEBUG_POOL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_POOL_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for DEBUG_POOL_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub union DEBUG_POOL_DATA_0 {
+    pub Anonymous: DEBUG_POOL_DATA_0_0,
+    pub AsUlong: u32,
+}
+impl ::core::marker::Copy for DEBUG_POOL_DATA_0 {}
+impl ::core::clone::Clone for DEBUG_POOL_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_POOL_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for DEBUG_POOL_DATA_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_POOL_DATA_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DEBUG_POOL_DATA_0_0 {}
+impl ::core::clone::Clone for DEBUG_POOL_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_POOL_DATA_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_POOL_DATA_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_POOL_DATA_0_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_POOL_DATA_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::core::cmp::Eq for DEBUG_POOL_DATA_0_0 {}
+impl ::core::default::Default for DEBUG_POOL_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
     pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
@@ -43425,6 +46714,95 @@ impl ::core::cmp::PartialEq for DEBUG_REGISTER_DESCRIPTION {
 }
 impl ::core::cmp::Eq for DEBUG_REGISTER_DESCRIPTION {}
 impl ::core::default::Default for DEBUG_REGISTER_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_SMBIOS_INFO {
+    pub SizeOfStruct: u32,
+    pub SmbiosMajorVersion: u8,
+    pub SmbiosMinorVersion: u8,
+    pub DMIVersion: u8,
+    pub TableSize: u32,
+    pub BiosMajorRelease: u8,
+    pub BiosMinorRelease: u8,
+    pub FirmwareMajorRelease: u8,
+    pub FirmwareMinorRelease: u8,
+    pub BaseBoardManufacturer: [u8; 64],
+    pub BaseBoardProduct: [u8; 64],
+    pub BaseBoardVersion: [u8; 64],
+    pub BiosReleaseDate: [u8; 64],
+    pub BiosVendor: [u8; 64],
+    pub BiosVersion: [u8; 64],
+    pub SystemFamily: [u8; 64],
+    pub SystemManufacturer: [u8; 64],
+    pub SystemProductName: [u8; 64],
+    pub SystemSKU: [u8; 64],
+    pub SystemVersion: [u8; 64],
+}
+impl ::core::marker::Copy for DEBUG_SMBIOS_INFO {}
+impl ::core::clone::Clone for DEBUG_SMBIOS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_SMBIOS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_SMBIOS_INFO")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("SmbiosMajorVersion", &self.SmbiosMajorVersion)
+            .field("SmbiosMinorVersion", &self.SmbiosMinorVersion)
+            .field("DMIVersion", &self.DMIVersion)
+            .field("TableSize", &self.TableSize)
+            .field("BiosMajorRelease", &self.BiosMajorRelease)
+            .field("BiosMinorRelease", &self.BiosMinorRelease)
+            .field("FirmwareMajorRelease", &self.FirmwareMajorRelease)
+            .field("FirmwareMinorRelease", &self.FirmwareMinorRelease)
+            .field("BaseBoardManufacturer", &self.BaseBoardManufacturer)
+            .field("BaseBoardProduct", &self.BaseBoardProduct)
+            .field("BaseBoardVersion", &self.BaseBoardVersion)
+            .field("BiosReleaseDate", &self.BiosReleaseDate)
+            .field("BiosVendor", &self.BiosVendor)
+            .field("BiosVersion", &self.BiosVersion)
+            .field("SystemFamily", &self.SystemFamily)
+            .field("SystemManufacturer", &self.SystemManufacturer)
+            .field("SystemProductName", &self.SystemProductName)
+            .field("SystemSKU", &self.SystemSKU)
+            .field("SystemVersion", &self.SystemVersion)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_SMBIOS_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_SMBIOS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct
+            && self.SmbiosMajorVersion == other.SmbiosMajorVersion
+            && self.SmbiosMinorVersion == other.SmbiosMinorVersion
+            && self.DMIVersion == other.DMIVersion
+            && self.TableSize == other.TableSize
+            && self.BiosMajorRelease == other.BiosMajorRelease
+            && self.BiosMinorRelease == other.BiosMinorRelease
+            && self.FirmwareMajorRelease == other.FirmwareMajorRelease
+            && self.FirmwareMinorRelease == other.FirmwareMinorRelease
+            && self.BaseBoardManufacturer == other.BaseBoardManufacturer
+            && self.BaseBoardProduct == other.BaseBoardProduct
+            && self.BaseBoardVersion == other.BaseBoardVersion
+            && self.BiosReleaseDate == other.BiosReleaseDate
+            && self.BiosVendor == other.BiosVendor
+            && self.BiosVersion == other.BiosVersion
+            && self.SystemFamily == other.SystemFamily
+            && self.SystemManufacturer == other.SystemManufacturer
+            && self.SystemProductName == other.SystemProductName
+            && self.SystemSKU == other.SystemSKU
+            && self.SystemVersion == other.SystemVersion
+    }
+}
+impl ::core::cmp::Eq for DEBUG_SMBIOS_INFO {}
+impl ::core::default::Default for DEBUG_SMBIOS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -43721,6 +47099,72 @@ impl ::core::cmp::PartialEq for DEBUG_THREAD_BASIC_INFORMATION {
 }
 impl ::core::cmp::Eq for DEBUG_THREAD_BASIC_INFORMATION {}
 impl ::core::default::Default for DEBUG_THREAD_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
+    pub SizeOfStruct: u32,
+    pub OwnerNameSize: u32,
+    pub OwnerName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DEBUG_TRIAGE_FOLLOWUP_INFO {}
+impl ::core::clone::Clone for DEBUG_TRIAGE_FOLLOWUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_TRIAGE_FOLLOWUP_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_TRIAGE_FOLLOWUP_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("OwnerNameSize", &self.OwnerNameSize).field("OwnerName", &self.OwnerName).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_TRIAGE_FOLLOWUP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.OwnerNameSize == other.OwnerNameSize && self.OwnerName == other.OwnerName
+    }
+}
+impl ::core::cmp::Eq for DEBUG_TRIAGE_FOLLOWUP_INFO {}
+impl ::core::default::Default for DEBUG_TRIAGE_FOLLOWUP_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    pub SizeOfStruct: u32,
+    pub OwnerNameSize: u32,
+    pub OwnerName: ::windows::core::PSTR,
+    pub FeaturePathSize: u32,
+    pub FeaturePath: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {}
+impl ::core::clone::Clone for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEBUG_TRIAGE_FOLLOWUP_INFO_2").field("SizeOfStruct", &self.SizeOfStruct).field("OwnerNameSize", &self.OwnerNameSize).field("OwnerName", &self.OwnerName).field("FeaturePathSize", &self.FeaturePathSize).field("FeaturePath", &self.FeaturePath).finish()
+    }
+}
+impl ::windows::core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.OwnerNameSize == other.OwnerNameSize && self.OwnerName == other.OwnerName && self.FeaturePathSize == other.FeaturePathSize && self.FeaturePath == other.FeaturePath
+    }
+}
+impl ::core::cmp::Eq for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {}
+impl ::core::default::Default for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -44790,6 +48234,74 @@ impl ::core::default::Default for EXT_API_VERSION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct EXT_CAB_XML_DATA {
+    pub SizeOfStruct: u32,
+    pub XmlObjectTag: ::windows::core::PCWSTR,
+    pub NumSubTags: u32,
+    pub SubTags: [EXT_CAB_XML_DATA_0; 1],
+}
+impl ::core::marker::Copy for EXT_CAB_XML_DATA {}
+impl ::core::clone::Clone for EXT_CAB_XML_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for EXT_CAB_XML_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXT_CAB_XML_DATA").field("SizeOfStruct", &self.SizeOfStruct).field("XmlObjectTag", &self.XmlObjectTag).field("NumSubTags", &self.NumSubTags).field("SubTags", &self.SubTags).finish()
+    }
+}
+impl ::windows::core::TypeKind for EXT_CAB_XML_DATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for EXT_CAB_XML_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.XmlObjectTag == other.XmlObjectTag && self.NumSubTags == other.NumSubTags && self.SubTags == other.SubTags
+    }
+}
+impl ::core::cmp::Eq for EXT_CAB_XML_DATA {}
+impl ::core::default::Default for EXT_CAB_XML_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct EXT_CAB_XML_DATA_0 {
+    pub SubTag: ::windows::core::PCWSTR,
+    pub MatchPattern: ::windows::core::PCWSTR,
+    pub ReturnText: ::windows::core::PWSTR,
+    pub ReturnTextSize: u32,
+    pub _bitfield: u32,
+    pub Reserved2: u32,
+}
+impl ::core::marker::Copy for EXT_CAB_XML_DATA_0 {}
+impl ::core::clone::Clone for EXT_CAB_XML_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for EXT_CAB_XML_DATA_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXT_CAB_XML_DATA_0").field("SubTag", &self.SubTag).field("MatchPattern", &self.MatchPattern).field("ReturnText", &self.ReturnText).field("ReturnTextSize", &self.ReturnTextSize).field("_bitfield", &self._bitfield).field("Reserved2", &self.Reserved2).finish()
+    }
+}
+impl ::windows::core::TypeKind for EXT_CAB_XML_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for EXT_CAB_XML_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.SubTag == other.SubTag && self.MatchPattern == other.MatchPattern && self.ReturnText == other.ReturnText && self.ReturnTextSize == other.ReturnTextSize && self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2
+    }
+}
+impl ::core::cmp::Eq for EXT_CAB_XML_DATA_0 {}
+impl ::core::default::Default for EXT_CAB_XML_DATA_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXT_FIND_FILE {
@@ -44976,6 +48488,38 @@ impl ::windows::core::TypeKind for ExtendedDebugPropertyInfo {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for ExtendedDebugPropertyInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct FA_ENTRY {
+    pub Tag: DEBUG_FLR_PARAM_TYPE,
+    pub FullSize: u16,
+    pub DataSize: u16,
+}
+impl ::core::marker::Copy for FA_ENTRY {}
+impl ::core::clone::Clone for FA_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FA_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FA_ENTRY").field("Tag", &self.Tag).field("FullSize", &self.FullSize).field("DataSize", &self.DataSize).finish()
+    }
+}
+impl ::windows::core::TypeKind for FA_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for FA_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        self.Tag == other.Tag && self.FullSize == other.FullSize && self.DataSize == other.DataSize
+    }
+}
+impl ::core::cmp::Eq for FA_ENTRY {}
+impl ::core::default::Default for FA_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -47256,6 +50800,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub GuardXFGDispatchFunctionPointer: u32,
     pub GuardXFGTableDispatchFunctionPointer: u32,
     pub CastGuardOsDeterminedFailureMode: u32,
+    pub GuardMemcpyFunctionPointer: u32,
 }
 impl ::core::marker::Copy for IMAGE_LOAD_CONFIG_DIRECTORY32 {}
 impl ::core::clone::Clone for IMAGE_LOAD_CONFIG_DIRECTORY32 {
@@ -47314,6 +50859,7 @@ impl ::core::fmt::Debug for IMAGE_LOAD_CONFIG_DIRECTORY32 {
             .field("GuardXFGDispatchFunctionPointer", &self.GuardXFGDispatchFunctionPointer)
             .field("GuardXFGTableDispatchFunctionPointer", &self.GuardXFGTableDispatchFunctionPointer)
             .field("CastGuardOsDeterminedFailureMode", &self.CastGuardOsDeterminedFailureMode)
+            .field("GuardMemcpyFunctionPointer", &self.GuardMemcpyFunctionPointer)
             .finish()
     }
 }
@@ -47370,6 +50916,7 @@ impl ::core::cmp::PartialEq for IMAGE_LOAD_CONFIG_DIRECTORY32 {
             && self.GuardXFGDispatchFunctionPointer == other.GuardXFGDispatchFunctionPointer
             && self.GuardXFGTableDispatchFunctionPointer == other.GuardXFGTableDispatchFunctionPointer
             && self.CastGuardOsDeterminedFailureMode == other.CastGuardOsDeterminedFailureMode
+            && self.GuardMemcpyFunctionPointer == other.GuardMemcpyFunctionPointer
     }
 }
 impl ::core::cmp::Eq for IMAGE_LOAD_CONFIG_DIRECTORY32 {}
@@ -47429,6 +50976,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub GuardXFGDispatchFunctionPointer: u64,
     pub GuardXFGTableDispatchFunctionPointer: u64,
     pub CastGuardOsDeterminedFailureMode: u64,
+    pub GuardMemcpyFunctionPointer: u64,
 }
 impl ::core::marker::Copy for IMAGE_LOAD_CONFIG_DIRECTORY64 {}
 impl ::core::clone::Clone for IMAGE_LOAD_CONFIG_DIRECTORY64 {
@@ -48604,6 +52152,11 @@ pub struct KDDEBUGGER_DATA64 {
     pub RetpolineStubOffset: u32,
     pub RetpolineStubSize: u32,
     pub OffsetEProcessMmHotPatchContext: u16,
+    pub OffsetKThreadShadowStackLimit: u32,
+    pub OffsetKThreadShadowStackBase: u32,
+    pub ShadowStackEnabled: u64,
+    pub PointerAuthMask: u64,
+    pub OffsetPrcbExceptionStack: u16,
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for KDDEBUGGER_DATA64 {}
@@ -48775,6 +52328,11 @@ impl ::core::fmt::Debug for KDDEBUGGER_DATA64 {
             .field("RetpolineStubOffset", &self.RetpolineStubOffset)
             .field("RetpolineStubSize", &self.RetpolineStubSize)
             .field("OffsetEProcessMmHotPatchContext", &self.OffsetEProcessMmHotPatchContext)
+            .field("OffsetKThreadShadowStackLimit", &self.OffsetKThreadShadowStackLimit)
+            .field("OffsetKThreadShadowStackBase", &self.OffsetKThreadShadowStackBase)
+            .field("ShadowStackEnabled", &self.ShadowStackEnabled)
+            .field("PointerAuthMask", &self.PointerAuthMask)
+            .field("OffsetPrcbExceptionStack", &self.OffsetPrcbExceptionStack)
             .finish()
     }
 }
@@ -48943,12 +52501,258 @@ impl ::core::cmp::PartialEq for KDDEBUGGER_DATA64 {
             && self.RetpolineStubOffset == other.RetpolineStubOffset
             && self.RetpolineStubSize == other.RetpolineStubSize
             && self.OffsetEProcessMmHotPatchContext == other.OffsetEProcessMmHotPatchContext
+            && self.OffsetKThreadShadowStackLimit == other.OffsetKThreadShadowStackLimit
+            && self.OffsetKThreadShadowStackBase == other.OffsetKThreadShadowStackBase
+            && self.ShadowStackEnabled == other.ShadowStackEnabled
+            && self.PointerAuthMask == other.PointerAuthMask
+            && self.OffsetPrcbExceptionStack == other.OffsetPrcbExceptionStack
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for KDDEBUGGER_DATA64 {}
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for KDDEBUGGER_DATA64 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct KDEXTS_LOCK_INFO {
+    pub SizeOfStruct: u32,
+    pub Address: u64,
+    pub OwningThread: u64,
+    pub ExclusiveOwned: super::super::super::Foundation::BOOL,
+    pub NumOwners: u32,
+    pub ContentionCount: u32,
+    pub NumExclusiveWaiters: u32,
+    pub NumSharedWaiters: u32,
+    pub pOwnerThreads: *mut u64,
+    pub pWaiterThreads: *mut u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KDEXTS_LOCK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KDEXTS_LOCK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for KDEXTS_LOCK_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXTS_LOCK_INFO")
+            .field("SizeOfStruct", &self.SizeOfStruct)
+            .field("Address", &self.Address)
+            .field("OwningThread", &self.OwningThread)
+            .field("ExclusiveOwned", &self.ExclusiveOwned)
+            .field("NumOwners", &self.NumOwners)
+            .field("ContentionCount", &self.ContentionCount)
+            .field("NumExclusiveWaiters", &self.NumExclusiveWaiters)
+            .field("NumSharedWaiters", &self.NumSharedWaiters)
+            .field("pOwnerThreads", &self.pOwnerThreads)
+            .field("pWaiterThreads", &self.pWaiterThreads)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for KDEXTS_LOCK_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for KDEXTS_LOCK_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.Address == other.Address && self.OwningThread == other.OwningThread && self.ExclusiveOwned == other.ExclusiveOwned && self.NumOwners == other.NumOwners && self.ContentionCount == other.ContentionCount && self.NumExclusiveWaiters == other.NumExclusiveWaiters && self.NumSharedWaiters == other.NumSharedWaiters && self.pOwnerThreads == other.pOwnerThreads && self.pWaiterThreads == other.pWaiterThreads
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for KDEXTS_LOCK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for KDEXTS_LOCK_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct KDEXTS_PTE_INFO {
+    pub SizeOfStruct: u32,
+    pub VirtualAddress: u64,
+    pub PpeAddress: u64,
+    pub PdeAddress: u64,
+    pub PteAddress: u64,
+    pub Pfn: u64,
+    pub Levels: u64,
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+}
+impl ::core::marker::Copy for KDEXTS_PTE_INFO {}
+impl ::core::clone::Clone for KDEXTS_PTE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KDEXTS_PTE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXTS_PTE_INFO").field("SizeOfStruct", &self.SizeOfStruct).field("VirtualAddress", &self.VirtualAddress).field("PpeAddress", &self.PpeAddress).field("PdeAddress", &self.PdeAddress).field("PteAddress", &self.PteAddress).field("Pfn", &self.Pfn).field("Levels", &self.Levels).field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
+    }
+}
+impl ::windows::core::TypeKind for KDEXTS_PTE_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KDEXTS_PTE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeOfStruct == other.SizeOfStruct && self.VirtualAddress == other.VirtualAddress && self.PpeAddress == other.PpeAddress && self.PdeAddress == other.PdeAddress && self.PteAddress == other.PteAddress && self.Pfn == other.Pfn && self.Levels == other.Levels && self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
+    }
+}
+impl ::core::cmp::Eq for KDEXTS_PTE_INFO {}
+impl ::core::default::Default for KDEXTS_PTE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct KDEXT_FILELOCK_OWNER {
+    pub Sizeofstruct: u32,
+    pub FileObject: u64,
+    pub OwnerThread: u64,
+    pub WaitIrp: u64,
+    pub DeviceObject: u64,
+    pub BlockingDirver: [u8; 32],
+}
+impl ::core::marker::Copy for KDEXT_FILELOCK_OWNER {}
+impl ::core::clone::Clone for KDEXT_FILELOCK_OWNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KDEXT_FILELOCK_OWNER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXT_FILELOCK_OWNER").field("Sizeofstruct", &self.Sizeofstruct).field("FileObject", &self.FileObject).field("OwnerThread", &self.OwnerThread).field("WaitIrp", &self.WaitIrp).field("DeviceObject", &self.DeviceObject).field("BlockingDirver", &self.BlockingDirver).finish()
+    }
+}
+impl ::windows::core::TypeKind for KDEXT_FILELOCK_OWNER {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KDEXT_FILELOCK_OWNER {
+    fn eq(&self, other: &Self) -> bool {
+        self.Sizeofstruct == other.Sizeofstruct && self.FileObject == other.FileObject && self.OwnerThread == other.OwnerThread && self.WaitIrp == other.WaitIrp && self.DeviceObject == other.DeviceObject && self.BlockingDirver == other.BlockingDirver
+    }
+}
+impl ::core::cmp::Eq for KDEXT_FILELOCK_OWNER {}
+impl ::core::default::Default for KDEXT_FILELOCK_OWNER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct KDEXT_HANDLE_INFORMATION {
+    pub HandleTableEntry: u64,
+    pub Handle: u64,
+    pub Object: u64,
+    pub ObjectBody: u64,
+    pub GrantedAccess: u64,
+    pub HandleAttributes: u32,
+    pub PagedOut: super::super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KDEXT_HANDLE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KDEXT_HANDLE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for KDEXT_HANDLE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXT_HANDLE_INFORMATION").field("HandleTableEntry", &self.HandleTableEntry).field("Handle", &self.Handle).field("Object", &self.Object).field("ObjectBody", &self.ObjectBody).field("GrantedAccess", &self.GrantedAccess).field("HandleAttributes", &self.HandleAttributes).field("PagedOut", &self.PagedOut).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for KDEXT_HANDLE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for KDEXT_HANDLE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.HandleTableEntry == other.HandleTableEntry && self.Handle == other.Handle && self.Object == other.Object && self.ObjectBody == other.ObjectBody && self.GrantedAccess == other.GrantedAccess && self.HandleAttributes == other.HandleAttributes && self.PagedOut == other.PagedOut
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for KDEXT_HANDLE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for KDEXT_HANDLE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct KDEXT_PROCESS_FIND_PARAMS {
+    pub SizeofStruct: u32,
+    pub Pid: u32,
+    pub Session: u32,
+    pub ImageName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for KDEXT_PROCESS_FIND_PARAMS {}
+impl ::core::clone::Clone for KDEXT_PROCESS_FIND_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KDEXT_PROCESS_FIND_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXT_PROCESS_FIND_PARAMS").field("SizeofStruct", &self.SizeofStruct).field("Pid", &self.Pid).field("Session", &self.Session).field("ImageName", &self.ImageName).finish()
+    }
+}
+impl ::windows::core::TypeKind for KDEXT_PROCESS_FIND_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KDEXT_PROCESS_FIND_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeofStruct == other.SizeofStruct && self.Pid == other.Pid && self.Session == other.Session && self.ImageName == other.ImageName
+    }
+}
+impl ::core::cmp::Eq for KDEXT_PROCESS_FIND_PARAMS {}
+impl ::core::default::Default for KDEXT_PROCESS_FIND_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct KDEXT_THREAD_FIND_PARAMS {
+    pub SizeofStruct: u32,
+    pub StackPointer: u64,
+    pub Cid: u32,
+    pub Thread: u64,
+}
+impl ::core::marker::Copy for KDEXT_THREAD_FIND_PARAMS {}
+impl ::core::clone::Clone for KDEXT_THREAD_FIND_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for KDEXT_THREAD_FIND_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KDEXT_THREAD_FIND_PARAMS").field("SizeofStruct", &self.SizeofStruct).field("StackPointer", &self.StackPointer).field("Cid", &self.Cid).field("Thread", &self.Thread).finish()
+    }
+}
+impl ::windows::core::TypeKind for KDEXT_THREAD_FIND_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for KDEXT_THREAD_FIND_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        self.SizeofStruct == other.SizeofStruct && self.StackPointer == other.StackPointer && self.Cid == other.Cid && self.Thread == other.Thread
+    }
+}
+impl ::core::cmp::Eq for KDEXT_THREAD_FIND_PARAMS {}
+impl ::core::default::Default for KDEXT_THREAD_FIND_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -52019,6 +55823,208 @@ impl ::core::default::Default for OMAP {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct OS_INFO {
+    pub MajorVer: u32,
+    pub MinorVer: u32,
+    pub Build: u32,
+    pub BuildQfe: u32,
+    pub ProductType: u32,
+    pub Suite: u32,
+    pub Revision: u32,
+    pub s: OS_INFO_0,
+    pub SrvPackNumber: u32,
+    pub ServicePackBuild: u32,
+    pub Architecture: u32,
+    pub Lcid: u32,
+    pub Name: [u8; 64],
+    pub FullName: [u8; 256],
+    pub Language: [u8; 30],
+    pub BuildVersion: [u8; 64],
+    pub ServicePackString: [u8; 64],
+}
+impl ::core::marker::Copy for OS_INFO {}
+impl ::core::clone::Clone for OS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OS_INFO")
+            .field("MajorVer", &self.MajorVer)
+            .field("MinorVer", &self.MinorVer)
+            .field("Build", &self.Build)
+            .field("BuildQfe", &self.BuildQfe)
+            .field("ProductType", &self.ProductType)
+            .field("Suite", &self.Suite)
+            .field("Revision", &self.Revision)
+            .field("s", &self.s)
+            .field("SrvPackNumber", &self.SrvPackNumber)
+            .field("ServicePackBuild", &self.ServicePackBuild)
+            .field("Architecture", &self.Architecture)
+            .field("Lcid", &self.Lcid)
+            .field("Name", &self.Name)
+            .field("FullName", &self.FullName)
+            .field("Language", &self.Language)
+            .field("BuildVersion", &self.BuildVersion)
+            .field("ServicePackString", &self.ServicePackString)
+            .finish()
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for OS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.MajorVer == other.MajorVer && self.MinorVer == other.MinorVer && self.Build == other.Build && self.BuildQfe == other.BuildQfe && self.ProductType == other.ProductType && self.Suite == other.Suite && self.Revision == other.Revision && self.s == other.s && self.SrvPackNumber == other.SrvPackNumber && self.ServicePackBuild == other.ServicePackBuild && self.Architecture == other.Architecture && self.Lcid == other.Lcid && self.Name == other.Name && self.FullName == other.FullName && self.Language == other.Language && self.BuildVersion == other.BuildVersion && self.ServicePackString == other.ServicePackString
+    }
+}
+impl ::core::cmp::Eq for OS_INFO {}
+impl ::core::default::Default for OS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct OS_INFO_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for OS_INFO_0 {}
+impl ::core::clone::Clone for OS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OS_INFO_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OS_INFO_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for OS_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::core::cmp::Eq for OS_INFO_0 {}
+impl ::core::default::Default for OS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct OS_INFO_v1 {
+    pub Type: OS_TYPE,
+    pub Anonymous: OS_INFO_v1_0,
+    pub ProductType: u32,
+    pub Suite: u32,
+    pub s: OS_INFO_v1_1,
+    pub SrvPackNumber: u32,
+    pub Language: [u8; 30],
+    pub OsString: [u8; 64],
+    pub ServicePackString: [u8; 64],
+}
+impl ::core::marker::Copy for OS_INFO_v1 {}
+impl ::core::clone::Clone for OS_INFO_v1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO_v1 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for OS_INFO_v1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub union OS_INFO_v1_0 {
+    pub Version: OS_INFO_v1_0_0,
+    pub Ver64: u64,
+}
+impl ::core::marker::Copy for OS_INFO_v1_0 {}
+impl ::core::clone::Clone for OS_INFO_v1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO_v1_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for OS_INFO_v1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct OS_INFO_v1_0_0 {
+    pub Major: u32,
+    pub Minor: u32,
+}
+impl ::core::marker::Copy for OS_INFO_v1_0_0 {}
+impl ::core::clone::Clone for OS_INFO_v1_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OS_INFO_v1_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OS_INFO_v1_0_0").field("Major", &self.Major).field("Minor", &self.Minor).finish()
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO_v1_0_0 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for OS_INFO_v1_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Major == other.Major && self.Minor == other.Minor
+    }
+}
+impl ::core::cmp::Eq for OS_INFO_v1_0_0 {}
+impl ::core::default::Default for OS_INFO_v1_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct OS_INFO_v1_1 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for OS_INFO_v1_1 {}
+impl ::core::clone::Clone for OS_INFO_v1_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OS_INFO_v1_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OS_INFO_v1_1").field("_bitfield", &self._bitfield).finish()
+    }
+}
+impl ::windows::core::TypeKind for OS_INFO_v1_1 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for OS_INFO_v1_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::core::cmp::Eq for OS_INFO_v1_1 {}
+impl ::core::default::Default for OS_INFO_v1_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: ::windows::core::PSTR,
     pub fUnicode: u16,
@@ -52336,6 +56342,42 @@ impl ::core::cmp::PartialEq for PROCESSORINFO {
 }
 impl ::core::cmp::Eq for PROCESSORINFO {}
 impl ::core::default::Default for PROCESSORINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct PROCESS_COMMIT_USAGE {
+    pub ImageFileName: [u8; 16],
+    pub ClientId: u64,
+    pub ProcessAddress: u64,
+    pub CommitCharge: u64,
+    pub SharedCommitCharge: u64,
+    pub ReleasedCommitDebt: u64,
+    pub Reserved: u64,
+}
+impl ::core::marker::Copy for PROCESS_COMMIT_USAGE {}
+impl ::core::clone::Clone for PROCESS_COMMIT_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_COMMIT_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_COMMIT_USAGE").field("ImageFileName", &self.ImageFileName).field("ClientId", &self.ClientId).field("ProcessAddress", &self.ProcessAddress).field("CommitCharge", &self.CommitCharge).field("SharedCommitCharge", &self.SharedCommitCharge).field("ReleasedCommitDebt", &self.ReleasedCommitDebt).field("Reserved", &self.Reserved).finish()
+    }
+}
+impl ::windows::core::TypeKind for PROCESS_COMMIT_USAGE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for PROCESS_COMMIT_USAGE {
+    fn eq(&self, other: &Self) -> bool {
+        self.ImageFileName == other.ImageFileName && self.ClientId == other.ClientId && self.ProcessAddress == other.ProcessAddress && self.CommitCharge == other.CommitCharge && self.SharedCommitCharge == other.SharedCommitCharge && self.ReleasedCommitDebt == other.ReleasedCommitDebt && self.Reserved == other.Reserved
+    }
+}
+impl ::core::cmp::Eq for PROCESS_COMMIT_USAGE {}
+impl ::core::default::Default for PROCESS_COMMIT_USAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -53718,6 +57760,91 @@ impl ::core::cmp::PartialEq for ScriptDebugPosition {
 }
 impl ::core::cmp::Eq for ScriptDebugPosition {}
 impl ::core::default::Default for ScriptDebugPosition {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct TARGET_DEBUG_INFO {
+    pub SizeOfStruct: u32,
+    pub EntryDate: u64,
+    pub DebugeeClass: u32,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub OsInfo: OS_INFO,
+    pub Cpu: CPU_INFO,
+    pub DumpFile: [u8; 260],
+}
+impl ::core::marker::Copy for TARGET_DEBUG_INFO {}
+impl ::core::clone::Clone for TARGET_DEBUG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for TARGET_DEBUG_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for TARGET_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct TARGET_DEBUG_INFO_v1 {
+    pub SizeOfStruct: u32,
+    pub Id: u64,
+    pub Source: u64,
+    pub EntryDate: u64,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub Mode: u64,
+    pub OsInfo: OS_INFO_v1,
+    pub Cpu: CPU_INFO_v1,
+    pub DumpFile: [u8; 260],
+    pub FailureData: *mut ::core::ffi::c_void,
+    pub StackTr: [u8; 4096],
+}
+impl ::core::marker::Copy for TARGET_DEBUG_INFO_v1 {}
+impl ::core::clone::Clone for TARGET_DEBUG_INFO_v1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for TARGET_DEBUG_INFO_v1 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for TARGET_DEBUG_INFO_v1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct TARGET_DEBUG_INFO_v2 {
+    pub SizeOfStruct: u32,
+    pub EntryDate: u64,
+    pub DebugeeClass: u32,
+    pub SysUpTime: u64,
+    pub AppUpTime: u64,
+    pub CrashTime: u64,
+    pub OsInfo: OS_INFO,
+    pub Cpu: CPU_INFO_v2,
+    pub DumpFile: [u8; 260],
+}
+impl ::core::marker::Copy for TARGET_DEBUG_INFO_v2 {}
+impl ::core::clone::Clone for TARGET_DEBUG_INFO_v2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for TARGET_DEBUG_INFO_v2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for TARGET_DEBUG_INFO_v2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -55636,6 +59763,43 @@ impl ::core::default::Default for WOW64_LDT_ENTRY_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct XML_DRIVER_NODE_INFO {
+    pub FileName: [u8; 64],
+    pub FileSize: u64,
+    pub CreationDate: u64,
+    pub Version: [u8; 64],
+    pub Manufacturer: [u8; 260],
+    pub ProductName: [u8; 260],
+    pub Group: [u8; 260],
+    pub Altitude: [u8; 260],
+}
+impl ::core::marker::Copy for XML_DRIVER_NODE_INFO {}
+impl ::core::clone::Clone for XML_DRIVER_NODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for XML_DRIVER_NODE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("XML_DRIVER_NODE_INFO").field("FileName", &self.FileName).field("FileSize", &self.FileSize).field("CreationDate", &self.CreationDate).field("Version", &self.Version).field("Manufacturer", &self.Manufacturer).field("ProductName", &self.ProductName).field("Group", &self.Group).field("Altitude", &self.Altitude).finish()
+    }
+}
+impl ::windows::core::TypeKind for XML_DRIVER_NODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for XML_DRIVER_NODE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.FileName == other.FileName && self.FileSize == other.FileSize && self.CreationDate == other.CreationDate && self.Version == other.Version && self.Manufacturer == other.Manufacturer && self.ProductName == other.ProductName && self.Group == other.Group && self.Altitude == other.Altitude
+    }
+}
+impl ::core::cmp::Eq for XML_DRIVER_NODE_INFO {}
+impl ::core::default::Default for XML_DRIVER_NODE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union XPF_MCE_FLAGS {
@@ -56152,6 +60316,51 @@ impl ::core::default::Default for XSTATE_FEATURE {
 #[cfg(feature = "Win32_Foundation")]
 pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entryaddress: u64, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXTDLL_ITERATERTLBALANCEDNODES = ::core::option::Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXTDLL_QUERYDATABYTAG = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXTDLL_QUERYDATABYTAGEX = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const ::core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type EXTS_JOB_PROCESS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type EXTS_TABLE_ENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(entry: u64, context: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_ANALYSIS_PLUGIN = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: ::core::option::Option<IDebugFailureAnalysis2>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_ANALYZER = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, bucketsuffix: ::windows::core::PSTR, cbbucketsuffix: u32, debugtext: ::windows::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: ::core::option::Option<IDebugFailureAnalysis>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type EXT_DECODE_ERROR = ::core::option::Option<unsafe extern "system" fn(pdecodeerror: *mut DEBUG_DECODE_ERROR) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, flags: u32, classid: ::windows::core::GUID, ppanalysis: *mut ::core::option::Option<IDebugFailureAnalysis2>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_GET_ENVIRONMENT_VARIABLE = ::core::option::Option<unsafe extern "system" fn(peb: u64, variable: ::windows::core::PCSTR, buffer: ::windows::core::PCSTR, buffersize: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_GET_FAILURE_ANALYSIS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, flags: u32, ppanalysis: *mut ::core::option::Option<IDebugFailureAnalysis>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_GET_FA_ENTRIES_DATA = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_GET_HANDLE_TRACE = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_RELOAD_TRIAGER = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_TARGET_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_TRIAGE_FOLLOWUP = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, symbolname: ::windows::core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type EXT_XML_DATA = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type KDEXTS_LOCK_CALLBACKROUTINE = ::core::option::Option<unsafe extern "system" fn(plock: *mut KDEXTS_LOCK_INFO, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type KDEXT_DUMP_HANDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -56203,6 +60412,18 @@ pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" f
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: ::windows::core::PCWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUMERATE_HANDLES = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUMERATE_HASH_TABLE = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUMERATE_JOB_PROCESSES = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PENUMERATE_SYSTEM_LOCKS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: ::windows::core::PCSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
@@ -56233,6 +60454,12 @@ pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system"
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: ::windows::core::PCWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PFIND_FILELOCK_OWNERINFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PFIND_MATCHING_PROCESS = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PFIND_MATCHING_THREAD = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -56240,6 +60467,19 @@ pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_CPU_MICROCODE_VERSION = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_CPU_PSPEED_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_DEVICE_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_DRIVER_OBJECT_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_FULL_IMAGE_NAME = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, process: u64, fullimagename: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_IRP_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -56248,11 +60488,26 @@ pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_PNP_TRIAGE_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_POOL_DATA = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_POOL_REGION = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_POOL_TAG_DESCRIPTION = ::core::option::Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_PROCESS_COMMIT = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "aarch64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86_64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PGET_SMBIOS_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PGET_TARGET_ATTRIBUTE_VALUE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, attribute: u32, attributedata: u64, attributevalue: *mut u64) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIMAGEHLP_STATUS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: ::windows::core::PCSTR, dllname: ::windows::core::PCSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
@@ -56262,6 +60517,8 @@ pub type PIMAGEHLP_STATUS_ROUTINE32 = ::core::option::Option<unsafe extern "syst
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIMAGEHLP_STATUS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: ::windows::core::PCSTR, dllname: ::windows::core::PCSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type PKDEXTS_GET_PTE_INFO = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -56535,5 +60792,7 @@ pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = ::core::option::Option<unsafe
 pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub type fnDebugFailureAnalysisCreateInstance = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, args: ::windows::core::PCWSTR, flags: u32, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

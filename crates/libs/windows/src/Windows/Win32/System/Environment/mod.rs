@@ -135,14 +135,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn GetCommandLineA() -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCommandLineA ( ) -> :: windows::core::PSTR );
+pub unsafe fn GetCommandLineA() -> ::windows::core::PCSTR {
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCommandLineA ( ) -> :: windows::core::PCSTR );
     GetCommandLineA()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn GetCommandLineW() -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCommandLineW ( ) -> :: windows::core::PWSTR );
+pub unsafe fn GetCommandLineW() -> ::windows::core::PCWSTR {
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCommandLineW ( ) -> :: windows::core::PCWSTR );
     GetCommandLineW()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]

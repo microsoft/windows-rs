@@ -4581,6 +4581,249 @@ impl IMFByteStreamTimeSeek_Vtbl {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
+pub trait IMFCameraConfigurationManager_Impl: Sized {
+    fn LoadDefaults(&self, cameraattributes: ::core::option::Option<&IMFAttributes>) -> ::windows::core::Result<IMFCameraControlDefaultsCollection>;
+    fn SaveDefaults(&self, configurations: ::core::option::Option<&IMFCameraControlDefaultsCollection>) -> ::windows::core::Result<()>;
+    fn Shutdown(&self);
+}
+impl ::windows::core::RuntimeName for IMFCameraConfigurationManager {}
+impl IMFCameraConfigurationManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraConfigurationManager_Impl, const OFFSET: isize>() -> IMFCameraConfigurationManager_Vtbl {
+        unsafe extern "system" fn LoadDefaults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cameraattributes: *mut ::core::ffi::c_void, configurations: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.LoadDefaults(::windows::core::from_raw_borrowed(&cameraattributes)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(configurations, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SaveDefaults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configurations: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SaveDefaults(::windows::core::from_raw_borrowed(&configurations)).into()
+        }
+        unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Shutdown()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            LoadDefaults: LoadDefaults::<Identity, Impl, OFFSET>,
+            SaveDefaults: SaveDefaults::<Identity, Impl, OFFSET>,
+            Shutdown: Shutdown::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMFCameraConfigurationManager as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
+pub trait IMFCameraControlDefaults_Impl: Sized {
+    fn GetType(&self) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE;
+    fn GetRangeInfo(&self) -> ::windows::core::Result<MF_CAMERA_CONTROL_RANGE_INFO>;
+    fn LockControlData(&self, control: *mut *mut ::core::ffi::c_void, controlsize: *mut u32, data: *mut *mut ::core::ffi::c_void, datasize: *mut u32) -> ::windows::core::Result<()>;
+    fn UnlockControlData(&self) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IMFCameraControlDefaults {}
+impl IMFCameraControlDefaults_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaults_Impl, const OFFSET: isize>() -> IMFCameraControlDefaults_Vtbl {
+        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetType()
+        }
+        unsafe extern "system" fn GetRangeInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangeinfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetRangeInfo() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(rangeinfo, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn LockControlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, control: *mut *mut ::core::ffi::c_void, controlsize: *mut u32, data: *mut *mut ::core::ffi::c_void, datasize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.LockControlData(::core::mem::transmute_copy(&control), ::core::mem::transmute_copy(&controlsize), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
+        }
+        unsafe extern "system" fn UnlockControlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.UnlockControlData().into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetType: GetType::<Identity, Impl, OFFSET>,
+            GetRangeInfo: GetRangeInfo::<Identity, Impl, OFFSET>,
+            LockControlData: LockControlData::<Identity, Impl, OFFSET>,
+            UnlockControlData: UnlockControlData::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMFCameraControlDefaults as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IMFCameraControlDefaultsCollection_Impl: Sized + IMFAttributes_Impl {
+    fn GetControlCount(&self) -> u32;
+    fn GetControl(&self, index: u32) -> ::windows::core::Result<IMFCameraControlDefaults>;
+    fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: u32, streamid: u32, datasize: u32) -> ::windows::core::Result<IMFCameraControlDefaults>;
+    fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const ::windows::core::GUID, constrolid: u32, controlsize: u32, datasize: u32) -> ::windows::core::Result<IMFCameraControlDefaults>;
+    fn RemoveControl(&self, controlset: *const ::windows::core::GUID, constrolid: u32) -> ::windows::core::Result<()>;
+    fn RemoveAllControls(&self) -> ::windows::core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFCameraControlDefaultsCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl IMFCameraControlDefaultsCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>() -> IMFCameraControlDefaultsCollection_Vtbl {
+        unsafe extern "system" fn GetControlCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetControlCount()
+        }
+        unsafe extern "system" fn GetControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, configuration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetControl(::core::mem::transmute_copy(&index)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(configuration, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetOrAddExtendedControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: u32, streamid: u32, datasize: u32, defaults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOrAddExtendedControl(::core::mem::transmute_copy(&configtype), ::core::mem::transmute_copy(&constrolid), ::core::mem::transmute_copy(&streamid), ::core::mem::transmute_copy(&datasize)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(defaults, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetOrAddControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const ::windows::core::GUID, constrolid: u32, controlsize: u32, datasize: u32, defaults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOrAddControl(::core::mem::transmute_copy(&configtype), ::core::mem::transmute_copy(&controlset), ::core::mem::transmute_copy(&constrolid), ::core::mem::transmute_copy(&controlsize), ::core::mem::transmute_copy(&datasize)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(defaults, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlset: *const ::windows::core::GUID, constrolid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveControl(::core::mem::transmute_copy(&controlset), ::core::mem::transmute_copy(&constrolid)).into()
+        }
+        unsafe extern "system" fn RemoveAllControls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveAllControls().into()
+        }
+        Self {
+            base__: IMFAttributes_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetControlCount: GetControlCount::<Identity, Impl, OFFSET>,
+            GetControl: GetControl::<Identity, Impl, OFFSET>,
+            GetOrAddExtendedControl: GetOrAddExtendedControl::<Identity, Impl, OFFSET>,
+            GetOrAddControl: GetOrAddControl::<Identity, Impl, OFFSET>,
+            RemoveControl: RemoveControl::<Identity, Impl, OFFSET>,
+            RemoveAllControls: RemoveAllControls::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMFCameraControlDefaultsCollection as ::windows::core::ComInterface>::IID || iid == &<IMFAttributes as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
+pub trait IMFCameraControlMonitor_Impl: Sized {
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn AddControlSubscription(&self, controlset: &::windows::core::GUID, id: u32) -> ::windows::core::Result<()>;
+    fn RemoveControlSubscription(&self, controlset: &::windows::core::GUID, id: u32) -> ::windows::core::Result<()>;
+    fn Shutdown(&self);
+}
+impl ::windows::core::RuntimeName for IMFCameraControlMonitor {}
+impl IMFCameraControlMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>() -> IMFCameraControlMonitor_Vtbl {
+        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Start().into()
+        }
+        unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Stop().into()
+        }
+        unsafe extern "system" fn AddControlSubscription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddControlSubscription(::core::mem::transmute(&controlset), ::core::mem::transmute_copy(&id)).into()
+        }
+        unsafe extern "system" fn RemoveControlSubscription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveControlSubscription(::core::mem::transmute(&controlset), ::core::mem::transmute_copy(&id)).into()
+        }
+        unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Shutdown()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Start: Start::<Identity, Impl, OFFSET>,
+            Stop: Stop::<Identity, Impl, OFFSET>,
+            AddControlSubscription: AddControlSubscription::<Identity, Impl, OFFSET>,
+            RemoveControlSubscription: RemoveControlSubscription::<Identity, Impl, OFFSET>,
+            Shutdown: Shutdown::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMFCameraControlMonitor as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
+pub trait IMFCameraControlNotify_Impl: Sized {
+    fn OnChange(&self, controlset: *const ::windows::core::GUID, id: u32);
+    fn OnError(&self, hrstatus: ::windows::core::HRESULT);
+}
+impl ::windows::core::RuntimeName for IMFCameraControlNotify {}
+impl IMFCameraControlNotify_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlNotify_Impl, const OFFSET: isize>() -> IMFCameraControlNotify_Vtbl {
+        unsafe extern "system" fn OnChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlset: *const ::windows::core::GUID, id: u32) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnChange(::core::mem::transmute_copy(&controlset), ::core::mem::transmute_copy(&id))
+        }
+        unsafe extern "system" fn OnError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnError(::core::mem::transmute_copy(&hrstatus))
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            OnChange: OnChange::<Identity, Impl, OFFSET>,
+            OnError: OnError::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMFCameraControlNotify as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 pub trait IMFCameraOcclusionStateMonitor_Impl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;

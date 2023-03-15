@@ -262,24 +262,6 @@ impl IDesktopWindowTargetInterop_Vtbl {
         iid == &<IDesktopWindowTargetInterop as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
-pub trait ISwapChainInterop_Impl: Sized {
-    fn SetSwapChain(&self, swapchain: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-}
-impl ::windows::core::RuntimeName for ISwapChainInterop {}
-impl ISwapChainInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISwapChainInterop_Impl, const OFFSET: isize>() -> ISwapChainInterop_Vtbl {
-        unsafe extern "system" fn SetSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISwapChainInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetSwapChain(::windows::core::from_raw_borrowed(&swapchain)).into()
-        }
-        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISwapChainInterop as ::windows::core::ComInterface>::IID
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: Sized {

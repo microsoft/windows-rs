@@ -1338,6 +1338,46 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+pub struct IAcousticEchoCancellationControl(::windows::core::IUnknown);
+impl IAcousticEchoCancellationControl {
+    pub unsafe fn SetEchoCancellationRenderEndpoint<P0>(&self, endpointid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Interface::vtable(self).SetEchoCancellationRenderEndpoint)(::windows::core::Interface::as_raw(self), endpointid.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IAcousticEchoCancellationControl, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAcousticEchoCancellationControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAcousticEchoCancellationControl {}
+impl ::core::fmt::Debug for IAcousticEchoCancellationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAcousticEchoCancellationControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAcousticEchoCancellationControl {
+    type Vtable = IAcousticEchoCancellationControl_Vtbl;
+}
+impl ::core::clone::Clone for IAcousticEchoCancellationControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAcousticEchoCancellationControl {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4ae25b5_aaa3_437d_b6b3_dbbe2d0e9549);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAcousticEchoCancellationControl_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(::windows::core::IUnknown);
 impl IActivateAudioInterfaceAsyncOperation {
     pub unsafe fn GetActivateResult(&self, activateresult: *mut ::windows::core::HRESULT, activatedinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -3376,6 +3416,51 @@ pub struct IAudioTreble_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
+pub struct IAudioViewManagerService(::windows::core::IUnknown);
+impl IAudioViewManagerService {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAudioStreamWindow<P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    {
+        (::windows::core::Interface::vtable(self).SetAudioStreamWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IAudioViewManagerService, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IAudioViewManagerService {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IAudioViewManagerService {}
+impl ::core::fmt::Debug for IAudioViewManagerService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioViewManagerService").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IAudioViewManagerService {
+    type Vtable = IAudioViewManagerService_Vtbl;
+}
+impl ::core::clone::Clone for IAudioViewManagerService {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IAudioViewManagerService {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a7ef10_1f49_45e0_ad35_612057cc8f74);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAudioViewManagerService_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetAudioStreamWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetAudioStreamWindow: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
 pub struct IAudioVolumeDuckNotification(::windows::core::IUnknown);
 impl IAudioVolumeDuckNotification {
     pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> ::windows::core::Result<()>
@@ -3815,6 +3900,54 @@ pub struct IDeviceTopology_Vtbl {
     pub GetSignalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipartfrom: *mut ::core::ffi::c_void, pipartto: *mut ::core::ffi::c_void, brejectmixedpaths: super::super::Foundation::BOOL, ppparts: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSignalPath: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
+pub struct IKsJackDescription3(::windows::core::IUnknown);
+impl IKsJackDescription3 {
+    pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+    #[cfg(feature = "Win32_Media_KernelStreaming")]
+    pub unsafe fn GetJackDescription3(&self, njack: u32) -> ::windows::core::Result<super::KernelStreaming::KSJACK_DESCRIPTION3> {
+        let mut result__ = ::windows::core::zeroed::<super::KernelStreaming::KSJACK_DESCRIPTION3>();
+        (::windows::core::Interface::vtable(self).GetJackDescription3)(::windows::core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IKsJackDescription3, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IKsJackDescription3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsJackDescription3 {}
+impl ::core::fmt::Debug for IKsJackDescription3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackDescription3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IKsJackDescription3 {
+    type Vtable = IKsJackDescription3_Vtbl;
+}
+impl ::core::clone::Clone for IKsJackDescription3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IKsJackDescription3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsJackDescription3_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_KernelStreaming")]
+    pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut super::KernelStreaming::KSJACK_DESCRIPTION3) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_KernelStreaming"))]
+    GetJackDescription3: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]

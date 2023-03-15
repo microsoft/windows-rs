@@ -341,6 +341,36 @@ impl IXblIdpAuthManager_Vtbl {
         iid == &<IXblIdpAuthManager as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub trait IXblIdpAuthManager2_Impl: Sized {
+    fn GetUserlessTokenAndSignatureWithTokenResult(&self, appsid: &::windows::core::PCWSTR, msatarget: &::windows::core::PCWSTR, msapolicy: &::windows::core::PCWSTR, httpmethod: &::windows::core::PCWSTR, uri: &::windows::core::PCWSTR, headers: &::windows::core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows::core::Result<IXblIdpAuthTokenResult>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXblIdpAuthManager2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl IXblIdpAuthManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager2_Impl, const OFFSET: isize>() -> IXblIdpAuthManager2_Vtbl {
+        unsafe extern "system" fn GetUserlessTokenAndSignatureWithTokenResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXblIdpAuthManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appsid: ::windows::core::PCWSTR, msatarget: ::windows::core::PCWSTR, msapolicy: ::windows::core::PCWSTR, httpmethod: ::windows::core::PCWSTR, uri: ::windows::core::PCWSTR, headers: ::windows::core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetUserlessTokenAndSignatureWithTokenResult(::core::mem::transmute(&appsid), ::core::mem::transmute(&msatarget), ::core::mem::transmute(&msapolicy), ::core::mem::transmute(&httpmethod), ::core::mem::transmute(&uri), ::core::mem::transmute(&headers), ::core::mem::transmute_copy(&body), ::core::mem::transmute_copy(&bodysize), ::core::mem::transmute_copy(&forcerefresh)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetUserlessTokenAndSignatureWithTokenResult: GetUserlessTokenAndSignatureWithTokenResult::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IXblIdpAuthManager2 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;

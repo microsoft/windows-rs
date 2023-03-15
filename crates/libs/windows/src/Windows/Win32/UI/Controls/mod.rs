@@ -13103,6 +13103,20 @@ pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
 pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = MENUPARTS(21i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = MENUPARTS(22i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = MENUPARTS(23i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = MENUPARTS(24i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = MENUPARTS(25i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = MENUPARTS(26i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = MENUPARTS(27i32);
 impl ::core::marker::Copy for MENUPARTS {}
 impl ::core::clone::Clone for MENUPARTS {
     fn clone(&self) -> Self {
@@ -13120,6 +13134,31 @@ impl ::windows::core::TypeKind for MENUPARTS {
 impl ::core::fmt::Debug for MENUPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MENUPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MENU_POPUPSUBMENU_HCHOT(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSMHC_HOT: MENU_POPUPSUBMENU_HCHOT = MENU_POPUPSUBMENU_HCHOT(1i32);
+impl ::core::marker::Copy for MENU_POPUPSUBMENU_HCHOT {}
+impl ::core::clone::Clone for MENU_POPUPSUBMENU_HCHOT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MENU_POPUPSUBMENU_HCHOT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for MENU_POPUPSUBMENU_HCHOT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for MENU_POPUPSUBMENU_HCHOT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENU_POPUPSUBMENU_HCHOT").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -14675,6 +14714,62 @@ impl ::core::fmt::Debug for POPUPCHECKSTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPITEMFOCUSABLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(4i32);
+impl ::core::marker::Copy for POPUPITEMFOCUSABLESTATES {}
+impl ::core::clone::Clone for POPUPITEMFOCUSABLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPITEMFOCUSABLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POPUPITEMFOCUSABLESTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POPUPITEMFOCUSABLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPITEMFOCUSABLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPITEMKBFOCUSSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = POPUPITEMKBFOCUSSTATES(1i32);
+impl ::core::marker::Copy for POPUPITEMKBFOCUSSTATES {}
+impl ::core::clone::Clone for POPUPITEMKBFOCUSSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPITEMKBFOCUSSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for POPUPITEMKBFOCUSSTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for POPUPITEMKBFOCUSSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPITEMKBFOCUSSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPITEMSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
@@ -15808,6 +15903,31 @@ impl ::core::fmt::Debug for SYSBUTTONSTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMCLOSEHCHOTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = SYSTEMCLOSEHCHOTSTATES(1i32);
+impl ::core::marker::Copy for SYSTEMCLOSEHCHOTSTATES {}
+impl ::core::clone::Clone for SYSTEMCLOSEHCHOTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMCLOSEHCHOTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for SYSTEMCLOSEHCHOTSTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for SYSTEMCLOSEHCHOTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMCLOSEHCHOTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMCLOSESTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
@@ -15830,6 +15950,31 @@ impl ::windows::core::TypeKind for SYSTEMCLOSESTATES {
 impl ::core::fmt::Debug for SYSTEMCLOSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEMCLOSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMMAXIMIZEHCHOTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = SYSTEMMAXIMIZEHCHOTSTATES(1i32);
+impl ::core::marker::Copy for SYSTEMMAXIMIZEHCHOTSTATES {}
+impl ::core::clone::Clone for SYSTEMMAXIMIZEHCHOTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMMAXIMIZEHCHOTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for SYSTEMMAXIMIZEHCHOTSTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for SYSTEMMAXIMIZEHCHOTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMMAXIMIZEHCHOTSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -15862,6 +16007,31 @@ impl ::core::fmt::Debug for SYSTEMMAXIMIZESTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMMINIMIZEHCHOTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = SYSTEMMINIMIZEHCHOTSTATES(1i32);
+impl ::core::marker::Copy for SYSTEMMINIMIZEHCHOTSTATES {}
+impl ::core::clone::Clone for SYSTEMMINIMIZEHCHOTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMMINIMIZEHCHOTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for SYSTEMMINIMIZEHCHOTSTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for SYSTEMMINIMIZEHCHOTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMMINIMIZEHCHOTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMMINIMIZESTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
@@ -15884,6 +16054,31 @@ impl ::windows::core::TypeKind for SYSTEMMINIMIZESTATES {
 impl ::core::fmt::Debug for SYSTEMMINIMIZESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEMMINIMIZESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMRESTOREHCHOTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = SYSTEMRESTOREHCHOTSTATES(1i32);
+impl ::core::marker::Copy for SYSTEMRESTOREHCHOTSTATES {}
+impl ::core::clone::Clone for SYSTEMRESTOREHCHOTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMRESTOREHCHOTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for SYSTEMRESTOREHCHOTSTATES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for SYSTEMRESTOREHCHOTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMRESTOREHCHOTSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]

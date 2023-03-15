@@ -1220,6 +1220,8 @@ pub const EVENT_TRACE_TYPE_CONFIG_OPTICALMEDIA: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK_EX: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PLATFORM: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_TYPE_CONFIG_PNP: u32 = 22u32;
@@ -1976,7 +1978,9 @@ pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PRO
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(4i32);
+pub const EtwQueryLogFileHeader: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(5i32);
 impl ::core::marker::Copy for ETW_PROCESS_HANDLE_INFO_TYPE {}
 impl ::core::clone::Clone for ETW_PROCESS_HANDLE_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -1994,6 +1998,33 @@ impl ::windows::core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
 impl ::core::fmt::Debug for ETW_PROCESS_HANDLE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ETW_PROCESS_HANDLE_INFO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ETW_PROCESS_TRACE_MODES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const ETW_PROCESS_TRACE_MODE_NONE: ETW_PROCESS_TRACE_MODES = ETW_PROCESS_TRACE_MODES(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const ETW_PROCESS_TRACE_MODE_RAW_TIMESTAMP: ETW_PROCESS_TRACE_MODES = ETW_PROCESS_TRACE_MODES(1i32);
+impl ::core::marker::Copy for ETW_PROCESS_TRACE_MODES {}
+impl ::core::clone::Clone for ETW_PROCESS_TRACE_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ETW_PROCESS_TRACE_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for ETW_PROCESS_TRACE_MODES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for ETW_PROCESS_TRACE_MODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ETW_PROCESS_TRACE_MODES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
@@ -2610,7 +2641,9 @@ pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(26i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(27i32);
+pub const TracePmcSessionInformation: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(27i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(28i32);
 impl ::core::marker::Copy for TRACE_QUERY_INFO_CLASS {}
 impl ::core::clone::Clone for TRACE_QUERY_INFO_CLASS {
     fn clone(&self) -> Self {
@@ -3006,6 +3039,46 @@ impl ::core::default::Default for ENABLE_TRACE_PARAMETERS_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub struct ETW_BUFFER_CALLBACK_INFORMATION {
+    pub TraceHandle: u64,
+    pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
+    pub BuffersRead: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::marker::Copy for ETW_BUFFER_CALLBACK_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::clone::Clone for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_BUFFER_CALLBACK_INFORMATION").field("TraceHandle", &self.TraceHandle).field("LogfileHeader", &self.LogfileHeader).field("BuffersRead", &self.BuffersRead).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::windows::core::TypeKind for ETW_BUFFER_CALLBACK_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::cmp::PartialEq for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.TraceHandle == other.TraceHandle && self.LogfileHeader == other.LogfileHeader && self.BuffersRead == other.BuffersRead
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::cmp::Eq for ETW_BUFFER_CALLBACK_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::default::Default for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ETW_BUFFER_CONTEXT {
     pub Anonymous: ETW_BUFFER_CONTEXT_0,
@@ -3078,6 +3151,65 @@ impl ::core::default::Default for ETW_BUFFER_CONTEXT_0_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct ETW_BUFFER_HEADER {
+    pub Reserved1: [u32; 4],
+    pub TimeStamp: i64,
+    pub Reserved2: [u32; 4],
+    pub ClientContext: ETW_BUFFER_CONTEXT,
+    pub Reserved3: u32,
+    pub FilledBytes: u32,
+    pub Reserved4: [u32; 5],
+}
+impl ::core::marker::Copy for ETW_BUFFER_HEADER {}
+impl ::core::clone::Clone for ETW_BUFFER_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows::core::TypeKind for ETW_BUFFER_HEADER {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::default::Default for ETW_BUFFER_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub struct ETW_OPEN_TRACE_OPTIONS {
+    pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
+    pub EventCallback: PEVENT_RECORD_CALLBACK,
+    pub EventCallbackContext: *mut ::core::ffi::c_void,
+    pub BufferCallback: PETW_BUFFER_CALLBACK,
+    pub BufferCallbackContext: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::marker::Copy for ETW_OPEN_TRACE_OPTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::clone::Clone for ETW_OPEN_TRACE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::fmt::Debug for ETW_OPEN_TRACE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_OPEN_TRACE_OPTIONS").field("ProcessTraceModes", &self.ProcessTraceModes).field("EventCallbackContext", &self.EventCallbackContext).field("BufferCallbackContext", &self.BufferCallbackContext).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::windows::core::TypeKind for ETW_OPEN_TRACE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+impl ::core::default::Default for ETW_OPEN_TRACE_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
@@ -3136,6 +3268,40 @@ impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 impl ::core::cmp::Eq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
 impl ::core::default::Default for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct ETW_PMC_SESSION_INFO {
+    pub NextEntryOffset: u32,
+    pub LoggerId: u16,
+    pub Reserved: u16,
+    pub ProfileSourceCount: u32,
+    pub HookIdCount: u32,
+}
+impl ::core::marker::Copy for ETW_PMC_SESSION_INFO {}
+impl ::core::clone::Clone for ETW_PMC_SESSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ETW_PMC_SESSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ETW_PMC_SESSION_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("LoggerId", &self.LoggerId).field("Reserved", &self.Reserved).field("ProfileSourceCount", &self.ProfileSourceCount).field("HookIdCount", &self.HookIdCount).finish()
+    }
+}
+impl ::windows::core::TypeKind for ETW_PMC_SESSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for ETW_PMC_SESSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.NextEntryOffset == other.NextEntryOffset && self.LoggerId == other.LoggerId && self.Reserved == other.Reserved && self.ProfileSourceCount == other.ProfileSourceCount && self.HookIdCount == other.HookIdCount
+    }
+}
+impl ::core::cmp::Eq for ETW_PMC_SESSION_INFO {}
+impl ::core::default::Default for ETW_PMC_SESSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -7145,6 +7311,11 @@ impl ::core::default::Default for WNODE_TOO_SMALL {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+pub type PETW_BUFFER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub type PETW_BUFFER_COMPLETION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]

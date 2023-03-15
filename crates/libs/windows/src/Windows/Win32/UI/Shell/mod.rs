@@ -475,6 +475,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn FileIconInit<P0>(frestorecache: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+{
+    ::windows::imp::link ! ( "shell32.dll""system" fn FileIconInit ( frestorecache : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    FileIconInit(frestorecache.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindExecutableA<P0, P1>(lpfile: P0, lpdirectory: P1, lpresult: &mut [u8; 260]) -> super::super::Foundation::HINSTANCE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,

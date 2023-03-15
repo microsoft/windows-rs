@@ -3029,24 +3029,24 @@ pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     ::windows::imp::link ! ( "user32.dll""system" fn RegisterClassW ( lpwndclass : *const WNDCLASSW ) -> u16 );
     RegisterClassW(lpwndclass)
 }
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterDeviceNotificationA<P0>(hrecipient: P0, notificationfilter: *const ::core::ffi::c_void, flags: super::super::System::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void
+pub unsafe fn RegisterDeviceNotificationA<P0>(hrecipient: P0, notificationfilter: *const ::core::ffi::c_void, flags: REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn RegisterDeviceNotificationA ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : super::super::System::Power:: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterDeviceNotificationA ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
     RegisterDeviceNotificationA(hrecipient.into_param().abi(), notificationfilter, flags)
 }
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterDeviceNotificationW<P0>(hrecipient: P0, notificationfilter: *const ::core::ffi::c_void, flags: super::super::System::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void
+pub unsafe fn RegisterDeviceNotificationW<P0>(hrecipient: P0, notificationfilter: *const ::core::ffi::c_void, flags: REGISTER_NOTIFICATION_FLAGS) -> *mut ::core::ffi::c_void
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn RegisterDeviceNotificationW ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : super::super::System::Power:: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterDeviceNotificationW ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
     RegisterDeviceNotificationW(hrecipient.into_param().abi(), notificationfilter, flags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
@@ -4380,8 +4380,6 @@ pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6687,6 +6685,8 @@ pub const WM_THEMECHANGED: u32 = 794u32;
 pub const WM_TIMECHANGE: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WM_TIMER: u32 = 275u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const WM_TOOLTIPDISMISS: u32 = 837u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WM_TOUCH: u32 = 576u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -9097,6 +9097,37 @@ impl ::core::ops::Not for QUEUE_STATUS_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct REGISTER_NOTIFICATION_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = REGISTER_NOTIFICATION_FLAGS(4u32);
+impl ::core::marker::Copy for REGISTER_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for REGISTER_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REGISTER_NOTIFICATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for REGISTER_NOTIFICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for REGISTER_NOTIFICATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REGISTER_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLBAR_COMMAND(pub i32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SB_LINEUP: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(0i32);
@@ -10468,6 +10499,33 @@ impl ::windows::core::TypeKind for TILE_WINDOWS_HOW {
 impl ::core::fmt::Debug for TILE_WINDOWS_HOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TILE_WINDOWS_HOW").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOOLTIP_DISMISS_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = TOOLTIP_DISMISS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = TOOLTIP_DISMISS_FLAGS(2i32);
+impl ::core::marker::Copy for TOOLTIP_DISMISS_FLAGS {}
+impl ::core::clone::Clone for TOOLTIP_DISMISS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOOLTIP_DISMISS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for TOOLTIP_DISMISS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for TOOLTIP_DISMISS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOOLTIP_DISMISS_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -12544,6 +12602,46 @@ impl ::core::cmp::PartialEq for FLASHWINFO {
 impl ::core::cmp::Eq for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FLASHWINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GETCLIPBMETADATA {
+    pub Version: u32,
+    pub IsDelayRendered: super::super::Foundation::BOOL,
+    pub IsSynthetic: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GETCLIPBMETADATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GETCLIPBMETADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for GETCLIPBMETADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GETCLIPBMETADATA").field("Version", &self.Version).field("IsDelayRendered", &self.IsDelayRendered).field("IsSynthetic", &self.IsSynthetic).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for GETCLIPBMETADATA {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GETCLIPBMETADATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.Version == other.Version && self.IsDelayRendered == other.IsDelayRendered && self.IsSynthetic == other.IsSynthetic
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GETCLIPBMETADATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GETCLIPBMETADATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

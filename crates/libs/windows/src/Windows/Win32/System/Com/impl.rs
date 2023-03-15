@@ -3957,6 +3957,17 @@ impl IStream_Vtbl {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
+pub trait ISupportAllowLowerTrustActivation_Impl: Sized {}
+impl ::windows::core::RuntimeName for ISupportAllowLowerTrustActivation {}
+impl ISupportAllowLowerTrustActivation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISupportAllowLowerTrustActivation_Impl, const OFFSET: isize>() -> ISupportAllowLowerTrustActivation_Vtbl {
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISupportAllowLowerTrustActivation as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait ISupportErrorInfo_Impl: Sized {
     fn InterfaceSupportsErrorInfo(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }

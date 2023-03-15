@@ -290,6 +290,33 @@ impl INetwork_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait INetwork2_Impl: Sized + INetwork_Impl {
+    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for INetwork2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl INetwork2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork2_Impl, const OFFSET: isize>() -> INetwork2_Vtbl {
+        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IsDomainAuthenticatedBy(::core::mem::transmute_copy(&domainauthenticationkind)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: INetwork_Vtbl::new::<Identity, Impl, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetwork2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<INetwork as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetwork(&self) -> ::windows::core::Result<INetwork>;
     fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -394,6 +421,33 @@ impl INetworkConnection_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetworkConnection as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait INetworkConnection2_Impl: Sized + INetworkConnection_Impl {
+    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for INetworkConnection2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl INetworkConnection2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection2_Impl, const OFFSET: isize>() -> INetworkConnection2_Vtbl {
+        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IsDomainAuthenticatedBy(::core::mem::transmute_copy(&domainauthenticationkind)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: INetworkConnection_Vtbl::new::<Identity, Impl, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INetworkConnection2 as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<INetworkConnection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]

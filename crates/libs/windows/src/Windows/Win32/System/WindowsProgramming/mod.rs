@@ -2581,6 +2581,47 @@ pub struct IEditionUpgradeHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
+pub struct IFClipNotificationHelper(::windows::core::IUnknown);
+impl IFClipNotificationHelper {
+    pub unsafe fn ShowSystemDialog<P0, P1>(&self, titletext: P0, bodytext: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::BSTR>,
+    {
+        (::windows::core::Interface::vtable(self).ShowSystemDialog)(::windows::core::Interface::as_raw(self), titletext.into_param().abi(), bodytext.into_param().abi()).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IFClipNotificationHelper, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IFClipNotificationHelper {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IFClipNotificationHelper {}
+impl ::core::fmt::Debug for IFClipNotificationHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFClipNotificationHelper").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IFClipNotificationHelper {
+    type Vtable = IFClipNotificationHelper_Vtbl;
+}
+impl ::core::clone::Clone for IFClipNotificationHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IFClipNotificationHelper {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d5e3d21_bd41_4c2a_a669_b17ce87fb50b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFClipNotificationHelper_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub ShowSystemDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows::core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
 pub struct IWindowsLockModeHelper(::windows::core::IUnknown);
 impl IWindowsLockModeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2883,6 +2924,10 @@ pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE2_V2_VALID_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPY_FILE_COPY_SYMLINK: u32 = 2048u32;
@@ -2894,6 +2939,8 @@ pub const COPY_FILE_DISABLE_PRE_ALLOCATION: u32 = 67108864u32;
 pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_ENABLE_SPARSE_COPY: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPY_FILE_FAIL_IF_EXISTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3641,6 +3688,10 @@ pub const RPI_SMB2_FLAG_SERVERCAP_MULTICHANNEL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const RPI_SMB2_FLAG_SERVERCAP_PERSISTENT_HANDLES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_SHAREFLAG_COMPRESS_DATA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_SHAREFLAG_ENCRYPT_DATA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const RSC_FLAG_DELAYREGISTEROCX: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const RSC_FLAG_INF: u32 = 1u32;
@@ -3815,13 +3866,35 @@ pub const WINWATCHNOTIFY_START: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_CANEXECUTEBUFFER_FN: ::windows::core::PCSTR = ::windows::s!("WldpCanExecuteBuffer");
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_CANEXECUTEFILE_FN: ::windows::core::PCSTR = ::windows::s!("WldpCanExecuteFile");
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_DLL: ::windows::core::PCWSTR = ::windows::w!("WLDP.DLL");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_GETLOCKDOWNPOLICY_FN: ::windows::core::PCSTR = ::windows::s!("WldpGetLockdownPolicy");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_CMD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5baea1d6_6f1c_488e_8490_347fa5c5067f);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_HTML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_JAVASCRIPT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_MSI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x626cbec3_e1fa_4227_9800_ed210274cf7c);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_POWERSHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_PYTHON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5594be58_c6bf_4295_82f4_d494d20e3a36);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: ::windows::core::PCSTR = ::windows::s!("WldpIsAppApprovedByPolicy");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -4154,6 +4227,37 @@ impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILE_FLUSH_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
+impl ::core::marker::Copy for FILE_FLUSH_MODE {}
+impl ::core::clone::Clone for FILE_FLUSH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_FLUSH_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for FILE_FLUSH_MODE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for FILE_FLUSH_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_FLUSH_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
@@ -4174,6 +4278,66 @@ impl ::windows::core::TypeKind for FILE_INFORMATION_CLASS {
 impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILE_WRITE_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
+impl ::core::marker::Copy for FILE_WRITE_FLAGS {}
+impl ::core::clone::Clone for FILE_WRITE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_WRITE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for FILE_WRITE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for FILE_WRITE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_WRITE_FLAGS").field(&self.0).finish()
+    }
+}
+impl FILE_WRITE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILE_WRITE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILE_WRITE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILE_WRITE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -4407,6 +4571,95 @@ impl ::windows::core::TypeKind for WINSTATIONINFOCLASS {
 impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINSTATIONINFOCLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_EXECUTION_EVALUATION_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_EVALUATION_OPTION_NONE: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_EVALUATION_OPTION_EXECUTE_IN_INTERACTIVE_SESSION: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(1i32);
+impl ::core::marker::Copy for WLDP_EXECUTION_EVALUATION_OPTIONS {}
+impl ::core::clone::Clone for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_EXECUTION_EVALUATION_OPTIONS").field(&self.0).finish()
+    }
+}
+impl WLDP_EXECUTION_EVALUATION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WLDP_EXECUTION_EVALUATION_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_EXECUTION_POLICY(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_BLOCKED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_ALLOWED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_REQUIRE_SANDBOX: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(2i32);
+impl ::core::marker::Copy for WLDP_EXECUTION_POLICY {}
+impl ::core::clone::Clone for WLDP_EXECUTION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_EXECUTION_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for WLDP_EXECUTION_POLICY {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for WLDP_EXECUTION_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_EXECUTION_POLICY").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -7335,6 +7588,14 @@ pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(d
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub type PWLDP_CANEXECUTEBUFFER_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_CANEXECUTEFILE_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: ::core::option::Option<super::Com::IStream>, auditinfo: ::windows::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows::core::PCWSTR, packageversion: u64) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]

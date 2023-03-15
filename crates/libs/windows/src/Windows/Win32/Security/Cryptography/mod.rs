@@ -224,30 +224,30 @@ pub unsafe fn BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount:
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptEnumContextFunctionProviders<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptEnumContextFunctionProviders<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEnumContextFunctionProviders ( dwtable : BCRYPT_TABLE , pszcontext : :: windows::core::PCWSTR , dwinterface : BCRYPT_INTERFACE , pszfunction : :: windows::core::PCWSTR , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS ) -> super::super::Foundation:: NTSTATUS );
-    BCryptEnumContextFunctionProviders(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pcbbuffer, ppbuffer).ok()
+    BCryptEnumContextFunctionProviders(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptEnumContextFunctions<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTIONS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptEnumContextFunctions<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_CONTEXT_FUNCTIONS>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEnumContextFunctions ( dwtable : BCRYPT_TABLE , pszcontext : :: windows::core::PCWSTR , dwinterface : BCRYPT_INTERFACE , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTIONS ) -> super::super::Foundation:: NTSTATUS );
-    BCryptEnumContextFunctions(dwtable, pszcontext.into_param().abi(), dwinterface, pcbbuffer, ppbuffer).ok()
+    BCryptEnumContextFunctions(dwtable, pszcontext.into_param().abi(), dwinterface, pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXTS) -> ::windows::core::Result<()> {
+pub unsafe fn BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_CONTEXTS>) -> ::windows::core::Result<()> {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEnumContexts ( dwtable : BCRYPT_TABLE , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_CONTEXTS ) -> super::super::Foundation:: NTSTATUS );
-    BCryptEnumContexts(dwtable, pcbbuffer, ppbuffer).ok()
+    BCryptEnumContexts(dwtable, pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -262,9 +262,9 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptEnumRegisteredProviders(pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_PROVIDERS) -> ::windows::core::Result<()> {
+pub unsafe fn BCryptEnumRegisteredProviders(pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_PROVIDERS>) -> ::windows::core::Result<()> {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptEnumRegisteredProviders ( pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_PROVIDERS ) -> super::super::Foundation:: NTSTATUS );
-    BCryptEnumRegisteredProviders(pcbbuffer, ppbuffer).ok()
+    BCryptEnumRegisteredProviders(pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -430,45 +430,45 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptQueryContextConfiguration<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_CONFIG) -> ::windows::core::Result<()>
+pub unsafe fn BCryptQueryContextConfiguration<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_CONTEXT_CONFIG>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptQueryContextConfiguration ( dwtable : BCRYPT_TABLE , pszcontext : :: windows::core::PCWSTR , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_CONTEXT_CONFIG ) -> super::super::Foundation:: NTSTATUS );
-    BCryptQueryContextConfiguration(dwtable, pszcontext.into_param().abi(), pcbbuffer, ppbuffer).ok()
+    BCryptQueryContextConfiguration(dwtable, pszcontext.into_param().abi(), pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptQueryContextFunctionConfiguration<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG) -> ::windows::core::Result<()>
+pub unsafe fn BCryptQueryContextFunctionConfiguration<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptQueryContextFunctionConfiguration ( dwtable : BCRYPT_TABLE , pszcontext : :: windows::core::PCWSTR , dwinterface : BCRYPT_INTERFACE , pszfunction : :: windows::core::PCWSTR , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG ) -> super::super::Foundation:: NTSTATUS );
-    BCryptQueryContextFunctionConfiguration(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pcbbuffer, ppbuffer).ok()
+    BCryptQueryContextFunctionConfiguration(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptQueryContextFunctionProperty<P0, P1, P2>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pszproperty: P2, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
+pub unsafe fn BCryptQueryContextFunctionProperty<P0, P1, P2>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pszproperty: P2, pcbvalue: *mut u32, ppbvalue: ::core::option::Option<*mut *mut u8>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptQueryContextFunctionProperty ( dwtable : BCRYPT_TABLE , pszcontext : :: windows::core::PCWSTR , dwinterface : BCRYPT_INTERFACE , pszfunction : :: windows::core::PCWSTR , pszproperty : :: windows::core::PCWSTR , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
-    BCryptQueryContextFunctionProperty(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pszproperty.into_param().abi(), pcbvalue, ppbvalue).ok()
+    BCryptQueryContextFunctionProperty(dwtable, pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pszproperty.into_param().abi(), pcbvalue, ::core::mem::transmute(ppbvalue.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptQueryProviderRegistration<P0>(pszprovider: P0, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_PROVIDER_REG) -> ::windows::core::Result<()>
+pub unsafe fn BCryptQueryProviderRegistration<P0>(pszprovider: P0, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_PROVIDER_REG>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptQueryProviderRegistration ( pszprovider : :: windows::core::PCWSTR , dwmode : BCRYPT_QUERY_PROVIDER_MODE , dwinterface : BCRYPT_INTERFACE , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_PROVIDER_REG ) -> super::super::Foundation:: NTSTATUS );
-    BCryptQueryProviderRegistration(pszprovider.into_param().abi(), dwmode, dwinterface, pcbbuffer, ppbuffer).ok()
+    BCryptQueryProviderRegistration(pszprovider.into_param().abi(), dwmode, dwinterface, pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -491,14 +491,14 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptResolveProviders<P0, P1, P2>(pszcontext: P0, dwinterface: u32, pszfunction: P1, pszprovider: P2, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_PROVIDER_REFS) -> ::windows::core::Result<()>
+pub unsafe fn BCryptResolveProviders<P0, P1, P2>(pszcontext: P0, dwinterface: u32, pszfunction: P1, pszprovider: P2, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: ::core::option::Option<*mut *mut CRYPT_PROVIDER_REFS>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
     ::windows::imp::link ! ( "bcrypt.dll""system" fn BCryptResolveProviders ( pszcontext : :: windows::core::PCWSTR , dwinterface : u32 , pszfunction : :: windows::core::PCWSTR , pszprovider : :: windows::core::PCWSTR , dwmode : BCRYPT_QUERY_PROVIDER_MODE , dwflags : BCRYPT_RESOLVE_PROVIDERS_FLAGS , pcbbuffer : *mut u32 , ppbuffer : *mut *mut CRYPT_PROVIDER_REFS ) -> super::super::Foundation:: NTSTATUS );
-    BCryptResolveProviders(pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pszprovider.into_param().abi(), dwmode, dwflags, pcbbuffer, ppbuffer).ok()
+    BCryptResolveProviders(pszcontext.into_param().abi(), dwinterface, pszfunction.into_param().abi(), pszprovider.into_param().abi(), dwmode, dwflags, pcbbuffer, ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5136,6 +5136,8 @@ pub const CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_ENABLE_CODE_SIGNING_HYGIENE_FLAG: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_ENABLE_DISALLOWED_CA: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_ENABLE_MD2_MD4_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_ENABLE_MOTW_CODE_SIGNING_HYGIENE_FLAG: u32 = 33554432u32;
@@ -5408,6 +5410,8 @@ pub const CERT_DISABLE_PIN_RULES_AUTO_UPDATE_VALUE_NAME: ::windows::core::PCWSTR
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_DISABLE_ROOT_AUTO_UPDATE_VALUE_NAME: ::windows::core::PCWSTR = ::windows::w!("DisableRootAutoUpdate");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_DISALLOWED_CA_FILETIME_PROP_ID: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_DISALLOWED_CERT_AUTO_UPDATE_ENCODED_CTL_VALUE_NAME: ::windows::core::PCWSTR = ::windows::w!("DisallowedCertEncodedCtl");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_DISALLOWED_CERT_AUTO_UPDATE_LAST_SYNC_TIME_VALUE_NAME: ::windows::core::PCWSTR = ::windows::w!("DisallowedCertLastSyncTime");
@@ -5454,7 +5458,7 @@ pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 128u32;
+pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 129u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FIRST_USER_PROP_ID: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6063,6 +6067,8 @@ pub const CERT_TIMESTAMP_HASH_USE_TYPE: u32 = 2u32;
 pub const CERT_TRUST_AUTO_UPDATE_CA_REVOCATION: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_TRUST_AUTO_UPDATE_END_REVOCATION: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_TRUST_BEFORE_DISALLOWED_CA_FILETIME: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_TRUST_CTL_IS_NOT_SIGNATURE_VALID: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7888,6 +7894,8 @@ pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_EXPORT_POLICY_PROPERTY: ::windows::core::PCWSTR = ::windows::w!("Export Policy");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_EXTENDED_ERRORS_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_HMAC_SHA256_ALGORITHM: ::windows::core::PCWSTR = ::windows::w!("HMAC-SHA256");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_IGNORE_DEVICE_STATE_FLAG: u32 = 4096u32;
@@ -8436,6 +8444,8 @@ pub const PP_ENUMMANDROOTS: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_IMPTYPE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_IS_PFX_EPHEMERAL: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_KEYSET_TYPE: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_KEYSPEC: u32 = 39u32;
@@ -8875,6 +8885,8 @@ pub const szOID_CERTSRV_CA_VERSION: ::windows::core::PCSTR = ::windows::s!("1.3.
 pub const szOID_CERTSRV_CROSSCA_VERSION: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.21.22");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_CERTSRV_PREVIOUS_CERT_HASH: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.21.2");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const szOID_CERT_DISALLOWED_CA_FILETIME_PROP_ID: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.10.11.128");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_CERT_DISALLOWED_FILETIME_PROP_ID: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.10.11.104");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -9386,6 +9398,10 @@ pub const szOID_NIST_sha512: ::windows::core::PCSTR = ::windows::s!("2.16.840.1.
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_NT5_CRYPTO: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.10.3.6");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const szOID_NTDS_CA_SECURITY_EXT: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.25.2");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const szOID_NTDS_OBJECTSID: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.25.2.1");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_NTDS_REPLICATION: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.25.1");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_NT_PRINCIPAL_NAME: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.20.2.3");
@@ -9657,6 +9673,10 @@ pub const szOID_REQUIRE_CERT_CHAIN_POLICY: ::windows::core::PCSTR = ::windows::s
 pub const szOID_REVOKED_LIST_SIGNER: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.10.3.19");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_RFC3161_counterSign: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.3.3.1");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const szOID_RFC3161v21_counterSign: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.3.3.2");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const szOID_RFC3161v21_thumbprints: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.3.3.3");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const szOID_ROLE_OCCUPANT: ::windows::core::PCSTR = ::windows::s!("2.5.4.33");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
