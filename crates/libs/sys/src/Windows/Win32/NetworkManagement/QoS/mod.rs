@@ -311,6 +311,8 @@ pub const LPV_REJECT: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const LPV_RESERVED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const MAX_HSP_UPGRADE_FILENAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const MAX_PHYSADDR_SIZE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const MAX_STRING_LENGTH: u32 = 256u32;
@@ -330,6 +332,8 @@ pub const OSDEVICE_TYPE_BLOCKIO_RAMDISK: u32 = 65542u32;
 pub const OSDEVICE_TYPE_BLOCKIO_REMOVABLEDISK: u32 = 65538u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const OSDEVICE_TYPE_BLOCKIO_VIRTUALHARDDISK: u32 = 65543u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const OSDEVICE_TYPE_CIMFS: u32 = 393216u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const OSDEVICE_TYPE_COMPOSITE: u32 = 327680u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -769,6 +773,8 @@ pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const SIPAEVENT_LSAISO_CONFIG: u32 = 327720u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const SIPAEVENT_MODULE_HSP: u32 = 458764u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const SIPAEVENT_MODULE_SVN: u32 = 458763u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const SIPAEVENT_MORBIT_API_STATUS: u32 = 131083u32;
@@ -882,6 +888,8 @@ pub const SIPAEV_EFI_SPDM_FIRMWARE_CONFIG: u32 = 2147483874u32;
 pub const SIPAEV_EFI_VARIABLE_AUTHORITY: u32 = 2147483872u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const SIPAEV_EFI_VARIABLE_BOOT: u32 = 2147483650u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const SIPAEV_EFI_VARIABLE_BOOT2: u32 = 2147483660u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const SIPAEV_EFI_VARIABLE_DRIVER_CONFIG: u32 = 2147483649u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -1028,6 +1036,8 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const WBCL_MAX_HSP_UPGRADE_HASH_LEN: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const class_ADSPEC: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -1560,6 +1570,20 @@ pub struct GuarRspec {
 }
 impl ::core::marker::Copy for GuarRspec {}
 impl ::core::clone::Clone for GuarRspec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub struct HSP_UPGRADE_IMAGEDATA {
+    pub hashAlgID: u16,
+    pub digestSize: u16,
+    pub digest: [u8; 64],
+    pub fileName: [u16; 64],
+}
+impl ::core::marker::Copy for HSP_UPGRADE_IMAGEDATA {}
+impl ::core::clone::Clone for HSP_UPGRADE_IMAGEDATA {
     fn clone(&self) -> Self {
         *self
     }

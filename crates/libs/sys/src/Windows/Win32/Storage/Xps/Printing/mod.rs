@@ -4,6 +4,7 @@
 ::windows_sys::core::link ! ( "xpsprint.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`*"] fn StartXpsPrintJob1 ( printername : :: windows_sys::core::PCWSTR , jobname : :: windows_sys::core::PCWSTR , outputfilename : :: windows_sys::core::PCWSTR , progressevent : super::super::super::Foundation:: HANDLE , completionevent : super::super::super::Foundation:: HANDLE , xpsprintjob : *mut IXpsPrintJob , printcontentreceiver : *mut super:: IXpsOMPackageTarget ) -> :: windows_sys::core::HRESULT );
 pub type IPrintDocumentPackageStatusEvent = *mut ::core::ffi::c_void;
 pub type IPrintDocumentPackageTarget = *mut ::core::ffi::c_void;
+pub type IPrintDocumentPackageTarget2 = *mut ::core::ffi::c_void;
 pub type IPrintDocumentPackageTargetFactory = *mut ::core::ffi::c_void;
 pub type IXpsPrintJob = *mut ::core::ffi::c_void;
 pub type IXpsPrintJobStream = *mut ::core::ffi::c_void;

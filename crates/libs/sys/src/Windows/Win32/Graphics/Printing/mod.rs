@@ -1197,6 +1197,8 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
@@ -2142,6 +2144,8 @@ pub const JOB_CONTROL_RESTART: u32 = 4u32;
 pub const JOB_CONTROL_RESUME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_RETAIN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const JOB_CONTROL_SEND_TOAST: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -4482,6 +4486,24 @@ impl ::core::clone::Clone for DOC_INFO_3W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_INTERNAL {
+    pub pDocName: *mut i8,
+    pub pOutputFile: *mut i8,
+    pub pDatatype: *mut i8,
+    pub bLowILJob: super::super::Foundation::BOOL,
+    pub hTokenLowIL: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_INTERNAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_INTERNAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct DRIVER_INFO_1A {
     pub pName: ::windows_sys::core::PSTR,
@@ -6750,6 +6772,7 @@ pub struct PRINTPROVIDOR {
     pub fpEnumAndLogProvidorObjects: isize,
     pub fpInternalGetPrinterDriver: isize,
     pub fpFindCompatibleDriver: isize,
+    pub fpInstallPrinterDriverPackageFromConnection: isize,
     pub fpGetJobNamedPropertyValue: isize,
     pub fpSetJobNamedProperty: isize,
     pub fpDeleteJobNamedProperty: isize,
@@ -6765,6 +6788,7 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetJobAttributes: isize,
     pub fpIppGetPrinterAttributes: isize,
     pub fpIppSetPrinterAttributes: isize,
+    pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
 impl ::core::marker::Copy for PRINTPROVIDOR {}
 impl ::core::clone::Clone for PRINTPROVIDOR {

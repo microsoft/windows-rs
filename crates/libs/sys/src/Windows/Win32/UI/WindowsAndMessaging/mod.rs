@@ -558,10 +558,10 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn RegisterClassExW ( param0 : *const WNDCLASSEXW ) -> u16 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn RegisterClassW ( lpwndclass : *const WNDCLASSW ) -> u16 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"] fn RegisterDeviceNotificationA ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : super::super::System::Power:: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"] fn RegisterDeviceNotificationW ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : super::super::System::Power:: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationA ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationW ( hrecipient : super::super::Foundation:: HANDLE , notificationfilter : *const ::core::ffi::c_void , flags : REGISTER_NOTIFICATION_FLAGS ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterShellHookWindow ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterWindowMessageA ( lpstring : :: windows_sys::core::PCSTR ) -> u32 );
@@ -1126,8 +1126,6 @@ pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3434,6 +3432,8 @@ pub const WM_TIMECHANGE: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WM_TIMER: u32 = 275u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const WM_TOOLTIPDISMISS: u32 = 837u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WM_TOUCH: u32 = 576u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WM_TOUCHHITTESTING: u32 = 589u32;
@@ -4223,6 +4223,16 @@ pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = 1024u32;
 pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = 64u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const QS_TIMER: QUEUE_STATUS_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub type REGISTER_NOTIFICATION_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: REGISTER_NOTIFICATION_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_CALLBACK: REGISTER_NOTIFICATION_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: REGISTER_NOTIFICATION_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: REGISTER_NOTIFICATION_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub type SCROLLBAR_COMMAND = i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5095,6 +5105,12 @@ pub type TILE_WINDOWS_HOW = u32;
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub type TOOLTIP_DISMISS_FLAGS = i32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub type TRACK_POPUP_MENU_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5995,6 +6011,22 @@ pub struct FLASHWINFO {
 impl ::core::marker::Copy for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FLASHWINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GETCLIPBMETADATA {
+    pub Version: u32,
+    pub IsDelayRendered: super::super::Foundation::BOOL,
+    pub IsSynthetic: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GETCLIPBMETADATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GETCLIPBMETADATA {
     fn clone(&self) -> Self {
         *self
     }

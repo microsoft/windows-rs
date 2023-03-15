@@ -87,6 +87,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dnsapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsWriteQuestionToBuffer_W ( pdnsbuffer : *mut DNS_MESSAGE_BUFFER , pdwbuffersize : *mut u32 , pszname : :: windows_sys::core::PCWSTR , wtype : u16 , xid : u16 , frecursiondesired : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DDR_MAX_IP_HINTS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNSREC_ADDITIONAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNSREC_ANSWER: u32 = 1u32;
@@ -316,6 +318,8 @@ pub const DNS_RCLASS_CSNET: u32 = 512u32;
 pub const DNS_RCLASS_HESIOD: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_RCLASS_INTERNET: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_MDNS_CACHE_FLUSH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_RCLASS_NONE: u32 = 65024u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -729,6 +733,28 @@ pub const DnsSectionAuthority: DNS_SECTION = 2i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsSectionAddtional: DNS_SECTION = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_SVCB_PARAM_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamMandatory: DNS_SVCB_PARAM_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamAlpn: DNS_SVCB_PARAM_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamNoDefaultAlpn: DNS_SVCB_PARAM_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamPort: DNS_SVCB_PARAM_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamIpv4Hint: DNS_SVCB_PARAM_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamEch: DNS_SVCB_PARAM_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamIpv6Hint: DNS_SVCB_PARAM_TYPE = 6i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamDohPath: DNS_SVCB_PARAM_TYPE = 7i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamDohPathQuad9: DNS_SVCB_PARAM_TYPE = 65380i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSvcbParamDohPathOpenDns: DNS_SVCB_PARAM_TYPE = 65432i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub type DNS_TYPE = u16;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_TYPE_ZERO: DNS_TYPE = 0u16;
@@ -830,6 +856,10 @@ pub const DNS_TYPE_NSEC3: DNS_TYPE = 50u16;
 pub const DNS_TYPE_NSEC3PARAM: DNS_TYPE = 51u16;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_TYPE_TLSA: DNS_TYPE = 52u16;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_SVCB: DNS_TYPE = 64u16;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_HTTPS: DNS_TYPE = 65u16;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_TYPE_UINFO: DNS_TYPE = 100u16;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -1674,6 +1704,8 @@ pub union DNS_RECORDA_0 {
     pub Nsec3Param: DNS_NSEC3PARAM_DATA,
     pub TLSA: DNS_TLSA_DATA,
     pub Tlsa: DNS_TLSA_DATA,
+    pub SVCB: DNS_SVCB_DATA,
+    pub Svcb: DNS_SVCB_DATA,
     pub UNKNOWN: DNS_UNKNOWN_DATA,
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
@@ -1807,6 +1839,8 @@ pub union DNS_RECORDW_0 {
     pub Nsec3Param: DNS_NSEC3PARAM_DATA,
     pub TLSA: DNS_TLSA_DATA,
     pub Tlsa: DNS_TLSA_DATA,
+    pub SVCB: DNS_SVCB_DATA,
+    pub Svcb: DNS_SVCB_DATA,
     pub UNKNOWN: DNS_UNKNOWN_DATA,
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
@@ -2112,6 +2146,122 @@ pub struct DNS_SRV_DATAW {
 }
 impl ::core::marker::Copy for DNS_SRV_DATAW {}
 impl ::core::clone::Clone for DNS_SRV_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_DATA {
+    pub wSvcPriority: u16,
+    pub pszTargetName: ::windows_sys::core::PSTR,
+    pub cSvcParams: u16,
+    pub pSvcParams: *mut DNS_SVCB_PARAM,
+}
+impl ::core::marker::Copy for DNS_SVCB_DATA {}
+impl ::core::clone::Clone for DNS_SVCB_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM {
+    pub wSvcParamKey: u16,
+    pub Anonymous: DNS_SVCB_PARAM_0,
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub union DNS_SVCB_PARAM_0 {
+    pub pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
+    pub pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
+    pub pMandatory: *mut DNS_SVCB_PARAM_MANDATORY,
+    pub pAlpn: *mut DNS_SVCB_PARAM_ALPN,
+    pub wPort: u16,
+    pub pUnknown: *mut DNS_SVCB_PARAM_UNKNOWN,
+    pub pszDohPath: ::windows_sys::core::PSTR,
+    pub pReserved: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_0 {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_ALPN {
+    pub cIds: u16,
+    pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_ALPN {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_ALPN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_ALPN_ID {
+    pub cBytes: u8,
+    pub pbId: *mut u8,
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_ALPN_ID {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_ALPN_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_IPV4 {
+    pub cIps: u16,
+    pub rgIps: [u32; 1],
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_IPV4 {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_IPV4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_IPV6 {
+    pub cIps: u16,
+    pub rgIps: [IP6_ADDRESS; 1],
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_IPV6 {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_IPV6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_MANDATORY {
+    pub cMandatoryKeys: u16,
+    pub rgwMandatoryKeys: [u16; 1],
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_MANDATORY {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_MANDATORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_SVCB_PARAM_UNKNOWN {
+    pub cBytes: u16,
+    pub pbSvcParamValue: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_SVCB_PARAM_UNKNOWN {}
+impl ::core::clone::Clone for DNS_SVCB_PARAM_UNKNOWN {
     fn clone(&self) -> Self {
         *self
     }

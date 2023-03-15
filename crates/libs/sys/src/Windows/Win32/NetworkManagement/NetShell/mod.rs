@@ -136,6 +136,7 @@ pub struct CMD_ENTRY {
     pub dwCmdHlpToken: u32,
     pub dwFlags: u32,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
+    pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMD_ENTRY {}
@@ -287,6 +288,9 @@ impl ::core::clone::Clone for TOKEN_VALUE {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_CUSTOM_HELP = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: ::windows_sys::core::PCWSTR) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows_sys::core::PCWSTR, ppwcarguments: *mut ::windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;

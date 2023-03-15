@@ -22,7 +22,7 @@
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn GetHostNameW ( name : :: windows_sys::core::PWSTR , namelen : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "mswsock.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn GetNameByTypeA ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PSTR , dwnamelength : u32 ) -> i32 );
 ::windows_sys::core::link ! ( "mswsock.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn GetNameByTypeW ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PWSTR , dwnamelength : u32 ) -> i32 );
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : :: windows_sys::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mswsock.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"] fn GetServiceA ( dwnamespace : u32 , lpguid : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -265,7 +265,7 @@
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn gethostbyaddr ( addr : :: windows_sys::core::PCSTR , len : i32 , r#type : i32 ) -> *mut HOSTENT );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn gethostbyname ( name : :: windows_sys::core::PCSTR ) -> *mut HOSTENT );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn gethostname ( name : :: windows_sys::core::PSTR , namelen : i32 ) -> i32 );
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : :: windows_sys::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn getpeername ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn getprotobyname ( name : :: windows_sys::core::PCSTR ) -> *mut PROTOENT );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn getprotobynumber ( number : i32 ) -> *mut PROTOENT );
@@ -289,8 +289,8 @@
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn send ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn sendto ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : i32 , to : *const SOCKADDR , tolen : i32 ) -> i32 );
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn setsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : :: windows_sys::core::PCSTR , optlen : i32 ) -> i32 );
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn shutdown ( s : SOCKET , how : i32 ) -> i32 );
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn socket ( af : i32 , r#type : i32 , protocol : i32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn shutdown ( s : SOCKET , how : WINSOCK_SHUTDOWN_HOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn socket ( af : i32 , r#type : WINSOCK_SOCKET_TYPE , protocol : i32 ) -> SOCKET );
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -777,6 +777,8 @@ pub const ICMP6_DST_UNREACH_BEYONDSCOPE: u32 = 2u32;
 pub const ICMP6_DST_UNREACH_NOPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP6_DST_UNREACH_NOROUTE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const ICMP6_PARAMPROB_FIRSTFRAGMENT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP6_PARAMPROB_HEADER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -1692,26 +1694,6 @@ pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PI_RESTRICTED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLERR: u16 = 1u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLHUP: u16 = 2u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLIN: u16 = 768u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLNVAL: u16 = 4u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLOUT: u16 = 16u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLPRI: u16 = 1024u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDBAND: u16 = 512u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDNORM: u16 = 256u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRBAND: u16 = 32u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRNORM: u16 = 16u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PROP_ADDRESSES: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PROP_ALL: u32 = 2147483648u32;
@@ -1821,12 +1803,6 @@ pub const SAP_FIELD_ANY: u32 = 4294967295u32;
 pub const SAP_FIELD_ANY_AESA_REST: u32 = 4294967291u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SAP_FIELD_ANY_AESA_SEL: u32 = 4294967290u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_BOTH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_RECEIVE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_SEND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SECURITY_PROTOCOL_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -2120,8 +2096,6 @@ pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_DGRAM: u16 = 2u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_EVENT_HANGUP: u32 = 4u32;
@@ -2155,14 +2129,6 @@ pub const SOCK_NOTIFY_TRIGGER_LEVEL: u32 = 4u32;
 pub const SOCK_NOTIFY_TRIGGER_ONESHOT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_TRIGGER_PERSISTENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_RAW: u16 = 3u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_RDM: u16 = 4u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_SEQPACKET: u16 = 5u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_STREAM: u16 = 1u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOL_IRLMP: i32 = 255i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -3364,6 +3330,26 @@ pub const TUNNEL_SUB_TYPE_IPTLS: TUNNEL_SUB_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const TUNNEL_SUB_TYPE_HA: TUNNEL_SUB_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub type WINSOCK_SHUTDOWN_HOW = i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_RECEIVE: WINSOCK_SHUTDOWN_HOW = 0i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_SEND: WINSOCK_SHUTDOWN_HOW = 1i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_BOTH: WINSOCK_SHUTDOWN_HOW = 2i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub type WINSOCK_SOCKET_TYPE = i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_STREAM: WINSOCK_SOCKET_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_DGRAM: WINSOCK_SOCKET_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_RAW: WINSOCK_SOCKET_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_RDM: WINSOCK_SOCKET_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_SEQPACKET: WINSOCK_SOCKET_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub type WSACOMPLETIONTYPE = i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0i32;
@@ -3389,6 +3375,28 @@ pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0i32;
 pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub type WSAPOLL_EVENT_FLAGS = i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLRDNORM: WSAPOLL_EVENT_FLAGS = 256i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLRDBAND: WSAPOLL_EVENT_FLAGS = 512i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLIN: WSAPOLL_EVENT_FLAGS = 768i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLPRI: WSAPOLL_EVENT_FLAGS = 1024i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLWRNORM: WSAPOLL_EVENT_FLAGS = 16i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLOUT: WSAPOLL_EVENT_FLAGS = 16i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLWRBAND: WSAPOLL_EVENT_FLAGS = 32i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLERR: WSAPOLL_EVENT_FLAGS = 1i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLHUP: WSAPOLL_EVENT_FLAGS = 2i16;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLNVAL: WSAPOLL_EVENT_FLAGS = 4i16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -8016,8 +8024,8 @@ impl ::core::clone::Clone for WSAPOLLDATA {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
-    pub events: i16,
-    pub revents: i16,
+    pub events: WSAPOLL_EVENT_FLAGS,
+    pub revents: WSAPOLL_EVENT_FLAGS,
 }
 impl ::core::marker::Copy for WSAPOLLFD {}
 impl ::core::clone::Clone for WSAPOLLFD {
@@ -8402,6 +8410,7 @@ impl ::core::clone::Clone for netent {
         *self
     }
 }
+pub type sa_family_t = u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub union sockaddr_gen {
@@ -8429,6 +8438,7 @@ impl ::core::clone::Clone for sockaddr_in6_old {
         *self
     }
 }
+pub type socklen_t = i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct sockproto {

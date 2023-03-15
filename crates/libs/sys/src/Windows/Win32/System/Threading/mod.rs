@@ -1082,7 +1082,11 @@ pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = 15i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = 16i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 17i32;
+pub const ProcessUserPointerAuthPolicy: PROCESS_MITIGATION_POLICY = 17i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcessSEHOPPolicy: PROCESS_MITIGATION_POLICY = 18i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 19i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PROCESS_NAME_FORMAT = u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1154,11 +1158,15 @@ pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = 26u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = 27u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcThreadAttributeTrustedApp: PROC_THREAD_ATTRIBUTE_NUM = 29u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type QUEUE_USER_APC_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = 65536i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type RTL_UMS_THREAD_INFO_CLASS = i32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1789,7 +1797,7 @@ pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub ContentionCount: u32,
     pub Flags: u32,
     pub CreatorBackTraceIndexHigh: u16,
-    pub SpareWORD: u16,
+    pub Identifier: u16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
@@ -2054,6 +2062,8 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
@@ -2084,3 +2094,5 @@ pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;

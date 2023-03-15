@@ -629,8 +629,6 @@ pub const JET_bitDefragmentBatchStop: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_bitDefragmentNoPartialMerges: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_bitDeleteAllExistingLogs: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_bitDeleteColumnIgnoreTemplateColumns: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_bitDeleteHintTableSequential: u32 = 256u32;
@@ -1326,6 +1324,8 @@ pub const JET_errDatabaseStreamingFileMismatch: i32 = -540i32;
 pub const JET_errDatabaseUnavailable: i32 = -1091i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_errDatabasesNotFromSameSnapshot: i32 = -580i32;
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errDbTimeBeyondMaxRequired: i32 = -625i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_errDbTimeCorrupted: i32 = -344i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -2079,7 +2079,7 @@ pub const JET_paramMaxTemporaryTables: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_paramMaxTransactionSize: u32 = 178u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_paramMaxValueInvalid: u32 = 217u32;
+pub const JET_paramMaxValueInvalid: u32 = 218u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_paramMaxVerPages: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -2098,6 +2098,8 @@ pub const JET_paramPageFragment: u32 = 20u32;
 pub const JET_paramPageHintCacheSize: u32 = 101u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_paramPageTempDBMin: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_paramPerfmonRefreshInterval: u32 = 217u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_paramPreferredMaxOpenTables: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -2181,19 +2183,11 @@ pub const JET_prepReplace: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_prepReplaceNoLock: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_revertstateCompleted: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_revertstateCopingLogs: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_revertstateInProgress: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_revertstateNone: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_sesparamCommitDefault: u32 = 4097u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_sesparamCorrelationID: u32 = 4101u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_sesparamMaxValueInvalid: u32 = 4110u32;
+pub const JET_sesparamMaxValueInvalid: u32 = 4111u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_sesparamOperationContext: u32 = 4100u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -3691,84 +3685,6 @@ impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
 }
 pub type JET_OSSNAPID = usize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct JET_RBSINFOMISC {
-    pub lRBSGeneration: i32,
-    pub logtimeCreate: JET_LOGTIME,
-    pub logtimeCreatePrevRBS: JET_LOGTIME,
-    pub ulMajor: u32,
-    pub ulMinor: u32,
-    pub cbLogicalFileSize: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for JET_RBSINFOMISC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for JET_RBSINFOMISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct JET_RBSINFOMISC {
-    pub lRBSGeneration: i32,
-    pub logtimeCreate: JET_LOGTIME,
-    pub logtimeCreatePrevRBS: JET_LOGTIME,
-    pub ulMajor: u32,
-    pub ulMinor: u32,
-    pub cbLogicalFileSize: u64,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for JET_RBSINFOMISC {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for JET_RBSINFOMISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct JET_RBSREVERTINFOMISC {
-    pub lGenMinRevertStart: i32,
-    pub lGenMaxRevertStart: i32,
-    pub lGenMinRevertEnd: i32,
-    pub lGenMaxRevertEnd: i32,
-    pub logtimeRevertFrom: JET_LOGTIME,
-    pub cSecRevert: u64,
-    pub cPagesReverted: u64,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for JET_RBSREVERTINFOMISC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct JET_RBSREVERTINFOMISC {
-    pub lGenMinRevertStart: i32,
-    pub lGenMaxRevertStart: i32,
-    pub lGenMinRevertEnd: i32,
-    pub lGenMaxRevertEnd: i32,
-    pub logtimeRevertFrom: JET_LOGTIME,
-    pub cSecRevert: u64,
-    pub cPagesReverted: u64,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for JET_RBSREVERTINFOMISC {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RECORDLIST {
@@ -3795,6 +3711,44 @@ pub struct JET_RECPOS {
 }
 impl ::core::marker::Copy for JET_RECPOS {}
 impl ::core::clone::Clone for JET_RECPOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct JET_RECPOS2 {
+    pub cbStruct: u32,
+    pub centriesLTDeprecated: u32,
+    pub centriesInRangeDeprecated: u32,
+    pub centriesTotalDeprecated: u32,
+    pub centriesLT: u64,
+    pub centriesTotal: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for JET_RECPOS2 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for JET_RECPOS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct JET_RECPOS2 {
+    pub cbStruct: u32,
+    pub centriesLTDeprecated: u32,
+    pub centriesInRangeDeprecated: u32,
+    pub centriesTotalDeprecated: u32,
+    pub centriesLT: u64,
+    pub centriesTotal: u64,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for JET_RECPOS2 {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for JET_RECPOS2 {
     fn clone(&self) -> Self {
         *self
     }

@@ -41,8 +41,6 @@ pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: ::windows_sys::core::H
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MENROLL_E_CONNECTIVITY: ::windows_sys::core::HRESULT = -2145910768i32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-pub const MENROLL_E_DEVICEAPREACHED: ::windows_sys::core::HRESULT = -2145910765i32;
-#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MENROLL_E_DEVICECAPREACHED: ::windows_sys::core::HRESULT = -2145910765i32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MENROLL_E_DEVICENOTSUPPORTED: ::windows_sys::core::HRESULT = -2145910764i32;

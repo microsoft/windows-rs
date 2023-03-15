@@ -23,8 +23,8 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"] fn FreeEnvironmentStringsA ( penv : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"] fn FreeEnvironmentStringsW ( penv : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCommandLineA ( ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCommandLineW ( ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCommandLineA ( ) -> :: windows_sys::core::PCSTR );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCommandLineW ( ) -> :: windows_sys::core::PCWSTR );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCurrentDirectoryA ( nbufferlength : u32 , lpbuffer : :: windows_sys::core::PSTR ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetCurrentDirectoryW ( nbufferlength : u32 , lpbuffer : :: windows_sys::core::PWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Environment\"`*"] fn GetEnvironmentStrings ( ) -> :: windows_sys::core::PSTR );

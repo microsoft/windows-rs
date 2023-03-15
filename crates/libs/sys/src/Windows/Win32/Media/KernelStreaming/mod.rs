@@ -439,6 +439,8 @@ pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
@@ -464,6 +466,8 @@ pub const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u64 = 4u64;
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u64 = 0u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_STARE: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2367,6 +2371,14 @@ pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = 1i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub type EDeviceControlUseType = i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseMissing: EDeviceControlUseType = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUsePrimary: EDeviceControlUseType = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eDeviceControlUseSecondary: EDeviceControlUseType = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type EPcxConnectionType = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const eConnTypeUnknown: EPcxConnectionType = 0i32;
@@ -3023,6 +3035,8 @@ pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = 8
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = 9i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_DEVICECONTROLS: KSPROPERTY_AUDIOENGINE = 10i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSPROPERTY_AUDIOMODULE = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = 1i32;
@@ -3438,6 +3452,8 @@ pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = 2i32;
 pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = 3i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_DESCRIPTION3: KSPROPERTY_JACK = 5i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSPROPERTY_MEDIASEEKING = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -4679,6 +4695,19 @@ pub struct KSAUDIOENGINE_DESCRIPTOR {
 }
 impl ::core::marker::Copy for KSAUDIOENGINE_DESCRIPTOR {}
 impl ::core::clone::Clone for KSAUDIOENGINE_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSAUDIOENGINE_DEVICECONTROLS {
+    pub Volume: EDeviceControlUseType,
+    pub Mute: EDeviceControlUseType,
+    pub PeakMeter: EDeviceControlUseType,
+}
+impl ::core::marker::Copy for KSAUDIOENGINE_DEVICECONTROLS {}
+impl ::core::clone::Clone for KSAUDIOENGINE_DEVICECONTROLS {
     fn clone(&self) -> Self {
         *self
     }
@@ -6168,6 +6197,17 @@ pub struct KSJACK_DESCRIPTION2 {
 }
 impl ::core::marker::Copy for KSJACK_DESCRIPTION2 {}
 impl ::core::clone::Clone for KSJACK_DESCRIPTION2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct KSJACK_DESCRIPTION3 {
+    pub ConfigId: u32,
+}
+impl ::core::marker::Copy for KSJACK_DESCRIPTION3 {}
+impl ::core::clone::Clone for KSJACK_DESCRIPTION3 {
     fn clone(&self) -> Self {
         *self
     }

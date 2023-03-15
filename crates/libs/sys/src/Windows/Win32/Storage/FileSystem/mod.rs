@@ -23,7 +23,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingCancelRequest ( ioring : *const HIORING__ , file : IORING_HANDLE_REF , optocancel : usize , userdata : usize ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingReadFile ( ioring : *const HIORING__ , fileref : IORING_HANDLE_REF , dataref : IORING_BUFFER_REF , numberofbytestoread : u32 , fileoffset : u64 , userdata : usize , flags : IORING_SQE_FLAGS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingReadFile ( ioring : *const HIORING__ , fileref : IORING_HANDLE_REF , dataref : IORING_BUFFER_REF , numberofbytestoread : u32 , fileoffset : u64 , userdata : usize , sqeflags : IORING_SQE_FLAGS ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn BuildIoRingRegisterBuffers ( ioring : *const HIORING__ , count : u32 , buffers : *const IORING_BUFFER_INFO , userdata : usize ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingRegisterFileHandles ( ioring : *const HIORING__ , count : u32 , handles : *const super::super::Foundation:: HANDLE , userdata : usize ) -> :: windows_sys::core::HRESULT );
@@ -79,11 +79,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "ktmw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateEnlistment ( lpenlistmentattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES , resourcemanagerhandle : super::super::Foundation:: HANDLE , transactionhandle : super::super::Foundation:: HANDLE , notificationmask : u32 , createoptions : u32 , enlistmentkey : *mut ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFile2 ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwcreationdisposition : FILE_CREATION_DISPOSITION , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFile2 ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , dwcreationdisposition : FILE_CREATION_DISPOSITION , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFile2FromAppW ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , dwcreationdisposition : u32 , pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileA ( lpfilename : :: windows_sys::core::PCSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileA ( lpfilename : :: windows_sys::core::PCSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "api-ms-win-core-file-fromapp-l1-1-0.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileFromAppW ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : u32 , dwflagsandattributes : u32 , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -91,7 +91,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileTransactedW ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE , htransaction : super::super::Foundation:: HANDLE , pusminiversion : *const TXFS_MINIVERSION , lpextendedparameter : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileW ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileW ( lpfilename : :: windows_sys::core::PCWSTR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwcreationdisposition : FILE_CREATION_DISPOSITION , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES , htemplatefile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateHardLinkA ( lpfilename : :: windows_sys::core::PCSTR , lpexistingfilename : :: windows_sys::core::PCSTR , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -104,7 +104,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 ::windows_sys::core::link ! ( "clfsw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn CreateLogContainerScanContext ( hlog : super::super::Foundation:: HANDLE , cfromcontainer : u32 , ccontainers : u32 , escanmode : u8 , pcxscan : *mut CLS_SCAN_CONTEXT , poverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "clfsw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateLogFile ( pszlogfilename : :: windows_sys::core::PCWSTR , fdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , fcreatedisposition : FILE_CREATION_DISPOSITION , fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "clfsw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateLogFile ( pszlogfilename : :: windows_sys::core::PCWSTR , fdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES , fcreatedisposition : FILE_CREATION_DISPOSITION , fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "clfsw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn CreateLogMarshallingArea ( hlog : super::super::Foundation:: HANDLE , pfnallocbuffer : CLFS_BLOCK_ALLOCATION , pfnfreebuffer : CLFS_BLOCK_DEALLOCATION , pvblockalloccontext : *mut ::core::ffi::c_void , cbmarshallingbuffer : u32 , cmaxwritebuffers : u32 , cmaxreadbuffers : u32 , ppvmarshal : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -196,8 +196,8 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindFirstStreamTransactedW ( lpfilename : :: windows_sys::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 , htransaction : super::super::Foundation:: HANDLE ) -> FindStreamHandle );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstStreamW ( lpfilename : :: windows_sys::core::PCWSTR , infolevel : STREAM_INFO_LEVELS , lpfindstreamdata : *mut ::core::ffi::c_void , dwflags : u32 ) -> FindStreamHandle );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeA ( lpszvolumename : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeMountPointA ( lpszrootpathname : :: windows_sys::core::PCSTR , lpszvolumemountpoint : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeMountPointW ( lpszrootpathname : :: windows_sys::core::PCWSTR , lpszvolumemountpoint : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeMointPointHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeMountPointA ( lpszrootpathname : :: windows_sys::core::PCSTR , lpszvolumemountpoint : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> FindVolumeMountPointHandle );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeMountPointW ( lpszrootpathname : :: windows_sys::core::PCWSTR , lpszvolumemountpoint : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeMountPointHandle );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn FindFirstVolumeW ( lpszvolumename : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> FindVolumeHandle );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextChangeNotification ( hchangehandle : FindChangeNotificationHandle ) -> super::super::Foundation:: BOOL );
@@ -212,15 +212,15 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeA ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeMountPointA ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeMountPointA ( hfindvolumemountpoint : FindVolumeMountPointHandle , lpszvolumemountpoint : :: windows_sys::core::PSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeMountPointW ( hfindvolumemountpoint : FindVolumeMointPointHandle , lpszvolumemountpoint : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeMountPointW ( hfindvolumemountpoint : FindVolumeMountPointHandle , lpszvolumemountpoint : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindNextVolumeW ( hfindvolume : FindVolumeHandle , lpszvolumename : :: windows_sys::core::PWSTR , cchbufferlength : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindVolumeClose ( hfindvolume : FindVolumeHandle ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindVolumeMountPointClose ( hfindvolumemountpoint : FindVolumeMointPointHandle ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FindVolumeMountPointClose ( hfindvolumemountpoint : FindVolumeMountPointHandle ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn FlushFileBuffers ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -457,7 +457,7 @@
 ::windows_sys::core::link ! ( "ktmw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenEnlistment ( dwdesiredaccess : u32 , resourcemanagerhandle : super::super::Foundation:: HANDLE , enlistmentid : *mut :: windows_sys::core::GUID ) -> super::super::Foundation:: HANDLE );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn OpenFile ( lpfilename : :: windows_sys::core::PCSTR , lpreopenbuff : *mut OFSTRUCT , ustyle : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn OpenFileById ( hvolumehint : super::super::Foundation:: HANDLE , lpfileid : *const FILE_ID_DESCRIPTOR , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn OpenFileById ( hvolumehint : super::super::Foundation:: HANDLE , lpfileid : *const FILE_ID_DESCRIPTOR , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ktmw32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenResourceManager ( dwdesiredaccess : u32 , tmhandle : super::super::Foundation:: HANDLE , resourcemanagerid : *mut :: windows_sys::core::GUID ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
@@ -489,7 +489,7 @@
 #[cfg(feature = "Win32_Security")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"] fn QueryUsersOnEncryptedFile ( lpfilename : :: windows_sys::core::PCWSTR , pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn ReOpenFile ( horiginalfile : super::super::Foundation:: HANDLE , dwdesiredaccess : FILE_ACCESS_FLAGS , dwsharemode : FILE_SHARE_MODE , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn ReOpenFile ( horiginalfile : super::super::Foundation:: HANDLE , dwdesiredaccess : u32 , dwsharemode : FILE_SHARE_MODE , dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadDirectoryChangesExW ( hdirectory : super::super::Foundation:: HANDLE , lpbuffer : *mut ::core::ffi::c_void , nbufferlength : u32 , bwatchsubtree : super::super::Foundation:: BOOL , dwnotifyfilter : FILE_NOTIFY_CHANGE , lpbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE , readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1065,6 +1065,12 @@ pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::core:
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57434f53_7fe0_4196_9b42_427b51643484);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PARTITION_SBL_CACHE_HDD_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x03aaa829_ebfc_4e7e_aac9_c4d76c63b24b);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PARTITION_SBL_CACHE_SSD_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xeeff8352_dd2a_44db_ae83_bee1cf7481dc);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PARTITION_SBL_CACHE_SSD_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xdcc0c7c1_55ad_4f17_9d43_4bc776e0117e);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57434f53_432e_4014_ae4c_8deaa9c0006a);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x57434f53_c691_4a05_bb4e_703dafd229ce);
@@ -1107,6 +1113,8 @@ pub const SHARE_PATH_PARMNUM: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SHARE_QOS_POLICY_PARMNUM: u32 = 504u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
@@ -1127,6 +1135,8 @@ pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SHI1005_FLAGS_DISABLE_DIRECTORY_HANDLE_LEASING: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
@@ -1138,6 +1148,8 @@ pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
 pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SHI1005_FLAGS_ISOLATED_TRANSPORT: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1475,65 +1487,65 @@ pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = 1i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = 0i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub type FILE_ACCESS_FLAGS = u32;
+pub type FILE_ACCESS_RIGHTS = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = 1u32;
+pub const FILE_READ_DATA: FILE_ACCESS_RIGHTS = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_LIST_DIRECTORY: FILE_ACCESS_FLAGS = 1u32;
+pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_DATA: FILE_ACCESS_FLAGS = 2u32;
+pub const FILE_WRITE_DATA: FILE_ACCESS_RIGHTS = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ADD_FILE: FILE_ACCESS_FLAGS = 2u32;
+pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_APPEND_DATA: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_APPEND_DATA: FILE_ACCESS_RIGHTS = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_FLAGS = 4u32;
+pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_RIGHTS = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_EA: FILE_ACCESS_FLAGS = 8u32;
+pub const FILE_READ_EA: FILE_ACCESS_RIGHTS = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_EA: FILE_ACCESS_FLAGS = 16u32;
+pub const FILE_WRITE_EA: FILE_ACCESS_RIGHTS = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_EXECUTE: FILE_ACCESS_FLAGS = 32u32;
+pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TRAVERSE: FILE_ACCESS_FLAGS = 32u32;
+pub const FILE_TRAVERSE: FILE_ACCESS_RIGHTS = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DELETE_CHILD: FILE_ACCESS_FLAGS = 64u32;
+pub const FILE_DELETE_CHILD: FILE_ACCESS_RIGHTS = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = 128u32;
+pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_RIGHTS = 128u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = 256u32;
+pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_RIGHTS = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DELETE: FILE_ACCESS_FLAGS = 65536u32;
+pub const DELETE: FILE_ACCESS_RIGHTS = 65536u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const READ_CONTROL: FILE_ACCESS_FLAGS = 131072u32;
+pub const READ_CONTROL: FILE_ACCESS_RIGHTS = 131072u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const WRITE_DAC: FILE_ACCESS_FLAGS = 262144u32;
+pub const WRITE_DAC: FILE_ACCESS_RIGHTS = 262144u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const WRITE_OWNER: FILE_ACCESS_FLAGS = 524288u32;
+pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = 524288u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = 1048576u32;
+pub const SYNCHRONIZE: FILE_ACCESS_RIGHTS = 1048576u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_FLAGS = 983040u32;
+pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = 983040u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_READ: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_READ: FILE_ACCESS_RIGHTS = 131072u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = 131072u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_FLAGS = 131072u32;
+pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_RIGHTS = 131072u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_FLAGS = 2031616u32;
+pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_RIGHTS = 2031616u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_FLAGS = 65535u32;
+pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_RIGHTS = 65535u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = 2032127u32;
+pub const FILE_ALL_ACCESS: FILE_ACCESS_RIGHTS = 2032127u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = 1179785u32;
+pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = 1179785u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = 1179926u32;
+pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = 1179926u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = 1179808u32;
+pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = 1179808u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FILE_ACTION = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -1853,6 +1865,10 @@ pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = 3i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_CANCEL: IORING_OP_CODE = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_WRITE: IORING_OP_CODE = 5i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_FLUSH: IORING_OP_CODE = 6i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type IORING_REF_KIND = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_REF_RAW: IORING_REF_KIND = 0i32;
@@ -1863,11 +1879,17 @@ pub type IORING_SQE_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = 0i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IOSQE_FLAGS_DRAIN_PRECEDING_OPS: IORING_SQE_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type IORING_VERSION = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_VERSION_INVALID: IORING_VERSION = 0i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_VERSION_1: IORING_VERSION = 1i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_2: IORING_VERSION = 2i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_3: IORING_VERSION = 300i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type LOCK_FILE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -2470,6 +2492,10 @@ pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 1i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 2i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 3i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type REPLACE_FILE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4013,7 +4039,7 @@ pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub AllocatedLength: i64,
     pub FileSize: i64,
     pub FileAttributes: u32,
-    pub ReparsePointTag: u32,
+    pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
     pub FileId: i64,
     pub ParentFileId: i64,
     pub FileNameLength: u32,
@@ -4021,6 +4047,18 @@ pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
 }
 impl ::core::marker::Copy for FILE_NOTIFY_EXTENDED_INFORMATION {}
 impl ::core::clone::Clone for FILE_NOTIFY_EXTENDED_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
+    pub ReparsePointTag: u32,
+    pub EaSize: u32,
+}
+impl ::core::marker::Copy for FILE_NOTIFY_EXTENDED_INFORMATION_0 {}
+impl ::core::clone::Clone for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4109,7 +4147,7 @@ impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
-    pub CachingFlags: u32,
+    pub ShareFlags: u32,
 }
 impl ::core::marker::Copy for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {}
 impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
@@ -4234,7 +4272,7 @@ pub type FindFileHandle = isize;
 pub type FindFileNameHandle = isize;
 pub type FindStreamHandle = isize;
 pub type FindVolumeHandle = isize;
-pub type FindVolumeMointPointHandle = isize;
+pub type FindVolumeMountPointHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct HIORING__ {
@@ -5516,6 +5554,7 @@ pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_renewalchain: ::windows_sys::core::PWSTR,
     pub srvci0_type: u32,
     pub srvci0_flags: u32,
+    pub srvci0_mapping_status: u32,
 }
 impl ::core::marker::Copy for SERVER_CERTIFICATE_INFO_0 {}
 impl ::core::clone::Clone for SERVER_CERTIFICATE_INFO_0 {

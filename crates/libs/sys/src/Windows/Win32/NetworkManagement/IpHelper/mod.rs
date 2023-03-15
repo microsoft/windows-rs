@@ -329,6 +329,10 @@ pub const DEST_MATCHING: u32 = 28u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DEST_SHORTER: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_DDR_ADAPTER_ENABLE_DOH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_DDR_ADAPTER_ENABLE_UDP_FALLBACK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_DOH_POLICY_AUTO: u32 = 16u32;
@@ -343,7 +347,11 @@ pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_DOH_SERVER_SETTINGS_ENABLE_DDR: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_ENABLE_DDR: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_ENABLE_DOH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -352,6 +360,8 @@ pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
 pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_INTERFACE_SETTINGS_VERSION4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -363,6 +373,8 @@ pub const DNS_SETTINGS_VERSION1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTINGS_VERSION2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_SETTING_DDR: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTING_DOH: u32 = 4096u32;
@@ -370,6 +382,8 @@ pub const DNS_SETTING_DOH: u32 = 4096u32;
 pub const DNS_SETTING_DOH_PROFILE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTING_DOMAIN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DNS_SETTING_ENCRYPTED_DNS_ADAPTER_FLAGS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTING_HOSTNAME: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -830,6 +844,10 @@ pub const IF_TYPE_X25_MLP: u32 = 121u32;
 pub const IF_TYPE_X25_PLE: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const INTERFACE_HARDWARE_CROSSTIMESTAMP_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const INTERFACE_TIMESTAMP_CAPABILITIES_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -1616,6 +1634,33 @@ pub struct DNS_INTERFACE_SETTINGS3 {
 }
 impl ::core::marker::Copy for DNS_INTERFACE_SETTINGS3 {}
 impl ::core::clone::Clone for DNS_INTERFACE_SETTINGS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub struct DNS_INTERFACE_SETTINGS4 {
+    pub Version: u32,
+    pub Flags: u64,
+    pub Domain: ::windows_sys::core::PWSTR,
+    pub NameServer: ::windows_sys::core::PWSTR,
+    pub SearchList: ::windows_sys::core::PWSTR,
+    pub RegistrationEnabled: u32,
+    pub RegisterAdapterName: u32,
+    pub EnableLLMNR: u32,
+    pub QueryAdapterName: u32,
+    pub ProfileNameServer: ::windows_sys::core::PWSTR,
+    pub DisableUnconstrainedQueries: u32,
+    pub SupplementalSearchList: ::windows_sys::core::PWSTR,
+    pub cServerProperties: u32,
+    pub ServerProperties: *mut DNS_SERVER_PROPERTY,
+    pub cProfileServerProperties: u32,
+    pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
+    pub EncryptedDnsAdapterFlags: u32,
+}
+impl ::core::marker::Copy for DNS_INTERFACE_SETTINGS4 {}
+impl ::core::clone::Clone for DNS_INTERFACE_SETTINGS4 {
     fn clone(&self) -> Self {
         *self
     }
