@@ -10046,7 +10046,7 @@ pub struct BITMAPINFOHEADER {
     pub biHeight: i32,
     pub biPlanes: u16,
     pub biBitCount: u16,
-    pub biCompression: BI_COMPRESSION,
+    pub biCompression: u32,
     pub biSizeImage: u32,
     pub biXPelsPerMeter: i32,
     pub biYPelsPerMeter: i32,

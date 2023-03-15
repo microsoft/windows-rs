@@ -19,6 +19,8 @@
 pub type IIsolatedAppLauncher = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
+#[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
+pub const WDAG_CLIPBOARD_TAG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("CrossIsolatedEnvironmentContent");
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

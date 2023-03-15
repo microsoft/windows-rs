@@ -3282,6 +3282,43 @@ impl IDWriteFontSet3_Vtbl {
         iid == &<IDWriteFontSet3 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet2 as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDWriteFontSet4_Impl: Sized + IDWriteFontSet3_Impl {
+    fn ConvertWeightStretchStyleToFontAxisValues(&self, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32;
+    fn GetMatchingFonts4(&self, familyname: &::windows::core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, allowedsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontSet4>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDWriteFontSet4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl IDWriteFontSet4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontSet4_Impl, const OFFSET: isize>() -> IDWriteFontSet4_Vtbl {
+        unsafe extern "system" fn ConvertWeightStretchStyleToFontAxisValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontSet4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputaxisvalues: *const DWRITE_FONT_AXIS_VALUE, inputaxiscount: u32, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE, fontsize: f32, outputaxisvalues: *mut DWRITE_FONT_AXIS_VALUE) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ConvertWeightStretchStyleToFontAxisValues(::core::mem::transmute_copy(&inputaxisvalues), ::core::mem::transmute_copy(&inputaxiscount), ::core::mem::transmute_copy(&fontweight), ::core::mem::transmute_copy(&fontstretch), ::core::mem::transmute_copy(&fontstyle), ::core::mem::transmute_copy(&fontsize), ::core::mem::transmute_copy(&outputaxisvalues))
+        }
+        unsafe extern "system" fn GetMatchingFonts4<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontSet4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, familyname: ::windows::core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, allowedsimulations: DWRITE_FONT_SIMULATIONS, matchingfonts: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetMatchingFonts4(::core::mem::transmute(&familyname), ::core::mem::transmute_copy(&fontaxisvalues), ::core::mem::transmute_copy(&fontaxisvaluecount), ::core::mem::transmute_copy(&allowedsimulations)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(matchingfonts, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IDWriteFontSet3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            ConvertWeightStretchStyleToFontAxisValues: ConvertWeightStretchStyleToFontAxisValues::<Identity, Impl, OFFSET>,
+            GetMatchingFonts4: GetMatchingFonts4::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDWriteFontSet4 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet2 as ::windows::core::ComInterface>::IID || iid == &<IDWriteFontSet3 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
 pub trait IDWriteFontSetBuilder_Impl: Sized {
     fn AddFontFaceReference(&self, fontfacereference: ::core::option::Option<&IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::Result<()>;

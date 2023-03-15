@@ -541,6 +541,8 @@ pub const FSCTL_CLEAN_VOLUME_METADATA: u32 = 590716u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CORRUPTION_HANDLING: u32 = 590432u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_CREATE_LCN_WEAK_REFERENCE: u32 = 590944u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CREATE_OR_GET_OBJECT_ID: u32 = 590016u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_CREATE_USN_JOURNAL: u32 = 590055u32;
@@ -573,6 +575,10 @@ pub const FSCTL_DELETE_CORRUPTED_REFS_CONTAINER: u32 = 590836u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_EXTERNAL_BACKING: u32 = 590612u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DELETE_LCN_WEAK_REFERENCE: u32 = 590948u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DELETE_LCN_WEAK_REFERENCES: u32 = 590956u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_OBJECT_ID: u32 = 589984u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DELETE_REPARSE_POINT: u32 = 589996u32;
@@ -584,6 +590,8 @@ pub const FSCTL_DFSR_SET_GHOST_HANDLE_STATE: u32 = 590264u32;
 pub const FSCTL_DISABLE_LOCAL_BUFFERING: u32 = 590520u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DISMOUNT_VOLUME: u32 = 589856u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_DUPLICATE_CLUSTER: u32 = 590940u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE: u32 = 623428u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -679,6 +687,8 @@ pub const FSCTL_IS_VOLUME_MOUNTED: u32 = 589864u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_IS_VOLUME_OWNED_BYCSVFS: u32 = 590456u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_LMR_QUERY_INFO: u32 = 590968u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_LOCK_VOLUME: u32 = 589848u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_LOOKUP_STREAM_FROM_CLUSTER: u32 = 590332u32;
@@ -737,6 +747,8 @@ pub const FSCTL_QUERY_FILE_SYSTEM_RECOGNITION: u32 = 590412u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_GHOSTED_FILE_EXTENTS: u32 = 590768u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_QUERY_LCN_WEAK_REFERENCE: u32 = 590952u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_ON_DISK_VOLUME_INFO: u32 = 590140u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_QUERY_PAGEFILE_ENCRYPTION: u32 = 590312u32;
@@ -779,6 +791,16 @@ pub const FSCTL_RECALL_FILE: u32 = 590103u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REFS_DEALLOCATE_RANGES: u32 = 590808u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_DEALLOCATE_RANGES_EX: u32 = 590924u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_QUERY_VOLUME_COMPRESSION_INFO: u32 = 590936u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_QUERY_VOLUME_DEDUP_INFO: u32 = 590964u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO: u32 = 590932u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_REFS_SET_VOLUME_DEDUP_INFO: u32 = 590960u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: u32 = 590912u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_REMOVE_OVERLAY: u32 = 623412u32;
@@ -808,6 +830,8 @@ pub const FSCTL_SD_GLOBAL_CHANGE: u32 = 590324u32;
 pub const FSCTL_SECURITY_ID_CHECK: u32 = 606391u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_SET_BOOTLOADER_ACCESSED: u32 = 589903u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const FSCTL_SET_CACHED_RUNS_STATE: u32 = 590928u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSCTL_SET_COMPRESSION: u32 = 639040u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1146,6 +1170,8 @@ pub const IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES: u32 = 5832708u32;
 pub const IOCTL_SCM_BUS_GET_REGIONS: u32 = 5832712u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const IOCTL_SCM_BUS_QUERY_PROPERTY: u32 = 5832716u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const IOCTL_SCM_BUS_REFRESH_NAMESPACE: u32 = 5832728u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE: u32 = 5865488u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -1782,6 +1808,8 @@ pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -3114,6 +3142,31 @@ impl ::core::ops::Not for GPT_ATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LMR_QUERY_INFO_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = LMR_QUERY_INFO_CLASS(1i32);
+impl ::core::marker::Copy for LMR_QUERY_INFO_CLASS {}
+impl ::core::clone::Clone for LMR_QUERY_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LMR_QUERY_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for LMR_QUERY_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for LMR_QUERY_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LMR_QUERY_INFO_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const Unknown: MEDIA_TYPE = MEDIA_TYPE(0i32);
@@ -4290,6 +4343,35 @@ impl ::windows::core::TypeKind for STORAGE_DISK_OPERATIONAL_STATUS {
 impl ::core::fmt::Debug for STORAGE_DISK_OPERATIONAL_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("STORAGE_DISK_OPERATIONAL_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STORAGE_ENCRYPTION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeUnknown: STORAGE_ENCRYPTION_TYPE = STORAGE_ENCRYPTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeEDrive: STORAGE_ENCRYPTION_TYPE = STORAGE_ENCRYPTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub const StorageEncryptionTypeTcgOpal: STORAGE_ENCRYPTION_TYPE = STORAGE_ENCRYPTION_TYPE(2i32);
+impl ::core::marker::Copy for STORAGE_ENCRYPTION_TYPE {}
+impl ::core::clone::Clone for STORAGE_ENCRYPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STORAGE_ENCRYPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for STORAGE_ENCRYPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for STORAGE_ENCRYPTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STORAGE_ENCRYPTION_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
@@ -12623,6 +12705,66 @@ impl ::core::default::Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub struct LMR_QUERY_INFO_PARAM {
+    pub Operation: LMR_QUERY_INFO_CLASS,
+}
+impl ::core::marker::Copy for LMR_QUERY_INFO_PARAM {}
+impl ::core::clone::Clone for LMR_QUERY_INFO_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LMR_QUERY_INFO_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LMR_QUERY_INFO_PARAM").field("Operation", &self.Operation).finish()
+    }
+}
+impl ::windows::core::TypeKind for LMR_QUERY_INFO_PARAM {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for LMR_QUERY_INFO_PARAM {
+    fn eq(&self, other: &Self) -> bool {
+        self.Operation == other.Operation
+    }
+}
+impl ::core::cmp::Eq for LMR_QUERY_INFO_PARAM {}
+impl ::core::default::Default for LMR_QUERY_INFO_PARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
+pub struct LMR_QUERY_SESSION_INFO {
+    pub SessionId: u64,
+}
+impl ::core::marker::Copy for LMR_QUERY_SESSION_INFO {}
+impl ::core::clone::Clone for LMR_QUERY_SESSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LMR_QUERY_SESSION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LMR_QUERY_SESSION_INFO").field("SessionId", &self.SessionId).finish()
+    }
+}
+impl ::windows::core::TypeKind for LMR_QUERY_SESSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for LMR_QUERY_SESSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.SessionId == other.SessionId
+    }
+}
+impl ::core::cmp::Eq for LMR_QUERY_SESSION_INFO {}
+impl ::core::default::Default for LMR_QUERY_SESSION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     pub OffsetToNext: u32,
     pub Flags: u32,
@@ -18581,6 +18723,47 @@ impl ::core::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
 impl ::core::cmp::Eq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Ioctl\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    pub Version: u32,
+    pub Size: u32,
+    pub SupportsSelfEncryption: super::super::Foundation::BOOLEAN,
+    pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2").field("Version", &self.Version).field("Size", &self.Size).field("SupportsSelfEncryption", &self.SupportsSelfEncryption).field("EncryptionType", &self.EncryptionType).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Version == other.Version && self.Size == other.Size && self.SupportsSelfEncryption == other.SupportsSelfEncryption && self.EncryptionType == other.EncryptionType
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

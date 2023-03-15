@@ -5,8 +5,8 @@ use windows::{
         Foundation::*, Graphics::Direct2D::Common::*, Graphics::Direct2D::*, Graphics::Direct3D::*,
         Graphics::Direct3D11::*, Graphics::DirectComposition::*, Graphics::DirectWrite::*,
         Graphics::Dxgi::Common::*, Graphics::Dxgi::*, Graphics::Gdi::*, Graphics::Imaging::D2D::*,
-        Graphics::Imaging::*, System::Com::*, System::LibraryLoader::*, System::SystemServices::*,
-        UI::Animation::*, UI::HiDpi::*, UI::Shell::*, UI::WindowsAndMessaging::*,
+        Graphics::Imaging::*, System::Com::*, System::LibraryLoader::*, UI::Animation::*,
+        UI::HiDpi::*, UI::Shell::*, UI::WindowsAndMessaging::*,
     },
 };
 
@@ -524,7 +524,8 @@ fn create_image() -> Result<IWICFormatConverter> {
         let decoder = factory.CreateDecoderFromFilename(
             path,
             None,
-            GENERIC_READ,
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1499
+            GENERIC_READ.0,
             WICDecodeMetadataCacheOnDemand,
         )?;
 

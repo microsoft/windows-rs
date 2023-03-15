@@ -585,6 +585,58 @@ pub struct IXblIdpAuthManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
+pub struct IXblIdpAuthManager2(::windows::core::IUnknown);
+impl IXblIdpAuthManager2 {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: P6) -> ::windows::core::Result<IXblIdpAuthTokenResult>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P6: ::windows::core::IntoParam<super::Foundation::BOOL>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IXblIdpAuthTokenResult>();
+        (::windows::core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(::windows::core::Interface::as_raw(self), appsid.into_param().abi(), msatarget.into_param().abi(), msapolicy.into_param().abi(), httpmethod.into_param().abi(), uri.into_param().abi(), headers.into_param().abi(), ::core::mem::transmute(body.as_ptr()), body.len() as _, forcerefresh.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+::windows::imp::interface_hierarchy!(IXblIdpAuthManager2, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IXblIdpAuthManager2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IXblIdpAuthManager2 {}
+impl ::core::fmt::Debug for IXblIdpAuthManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXblIdpAuthManager2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IXblIdpAuthManager2 {
+    type Vtable = IXblIdpAuthManager2_Vtbl;
+}
+impl ::core::clone::Clone for IXblIdpAuthManager2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IXblIdpAuthManager2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IXblIdpAuthManager2_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appsid: ::windows::core::PCWSTR, msatarget: ::windows::core::PCWSTR, msapolicy: ::windows::core::PCWSTR, httpmethod: ::windows::core::PCWSTR, uri: ::windows::core::PCWSTR, headers: ::windows::core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetUserlessTokenAndSignatureWithTokenResult: usize,
+}
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+#[repr(transparent)]
 pub struct IXblIdpAuthTokenResult(::windows::core::IUnknown);
 impl IXblIdpAuthTokenResult {
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
@@ -873,6 +925,12 @@ pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_D
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(489159355i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(796540415i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(-561359263i32);
 impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
 impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
     fn clone(&self) -> Self {

@@ -453,6 +453,10 @@ pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V4: ::windows_sys::core::GUID = ::w
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_CALLOUT_IPSEC_OUTBOUND_TUNNEL_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf1835363_a6a5_4e62_b180_23db789d8da6);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x103090d4_8e28_4fd6_9894_d1d67d6b10c9);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4ed3446d_8dc7_459b_b09f_c1cb7a8f8689);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5fbfc31d_a51c_44dc_acb6_0624a030a700);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_CALLOUT_POLICY_SILENT_MODE_AUTH_CONNECT_LAYER_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5fbfc31d_a51c_44dc_acb6_0624a030a701);
@@ -965,6 +969,10 @@ pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE: ::windows_sys::core::GUID = ::wi
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_MAC_FRAME_NATIVE_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x470df946_c962_486f_9446_8293cbc75eb8);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x037f317a_d696_494a_bba5_bffc265e6052);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V6: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x22a4fdb1_6d7e_48ae_ae77_3742525c3119);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_TRANSPORT_FAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x13ed4388_a070_4815_9935_7a9be6408b78);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_LAYER_OUTBOUND_TRANSPORT_V4: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09e61aea_d214_46e2_9b21_b26b0b2f28c8);
@@ -1061,6 +1069,8 @@ pub const FWPM_PROVIDER_IKEEXT: ::windows_sys::core::GUID = ::windows_sys::core:
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_IPSEC_DOSP_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c6c05a9_c05c_4bb9_8338_2327814ce8bf);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_PROVIDER_MPSSVC_APP_ISOLATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3cc2631f_2d5d_43a0_b174_614837d863a1);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa90296f7_46b8_4457_8f84_b05e05d3c622);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd0718ff9_44da_4f50_9dc2_c963a4247613);
@@ -1090,6 +1100,8 @@ pub const FWPM_SUBLAYER_IPSEC_SECURITY_REALM: ::windows_sys::core::GUID = ::wind
 pub const FWPM_SUBLAYER_IPSEC_TUNNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x83f299ed_9ff4_4967_aff4_c309f4dab827);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_SUBLAYER_LIPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1b75c0ce_ff60_4711_a70f_b4958cc3b2d0);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_SUBLAYER_MPSSVC_APP_ISOLATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xffe221c3_92a8_4564_a59f_dafb70756020);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_SUBLAYER_MPSSVC_EDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x09a47e38_fa97_471b_b123_18bcd7e65071);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1477,6 +1489,14 @@ pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH1: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH2: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH3: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_POLICY_FLAG_BANDWIDTH4: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
@@ -1506,6 +1526,14 @@ pub const IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY: u32 = 64u32;
 pub const IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH1: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH2: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH3: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1639,7 +1667,9 @@ pub const FWPM_IPSEC_DOSP_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 11i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 12i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
-pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 13i32;
+pub const FWPM_NETWORK_CONNECTION_POLICY_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type FWPM_SERVICE_STATE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -1828,6 +1858,16 @@ pub const FWP_MATCH_PREFIX: FWP_MATCH_TYPE = 11i32;
 pub const FWP_MATCH_NOT_PREFIX: FWP_MATCH_TYPE = 12i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWP_MATCH_TYPE_MAX: FWP_MATCH_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub type FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
+pub const FWP_NETWORK_CONNECTION_POLICY_MAX: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type FWP_VSWITCH_NETWORK_TYPE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
@@ -2627,6 +2667,36 @@ pub struct FWPM_LAYER_STATISTICS0 {
 }
 impl ::core::marker::Copy for FWPM_LAYER_STATISTICS0 {}
 impl ::core::clone::Clone for FWPM_LAYER_STATISTICS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+    pub r#type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE,
+    pub value: FWP_VALUE0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
+    pub numSettings: u32,
+    pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -3805,6 +3875,7 @@ pub union FWPM_PROVIDER_CONTEXT3_0 {
     pub ikeV2QmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
     pub ikeV2MmPolicy: *mut IKEEXT_POLICY2,
     pub idpOptions: *mut IPSEC_DOSP_OPTIONS0,
+    pub networkConnectionPolicy: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_PROVIDER_CONTEXT3_0 {}

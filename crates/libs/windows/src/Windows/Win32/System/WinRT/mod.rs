@@ -18,6 +18,8 @@ pub mod Isolation;
 pub mod ML;
 #[cfg(feature = "Win32_System_WinRT_Media")]
 pub mod Media;
+#[cfg(feature = "Win32_System_WinRT_Metadata")]
+pub mod Metadata;
 #[cfg(feature = "Win32_System_WinRT_Pdf")]
 pub mod Pdf;
 #[cfg(feature = "Win32_System_WinRT_Printing")]
@@ -160,12 +162,6 @@ pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "rometadata.dll""system" fn MetaDataGetDispenser ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MetaDataGetDispenser(rclsid, riid, ppv).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
     ::windows::imp::link ! ( "api-ms-win-core-winrt-l1-1-0.dll""system" fn RoActivateInstance ( activatableclassid : ::std::mem::MaybeUninit <::windows::core::HSTRING > , instance : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<::windows::core::IInspectable>();
@@ -188,15 +184,6 @@ pub unsafe fn RoClearError() {
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
     ::windows::imp::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoFailFastWithErrorContext ( hrerror : :: windows::core::HRESULT ) -> ( ) );
     RoFailFastWithErrorContext(hrerror)
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoFreeParameterizedTypeExtra<P0>(extra: P0)
-where
-    P0: ::windows::core::IntoParam<ROPARAMIIDHANDLE>,
-{
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoFreeParameterizedTypeExtra ( extra : ROPARAMIIDHANDLE ) -> ( ) );
-    RoFreeParameterizedTypeExtra(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -249,15 +236,6 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetParameterizedTypeInstanceIID<P0>(nameelements: &[::windows::core::PCWSTR], metadatalocator: P0, iid: *mut ::windows::core::GUID, pextra: ::core::option::Option<*mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()>
-where
-    P0: ::windows::core::IntoParam<IRoMetaDataLocator>,
-{
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoGetParameterizedTypeInstanceIID ( nameelementcount : u32 , nameelements : *const :: windows::core::PCWSTR , metadatalocator : * mut::core::ffi::c_void , iid : *mut :: windows::core::GUID , pextra : *mut ROPARAMIIDHANDLE ) -> :: windows::core::HRESULT );
-    RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), iid, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut()))).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
 pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
     ::windows::imp::link ! ( "api-ms-win-core-winrt-registration-l1-1-0.dll""system" fn RoGetServerActivatableClasses ( servername : ::std::mem::MaybeUninit <::windows::core::HSTRING > , activatableclassids : *mut *mut :: windows::core::HSTRING , count : *mut u32 ) -> :: windows::core::HRESULT );
     RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), activatableclassids, count).ok()
@@ -304,15 +282,6 @@ where
 {
     ::windows::imp::link ! ( "api-ms-win-core-winrt-error-l1-1-1.dll""system" fn RoOriginateLanguageException ( error : :: windows::core::HRESULT , message : ::std::mem::MaybeUninit <::windows::core::HSTRING > , languageexception : * mut::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into_param().abi())
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[inline]
-pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> ::windows::core::PCSTR
-where
-    P0: ::windows::core::IntoParam<ROPARAMIIDHANDLE>,
-{
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : ROPARAMIIDHANDLE ) -> :: windows::core::PCSTR );
-    RoParameterizedTypeExtraGetTypeSignature(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -1760,131 +1729,6 @@ pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, error: *mut ::windows::core::HRESULT, restricteddescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, capabilitysid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-pub struct IRoMetaDataLocator(::std::ptr::NonNull<::std::ffi::c_void>);
-impl IRoMetaDataLocator {
-    pub unsafe fn Locate<P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-        P1: ::windows::core::IntoParam<IRoSimpleMetaDataBuilder>,
-    {
-        (::windows::core::Interface::vtable(self).Locate)(::windows::core::Interface::as_raw(self), nameelement.into_param().abi(), metadatadestination.into_param().abi()).ok()
-    }
-}
-impl ::core::cmp::PartialEq for IRoMetaDataLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoMetaDataLocator {}
-impl ::core::fmt::Debug for IRoMetaDataLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoMetaDataLocator").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IRoMetaDataLocator {
-    type Vtable = IRoMetaDataLocator_Vtbl;
-}
-impl ::core::clone::Clone for IRoMetaDataLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IRoMetaDataLocator_Vtbl {
-    pub Locate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nameelement: ::windows::core::PCWSTR, metadatadestination: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-#[repr(transparent)]
-pub struct IRoSimpleMetaDataBuilder(::std::ptr::NonNull<::std::ffi::c_void>);
-impl IRoSimpleMetaDataBuilder {
-    pub unsafe fn SetWinRtInterface(&self, iid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWinRtInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid)).ok()
-    }
-    pub unsafe fn SetDelegate(&self, iid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelegate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid)).ok()
-    }
-    pub unsafe fn SetInterfaceGroupSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetInterfaceGroupSimpleDefault)(::windows::core::Interface::as_raw(self), name.into_param().abi(), defaultinterfacename.into_param().abi(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
-    }
-    pub unsafe fn SetInterfaceGroupParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(::windows::core::Interface::as_raw(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
-    }
-    pub unsafe fn SetRuntimeClassSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetRuntimeClassSimpleDefault)(::windows::core::Interface::as_raw(self), name.into_param().abi(), defaultinterfacename.into_param().abi(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
-    }
-    pub unsafe fn SetRuntimeClassParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(::windows::core::Interface::as_raw(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
-    }
-    pub unsafe fn SetStruct<P0>(&self, name: P0, fieldtypenames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetStruct)(::windows::core::Interface::as_raw(self), name.into_param().abi(), fieldtypenames.len() as _, ::core::mem::transmute(fieldtypenames.as_ptr())).ok()
-    }
-    pub unsafe fn SetEnum<P0, P1>(&self, name: P0, basetype: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    {
-        (::windows::core::Interface::vtable(self).SetEnum)(::windows::core::Interface::as_raw(self), name.into_param().abi(), basetype.into_param().abi()).ok()
-    }
-    pub unsafe fn SetParameterizedInterface(&self, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameterizedInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(piid), numargs).ok()
-    }
-    pub unsafe fn SetParameterizedDelegate(&self, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameterizedDelegate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(piid), numargs).ok()
-    }
-}
-impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoSimpleMetaDataBuilder {}
-impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoSimpleMetaDataBuilder").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IRoSimpleMetaDataBuilder {
-    type Vtable = IRoSimpleMetaDataBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IRoSimpleMetaDataBuilder_Vtbl {
-    pub SetWinRtInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetDelegate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetInterfaceGroupSimpleDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, defaultinterfacename: ::windows::core::PCWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetInterfaceGroupParameterizedDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub SetRuntimeClassSimpleDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, defaultinterfacename: ::windows::core::PCWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetRuntimeClassParameterizedDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub SetStruct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, numfields: u32, fieldtypenames: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub SetEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, basetype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub SetParameterizedInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT,
-    pub SetParameterizedDelegate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]

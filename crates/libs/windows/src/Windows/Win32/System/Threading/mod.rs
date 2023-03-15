@@ -3692,7 +3692,11 @@ pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITI
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(16i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(17i32);
+pub const ProcessUserPointerAuthPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(17i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcessSEHOPPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(18i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(19i32);
 impl ::core::marker::Copy for PROCESS_MITIGATION_POLICY {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_POLICY {
     fn clone(&self) -> Self {
@@ -3826,6 +3830,8 @@ pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREA
 pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(26u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(27u32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const ProcThreadAttributeTrustedApp: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(29u32);
 impl ::core::marker::Copy for PROC_THREAD_ATTRIBUTE_NUM {}
 impl ::core::clone::Clone for PROC_THREAD_ATTRIBUTE_NUM {
     fn clone(&self) -> Self {
@@ -3853,6 +3859,8 @@ pub struct QUEUE_USER_APC_FLAGS(pub i32);
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const QUEUE_USER_APC_CALLBACK_DATA_CONTEXT: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(65536i32);
 impl ::core::marker::Copy for QUEUE_USER_APC_FLAGS {}
 impl ::core::clone::Clone for QUEUE_USER_APC_FLAGS {
     fn clone(&self) -> Self {
@@ -5552,7 +5560,7 @@ pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub ContentionCount: u32,
     pub Flags: u32,
     pub CreatorBackTraceIndexHigh: u16,
-    pub SpareWORD: u16,
+    pub Identifier: u16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
@@ -5565,7 +5573,7 @@ impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("SpareWORD", &self.SpareWORD).finish()
+        f.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("Identifier", &self.Identifier).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5575,7 +5583,7 @@ impl ::windows::core::TypeKind for RTL_CRITICAL_SECTION_DEBUG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.SpareWORD == other.SpareWORD
+        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.Identifier == other.Identifier
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -6176,6 +6184,8 @@ impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
@@ -6206,5 +6216,7 @@ pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

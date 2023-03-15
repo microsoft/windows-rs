@@ -76,6 +76,24 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         iid == &<ILearningModelSessionOptionsNative as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"implement\"`*"]
+pub trait ILearningModelSessionOptionsNative1_Impl: Sized {
+    fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for ILearningModelSessionOptionsNative1 {}
+impl ILearningModelSessionOptionsNative1_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative1_Impl, const OFFSET: isize>() -> ILearningModelSessionOptionsNative1_Vtbl {
+        unsafe extern "system" fn SetIntraOpThreadSpinning<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowspinning: u8) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetIntraOpThreadSpinning(::core::mem::transmute_copy(&allowspinning)).into()
+        }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIntraOpThreadSpinning: SetIntraOpThreadSpinning::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILearningModelSessionOptionsNative1 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorNative_Impl: Sized {

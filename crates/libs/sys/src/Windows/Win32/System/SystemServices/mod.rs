@@ -1599,6 +1599,16 @@ pub const FILE_FILE_COMPRESSION: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_NAMED_STREAMS: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_NAME_FLAGS_UNSPECIFIED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_NAME_FLAG_BOTH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_NAME_FLAG_DOS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_NAME_FLAG_HARDLINK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_NAME_FLAG_NTFS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_PERSISTENT_ACLS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_READ_ONLY_VOLUME: u32 = 524288u32;
@@ -1610,6 +1620,8 @@ pub const FILE_SEQUENTIAL_WRITE_ONCE: u32 = 1048576u32;
 pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_SUPPORTS_BYPASS_IO: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_SUPPORTS_CASE_SENSITIVE_DIRS: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_SUPPORTS_ENCRYPTION: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -1634,6 +1646,8 @@ pub const FILE_SUPPORTS_REPARSE_POINTS: u32 = 128u32;
 pub const FILE_SUPPORTS_SPARSE_FILES: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_SUPPORTS_SPARSE_VDL: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FILE_SUPPORTS_STREAM_SNAPSHOTS: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FILE_SUPPORTS_TRANSACTIONS: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -1670,14 +1684,6 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FRAME_TSS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GENERIC_ALL: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GENERIC_EXECUTE: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GENERIC_READ: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GENERIC_WRITE: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -1795,6 +1801,8 @@ pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows_sys::core::GUID = ::windows_sy
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_HIBERNATE_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_HUPR_ADAPTIVE_DIM_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_IDLE_BACKGROUND_TASK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
@@ -1849,6 +1857,8 @@ pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows_sys::core::GUID = ::window
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x1facfc65_a930_4bc5_9f38_504ec097bbc0);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_COMPLEX_PARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb669a5e9_7b1d_4132_baaa_49190abcfeb6);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x8f7b45e3_c393_480a_878c_f67ac3d07082);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x5b33697b_e89d_4d38_aa46_9e7dfb7cd2f9);
@@ -1895,9 +1905,13 @@ pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows_sys::core::GUID = ::win
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfbf);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb000397d_9b0b_483d_98c9_692a6060cfc0);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x4009efa7_e72d_4cba_9edf_91084ea8cbc3);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -1918,6 +1932,12 @@ pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows_sys::core::GUID = ::windows_
 pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd88);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x616cdaa5_695e_4545_97ad_97dc2d1bdd89);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_LOWER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x43f278bc_0f8a_46d0_8b31_9a23e615d713);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_LONG_THREAD_ARCH_CLASS_UPPER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf903d33_9d24_49d3_a468_e65e0325046a);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_MODULE_PARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb0deaf6b_59c0_4523_8a45_ca7f40244114);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2430ab6f_a520_44a2_9601_f7f23b5134b1);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2013,9 +2033,15 @@ pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows_sys::core::GUID 
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd92998c2_6a48_49ca_85d4_8cceec294570);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbae08b81_2d5e_4688_ad6a_13243356654b);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GUID_PROCESSOR_SMT_UNPARKING_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb28a6829_c5f7_444e_8f61_10e24e85c532);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x97cfac41_2217_47eb_992d_618b1977c907);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2127,6 +2153,8 @@ pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_DEBUG_TYPE_BBT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_TYPE_CLSID: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS: u32 = 20u32;
@@ -2145,9 +2173,13 @@ pub const IMAGE_DEBUG_TYPE_REPRO: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_TYPE_RESERVED10: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_DEBUG_TYPE_SPGO: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_TYPE_VC_FEATURE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2177,6 +2209,16 @@ pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_FUNCTION_OVERRIDE_INVALID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_FUNCTION_OVERRIDE_X64_REL32: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_GUARD_CASTGUARD_PRESENT: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_GUARD_CFW_INSTRUMENTED: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: u32 = 32768u32;
@@ -2204,6 +2246,8 @@ pub const IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER: u32 = 4u32;
 pub const IMAGE_GUARD_FLAG_FID_SUPPRESSED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_GUARD_FLAG_FID_XFG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_GUARD_MEMCPY_PRESENT: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_GUARD_PROTECT_DELAYLOAD_IAT: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3073,9 +3117,11 @@ pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const JOB_OBJECT_TERMINATE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const JOB_OBJECT_UILIMIT_ALL: u32 = 255u32;
+pub const JOB_OBJECT_UILIMIT_ALL: u32 = 511u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 255u32;
+pub const JOB_OBJECT_UILIMIT_IME: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 511u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const LANG_AFRIKAANS: u32 = 54u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3443,6 +3489,8 @@ pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MEM_EXTENDED_PARAMETER_IMAGE_NO_HPAT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MEM_EXTENDED_PARAMETER_NONPAGED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: u32 = 16u32;
@@ -3509,6 +3557,12 @@ pub const N_TSHIFT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: ::windows_sys::core::PCSTR = ::windows_sys::s!("OutOfProcessFunctionTableCallback");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PDCAP_D1_SUPPORTED: u32 = 2u32;
@@ -3548,6 +3602,8 @@ pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
 pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: u32 = 44u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: u32 = 45u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3947,7 +4003,7 @@ pub const PRODUCT_XBOX_ERAOS: u32 = 195u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
+pub const PRODUCT_XBOX_KEYSTONE: u32 = 198u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4113,7 +4169,9 @@ pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SECURITY_CAPABILITY_APPOINTMENTS: i32 = 11i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SECURITY_CAPABILITY_APP_RID: u64 = 1024u64;
+pub const SECURITY_CAPABILITY_APP_RID: i32 = 1024i32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SECURITY_CAPABILITY_APP_SILO_RID: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SECURITY_CAPABILITY_BASE_RID: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4353,6 +4411,8 @@ pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SEF_NORMALIZE_OUTPUT_DESCRIPTOR: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
@@ -4370,6 +4430,14 @@ pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8u32;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_ACTIVATE_AS_USER_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("activateAsUser");
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SE_APP_SILO_PRINT_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isolatedWin32-print");
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isolatedWin32-profilesRootMinimal");
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isolatedWin32-userProfileMinimal");
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("isolatedWin32-volumeRootMinimal");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("constrainedImpersonation");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4393,7 +4461,7 @@ pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
+pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("learningModeLogging");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_MUMA_CAPABILITY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("muma");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4460,6 +4528,14 @@ pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SMB_CCF_APP_INSTANCE_EA_NAME: ::windows_sys::core::PCSTR = ::windows_sys::s!("ClusteredApplicationInstance");
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SMT_UNPARKING_POLICY_CORE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SMT_UNPARKING_POLICY_CORE_PER_THREAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SMT_UNPARKING_POLICY_LP_ROUNDROBIN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SMT_UNPARKING_POLICY_LP_SEQUENTIAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -6221,14 +6297,6 @@ pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = 6i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = 7i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub type SE_LEARNING_MODE_DATA_TYPE = i32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeLearningModeSettings: SE_LEARNING_MODE_DATA_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeLearningModeMax: SE_LEARNING_MODE_DATA_TYPE = 2i32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub type SFGAO_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SFGAO_CANCOPY: SFGAO_FLAGS = 1u32;
@@ -6644,6 +6712,44 @@ pub struct ENLISTMENT_CRM_INFORMATION {
 }
 impl ::core::marker::Copy for ENLISTMENT_CRM_INFORMATION {}
 impl ::core::clone::Clone for ENLISTMENT_CRM_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct FILE_NOTIFY_FULL_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Action: u32,
+    pub CreationTime: i64,
+    pub LastModificationTime: i64,
+    pub LastChangeTime: i64,
+    pub LastAccessTime: i64,
+    pub AllocatedLength: i64,
+    pub FileSize: i64,
+    pub FileAttributes: u32,
+    pub Anonymous: FILE_NOTIFY_FULL_INFORMATION_0,
+    pub FileId: i64,
+    pub ParentFileId: i64,
+    pub FileNameLength: u16,
+    pub FileNameFlags: u8,
+    pub Reserved: u8,
+    pub FileName: [u16; 1],
+}
+impl ::core::marker::Copy for FILE_NOTIFY_FULL_INFORMATION {}
+impl ::core::clone::Clone for FILE_NOTIFY_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub union FILE_NOTIFY_FULL_INFORMATION_0 {
+    pub ReparsePointTag: u32,
+    pub EaSize: u32,
+}
+impl ::core::marker::Copy for FILE_NOTIFY_FULL_INFORMATION_0 {}
+impl ::core::clone::Clone for FILE_NOTIFY_FULL_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -7068,6 +7174,31 @@ impl ::core::clone::Clone for IMAGE_BASE_RELOCATION {
         *self
     }
 }
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
+    pub Left: u16,
+    pub Right: u16,
+    pub Value: u32,
+}
+impl ::core::marker::Copy for IMAGE_BDD_DYNAMIC_RELOCATION {}
+impl ::core::clone::Clone for IMAGE_BDD_DYNAMIC_RELOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct IMAGE_BDD_INFO {
+    pub Version: u32,
+    pub BDDSize: u32,
+}
+impl ::core::marker::Copy for IMAGE_BDD_INFO {}
+impl ::core::clone::Clone for IMAGE_BDD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_BOUND_FORWARDER_REF {
@@ -7250,6 +7381,31 @@ pub struct IMAGE_EXPORT_DIRECTORY {
 }
 impl ::core::marker::Copy for IMAGE_EXPORT_DIRECTORY {}
 impl ::core::clone::Clone for IMAGE_EXPORT_DIRECTORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
+    pub OriginalRva: u32,
+    pub BDDOffset: u32,
+    pub RvaSize: u32,
+    pub BaseRelocSize: u32,
+}
+impl ::core::marker::Copy for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {}
+impl ::core::clone::Clone for IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
+    pub FuncOverrideSize: u32,
+}
+impl ::core::marker::Copy for IMAGE_FUNCTION_OVERRIDE_HEADER {}
+impl ::core::clone::Clone for IMAGE_FUNCTION_OVERRIDE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
@@ -7914,26 +8070,6 @@ pub union IMPORT_OBJECT_HEADER_0 {
 }
 impl ::core::marker::Copy for IMPORT_OBJECT_HEADER_0 {}
 impl ::core::clone::Clone for IMPORT_OBJECT_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_System_JobObjects\"`*"]
-#[cfg(feature = "Win32_System_JobObjects")]
-pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
-    pub MaxIops: i64,
-    pub MaxBandwidth: i64,
-    pub ReservationIops: i64,
-    pub VolumeName: ::windows_sys::core::PWSTR,
-    pub BaseIoSize: u32,
-    pub ControlFlags: super::JobObjects::JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
-    pub VolumeNameLength: u16,
-}
-#[cfg(feature = "Win32_System_JobObjects")]
-impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {}
-#[cfg(feature = "Win32_System_JobObjects")]
-impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -8605,6 +8741,40 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct PROCESS_MITIGATION_SEHOP_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
@@ -8735,6 +8905,40 @@ pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
 }
 impl ::core::marker::Copy for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {}
 impl ::core::clone::Clone for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -9836,8 +10040,6 @@ impl ::core::clone::Clone for userHPALETTE_0 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -9862,5 +10064,3 @@ pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn
 pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub type PUMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;

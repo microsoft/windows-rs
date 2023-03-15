@@ -679,6 +679,8 @@ pub struct HCS_EVENT_OPTIONS(pub i32);
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(2i32);
 impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
 impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
     fn clone(&self) -> Self {
@@ -755,6 +757,10 @@ pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
 pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);
 impl ::core::marker::Copy for HCS_EVENT_TYPE {}
 impl ::core::clone::Clone for HCS_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -815,6 +821,8 @@ pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTI
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationOperationProgressUpdate: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(256i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
@@ -864,6 +872,66 @@ impl ::windows::core::TypeKind for HCS_NOTIFICATION_FLAGS {
 impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HCS_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_OPERATION_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionNone: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(1i32);
+impl ::core::marker::Copy for HCS_OPERATION_OPTIONS {}
+impl ::core::clone::Clone for HCS_OPERATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_OPERATION_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for HCS_OPERATION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for HCS_OPERATION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION_OPTIONS").field(&self.0).finish()
+    }
+}
+impl HCS_OPERATION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HCS_OPERATION_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HCS_OPERATION_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HCS_OPERATION_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -921,6 +989,35 @@ impl ::windows::core::TypeKind for HCS_OPERATION_TYPE {
 impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HCS_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCS_RESOURCE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
+impl ::core::marker::Copy for HCS_RESOURCE_TYPE {}
+impl ::core::clone::Clone for HCS_RESOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HCS_RESOURCE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for HCS_RESOURCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for HCS_RESOURCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HCS_RESOURCE_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

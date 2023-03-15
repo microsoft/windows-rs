@@ -97,8 +97,8 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn PowerReadValueUnitsSpecifier ( rootpowerkey : super::Registry:: HKEY , subgroupofpowersettingsguid : *const :: windows_sys::core::GUID , powersettingguid : *const :: windows_sys::core::GUID , buffer : *mut u8 , buffersize : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`*"] fn PowerRegisterForEffectivePowerModeNotifications ( version : u32 , callback : EFFECTIVE_POWER_MODE_CALLBACK , context : *const ::core::ffi::c_void , registrationhandle : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn PowerRegisterSuspendResumeNotification ( flags : u32 , recipient : super::super::Foundation:: HANDLE , registrationhandle : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn PowerRegisterSuspendResumeNotification ( flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS , recipient : super::super::Foundation:: HANDLE , registrationhandle : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn PowerRemovePowerSetting ( powersettingsubkeyguid : *const :: windows_sys::core::GUID , powersettingguid : *const :: windows_sys::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`*"] fn PowerReplaceDefaultPowerSchemes ( ) -> u32 );
@@ -116,8 +116,8 @@
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn PowerSettingAccessCheck ( accessflags : POWER_DATA_ACCESSOR , powerguid : *const :: windows_sys::core::GUID ) -> super::super::Foundation:: WIN32_ERROR );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn PowerSettingAccessCheckEx ( accessflags : POWER_DATA_ACCESSOR , powerguid : *const :: windows_sys::core::GUID , accesstype : super::Registry:: REG_SAM_FLAGS ) -> super::super::Foundation:: WIN32_ERROR );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn PowerSettingRegisterNotification ( settingguid : *const :: windows_sys::core::GUID , flags : POWER_SETTING_REGISTER_NOTIFICATION_FLAGS , recipient : super::super::Foundation:: HANDLE , registrationhandle : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn PowerSettingRegisterNotification ( settingguid : *const :: windows_sys::core::GUID , flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS , recipient : super::super::Foundation:: HANDLE , registrationhandle : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn PowerSettingUnregisterNotification ( registrationhandle : HPOWERNOTIFY ) -> super::super::Foundation:: WIN32_ERROR );
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`*"] fn PowerUnregisterFromEffectivePowerModeNotifications ( registrationhandle : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
@@ -161,8 +161,8 @@
 ::windows_sys::core::link ! ( "powrprof.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn ReadPwrScheme ( uiid : u32 , ppowerpolicy : *mut POWER_POLICY ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn RegisterPowerSettingNotification ( hrecipient : super::super::Foundation:: HANDLE , powersettingguid : *const :: windows_sys::core::GUID , flags : u32 ) -> HPOWERNOTIFY );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn RegisterSuspendResumeNotification ( hrecipient : super::super::Foundation:: HANDLE , flags : u32 ) -> HPOWERNOTIFY );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterSuspendResumeNotification ( hrecipient : super::super::Foundation:: HANDLE , flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS ) -> HPOWERNOTIFY );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"] fn RequestWakeupLatency ( latency : LATENCY_TIME ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -346,6 +346,8 @@ pub const IOCTL_EMI_GET_METADATA: u32 = 2244616u32;
 pub const IOCTL_EMI_GET_METADATA_SIZE: u32 = 2244612u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const IOCTL_EMI_GET_VERSION: u32 = 2244608u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const IOCTL_GET_ACPI_TIME_AND_ALARM_CAPABILITIES: u32 = 2703900u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const IOCTL_GET_PROCESSOR_OBJ_INFO: u32 = 2703744u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -533,6 +535,14 @@ pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const UNKNOWN_RATE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub type ACPI_TIME_RESOLUTION = i32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionMilliseconds: ACPI_TIME_RESOLUTION = 0i32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = 1i32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionMax: ACPI_TIME_RESOLUTION = 2i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -926,7 +936,9 @@ pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = 95i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = 96i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 97i32;
+pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = 97i32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 98i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub type POWER_MONITOR_REQUEST_REASON = i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -1104,14 +1116,6 @@ pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = 5i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = 6i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub type POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 1u32;
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 2u32;
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 0u32;
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub type POWER_USER_PRESENCE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
@@ -1184,6 +1188,29 @@ pub struct ACPI_REAL_TIME {
 }
 impl ::core::marker::Copy for ACPI_REAL_TIME {}
 impl ::core::clone::Clone for ACPI_REAL_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
+    pub AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S5AcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S5DcWakeSupported: super::super::Foundation::BOOLEAN,
+    pub S4S5WakeStatusSupported: super::super::Foundation::BOOLEAN,
+    pub DeepestWakeSystemState: u32,
+    pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
+    pub RealTimeResolution: ACPI_TIME_RESOLUTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACPI_TIME_AND_ALARM_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACPI_TIME_AND_ALARM_CAPABILITIES {
     fn clone(&self) -> Self {
         *self
     }

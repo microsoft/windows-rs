@@ -2707,7 +2707,9 @@ pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INF
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
+pub const TokenIsAppSilo: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(49i32);
 impl ::core::marker::Copy for TOKEN_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TOKEN_INFORMATION_CLASS {
     fn clone(&self) -> Self {

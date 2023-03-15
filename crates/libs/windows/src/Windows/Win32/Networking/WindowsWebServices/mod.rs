@@ -1369,7 +1369,7 @@ pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
+pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1377,11 +1377,15 @@ pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
+pub const WEBAUTHN_API_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_ASSERTION_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1413,7 +1417,7 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1425,7 +1429,11 @@ pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_6: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1434,6 +1442,8 @@ pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1471,6 +1481,10 @@ pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows::core::PCWSTR = ::windows::w!("public-key");
@@ -1503,6 +1517,8 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
@@ -1528,6 +1544,10 @@ pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: ::windows::core::PCWSTR =
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: ::windows::core::PCWSTR = ::windows::w!("hmac-secret");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: ::windows::core::PCWSTR = ::windows::w!("minPinLength");
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: ::windows::core::PCWSTR = ::windows::w!("SHA-256");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -5592,6 +5612,7 @@ pub struct WEBAUTHN_ASSERTION {
     pub cbCredLargeBlob: u32,
     pub pbCredLargeBlob: *mut u8,
     pub dwCredLargeBlobStatus: u32,
+    pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
 }
 impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
 impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
@@ -5614,6 +5635,7 @@ impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
             .field("cbCredLargeBlob", &self.cbCredLargeBlob)
             .field("pbCredLargeBlob", &self.pbCredLargeBlob)
             .field("dwCredLargeBlobStatus", &self.dwCredLargeBlobStatus)
+            .field("pHmacSecret", &self.pHmacSecret)
             .finish()
     }
 }
@@ -5622,7 +5644,7 @@ impl ::windows::core::TypeKind for WEBAUTHN_ASSERTION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus
+        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus && self.pHmacSecret == other.pHmacSecret
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_ASSERTION {}
@@ -5649,6 +5671,8 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwCredLargeBlobOperation: u32,
     pub cbCredLargeBlob: u32,
     pub pbCredLargeBlob: *mut u8,
+    pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
@@ -5676,6 +5700,8 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
             .field("dwCredLargeBlobOperation", &self.dwCredLargeBlobOperation)
             .field("cbCredLargeBlob", &self.cbCredLargeBlob)
             .field("pbCredLargeBlob", &self.pbCredLargeBlob)
+            .field("pHmacSecretSaltValues", &self.pHmacSecretSaltValues)
+            .field("bBrowserInPrivateMode", &self.bBrowserInPrivateMode)
             .finish()
     }
 }
@@ -5686,7 +5712,22 @@ impl ::windows::core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwFlags == other.dwFlags && self.pwszU2fAppId == other.pwszU2fAppId && self.pbU2fAppId == other.pbU2fAppId && self.pCancellationId == other.pCancellationId && self.pAllowCredentialList == other.pAllowCredentialList && self.dwCredLargeBlobOperation == other.dwCredLargeBlobOperation && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob
+        self.dwVersion == other.dwVersion
+            && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds
+            && self.CredentialList == other.CredentialList
+            && self.Extensions == other.Extensions
+            && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment
+            && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement
+            && self.dwFlags == other.dwFlags
+            && self.pwszU2fAppId == other.pwszU2fAppId
+            && self.pbU2fAppId == other.pbU2fAppId
+            && self.pCancellationId == other.pCancellationId
+            && self.pAllowCredentialList == other.pAllowCredentialList
+            && self.dwCredLargeBlobOperation == other.dwCredLargeBlobOperation
+            && self.cbCredLargeBlob == other.cbCredLargeBlob
+            && self.pbCredLargeBlob == other.pbCredLargeBlob
+            && self.pHmacSecretSaltValues == other.pHmacSecretSaltValues
+            && self.bBrowserInPrivateMode == other.bBrowserInPrivateMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5715,6 +5756,7 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwEnterpriseAttestation: u32,
     pub dwLargeBlobSupport: u32,
     pub bPreferResidentKey: super::super::Foundation::BOOL,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
@@ -5742,6 +5784,7 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
             .field("dwEnterpriseAttestation", &self.dwEnterpriseAttestation)
             .field("dwLargeBlobSupport", &self.dwLargeBlobSupport)
             .field("bPreferResidentKey", &self.bPreferResidentKey)
+            .field("bBrowserInPrivateMode", &self.bBrowserInPrivateMode)
             .finish()
     }
 }
@@ -5752,7 +5795,21 @@ impl ::windows::core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTION
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.bRequireResidentKey == other.bRequireResidentKey && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwAttestationConveyancePreference == other.dwAttestationConveyancePreference && self.dwFlags == other.dwFlags && self.pCancellationId == other.pCancellationId && self.pExcludeCredentialList == other.pExcludeCredentialList && self.dwEnterpriseAttestation == other.dwEnterpriseAttestation && self.dwLargeBlobSupport == other.dwLargeBlobSupport && self.bPreferResidentKey == other.bPreferResidentKey
+        self.dwVersion == other.dwVersion
+            && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds
+            && self.CredentialList == other.CredentialList
+            && self.Extensions == other.Extensions
+            && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment
+            && self.bRequireResidentKey == other.bRequireResidentKey
+            && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement
+            && self.dwAttestationConveyancePreference == other.dwAttestationConveyancePreference
+            && self.dwFlags == other.dwFlags
+            && self.pCancellationId == other.pCancellationId
+            && self.pExcludeCredentialList == other.pExcludeCredentialList
+            && self.dwEnterpriseAttestation == other.dwEnterpriseAttestation
+            && self.dwLargeBlobSupport == other.dwLargeBlobSupport
+            && self.bPreferResidentKey == other.bPreferResidentKey
+            && self.bBrowserInPrivateMode == other.bBrowserInPrivateMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6053,6 +6110,88 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS {
+    pub dwVersion: u32,
+    pub cbCredentialID: u32,
+    pub pbCredentialID: *mut u8,
+    pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
+    pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
+    pub bRemovable: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL_DETAILS").field("dwVersion", &self.dwVersion).field("cbCredentialID", &self.cbCredentialID).field("pbCredentialID", &self.pbCredentialID).field("pRpInformation", &self.pRpInformation).field("pUserInformation", &self.pUserInformation).field("bRemovable", &self.bRemovable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwVersion == other.dwVersion && self.cbCredentialID == other.cbCredentialID && self.pbCredentialID == other.pbCredentialID && self.pRpInformation == other.pRpInformation && self.pUserInformation == other.pUserInformation && self.bRemovable == other.bRemovable
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    pub cCredentialDetails: u32,
+    pub ppCredentialDetails: *mut *mut WEBAUTHN_CREDENTIAL_DETAILS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CREDENTIAL_DETAILS_LIST").field("cCredentialDetails", &self.cCredentialDetails).field("ppCredentialDetails", &self.ppCredentialDetails).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        self.cCredentialDetails == other.cCredentialDetails && self.ppCredentialDetails == other.ppCredentialDetails
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_DETAILS_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_CREDENTIAL_EX {
     pub dwVersion: u32,
@@ -6189,6 +6328,38 @@ impl ::core::default::Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    pub cbCredID: u32,
+    pub pbCredID: *mut u8,
+    pub pHmacSecretSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+}
+impl ::core::marker::Copy for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {}
+impl ::core::clone::Clone for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT").field("cbCredID", &self.cbCredID).field("pbCredID", &self.pbCredID).field("pHmacSecretSalt", &self.pHmacSecretSalt).finish()
+    }
+}
+impl ::windows::core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbCredID == other.cbCredID && self.pbCredID == other.pbCredID && self.pHmacSecretSalt == other.pHmacSecretSalt
+    }
+}
+impl ::core::cmp::Eq for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {}
+impl ::core::default::Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_EXTENSION {
     pub pwszExtensionIdentifier: ::windows::core::PCWSTR,
     pub cbExtension: u32,
@@ -6246,6 +6417,111 @@ impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSIONS {
 }
 impl ::core::cmp::Eq for WEBAUTHN_EXTENSIONS {}
 impl ::core::default::Default for WEBAUTHN_EXTENSIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    pub dwVersion: u32,
+    pub pwszRpId: ::windows::core::PCWSTR,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_GET_CREDENTIALS_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_GET_CREDENTIALS_OPTIONS").field("dwVersion", &self.dwVersion).field("pwszRpId", &self.pwszRpId).field("bBrowserInPrivateMode", &self.bBrowserInPrivateMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwVersion == other.dwVersion && self.pwszRpId == other.pwszRpId && self.bBrowserInPrivateMode == other.bBrowserInPrivateMode
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WEBAUTHN_GET_CREDENTIALS_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_HMAC_SECRET_SALT {
+    pub cbFirst: u32,
+    pub pbFirst: *mut u8,
+    pub cbSecond: u32,
+    pub pbSecond: *mut u8,
+}
+impl ::core::marker::Copy for WEBAUTHN_HMAC_SECRET_SALT {}
+impl ::core::clone::Clone for WEBAUTHN_HMAC_SECRET_SALT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WEBAUTHN_HMAC_SECRET_SALT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_HMAC_SECRET_SALT").field("cbFirst", &self.cbFirst).field("pbFirst", &self.pbFirst).field("cbSecond", &self.cbSecond).field("pbSecond", &self.pbSecond).finish()
+    }
+}
+impl ::windows::core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for WEBAUTHN_HMAC_SECRET_SALT {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbFirst == other.cbFirst && self.pbFirst == other.pbFirst && self.cbSecond == other.cbSecond && self.pbSecond == other.pbSecond
+    }
+}
+impl ::core::cmp::Eq for WEBAUTHN_HMAC_SECRET_SALT {}
+impl ::core::default::Default for WEBAUTHN_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    pub pGlobalHmacSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub cCredWithHmacSecretSaltList: u32,
+    pub pCredWithHmacSecretSaltList: *mut WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
+}
+impl ::core::marker::Copy for WEBAUTHN_HMAC_SECRET_SALT_VALUES {}
+impl ::core::clone::Clone for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WEBAUTHN_HMAC_SECRET_SALT_VALUES").field("pGlobalHmacSalt", &self.pGlobalHmacSalt).field("cCredWithHmacSecretSaltList", &self.cCredWithHmacSecretSaltList).field("pCredWithHmacSecretSaltList", &self.pCredWithHmacSecretSaltList).finish()
+    }
+}
+impl ::windows::core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    fn eq(&self, other: &Self) -> bool {
+        self.pGlobalHmacSalt == other.pGlobalHmacSalt && self.cCredWithHmacSecretSaltList == other.cCredWithHmacSecretSaltList && self.pCredWithHmacSecretSaltList == other.pCredWithHmacSecretSaltList
+    }
+}
+impl ::core::cmp::Eq for WEBAUTHN_HMAC_SECRET_SALT_VALUES {}
+impl ::core::default::Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

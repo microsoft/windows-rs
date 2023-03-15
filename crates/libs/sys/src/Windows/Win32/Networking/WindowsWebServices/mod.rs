@@ -249,7 +249,7 @@
 ::windows_sys::core::link ! ( "webservices.dll""system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WsXmlStringEquals ( string1 : *const WS_XML_STRING , string2 : *const WS_XML_STRING , error : *const WS_ERROR ) -> :: windows_sys::core::HRESULT );
 pub type IContentPrefetcherTaskTrigger = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
+pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -257,11 +257,15 @@ pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
+pub const WEBAUTHN_API_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_ASSERTION_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -293,7 +297,7 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -305,7 +309,11 @@ pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_6: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -314,6 +322,8 @@ pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -351,6 +361,10 @@ pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("public-key");
@@ -383,6 +397,8 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
@@ -408,6 +424,10 @@ pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: ::windows_sys::core::PCWS
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: ::windows_sys::core::PCWSTR = ::windows_sys::w!("hmac-secret");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: ::windows_sys::core::PCWSTR = ::windows_sys::w!("minPinLength");
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: ::windows_sys::core::PCWSTR = ::windows_sys::w!("SHA-256");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -2393,6 +2413,7 @@ pub struct WEBAUTHN_ASSERTION {
     pub cbCredLargeBlob: u32,
     pub pbCredLargeBlob: *mut u8,
     pub dwCredLargeBlobStatus: u32,
+    pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
 }
 impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
 impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
@@ -2418,6 +2439,8 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwCredLargeBlobOperation: u32,
     pub cbCredLargeBlob: u32,
     pub pbCredLargeBlob: *mut u8,
+    pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
@@ -2445,6 +2468,7 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwEnterpriseAttestation: u32,
     pub dwLargeBlobSupport: u32,
     pub bPreferResidentKey: super::super::Foundation::BOOL,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
@@ -2572,6 +2596,40 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_ATTESTATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS {
+    pub dwVersion: u32,
+    pub cbCredentialID: u32,
+    pub pbCredentialID: *mut u8,
+    pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
+    pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
+    pub bRemovable: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    pub cCredentialDetails: u32,
+    pub ppCredentialDetails: *mut *mut WEBAUTHN_CREDENTIAL_DETAILS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_CREDENTIAL_EX {
     pub dwVersion: u32,
@@ -2627,6 +2685,19 @@ impl ::core::clone::Clone for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    pub cbCredID: u32,
+    pub pbCredID: *mut u8,
+    pub pHmacSecretSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+}
+impl ::core::marker::Copy for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {}
+impl ::core::clone::Clone for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_EXTENSION {
     pub pwszExtensionIdentifier: ::windows_sys::core::PCWSTR,
     pub cbExtension: u32,
@@ -2646,6 +2717,49 @@ pub struct WEBAUTHN_EXTENSIONS {
 }
 impl ::core::marker::Copy for WEBAUTHN_EXTENSIONS {}
 impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    pub dwVersion: u32,
+    pub pwszRpId: ::windows_sys::core::PCWSTR,
+    pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_GET_CREDENTIALS_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_HMAC_SECRET_SALT {
+    pub cbFirst: u32,
+    pub pbFirst: *mut u8,
+    pub cbSecond: u32,
+    pub pbSecond: *mut u8,
+}
+impl ::core::marker::Copy for WEBAUTHN_HMAC_SECRET_SALT {}
+impl ::core::clone::Clone for WEBAUTHN_HMAC_SECRET_SALT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    pub pGlobalHmacSalt: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub cCredWithHmacSecretSaltList: u32,
+    pub pCredWithHmacSecretSaltList: *mut WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
+}
+impl ::core::marker::Copy for WEBAUTHN_HMAC_SECRET_SALT_VALUES {}
+impl ::core::clone::Clone for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
     fn clone(&self) -> Self {
         *self
     }

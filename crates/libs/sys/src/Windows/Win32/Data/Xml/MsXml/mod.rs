@@ -80,7 +80,6 @@ pub type IXMLHTTPRequest2 = *mut ::core::ffi::c_void;
 pub type IXMLHTTPRequest2Callback = *mut ::core::ffi::c_void;
 pub type IXMLHTTPRequest3 = *mut ::core::ffi::c_void;
 pub type IXMLHTTPRequest3Callback = *mut ::core::ffi::c_void;
-pub type IXMLHttpRequest = *mut ::core::ffi::c_void;
 pub type IXSLProcessor = *mut ::core::ffi::c_void;
 pub type IXSLTemplate = *mut ::core::ffi::c_void;
 pub type IXTLRuntime = *mut ::core::ffi::c_void;

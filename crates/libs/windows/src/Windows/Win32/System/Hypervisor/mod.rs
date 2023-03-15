@@ -1042,7 +1042,7 @@ pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
+pub const HVSOCKET_HIGH_VTL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1176,6 +1176,66 @@ impl ::windows::core::TypeKind for GUEST_OS_VENDOR {
 impl ::core::fmt::Debug for GUEST_OS_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GUEST_OS_VENDOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceHostFlagNone: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceHostFlagInitializeComSecurity: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(1i32);
+impl ::core::marker::Copy for HDV_DEVICE_HOST_FLAGS {}
+impl ::core::clone::Clone for HDV_DEVICE_HOST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_DEVICE_HOST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for HDV_DEVICE_HOST_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_DEVICE_HOST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_DEVICE_HOST_FLAGS").field(&self.0).finish()
+    }
+}
+impl HDV_DEVICE_HOST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]

@@ -9916,6 +9916,8 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
@@ -10861,6 +10863,8 @@ pub const JOB_CONTROL_RESTART: u32 = 4u32;
 pub const JOB_CONTROL_RESUME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_RETAIN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const JOB_CONTROL_SEND_TOAST: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -14756,6 +14760,48 @@ impl ::core::cmp::PartialEq for DOC_INFO_3W {
 }
 impl ::core::cmp::Eq for DOC_INFO_3W {}
 impl ::core::default::Default for DOC_INFO_3W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_INTERNAL {
+    pub pDocName: *mut i8,
+    pub pOutputFile: *mut i8,
+    pub pDatatype: *mut i8,
+    pub bLowILJob: super::super::Foundation::BOOL,
+    pub hTokenLowIL: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_INTERNAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_INTERNAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOC_INFO_INTERNAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOC_INFO_INTERNAL").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("bLowILJob", &self.bLowILJob).field("hTokenLowIL", &self.hTokenLowIL).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::TypeKind for DOC_INFO_INTERNAL {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DOC_INFO_INTERNAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.pDocName == other.pDocName && self.pOutputFile == other.pOutputFile && self.pDatatype == other.pDatatype && self.bLowILJob == other.bLowILJob && self.hTokenLowIL == other.hTokenLowIL
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DOC_INFO_INTERNAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DOC_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -20037,6 +20083,7 @@ pub struct PRINTPROVIDOR {
     pub fpEnumAndLogProvidorObjects: isize,
     pub fpInternalGetPrinterDriver: isize,
     pub fpFindCompatibleDriver: isize,
+    pub fpInstallPrinterDriverPackageFromConnection: isize,
     pub fpGetJobNamedPropertyValue: isize,
     pub fpSetJobNamedProperty: isize,
     pub fpDeleteJobNamedProperty: isize,
@@ -20052,6 +20099,7 @@ pub struct PRINTPROVIDOR {
     pub fpIppSetJobAttributes: isize,
     pub fpIppGetPrinterAttributes: isize,
     pub fpIppSetPrinterAttributes: isize,
+    pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
 impl ::core::marker::Copy for PRINTPROVIDOR {}
 impl ::core::clone::Clone for PRINTPROVIDOR {
@@ -20153,6 +20201,7 @@ impl ::core::fmt::Debug for PRINTPROVIDOR {
             .field("fpEnumAndLogProvidorObjects", &self.fpEnumAndLogProvidorObjects)
             .field("fpInternalGetPrinterDriver", &self.fpInternalGetPrinterDriver)
             .field("fpFindCompatibleDriver", &self.fpFindCompatibleDriver)
+            .field("fpInstallPrinterDriverPackageFromConnection", &self.fpInstallPrinterDriverPackageFromConnection)
             .field("fpGetJobNamedPropertyValue", &self.fpGetJobNamedPropertyValue)
             .field("fpSetJobNamedProperty", &self.fpSetJobNamedProperty)
             .field("fpDeleteJobNamedProperty", &self.fpDeleteJobNamedProperty)
@@ -20168,6 +20217,7 @@ impl ::core::fmt::Debug for PRINTPROVIDOR {
             .field("fpIppSetJobAttributes", &self.fpIppSetJobAttributes)
             .field("fpIppGetPrinterAttributes", &self.fpIppGetPrinterAttributes)
             .field("fpIppSetPrinterAttributes", &self.fpIppSetPrinterAttributes)
+            .field("fpIppCreateJobOnPrinterWithAttributes", &self.fpIppCreateJobOnPrinterWithAttributes)
             .finish()
     }
 }
@@ -20267,6 +20317,7 @@ impl ::core::cmp::PartialEq for PRINTPROVIDOR {
             && self.fpEnumAndLogProvidorObjects == other.fpEnumAndLogProvidorObjects
             && self.fpInternalGetPrinterDriver == other.fpInternalGetPrinterDriver
             && self.fpFindCompatibleDriver == other.fpFindCompatibleDriver
+            && self.fpInstallPrinterDriverPackageFromConnection == other.fpInstallPrinterDriverPackageFromConnection
             && self.fpGetJobNamedPropertyValue == other.fpGetJobNamedPropertyValue
             && self.fpSetJobNamedProperty == other.fpSetJobNamedProperty
             && self.fpDeleteJobNamedProperty == other.fpDeleteJobNamedProperty
@@ -20282,6 +20333,7 @@ impl ::core::cmp::PartialEq for PRINTPROVIDOR {
             && self.fpIppSetJobAttributes == other.fpIppSetJobAttributes
             && self.fpIppGetPrinterAttributes == other.fpIppGetPrinterAttributes
             && self.fpIppSetPrinterAttributes == other.fpIppSetPrinterAttributes
+            && self.fpIppCreateJobOnPrinterWithAttributes == other.fpIppCreateJobOnPrinterWithAttributes
     }
 }
 impl ::core::cmp::Eq for PRINTPROVIDOR {}

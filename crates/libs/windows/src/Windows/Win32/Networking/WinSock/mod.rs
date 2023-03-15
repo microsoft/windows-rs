@@ -131,9 +131,12 @@ pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpserv
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::core::option::Option<&mut [u16]>, pservicebuffer: ::core::option::Option<&mut [u16]>, flags: i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
-    GetNameInfoW(psockaddr, sockaddrlength, ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
+pub unsafe fn GetNameInfoW<P0>(psockaddr: *const SOCKADDR, sockaddrlength: P0, pnodebuffer: ::core::option::Option<&mut [u16]>, pservicebuffer: ::core::option::Option<&mut [u16]>, flags: i32) -> i32
+where
+    P0: ::windows::core::IntoParam<socklen_t>,
+{
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : :: windows::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+    GetNameInfoW(psockaddr, sockaddrlength.into_param().abi(), ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1512,9 +1515,12 @@ pub unsafe fn gethostname(name: &mut [u8]) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::core::option::Option<&mut [u8]>, pservicebuffer: ::core::option::Option<&mut [u8]>, flags: i32) -> i32 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
-    getnameinfo(psockaddr, sockaddrlength, ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
+pub unsafe fn getnameinfo<P0>(psockaddr: *const SOCKADDR, sockaddrlength: P0, pnodebuffer: ::core::option::Option<&mut [u8]>, pservicebuffer: ::core::option::Option<&mut [u8]>, flags: i32) -> i32
+where
+    P0: ::windows::core::IntoParam<socklen_t>,
+{
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : socklen_t , pnodebuffer : :: windows::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+    getnameinfo(psockaddr, sockaddrlength.into_param().abi(), ::core::mem::transmute(pnodebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pservicebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len() as _), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -1702,17 +1708,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn shutdown<P0>(s: P0, how: i32) -> i32
+pub unsafe fn shutdown<P0>(s: P0, how: WINSOCK_SHUTDOWN_HOW) -> i32
 where
     P0: ::windows::core::IntoParam<SOCKET>,
 {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn shutdown ( s : SOCKET , how : i32 ) -> i32 );
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn shutdown ( s : SOCKET , how : WINSOCK_SHUTDOWN_HOW ) -> i32 );
     shutdown(s.into_param().abi(), how)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
-    ::windows::imp::link ! ( "ws2_32.dll""system" fn socket ( af : i32 , r#type : i32 , protocol : i32 ) -> SOCKET );
+pub unsafe fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> SOCKET {
+    ::windows::imp::link ! ( "ws2_32.dll""system" fn socket ( af : i32 , r#type : WINSOCK_SOCKET_TYPE , protocol : i32 ) -> SOCKET );
     socket(af, r#type, protocol)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -2201,6 +2207,8 @@ pub const ICMP6_DST_UNREACH_BEYONDSCOPE: u32 = 2u32;
 pub const ICMP6_DST_UNREACH_NOPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP6_DST_UNREACH_NOROUTE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const ICMP6_PARAMPROB_FIRSTFRAGMENT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP6_PARAMPROB_HEADER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -3116,26 +3124,6 @@ pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PI_RESTRICTED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLERR: u16 = 1u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLHUP: u16 = 2u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLIN: u16 = 768u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLNVAL: u16 = 4u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLOUT: u16 = 16u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLPRI: u16 = 1024u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDBAND: u16 = 512u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLRDNORM: u16 = 256u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRBAND: u16 = 32u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const POLLWRNORM: u16 = 16u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PROP_ADDRESSES: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const PROP_ALL: u32 = 2147483648u32;
@@ -3245,12 +3233,6 @@ pub const SAP_FIELD_ANY: u32 = 4294967295u32;
 pub const SAP_FIELD_ANY_AESA_REST: u32 = 4294967291u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SAP_FIELD_ANY_AESA_SEL: u32 = 4294967290u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_BOTH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_RECEIVE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SD_SEND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SECURITY_PROTOCOL_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -3544,8 +3526,6 @@ pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_DGRAM: u16 = 2u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_EVENT_HANGUP: u32 = 4u32;
@@ -3579,14 +3559,6 @@ pub const SOCK_NOTIFY_TRIGGER_LEVEL: u32 = 4u32;
 pub const SOCK_NOTIFY_TRIGGER_ONESHOT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCK_NOTIFY_TRIGGER_PERSISTENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_RAW: u16 = 3u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_RDM: u16 = 4u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_SEQPACKET: u16 = 5u16;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SOCK_STREAM: u16 = 1u16;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOL_IRLMP: i32 = 255i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -5873,6 +5845,68 @@ impl ::core::fmt::Debug for TUNNEL_SUB_TYPE {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINSOCK_SHUTDOWN_HOW(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_RECEIVE: WINSOCK_SHUTDOWN_HOW = WINSOCK_SHUTDOWN_HOW(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_SEND: WINSOCK_SHUTDOWN_HOW = WINSOCK_SHUTDOWN_HOW(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SD_BOTH: WINSOCK_SHUTDOWN_HOW = WINSOCK_SHUTDOWN_HOW(2i32);
+impl ::core::marker::Copy for WINSOCK_SHUTDOWN_HOW {}
+impl ::core::clone::Clone for WINSOCK_SHUTDOWN_HOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINSOCK_SHUTDOWN_HOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for WINSOCK_SHUTDOWN_HOW {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for WINSOCK_SHUTDOWN_HOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINSOCK_SHUTDOWN_HOW").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINSOCK_SOCKET_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_STREAM: WINSOCK_SOCKET_TYPE = WINSOCK_SOCKET_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_DGRAM: WINSOCK_SOCKET_TYPE = WINSOCK_SOCKET_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_RAW: WINSOCK_SOCKET_TYPE = WINSOCK_SOCKET_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_RDM: WINSOCK_SOCKET_TYPE = WINSOCK_SOCKET_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const SOCK_SEQPACKET: WINSOCK_SOCKET_TYPE = WINSOCK_SOCKET_TYPE(5i32);
+impl ::core::marker::Copy for WINSOCK_SOCKET_TYPE {}
+impl ::core::clone::Clone for WINSOCK_SOCKET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINSOCK_SOCKET_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for WINSOCK_SOCKET_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for WINSOCK_SOCKET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINSOCK_SOCKET_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSACOMPLETIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(0i32);
@@ -5957,6 +5991,82 @@ impl ::windows::core::TypeKind for WSAESETSERVICEOP {
 impl ::core::fmt::Debug for WSAESETSERVICEOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WSAESETSERVICEOP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSAPOLL_EVENT_FLAGS(pub i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLRDNORM: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(256i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLRDBAND: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(512i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLIN: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(768i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLPRI: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(1024i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLWRNORM: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(16i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLOUT: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(16i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLWRBAND: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(32i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLERR: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(1i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLHUP: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(2i16);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const POLLNVAL: WSAPOLL_EVENT_FLAGS = WSAPOLL_EVENT_FLAGS(4i16);
+impl ::core::marker::Copy for WSAPOLL_EVENT_FLAGS {}
+impl ::core::clone::Clone for WSAPOLL_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WSAPOLL_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for WSAPOLL_EVENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for WSAPOLL_EVENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSAPOLL_EVENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl WSAPOLL_EVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WSAPOLL_EVENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WSAPOLL_EVENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WSAPOLL_EVENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WSAPOLL_EVENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WSAPOLL_EVENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -15746,8 +15856,8 @@ impl ::core::default::Default for WSAPOLLDATA {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
-    pub events: i16,
-    pub revents: i16,
+    pub events: WSAPOLL_EVENT_FLAGS,
+    pub revents: WSAPOLL_EVENT_FLAGS,
 }
 impl ::core::marker::Copy for WSAPOLLFD {}
 impl ::core::clone::Clone for WSAPOLLFD {
@@ -16651,6 +16761,28 @@ impl ::core::default::Default for netent {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct sa_family_t(pub u16);
+impl ::core::default::Default for sa_family_t {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for sa_family_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for sa_family_t {}
+impl ::core::fmt::Debug for sa_family_t {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("sa_family_t").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for sa_family_t {
+    type TypeKind = ::windows::core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub union sockaddr_gen {
@@ -16693,6 +16825,28 @@ impl ::core::default::Default for sockaddr_in6_old {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct socklen_t(pub i32);
+impl ::core::default::Default for socklen_t {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for socklen_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for socklen_t {}
+impl ::core::fmt::Debug for socklen_t {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("socklen_t").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for socklen_t {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

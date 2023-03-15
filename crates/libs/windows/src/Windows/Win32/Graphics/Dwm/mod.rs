@@ -457,7 +457,9 @@ pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(36i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(37i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
+pub const DWMWA_SYSTEMBACKDROP_TYPE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(39i32);
 impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
 impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
     fn clone(&self) -> Self {
@@ -574,6 +576,39 @@ impl ::windows::core::TypeKind for DWM_SOURCE_FRAME_SAMPLING {
 impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWM_SOURCE_FRAME_SAMPLING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DWM_SYSTEMBACKDROP_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_AUTO: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_NONE: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_MAINWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_TRANSIENTWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_TABBEDWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(4i32);
+impl ::core::marker::Copy for DWM_SYSTEMBACKDROP_TYPE {}
+impl ::core::clone::Clone for DWM_SYSTEMBACKDROP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DWM_SYSTEMBACKDROP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for DWM_SYSTEMBACKDROP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for DWM_SYSTEMBACKDROP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DWM_SYSTEMBACKDROP_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]

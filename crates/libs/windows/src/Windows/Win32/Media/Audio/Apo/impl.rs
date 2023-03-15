@@ -316,6 +316,30 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         iid == &<IAudioProcessingObjectNotifications as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait IAudioProcessingObjectNotifications2_Impl: Sized + IAudioProcessingObjectNotifications_Impl {
+    fn GetApoNotificationRegistrationInfo2(&self, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IAudioProcessingObjectNotifications2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl IAudioProcessingObjectNotifications2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications2_Impl, const OFFSET: isize>() -> IAudioProcessingObjectNotifications2_Vtbl {
+        unsafe extern "system" fn GetApoNotificationRegistrationInfo2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxaponotificationtypesupported: APO_NOTIFICATION_TYPE, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetApoNotificationRegistrationInfo2(::core::mem::transmute_copy(&maxaponotificationtypesupported), ::core::mem::transmute_copy(&aponotifications), ::core::mem::transmute_copy(&count)).into()
+        }
+        Self {
+            base__: IAudioProcessingObjectNotifications_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetApoNotificationRegistrationInfo2: GetApoNotificationRegistrationInfo2::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioProcessingObjectNotifications2 as ::windows::core::ComInterface>::IID || iid == &<IAudioProcessingObjectNotifications as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"implement\"`*"]
 pub trait IAudioProcessingObjectRT_Impl: Sized {
     fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY);

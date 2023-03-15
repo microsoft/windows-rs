@@ -20848,6 +20848,687 @@ impl IDebugExtendedProperty_Vtbl {
         iid == &<IDebugExtendedProperty as ::windows::core::ComInterface>::IID || iid == &<IDebugProperty as ::windows::core::ComInterface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDebugFAEntryTags_Impl: Sized {
+    fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE;
+    fn SetType(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE) -> ::windows::core::Result<()>;
+    fn GetProperties(&self, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PSTR, namesize: *mut u32, description: ::windows::core::PSTR, descsize: *mut u32, flags: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProperties(&self, tag: DEBUG_FLR_PARAM_TYPE, name: &::windows::core::PCSTR, description: &::windows::core::PCSTR, flags: u32) -> ::windows::core::Result<()>;
+    fn GetTagByName(&self, pluginid: &::windows::core::PCSTR, tagname: &::windows::core::PCSTR) -> ::windows::core::Result<DEBUG_FLR_PARAM_TYPE>;
+    fn IsValidTagToSet(&self, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::Foundation::BOOL;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDebugFAEntryTags_Vtbl {
+    pub const fn new<Impl: IDebugFAEntryTags_Impl>() -> IDebugFAEntryTags_Vtbl {
+        unsafe extern "system" fn GetType<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.GetType(::core::mem::transmute_copy(&tag))
+        }
+        unsafe extern "system" fn SetType<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SetType(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&entrytype)).into()
+        }
+        unsafe extern "system" fn GetProperties<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PSTR, namesize: *mut u32, description: ::windows::core::PSTR, descsize: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.GetProperties(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namesize), ::core::mem::transmute_copy(&description), ::core::mem::transmute_copy(&descsize), ::core::mem::transmute_copy(&flags)).into()
+        }
+        unsafe extern "system" fn SetProperties<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, name: ::windows::core::PCSTR, description: ::windows::core::PCSTR, flags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SetProperties(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&name), ::core::mem::transmute(&description), ::core::mem::transmute_copy(&flags)).into()
+        }
+        unsafe extern "system" fn GetTagByName<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, pluginid: ::windows::core::PCSTR, tagname: ::windows::core::PCSTR, tag: *mut DEBUG_FLR_PARAM_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            match this.GetTagByName(::core::mem::transmute(&pluginid), ::core::mem::transmute(&tagname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(tag, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IsValidTagToSet<Impl: IDebugFAEntryTags_Impl>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.IsValidTagToSet(::core::mem::transmute_copy(&tag))
+        }
+        Self {
+            GetType: GetType::<Impl>,
+            SetType: SetType::<Impl>,
+            GetProperties: GetProperties::<Impl>,
+            SetProperties: SetProperties::<Impl>,
+            GetTagByName: GetTagByName::<Impl>,
+            IsValidTagToSet: IsValidTagToSet::<Impl>,
+        }
+    }
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct IDebugFAEntryTags_ImplVtbl<T: IDebugFAEntryTags_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IDebugFAEntryTags_Impl> IDebugFAEntryTags_ImplVtbl<T> {
+    const VTABLE: IDebugFAEntryTags_Vtbl = IDebugFAEntryTags_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDebugFAEntryTags {
+    pub fn new<'a, T: IDebugFAEntryTags_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IDebugFAEntryTags_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
+pub trait IDebugFailureAnalysis_Impl: Sized {
+    fn GetFailureClass(&self) -> u32;
+    fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
+    fn GetFailureCode(&self) -> u32;
+    fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY;
+    fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
+    fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
+}
+impl ::windows::core::RuntimeName for IDebugFailureAnalysis {}
+impl IDebugFailureAnalysis_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>() -> IDebugFailureAnalysis_Vtbl {
+        unsafe extern "system" fn GetFailureClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureClass()
+        }
+        unsafe extern "system" fn GetFailureType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureType()
+        }
+        unsafe extern "system" fn GetFailureCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureCode()
+        }
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Get(::core::mem::transmute_copy(&tag))
+        }
+        unsafe extern "system" fn GetNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetNext(::core::mem::transmute_copy(&entry), ::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&tagmask))
+        }
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetString(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&str), ::core::mem::transmute_copy(&maxsize))
+        }
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn GetUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn GetUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn NextEntry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.NextEntry(::core::mem::transmute_copy(&entry))
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetFailureClass: GetFailureClass::<Identity, Impl, OFFSET>,
+            GetFailureType: GetFailureType::<Identity, Impl, OFFSET>,
+            GetFailureCode: GetFailureCode::<Identity, Impl, OFFSET>,
+            Get: Get::<Identity, Impl, OFFSET>,
+            GetNext: GetNext::<Identity, Impl, OFFSET>,
+            GetString: GetString::<Identity, Impl, OFFSET>,
+            GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
+            GetUlong: GetUlong::<Identity, Impl, OFFSET>,
+            GetUlong64: GetUlong64::<Identity, Impl, OFFSET>,
+            NextEntry: NextEntry::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDebugFailureAnalysis as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+pub trait IDebugFailureAnalysis2_Impl: Sized {
+    fn GetFailureClass(&self) -> u32;
+    fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
+    fn GetFailureCode(&self) -> u32;
+    fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY;
+    fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
+    fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
+    fn SetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn SetExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
+    fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
+    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn AddString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn AddExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
+    fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
+    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn GetDebugFATagControl(&self) -> ::windows::core::Result<IDebugFAEntryTags>;
+    fn GetAnalysisXml(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
+    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: ::core::option::Option<&IDebugFailureAnalysis2>) -> ::windows::core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDebugFailureAnalysis2 {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl IDebugFailureAnalysis2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>() -> IDebugFailureAnalysis2_Vtbl {
+        unsafe extern "system" fn GetFailureClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureClass()
+        }
+        unsafe extern "system" fn GetFailureType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureType()
+        }
+        unsafe extern "system" fn GetFailureCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureCode()
+        }
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Get(::core::mem::transmute_copy(&tag))
+        }
+        unsafe extern "system" fn GetNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetNext(::core::mem::transmute_copy(&entry), ::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&tagmask))
+        }
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetString(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&str), ::core::mem::transmute_copy(&maxsize))
+        }
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn GetUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn GetUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn NextEntry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.NextEntry(::core::mem::transmute_copy(&entry))
+        }
+        unsafe extern "system" fn SetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetString(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&str))
+        }
+        unsafe extern "system" fn SetExtensionCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetExtensionCommand(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&extension))
+        }
+        unsafe extern "system" fn SetUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn SetUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn SetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&entrytype), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn AddString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddString(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&str))
+        }
+        unsafe extern "system" fn AddExtensionCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddExtensionCommand(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&extension))
+        }
+        unsafe extern "system" fn AddUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn AddUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn AddBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&entrytype), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn GetDebugFATagControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fatagcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetDebugFATagControl() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(fatagcontrol, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAnalysisXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetAnalysisXml() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppxmldomelement, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddStructuredAnalysisData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddStructuredAnalysisData(::core::mem::transmute_copy(&tag), ::windows::core::from_raw_borrowed(&analysis)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetFailureClass: GetFailureClass::<Identity, Impl, OFFSET>,
+            GetFailureType: GetFailureType::<Identity, Impl, OFFSET>,
+            GetFailureCode: GetFailureCode::<Identity, Impl, OFFSET>,
+            Get: Get::<Identity, Impl, OFFSET>,
+            GetNext: GetNext::<Identity, Impl, OFFSET>,
+            GetString: GetString::<Identity, Impl, OFFSET>,
+            GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
+            GetUlong: GetUlong::<Identity, Impl, OFFSET>,
+            GetUlong64: GetUlong64::<Identity, Impl, OFFSET>,
+            NextEntry: NextEntry::<Identity, Impl, OFFSET>,
+            SetString: SetString::<Identity, Impl, OFFSET>,
+            SetExtensionCommand: SetExtensionCommand::<Identity, Impl, OFFSET>,
+            SetUlong: SetUlong::<Identity, Impl, OFFSET>,
+            SetUlong64: SetUlong64::<Identity, Impl, OFFSET>,
+            SetBuffer: SetBuffer::<Identity, Impl, OFFSET>,
+            AddString: AddString::<Identity, Impl, OFFSET>,
+            AddExtensionCommand: AddExtensionCommand::<Identity, Impl, OFFSET>,
+            AddUlong: AddUlong::<Identity, Impl, OFFSET>,
+            AddUlong64: AddUlong64::<Identity, Impl, OFFSET>,
+            AddBuffer: AddBuffer::<Identity, Impl, OFFSET>,
+            GetDebugFATagControl: GetDebugFATagControl::<Identity, Impl, OFFSET>,
+            GetAnalysisXml: GetAnalysisXml::<Identity, Impl, OFFSET>,
+            AddStructuredAnalysisData: AddStructuredAnalysisData::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDebugFailureAnalysis2 as ::windows::core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDebugFailureAnalysis3_Impl: Sized {
+    fn GetFailureClass(&self) -> u32;
+    fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
+    fn GetFailureCode(&self) -> u32;
+    fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY;
+    fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
+    fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
+    fn SetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn SetExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
+    fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
+    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn AddString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn AddExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &::windows::core::PCSTR) -> *mut FA_ENTRY;
+    fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
+    fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
+    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn GetDebugFATagControl(&self) -> ::windows::core::Result<IDebugFAEntryTags>;
+    fn GetAnalysisXml(&self) -> ::windows::core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
+    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: ::core::option::Option<&IDebugFailureAnalysis2>) -> ::windows::core::Result<()>;
+    fn AddThreads(&self, pdebugfailurethreadenum: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AttributeGet(&self, nindex: u32) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn AttributeGetName(&self, nindex: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn AttributeSet(&self, nindex: u32, value: &super::super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BlameApplication(&self, postfix: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BlameProcess(&self, postfix: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BlameThread(&self, pthread: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn BlameStitch(&self, pthread: ::core::option::Option<&::windows::core::IUnknown>, stitch: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn BlameTEB(&self, address: u64) -> ::windows::core::Result<()>;
+    fn BlameETHREAD(&self, address: u64) -> ::windows::core::Result<()>;
+    fn ProblemClassIsSet(&self, nindex: u32) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
+    fn ProblemClassDelete(&self, nindex: u32) -> ::windows::core::Result<()>;
+    fn ProblemClassSet(&self, nindex: u32) -> ::windows::core::Result<()>;
+    fn ProblemClassSetBSTR(&self, nindex: u32, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SetAdditionalXML(&self, key: &::windows::core::BSTR, pxmldomelement: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetAdditionalXML(&self, key: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn DeleteAdditionalXML(&self, key: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDebugFailureAnalysis3 {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDebugFailureAnalysis3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>() -> IDebugFailureAnalysis3_Vtbl {
+        unsafe extern "system" fn GetFailureClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureClass()
+        }
+        unsafe extern "system" fn GetFailureType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DEBUG_FAILURE_TYPE {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureType()
+        }
+        unsafe extern "system" fn GetFailureCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetFailureCode()
+        }
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Get(::core::mem::transmute_copy(&tag))
+        }
+        unsafe extern "system" fn GetNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetNext(::core::mem::transmute_copy(&entry), ::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&tagmask))
+        }
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PSTR, maxsize: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetString(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&str), ::core::mem::transmute_copy(&maxsize))
+        }
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn GetUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn GetUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn NextEntry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.NextEntry(::core::mem::transmute_copy(&entry))
+        }
+        unsafe extern "system" fn SetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetString(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&str))
+        }
+        unsafe extern "system" fn SetExtensionCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetExtensionCommand(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&extension))
+        }
+        unsafe extern "system" fn SetUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn SetUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn SetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&entrytype), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn AddString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, str: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddString(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&str))
+        }
+        unsafe extern "system" fn AddExtensionCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, extension: ::windows::core::PCSTR) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddExtensionCommand(::core::mem::transmute_copy(&tag), ::core::mem::transmute(&extension))
+        }
+        unsafe extern "system" fn AddUlong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddUlong(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn AddUlong64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddUlong64(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&value))
+        }
+        unsafe extern "system" fn AddBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const ::core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddBuffer(::core::mem::transmute_copy(&tag), ::core::mem::transmute_copy(&entrytype), ::core::mem::transmute_copy(&buf), ::core::mem::transmute_copy(&size))
+        }
+        unsafe extern "system" fn GetDebugFATagControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fatagcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetDebugFATagControl() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(fatagcontrol, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAnalysisXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetAnalysisXml() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppxmldomelement, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AddStructuredAnalysisData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddStructuredAnalysisData(::core::mem::transmute_copy(&tag), ::windows::core::from_raw_borrowed(&analysis)).into()
+        }
+        unsafe extern "system" fn AddThreads<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdebugfailurethreadenum: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddThreads(::windows::core::from_raw_borrowed(&pdebugfailurethreadenum)).into()
+        }
+        unsafe extern "system" fn AttributeGet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.AttributeGet(::core::mem::transmute_copy(&nindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AttributeGetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.AttributeGetName(::core::mem::transmute_copy(&nindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AttributeSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, value: super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AttributeSet(::core::mem::transmute_copy(&nindex), ::core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn BlameApplication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameApplication(::core::mem::transmute(&postfix)).into()
+        }
+        unsafe extern "system" fn BlameProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameProcess(::core::mem::transmute(&postfix)).into()
+        }
+        unsafe extern "system" fn BlameThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pthread: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameThread(::windows::core::from_raw_borrowed(&pthread)).into()
+        }
+        unsafe extern "system" fn BlameStitch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pthread: *mut ::core::ffi::c_void, stitch: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameStitch(::windows::core::from_raw_borrowed(&pthread), ::core::mem::transmute(&stitch)).into()
+        }
+        unsafe extern "system" fn BlameTEB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: u64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameTEB(::core::mem::transmute_copy(&address)).into()
+        }
+        unsafe extern "system" fn BlameETHREAD<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: u64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.BlameETHREAD(::core::mem::transmute_copy(&address)).into()
+        }
+        unsafe extern "system" fn ProblemClassIsSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pset: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.ProblemClassIsSet(::core::mem::transmute_copy(&nindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pset, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ProblemClassDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ProblemClassDelete(::core::mem::transmute_copy(&nindex)).into()
+        }
+        unsafe extern "system" fn ProblemClassSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ProblemClassSet(::core::mem::transmute_copy(&nindex)).into()
+        }
+        unsafe extern "system" fn ProblemClassSetBSTR<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, value: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ProblemClassSetBSTR(::core::mem::transmute_copy(&nindex), ::core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn SetAdditionalXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>, pxmldomelement: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetAdditionalXML(::core::mem::transmute(&key), ::windows::core::from_raw_borrowed(&pxmldomelement)).into()
+        }
+        unsafe extern "system" fn GetAdditionalXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetAdditionalXML(::core::mem::transmute(&key)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppxmldomelement, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeleteAdditionalXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DeleteAdditionalXML(::core::mem::transmute(&key)).into()
+        }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetFailureClass: GetFailureClass::<Identity, Impl, OFFSET>,
+            GetFailureType: GetFailureType::<Identity, Impl, OFFSET>,
+            GetFailureCode: GetFailureCode::<Identity, Impl, OFFSET>,
+            Get: Get::<Identity, Impl, OFFSET>,
+            GetNext: GetNext::<Identity, Impl, OFFSET>,
+            GetString: GetString::<Identity, Impl, OFFSET>,
+            GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
+            GetUlong: GetUlong::<Identity, Impl, OFFSET>,
+            GetUlong64: GetUlong64::<Identity, Impl, OFFSET>,
+            NextEntry: NextEntry::<Identity, Impl, OFFSET>,
+            SetString: SetString::<Identity, Impl, OFFSET>,
+            SetExtensionCommand: SetExtensionCommand::<Identity, Impl, OFFSET>,
+            SetUlong: SetUlong::<Identity, Impl, OFFSET>,
+            SetUlong64: SetUlong64::<Identity, Impl, OFFSET>,
+            SetBuffer: SetBuffer::<Identity, Impl, OFFSET>,
+            AddString: AddString::<Identity, Impl, OFFSET>,
+            AddExtensionCommand: AddExtensionCommand::<Identity, Impl, OFFSET>,
+            AddUlong: AddUlong::<Identity, Impl, OFFSET>,
+            AddUlong64: AddUlong64::<Identity, Impl, OFFSET>,
+            AddBuffer: AddBuffer::<Identity, Impl, OFFSET>,
+            GetDebugFATagControl: GetDebugFATagControl::<Identity, Impl, OFFSET>,
+            GetAnalysisXml: GetAnalysisXml::<Identity, Impl, OFFSET>,
+            AddStructuredAnalysisData: AddStructuredAnalysisData::<Identity, Impl, OFFSET>,
+            AddThreads: AddThreads::<Identity, Impl, OFFSET>,
+            AttributeGet: AttributeGet::<Identity, Impl, OFFSET>,
+            AttributeGetName: AttributeGetName::<Identity, Impl, OFFSET>,
+            AttributeSet: AttributeSet::<Identity, Impl, OFFSET>,
+            BlameApplication: BlameApplication::<Identity, Impl, OFFSET>,
+            BlameProcess: BlameProcess::<Identity, Impl, OFFSET>,
+            BlameThread: BlameThread::<Identity, Impl, OFFSET>,
+            BlameStitch: BlameStitch::<Identity, Impl, OFFSET>,
+            BlameTEB: BlameTEB::<Identity, Impl, OFFSET>,
+            BlameETHREAD: BlameETHREAD::<Identity, Impl, OFFSET>,
+            ProblemClassIsSet: ProblemClassIsSet::<Identity, Impl, OFFSET>,
+            ProblemClassDelete: ProblemClassDelete::<Identity, Impl, OFFSET>,
+            ProblemClassSet: ProblemClassSet::<Identity, Impl, OFFSET>,
+            ProblemClassSetBSTR: ProblemClassSetBSTR::<Identity, Impl, OFFSET>,
+            SetAdditionalXML: SetAdditionalXML::<Identity, Impl, OFFSET>,
+            GetAdditionalXML: GetAdditionalXML::<Identity, Impl, OFFSET>,
+            DeleteAdditionalXML: DeleteAdditionalXML::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDebugFailureAnalysis3 as ::windows::core::ComInterface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDebugFormatter_Impl: Sized {

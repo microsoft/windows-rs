@@ -881,7 +881,7 @@ pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TARGET_VERSION: u32 = 16384u32;
+pub const DML_TARGET_VERSION: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -1192,6 +1192,10 @@ pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32)
 pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16640i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20480i32);
 impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
 impl ::core::clone::Clone for DML_FEATURE_LEVEL {
     fn clone(&self) -> Self {

@@ -10290,6 +10290,388 @@ pub struct IMFByteStreamTimeSeek_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
+pub struct IMFCameraConfigurationManager(::windows::core::IUnknown);
+impl IMFCameraConfigurationManager {
+    pub unsafe fn LoadDefaults<P0>(&self, cameraattributes: P0) -> ::windows::core::Result<IMFCameraControlDefaultsCollection>
+    where
+        P0: ::windows::core::IntoParam<IMFAttributes>,
+    {
+        let mut result__ = ::windows::core::zeroed::<IMFCameraControlDefaultsCollection>();
+        (::windows::core::Interface::vtable(self).LoadDefaults)(::windows::core::Interface::as_raw(self), cameraattributes.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SaveDefaults<P0>(&self, configurations: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IMFCameraControlDefaultsCollection>,
+    {
+        (::windows::core::Interface::vtable(self).SaveDefaults)(::windows::core::Interface::as_raw(self), configurations.into_param().abi()).ok()
+    }
+    pub unsafe fn Shutdown(&self) {
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self))
+    }
+}
+::windows::imp::interface_hierarchy!(IMFCameraConfigurationManager, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IMFCameraConfigurationManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFCameraConfigurationManager {}
+impl ::core::fmt::Debug for IMFCameraConfigurationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFCameraConfigurationManager").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFCameraConfigurationManager {
+    type Vtable = IMFCameraConfigurationManager_Vtbl;
+}
+impl ::core::clone::Clone for IMFCameraConfigurationManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMFCameraConfigurationManager {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa624f617_4704_4206_8a6d_ebda4a093985);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFCameraConfigurationManager_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub LoadDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cameraattributes: *mut ::core::ffi::c_void, configurations: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configurations: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+pub struct IMFCameraControlDefaults(::windows::core::IUnknown);
+impl IMFCameraControlDefaults {
+    pub unsafe fn GetType(&self) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetRangeInfo(&self) -> ::windows::core::Result<MF_CAMERA_CONTROL_RANGE_INFO> {
+        let mut result__ = ::windows::core::zeroed::<MF_CAMERA_CONTROL_RANGE_INFO>();
+        (::windows::core::Interface::vtable(self).GetRangeInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn LockControlData(&self, control: *mut *mut ::core::ffi::c_void, controlsize: *mut u32, data: ::core::option::Option<*mut *mut ::core::ffi::c_void>, datasize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LockControlData)(::windows::core::Interface::as_raw(self), control, controlsize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn UnlockControlData(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnlockControlData)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IMFCameraControlDefaults, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IMFCameraControlDefaults {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFCameraControlDefaults {}
+impl ::core::fmt::Debug for IMFCameraControlDefaults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFCameraControlDefaults").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFCameraControlDefaults {
+    type Vtable = IMFCameraControlDefaults_Vtbl;
+}
+impl ::core::clone::Clone for IMFCameraControlDefaults {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMFCameraControlDefaults {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75510662_b034_48f4_88a7_8de61daa4af9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFCameraControlDefaults_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE,
+    pub GetRangeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangeinfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> ::windows::core::HRESULT,
+    pub LockControlData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, control: *mut *mut ::core::ffi::c_void, controlsize: *mut u32, data: *mut *mut ::core::ffi::c_void, datasize: *mut u32) -> ::windows::core::HRESULT,
+    pub UnlockControlData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+pub struct IMFCameraControlDefaultsCollection(::windows::core::IUnknown);
+impl IMFCameraControlDefaultsCollection {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetItem)(::windows::core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
+        let mut result__ = ::windows::core::zeroed::<MF_ATTRIBUTE_TYPE>();
+        (::windows::core::Interface::vtable(self).base__.GetItemType)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.CompareItem)(::windows::core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    where
+        P0: ::windows::core::IntoParam<IMFAttributes>,
+    {
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.Compare)(::windows::core::Interface::as_raw(self), ptheirs.into_param().abi(), matchtype, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetUINT32)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Interface::vtable(self).base__.GetUINT64)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).base__.GetDouble)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetGUID)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetStringLength)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetString)(::windows::core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAllocatedString)(::windows::core::Interface::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
+    }
+    pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetBlobSize)(::windows::core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetBlob)(::windows::core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetAllocatedBlob)(::windows::core::Interface::as_raw(self), guidkey, ppbuf, pcbsize).ok()
+    }
+    pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::ComInterface,
+    {
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Interface::vtable(self).base__.GetUnknown)(::windows::core::Interface::as_raw(self), guidkey, &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetItem)(::windows::core::Interface::as_raw(self), guidkey, value).ok()
+    }
+    pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteItem)(::windows::core::Interface::as_raw(self), guidkey).ok()
+    }
+    pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteAllItems)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUINT32)(::windows::core::Interface::as_raw(self), guidkey, unvalue).ok()
+    }
+    pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUINT64)(::windows::core::Interface::as_raw(self), guidkey, unvalue).ok()
+    }
+    pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDouble)(::windows::core::Interface::as_raw(self), guidkey, fvalue).ok()
+    }
+    pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetGUID)(::windows::core::Interface::as_raw(self), guidkey, guidvalue).ok()
+    }
+    pub unsafe fn SetString<P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetString)(::windows::core::Interface::as_raw(self), guidkey, wszvalue.into_param().abi()).ok()
+    }
+    pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBlob)(::windows::core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+    }
+    pub unsafe fn SetUnknown<P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    {
+        (::windows::core::Interface::vtable(self).base__.SetUnknown)(::windows::core::Interface::as_raw(self), guidkey, punknown.into_param().abi()).ok()
+    }
+    pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.LockStore)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn UnlockStore(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UnlockStore)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetItemByIndex)(::windows::core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn CopyAllItems<P0>(&self, pdest: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::windows::core::IntoParam<IMFAttributes>,
+    {
+        (::windows::core::Interface::vtable(self).base__.CopyAllItems)(::windows::core::Interface::as_raw(self), pdest.into_param().abi()).ok()
+    }
+    pub unsafe fn GetControlCount(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).GetControlCount)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn GetControl(&self, index: u32) -> ::windows::core::Result<IMFCameraControlDefaults> {
+        let mut result__ = ::windows::core::zeroed::<IMFCameraControlDefaults>();
+        (::windows::core::Interface::vtable(self).GetControl)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetOrAddExtendedControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: u32, streamid: u32, datasize: u32) -> ::windows::core::Result<IMFCameraControlDefaults> {
+        let mut result__ = ::windows::core::zeroed::<IMFCameraControlDefaults>();
+        (::windows::core::Interface::vtable(self).GetOrAddExtendedControl)(::windows::core::Interface::as_raw(self), configtype, constrolid, streamid, datasize, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetOrAddControl(&self, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const ::windows::core::GUID, constrolid: u32, controlsize: u32, datasize: u32) -> ::windows::core::Result<IMFCameraControlDefaults> {
+        let mut result__ = ::windows::core::zeroed::<IMFCameraControlDefaults>();
+        (::windows::core::Interface::vtable(self).GetOrAddControl)(::windows::core::Interface::as_raw(self), configtype, controlset, constrolid, controlsize, datasize, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn RemoveControl(&self, controlset: *const ::windows::core::GUID, constrolid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveControl)(::windows::core::Interface::as_raw(self), controlset, constrolid).ok()
+    }
+    pub unsafe fn RemoveAllControls(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveAllControls)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(IMFCameraControlDefaultsCollection, ::windows::core::IUnknown, IMFAttributes);
+impl ::core::cmp::PartialEq for IMFCameraControlDefaultsCollection {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFCameraControlDefaultsCollection {}
+impl ::core::fmt::Debug for IMFCameraControlDefaultsCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFCameraControlDefaultsCollection").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFCameraControlDefaultsCollection {
+    type Vtable = IMFCameraControlDefaultsCollection_Vtbl;
+}
+impl ::core::clone::Clone for IMFCameraControlDefaultsCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMFCameraControlDefaultsCollection {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92d43d0f_54a8_4bae_96da_356d259a5c26);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFCameraControlDefaultsCollection_Vtbl {
+    pub base__: IMFAttributes_Vtbl,
+    pub GetControlCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, configuration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetOrAddExtendedControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, constrolid: u32, streamid: u32, datasize: u32, defaults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetOrAddControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configtype: MF_CAMERA_CONTROL_CONFIGURATION_TYPE, controlset: *const ::windows::core::GUID, constrolid: u32, controlsize: u32, datasize: u32, defaults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemoveControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlset: *const ::windows::core::GUID, constrolid: u32) -> ::windows::core::HRESULT,
+    pub RemoveAllControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+pub struct IMFCameraControlMonitor(::windows::core::IUnknown);
+impl IMFCameraControlMonitor {
+    pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn AddControlSubscription(&self, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddControlSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(controlset), id).ok()
+    }
+    pub unsafe fn RemoveControlSubscription(&self, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveControlSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(controlset), id).ok()
+    }
+    pub unsafe fn Shutdown(&self) {
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self))
+    }
+}
+::windows::imp::interface_hierarchy!(IMFCameraControlMonitor, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IMFCameraControlMonitor {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFCameraControlMonitor {}
+impl ::core::fmt::Debug for IMFCameraControlMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFCameraControlMonitor").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFCameraControlMonitor {
+    type Vtable = IMFCameraControlMonitor_Vtbl;
+}
+impl ::core::clone::Clone for IMFCameraControlMonitor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMFCameraControlMonitor {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d46f2c9_28ba_4970_8c7b_1f0c9d80af69);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFCameraControlMonitor_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddControlSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::HRESULT,
+    pub RemoveControlSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlset: ::windows::core::GUID, id: u32) -> ::windows::core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+pub struct IMFCameraControlNotify(::windows::core::IUnknown);
+impl IMFCameraControlNotify {
+    pub unsafe fn OnChange(&self, controlset: *const ::windows::core::GUID, id: u32) {
+        (::windows::core::Interface::vtable(self).OnChange)(::windows::core::Interface::as_raw(self), controlset, id)
+    }
+    pub unsafe fn OnError(&self, hrstatus: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hrstatus)
+    }
+}
+::windows::imp::interface_hierarchy!(IMFCameraControlNotify, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for IMFCameraControlNotify {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFCameraControlNotify {}
+impl ::core::fmt::Debug for IMFCameraControlNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFCameraControlNotify").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFCameraControlNotify {
+    type Vtable = IMFCameraControlNotify_Vtbl;
+}
+impl ::core::clone::Clone for IMFCameraControlNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMFCameraControlNotify {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8f2540d_558a_4449_8b64_4863467a9fe8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFCameraControlNotify_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub OnChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlset: *const ::windows::core::GUID, id: u32),
+    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT),
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
 pub struct IMFCameraOcclusionStateMonitor(::windows::core::IUnknown);
 impl IMFCameraOcclusionStateMonitor {
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
@@ -30045,6 +30427,8 @@ pub const CLSID_CWaveOutClassManager: ::windows::core::GUID = ::windows::core::G
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CLSID_CWaveinClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a762_90c8_11d0_bd43_00a0c911ce86);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CLSID_CameraConfigurationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c92b540_5854_4a17_92b6_ac89c96e9683);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CLSID_CameraControlPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96465_78f3_11d0_a18c_00a0c9118956);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CLSID_CaptionsFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f7ee4b6_6ff5_4eb4_b24a_2bfc41117171);
@@ -30503,6 +30887,8 @@ pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows::core::GUID = ::
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2e8e399_0623_4bf3_92a8_4d1818529ded);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CODECAPI_AVEncAACEnableVBR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe836bb98_fca3_44b6_9a39_24786be41be1);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncAdaptiveMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4419b185_da1f_4f53_bc76_097d0c1efb1e);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncAudioDualMono: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3648126b_a3e8_4329_9b3a_5ce566a43bd3);
@@ -30803,11 +31189,17 @@ pub const CODECAPI_AVEncStatWMVCBMax: ::windows::core::GUID = ::windows::core::G
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89e69fc3_0f9b_436c_974a_df821227c90d);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CODECAPI_AVEncTileColumns: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4b31205_01e8_452c_b876_8c6506545925);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CODECAPI_AVEncTileRows: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc650fc_41ab_4f9b_84b5_065be9cd99ee);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d49451e_18d5_4367_a4ef_3240df1693c4);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoCTBSize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd47db8b2_e73b_4cb9_8c3e_bd877d06d77b);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4b10c15_14a7_4ce8_b173_dc90a0b4fcdb);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CODECAPI_AVEncVideoConsecutiveFramesForLayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0af35522_d984_45ae_bbb8_53933e0ab1b5);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoContentType: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66117aca_eb77_459d_930c_a48d9d0683fc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -30874,6 +31266,8 @@ pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows::core::GUID = ::windows::core
 pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2987123a_ba93_4704_b489_ec1e5f25292c);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x964829ed_94f9_43b4_b74d_ef40944b69a0);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const CODECAPI_AVEncVideoMaxNumRefFrameForLayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3141c639_6329_40d1_b7e7_2f0e3ac18e02);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const CODECAPI_AVEncVideoMaxQP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3daf6f66_a6a7_45e0_a8e5_f2743f46a3a2);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -31175,6 +31569,12 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows::core::GUID =
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 5 };
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DSATTRIB_CAPTURE_STREAMTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1a5614_30cd_4f40_bcbf_d03e52306207);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -31361,6 +31761,8 @@ pub const FORMAT_WaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const GUID_NativeDeviceService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef71e53c_52f4_43c5_b86a_ad6cb216a61e);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const GUID_PlayToService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a8ff9d_9e14_41c9_bf0f_120a2b3ce120);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const KSPROPERTYSETID_ANYCAMERACONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94dd0c30_28c7_4efb_9d6b_812300fb0c7f);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const KSPROPSETID_OPMVideoOutput: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -31746,43 +32148,9 @@ pub const MEDIASUBTYPE_dvh1: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEDIASUBTYPE_dvhd: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64687664_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_dvsd: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64737664_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEDIASUBTYPE_dvsl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c737664_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_h264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363268_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_m4s2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3273346d_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_mp42: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3234706d_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_mp43: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3334706d_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_mp4s: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7334706d_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_mpg4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3467706d_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEDIASUBTYPE_v210: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313276_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmv1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmv2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmv3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmva: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmvb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmvp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wmvr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72766d77_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wvc1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31637677_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_wvp2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32707677_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MEDIASUBTYPE_x264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363278_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEDIATYPE_AUXLine21Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -33031,6 +33399,8 @@ pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: ::windows::core::GUID = ::windows::
 pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe63937b7_daaf_4d49_815f_d826f8ad31e7);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_DEVICE_THERMAL_STATE_CHANGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70ccd0af_fc9f_4deb_a875_9fecd16c5bd4);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_DEVSOURCE_ATTRIBUTE_ENABLE_MS_CAMERA_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28a5531a_57dd_4fd5_aaa7_385abf57d785);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60d0e559_52f8_4fa2_bbce_acdb34a8ec01);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -34692,7 +35062,11 @@ pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows::core::GUID = ::windows::core:
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_VIRTUALCAMERA_ASSOCIATED_CAMERA_SOURCES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb79e7c_5d83_438c_94d8_e5f0df6d3279);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658abe51_8044_462e_97ea_e676fd72055f);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_VIRTUALCAMERA_PROVIDE_ASSOCIATED_CAMERA_SOURCES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0273718_4a4d_4ac5_a15d_305eb5e90667);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_WORKQUEUE_SERVICES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e37d489_41e0_413a_9068_287c886d8dda);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -42849,6 +43223,33 @@ impl ::core::fmt::Debug for MF_AUVRHP_ROOMMODEL {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MF_CAMERA_CONTROL_CONFIGURATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_PRESTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = MF_CAMERA_CONTROL_CONFIGURATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_POSTSTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = MF_CAMERA_CONTROL_CONFIGURATION_TYPE(1i32);
+impl ::core::marker::Copy for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {}
+impl ::core::clone::Clone for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MF_CAMERA_CONTROL_CONFIGURATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(0i32);
@@ -47811,6 +48212,137 @@ impl ::windows::core::TypeKind for eAVDecVideoSoftwareDeinterlaceMode {
 impl ::core::fmt::Debug for eAVDecVideoSoftwareDeinterlaceMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("eAVDecVideoSoftwareDeinterlaceMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct eAVEncAV1PictureType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1PictureType_Key: eAVEncAV1PictureType = eAVEncAV1PictureType(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1PictureType_Intra_Only: eAVEncAV1PictureType = eAVEncAV1PictureType(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1PictureType_Inter: eAVEncAV1PictureType = eAVEncAV1PictureType(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1PictureType_Switch: eAVEncAV1PictureType = eAVEncAV1PictureType(3i32);
+impl ::core::marker::Copy for eAVEncAV1PictureType {}
+impl ::core::clone::Clone for eAVEncAV1PictureType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for eAVEncAV1PictureType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for eAVEncAV1PictureType {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for eAVEncAV1PictureType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eAVEncAV1PictureType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct eAVEncAV1VLevel(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel2: eAVEncAV1VLevel = eAVEncAV1VLevel(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel2_1: eAVEncAV1VLevel = eAVEncAV1VLevel(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel3: eAVEncAV1VLevel = eAVEncAV1VLevel(4i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel3_1: eAVEncAV1VLevel = eAVEncAV1VLevel(5i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel4: eAVEncAV1VLevel = eAVEncAV1VLevel(8i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel4_1: eAVEncAV1VLevel = eAVEncAV1VLevel(9i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel5: eAVEncAV1VLevel = eAVEncAV1VLevel(12i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel5_1: eAVEncAV1VLevel = eAVEncAV1VLevel(13i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel5_2: eAVEncAV1VLevel = eAVEncAV1VLevel(14i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel5_3: eAVEncAV1VLevel = eAVEncAV1VLevel(15i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel6: eAVEncAV1VLevel = eAVEncAV1VLevel(16i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel6_1: eAVEncAV1VLevel = eAVEncAV1VLevel(17i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel6_2: eAVEncAV1VLevel = eAVEncAV1VLevel(18i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VLevel6_3: eAVEncAV1VLevel = eAVEncAV1VLevel(19i32);
+impl ::core::marker::Copy for eAVEncAV1VLevel {}
+impl ::core::clone::Clone for eAVEncAV1VLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for eAVEncAV1VLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for eAVEncAV1VLevel {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for eAVEncAV1VLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eAVEncAV1VLevel").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct eAVEncAV1VProfile(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_unknown: eAVEncAV1VProfile = eAVEncAV1VProfile(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Main_420_8: eAVEncAV1VProfile = eAVEncAV1VProfile(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Main_420_10: eAVEncAV1VProfile = eAVEncAV1VProfile(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Main_400_8: eAVEncAV1VProfile = eAVEncAV1VProfile(3i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Main_400_10: eAVEncAV1VProfile = eAVEncAV1VProfile(4i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_High_444_8: eAVEncAV1VProfile = eAVEncAV1VProfile(5i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_High_444_10: eAVEncAV1VProfile = eAVEncAV1VProfile(6i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_420_12: eAVEncAV1VProfile = eAVEncAV1VProfile(7i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_400_12: eAVEncAV1VProfile = eAVEncAV1VProfile(8i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_444_12: eAVEncAV1VProfile = eAVEncAV1VProfile(9i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_422_8: eAVEncAV1VProfile = eAVEncAV1VProfile(10i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_422_10: eAVEncAV1VProfile = eAVEncAV1VProfile(11i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const eAVEncAV1VProfile_Professional_422_12: eAVEncAV1VProfile = eAVEncAV1VProfile(12i32);
+impl ::core::marker::Copy for eAVEncAV1VProfile {}
+impl ::core::clone::Clone for eAVEncAV1VProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for eAVEncAV1VProfile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for eAVEncAV1VProfile {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for eAVEncAV1VProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eAVEncAV1VProfile").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -60236,6 +60768,39 @@ impl ::core::cmp::PartialEq for MF_BYTE_STREAM_CACHE_RANGE {
 }
 impl ::core::cmp::Eq for MF_BYTE_STREAM_CACHE_RANGE {}
 impl ::core::default::Default for MF_BYTE_STREAM_CACHE_RANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub struct MF_CAMERA_CONTROL_RANGE_INFO {
+    pub minValue: i32,
+    pub maxValue: i32,
+    pub stepValue: i32,
+    pub defaultValue: i32,
+}
+impl ::core::marker::Copy for MF_CAMERA_CONTROL_RANGE_INFO {}
+impl ::core::clone::Clone for MF_CAMERA_CONTROL_RANGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MF_CAMERA_CONTROL_RANGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MF_CAMERA_CONTROL_RANGE_INFO").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("stepValue", &self.stepValue).field("defaultValue", &self.defaultValue).finish()
+    }
+}
+impl ::windows::core::TypeKind for MF_CAMERA_CONTROL_RANGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::cmp::PartialEq for MF_CAMERA_CONTROL_RANGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.minValue == other.minValue && self.maxValue == other.maxValue && self.stepValue == other.stepValue && self.defaultValue == other.defaultValue
+    }
+}
+impl ::core::cmp::Eq for MF_CAMERA_CONTROL_RANGE_INFO {}
+impl ::core::default::Default for MF_CAMERA_CONTROL_RANGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

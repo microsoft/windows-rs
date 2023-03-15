@@ -1873,6 +1873,35 @@ impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Presence_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Human_Engagement_Capable: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+pub const Proximity_Sensor_Supported_Capabilities: PROXIMITY_SENSOR_CAPABILITIES = PROXIMITY_SENSOR_CAPABILITIES(3i32);
+impl ::core::marker::Copy for PROXIMITY_SENSOR_CAPABILITIES {}
+impl ::core::clone::Clone for PROXIMITY_SENSOR_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROXIMITY_SENSOR_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows::core::TypeKind for PROXIMITY_SENSOR_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
+}
+impl ::core::fmt::Debug for PROXIMITY_SENSOR_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXIMITY_SENSOR_CAPABILITIES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXIMITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);

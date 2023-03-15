@@ -126,6 +126,43 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
 #[repr(transparent)]
+pub struct ILearningModelSessionOptionsNative1(::windows::core::IUnknown);
+impl ILearningModelSessionOptionsNative1 {
+    pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIntraOpThreadSpinning)(::windows::core::Interface::as_raw(self), allowspinning).ok()
+    }
+}
+::windows::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, ::windows::core::IUnknown);
+impl ::core::cmp::PartialEq for ILearningModelSessionOptionsNative1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ILearningModelSessionOptionsNative1 {}
+impl ::core::fmt::Debug for ILearningModelSessionOptionsNative1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelSessionOptionsNative1").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative1 {
+    type Vtable = ILearningModelSessionOptionsNative1_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelSessionOptionsNative1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ILearningModelSessionOptionsNative1 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILearningModelSessionOptionsNative1_Vtbl {
+    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub SetIntraOpThreadSpinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowspinning: u8) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
+#[repr(transparent)]
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()> {
