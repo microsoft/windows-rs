@@ -12,7 +12,8 @@ fn main() -> Result<()> {
         string.push('\0');
         let file = CreateFileA(
             PCSTR(string.as_ptr()),
-            FILE_GENERIC_READ,
+            // See: https://github.com/microsoft/win32metadata/issues/1457
+            FILE_GENERIC_READ.0,
             FILE_SHARE_READ,
             None,
             OPEN_EXISTING,
