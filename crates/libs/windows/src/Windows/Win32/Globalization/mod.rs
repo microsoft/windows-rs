@@ -12,7 +12,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringEx ( lplocalename : :: windows::core::PCWSTR , dwcmpflags : COMPARE_STRING_FLAGS , lpstring1 : :: windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : :: windows::core::PCWSTR , cchcount2 : i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , lparam : super::Foundation:: LPARAM ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringEx ( lplocalename : ::windows::core::PCWSTR , dwcmpflags : COMPARE_STRING_FLAGS , lpstring1 : ::windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : ::windows::core::PCWSTR , cchcount2 : i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , lparam : super::Foundation:: LPARAM ) -> i32 );
     CompareStringEx(lplocalename.into_param().abi(), dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -22,13 +22,13 @@ pub unsafe fn CompareStringOrdinal<P0>(lpstring1: &[u16], lpstring2: &[u16], big
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringOrdinal ( lpstring1 : :: windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : :: windows::core::PCWSTR , cchcount2 : i32 , bignorecase : super::Foundation:: BOOL ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringOrdinal ( lpstring1 : ::windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : ::windows::core::PCWSTR , cchcount2 : i32 , bignorecase : super::Foundation:: BOOL ) -> i32 );
     CompareStringOrdinal(::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, bignorecase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lpstring2: &[u16]) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringW ( locale : u32 , dwcmpflags : u32 , lpstring1 : :: windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : :: windows::core::PCWSTR , cchcount2 : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CompareStringW ( locale : u32 , dwcmpflags : u32 , lpstring1 : ::windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : ::windows::core::PCWSTR , cchcount2 : i32 ) -> i32 );
     CompareStringW(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -60,7 +60,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumCalendarInfoExEx ( pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX , lplocalename : :: windows::core::PCWSTR , calendar : u32 , lpreserved : :: windows::core::PCWSTR , caltype : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumCalendarInfoExEx ( pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX , lplocalename : ::windows::core::PCWSTR , calendar : u32 , lpreserved : ::windows::core::PCWSTR , caltype : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
     EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.into_param().abi(), calendar, lpreserved.into_param().abi(), caltype, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -99,7 +99,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumDateFormatsExEx ( lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX , lplocalename : :: windows::core::PCWSTR , dwflags : ENUM_DATE_FORMATS_FLAGS , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumDateFormatsExEx ( lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX , lplocalename : ::windows::core::PCWSTR , dwflags : ENUM_DATE_FORMATS_FLAGS , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
     EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.into_param().abi(), dwflags, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -214,7 +214,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumTimeFormatsEx ( lptimefmtenumprocex : TIMEFMT_ENUMPROCEX , lplocalename : :: windows::core::PCWSTR , dwflags : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn EnumTimeFormatsEx ( lptimefmtenumprocex : TIMEFMT_ENUMPROCEX , lplocalename : ::windows::core::PCWSTR , dwflags : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
     EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.into_param().abi(), dwflags, lparam.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -241,7 +241,7 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: ::core::option::Option<*mut i32>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNLSString ( locale : u32 , dwfindnlsstringflags : u32 , lpstringsource : :: windows::core::PCWSTR , cchsource : i32 , lpstringvalue : :: windows::core::PCWSTR , cchvalue : i32 , pcchfound : *mut i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNLSString ( locale : u32 , dwfindnlsstringflags : u32 , lpstringsource : ::windows::core::PCWSTR , cchsource : i32 , lpstringvalue : ::windows::core::PCWSTR , cchvalue : i32 , pcchfound : *mut i32 ) -> i32 );
     FindNLSString(locale, dwfindnlsstringflags, ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -252,7 +252,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNLSStringEx ( lplocalename : :: windows::core::PCWSTR , dwfindnlsstringflags : u32 , lpstringsource : :: windows::core::PCWSTR , cchsource : i32 , lpstringvalue : :: windows::core::PCWSTR , cchvalue : i32 , pcchfound : *mut i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , sorthandle : super::Foundation:: LPARAM ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindNLSStringEx ( lplocalename : ::windows::core::PCWSTR , dwfindnlsstringflags : u32 , lpstringsource : ::windows::core::PCWSTR , cchsource : i32 , lpstringvalue : ::windows::core::PCWSTR , cchvalue : i32 , pcchfound : *mut i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , sorthandle : super::Foundation:: LPARAM ) -> i32 );
     FindNLSStringEx(lplocalename.into_param().abi(), dwfindnlsstringflags, ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), sorthandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -262,19 +262,19 @@ pub unsafe fn FindStringOrdinal<P0>(dwfindstringordinalflags: u32, lpstringsourc
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindStringOrdinal ( dwfindstringordinalflags : u32 , lpstringsource : :: windows::core::PCWSTR , cchsource : i32 , lpstringvalue : :: windows::core::PCWSTR , cchvalue : i32 , bignorecase : super::Foundation:: BOOL ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindStringOrdinal ( dwfindstringordinalflags : u32 , lpstringsource : ::windows::core::PCWSTR , cchsource : i32 , lpstringvalue : ::windows::core::PCWSTR , cchvalue : i32 , bignorecase : super::Foundation:: BOOL ) -> i32 );
     FindStringOrdinal(dwfindstringordinalflags, ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, bignorecase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u8], lpdeststr: ::core::option::Option<&mut [u8]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FoldStringA ( dwmapflags : FOLD_STRING_MAP_FLAGS , lpsrcstr : :: windows::core::PCSTR , cchsrc : i32 , lpdeststr : :: windows::core::PSTR , cchdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FoldStringA ( dwmapflags : FOLD_STRING_MAP_FLAGS , lpsrcstr : ::windows::core::PCSTR , cchsrc : i32 , lpdeststr : ::windows::core::PSTR , cchdest : i32 ) -> i32 );
     FoldStringA(dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u16], lpdeststr: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FoldStringW ( dwmapflags : FOLD_STRING_MAP_FLAGS , lpsrcstr : :: windows::core::PCWSTR , cchsrc : i32 , lpdeststr : :: windows::core::PWSTR , cchdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FoldStringW ( dwmapflags : FOLD_STRING_MAP_FLAGS , lpsrcstr : ::windows::core::PCWSTR , cchsrc : i32 , lpdeststr : ::windows::core::PWSTR , cchdest : i32 ) -> i32 );
     FoldStringW(dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -307,7 +307,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::core::option::Option<&mut [u8]>, lpvalue: ::core::option::Option<*mut u32>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoA ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : :: windows::core::PSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoA ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : ::windows::core::PSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
     GetCalendarInfoA(locale, calendar, caltype, ::core::mem::transmute(lpcaldata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -317,13 +317,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoEx ( lplocalename : :: windows::core::PCWSTR , calendar : u32 , lpreserved : :: windows::core::PCWSTR , caltype : u32 , lpcaldata : :: windows::core::PWSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoEx ( lplocalename : ::windows::core::PCWSTR , calendar : u32 , lpreserved : ::windows::core::PCWSTR , caltype : u32 , lpcaldata : ::windows::core::PWSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
     GetCalendarInfoEx(lplocalename.into_param().abi(), calendar, lpreserved.into_param().abi(), caltype, ::core::mem::transmute(lpcaldata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::core::option::Option<&mut [u16]>, lpvalue: ::core::option::Option<*mut u32>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoW ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : :: windows::core::PWSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCalendarInfoW ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : ::windows::core::PWSTR , cchdata : i32 , lpvalue : *mut u32 ) -> i32 );
     GetCalendarInfoW(locale, calendar, caltype, ::core::mem::transmute(lpcaldata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -332,7 +332,7 @@ pub unsafe fn GetCurrencyFormatA<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpf
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatA ( locale : u32 , dwflags : u32 , lpvalue : :: windows::core::PCSTR , lpformat : *const CURRENCYFMTA , lpcurrencystr : :: windows::core::PSTR , cchcurrency : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatA ( locale : u32 , dwflags : u32 , lpvalue : ::windows::core::PCSTR , lpformat : *const CURRENCYFMTA , lpcurrencystr : ::windows::core::PSTR , cchcurrency : i32 ) -> i32 );
     GetCurrencyFormatA(locale, dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcurrencystr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -342,7 +342,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatEx ( lplocalename : :: windows::core::PCWSTR , dwflags : u32 , lpvalue : :: windows::core::PCWSTR , lpformat : *const CURRENCYFMTW , lpcurrencystr : :: windows::core::PWSTR , cchcurrency : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatEx ( lplocalename : ::windows::core::PCWSTR , dwflags : u32 , lpvalue : ::windows::core::PCWSTR , lpformat : *const CURRENCYFMTW , lpcurrencystr : ::windows::core::PWSTR , cchcurrency : i32 ) -> i32 );
     GetCurrencyFormatEx(lplocalename.into_param().abi(), dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcurrencystr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn GetCurrencyFormatW<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpf
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatW ( locale : u32 , dwflags : u32 , lpvalue : :: windows::core::PCWSTR , lpformat : *const CURRENCYFMTW , lpcurrencystr : :: windows::core::PWSTR , cchcurrency : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrencyFormatW ( locale : u32 , dwflags : u32 , lpvalue : ::windows::core::PCWSTR , lpformat : *const CURRENCYFMTW , lpcurrencystr : ::windows::core::PWSTR , cchcurrency : i32 ) -> i32 );
     GetCurrencyFormatW(locale, dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcurrencystr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -361,7 +361,7 @@ pub unsafe fn GetDateFormatA<P0>(locale: u32, dwflags: u32, lpdate: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatA ( locale : u32 , dwflags : u32 , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCSTR , lpdatestr : :: windows::core::PSTR , cchdate : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatA ( locale : u32 , dwflags : u32 , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCSTR , lpdatestr : ::windows::core::PSTR , cchdate : i32 ) -> i32 );
     GetDateFormatA(locale, dwflags, ::core::mem::transmute(lpdate.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -373,7 +373,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatEx ( lplocalename : :: windows::core::PCWSTR , dwflags : ENUM_DATE_FORMATS_FLAGS , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCWSTR , lpdatestr : :: windows::core::PWSTR , cchdate : i32 , lpcalendar : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatEx ( lplocalename : ::windows::core::PCWSTR , dwflags : ENUM_DATE_FORMATS_FLAGS , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCWSTR , lpdatestr : ::windows::core::PWSTR , cchdate : i32 , lpcalendar : ::windows::core::PCWSTR ) -> i32 );
     GetDateFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lpdate.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len() as _), lpcalendar.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -383,7 +383,7 @@ pub unsafe fn GetDateFormatW<P0>(locale: u32, dwflags: u32, lpdate: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatW ( locale : u32 , dwflags : u32 , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCWSTR , lpdatestr : :: windows::core::PWSTR , cchdate : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDateFormatW ( locale : u32 , dwflags : u32 , lpdate : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCWSTR , lpdatestr : ::windows::core::PWSTR , cchdate : i32 ) -> i32 );
     GetDateFormatW(locale, dwflags, ::core::mem::transmute(lpdate.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -393,7 +393,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "bcp47mrm.dll""system" fn GetDistanceOfClosestLanguageInList ( pszlanguage : :: windows::core::PCWSTR , pszlanguageslist : :: windows::core::PCWSTR , wchlistdelimiter : u16 , pclosestdistance : *mut f64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bcp47mrm.dll""system" fn GetDistanceOfClosestLanguageInList ( pszlanguage : ::windows::core::PCWSTR , pszlanguageslist : ::windows::core::PCWSTR , wchlistdelimiter : u16 , pclosestdistance : *mut f64 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<f64>();
     GetDistanceOfClosestLanguageInList(pszlanguage.into_param().abi(), pszlanguageslist.into_param().abi(), wchlistdelimiter, &mut result__).from_abi(result__)
 }
@@ -404,7 +404,7 @@ pub unsafe fn GetDurationFormat<P0>(locale: u32, dwflags: u32, lpduration: ::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDurationFormat ( locale : u32 , dwflags : u32 , lpduration : *const super::Foundation:: SYSTEMTIME , ullduration : u64 , lpformat : :: windows::core::PCWSTR , lpdurationstr : :: windows::core::PWSTR , cchduration : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDurationFormat ( locale : u32 , dwflags : u32 , lpduration : *const super::Foundation:: SYSTEMTIME , ullduration : u64 , lpformat : ::windows::core::PCWSTR , lpdurationstr : ::windows::core::PWSTR , cchduration : i32 ) -> i32 );
     GetDurationFormat(locale, dwflags, ::core::mem::transmute(lpduration.unwrap_or(::std::ptr::null())), ullduration, lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -415,7 +415,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDurationFormatEx ( lplocalename : :: windows::core::PCWSTR , dwflags : u32 , lpduration : *const super::Foundation:: SYSTEMTIME , ullduration : u64 , lpformat : :: windows::core::PCWSTR , lpdurationstr : :: windows::core::PWSTR , cchduration : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetDurationFormatEx ( lplocalename : ::windows::core::PCWSTR , dwflags : u32 , lpduration : *const super::Foundation:: SYSTEMTIME , ullduration : u64 , lpformat : ::windows::core::PCWSTR , lpdurationstr : ::windows::core::PWSTR , cchduration : i32 ) -> i32 );
     GetDurationFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lpduration.unwrap_or(::std::ptr::null())), ullduration, lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -425,7 +425,7 @@ pub unsafe fn GetFileMUIInfo<P0>(dwflags: u32, pcwszfilepath: P0, pfilemuiinfo: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileMUIInfo ( dwflags : u32 , pcwszfilepath : :: windows::core::PCWSTR , pfilemuiinfo : *mut FILEMUIINFO , pcbfilemuiinfo : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileMUIInfo ( dwflags : u32 , pcwszfilepath : ::windows::core::PCWSTR , pfilemuiinfo : *mut FILEMUIINFO , pcbfilemuiinfo : *mut u32 ) -> super::Foundation:: BOOL );
     GetFileMUIInfo(dwflags, pcwszfilepath.into_param().abi(), ::core::mem::transmute(pfilemuiinfo.unwrap_or(::std::ptr::null_mut())), pcbfilemuiinfo)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -435,13 +435,13 @@ pub unsafe fn GetFileMUIPath<P0>(dwflags: u32, pcwszfilepath: P0, pwszlanguage: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileMUIPath ( dwflags : u32 , pcwszfilepath : :: windows::core::PCWSTR , pwszlanguage : :: windows::core::PWSTR , pcchlanguage : *mut u32 , pwszfilemuipath : :: windows::core::PWSTR , pcchfilemuipath : *mut u32 , pululenumerator : *mut u64 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetFileMUIPath ( dwflags : u32 , pcwszfilepath : ::windows::core::PCWSTR , pwszlanguage : ::windows::core::PWSTR , pcchlanguage : *mut u32 , pwszfilemuipath : ::windows::core::PWSTR , pcchfilemuipath : *mut u32 , pululenumerator : *mut u64 ) -> super::Foundation:: BOOL );
     GetFileMUIPath(dwflags, pcwszfilepath.into_param().abi(), ::core::mem::transmute(pwszlanguage), pcchlanguage, ::core::mem::transmute(pwszfilemuipath), pcchfilemuipath, pululenumerator)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: ::core::option::Option<&mut [u8]>, langid: u16) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoA ( location : i32 , geotype : u32 , lpgeodata : :: windows::core::PSTR , cchdata : i32 , langid : u16 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoA ( location : i32 , geotype : u32 , lpgeodata : ::windows::core::PSTR , cchdata : i32 , langid : u16 ) -> i32 );
     GetGeoInfoA(location, geotype, ::core::mem::transmute(lpgeodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len() as _), langid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -450,19 +450,19 @@ pub unsafe fn GetGeoInfoEx<P0>(location: P0, geotype: u32, geodata: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoEx ( location : :: windows::core::PCWSTR , geotype : u32 , geodata : :: windows::core::PWSTR , geodatacount : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoEx ( location : ::windows::core::PCWSTR , geotype : u32 , geodata : ::windows::core::PWSTR , geodatacount : i32 ) -> i32 );
     GetGeoInfoEx(location.into_param().abi(), geotype, ::core::mem::transmute(geodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), geodata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: ::core::option::Option<&mut [u16]>, langid: u16) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoW ( location : i32 , geotype : u32 , lpgeodata : :: windows::core::PWSTR , cchdata : i32 , langid : u16 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetGeoInfoW ( location : i32 , geotype : u32 , lpgeodata : ::windows::core::PWSTR , cchdata : i32 , langid : u16 ) -> i32 );
     GetGeoInfoW(location, geotype, ::core::mem::transmute(lpgeodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len() as _), langid)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: ::core::option::Option<&mut [u8]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoA ( locale : u32 , lctype : u32 , lplcdata : :: windows::core::PSTR , cchdata : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoA ( locale : u32 , lctype : u32 , lplcdata : ::windows::core::PSTR , cchdata : i32 ) -> i32 );
     GetLocaleInfoA(locale, lctype, ::core::mem::transmute(lplcdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -471,13 +471,13 @@ pub unsafe fn GetLocaleInfoEx<P0>(lplocalename: P0, lctype: u32, lplcdata: ::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoEx ( lplocalename : :: windows::core::PCWSTR , lctype : u32 , lplcdata : :: windows::core::PWSTR , cchdata : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoEx ( lplocalename : ::windows::core::PCWSTR , lctype : u32 , lplcdata : ::windows::core::PWSTR , cchdata : i32 ) -> i32 );
     GetLocaleInfoEx(lplocalename.into_param().abi(), lctype, ::core::mem::transmute(lplcdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoW ( locale : u32 , lctype : u32 , lplcdata : :: windows::core::PWSTR , cchdata : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetLocaleInfoW ( locale : u32 , lctype : u32 , lplcdata : ::windows::core::PWSTR , cchdata : i32 ) -> i32 );
     GetLocaleInfoW(locale, lctype, ::core::mem::transmute(lplcdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -494,7 +494,7 @@ pub unsafe fn GetNLSVersionEx<P0>(function: u32, lplocalename: P0, lpversioninfo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNLSVersionEx ( function : u32 , lplocalename : :: windows::core::PCWSTR , lpversioninformation : *mut NLSVERSIONINFOEX ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNLSVersionEx ( function : u32 , lplocalename : ::windows::core::PCWSTR , lpversioninformation : *mut NLSVERSIONINFOEX ) -> super::Foundation:: BOOL );
     GetNLSVersionEx(function, lplocalename.into_param().abi(), lpversioninformation)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -503,7 +503,7 @@ pub unsafe fn GetNumberFormatA<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpfor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatA ( locale : u32 , dwflags : u32 , lpvalue : :: windows::core::PCSTR , lpformat : *const NUMBERFMTA , lpnumberstr : :: windows::core::PSTR , cchnumber : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatA ( locale : u32 , dwflags : u32 , lpvalue : ::windows::core::PCSTR , lpformat : *const NUMBERFMTA , lpnumberstr : ::windows::core::PSTR , cchnumber : i32 ) -> i32 );
     GetNumberFormatA(locale, dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpnumberstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -513,7 +513,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatEx ( lplocalename : :: windows::core::PCWSTR , dwflags : u32 , lpvalue : :: windows::core::PCWSTR , lpformat : *const NUMBERFMTW , lpnumberstr : :: windows::core::PWSTR , cchnumber : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatEx ( lplocalename : ::windows::core::PCWSTR , dwflags : u32 , lpvalue : ::windows::core::PCWSTR , lpformat : *const NUMBERFMTW , lpnumberstr : ::windows::core::PWSTR , cchnumber : i32 ) -> i32 );
     GetNumberFormatEx(lplocalename.into_param().abi(), dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpnumberstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -522,7 +522,7 @@ pub unsafe fn GetNumberFormatW<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpfor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatW ( locale : u32 , dwflags : u32 , lpvalue : :: windows::core::PCWSTR , lpformat : *const NUMBERFMTW , lpnumberstr : :: windows::core::PWSTR , cchnumber : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNumberFormatW ( locale : u32 , dwflags : u32 , lpvalue : ::windows::core::PCWSTR , lpformat : *const NUMBERFMTW , lpnumberstr : ::windows::core::PWSTR , cchnumber : i32 ) -> i32 );
     GetNumberFormatW(locale, dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpnumberstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -535,7 +535,7 @@ pub unsafe fn GetOEMCP() -> u32 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetProcessPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : :: windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetProcessPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : ::windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
     GetProcessPreferredUILanguages(dwflags, pulnumlanguages, ::core::mem::transmute(pwszlanguagesbuffer), pcchlanguagesbuffer)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -544,14 +544,14 @@ pub unsafe fn GetStringScripts<P0>(dwflags: u32, lpstring: P0, cchstring: i32, l
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringScripts ( dwflags : u32 , lpstring : :: windows::core::PCWSTR , cchstring : i32 , lpscripts : :: windows::core::PWSTR , cchscripts : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringScripts ( dwflags : u32 , lpstring : ::windows::core::PCWSTR , cchstring : i32 , lpscripts : ::windows::core::PWSTR , cchscripts : i32 ) -> i32 );
     GetStringScripts(dwflags, lpstring.into_param().abi(), cchstring, ::core::mem::transmute(lpscripts.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpscripts.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: *mut u16) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeA ( locale : u32 , dwinfotype : u32 , lpsrcstr : :: windows::core::PCSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeA ( locale : u32 , dwinfotype : u32 , lpsrcstr : ::windows::core::PCSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
     GetStringTypeA(locale, dwinfotype, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, lpchartype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -561,7 +561,7 @@ pub unsafe fn GetStringTypeExA<P0>(locale: u32, dwinfotype: u32, lpsrcstr: P0, c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeExA ( locale : u32 , dwinfotype : u32 , lpsrcstr : :: windows::core::PCSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeExA ( locale : u32 , dwinfotype : u32 , lpsrcstr : ::windows::core::PCSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
     GetStringTypeExA(locale, dwinfotype, lpsrcstr.into_param().abi(), cchsrc, lpchartype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -571,14 +571,14 @@ pub unsafe fn GetStringTypeExW<P0>(locale: u32, dwinfotype: u32, lpsrcstr: P0, c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeExW ( locale : u32 , dwinfotype : u32 , lpsrcstr : :: windows::core::PCWSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeExW ( locale : u32 , dwinfotype : u32 , lpsrcstr : ::windows::core::PCWSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
     GetStringTypeExW(locale, dwinfotype, lpsrcstr.into_param().abi(), cchsrc, lpchartype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut u16) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeW ( dwinfotype : u32 , lpsrcstr : :: windows::core::PCWSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetStringTypeW ( dwinfotype : u32 , lpsrcstr : ::windows::core::PCWSTR , cchsrc : i32 , lpchartype : *mut u16 ) -> super::Foundation:: BOOL );
     GetStringTypeW(dwinfotype, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, lpchartype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -596,7 +596,7 @@ pub unsafe fn GetSystemDefaultLangID() -> u16 {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetSystemDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDefaultLocaleName ( lplocalename : :: windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemDefaultLocaleName ( lplocalename : ::windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
     GetSystemDefaultLocaleName(::core::mem::transmute(lplocalename.as_ptr()), lplocalename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -609,7 +609,7 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : :: windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetSystemPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : ::windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
     GetSystemPreferredUILanguages(dwflags, pulnumlanguages, ::core::mem::transmute(pwszlanguagesbuffer), pcchlanguagesbuffer)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -642,7 +642,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetThreadPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : :: windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetThreadPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : ::windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
     GetThreadPreferredUILanguages(dwflags, pulnumlanguages, ::core::mem::transmute(pwszlanguagesbuffer), pcchlanguagesbuffer)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -658,7 +658,7 @@ pub unsafe fn GetTimeFormatA<P0>(locale: u32, dwflags: u32, lptime: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatA ( locale : u32 , dwflags : u32 , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCSTR , lptimestr : :: windows::core::PSTR , cchtime : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatA ( locale : u32 , dwflags : u32 , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCSTR , lptimestr : ::windows::core::PSTR , cchtime : i32 ) -> i32 );
     GetTimeFormatA(locale, dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -669,7 +669,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatEx ( lplocalename : :: windows::core::PCWSTR , dwflags : TIME_FORMAT_FLAGS , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCWSTR , lptimestr : :: windows::core::PWSTR , cchtime : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatEx ( lplocalename : ::windows::core::PCWSTR , dwflags : TIME_FORMAT_FLAGS , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCWSTR , lptimestr : ::windows::core::PWSTR , cchtime : i32 ) -> i32 );
     GetTimeFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -679,7 +679,7 @@ pub unsafe fn GetTimeFormatW<P0>(locale: u32, dwflags: u32, lptime: ::core::opti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatW ( locale : u32 , dwflags : u32 , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : :: windows::core::PCWSTR , lptimestr : :: windows::core::PWSTR , cchtime : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetTimeFormatW ( locale : u32 , dwflags : u32 , lptime : *const super::Foundation:: SYSTEMTIME , lpformat : ::windows::core::PCWSTR , lptimestr : ::windows::core::PWSTR , cchtime : i32 ) -> i32 );
     GetTimeFormatW(locale, dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -689,13 +689,13 @@ pub unsafe fn GetUILanguageInfo<P0>(dwflags: u32, pwmszlanguage: P0, pwszfallbac
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUILanguageInfo ( dwflags : u32 , pwmszlanguage : :: windows::core::PCWSTR , pwszfallbacklanguages : :: windows::core::PWSTR , pcchfallbacklanguages : *mut u32 , pattributes : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUILanguageInfo ( dwflags : u32 , pwmszlanguage : ::windows::core::PCWSTR , pwszfallbacklanguages : ::windows::core::PWSTR , pcchfallbacklanguages : *mut u32 , pattributes : *mut u32 ) -> super::Foundation:: BOOL );
     GetUILanguageInfo(dwflags, pwmszlanguage.into_param().abi(), ::core::mem::transmute(pwszfallbacklanguages), ::core::mem::transmute(pcchfallbacklanguages.unwrap_or(::std::ptr::null_mut())), pattributes)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserDefaultGeoName ( geoname : :: windows::core::PWSTR , geonamecount : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserDefaultGeoName ( geoname : ::windows::core::PWSTR , geonamecount : i32 ) -> i32 );
     GetUserDefaultGeoName(::core::mem::transmute(geoname.as_ptr()), geoname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -713,7 +713,7 @@ pub unsafe fn GetUserDefaultLangID() -> u16 {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn GetUserDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserDefaultLocaleName ( lplocalename : :: windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserDefaultLocaleName ( lplocalename : ::windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
     GetUserDefaultLocaleName(::core::mem::transmute(lplocalename.as_ptr()), lplocalename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -732,25 +732,25 @@ pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows::core::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : :: windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetUserPreferredUILanguages ( dwflags : u32 , pulnumlanguages : *mut u32 , pwszlanguagesbuffer : ::windows::core::PWSTR , pcchlanguagesbuffer : *mut u32 ) -> super::Foundation:: BOOL );
     GetUserPreferredUILanguages(dwflags, pulnumlanguages, ::core::mem::transmute(pwszlanguagesbuffer), pcchlanguagesbuffer)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn IdnToAscii(dwflags: u32, lpunicodecharstr: &[u16], lpasciicharstr: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "normaliz.dll""system" fn IdnToAscii ( dwflags : u32 , lpunicodecharstr : :: windows::core::PCWSTR , cchunicodechar : i32 , lpasciicharstr : :: windows::core::PWSTR , cchasciichar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "normaliz.dll""system" fn IdnToAscii ( dwflags : u32 , lpunicodecharstr : ::windows::core::PCWSTR , cchunicodechar : i32 , lpasciicharstr : ::windows::core::PWSTR , cchasciichar : i32 ) -> i32 );
     IdnToAscii(dwflags, ::core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len() as _, ::core::mem::transmute(lpasciicharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpasciicharstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: &[u16], lpnameprepcharstr: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IdnToNameprepUnicode ( dwflags : u32 , lpunicodecharstr : :: windows::core::PCWSTR , cchunicodechar : i32 , lpnameprepcharstr : :: windows::core::PWSTR , cchnameprepchar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IdnToNameprepUnicode ( dwflags : u32 , lpunicodecharstr : ::windows::core::PCWSTR , cchunicodechar : i32 , lpnameprepcharstr : ::windows::core::PWSTR , cchnameprepchar : i32 ) -> i32 );
     IdnToNameprepUnicode(dwflags, ::core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len() as _, ::core::mem::transmute(lpnameprepcharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpnameprepcharstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharstr: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "normaliz.dll""system" fn IdnToUnicode ( dwflags : u32 , lpasciicharstr : :: windows::core::PCWSTR , cchasciichar : i32 , lpunicodecharstr : :: windows::core::PWSTR , cchunicodechar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "normaliz.dll""system" fn IdnToUnicode ( dwflags : u32 , lpasciicharstr : ::windows::core::PCWSTR , cchasciichar : i32 , lpunicodecharstr : ::windows::core::PWSTR , cchunicodechar : i32 ) -> i32 );
     IdnToUnicode(dwflags, ::core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len() as _, ::core::mem::transmute(lpunicodecharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpunicodecharstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -771,14 +771,14 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: &[u16]) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsNLSDefinedString ( function : u32 , dwflags : u32 , lpversioninformation : *const NLSVERSIONINFO , lpstring : :: windows::core::PCWSTR , cchstr : i32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsNLSDefinedString ( function : u32 , dwflags : u32 , lpversioninformation : *const NLSVERSIONINFO , lpstring : ::windows::core::PCWSTR , cchstr : i32 ) -> super::Foundation:: BOOL );
     IsNLSDefinedString(function, dwflags, lpversioninformation, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> super::Foundation::BOOL {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsNormalizedString ( normform : NORM_FORM , lpstring : :: windows::core::PCWSTR , cwlength : i32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsNormalizedString ( normform : NORM_FORM , lpstring : ::windows::core::PCWSTR , cwlength : i32 ) -> super::Foundation:: BOOL );
     IsNormalizedString(normform, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -816,7 +816,7 @@ pub unsafe fn IsValidLocaleName<P0>(lplocalename: P0) -> super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsValidLocaleName ( lplocalename : :: windows::core::PCWSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsValidLocaleName ( lplocalename : ::windows::core::PCWSTR ) -> super::Foundation:: BOOL );
     IsValidLocaleName(lplocalename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -825,7 +825,7 @@ pub unsafe fn IsValidNLSVersion<P0>(function: u32, lplocalename: P0, lpversionin
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn IsValidNLSVersion ( function : u32 , lplocalename : :: windows::core::PCWSTR , lpversioninformation : *const NLSVERSIONINFOEX ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn IsValidNLSVersion ( function : u32 , lplocalename : ::windows::core::PCWSTR , lpversioninformation : *const NLSVERSIONINFOEX ) -> u32 );
     IsValidNLSVersion(function, lplocalename.into_param().abi(), lpversioninformation)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -834,19 +834,19 @@ pub unsafe fn IsWellFormedTag<P0>(psztag: P0) -> u8
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "bcp47mrm.dll""system" fn IsWellFormedTag ( psztag : :: windows::core::PCWSTR ) -> u8 );
+    ::windows::imp::link ! ( "bcp47mrm.dll""system" fn IsWellFormedTag ( psztag : ::windows::core::PCWSTR ) -> u8 );
     IsWellFormedTag(psztag.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn LCIDToLocaleName(locale: u32, lpname: ::core::option::Option<&mut [u16]>, dwflags: u32) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LCIDToLocaleName ( locale : u32 , lpname : :: windows::core::PWSTR , cchname : i32 , dwflags : u32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LCIDToLocaleName ( locale : u32 , lpname : ::windows::core::PWSTR , cchname : i32 , dwflags : u32 ) -> i32 );
     LCIDToLocaleName(locale, ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpname.as_deref().map_or(0, |slice| slice.len() as _), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringA ( locale : u32 , dwmapflags : u32 , lpsrcstr : :: windows::core::PCSTR , cchsrc : i32 , lpdeststr : :: windows::core::PSTR , cchdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringA ( locale : u32 , dwmapflags : u32 , lpsrcstr : ::windows::core::PCSTR , cchsrc : i32 , lpdeststr : ::windows::core::PSTR , cchdest : i32 ) -> i32 );
     LCMapStringA(locale, dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -857,13 +857,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringEx ( lplocalename : :: windows::core::PCWSTR , dwmapflags : u32 , lpsrcstr : :: windows::core::PCWSTR , cchsrc : i32 , lpdeststr : :: windows::core::PWSTR , cchdest : i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , sorthandle : super::Foundation:: LPARAM ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringEx ( lplocalename : ::windows::core::PCWSTR , dwmapflags : u32 , lpsrcstr : ::windows::core::PCWSTR , cchsrc : i32 , lpdeststr : ::windows::core::PWSTR , cchdest : i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , sorthandle : super::Foundation:: LPARAM ) -> i32 );
     LCMapStringEx(lplocalename.into_param().abi(), dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), sorthandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringW ( locale : u32 , dwmapflags : u32 , lpsrcstr : :: windows::core::PCWSTR , cchsrc : i32 , lpdeststr : :: windows::core::PWSTR , cchdest : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LCMapStringW ( locale : u32 , dwmapflags : u32 , lpsrcstr : ::windows::core::PCWSTR , cchsrc : i32 , lpdeststr : ::windows::core::PWSTR , cchdest : i32 ) -> i32 );
     LCMapStringW(locale, dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -872,7 +872,7 @@ pub unsafe fn LocaleNameToLCID<P0>(lpname: P0, dwflags: u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn LocaleNameToLCID ( lpname : :: windows::core::PCWSTR , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn LocaleNameToLCID ( lpname : ::windows::core::PCWSTR , dwflags : u32 ) -> u32 );
     LocaleNameToLCID(lpname.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -881,43 +881,43 @@ pub unsafe fn MappingDoAction<P0>(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "elscore.dll""system" fn MappingDoAction ( pbag : *mut MAPPING_PROPERTY_BAG , dwrangeindex : u32 , pszactionid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "elscore.dll""system" fn MappingDoAction ( pbag : *mut MAPPING_PROPERTY_BAG , dwrangeindex : u32 , pszactionid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     MappingDoAction(pbag, dwrangeindex, pszactionid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "elscore.dll""system" fn MappingFreePropertyBag ( pbag : *const MAPPING_PROPERTY_BAG ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "elscore.dll""system" fn MappingFreePropertyBag ( pbag : *const MAPPING_PROPERTY_BAG ) -> ::windows::core::HRESULT );
     MappingFreePropertyBag(pbag).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "elscore.dll""system" fn MappingFreeServices ( pserviceinfo : *const MAPPING_SERVICE_INFO ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "elscore.dll""system" fn MappingFreeServices ( pserviceinfo : *const MAPPING_SERVICE_INFO ) -> ::windows::core::HRESULT );
     MappingFreeServices(pserviceinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn MappingGetServices(poptions: ::core::option::Option<*const MAPPING_ENUM_OPTIONS>, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "elscore.dll""system" fn MappingGetServices ( poptions : *const MAPPING_ENUM_OPTIONS , prgservices : *mut *mut MAPPING_SERVICE_INFO , pdwservicescount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "elscore.dll""system" fn MappingGetServices ( poptions : *const MAPPING_ENUM_OPTIONS , prgservices : *mut *mut MAPPING_SERVICE_INFO , pdwservicescount : *mut u32 ) -> ::windows::core::HRESULT );
     MappingGetServices(::core::mem::transmute(poptions.unwrap_or(::std::ptr::null())), prgservices, pdwservicescount).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: &[u16], dwindex: u32, poptions: ::core::option::Option<*const MAPPING_OPTIONS>, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "elscore.dll""system" fn MappingRecognizeText ( pserviceinfo : *const MAPPING_SERVICE_INFO , psztext : :: windows::core::PCWSTR , dwlength : u32 , dwindex : u32 , poptions : *const MAPPING_OPTIONS , pbag : *mut MAPPING_PROPERTY_BAG ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "elscore.dll""system" fn MappingRecognizeText ( pserviceinfo : *const MAPPING_SERVICE_INFO , psztext : ::windows::core::PCWSTR , dwlength : u32 , dwindex : u32 , poptions : *const MAPPING_OPTIONS , pbag : *mut MAPPING_PROPERTY_BAG ) -> ::windows::core::HRESULT );
     MappingRecognizeText(pserviceinfo, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwindex, ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null())), pbag).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: &[u8], lpwidecharstr: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn MultiByteToWideChar ( codepage : u32 , dwflags : MULTI_BYTE_TO_WIDE_CHAR_FLAGS , lpmultibytestr : :: windows::core::PCSTR , cbmultibyte : i32 , lpwidecharstr : :: windows::core::PWSTR , cchwidechar : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn MultiByteToWideChar ( codepage : u32 , dwflags : MULTI_BYTE_TO_WIDE_CHAR_FLAGS , lpmultibytestr : ::windows::core::PCSTR , cbmultibyte : i32 , lpwidecharstr : ::windows::core::PWSTR , cchwidechar : i32 ) -> i32 );
     MultiByteToWideChar(codepage, dwflags, ::core::mem::transmute(lpmultibytestr.as_ptr()), lpmultibytestr.len() as _, ::core::mem::transmute(lpwidecharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpwidecharstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststring: ::core::option::Option<&mut [u16]>) -> i32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn NormalizeString ( normform : NORM_FORM , lpsrcstring : :: windows::core::PCWSTR , cwsrclength : i32 , lpdststring : :: windows::core::PWSTR , cwdstlength : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn NormalizeString ( normform : NORM_FORM , lpsrcstring : ::windows::core::PCWSTR , cwsrclength : i32 , lpdststring : ::windows::core::PWSTR , cwdstlength : i32 ) -> i32 );
     NormalizeString(normform, ::core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len() as _, ::core::mem::transmute(lpdststring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdststring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -928,7 +928,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn NotifyUILanguageChange ( dwflags : u32 , pcwstrnewlanguage : :: windows::core::PCWSTR , pcwstrpreviouslanguage : :: windows::core::PCWSTR , dwreserved : u32 , pdwstatusrtrn : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn NotifyUILanguageChange ( dwflags : u32 , pcwstrnewlanguage : ::windows::core::PCWSTR , pcwstrpreviouslanguage : ::windows::core::PCWSTR , dwreserved : u32 , pdwstatusrtrn : *mut u32 ) -> super::Foundation:: BOOL );
     NotifyUILanguageChange(dwflags, pcwstrnewlanguage.into_param().abi(), pcwstrpreviouslanguage.into_param().abi(), dwreserved, ::core::mem::transmute(pdwstatusrtrn.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -937,7 +937,7 @@ pub unsafe fn ResolveLocaleName<P0>(lpnametoresolve: P0, lplocalename: ::core::o
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn ResolveLocaleName ( lpnametoresolve : :: windows::core::PCWSTR , lplocalename : :: windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn ResolveLocaleName ( lpnametoresolve : ::windows::core::PCWSTR , lplocalename : ::windows::core::PWSTR , cchlocalename : i32 ) -> i32 );
     ResolveLocaleName(lpnametoresolve.into_param().abi(), ::core::mem::transmute(lplocalename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lplocalename.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -952,14 +952,14 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptApplyDigitSubstitution ( psds : *const SCRIPT_DIGITSUBSTITUTE , psc : *mut SCRIPT_CONTROL , pss : *mut SCRIPT_STATE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptApplyDigitSubstitution ( psds : *const SCRIPT_DIGITSUBSTITUTE , psc : *mut SCRIPT_CONTROL , pss : *mut SCRIPT_STATE ) -> ::windows::core::HRESULT );
     ScriptApplyDigitSubstitution(psds, psc, pss).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: ::core::option::Option<*mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptApplyLogicalWidth ( pidx : *const i32 , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , pabc : *mut super::Graphics::Gdi:: ABC , pijustify : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptApplyLogicalWidth ( pidx : *const i32 , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , pabc : *mut super::Graphics::Gdi:: ABC , pijustify : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, ::core::mem::transmute(pabc.unwrap_or(::std::ptr::null_mut())), pijustify).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -968,7 +968,7 @@ pub unsafe fn ScriptBreak<P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANAL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptBreak ( pwcchars : :: windows::core::PCWSTR , cchars : i32 , psa : *const SCRIPT_ANALYSIS , psla : *mut SCRIPT_LOGATTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptBreak ( pwcchars : ::windows::core::PCWSTR , cchars : i32 , psa : *const SCRIPT_ANALYSIS , psla : *mut SCRIPT_LOGATTR ) -> ::windows::core::HRESULT );
     ScriptBreak(pwcchars.into_param().abi(), cchars, psa, psla).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -978,7 +978,7 @@ pub unsafe fn ScriptCPtoX<P0>(icp: i32, ftrailing: P0, cglyphs: i32, pwlogclust:
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptCPtoX ( icp : i32 , ftrailing : super::Foundation:: BOOL , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , pix : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptCPtoX ( icp : i32 , ftrailing : super::Foundation:: BOOL , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , pix : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptCPtoX(icp, ftrailing.into_param().abi(), pwlogclust.len() as _, cglyphs, ::core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, pix).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -988,13 +988,13 @@ pub unsafe fn ScriptCacheGetHeight<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_vo
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptCacheGetHeight ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , tmheight : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptCacheGetHeight ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , tmheight : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptCacheGetHeight(hdc.into_param().abi(), psc, tmheight).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptFreeCache ( psc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptFreeCache ( psc : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ScriptFreeCache(psc).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1005,7 +1005,7 @@ where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetCMap ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwcinchars : :: windows::core::PCWSTR , cchars : i32 , dwflags : u32 , pwoutglyphs : *mut u16 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetCMap ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwcinchars : ::windows::core::PCWSTR , cchars : i32 , dwflags : u32 , pwoutglyphs : *mut u16 ) -> ::windows::core::HRESULT );
     ScriptGetCMap(hdc.into_param().abi(), psc, pwcinchars.into_param().abi(), cchars, dwflags, pwoutglyphs).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1015,7 +1015,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<P0>(hdc: P0, psc: *mut *mut ::core::f
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontAlternateGlyphs ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , wglyphid : u16 , cmaxalternates : i32 , palternateglyphs : *mut u16 , pcalternates : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontAlternateGlyphs ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , wglyphid : u16 , cmaxalternates : i32 , palternateglyphs : *mut u16 , pcalternates : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptGetFontAlternateGlyphs(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len() as _, ::core::mem::transmute(palternateglyphs.as_ptr()), pcalternates).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1025,7 +1025,7 @@ pub unsafe fn ScriptGetFontFeatureTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi::
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontFeatureTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , cmaxtags : i32 , pfeaturetags : *mut u32 , pctags : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontFeatureTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , cmaxtags : i32 , pfeaturetags : *mut u32 , pctags : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptGetFontFeatureTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, pfeaturetags.len() as _, ::core::mem::transmute(pfeaturetags.as_ptr()), pctags).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1035,7 +1035,7 @@ pub unsafe fn ScriptGetFontLanguageTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi:
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontLanguageTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , cmaxtags : i32 , plangsystags : *mut u32 , pctags : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontLanguageTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , cmaxtags : i32 , plangsystags : *mut u32 , pctags : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptGetFontLanguageTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, plangsystags.len() as _, ::core::mem::transmute(plangsystags.as_ptr()), pctags).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1045,7 +1045,7 @@ pub unsafe fn ScriptGetFontProperties<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontProperties ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , sfp : *mut SCRIPT_FONTPROPERTIES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontProperties ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , sfp : *mut SCRIPT_FONTPROPERTIES ) -> ::windows::core::HRESULT );
     ScriptGetFontProperties(hdc.into_param().abi(), psc, sfp).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1055,7 +1055,7 @@ pub unsafe fn ScriptGetFontScriptTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontScriptTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , cmaxtags : i32 , pscripttags : *mut u32 , pctags : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetFontScriptTags ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , cmaxtags : i32 , pscripttags : *mut u32 , pctags : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptGetFontScriptTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), pscripttags.len() as _, ::core::mem::transmute(pscripttags.as_ptr()), pctags).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1065,49 +1065,49 @@ pub unsafe fn ScriptGetGlyphABCWidth<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetGlyphABCWidth ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , wglyph : u16 , pabc : *mut super::Graphics::Gdi:: ABC ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetGlyphABCWidth ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , wglyph : u16 , pabc : *mut super::Graphics::Gdi:: ABC ) -> ::windows::core::HRESULT );
     ScriptGetGlyphABCWidth(hdc.into_param().abi(), psc, wglyph, pabc).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetLogicalWidths ( psa : *const SCRIPT_ANALYSIS , cchars : i32 , cglyphs : i32 , piglyphwidth : *const i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , pidx : *const i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetLogicalWidths ( psa : *const SCRIPT_ANALYSIS , cchars : i32 , cglyphs : i32 , piglyphwidth : *const i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , pidx : *const i32 ) -> ::windows::core::HRESULT );
     ScriptGetLogicalWidths(psa, cchars, cglyphs, piglyphwidth, pwlogclust, psva, pidx).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetProperties ( ppsp : *mut *mut *mut SCRIPT_PROPERTIES , pinumscripts : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptGetProperties ( ppsp : *mut *mut *mut SCRIPT_PROPERTIES , pinumscripts : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptGetProperties(ppsp, pinumscripts).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptIsComplex ( pwcinchars : :: windows::core::PCWSTR , cinchars : i32 , dwflags : SCRIPT_IS_COMPLEX_FLAGS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptIsComplex ( pwcinchars : ::windows::core::PCWSTR , cinchars : i32 , dwflags : SCRIPT_IS_COMPLEX_FLAGS ) -> ::windows::core::HRESULT );
     ScriptIsComplex(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: ::core::option::Option<*const SCRIPT_CONTROL>, psstate: ::core::option::Option<*const SCRIPT_STATE>, pitems: &mut [SCRIPT_ITEM], pcitems: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptItemize ( pwcinchars : :: windows::core::PCWSTR , cinchars : i32 , cmaxitems : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pitems : *mut SCRIPT_ITEM , pcitems : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptItemize ( pwcinchars : ::windows::core::PCWSTR , cinchars : i32 , cmaxitems : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pitems : *mut SCRIPT_ITEM , pcitems : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptItemize(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, pitems.len() as _, ::core::mem::transmute(pscontrol.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pitems.as_ptr()), pcitems).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: ::core::option::Option<*const SCRIPT_CONTROL>, psstate: ::core::option::Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptItemizeOpenType ( pwcinchars : :: windows::core::PCWSTR , cinchars : i32 , cmaxitems : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pitems : *mut SCRIPT_ITEM , pscripttags : *mut u32 , pcitems : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptItemizeOpenType ( pwcinchars : ::windows::core::PCWSTR , cinchars : i32 , cmaxitems : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pitems : *mut SCRIPT_ITEM , pscripttags : *mut u32 , pcitems : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptItemizeOpenType(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, cmaxitems, ::core::mem::transmute(pscontrol.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psstate.unwrap_or(::std::ptr::null())), pitems, pscripttags, pcitems).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptJustify ( psva : *const SCRIPT_VISATTR , piadvance : *const i32 , cglyphs : i32 , idx : i32 , iminkashida : i32 , pijustify : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptJustify ( psva : *const SCRIPT_VISATTR , piadvance : *const i32 , cglyphs : i32 , idx : i32 , iminkashida : i32 , pijustify : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptJustify(psva, piadvance, cglyphs, idx, iminkashida, pijustify).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: ::core::option::Option<*mut i32>, pilogicaltovisual: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptLayout ( cruns : i32 , pblevel : *const u8 , pivisualtological : *mut i32 , pilogicaltovisual : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptLayout ( cruns : i32 , pblevel : *const u8 , pivisualtological : *mut i32 , pilogicaltovisual : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptLayout(cruns, pblevel, ::core::mem::transmute(pivisualtological.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pilogicaltovisual.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1117,7 +1117,7 @@ pub unsafe fn ScriptPlace<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwgly
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPlace ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwglyphs : *const u16 , cglyphs : i32 , psva : *const SCRIPT_VISATTR , psa : *mut SCRIPT_ANALYSIS , piadvance : *mut i32 , pgoffset : *mut GOFFSET , pabc : *mut super::Graphics::Gdi:: ABC ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPlace ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwglyphs : *const u16 , cglyphs : i32 , psva : *const SCRIPT_VISATTR , psa : *mut SCRIPT_ANALYSIS , piadvance : *mut i32 , pgoffset : *mut GOFFSET , pabc : *mut super::Graphics::Gdi:: ABC ) -> ::windows::core::HRESULT );
     ScriptPlace(hdc.into_param().abi(), psc, pwglyphs, cglyphs, psva, psa, piadvance, ::core::mem::transmute(pgoffset.unwrap_or(::std::ptr::null_mut())), pabc).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1128,7 +1128,7 @@ where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPlaceOpenType ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *mut SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , rcrangechars : *const i32 , rprangeproperties : *const *const TEXTRANGE_PROPERTIES , cranges : i32 , pwcchars : :: windows::core::PCWSTR , pwlogclust : *const u16 , pcharprops : *const SCRIPT_CHARPROP , cchars : i32 , pwglyphs : *const u16 , pglyphprops : *const SCRIPT_GLYPHPROP , cglyphs : i32 , piadvance : *mut i32 , pgoffset : *mut GOFFSET , pabc : *mut super::Graphics::Gdi:: ABC ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPlaceOpenType ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *mut SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , rcrangechars : *const i32 , rprangeproperties : *const *const TEXTRANGE_PROPERTIES , cranges : i32 , pwcchars : ::windows::core::PCWSTR , pwlogclust : *const u16 , pcharprops : *const SCRIPT_CHARPROP , cchars : i32 , pwglyphs : *const u16 , pglyphprops : *const SCRIPT_GLYPHPROP , cglyphs : i32 , piadvance : *mut i32 , pgoffset : *mut GOFFSET , pabc : *mut super::Graphics::Gdi:: ABC ) -> ::windows::core::HRESULT );
     ScriptPlaceOpenType(hdc.into_param().abi(), psc, psa, tagscript, taglangsys, ::core::mem::transmute(rcrangechars.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rprangeproperties.unwrap_or(::std::ptr::null())), cranges, pwcchars.into_param().abi(), pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance, pgoffset, ::core::mem::transmute(pabc.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1138,13 +1138,13 @@ pub unsafe fn ScriptPositionSingleGlyph<P0>(hdc: P0, psc: *mut *mut ::core::ffi:
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPositionSingleGlyph ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , lparameter : i32 , wglyphid : u16 , iadvance : i32 , goffset : GOFFSET , pioutadvance : *mut i32 , poutgoffset : *mut GOFFSET ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptPositionSingleGlyph ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , lparameter : i32 , wglyphid : u16 , iadvance : i32 , goffset : GOFFSET , pioutadvance : *mut i32 , poutgoffset : *mut GOFFSET ) -> ::windows::core::HRESULT );
     ScriptPositionSingleGlyph(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, iadvance, ::core::mem::transmute(goffset), pioutadvance, poutgoffset).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Result<SCRIPT_DIGITSUBSTITUTE> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptRecordDigitSubstitution ( locale : u32 , psds : *mut SCRIPT_DIGITSUBSTITUTE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptRecordDigitSubstitution ( locale : u32 , psds : *mut SCRIPT_DIGITSUBSTITUTE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<SCRIPT_DIGITSUBSTITUTE>();
     ScriptRecordDigitSubstitution(locale, &mut result__).from_abi(result__)
 }
@@ -1156,7 +1156,7 @@ where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptShape ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwcchars : :: windows::core::PCWSTR , cchars : i32 , cmaxglyphs : i32 , psa : *mut SCRIPT_ANALYSIS , pwoutglyphs : *mut u16 , pwlogclust : *mut u16 , psva : *mut SCRIPT_VISATTR , pcglyphs : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptShape ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , pwcchars : ::windows::core::PCWSTR , cchars : i32 , cmaxglyphs : i32 , psa : *mut SCRIPT_ANALYSIS , pwoutglyphs : *mut u16 , pwlogclust : *mut u16 , psva : *mut SCRIPT_VISATTR , pcglyphs : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptShape(hdc.into_param().abi(), psc, pwcchars.into_param().abi(), cchars, cmaxglyphs, psa, pwoutglyphs, pwlogclust, psva, pcglyphs).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1167,7 +1167,7 @@ where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptShapeOpenType ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *mut SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , rcrangechars : *const i32 , rprangeproperties : *const *const TEXTRANGE_PROPERTIES , cranges : i32 , pwcchars : :: windows::core::PCWSTR , cchars : i32 , cmaxglyphs : i32 , pwlogclust : *mut u16 , pcharprops : *mut SCRIPT_CHARPROP , pwoutglyphs : *mut u16 , poutglyphprops : *mut SCRIPT_GLYPHPROP , pcglyphs : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptShapeOpenType ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *mut SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , rcrangechars : *const i32 , rprangeproperties : *const *const TEXTRANGE_PROPERTIES , cranges : i32 , pwcchars : ::windows::core::PCWSTR , cchars : i32 , cmaxglyphs : i32 , pwlogclust : *mut u16 , pcharprops : *mut SCRIPT_CHARPROP , pwoutglyphs : *mut u16 , poutglyphprops : *mut SCRIPT_GLYPHPROP , pcglyphs : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptShapeOpenType(hdc.into_param().abi(), psc, psa, tagscript, taglangsys, ::core::mem::transmute(rcrangechars.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rprangeproperties.unwrap_or(::std::ptr::null())), cranges, pwcchars.into_param().abi(), cchars, cmaxglyphs, pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1177,7 +1177,7 @@ pub unsafe fn ScriptStringAnalyse<P0>(hdc: P0, pstring: *const ::core::ffi::c_vo
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringAnalyse ( hdc : super::Graphics::Gdi:: HDC , pstring : *const ::core::ffi::c_void , cstring : i32 , cglyphs : i32 , icharset : i32 , dwflags : u32 , ireqwidth : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pidx : *const i32 , ptabdef : *const SCRIPT_TABDEF , pbinclass : *const u8 , pssa : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringAnalyse ( hdc : super::Graphics::Gdi:: HDC , pstring : *const ::core::ffi::c_void , cstring : i32 , cglyphs : i32 , icharset : i32 , dwflags : u32 , ireqwidth : i32 , pscontrol : *const SCRIPT_CONTROL , psstate : *const SCRIPT_STATE , pidx : *const i32 , ptabdef : *const SCRIPT_TABDEF , pbinclass : *const u8 , pssa : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ScriptStringAnalyse(hdc.into_param().abi(), pstring, pidx.as_deref().map_or(0, |slice| slice.len() as _), cglyphs, icharset, dwflags, ireqwidth, ::core::mem::transmute(pscontrol.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pidx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptabdef.unwrap_or(::std::ptr::null())), pbinclass, pssa).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1187,26 +1187,26 @@ pub unsafe fn ScriptStringCPtoX<P0>(ssa: *const ::core::ffi::c_void, icp: i32, f
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringCPtoX ( ssa : *const ::core::ffi::c_void , icp : i32 , ftrailing : super::Foundation:: BOOL , px : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringCPtoX ( ssa : *const ::core::ffi::c_void , icp : i32 , ftrailing : super::Foundation:: BOOL , px : *mut i32 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<i32>();
     ScriptStringCPtoX(ssa, icp, ftrailing.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringFree ( pssa : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringFree ( pssa : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ScriptStringFree(pssa).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringGetLogicalWidths ( ssa : *const ::core::ffi::c_void , pidx : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringGetLogicalWidths ( ssa : *const ::core::ffi::c_void , pidx : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptStringGetLogicalWidths(ssa, pidx).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringGetOrder ( ssa : *const ::core::ffi::c_void , puorder : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringGetOrder ( ssa : *const ::core::ffi::c_void , puorder : *mut u32 ) -> ::windows::core::HRESULT );
     ScriptStringGetOrder(ssa, puorder).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1216,19 +1216,19 @@ pub unsafe fn ScriptStringOut<P0>(ssa: *const ::core::ffi::c_void, ix: i32, iy: 
 where
     P0: ::windows::core::IntoParam<super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringOut ( ssa : *const ::core::ffi::c_void , ix : i32 , iy : i32 , uoptions : super::Graphics::Gdi:: ETO_OPTIONS , prc : *const super::Foundation:: RECT , iminsel : i32 , imaxsel : i32 , fdisabled : super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringOut ( ssa : *const ::core::ffi::c_void , ix : i32 , iy : i32 , uoptions : super::Graphics::Gdi:: ETO_OPTIONS , prc : *const super::Foundation:: RECT , iminsel : i32 , imaxsel : i32 , fdisabled : super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     ScriptStringOut(ssa, ix, iy, uoptions, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null())), iminsel, imaxsel, fdisabled.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringValidate ( ssa : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringValidate ( ssa : *const ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ScriptStringValidate(ssa).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringXtoCP ( ssa : *const ::core::ffi::c_void , ix : i32 , pich : *mut i32 , pitrailing : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptStringXtoCP ( ssa : *const ::core::ffi::c_void , ix : i32 , pich : *mut i32 , pitrailing : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptStringXtoCP(ssa, ix, pich, pitrailing).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1257,7 +1257,7 @@ pub unsafe fn ScriptSubstituteSingleGlyph<P0>(hdc: P0, psc: *mut *mut ::core::ff
 where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptSubstituteSingleGlyph ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , lparameter : i32 , wglyphid : u16 , pwoutglyphid : *mut u16 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptSubstituteSingleGlyph ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , psa : *const SCRIPT_ANALYSIS , tagscript : u32 , taglangsys : u32 , tagfeature : u32 , lparameter : i32 , wglyphid : u16 , pwoutglyphid : *mut u16 ) -> ::windows::core::HRESULT );
     ScriptSubstituteSingleGlyph(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1268,13 +1268,13 @@ where
     P0: ::windows::core::IntoParam<super::Graphics::Gdi::HDC>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptTextOut ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , x : i32 , y : i32 , fuoptions : u32 , lprc : *const super::Foundation:: RECT , psa : *const SCRIPT_ANALYSIS , pwcreserved : :: windows::core::PCWSTR , ireserved : i32 , pwglyphs : *const u16 , cglyphs : i32 , piadvance : *const i32 , pijustify : *const i32 , pgoffset : *const GOFFSET ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptTextOut ( hdc : super::Graphics::Gdi:: HDC , psc : *mut *mut ::core::ffi::c_void , x : i32 , y : i32 , fuoptions : u32 , lprc : *const super::Foundation:: RECT , psa : *const SCRIPT_ANALYSIS , pwcreserved : ::windows::core::PCWSTR , ireserved : i32 , pwglyphs : *const u16 , cglyphs : i32 , piadvance : *const i32 , pijustify : *const i32 , pgoffset : *const GOFFSET ) -> ::windows::core::HRESULT );
     ScriptTextOut(hdc.into_param().abi(), psc, x, y, fuoptions, ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), psa, pwcreserved.into_param().abi(), ireserved, pwglyphs, cglyphs, piadvance, ::core::mem::transmute(pijustify.unwrap_or(::std::ptr::null())), pgoffset).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptXtoCP ( ix : i32 , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , picp : *mut i32 , pitrailing : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "usp10.dll""system" fn ScriptXtoCP ( ix : i32 , cchars : i32 , cglyphs : i32 , pwlogclust : *const u16 , psva : *const SCRIPT_VISATTR , piadvance : *const i32 , psa : *const SCRIPT_ANALYSIS , picp : *mut i32 , pitrailing : *mut i32 ) -> ::windows::core::HRESULT );
     ScriptXtoCP(ix, pwlogclust.len() as _, cglyphs, ::core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, picp, pitrailing).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1284,7 +1284,7 @@ pub unsafe fn SetCalendarInfoA<P0>(locale: u32, calendar: u32, caltype: u32, lpc
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetCalendarInfoA ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : :: windows::core::PCSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetCalendarInfoA ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : ::windows::core::PCSTR ) -> super::Foundation:: BOOL );
     SetCalendarInfoA(locale, calendar, caltype, lpcaldata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1294,7 +1294,7 @@ pub unsafe fn SetCalendarInfoW<P0>(locale: u32, calendar: u32, caltype: u32, lpc
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetCalendarInfoW ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : :: windows::core::PCWSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetCalendarInfoW ( locale : u32 , calendar : u32 , caltype : u32 , lpcaldata : ::windows::core::PCWSTR ) -> super::Foundation:: BOOL );
     SetCalendarInfoW(locale, calendar, caltype, lpcaldata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1304,7 +1304,7 @@ pub unsafe fn SetLocaleInfoA<P0>(locale: u32, lctype: u32, lplcdata: P0) -> supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetLocaleInfoA ( locale : u32 , lctype : u32 , lplcdata : :: windows::core::PCSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetLocaleInfoA ( locale : u32 , lctype : u32 , lplcdata : ::windows::core::PCSTR ) -> super::Foundation:: BOOL );
     SetLocaleInfoA(locale, lctype, lplcdata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1314,7 +1314,7 @@ pub unsafe fn SetLocaleInfoW<P0>(locale: u32, lctype: u32, lplcdata: P0) -> supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetLocaleInfoW ( locale : u32 , lctype : u32 , lplcdata : :: windows::core::PCWSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetLocaleInfoW ( locale : u32 , lctype : u32 , lplcdata : ::windows::core::PCWSTR ) -> super::Foundation:: BOOL );
     SetLocaleInfoW(locale, lctype, lplcdata.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1324,7 +1324,7 @@ pub unsafe fn SetProcessPreferredUILanguages<P0>(dwflags: u32, pwszlanguagesbuff
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetProcessPreferredUILanguages ( dwflags : u32 , pwszlanguagesbuffer : :: windows::core::PCWSTR , pulnumlanguages : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetProcessPreferredUILanguages ( dwflags : u32 , pwszlanguagesbuffer : ::windows::core::PCWSTR , pulnumlanguages : *mut u32 ) -> super::Foundation:: BOOL );
     SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.into_param().abi(), ::core::mem::transmute(pulnumlanguages.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1341,7 +1341,7 @@ pub unsafe fn SetThreadPreferredUILanguages<P0>(dwflags: u32, pwszlanguagesbuffe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadPreferredUILanguages ( dwflags : u32 , pwszlanguagesbuffer : :: windows::core::PCWSTR , pulnumlanguages : *mut u32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadPreferredUILanguages ( dwflags : u32 , pwszlanguagesbuffer : ::windows::core::PCWSTR , pulnumlanguages : *mut u32 ) -> super::Foundation:: BOOL );
     SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.into_param().abi(), ::core::mem::transmute(pulnumlanguages.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1351,7 +1351,7 @@ pub unsafe fn SetThreadPreferredUILanguages2<P0>(flags: u32, languages: P0, numl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadPreferredUILanguages2 ( flags : u32 , languages : :: windows::core::PCWSTR , numlanguagesset : *mut u32 , snapshot : *mut HSAVEDUILANGUAGES ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetThreadPreferredUILanguages2 ( flags : u32 , languages : ::windows::core::PCWSTR , numlanguagesset : *mut u32 , snapshot : *mut HSAVEDUILANGUAGES ) -> super::Foundation:: BOOL );
     SetThreadPreferredUILanguages2(flags, languages.into_param().abi(), ::core::mem::transmute(numlanguagesset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(snapshot.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1374,7 +1374,7 @@ pub unsafe fn SetUserGeoName<P0>(geoname: P0) -> super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn SetUserGeoName ( geoname : :: windows::core::PCWSTR ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn SetUserGeoName ( geoname : ::windows::core::PCWSTR ) -> super::Foundation:: BOOL );
     SetUserGeoName(geoname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1414,7 +1414,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<P0>(context: *const ::core::ffi::c_void,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_ESCAPE ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : :: windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_ESCAPE ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : ::windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
     UCNV_TO_U_CALLBACK_ESCAPE(context, touargs, codeunits.into_param().abi(), length, reason, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1423,7 +1423,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<P0>(context: *const ::core::ffi::c_void, t
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_SKIP ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : :: windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_SKIP ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : ::windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
     UCNV_TO_U_CALLBACK_SKIP(context, touargs, codeunits.into_param().abi(), length, reason, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1432,7 +1432,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_STOP<P0>(context: *const ::core::ffi::c_void, t
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_STOP ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : :: windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_STOP ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : ::windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
     UCNV_TO_U_CALLBACK_STOP(context, touargs, codeunits.into_param().abi(), length, reason, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1441,7 +1441,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<P0>(context: *const ::core::ffi::c_v
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : :: windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE ( context : *const ::core::ffi::c_void , touargs : *mut UConverterToUnicodeArgs , codeunits : ::windows::core::PCSTR , length : i32 , reason : UConverterCallbackReason , err : *mut UErrorCode ) -> ( ) );
     UCNV_TO_U_CALLBACK_SUBSTITUTE(context, touargs, codeunits.into_param().abi(), length, reason, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
@@ -1452,7 +1452,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn VerifyScripts ( dwflags : u32 , lplocalescripts : :: windows::core::PCWSTR , cchlocalescripts : i32 , lptestscripts : :: windows::core::PCWSTR , cchtestscripts : i32 ) -> super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn VerifyScripts ( dwflags : u32 , lplocalescripts : ::windows::core::PCWSTR , cchlocalescripts : i32 , lptestscripts : ::windows::core::PCWSTR , cchtestscripts : i32 ) -> super::Foundation:: BOOL );
     VerifyScripts(dwflags, lplocalescripts.into_param().abi(), cchlocalescripts, lptestscripts.into_param().abi(), cchtestscripts)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1461,7 +1461,7 @@ pub unsafe fn WideCharToMultiByte<P0>(codepage: u32, dwflags: u32, lpwidecharstr
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WideCharToMultiByte ( codepage : u32 , dwflags : u32 , lpwidecharstr : :: windows::core::PCWSTR , cchwidechar : i32 , lpmultibytestr : :: windows::core::PSTR , cbmultibyte : i32 , lpdefaultchar : :: windows::core::PCSTR , lpuseddefaultchar : *mut i32 ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WideCharToMultiByte ( codepage : u32 , dwflags : u32 , lpwidecharstr : ::windows::core::PCWSTR , cchwidechar : i32 , lpmultibytestr : ::windows::core::PSTR , cbmultibyte : i32 , lpdefaultchar : ::windows::core::PCSTR , lpuseddefaultchar : *mut i32 ) -> i32 );
     WideCharToMultiByte(codepage, dwflags, ::core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len() as _), lpdefaultchar.into_param().abi(), ::core::mem::transmute(lpuseddefaultchar.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1470,7 +1470,7 @@ pub unsafe fn lstrcatA<P0>(lpstring1: ::windows::core::PSTR, lpstring2: P0) -> :
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcatA ( lpstring1 : :: windows::core::PSTR , lpstring2 : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcatA ( lpstring1 : ::windows::core::PSTR , lpstring2 : ::windows::core::PCSTR ) -> ::windows::core::PSTR );
     lstrcatA(::core::mem::transmute(lpstring1), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1479,7 +1479,7 @@ pub unsafe fn lstrcatW<P0>(lpstring1: ::windows::core::PWSTR, lpstring2: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcatW ( lpstring1 : :: windows::core::PWSTR , lpstring2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcatW ( lpstring1 : ::windows::core::PWSTR , lpstring2 : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     lstrcatW(::core::mem::transmute(lpstring1), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1489,7 +1489,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpA ( lpstring1 : :: windows::core::PCSTR , lpstring2 : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpA ( lpstring1 : ::windows::core::PCSTR , lpstring2 : ::windows::core::PCSTR ) -> i32 );
     lstrcmpA(lpstring1.into_param().abi(), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1499,7 +1499,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpW ( lpstring1 : :: windows::core::PCWSTR , lpstring2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpW ( lpstring1 : ::windows::core::PCWSTR , lpstring2 : ::windows::core::PCWSTR ) -> i32 );
     lstrcmpW(lpstring1.into_param().abi(), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1509,7 +1509,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpiA ( lpstring1 : :: windows::core::PCSTR , lpstring2 : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpiA ( lpstring1 : ::windows::core::PCSTR , lpstring2 : ::windows::core::PCSTR ) -> i32 );
     lstrcmpiA(lpstring1.into_param().abi(), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1519,7 +1519,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpiW ( lpstring1 : :: windows::core::PCWSTR , lpstring2 : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcmpiW ( lpstring1 : ::windows::core::PCWSTR , lpstring2 : ::windows::core::PCWSTR ) -> i32 );
     lstrcmpiW(lpstring1.into_param().abi(), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1528,7 +1528,7 @@ pub unsafe fn lstrcpyA<P0>(lpstring1: ::windows::core::PSTR, lpstring2: P0) -> :
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpyA ( lpstring1 : :: windows::core::PSTR , lpstring2 : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpyA ( lpstring1 : ::windows::core::PSTR , lpstring2 : ::windows::core::PCSTR ) -> ::windows::core::PSTR );
     lstrcpyA(::core::mem::transmute(lpstring1), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1537,7 +1537,7 @@ pub unsafe fn lstrcpyW<P0>(lpstring1: ::windows::core::PWSTR, lpstring2: P0) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpyW ( lpstring1 : :: windows::core::PWSTR , lpstring2 : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpyW ( lpstring1 : ::windows::core::PWSTR , lpstring2 : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     lstrcpyW(::core::mem::transmute(lpstring1), lpstring2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1546,7 +1546,7 @@ pub unsafe fn lstrcpynA<P0>(lpstring1: &mut [u8], lpstring2: P0) -> ::windows::c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpynA ( lpstring1 : :: windows::core::PSTR , lpstring2 : :: windows::core::PCSTR , imaxlength : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpynA ( lpstring1 : ::windows::core::PSTR , lpstring2 : ::windows::core::PCSTR , imaxlength : i32 ) -> ::windows::core::PSTR );
     lstrcpynA(::core::mem::transmute(lpstring1.as_ptr()), lpstring2.into_param().abi(), lpstring1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1555,7 +1555,7 @@ pub unsafe fn lstrcpynW<P0>(lpstring1: &mut [u16], lpstring2: P0) -> ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpynW ( lpstring1 : :: windows::core::PWSTR , lpstring2 : :: windows::core::PCWSTR , imaxlength : i32 ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrcpynW ( lpstring1 : ::windows::core::PWSTR , lpstring2 : ::windows::core::PCWSTR , imaxlength : i32 ) -> ::windows::core::PWSTR );
     lstrcpynW(::core::mem::transmute(lpstring1.as_ptr()), lpstring2.into_param().abi(), lpstring1.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1564,7 +1564,7 @@ pub unsafe fn lstrlenA<P0>(lpstring: P0) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrlenA ( lpstring : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrlenA ( lpstring : ::windows::core::PCSTR ) -> i32 );
     lstrlenA(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1573,7 +1573,7 @@ pub unsafe fn lstrlenW<P0>(lpstring: P0) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrlenW ( lpstring : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn lstrlenW ( lpstring : ::windows::core::PCWSTR ) -> i32 );
     lstrlenW(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1582,7 +1582,7 @@ pub unsafe fn u_UCharsToChars<P0>(us: *const u16, cs: P0, length: i32)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_UCharsToChars ( us : *const u16 , cs : :: windows::core::PCSTR , length : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_UCharsToChars ( us : *const u16 , cs : ::windows::core::PCSTR , length : i32 ) -> ( ) );
     u_UCharsToChars(us, cs.into_param().abi(), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1591,7 +1591,7 @@ pub unsafe fn u_austrcpy<P0>(dst: P0, src: *const u16) -> ::windows::core::PSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_austrcpy ( dst : :: windows::core::PCSTR , src : *const u16 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_austrcpy ( dst : ::windows::core::PCSTR , src : *const u16 ) -> ::windows::core::PSTR );
     u_austrcpy(dst.into_param().abi(), src)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1600,7 +1600,7 @@ pub unsafe fn u_austrncpy<P0>(dst: P0, src: *const u16, n: i32) -> ::windows::co
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_austrncpy ( dst : :: windows::core::PCSTR , src : *const u16 , n : i32 ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_austrncpy ( dst : ::windows::core::PCSTR , src : *const u16 , n : i32 ) -> ::windows::core::PSTR );
     u_austrncpy(dst.into_param().abi(), src, n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1622,7 +1622,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_catopen ( name : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UResourceBundle );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_catopen ( name : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UResourceBundle );
     u_catopen(name.into_param().abi(), locale.into_param().abi(), ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1649,7 +1649,7 @@ pub unsafe fn u_charFromName<P0>(namechoice: UCharNameChoice, name: P0, perrorco
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charFromName ( namechoice : UCharNameChoice , name : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charFromName ( namechoice : UCharNameChoice , name : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
     u_charFromName(namechoice, name.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1664,7 +1664,7 @@ pub unsafe fn u_charName<P0>(code: i32, namechoice: UCharNameChoice, buffer: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charName ( code : i32 , namechoice : UCharNameChoice , buffer : :: windows::core::PCSTR , bufferlength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charName ( code : i32 , namechoice : UCharNameChoice , buffer : ::windows::core::PCSTR , bufferlength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     u_charName(code, namechoice, buffer.into_param().abi(), bufferlength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1679,7 +1679,7 @@ pub unsafe fn u_charsToUChars<P0>(cs: P0, us: *mut u16, length: i32)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charsToUChars ( cs : :: windows::core::PCSTR , us : *mut u16 , length : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_charsToUChars ( cs : ::windows::core::PCSTR , us : *mut u16 , length : i32 ) -> ( ) );
     u_charsToUChars(cs.into_param().abi(), us, length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1715,7 +1715,7 @@ pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *cons
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn u_errorName(code: UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_errorName ( code : UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_errorName ( code : UErrorCode ) -> ::windows::core::PCSTR );
     u_errorName(code)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1736,7 +1736,7 @@ pub unsafe fn u_formatMessage<P0>(locale: P0, pattern: *const u16, patternlength
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_formatMessage ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_formatMessage ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
     u_formatMessage(locale.into_param().abi(), pattern, patternlength, result, resultlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1745,7 +1745,7 @@ pub unsafe fn u_formatMessageWithError<P0>(locale: P0, pattern: *const u16, patt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_formatMessageWithError ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_formatMessageWithError ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> i32 );
     u_formatMessageWithError(locale.into_param().abi(), pattern, patternlength, result, resultlength, parseerror, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1814,13 +1814,13 @@ pub unsafe fn u_getPropertyEnum<P0>(alias: P0) -> UProperty
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyEnum ( alias : :: windows::core::PCSTR ) -> UProperty );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyEnum ( alias : ::windows::core::PCSTR ) -> UProperty );
     u_getPropertyEnum(alias.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyName ( property : UProperty , namechoice : UPropertyNameChoice ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyName ( property : UProperty , namechoice : UPropertyNameChoice ) -> ::windows::core::PCSTR );
     u_getPropertyName(property, namechoice)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1829,13 +1829,13 @@ pub unsafe fn u_getPropertyValueEnum<P0>(property: UProperty, alias: P0) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyValueEnum ( property : UProperty , alias : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyValueEnum ( property : UProperty , alias : ::windows::core::PCSTR ) -> i32 );
     u_getPropertyValueEnum(property, alias.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyValueName ( property : UProperty , value : i32 , namechoice : UPropertyNameChoice ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_getPropertyValueName ( property : UProperty , value : i32 , namechoice : UPropertyNameChoice ) -> ::windows::core::PCSTR );
     u_getPropertyValueName(property, value, namechoice)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2096,7 +2096,7 @@ pub unsafe fn u_parseMessage<P0>(locale: P0, pattern: *const u16, patternlength:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_parseMessage ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_parseMessage ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , status : *mut UErrorCode ) -> ( ) );
     u_parseMessage(locale.into_param().abi(), pattern, patternlength, source, sourcelength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2105,7 +2105,7 @@ pub unsafe fn u_parseMessageWithError<P0>(locale: P0, pattern: *const u16, patte
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_parseMessageWithError ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_parseMessageWithError ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> ( ) );
     u_parseMessageWithError(locale.into_param().abi(), pattern, patternlength, source, sourcelength, parseerror, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2162,7 +2162,7 @@ pub unsafe fn u_strFromJavaModifiedUTF8WithSub<P0>(dest: *mut u16, destcapacity:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromJavaModifiedUTF8WithSub ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : :: windows::core::PCSTR , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromJavaModifiedUTF8WithSub ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : ::windows::core::PCSTR , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
     u_strFromJavaModifiedUTF8WithSub(dest, destcapacity, pdestlength, src.into_param().abi(), srclength, subchar, pnumsubstitutions, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2183,7 +2183,7 @@ pub unsafe fn u_strFromUTF8<P0>(dest: *mut u16, destcapacity: i32, pdestlength: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8 ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8 ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
     u_strFromUTF8(dest, destcapacity, pdestlength, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2192,7 +2192,7 @@ pub unsafe fn u_strFromUTF8Lenient<P0>(dest: *mut u16, destcapacity: i32, pdestl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8Lenient ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8Lenient ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
     u_strFromUTF8Lenient(dest, destcapacity, pdestlength, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2201,7 +2201,7 @@ pub unsafe fn u_strFromUTF8WithSub<P0>(dest: *mut u16, destcapacity: i32, pdestl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8WithSub ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : :: windows::core::PCSTR , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromUTF8WithSub ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : ::windows::core::PCSTR , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
     u_strFromUTF8WithSub(dest, destcapacity, pdestlength, src.into_param().abi(), srclength, subchar, pnumsubstitutions, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2210,7 +2210,7 @@ pub unsafe fn u_strFromWCS<P0>(dest: *mut u16, destcapacity: i32, pdestlength: *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromWCS ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : :: windows::core::PCWSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strFromWCS ( dest : *mut u16 , destcapacity : i32 , pdestlength : *mut i32 , src : ::windows::core::PCWSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> *mut u16 );
     u_strFromWCS(dest, destcapacity, pdestlength, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2225,7 +2225,7 @@ pub unsafe fn u_strToJavaModifiedUTF8<P0>(dest: P0, destcapacity: i32, pdestleng
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToJavaModifiedUTF8 ( dest : :: windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToJavaModifiedUTF8 ( dest : ::windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> ::windows::core::PSTR );
     u_strToJavaModifiedUTF8(dest.into_param().abi(), destcapacity, pdestlength, src, srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2234,7 +2234,7 @@ pub unsafe fn u_strToLower<P0>(dest: *mut u16, destcapacity: i32, src: *const u1
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToLower ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , locale : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToLower ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , locale : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
     u_strToLower(dest, destcapacity, src, srclength, locale.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2243,7 +2243,7 @@ pub unsafe fn u_strToTitle<P0>(dest: *mut u16, destcapacity: i32, src: *const u1
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToTitle ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , titleiter : *mut UBreakIterator , locale : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToTitle ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , titleiter : *mut UBreakIterator , locale : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
     u_strToTitle(dest, destcapacity, src, srclength, titleiter, locale.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2264,7 +2264,7 @@ pub unsafe fn u_strToUTF8<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUTF8 ( dest : :: windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUTF8 ( dest : ::windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> ::windows::core::PSTR );
     u_strToUTF8(dest.into_param().abi(), destcapacity, pdestlength, src, srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2273,7 +2273,7 @@ pub unsafe fn u_strToUTF8WithSub<P0>(dest: P0, destcapacity: i32, pdestlength: *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUTF8WithSub ( dest : :: windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUTF8WithSub ( dest : ::windows::core::PCSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , subchar : i32 , pnumsubstitutions : *mut i32 , perrorcode : *mut UErrorCode ) -> ::windows::core::PSTR );
     u_strToUTF8WithSub(dest.into_param().abi(), destcapacity, pdestlength, src, srclength, subchar, pnumsubstitutions, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2282,7 +2282,7 @@ pub unsafe fn u_strToUpper<P0>(dest: *mut u16, destcapacity: i32, src: *const u1
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUpper ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , locale : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToUpper ( dest : *mut u16 , destcapacity : i32 , src : *const u16 , srclength : i32 , locale : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> i32 );
     u_strToUpper(dest, destcapacity, src, srclength, locale.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2291,7 +2291,7 @@ pub unsafe fn u_strToWCS<P0>(dest: P0, destcapacity: i32, pdestlength: *mut i32,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToWCS ( dest : :: windows::core::PCWSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_strToWCS ( dest : ::windows::core::PCWSTR , destcapacity : i32 , pdestlength : *mut i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> ::windows::core::PWSTR );
     u_strToWCS(dest.into_param().abi(), destcapacity, pdestlength, src, srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2444,7 +2444,7 @@ pub unsafe fn u_uastrcpy<P0>(dst: *mut u16, src: P0) -> *mut u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_uastrcpy ( dst : *mut u16 , src : :: windows::core::PCSTR ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_uastrcpy ( dst : *mut u16 , src : ::windows::core::PCSTR ) -> *mut u16 );
     u_uastrcpy(dst, src.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2453,7 +2453,7 @@ pub unsafe fn u_uastrncpy<P0>(dst: *mut u16, src: P0, n: i32) -> *mut u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_uastrncpy ( dst : *mut u16 , src : :: windows::core::PCSTR , n : i32 ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_uastrncpy ( dst : *mut u16 , src : ::windows::core::PCSTR , n : i32 ) -> *mut u16 );
     u_uastrncpy(dst, src.into_param().abi(), n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2462,7 +2462,7 @@ pub unsafe fn u_unescape<P0>(src: P0, dest: *mut u16, destcapacity: i32) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_unescape ( src : :: windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_unescape ( src : ::windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 ) -> i32 );
     u_unescape(src.into_param().abi(), dest, destcapacity)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2477,7 +2477,7 @@ pub unsafe fn u_versionFromString<P0>(versionarray: *mut u8, versionstring: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_versionFromString ( versionarray : *mut u8 , versionstring : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_versionFromString ( versionarray : *mut u8 , versionstring : ::windows::core::PCSTR ) -> ( ) );
     u_versionFromString(versionarray, versionstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2492,7 +2492,7 @@ pub unsafe fn u_versionToString<P0>(versionarray: *const u8, versionstring: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_versionToString ( versionarray : *const u8 , versionstring : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_versionToString ( versionarray : *const u8 , versionstring : ::windows::core::PCSTR ) -> ( ) );
     u_versionToString(versionarray, versionstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2501,7 +2501,7 @@ pub unsafe fn u_vformatMessage<P0>(locale: P0, pattern: *const u16, patternlengt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vformatMessage ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , ap : *mut i8 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vformatMessage ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , ap : *mut i8 , status : *mut UErrorCode ) -> i32 );
     u_vformatMessage(locale.into_param().abi(), pattern, patternlength, result, resultlength, ap, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2510,7 +2510,7 @@ pub unsafe fn u_vformatMessageWithError<P0>(locale: P0, pattern: *const u16, pat
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vformatMessageWithError ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , parseerror : *mut UParseError , ap : *mut i8 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vformatMessageWithError ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , result : *mut u16 , resultlength : i32 , parseerror : *mut UParseError , ap : *mut i8 , status : *mut UErrorCode ) -> i32 );
     u_vformatMessageWithError(locale.into_param().abi(), pattern, patternlength, result, resultlength, parseerror, ap, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2519,7 +2519,7 @@ pub unsafe fn u_vparseMessage<P0>(locale: P0, pattern: *const u16, patternlength
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vparseMessage ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , ap : *mut i8 , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vparseMessage ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , ap : *mut i8 , status : *mut UErrorCode ) -> ( ) );
     u_vparseMessage(locale.into_param().abi(), pattern, patternlength, source, sourcelength, ap, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2528,7 +2528,7 @@ pub unsafe fn u_vparseMessageWithError<P0>(locale: P0, pattern: *const u16, patt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vparseMessageWithError ( locale : :: windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , ap : *mut i8 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn u_vparseMessageWithError ( locale : ::windows::core::PCSTR , pattern : *const u16 , patternlength : i32 , source : *const u16 , sourcelength : i32 , ap : *mut i8 , parseerror : *mut UParseError , status : *mut UErrorCode ) -> ( ) );
     u_vparseMessageWithError(locale.into_param().abi(), pattern, patternlength, source, sourcelength, ap, parseerror, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2834,7 +2834,7 @@ pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ubrk_getAvailable(index: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_getAvailable ( index : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_getAvailable ( index : i32 ) -> ::windows::core::PCSTR );
     ubrk_getAvailable(index)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2846,7 +2846,7 @@ pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8,
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_getLocaleByType ( bi : *const UBreakIterator , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_getLocaleByType ( bi : *const UBreakIterator , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ubrk_getLocaleByType(bi, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2885,7 +2885,7 @@ pub unsafe fn ubrk_open<P0>(r#type: UBreakIteratorType, locale: P0, text: *const
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_open ( r#type : UBreakIteratorType , locale : :: windows::core::PCSTR , text : *const u16 , textlength : i32 , status : *mut UErrorCode ) -> *mut UBreakIterator );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ubrk_open ( r#type : UBreakIteratorType , locale : ::windows::core::PCSTR , text : *const u16 , textlength : i32 , status : *mut UErrorCode ) -> *mut UBreakIterator );
     ubrk_open(r#type, locale.into_param().abi(), text, textlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2993,7 +2993,7 @@ pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UC
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucal_getAvailable(localeindex: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getAvailable ( localeindex : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getAvailable ( localeindex : i32 ) -> ::windows::core::PCSTR );
     ucal_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3045,7 +3045,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getKeywordValuesForLocale ( key : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getKeywordValuesForLocale ( key : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
     ucal_getKeywordValuesForLocale(key.into_param().abi(), locale.into_param().abi(), commonlyused, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3057,7 +3057,7 @@ pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCale
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getLocaleByType ( cal : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getLocaleByType ( cal : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucal_getLocaleByType(cal, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3075,7 +3075,7 @@ pub unsafe fn ucal_getNow() -> f64 {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTZDataVersion ( status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTZDataVersion ( status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucal_getTZDataVersion(status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3084,7 +3084,7 @@ pub unsafe fn ucal_getTimeZoneDisplayName<P0>(cal: *const *const ::core::ffi::c_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTimeZoneDisplayName ( cal : *const *const ::core::ffi::c_void , r#type : UCalendarDisplayNameType , locale : :: windows::core::PCSTR , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTimeZoneDisplayName ( cal : *const *const ::core::ffi::c_void , r#type : UCalendarDisplayNameType , locale : ::windows::core::PCSTR , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
     ucal_getTimeZoneDisplayName(cal, r#type, locale.into_param().abi(), result, resultlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3099,7 +3099,7 @@ pub unsafe fn ucal_getTimeZoneIDForWindowsID<P0>(winid: *const u16, len: i32, re
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTimeZoneIDForWindowsID ( winid : *const u16 , len : i32 , region : :: windows::core::PCSTR , id : *mut u16 , idcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getTimeZoneIDForWindowsID ( winid : *const u16 , len : i32 , region : ::windows::core::PCSTR , id : *mut u16 , idcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     ucal_getTimeZoneIDForWindowsID(winid, len, region.into_param().abi(), id, idcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3111,7 +3111,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_v
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getType ( cal : *const *const ::core::ffi::c_void , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_getType ( cal : *const *const ::core::ffi::c_void , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucal_getType(cal, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3150,7 +3150,7 @@ pub unsafe fn ucal_open<P0>(zoneid: *const u16, len: i32, locale: P0, r#type: UC
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_open ( zoneid : *const u16 , len : i32 , locale : :: windows::core::PCSTR , r#type : UCalendarType , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_open ( zoneid : *const u16 , len : i32 , locale : ::windows::core::PCSTR , r#type : UCalendarType , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
     ucal_open(zoneid, len, locale.into_param().abi(), r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3159,7 +3159,7 @@ pub unsafe fn ucal_openCountryTimeZones<P0>(country: P0, ec: *mut UErrorCode) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_openCountryTimeZones ( country : :: windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_openCountryTimeZones ( country : ::windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UEnumeration );
     ucal_openCountryTimeZones(country.into_param().abi(), ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3168,7 +3168,7 @@ pub unsafe fn ucal_openTimeZoneIDEnumeration<P0>(zonetype: USystemTimeZoneType, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_openTimeZoneIDEnumeration ( zonetype : USystemTimeZoneType , region : :: windows::core::PCSTR , rawoffset : *const i32 , ec : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucal_openTimeZoneIDEnumeration ( zonetype : USystemTimeZoneType , region : ::windows::core::PCSTR , rawoffset : *const i32 , ec : *mut UErrorCode ) -> *mut UEnumeration );
     ucal_openTimeZoneIDEnumeration(zonetype, region.into_param().abi(), rawoffset, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3246,7 +3246,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_getLocale ( csm : *const UCaseMap ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_getLocale ( csm : *const UCaseMap ) -> ::windows::core::PCSTR );
     ucasemap_getLocale(csm)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3261,7 +3261,7 @@ pub unsafe fn ucasemap_open<P0>(locale: P0, options: u32, perrorcode: *mut UErro
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_open ( locale : :: windows::core::PCSTR , options : u32 , perrorcode : *mut UErrorCode ) -> *mut UCaseMap );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_open ( locale : ::windows::core::PCSTR , options : u32 , perrorcode : *mut UErrorCode ) -> *mut UCaseMap );
     ucasemap_open(locale.into_param().abi(), options, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3276,7 +3276,7 @@ pub unsafe fn ucasemap_setLocale<P0>(csm: *mut UCaseMap, locale: P0, perrorcode:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_setLocale ( csm : *mut UCaseMap , locale : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_setLocale ( csm : *mut UCaseMap , locale : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> ( ) );
     ucasemap_setLocale(csm, locale.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3298,7 +3298,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8FoldCase ( csm : *const UCaseMap , dest : :: windows::core::PCSTR , destcapacity : i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8FoldCase ( csm : *const UCaseMap , dest : ::windows::core::PCSTR , destcapacity : i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucasemap_utf8FoldCase(csm, dest.into_param().abi(), destcapacity, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3308,7 +3308,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToLower ( csm : *const UCaseMap , dest : :: windows::core::PCSTR , destcapacity : i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToLower ( csm : *const UCaseMap , dest : ::windows::core::PCSTR , destcapacity : i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucasemap_utf8ToLower(csm, dest.into_param().abi(), destcapacity, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3318,7 +3318,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToTitle ( csm : *mut UCaseMap , dest : :: windows::core::PCSTR , destcapacity : i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToTitle ( csm : *mut UCaseMap , dest : ::windows::core::PCSTR , destcapacity : i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucasemap_utf8ToTitle(csm, dest.into_param().abi(), destcapacity, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3328,7 +3328,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToUpper ( csm : *const UCaseMap , dest : :: windows::core::PCSTR , destcapacity : i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucasemap_utf8ToUpper ( csm : *const UCaseMap , dest : ::windows::core::PCSTR , destcapacity : i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucasemap_utf8ToUpper(csm, dest.into_param().abi(), destcapacity, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3409,7 +3409,7 @@ pub unsafe fn ucnv_cbFromUWriteBytes<P0>(args: *mut UConverterFromUnicodeArgs, s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_cbFromUWriteBytes ( args : *mut UConverterFromUnicodeArgs , source : :: windows::core::PCSTR , length : i32 , offsetindex : i32 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_cbFromUWriteBytes ( args : *mut UConverterFromUnicodeArgs , source : ::windows::core::PCSTR , length : i32 , offsetindex : i32 , err : *mut UErrorCode ) -> ( ) );
     ucnv_cbFromUWriteBytes(args, source.into_param().abi(), length, offsetindex, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3449,7 +3449,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_compareNames ( name1 : :: windows::core::PCSTR , name2 : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_compareNames ( name1 : ::windows::core::PCSTR , name2 : ::windows::core::PCSTR ) -> i32 );
     ucnv_compareNames(name1.into_param().abi(), name2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3461,7 +3461,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_convert ( toconvertername : :: windows::core::PCSTR , fromconvertername : :: windows::core::PCSTR , target : :: windows::core::PCSTR , targetcapacity : i32 , source : :: windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_convert ( toconvertername : ::windows::core::PCSTR , fromconvertername : ::windows::core::PCSTR , target : ::windows::core::PCSTR , targetcapacity : i32 , source : ::windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucnv_convert(toconvertername.into_param().abi(), fromconvertername.into_param().abi(), target.into_param().abi(), targetcapacity, source.into_param().abi(), sourcelength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3471,7 +3471,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_convertEx ( targetcnv : *mut UConverter , sourcecnv : *mut UConverter , target : *mut *mut i8 , targetlimit : :: windows::core::PCSTR , source : *const *const i8 , sourcelimit : :: windows::core::PCSTR , pivotstart : *mut u16 , pivotsource : *mut *mut u16 , pivottarget : *mut *mut u16 , pivotlimit : *const u16 , reset : i8 , flush : i8 , perrorcode : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_convertEx ( targetcnv : *mut UConverter , sourcecnv : *mut UConverter , target : *mut *mut i8 , targetlimit : ::windows::core::PCSTR , source : *const *const i8 , sourcelimit : ::windows::core::PCSTR , pivotstart : *mut u16 , pivotsource : *mut *mut u16 , pivottarget : *mut *mut u16 , pivotlimit : *const u16 , reset : i8 , flush : i8 , perrorcode : *mut UErrorCode ) -> ( ) );
     ucnv_convertEx(targetcnv, sourcecnv, target, targetlimit.into_param().abi(), source, sourcelimit.into_param().abi(), pivotstart, pivotsource, pivottarget, pivotlimit, reset, flush, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3480,7 +3480,7 @@ pub unsafe fn ucnv_countAliases<P0>(alias: P0, perrorcode: *mut UErrorCode) -> u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_countAliases ( alias : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_countAliases ( alias : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> u16 );
     ucnv_countAliases(alias.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3501,7 +3501,7 @@ pub unsafe fn ucnv_detectUnicodeSignature<P0>(source: P0, sourcelength: i32, sig
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_detectUnicodeSignature ( source : :: windows::core::PCSTR , sourcelength : i32 , signaturelength : *mut i32 , perrorcode : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_detectUnicodeSignature ( source : ::windows::core::PCSTR , sourcelength : i32 , signaturelength : *mut i32 , perrorcode : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_detectUnicodeSignature(source.into_param().abi(), sourcelength, signaturelength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3523,7 +3523,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromAlgorithmic ( cnv : *mut UConverter , algorithmictype : UConverterType , target : :: windows::core::PCSTR , targetcapacity : i32 , source : :: windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromAlgorithmic ( cnv : *mut UConverter , algorithmictype : UConverterType , target : ::windows::core::PCSTR , targetcapacity : i32 , source : ::windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucnv_fromAlgorithmic(cnv, algorithmictype, target.into_param().abi(), targetcapacity, source.into_param().abi(), sourcelength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3532,7 +3532,7 @@ pub unsafe fn ucnv_fromUChars<P0>(cnv: *mut UConverter, dest: P0, destcapacity: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromUChars ( cnv : *mut UConverter , dest : :: windows::core::PCSTR , destcapacity : i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromUChars ( cnv : *mut UConverter , dest : ::windows::core::PCSTR , destcapacity : i32 , src : *const u16 , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucnv_fromUChars(cnv, dest.into_param().abi(), destcapacity, src, srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3547,7 +3547,7 @@ pub unsafe fn ucnv_fromUnicode<P0>(converter: *mut UConverter, target: *mut *mut
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromUnicode ( converter : *mut UConverter , target : *mut *mut i8 , targetlimit : :: windows::core::PCSTR , source : *const *const u16 , sourcelimit : *const u16 , offsets : *mut i32 , flush : i8 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_fromUnicode ( converter : *mut UConverter , target : *mut *mut i8 , targetlimit : ::windows::core::PCSTR , source : *const *const u16 , sourcelimit : *const u16 , offsets : *mut i32 , flush : i8 , err : *mut UErrorCode ) -> ( ) );
     ucnv_fromUnicode(converter, target, targetlimit.into_param().abi(), source, sourcelimit, offsets, flush, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3556,7 +3556,7 @@ pub unsafe fn ucnv_getAlias<P0>(alias: P0, n: u16, perrorcode: *mut UErrorCode) 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAlias ( alias : :: windows::core::PCSTR , n : u16 , perrorcode : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAlias ( alias : ::windows::core::PCSTR , n : u16 , perrorcode : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_getAlias(alias.into_param().abi(), n, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3565,13 +3565,13 @@ pub unsafe fn ucnv_getAliases<P0>(alias: P0, aliases: *const *const i8, perrorco
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAliases ( alias : :: windows::core::PCSTR , aliases : *const *const i8 , perrorcode : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAliases ( alias : ::windows::core::PCSTR , aliases : *const *const i8 , perrorcode : *mut UErrorCode ) -> ( ) );
     ucnv_getAliases(alias.into_param().abi(), aliases, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucnv_getAvailableName(n: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAvailableName ( n : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getAvailableName ( n : i32 ) -> ::windows::core::PCSTR );
     ucnv_getAvailableName(n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3587,13 +3587,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getCanonicalName ( alias : :: windows::core::PCSTR , standard : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getCanonicalName ( alias : ::windows::core::PCSTR , standard : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_getCanonicalName(alias.into_param().abi(), standard.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucnv_getDefaultName() -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getDefaultName ( ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getDefaultName ( ) -> ::windows::core::PCSTR );
     ucnv_getDefaultName()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3602,7 +3602,7 @@ pub unsafe fn ucnv_getDisplayName<P0>(converter: *const UConverter, displaylocal
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getDisplayName ( converter : *const UConverter , displaylocale : :: windows::core::PCSTR , displayname : *mut u16 , displaynamecapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getDisplayName ( converter : *const UConverter , displaylocale : ::windows::core::PCSTR , displayname : *mut u16 , displaynamecapacity : i32 , err : *mut UErrorCode ) -> i32 );
     ucnv_getDisplayName(converter, displaylocale.into_param().abi(), displayname, displaynamecapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3617,7 +3617,7 @@ pub unsafe fn ucnv_getInvalidChars<P0>(converter: *const UConverter, errbytes: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getInvalidChars ( converter : *const UConverter , errbytes : :: windows::core::PCSTR , len : *mut i8 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getInvalidChars ( converter : *const UConverter , errbytes : ::windows::core::PCSTR , len : *mut i8 , err : *mut UErrorCode ) -> ( ) );
     ucnv_getInvalidChars(converter, errbytes.into_param().abi(), len, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3641,7 +3641,7 @@ pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getName ( converter : *const UConverter , err : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getName ( converter : *const UConverter , err : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_getName(converter, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3650,7 +3650,7 @@ pub unsafe fn ucnv_getNextUChar<P0>(converter: *mut UConverter, source: *const *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getNextUChar ( converter : *mut UConverter , source : *const *const i8 , sourcelimit : :: windows::core::PCSTR , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getNextUChar ( converter : *mut UConverter , source : *const *const i8 , sourcelimit : ::windows::core::PCSTR , err : *mut UErrorCode ) -> i32 );
     ucnv_getNextUChar(converter, source, sourcelimit.into_param().abi(), err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3662,7 +3662,7 @@ pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCod
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getStandard ( n : u16 , perrorcode : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getStandard ( n : u16 , perrorcode : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_getStandard(n, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3672,7 +3672,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getStandardName ( name : :: windows::core::PCSTR , standard : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getStandardName ( name : ::windows::core::PCSTR , standard : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucnv_getStandardName(name.into_param().abi(), standard.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3687,7 +3687,7 @@ pub unsafe fn ucnv_getSubstChars<P0>(converter: *const UConverter, subchars: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getSubstChars ( converter : *const UConverter , subchars : :: windows::core::PCSTR , len : *mut i8 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_getSubstChars ( converter : *const UConverter , subchars : ::windows::core::PCSTR , len : *mut i8 , err : *mut UErrorCode ) -> ( ) );
     ucnv_getSubstChars(converter, subchars.into_param().abi(), len, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3726,7 +3726,7 @@ pub unsafe fn ucnv_open<P0>(convertername: P0, err: *mut UErrorCode) -> *mut UCo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_open ( convertername : :: windows::core::PCSTR , err : *mut UErrorCode ) -> *mut UConverter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_open ( convertername : ::windows::core::PCSTR , err : *mut UErrorCode ) -> *mut UConverter );
     ucnv_open(convertername.into_param().abi(), err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3748,7 +3748,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_openPackage ( packagename : :: windows::core::PCSTR , convertername : :: windows::core::PCSTR , err : *mut UErrorCode ) -> *mut UConverter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_openPackage ( packagename : ::windows::core::PCSTR , convertername : ::windows::core::PCSTR , err : *mut UErrorCode ) -> *mut UConverter );
     ucnv_openPackage(packagename.into_param().abi(), convertername.into_param().abi(), err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3758,7 +3758,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_openStandardNames ( convname : :: windows::core::PCSTR , standard : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_openStandardNames ( convname : ::windows::core::PCSTR , standard : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> *mut UEnumeration );
     ucnv_openStandardNames(convname.into_param().abi(), standard.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3797,7 +3797,7 @@ pub unsafe fn ucnv_setDefaultName<P0>(name: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_setDefaultName ( name : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_setDefaultName ( name : ::windows::core::PCSTR ) -> ( ) );
     ucnv_setDefaultName(name.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3818,7 +3818,7 @@ pub unsafe fn ucnv_setSubstChars<P0>(converter: *mut UConverter, subchars: P0, l
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_setSubstChars ( converter : *mut UConverter , subchars : :: windows::core::PCSTR , len : i8 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_setSubstChars ( converter : *mut UConverter , subchars : ::windows::core::PCSTR , len : i8 , err : *mut UErrorCode ) -> ( ) );
     ucnv_setSubstChars(converter, subchars.into_param().abi(), len, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3840,7 +3840,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toAlgorithmic ( algorithmictype : UConverterType , cnv : *mut UConverter , target : :: windows::core::PCSTR , targetcapacity : i32 , source : :: windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toAlgorithmic ( algorithmictype : UConverterType , cnv : *mut UConverter , target : ::windows::core::PCSTR , targetcapacity : i32 , source : ::windows::core::PCSTR , sourcelength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucnv_toAlgorithmic(algorithmictype, cnv, target.into_param().abi(), targetcapacity, source.into_param().abi(), sourcelength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3849,7 +3849,7 @@ pub unsafe fn ucnv_toUChars<P0>(cnv: *mut UConverter, dest: *mut u16, destcapaci
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toUChars ( cnv : *mut UConverter , dest : *mut u16 , destcapacity : i32 , src : :: windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toUChars ( cnv : *mut UConverter , dest : *mut u16 , destcapacity : i32 , src : ::windows::core::PCSTR , srclength : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     ucnv_toUChars(cnv, dest, destcapacity, src.into_param().abi(), srclength, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3864,7 +3864,7 @@ pub unsafe fn ucnv_toUnicode<P0>(converter: *mut UConverter, target: *mut *mut u
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toUnicode ( converter : *mut UConverter , target : *mut *mut u16 , targetlimit : *const u16 , source : *const *const i8 , sourcelimit : :: windows::core::PCSTR , offsets : *mut i32 , flush : i8 , err : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnv_toUnicode ( converter : *mut UConverter , target : *mut *mut u16 , targetlimit : *const u16 , source : *const *const i8 , sourcelimit : ::windows::core::PCSTR , offsets : *mut i32 , flush : i8 , err : *mut UErrorCode ) -> ( ) );
     ucnv_toUnicode(converter, target, targetlimit, source, sourcelimit.into_param().abi(), offsets, flush, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3903,7 +3903,7 @@ pub unsafe fn ucnvsel_selectForUTF8<P0>(sel: *const UConverterSelector, s: P0, l
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnvsel_selectForUTF8 ( sel : *const UConverterSelector , s : :: windows::core::PCSTR , length : i32 , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucnvsel_selectForUTF8 ( sel : *const UConverterSelector , s : ::windows::core::PCSTR , length : i32 , status : *mut UErrorCode ) -> *mut UEnumeration );
     ucnvsel_selectForUTF8(sel, s.into_param().abi(), length, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3951,7 +3951,7 @@ pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, sta
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucol_getAvailable(localeindex: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getAvailable ( localeindex : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getAvailable ( localeindex : i32 ) -> ::windows::core::PCSTR );
     ucol_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3973,7 +3973,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getDisplayName ( objloc : :: windows::core::PCSTR , disploc : :: windows::core::PCSTR , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getDisplayName ( objloc : ::windows::core::PCSTR , disploc : ::windows::core::PCSTR , result : *mut u16 , resultlength : i32 , status : *mut UErrorCode ) -> i32 );
     ucol_getDisplayName(objloc.into_param().abi(), disploc.into_param().abi(), result, resultlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3990,7 +3990,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getFunctionalEquivalent ( result : :: windows::core::PCSTR , resultcapacity : i32 , keyword : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , isavailable : *mut i8 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getFunctionalEquivalent ( result : ::windows::core::PCSTR , resultcapacity : i32 , keyword : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , isavailable : *mut i8 , status : *mut UErrorCode ) -> i32 );
     ucol_getFunctionalEquivalent(result.into_param().abi(), resultcapacity, keyword.into_param().abi(), locale.into_param().abi(), isavailable, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3999,7 +3999,7 @@ pub unsafe fn ucol_getKeywordValues<P0>(keyword: P0, status: *mut UErrorCode) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getKeywordValues ( keyword : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getKeywordValues ( keyword : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
     ucol_getKeywordValues(keyword.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4009,7 +4009,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getKeywordValuesForLocale ( key : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getKeywordValuesForLocale ( key : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
     ucol_getKeywordValuesForLocale(key.into_param().abi(), locale.into_param().abi(), commonlyused, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4021,7 +4021,7 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getLocaleByType ( coll : *const UCollator , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_getLocaleByType ( coll : *const UCollator , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucol_getLocaleByType(coll, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4138,7 +4138,7 @@ pub unsafe fn ucol_open<P0>(loc: P0, status: *mut UErrorCode) -> *mut UCollator
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_open ( loc : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UCollator );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_open ( loc : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UCollator );
     ucol_open(loc.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4250,7 +4250,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_strcollUTF8 ( coll : *const UCollator , source : :: windows::core::PCSTR , sourcelength : i32 , target : :: windows::core::PCSTR , targetlength : i32 , status : *mut UErrorCode ) -> UCollationResult );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucol_strcollUTF8 ( coll : *const UCollator , source : ::windows::core::PCSTR , sourcelength : i32 , target : ::windows::core::PCSTR , targetlength : i32 , status : *mut UErrorCode ) -> UCollationResult );
     ucol_strcollUTF8(coll, source.into_param().abi(), sourcelength, target.into_param().abi(), targetlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4370,13 +4370,13 @@ pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErr
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_getLanguage ( ucsm : *const UCharsetMatch , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_getLanguage ( ucsm : *const UCharsetMatch , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucsdet_getLanguage(ucsm, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_getName ( ucsm : *const UCharsetMatch , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_getName ( ucsm : *const UCharsetMatch , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ucsdet_getName(ucsm, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4403,7 +4403,7 @@ pub unsafe fn ucsdet_setDeclaredEncoding<P0>(ucsd: *mut UCharsetDetector, encodi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_setDeclaredEncoding ( ucsd : *mut UCharsetDetector , encoding : :: windows::core::PCSTR , length : i32 , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_setDeclaredEncoding ( ucsd : *mut UCharsetDetector , encoding : ::windows::core::PCSTR , length : i32 , status : *mut UErrorCode ) -> ( ) );
     ucsdet_setDeclaredEncoding(ucsd, encoding.into_param().abi(), length, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4412,7 +4412,7 @@ pub unsafe fn ucsdet_setText<P0>(ucsd: *mut UCharsetDetector, textin: P0, len: i
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_setText ( ucsd : *mut UCharsetDetector , textin : :: windows::core::PCSTR , len : i32 , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucsdet_setText ( ucsd : *mut UCharsetDetector , textin : ::windows::core::PCSTR , len : i32 , status : *mut UErrorCode ) -> ( ) );
     ucsdet_setText(ucsd, textin.into_param().abi(), len, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4421,7 +4421,7 @@ pub unsafe fn ucurr_countCurrencies<P0>(locale: P0, date: f64, ec: *mut UErrorCo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_countCurrencies ( locale : :: windows::core::PCSTR , date : f64 , ec : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_countCurrencies ( locale : ::windows::core::PCSTR , date : f64 , ec : *mut UErrorCode ) -> i32 );
     ucurr_countCurrencies(locale.into_param().abi(), date, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4430,7 +4430,7 @@ pub unsafe fn ucurr_forLocale<P0>(locale: P0, buff: *mut u16, buffcapacity: i32,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_forLocale ( locale : :: windows::core::PCSTR , buff : *mut u16 , buffcapacity : i32 , ec : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_forLocale ( locale : ::windows::core::PCSTR , buff : *mut u16 , buffcapacity : i32 , ec : *mut UErrorCode ) -> i32 );
     ucurr_forLocale(locale.into_param().abi(), buff, buffcapacity, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4439,7 +4439,7 @@ pub unsafe fn ucurr_forLocaleAndDate<P0>(locale: P0, date: f64, index: i32, buff
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_forLocaleAndDate ( locale : :: windows::core::PCSTR , date : f64 , index : i32 , buff : *mut u16 , buffcapacity : i32 , ec : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_forLocaleAndDate ( locale : ::windows::core::PCSTR , date : f64 , index : i32 , buff : *mut u16 , buffcapacity : i32 , ec : *mut UErrorCode ) -> i32 );
     ucurr_forLocaleAndDate(locale.into_param().abi(), date, index, buff, buffcapacity, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4461,7 +4461,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getKeywordValuesForLocale ( key : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getKeywordValuesForLocale ( key : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , commonlyused : i8 , status : *mut UErrorCode ) -> *mut UEnumeration );
     ucurr_getKeywordValuesForLocale(key.into_param().abi(), locale.into_param().abi(), commonlyused, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4470,7 +4470,7 @@ pub unsafe fn ucurr_getName<P0>(currency: *const u16, locale: P0, namestyle: UCu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getName ( currency : *const u16 , locale : :: windows::core::PCSTR , namestyle : UCurrNameStyle , ischoiceformat : *mut i8 , len : *mut i32 , ec : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getName ( currency : *const u16 , locale : ::windows::core::PCSTR , namestyle : UCurrNameStyle , ischoiceformat : *mut i8 , len : *mut i32 , ec : *mut UErrorCode ) -> *mut u16 );
     ucurr_getName(currency, locale.into_param().abi(), namestyle, ischoiceformat, len, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4486,7 +4486,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getPluralName ( currency : *const u16 , locale : :: windows::core::PCSTR , ischoiceformat : *mut i8 , pluralcount : :: windows::core::PCSTR , len : *mut i32 , ec : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_getPluralName ( currency : *const u16 , locale : ::windows::core::PCSTR , ischoiceformat : *mut i8 , pluralcount : ::windows::core::PCSTR , len : *mut i32 , ec : *mut UErrorCode ) -> *mut u16 );
     ucurr_getPluralName(currency, locale.into_param().abi(), ischoiceformat, pluralcount.into_param().abi(), len, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4519,7 +4519,7 @@ pub unsafe fn ucurr_register<P0>(isocode: *const u16, locale: P0, status: *mut U
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_register ( isocode : *const u16 , locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ucurr_register ( isocode : *const u16 , locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut ::core::ffi::c_void );
     ucurr_register(isocode, locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4603,7 +4603,7 @@ pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, st
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn udat_getAvailable(localeindex: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_getAvailable ( localeindex : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_getAvailable ( localeindex : i32 ) -> ::windows::core::PCSTR );
     udat_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4627,7 +4627,7 @@ pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_getLocaleByType ( fmt : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_getLocaleByType ( fmt : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     udat_getLocaleByType(fmt, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4660,7 +4660,7 @@ pub unsafe fn udat_open<P0>(timestyle: UDateFormatStyle, datestyle: UDateFormatS
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_open ( timestyle : UDateFormatStyle , datestyle : UDateFormatStyle , locale : :: windows::core::PCSTR , tzid : *const u16 , tzidlength : i32 , pattern : *const u16 , patternlength : i32 , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn udat_open ( timestyle : UDateFormatStyle , datestyle : UDateFormatStyle , locale : ::windows::core::PCSTR , tzid : *const u16 , tzidlength : i32 , pattern : *const u16 , patternlength : i32 , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
     udat_open(timestyle, datestyle, locale.into_param().abi(), tzid, tzidlength, pattern, patternlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4813,7 +4813,7 @@ pub unsafe fn udatpg_open<P0>(locale: P0, perrorcode: *mut UErrorCode) -> *mut *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn udatpg_open ( locale : :: windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn udatpg_open ( locale : ::windows::core::PCSTR , perrorcode : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
     udatpg_open(locale.into_param().abi(), perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4894,7 +4894,7 @@ pub unsafe fn udtitvfmt_open<P0>(locale: P0, skeleton: *const u16, skeletonlengt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn udtitvfmt_open ( locale : :: windows::core::PCSTR , skeleton : *const u16 , skeletonlength : i32 , tzid : *const u16 , tzidlength : i32 , status : *mut UErrorCode ) -> *mut UDateIntervalFormat );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn udtitvfmt_open ( locale : ::windows::core::PCSTR , skeleton : *const u16 , skeletonlength : i32 , tzid : *const u16 , tzidlength : i32 , status : *mut UErrorCode ) -> *mut UDateIntervalFormat );
     udtitvfmt_open(locale.into_param().abi(), skeleton, skeletonlength, tzid, tzidlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4924,7 +4924,7 @@ pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uenum_next ( en : *mut UEnumeration , resultlength : *mut i32 , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uenum_next ( en : *mut UEnumeration , resultlength : *mut i32 , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     uenum_next(en, resultlength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -4996,7 +4996,7 @@ pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut 
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ufmt_getDecNumChars ( fmt : *mut *mut ::core::ffi::c_void , len : *mut i32 , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ufmt_getDecNumChars ( fmt : *mut *mut ::core::ffi::c_void , len : *mut i32 , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ufmt_getDecNumChars(fmt, len, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5065,7 +5065,7 @@ pub unsafe fn ugender_getInstance<P0>(locale: P0, status: *mut UErrorCode) -> *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ugender_getInstance ( locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UGenderInfo );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ugender_getInstance ( locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UGenderInfo );
     ugender_getInstance(locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5093,7 +5093,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_labelToASCII_UTF8 ( idna : *const UIDNA , label : :: windows::core::PCSTR , length : i32 , dest : :: windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_labelToASCII_UTF8 ( idna : *const UIDNA , label : ::windows::core::PCSTR , length : i32 , dest : ::windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
     uidna_labelToASCII_UTF8(idna, label.into_param().abi(), length, dest.into_param().abi(), capacity, pinfo, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5109,7 +5109,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_labelToUnicodeUTF8 ( idna : *const UIDNA , label : :: windows::core::PCSTR , length : i32 , dest : :: windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_labelToUnicodeUTF8 ( idna : *const UIDNA , label : ::windows::core::PCSTR , length : i32 , dest : ::windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
     uidna_labelToUnicodeUTF8(idna, label.into_param().abi(), length, dest.into_param().abi(), capacity, pinfo, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5125,7 +5125,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_nameToASCII_UTF8 ( idna : *const UIDNA , name : :: windows::core::PCSTR , length : i32 , dest : :: windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_nameToASCII_UTF8 ( idna : *const UIDNA , name : ::windows::core::PCSTR , length : i32 , dest : ::windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
     uidna_nameToASCII_UTF8(idna, name.into_param().abi(), length, dest.into_param().abi(), capacity, pinfo, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5141,7 +5141,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_nameToUnicodeUTF8 ( idna : *const UIDNA , name : :: windows::core::PCSTR , length : i32 , dest : :: windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uidna_nameToUnicodeUTF8 ( idna : *const UIDNA , name : ::windows::core::PCSTR , length : i32 , dest : ::windows::core::PCSTR , capacity : i32 , pinfo : *mut UIDNAInfo , perrorcode : *mut UErrorCode ) -> i32 );
     uidna_nameToUnicodeUTF8(idna, name.into_param().abi(), length, dest.into_param().abi(), capacity, pinfo, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5192,7 +5192,7 @@ pub unsafe fn uiter_setUTF16BE<P0>(iter: *mut UCharIterator, s: P0, length: i32)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uiter_setUTF16BE ( iter : *mut UCharIterator , s : :: windows::core::PCSTR , length : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uiter_setUTF16BE ( iter : *mut UCharIterator , s : ::windows::core::PCSTR , length : i32 ) -> ( ) );
     uiter_setUTF16BE(iter, s.into_param().abi(), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5201,7 +5201,7 @@ pub unsafe fn uiter_setUTF8<P0>(iter: *mut UCharIterator, s: P0, length: i32)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uiter_setUTF8 ( iter : *mut UCharIterator , s : :: windows::core::PCSTR , length : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uiter_setUTF8 ( iter : *mut UCharIterator , s : ::windows::core::PCSTR , length : i32 ) -> ( ) );
     uiter_setUTF8(iter, s.into_param().abi(), length)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5225,7 +5225,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_getLocale ( ldn : *const ULocaleDisplayNames ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_getLocale ( ldn : *const ULocaleDisplayNames ) -> ::windows::core::PCSTR );
     uldn_getLocale(ldn)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5234,7 +5234,7 @@ pub unsafe fn uldn_keyDisplayName<P0>(ldn: *const ULocaleDisplayNames, key: P0, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_keyDisplayName ( ldn : *const ULocaleDisplayNames , key : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_keyDisplayName ( ldn : *const ULocaleDisplayNames , key : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_keyDisplayName(ldn, key.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5244,7 +5244,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_keyValueDisplayName ( ldn : *const ULocaleDisplayNames , key : :: windows::core::PCSTR , value : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_keyValueDisplayName ( ldn : *const ULocaleDisplayNames , key : ::windows::core::PCSTR , value : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_keyValueDisplayName(ldn, key.into_param().abi(), value.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5253,7 +5253,7 @@ pub unsafe fn uldn_languageDisplayName<P0>(ldn: *const ULocaleDisplayNames, lang
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_languageDisplayName ( ldn : *const ULocaleDisplayNames , lang : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_languageDisplayName ( ldn : *const ULocaleDisplayNames , lang : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_languageDisplayName(ldn, lang.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5262,7 +5262,7 @@ pub unsafe fn uldn_localeDisplayName<P0>(ldn: *const ULocaleDisplayNames, locale
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_localeDisplayName ( ldn : *const ULocaleDisplayNames , locale : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_localeDisplayName ( ldn : *const ULocaleDisplayNames , locale : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_localeDisplayName(ldn, locale.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5271,7 +5271,7 @@ pub unsafe fn uldn_open<P0>(locale: P0, dialecthandling: UDialectHandling, perro
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_open ( locale : :: windows::core::PCSTR , dialecthandling : UDialectHandling , perrorcode : *mut UErrorCode ) -> *mut ULocaleDisplayNames );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_open ( locale : ::windows::core::PCSTR , dialecthandling : UDialectHandling , perrorcode : *mut UErrorCode ) -> *mut ULocaleDisplayNames );
     uldn_open(locale.into_param().abi(), dialecthandling, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5280,7 +5280,7 @@ pub unsafe fn uldn_openForContext<P0>(locale: P0, contexts: *mut UDisplayContext
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_openForContext ( locale : :: windows::core::PCSTR , contexts : *mut UDisplayContext , length : i32 , perrorcode : *mut UErrorCode ) -> *mut ULocaleDisplayNames );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_openForContext ( locale : ::windows::core::PCSTR , contexts : *mut UDisplayContext , length : i32 , perrorcode : *mut UErrorCode ) -> *mut ULocaleDisplayNames );
     uldn_openForContext(locale.into_param().abi(), contexts, length, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5289,7 +5289,7 @@ pub unsafe fn uldn_regionDisplayName<P0>(ldn: *const ULocaleDisplayNames, region
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_regionDisplayName ( ldn : *const ULocaleDisplayNames , region : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_regionDisplayName ( ldn : *const ULocaleDisplayNames , region : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_regionDisplayName(ldn, region.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5304,7 +5304,7 @@ pub unsafe fn uldn_scriptDisplayName<P0>(ldn: *const ULocaleDisplayNames, script
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_scriptDisplayName ( ldn : *const ULocaleDisplayNames , script : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_scriptDisplayName ( ldn : *const ULocaleDisplayNames , script : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_scriptDisplayName(ldn, script.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5313,7 +5313,7 @@ pub unsafe fn uldn_variantDisplayName<P0>(ldn: *const ULocaleDisplayNames, varia
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_variantDisplayName ( ldn : *const ULocaleDisplayNames , variant : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uldn_variantDisplayName ( ldn : *const ULocaleDisplayNames , variant : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , perrorcode : *mut UErrorCode ) -> i32 );
     uldn_variantDisplayName(ldn, variant.into_param().abi(), result, maxresultsize, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5346,7 +5346,7 @@ pub unsafe fn ulistfmt_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut ULi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulistfmt_open ( locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UListFormatter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulistfmt_open ( locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UListFormatter );
     ulistfmt_open(locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5355,7 +5355,7 @@ pub unsafe fn ulistfmt_openForType<P0>(locale: P0, r#type: UListFormatterType, w
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulistfmt_openForType ( locale : :: windows::core::PCSTR , r#type : UListFormatterType , width : UListFormatterWidth , status : *mut UErrorCode ) -> *mut UListFormatter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulistfmt_openForType ( locale : ::windows::core::PCSTR , r#type : UListFormatterType , width : UListFormatterWidth , status : *mut UErrorCode ) -> *mut UListFormatter );
     ulistfmt_openForType(locale.into_param().abi(), r#type, width, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5376,7 +5376,7 @@ pub unsafe fn uloc_acceptLanguage<P0>(result: P0, resultavailable: i32, outresul
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_acceptLanguage ( result : :: windows::core::PCSTR , resultavailable : i32 , outresult : *mut UAcceptResult , acceptlist : *const *const i8 , acceptlistcount : i32 , availablelocales : *mut UEnumeration , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_acceptLanguage ( result : ::windows::core::PCSTR , resultavailable : i32 , outresult : *mut UAcceptResult , acceptlist : *const *const i8 , acceptlistcount : i32 , availablelocales : *mut UEnumeration , status : *mut UErrorCode ) -> i32 );
     uloc_acceptLanguage(result.into_param().abi(), resultavailable, outresult, acceptlist, acceptlistcount, availablelocales, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5386,7 +5386,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_acceptLanguageFromHTTP ( result : :: windows::core::PCSTR , resultavailable : i32 , outresult : *mut UAcceptResult , httpacceptlanguage : :: windows::core::PCSTR , availablelocales : *mut UEnumeration , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_acceptLanguageFromHTTP ( result : ::windows::core::PCSTR , resultavailable : i32 , outresult : *mut UAcceptResult , httpacceptlanguage : ::windows::core::PCSTR , availablelocales : *mut UEnumeration , status : *mut UErrorCode ) -> i32 );
     uloc_acceptLanguageFromHTTP(result.into_param().abi(), resultavailable, outresult, httpacceptlanguage.into_param().abi(), availablelocales, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5396,7 +5396,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_addLikelySubtags ( localeid : :: windows::core::PCSTR , maximizedlocaleid : :: windows::core::PCSTR , maximizedlocaleidcapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_addLikelySubtags ( localeid : ::windows::core::PCSTR , maximizedlocaleid : ::windows::core::PCSTR , maximizedlocaleidcapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_addLikelySubtags(localeid.into_param().abi(), maximizedlocaleid.into_param().abi(), maximizedlocaleidcapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5406,7 +5406,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_canonicalize ( localeid : :: windows::core::PCSTR , name : :: windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_canonicalize ( localeid : ::windows::core::PCSTR , name : ::windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_canonicalize(localeid.into_param().abi(), name.into_param().abi(), namecapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5422,13 +5422,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_forLanguageTag ( langtag : :: windows::core::PCSTR , localeid : :: windows::core::PCSTR , localeidcapacity : i32 , parsedlength : *mut i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_forLanguageTag ( langtag : ::windows::core::PCSTR , localeid : ::windows::core::PCSTR , localeidcapacity : i32 , parsedlength : *mut i32 , err : *mut UErrorCode ) -> i32 );
     uloc_forLanguageTag(langtag.into_param().abi(), localeid.into_param().abi(), localeidcapacity, parsedlength, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uloc_getAvailable(n: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getAvailable ( n : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getAvailable ( n : i32 ) -> ::windows::core::PCSTR );
     uloc_getAvailable(n)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5438,7 +5438,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getBaseName ( localeid : :: windows::core::PCSTR , name : :: windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getBaseName ( localeid : ::windows::core::PCSTR , name : ::windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getBaseName(localeid.into_param().abi(), name.into_param().abi(), namecapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5447,7 +5447,7 @@ pub unsafe fn uloc_getCharacterOrientation<P0>(localeid: P0, status: *mut UError
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getCharacterOrientation ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> ULayoutType );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getCharacterOrientation ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> ULayoutType );
     uloc_getCharacterOrientation(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5457,13 +5457,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getCountry ( localeid : :: windows::core::PCSTR , country : :: windows::core::PCSTR , countrycapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getCountry ( localeid : ::windows::core::PCSTR , country : ::windows::core::PCSTR , countrycapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getCountry(localeid.into_param().abi(), country.into_param().abi(), countrycapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uloc_getDefault() -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDefault ( ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDefault ( ) -> ::windows::core::PCSTR );
     uloc_getDefault()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5473,7 +5473,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayCountry ( locale : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , country : *mut u16 , countrycapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayCountry ( locale : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , country : *mut u16 , countrycapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayCountry(locale.into_param().abi(), displaylocale.into_param().abi(), country, countrycapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5483,7 +5483,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayKeyword ( keyword : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayKeyword ( keyword : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayKeyword(keyword.into_param().abi(), displaylocale.into_param().abi(), dest, destcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5494,7 +5494,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayKeywordValue ( locale : :: windows::core::PCSTR , keyword : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayKeywordValue ( locale : ::windows::core::PCSTR , keyword : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , dest : *mut u16 , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayKeywordValue(locale.into_param().abi(), keyword.into_param().abi(), displaylocale.into_param().abi(), dest, destcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5504,7 +5504,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayLanguage ( locale : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , language : *mut u16 , languagecapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayLanguage ( locale : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , language : *mut u16 , languagecapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayLanguage(locale.into_param().abi(), displaylocale.into_param().abi(), language, languagecapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5514,7 +5514,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayName ( localeid : :: windows::core::PCSTR , inlocaleid : :: windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayName ( localeid : ::windows::core::PCSTR , inlocaleid : ::windows::core::PCSTR , result : *mut u16 , maxresultsize : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getDisplayName(localeid.into_param().abi(), inlocaleid.into_param().abi(), result, maxresultsize, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5524,7 +5524,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayScript ( locale : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , script : *mut u16 , scriptcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayScript ( locale : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , script : *mut u16 , scriptcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayScript(locale.into_param().abi(), displaylocale.into_param().abi(), script, scriptcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5534,7 +5534,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayVariant ( locale : :: windows::core::PCSTR , displaylocale : :: windows::core::PCSTR , variant : *mut u16 , variantcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getDisplayVariant ( locale : ::windows::core::PCSTR , displaylocale : ::windows::core::PCSTR , variant : *mut u16 , variantcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getDisplayVariant(locale.into_param().abi(), displaylocale.into_param().abi(), variant, variantcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5543,7 +5543,7 @@ pub unsafe fn uloc_getISO3Country<P0>(localeid: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getISO3Country ( localeid : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getISO3Country ( localeid : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_getISO3Country(localeid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5552,7 +5552,7 @@ pub unsafe fn uloc_getISO3Language<P0>(localeid: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getISO3Language ( localeid : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getISO3Language ( localeid : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_getISO3Language(localeid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5575,7 +5575,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getKeywordValue ( localeid : :: windows::core::PCSTR , keywordname : :: windows::core::PCSTR , buffer : :: windows::core::PCSTR , buffercapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getKeywordValue ( localeid : ::windows::core::PCSTR , keywordname : ::windows::core::PCSTR , buffer : ::windows::core::PCSTR , buffercapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getKeywordValue(localeid.into_param().abi(), keywordname.into_param().abi(), buffer.into_param().abi(), buffercapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5584,7 +5584,7 @@ pub unsafe fn uloc_getLCID<P0>(localeid: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLCID ( localeid : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLCID ( localeid : ::windows::core::PCSTR ) -> u32 );
     uloc_getLCID(localeid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5594,7 +5594,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLanguage ( localeid : :: windows::core::PCSTR , language : :: windows::core::PCSTR , languagecapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLanguage ( localeid : ::windows::core::PCSTR , language : ::windows::core::PCSTR , languagecapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getLanguage(localeid.into_param().abi(), language.into_param().abi(), languagecapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5603,7 +5603,7 @@ pub unsafe fn uloc_getLineOrientation<P0>(localeid: P0, status: *mut UErrorCode)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLineOrientation ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> ULayoutType );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLineOrientation ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> ULayoutType );
     uloc_getLineOrientation(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5612,7 +5612,7 @@ pub unsafe fn uloc_getLocaleForLCID<P0>(hostid: u32, locale: P0, localecapacity:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLocaleForLCID ( hostid : u32 , locale : :: windows::core::PCSTR , localecapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getLocaleForLCID ( hostid : u32 , locale : ::windows::core::PCSTR , localecapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_getLocaleForLCID(hostid, locale.into_param().abi(), localecapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5622,7 +5622,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getName ( localeid : :: windows::core::PCSTR , name : :: windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getName ( localeid : ::windows::core::PCSTR , name : ::windows::core::PCSTR , namecapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getName(localeid.into_param().abi(), name.into_param().abi(), namecapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5632,7 +5632,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getParent ( localeid : :: windows::core::PCSTR , parent : :: windows::core::PCSTR , parentcapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getParent ( localeid : ::windows::core::PCSTR , parent : ::windows::core::PCSTR , parentcapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getParent(localeid.into_param().abi(), parent.into_param().abi(), parentcapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5642,7 +5642,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getScript ( localeid : :: windows::core::PCSTR , script : :: windows::core::PCSTR , scriptcapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getScript ( localeid : ::windows::core::PCSTR , script : ::windows::core::PCSTR , scriptcapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getScript(localeid.into_param().abi(), script.into_param().abi(), scriptcapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5652,7 +5652,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getVariant ( localeid : :: windows::core::PCSTR , variant : :: windows::core::PCSTR , variantcapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_getVariant ( localeid : ::windows::core::PCSTR , variant : ::windows::core::PCSTR , variantcapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_getVariant(localeid.into_param().abi(), variant.into_param().abi(), variantcapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5661,7 +5661,7 @@ pub unsafe fn uloc_isRightToLeft<P0>(locale: P0) -> i8
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_isRightToLeft ( locale : :: windows::core::PCSTR ) -> i8 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_isRightToLeft ( locale : ::windows::core::PCSTR ) -> i8 );
     uloc_isRightToLeft(locale.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5671,7 +5671,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_minimizeSubtags ( localeid : :: windows::core::PCSTR , minimizedlocaleid : :: windows::core::PCSTR , minimizedlocaleidcapacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_minimizeSubtags ( localeid : ::windows::core::PCSTR , minimizedlocaleid : ::windows::core::PCSTR , minimizedlocaleidcapacity : i32 , err : *mut UErrorCode ) -> i32 );
     uloc_minimizeSubtags(localeid.into_param().abi(), minimizedlocaleid.into_param().abi(), minimizedlocaleidcapacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5686,7 +5686,7 @@ pub unsafe fn uloc_openKeywords<P0>(localeid: P0, status: *mut UErrorCode) -> *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_openKeywords ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_openKeywords ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
     uloc_openKeywords(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5695,7 +5695,7 @@ pub unsafe fn uloc_setDefault<P0>(localeid: P0, status: *mut UErrorCode)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_setDefault ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_setDefault ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> ( ) );
     uloc_setDefault(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5706,7 +5706,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_setKeywordValue ( keywordname : :: windows::core::PCSTR , keywordvalue : :: windows::core::PCSTR , buffer : :: windows::core::PCSTR , buffercapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_setKeywordValue ( keywordname : ::windows::core::PCSTR , keywordvalue : ::windows::core::PCSTR , buffer : ::windows::core::PCSTR , buffercapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uloc_setKeywordValue(keywordname.into_param().abi(), keywordvalue.into_param().abi(), buffer.into_param().abi(), buffercapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5716,7 +5716,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLanguageTag ( localeid : :: windows::core::PCSTR , langtag : :: windows::core::PCSTR , langtagcapacity : i32 , strict : i8 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLanguageTag ( localeid : ::windows::core::PCSTR , langtag : ::windows::core::PCSTR , langtagcapacity : i32 , strict : i8 , err : *mut UErrorCode ) -> i32 );
     uloc_toLanguageTag(localeid.into_param().abi(), langtag.into_param().abi(), langtagcapacity, strict, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5725,7 +5725,7 @@ pub unsafe fn uloc_toLegacyKey<P0>(keyword: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLegacyKey ( keyword : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLegacyKey ( keyword : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_toLegacyKey(keyword.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5735,7 +5735,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLegacyType ( keyword : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toLegacyType ( keyword : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_toLegacyType(keyword.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5744,7 +5744,7 @@ pub unsafe fn uloc_toUnicodeLocaleKey<P0>(keyword: P0) -> ::windows::core::PCSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toUnicodeLocaleKey ( keyword : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toUnicodeLocaleKey ( keyword : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_toUnicodeLocaleKey(keyword.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5754,7 +5754,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toUnicodeLocaleType ( keyword : :: windows::core::PCSTR , value : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uloc_toUnicodeLocaleType ( keyword : ::windows::core::PCSTR , value : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     uloc_toUnicodeLocaleType(keyword.into_param().abi(), value.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5799,7 +5799,7 @@ pub unsafe fn ulocdata_getMeasurementSystem<P0>(localeid: P0, status: *mut UErro
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_getMeasurementSystem ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> UMeasurementSystem );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_getMeasurementSystem ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> UMeasurementSystem );
     ulocdata_getMeasurementSystem(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5814,7 +5814,7 @@ pub unsafe fn ulocdata_getPaperSize<P0>(localeid: P0, height: *mut i32, width: *
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_getPaperSize ( localeid : :: windows::core::PCSTR , height : *mut i32 , width : *mut i32 , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_getPaperSize ( localeid : ::windows::core::PCSTR , height : *mut i32 , width : *mut i32 , status : *mut UErrorCode ) -> ( ) );
     ulocdata_getPaperSize(localeid.into_param().abi(), height, width, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5823,7 +5823,7 @@ pub unsafe fn ulocdata_open<P0>(localeid: P0, status: *mut UErrorCode) -> *mut U
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_open ( localeid : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut ULocaleData );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ulocdata_open ( localeid : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut ULocaleData );
     ulocdata_open(localeid.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5865,7 +5865,7 @@ pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_getLocale ( fmt : *const *const ::core::ffi::c_void ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_getLocale ( fmt : *const *const ::core::ffi::c_void ) -> ::windows::core::PCSTR );
     umsg_getLocale(fmt)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5874,7 +5874,7 @@ pub unsafe fn umsg_open<P0>(pattern: *const u16, patternlength: i32, locale: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_open ( pattern : *const u16 , patternlength : i32 , locale : :: windows::core::PCSTR , parseerror : *mut UParseError , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_open ( pattern : *const u16 , patternlength : i32 , locale : ::windows::core::PCSTR , parseerror : *mut UParseError , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
     umsg_open(pattern, patternlength, locale.into_param().abi(), parseerror, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -5889,7 +5889,7 @@ pub unsafe fn umsg_setLocale<P0>(fmt: *mut *mut ::core::ffi::c_void, locale: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_setLocale ( fmt : *mut *mut ::core::ffi::c_void , locale : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn umsg_setLocale ( fmt : *mut *mut ::core::ffi::c_void , locale : ::windows::core::PCSTR ) -> ( ) );
     umsg_setLocale(fmt, locale.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6007,7 +6007,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unorm2_getInstance ( packagename : :: windows::core::PCSTR , name : :: windows::core::PCSTR , mode : UNormalization2Mode , perrorcode : *mut UErrorCode ) -> *mut UNormalizer2 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unorm2_getInstance ( packagename : ::windows::core::PCSTR , name : ::windows::core::PCSTR , mode : UNormalization2Mode , perrorcode : *mut UErrorCode ) -> *mut UNormalizer2 );
     unorm2_getInstance(packagename.into_param().abi(), name.into_param().abi(), mode, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6142,7 +6142,7 @@ pub unsafe fn unum_formatDecimal<P0>(fmt: *const *const ::core::ffi::c_void, num
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_formatDecimal ( fmt : *const *const ::core::ffi::c_void , number : :: windows::core::PCSTR , length : i32 , result : *mut u16 , resultlength : i32 , pos : *mut UFieldPosition , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_formatDecimal ( fmt : *const *const ::core::ffi::c_void , number : ::windows::core::PCSTR , length : i32 , result : *mut u16 , resultlength : i32 , pos : *mut UFieldPosition , status : *mut UErrorCode ) -> i32 );
     unum_formatDecimal(fmt, number.into_param().abi(), length, result, resultlength, pos, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6184,7 +6184,7 @@ pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UN
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn unum_getAvailable(localeindex: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_getAvailable ( localeindex : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_getAvailable ( localeindex : i32 ) -> ::windows::core::PCSTR );
     unum_getAvailable(localeindex)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6202,7 +6202,7 @@ pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, at
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_getLocaleByType ( fmt : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_getLocaleByType ( fmt : *const *const ::core::ffi::c_void , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     unum_getLocaleByType(fmt, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6223,7 +6223,7 @@ pub unsafe fn unum_open<P0>(style: UNumberFormatStyle, pattern: *const u16, patt
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_open ( style : UNumberFormatStyle , pattern : *const u16 , patternlength : i32 , locale : :: windows::core::PCSTR , parseerr : *mut UParseError , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_open ( style : UNumberFormatStyle , pattern : *const u16 , patternlength : i32 , locale : ::windows::core::PCSTR , parseerr : *mut UParseError , status : *mut UErrorCode ) -> *mut *mut ::core::ffi::c_void );
     unum_open(style, pattern, patternlength, locale.into_param().abi(), parseerr, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6238,7 +6238,7 @@ pub unsafe fn unum_parseDecimal<P0>(fmt: *const *const ::core::ffi::c_void, text
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_parseDecimal ( fmt : *const *const ::core::ffi::c_void , text : *const u16 , textlength : i32 , parsepos : *mut i32 , outbuf : :: windows::core::PCSTR , outbuflength : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unum_parseDecimal ( fmt : *const *const ::core::ffi::c_void , text : *const u16 , textlength : i32 , parsepos : *mut i32 , outbuf : ::windows::core::PCSTR , outbuflength : i32 , status : *mut UErrorCode ) -> i32 );
     unum_parseDecimal(fmt, text, textlength, parsepos, outbuf.into_param().abi(), outbuflength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6319,7 +6319,7 @@ pub unsafe fn unumf_formatDecimal<P0>(uformatter: *const UNumberFormatter, value
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_formatDecimal ( uformatter : *const UNumberFormatter , value : :: windows::core::PCSTR , valuelen : i32 , uresult : *mut UFormattedNumber , ec : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_formatDecimal ( uformatter : *const UNumberFormatter , value : ::windows::core::PCSTR , valuelen : i32 , uresult : *mut UFormattedNumber , ec : *mut UErrorCode ) -> ( ) );
     unumf_formatDecimal(uformatter, value.into_param().abi(), valuelen, uresult, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6340,7 +6340,7 @@ pub unsafe fn unumf_openForSkeletonAndLocale<P0>(skeleton: *const u16, skeletonl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_openForSkeletonAndLocale ( skeleton : *const u16 , skeletonlen : i32 , locale : :: windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UNumberFormatter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_openForSkeletonAndLocale ( skeleton : *const u16 , skeletonlen : i32 , locale : ::windows::core::PCSTR , ec : *mut UErrorCode ) -> *mut UNumberFormatter );
     unumf_openForSkeletonAndLocale(skeleton, skeletonlen, locale.into_param().abi(), ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6349,7 +6349,7 @@ pub unsafe fn unumf_openForSkeletonAndLocaleWithError<P0>(skeleton: *const u16, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_openForSkeletonAndLocaleWithError ( skeleton : *const u16 , skeletonlen : i32 , locale : :: windows::core::PCSTR , perror : *mut UParseError , ec : *mut UErrorCode ) -> *mut UNumberFormatter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumf_openForSkeletonAndLocaleWithError ( skeleton : *const u16 , skeletonlen : i32 , locale : ::windows::core::PCSTR , perror : *mut UParseError , ec : *mut UErrorCode ) -> *mut UNumberFormatter );
     unumf_openForSkeletonAndLocaleWithError(skeleton, skeletonlen, locale.into_param().abi(), perror, ec)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6397,7 +6397,7 @@ pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_getName ( unumsys : *const UNumberingSystem ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_getName ( unumsys : *const UNumberingSystem ) -> ::windows::core::PCSTR );
     unumsys_getName(unumsys)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6418,7 +6418,7 @@ pub unsafe fn unumsys_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut UNum
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_open ( locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UNumberingSystem );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_open ( locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UNumberingSystem );
     unumsys_open(locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6433,7 +6433,7 @@ pub unsafe fn unumsys_openByName<P0>(name: P0, status: *mut UErrorCode) -> *mut 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_openByName ( name : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UNumberingSystem );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn unumsys_openByName ( name : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UNumberingSystem );
     unumsys_openByName(name.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6454,7 +6454,7 @@ pub unsafe fn uplrules_open<P0>(locale: P0, status: *mut UErrorCode) -> *mut UPl
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uplrules_open ( locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UPluralRules );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uplrules_open ( locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UPluralRules );
     uplrules_open(locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6463,7 +6463,7 @@ pub unsafe fn uplrules_openForType<P0>(locale: P0, r#type: UPluralType, status: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uplrules_openForType ( locale : :: windows::core::PCSTR , r#type : UPluralType , status : *mut UErrorCode ) -> *mut UPluralRules );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uplrules_openForType ( locale : ::windows::core::PCSTR , r#type : UPluralType , status : *mut UErrorCode ) -> *mut UPluralRules );
     uplrules_openForType(locale.into_param().abi(), r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6604,7 +6604,7 @@ pub unsafe fn uregex_groupNumberFromCName<P0>(regexp: *mut URegularExpression, g
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregex_groupNumberFromCName ( regexp : *mut URegularExpression , groupname : :: windows::core::PCSTR , namelength : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregex_groupNumberFromCName ( regexp : *mut URegularExpression , groupname : ::windows::core::PCSTR , namelength : i32 , status : *mut UErrorCode ) -> i32 );
     uregex_groupNumberFromCName(regexp, groupname.into_param().abi(), namelength, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6673,7 +6673,7 @@ pub unsafe fn uregex_openC<P0>(pattern: P0, flags: u32, pe: *mut UParseError, st
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregex_openC ( pattern : :: windows::core::PCSTR , flags : u32 , pe : *mut UParseError , status : *mut UErrorCode ) -> *mut URegularExpression );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregex_openC ( pattern : ::windows::core::PCSTR , flags : u32 , pe : *mut UParseError , status : *mut UErrorCode ) -> *mut URegularExpression );
     uregex_openC(pattern.into_param().abi(), flags, pe, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6913,7 +6913,7 @@ pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut U
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregion_getRegionCode ( uregion : *const URegion ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregion_getRegionCode ( uregion : *const URegion ) -> ::windows::core::PCSTR );
     uregion_getRegionCode(uregion)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6922,7 +6922,7 @@ pub unsafe fn uregion_getRegionFromCode<P0>(regioncode: P0, status: *mut UErrorC
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregion_getRegionFromCode ( regioncode : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut URegion );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uregion_getRegionFromCode ( regioncode : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut URegion );
     uregion_getRegionFromCode(regioncode.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -6985,7 +6985,7 @@ pub unsafe fn ureldatefmt_open<P0>(locale: P0, nftoadopt: *mut *mut ::core::ffi:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ureldatefmt_open ( locale : :: windows::core::PCSTR , nftoadopt : *mut *mut ::core::ffi::c_void , width : UDateRelativeDateTimeFormatterStyle , capitalizationcontext : UDisplayContext , status : *mut UErrorCode ) -> *mut URelativeDateTimeFormatter );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ureldatefmt_open ( locale : ::windows::core::PCSTR , nftoadopt : *mut *mut ::core::ffi::c_void , width : UDateRelativeDateTimeFormatterStyle , capitalizationcontext : UDisplayContext , status : *mut UErrorCode ) -> *mut URelativeDateTimeFormatter );
     ureldatefmt_open(locale.into_param().abi(), nftoadopt, width, capitalizationcontext, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7024,7 +7024,7 @@ pub unsafe fn ures_getByKey<P0>(resourcebundle: *const UResourceBundle, key: P0,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getByKey ( resourcebundle : *const UResourceBundle , key : :: windows::core::PCSTR , fillin : *mut UResourceBundle , status : *mut UErrorCode ) -> *mut UResourceBundle );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getByKey ( resourcebundle : *const UResourceBundle , key : ::windows::core::PCSTR , fillin : *mut UResourceBundle , status : *mut UErrorCode ) -> *mut UResourceBundle );
     ures_getByKey(resourcebundle, key.into_param().abi(), fillin, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7042,13 +7042,13 @@ pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mu
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getKey ( resourcebundle : *const UResourceBundle ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getKey ( resourcebundle : *const UResourceBundle ) -> ::windows::core::PCSTR );
     ures_getKey(resourcebundle)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getLocaleByType ( resourcebundle : *const UResourceBundle , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getLocaleByType ( resourcebundle : *const UResourceBundle , r#type : ULocDataLocaleType , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ures_getLocaleByType(resourcebundle, r#type, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7087,7 +7087,7 @@ pub unsafe fn ures_getStringByKey<P0>(resb: *const UResourceBundle, key: P0, len
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getStringByKey ( resb : *const UResourceBundle , key : :: windows::core::PCSTR , len : *mut i32 , status : *mut UErrorCode ) -> *mut u16 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getStringByKey ( resb : *const UResourceBundle , key : ::windows::core::PCSTR , len : *mut i32 , status : *mut UErrorCode ) -> *mut u16 );
     ures_getStringByKey(resb, key.into_param().abi(), len, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7108,7 +7108,7 @@ pub unsafe fn ures_getUTF8String<P0>(resb: *const UResourceBundle, dest: P0, len
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8String ( resb : *const UResourceBundle , dest : :: windows::core::PCSTR , length : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8String ( resb : *const UResourceBundle , dest : ::windows::core::PCSTR , length : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ures_getUTF8String(resb, dest.into_param().abi(), length, forcecopy, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7117,7 +7117,7 @@ pub unsafe fn ures_getUTF8StringByIndex<P0>(resb: *const UResourceBundle, string
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8StringByIndex ( resb : *const UResourceBundle , stringindex : i32 , dest : :: windows::core::PCSTR , plength : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8StringByIndex ( resb : *const UResourceBundle , stringindex : i32 , dest : ::windows::core::PCSTR , plength : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ures_getUTF8StringByIndex(resb, stringindex, dest.into_param().abi(), plength, forcecopy, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7127,7 +7127,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8StringByKey ( resb : *const UResourceBundle , key : :: windows::core::PCSTR , dest : :: windows::core::PCSTR , plength : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_getUTF8StringByKey ( resb : *const UResourceBundle , key : ::windows::core::PCSTR , dest : ::windows::core::PCSTR , plength : *mut i32 , forcecopy : i8 , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     ures_getUTF8StringByKey(resb, key.into_param().abi(), dest.into_param().abi(), plength, forcecopy, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7149,7 +7149,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_open ( packagename : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_open ( packagename : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
     ures_open(packagename.into_param().abi(), locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7158,7 +7158,7 @@ pub unsafe fn ures_openAvailableLocales<P0>(packagename: P0, status: *mut UError
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openAvailableLocales ( packagename : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openAvailableLocales ( packagename : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UEnumeration );
     ures_openAvailableLocales(packagename.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7168,7 +7168,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openDirect ( packagename : :: windows::core::PCSTR , locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openDirect ( packagename : ::windows::core::PCSTR , locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
     ures_openDirect(packagename.into_param().abi(), locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7177,7 +7177,7 @@ pub unsafe fn ures_openU<P0>(packagename: *const u16, locale: P0, status: *mut U
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openU ( packagename : *const u16 , locale : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn ures_openU ( packagename : *const u16 , locale : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UResourceBundle );
     ures_openU(packagename, locale.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7198,13 +7198,13 @@ pub unsafe fn uscript_getCode<P0>(nameorabbrorlocale: P0, fillin: *mut UScriptCo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getCode ( nameorabbrorlocale : :: windows::core::PCSTR , fillin : *mut UScriptCode , capacity : i32 , err : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getCode ( nameorabbrorlocale : ::windows::core::PCSTR , fillin : *mut UScriptCode , capacity : i32 , err : *mut UErrorCode ) -> i32 );
     uscript_getCode(nameorabbrorlocale.into_param().abi(), fillin, capacity, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getName ( scriptcode : UScriptCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getName ( scriptcode : UScriptCode ) -> ::windows::core::PCSTR );
     uscript_getName(scriptcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7228,7 +7228,7 @@ pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, cap
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getShortName ( scriptcode : UScriptCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uscript_getShortName ( scriptcode : UScriptCode ) -> ::windows::core::PCSTR );
     uscript_getShortName(scriptcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7345,7 +7345,7 @@ pub unsafe fn usearch_open<P0>(pattern: *const u16, patternlength: i32, text: *c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn usearch_open ( pattern : *const u16 , patternlength : i32 , text : *const u16 , textlength : i32 , locale : :: windows::core::PCSTR , breakiter : *mut UBreakIterator , status : *mut UErrorCode ) -> *mut UStringSearch );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn usearch_open ( pattern : *const u16 , patternlength : i32 , text : *const u16 , textlength : i32 , locale : ::windows::core::PCSTR , breakiter : *mut UBreakIterator , status : *mut UErrorCode ) -> *mut UStringSearch );
     usearch_open(pattern, patternlength, text, textlength, locale.into_param().abi(), breakiter, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7732,7 +7732,7 @@ pub unsafe fn uset_spanBackUTF8<P0>(set: *const USet, s: P0, length: i32, spanco
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uset_spanBackUTF8 ( set : *const USet , s : :: windows::core::PCSTR , length : i32 , spancondition : USetSpanCondition ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uset_spanBackUTF8 ( set : *const USet , s : ::windows::core::PCSTR , length : i32 , spancondition : USetSpanCondition ) -> i32 );
     uset_spanBackUTF8(set, s.into_param().abi(), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7741,7 +7741,7 @@ pub unsafe fn uset_spanUTF8<P0>(set: *const USet, s: P0, length: i32, spancondit
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uset_spanUTF8 ( set : *const USet , s : :: windows::core::PCSTR , length : i32 , spancondition : USetSpanCondition ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uset_spanUTF8 ( set : *const USet , s : ::windows::core::PCSTR , length : i32 , spancondition : USetSpanCondition ) -> i32 );
     uset_spanUTF8(set, s.into_param().abi(), length, spancondition)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7763,7 +7763,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_areConfusableUTF8 ( sc : *const USpoofChecker , id1 : :: windows::core::PCSTR , length1 : i32 , id2 : :: windows::core::PCSTR , length2 : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_areConfusableUTF8 ( sc : *const USpoofChecker , id1 : ::windows::core::PCSTR , length1 : i32 , id2 : ::windows::core::PCSTR , length2 : i32 , status : *mut UErrorCode ) -> i32 );
     uspoof_areConfusableUTF8(sc, id1.into_param().abi(), length1, id2.into_param().abi(), length2, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7784,7 +7784,7 @@ pub unsafe fn uspoof_check2UTF8<P0>(sc: *const USpoofChecker, id: P0, length: i3
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_check2UTF8 ( sc : *const USpoofChecker , id : :: windows::core::PCSTR , length : i32 , checkresult : *mut USpoofCheckResult , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_check2UTF8 ( sc : *const USpoofChecker , id : ::windows::core::PCSTR , length : i32 , checkresult : *mut USpoofCheckResult , status : *mut UErrorCode ) -> i32 );
     uspoof_check2UTF8(sc, id.into_param().abi(), length, checkresult, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7793,7 +7793,7 @@ pub unsafe fn uspoof_checkUTF8<P0>(sc: *const USpoofChecker, id: P0, length: i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_checkUTF8 ( sc : *const USpoofChecker , id : :: windows::core::PCSTR , length : i32 , position : *mut i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_checkUTF8 ( sc : *const USpoofChecker , id : ::windows::core::PCSTR , length : i32 , position : *mut i32 , status : *mut UErrorCode ) -> i32 );
     uspoof_checkUTF8(sc, id.into_param().abi(), length, position, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7823,7 +7823,7 @@ pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErr
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_getAllowedLocales ( sc : *mut USpoofChecker , status : *mut UErrorCode ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_getAllowedLocales ( sc : *mut USpoofChecker , status : *mut UErrorCode ) -> ::windows::core::PCSTR );
     uspoof_getAllowedLocales(sc, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7881,7 +7881,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_getSkeletonUTF8 ( sc : *const USpoofChecker , r#type : u32 , id : :: windows::core::PCSTR , length : i32 , dest : :: windows::core::PCSTR , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_getSkeletonUTF8 ( sc : *const USpoofChecker , r#type : u32 , id : ::windows::core::PCSTR , length : i32 , dest : ::windows::core::PCSTR , destcapacity : i32 , status : *mut UErrorCode ) -> i32 );
     uspoof_getSkeletonUTF8(sc, r#type, id.into_param().abi(), length, dest.into_param().abi(), destcapacity, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7909,7 +7909,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_openFromSource ( confusables : :: windows::core::PCSTR , confusableslen : i32 , confusableswholescript : :: windows::core::PCSTR , confusableswholescriptlen : i32 , errtype : *mut i32 , pe : *mut UParseError , status : *mut UErrorCode ) -> *mut USpoofChecker );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_openFromSource ( confusables : ::windows::core::PCSTR , confusableslen : i32 , confusableswholescript : ::windows::core::PCSTR , confusableswholescriptlen : i32 , errtype : *mut i32 , pe : *mut UParseError , status : *mut UErrorCode ) -> *mut USpoofChecker );
     uspoof_openFromSource(confusables.into_param().abi(), confusableslen, confusableswholescript.into_param().abi(), confusableswholescriptlen, errtype, pe, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7930,7 +7930,7 @@ pub unsafe fn uspoof_setAllowedLocales<P0>(sc: *mut USpoofChecker, localeslist: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_setAllowedLocales ( sc : *mut USpoofChecker , localeslist : :: windows::core::PCSTR , status : *mut UErrorCode ) -> ( ) );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn uspoof_setAllowedLocales ( sc : *mut USpoofChecker , localeslist : ::windows::core::PCSTR , status : *mut UErrorCode ) -> ( ) );
     uspoof_setAllowedLocales(sc, localeslist.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -7958,7 +7958,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn usprep_open ( path : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UStringPrepProfile );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn usprep_open ( path : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , status : *mut UErrorCode ) -> *mut UStringPrepProfile );
     usprep_open(path.into_param().abi(), filename.into_param().abi(), status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8087,7 +8087,7 @@ pub unsafe fn utext_openUTF8<P0>(ut: *mut UText, s: P0, length: i64, status: *mu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn utext_openUTF8 ( ut : *mut UText , s : :: windows::core::PCSTR , length : i64 , status : *mut UErrorCode ) -> *mut UText );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn utext_openUTF8 ( ut : *mut UText , s : ::windows::core::PCSTR , length : i64 , status : *mut UErrorCode ) -> *mut UText );
     utext_openUTF8(ut, s.into_param().abi(), length, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8169,13 +8169,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_format ( outbuf : :: windows::core::PCSTR , capacity : i32 , indent : i32 , fmt : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_format ( outbuf : ::windows::core::PCSTR , capacity : i32 , indent : i32 , fmt : ::windows::core::PCSTR ) -> i32 );
     utrace_format(outbuf.into_param().abi(), capacity, indent, fmt.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn utrace_functionName(fnnumber: i32) -> ::windows::core::PCSTR {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_functionName ( fnnumber : i32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_functionName ( fnnumber : i32 ) -> ::windows::core::PCSTR );
     utrace_functionName(fnnumber)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8209,7 +8209,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_vformat ( outbuf : :: windows::core::PCSTR , capacity : i32 , indent : i32 , fmt : :: windows::core::PCSTR , args : *mut i8 ) -> i32 );
+    ::windows::imp::link ! ( "icu.dll""cdecl" fn utrace_vformat ( outbuf : ::windows::core::PCSTR , capacity : i32 , indent : i32 , fmt : ::windows::core::PCSTR , args : *mut i8 ) -> i32 );
     utrace_vformat(outbuf.into_param().abi(), capacity, indent, fmt.into_param().abi(), args)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11177,9 +11177,9 @@ pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const LOCALE_NAME_INVARIANT: ::windows::core::PCWSTR = ::windows::w!("");
+pub const LOCALE_NAME_INVARIANT: ::windows::core::PCWSTR = ::windows::core::w!("");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const LOCALE_NAME_SYSTEM_DEFAULT: ::windows::core::PCWSTR = ::windows::w!("!x-sys-default-locale");
+pub const LOCALE_NAME_SYSTEM_DEFAULT: ::windows::core::PCWSTR = ::windows::core::w!("!x-sys-default-locale");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LOCALE_NEUTRALDATA: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11589,9 +11589,9 @@ pub const SpellCheckerFactory: ::windows::core::GUID = ::windows::core::GUID::fr
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U16_MAX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U8_LEAD3_T1_BITS: ::windows::core::PCSTR = ::windows::s!(" 000000000000\u{10}00");
+pub const U8_LEAD3_T1_BITS: ::windows::core::PCSTR = ::windows::core::s!(" 000000000000\u{10}00");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U8_LEAD4_T1_BITS: ::windows::core::PCSTR = ::windows::s!("\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}");
+pub const U8_LEAD4_T1_BITS: ::windows::core::PCSTR = ::windows::core::s!("\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U8_MAX_LENGTH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11615,7 +11615,7 @@ pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCAL_UNKNOWN_ZONE_ID: ::windows::core::PCSTR = ::windows::s!("Etc/Unknown");
+pub const UCAL_UNKNOWN_ZONE_ID: ::windows::core::PCSTR = ::windows::core::s!("Etc/Unknown");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11623,37 +11623,37 @@ pub const UCHAR_MIN_VALUE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_C: ::windows::core::PCSTR = ::windows::s!("C");
+pub const UCNV_ESCAPE_C: ::windows::core::PCSTR = ::windows::core::s!("C");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_CSS2: ::windows::core::PCSTR = ::windows::s!("S");
+pub const UCNV_ESCAPE_CSS2: ::windows::core::PCSTR = ::windows::core::s!("S");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_JAVA: ::windows::core::PCSTR = ::windows::s!("J");
+pub const UCNV_ESCAPE_JAVA: ::windows::core::PCSTR = ::windows::core::s!("J");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_UNICODE: ::windows::core::PCSTR = ::windows::s!("U");
+pub const UCNV_ESCAPE_UNICODE: ::windows::core::PCSTR = ::windows::core::s!("U");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_XML_DEC: ::windows::core::PCSTR = ::windows::s!("D");
+pub const UCNV_ESCAPE_XML_DEC: ::windows::core::PCSTR = ::windows::core::s!("D");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_ESCAPE_XML_HEX: ::windows::core::PCSTR = ::windows::s!("X");
+pub const UCNV_ESCAPE_XML_HEX: ::windows::core::PCSTR = ::windows::core::s!("X");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_LOCALE_OPTION_STRING: ::windows::core::PCSTR = ::windows::s!(",locale=");
+pub const UCNV_LOCALE_OPTION_STRING: ::windows::core::PCSTR = ::windows::core::s!(",locale=");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_OPTION_SEP_STRING: ::windows::core::PCSTR = ::windows::s!(",");
+pub const UCNV_OPTION_SEP_STRING: ::windows::core::PCSTR = ::windows::core::s!(",");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_SI: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_SKIP_STOP_ON_ILLEGAL: ::windows::core::PCSTR = ::windows::s!("i");
+pub const UCNV_SKIP_STOP_ON_ILLEGAL: ::windows::core::PCSTR = ::windows::core::s!("i");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_SO: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_SUB_STOP_ON_ILLEGAL: ::windows::core::PCSTR = ::windows::s!("i");
+pub const UCNV_SUB_STOP_ON_ILLEGAL: ::windows::core::PCSTR = ::windows::core::s!("i");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_SWAP_LFNL_OPTION_STRING: ::windows::core::PCSTR = ::windows::s!(",swaplfnl");
+pub const UCNV_SWAP_LFNL_OPTION_STRING: ::windows::core::PCSTR = ::windows::core::s!(",swaplfnl");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_VALUE_SEP_STRING: ::windows::core::PCSTR = ::windows::s!("=");
+pub const UCNV_VALUE_SEP_STRING: ::windows::core::PCSTR = ::windows::core::s!("=");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UCNV_VERSION_OPTION_STRING: ::windows::core::PCSTR = ::windows::s!(",version=");
+pub const UCNV_VERSION_OPTION_STRING: ::windows::core::PCSTR = ::windows::core::s!(",version=");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11701,87 +11701,87 @@ pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_GENERIC_TZ: ::windows::core::PCSTR = ::windows::s!("v");
+pub const UDAT_ABBR_GENERIC_TZ: ::windows::core::PCSTR = ::windows::core::s!("v");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_MONTH: ::windows::core::PCSTR = ::windows::s!("MMM");
+pub const UDAT_ABBR_MONTH: ::windows::core::PCSTR = ::windows::core::s!("MMM");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("MMMd");
+pub const UDAT_ABBR_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("MMMd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("MMMEd");
+pub const UDAT_ABBR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("MMMEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_QUARTER: ::windows::core::PCSTR = ::windows::s!("QQQ");
+pub const UDAT_ABBR_QUARTER: ::windows::core::PCSTR = ::windows::core::s!("QQQ");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_SPECIFIC_TZ: ::windows::core::PCSTR = ::windows::s!("z");
+pub const UDAT_ABBR_SPECIFIC_TZ: ::windows::core::PCSTR = ::windows::core::s!("z");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_UTC_TZ: ::windows::core::PCSTR = ::windows::s!("ZZZZ");
+pub const UDAT_ABBR_UTC_TZ: ::windows::core::PCSTR = ::windows::core::s!("ZZZZ");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_ABBR_WEEKDAY: ::windows::core::PCSTR = ::windows::s!("E");
+pub const UDAT_ABBR_WEEKDAY: ::windows::core::PCSTR = ::windows::core::s!("E");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_DAY: ::windows::core::PCSTR = ::windows::s!("d");
+pub const UDAT_DAY: ::windows::core::PCSTR = ::windows::core::s!("d");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_GENERIC_TZ: ::windows::core::PCSTR = ::windows::s!("vvvv");
+pub const UDAT_GENERIC_TZ: ::windows::core::PCSTR = ::windows::core::s!("vvvv");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR: ::windows::core::PCSTR = ::windows::s!("j");
+pub const UDAT_HOUR: ::windows::core::PCSTR = ::windows::core::s!("j");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR24: ::windows::core::PCSTR = ::windows::s!("H");
+pub const UDAT_HOUR24: ::windows::core::PCSTR = ::windows::core::s!("H");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR24_MINUTE: ::windows::core::PCSTR = ::windows::s!("Hm");
+pub const UDAT_HOUR24_MINUTE: ::windows::core::PCSTR = ::windows::core::s!("Hm");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR24_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::s!("Hms");
+pub const UDAT_HOUR24_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::core::s!("Hms");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR_MINUTE: ::windows::core::PCSTR = ::windows::s!("jm");
+pub const UDAT_HOUR_MINUTE: ::windows::core::PCSTR = ::windows::core::s!("jm");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_HOUR_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::s!("jms");
+pub const UDAT_HOUR_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::core::s!("jms");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_LOCATION_TZ: ::windows::core::PCSTR = ::windows::s!("VVVV");
+pub const UDAT_LOCATION_TZ: ::windows::core::PCSTR = ::windows::core::s!("VVVV");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_MINUTE: ::windows::core::PCSTR = ::windows::s!("m");
+pub const UDAT_MINUTE: ::windows::core::PCSTR = ::windows::core::s!("m");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::s!("ms");
+pub const UDAT_MINUTE_SECOND: ::windows::core::PCSTR = ::windows::core::s!("ms");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_MONTH: ::windows::core::PCSTR = ::windows::s!("MMMM");
+pub const UDAT_MONTH: ::windows::core::PCSTR = ::windows::core::s!("MMMM");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("MMMMd");
+pub const UDAT_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("MMMMd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("MMMMEEEEd");
+pub const UDAT_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("MMMMEEEEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_NUM_MONTH: ::windows::core::PCSTR = ::windows::s!("M");
+pub const UDAT_NUM_MONTH: ::windows::core::PCSTR = ::windows::core::s!("M");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_NUM_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("Md");
+pub const UDAT_NUM_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("Md");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_NUM_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("MEd");
+pub const UDAT_NUM_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("MEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_QUARTER: ::windows::core::PCSTR = ::windows::s!("QQQQ");
+pub const UDAT_QUARTER: ::windows::core::PCSTR = ::windows::core::s!("QQQQ");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_SECOND: ::windows::core::PCSTR = ::windows::s!("s");
+pub const UDAT_SECOND: ::windows::core::PCSTR = ::windows::core::s!("s");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_SPECIFIC_TZ: ::windows::core::PCSTR = ::windows::s!("zzzz");
+pub const UDAT_SPECIFIC_TZ: ::windows::core::PCSTR = ::windows::core::s!("zzzz");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_WEEKDAY: ::windows::core::PCSTR = ::windows::s!("EEEE");
+pub const UDAT_WEEKDAY: ::windows::core::PCSTR = ::windows::core::s!("EEEE");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR: ::windows::core::PCSTR = ::windows::s!("y");
+pub const UDAT_YEAR: ::windows::core::PCSTR = ::windows::core::s!("y");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_ABBR_MONTH: ::windows::core::PCSTR = ::windows::s!("yMMM");
+pub const UDAT_YEAR_ABBR_MONTH: ::windows::core::PCSTR = ::windows::core::s!("yMMM");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_ABBR_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("yMMMd");
+pub const UDAT_YEAR_ABBR_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMMMd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("yMMMEd");
+pub const UDAT_YEAR_ABBR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMMMEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_ABBR_QUARTER: ::windows::core::PCSTR = ::windows::s!("yQQQ");
+pub const UDAT_YEAR_ABBR_QUARTER: ::windows::core::PCSTR = ::windows::core::s!("yQQQ");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_MONTH: ::windows::core::PCSTR = ::windows::s!("yMMMM");
+pub const UDAT_YEAR_MONTH: ::windows::core::PCSTR = ::windows::core::s!("yMMMM");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("yMMMMd");
+pub const UDAT_YEAR_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMMMMd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("yMMMMEEEEd");
+pub const UDAT_YEAR_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMMMMEEEEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_NUM_MONTH: ::windows::core::PCSTR = ::windows::s!("yM");
+pub const UDAT_YEAR_NUM_MONTH: ::windows::core::PCSTR = ::windows::core::s!("yM");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_NUM_MONTH_DAY: ::windows::core::PCSTR = ::windows::s!("yMd");
+pub const UDAT_YEAR_NUM_MONTH_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::s!("yMEd");
+pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: ::windows::core::PCSTR = ::windows::core::s!("yMEd");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const UDAT_YEAR_QUARTER: ::windows::core::PCSTR = ::windows::s!("yQQQQ");
+pub const UDAT_YEAR_QUARTER: ::windows::core::PCSTR = ::windows::core::s!("yQQQQ");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11829,35 +11829,35 @@ pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_CANADA: ::windows::core::PCSTR = ::windows::s!("en_CA");
+pub const ULOC_CANADA: ::windows::core::PCSTR = ::windows::core::s!("en_CA");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_CANADA_FRENCH: ::windows::core::PCSTR = ::windows::s!("fr_CA");
+pub const ULOC_CANADA_FRENCH: ::windows::core::PCSTR = ::windows::core::s!("fr_CA");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_CHINA: ::windows::core::PCSTR = ::windows::s!("zh_CN");
+pub const ULOC_CHINA: ::windows::core::PCSTR = ::windows::core::s!("zh_CN");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_CHINESE: ::windows::core::PCSTR = ::windows::s!("zh");
+pub const ULOC_CHINESE: ::windows::core::PCSTR = ::windows::core::s!("zh");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_ENGLISH: ::windows::core::PCSTR = ::windows::s!("en");
+pub const ULOC_ENGLISH: ::windows::core::PCSTR = ::windows::core::s!("en");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_FRANCE: ::windows::core::PCSTR = ::windows::s!("fr_FR");
+pub const ULOC_FRANCE: ::windows::core::PCSTR = ::windows::core::s!("fr_FR");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_FRENCH: ::windows::core::PCSTR = ::windows::s!("fr");
+pub const ULOC_FRENCH: ::windows::core::PCSTR = ::windows::core::s!("fr");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_GERMAN: ::windows::core::PCSTR = ::windows::s!("de");
+pub const ULOC_GERMAN: ::windows::core::PCSTR = ::windows::core::s!("de");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_GERMANY: ::windows::core::PCSTR = ::windows::s!("de_DE");
+pub const ULOC_GERMANY: ::windows::core::PCSTR = ::windows::core::s!("de_DE");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_ITALIAN: ::windows::core::PCSTR = ::windows::s!("it");
+pub const ULOC_ITALIAN: ::windows::core::PCSTR = ::windows::core::s!("it");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_ITALY: ::windows::core::PCSTR = ::windows::s!("it_IT");
+pub const ULOC_ITALY: ::windows::core::PCSTR = ::windows::core::s!("it_IT");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_JAPAN: ::windows::core::PCSTR = ::windows::s!("ja_JP");
+pub const ULOC_JAPAN: ::windows::core::PCSTR = ::windows::core::s!("ja_JP");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_JAPANESE: ::windows::core::PCSTR = ::windows::s!("ja");
+pub const ULOC_JAPANESE: ::windows::core::PCSTR = ::windows::core::s!("ja");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -11869,25 +11869,25 @@ pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_KOREA: ::windows::core::PCSTR = ::windows::s!("ko_KR");
+pub const ULOC_KOREA: ::windows::core::PCSTR = ::windows::core::s!("ko_KR");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_KOREAN: ::windows::core::PCSTR = ::windows::s!("ko");
+pub const ULOC_KOREAN: ::windows::core::PCSTR = ::windows::core::s!("ko");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_PRC: ::windows::core::PCSTR = ::windows::s!("zh_CN");
+pub const ULOC_PRC: ::windows::core::PCSTR = ::windows::core::s!("zh_CN");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_SIMPLIFIED_CHINESE: ::windows::core::PCSTR = ::windows::s!("zh_CN");
+pub const ULOC_SIMPLIFIED_CHINESE: ::windows::core::PCSTR = ::windows::core::s!("zh_CN");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_TAIWAN: ::windows::core::PCSTR = ::windows::s!("zh_TW");
+pub const ULOC_TAIWAN: ::windows::core::PCSTR = ::windows::core::s!("zh_TW");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_TRADITIONAL_CHINESE: ::windows::core::PCSTR = ::windows::s!("zh_TW");
+pub const ULOC_TRADITIONAL_CHINESE: ::windows::core::PCSTR = ::windows::core::s!("zh_TW");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_UK: ::windows::core::PCSTR = ::windows::s!("en_GB");
+pub const ULOC_UK: ::windows::core::PCSTR = ::windows::core::s!("en_GB");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const ULOC_US: ::windows::core::PCSTR = ::windows::s!("en_US");
+pub const ULOC_US: ::windows::core::PCSTR = ::windows::core::s!("en_US");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -12015,17 +12015,17 @@ pub const U_HIDE_OBSOLETE_API: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_HIDE_OBSOLETE_UTF_OLD_H: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U_ICUDATA_TYPE_LETTER: ::windows::core::PCSTR = ::windows::s!("e");
+pub const U_ICUDATA_TYPE_LETTER: ::windows::core::PCSTR = ::windows::core::s!("e");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U_ICU_DATA_KEY: ::windows::core::PCSTR = ::windows::s!("DataVersion");
+pub const U_ICU_DATA_KEY: ::windows::core::PCSTR = ::windows::core::s!("DataVersion");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U_ICU_VERSION_BUNDLE: ::windows::core::PCSTR = ::windows::s!("icuver");
+pub const U_ICU_VERSION_BUNDLE: ::windows::core::PCSTR = ::windows::core::s!("icuver");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_IOSTREAM_SOURCE: u32 = 199711u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_IS_BIG_ENDIAN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U_LIB_SUFFIX_C_NAME_STRING: ::windows::core::PCSTR = ::windows::s!("");
+pub const U_LIB_SUFFIX_C_NAME_STRING: ::windows::core::PCSTR = ::windows::core::s!("");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_MAX_VERSION_LENGTH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -12217,7 +12217,7 @@ pub const U_TITLECASE_SENTENCES: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_TITLECASE_WHOLE_STRING: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const U_UNICODE_VERSION: ::windows::core::PCSTR = ::windows::s!("8.0");
+pub const U_UNICODE_VERSION: ::windows::core::PCSTR = ::windows::core::s!("8.0");
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_USING_ICU_NAMESPACE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]

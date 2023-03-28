@@ -4,28 +4,28 @@ pub unsafe fn WMCreateBackupRestorer<P0>(pcallback: P0) -> ::windows::core::Resu
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateBackupRestorer ( pcallback : * mut::core::ffi::c_void , ppbackup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateBackupRestorer ( pcallback : * mut::core::ffi::c_void , ppbackup : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMLicenseBackup>();
     WMCreateBackupRestorer(pcallback.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateEditor ( ppeditor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateEditor ( ppeditor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMMetadataEditor>();
     WMCreateEditor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateIndexer ( ppindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateIndexer ( ppindexer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMIndexer>();
     WMCreateIndexer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateProfileManager ( ppprofilemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateProfileManager ( ppprofilemanager : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMProfileManager>();
     WMCreateProfileManager(&mut result__).from_abi(result__)
 }
@@ -35,7 +35,7 @@ pub unsafe fn WMCreateReader<P0>(punkcert: P0, dwrights: u32) -> ::windows::core
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppreader : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMReader>();
     WMCreateReader(punkcert.into_param().abi(), dwrights, &mut result__).from_abi(result__)
 }
@@ -45,7 +45,7 @@ pub unsafe fn WMCreateSyncReader<P0>(punkcert: P0, dwrights: u32) -> ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateSyncReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppsyncreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateSyncReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppsyncreader : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMSyncReader>();
     WMCreateSyncReader(punkcert.into_param().abi(), dwrights, &mut result__).from_abi(result__)
 }
@@ -55,28 +55,28 @@ pub unsafe fn WMCreateWriter<P0>(punkcert: P0) -> ::windows::core::Result<IWMWri
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriter ( punkcert : * mut::core::ffi::c_void , ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriter ( punkcert : * mut::core::ffi::c_void , ppwriter : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriter>();
     WMCreateWriter(punkcert.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterFileSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterFileSink ( ppsink : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterFileSink>();
     WMCreateWriterFileSink(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterNetworkSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterNetworkSink ( ppsink : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterNetworkSink>();
     WMCreateWriterNetworkSink(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterPushSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMCreateWriterPushSink ( ppsink : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWMWriterPushSink>();
     WMCreateWriterPushSink(&mut result__).from_abi(result__)
 }
@@ -87,7 +87,7 @@ pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut sup
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : :: windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : ::windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     WMIsContentProtected(pwszfilename.into_param().abi(), pfisprotected).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
@@ -9331,449 +9331,449 @@ pub const g_dwWMNSCAttributes: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_dwWMSpecialAttributes: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszASFLeakyBucketPairs: ::windows::core::PCWSTR = ::windows::w!("ASFLeakyBucketPairs");
+pub const g_wszASFLeakyBucketPairs: ::windows::core::PCWSTR = ::windows::core::w!("ASFLeakyBucketPairs");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszAllowInterlacedOutput: ::windows::core::PCWSTR = ::windows::w!("AllowInterlacedOutput");
+pub const g_wszAllowInterlacedOutput: ::windows::core::PCWSTR = ::windows::core::w!("AllowInterlacedOutput");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszAverageLevel: ::windows::core::PCWSTR = ::windows::w!("AverageLevel");
+pub const g_wszAverageLevel: ::windows::core::PCWSTR = ::windows::core::w!("AverageLevel");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszBufferAverage: ::windows::core::PCWSTR = ::windows::w!("Buffer Average");
+pub const g_wszBufferAverage: ::windows::core::PCWSTR = ::windows::core::w!("Buffer Average");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszComplexity: ::windows::core::PCWSTR = ::windows::w!("_COMPLEXITYEX");
+pub const g_wszComplexity: ::windows::core::PCWSTR = ::windows::core::w!("_COMPLEXITYEX");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszComplexityLive: ::windows::core::PCWSTR = ::windows::w!("_COMPLEXITYEXLIVE");
+pub const g_wszComplexityLive: ::windows::core::PCWSTR = ::windows::core::w!("_COMPLEXITYEXLIVE");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszComplexityMax: ::windows::core::PCWSTR = ::windows::w!("_COMPLEXITYEXMAX");
+pub const g_wszComplexityMax: ::windows::core::PCWSTR = ::windows::core::w!("_COMPLEXITYEXMAX");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszComplexityOffline: ::windows::core::PCWSTR = ::windows::w!("_COMPLEXITYEXOFFLINE");
+pub const g_wszComplexityOffline: ::windows::core::PCWSTR = ::windows::core::w!("_COMPLEXITYEXOFFLINE");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDecoderComplexityRequested: ::windows::core::PCWSTR = ::windows::w!("_DECODERCOMPLEXITYPROFILE");
+pub const g_wszDecoderComplexityRequested: ::windows::core::PCWSTR = ::windows::core::w!("_DECODERCOMPLEXITYPROFILE");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDedicatedDeliveryThread: ::windows::core::PCWSTR = ::windows::w!("DedicatedDeliveryThread");
+pub const g_wszDedicatedDeliveryThread: ::windows::core::PCWSTR = ::windows::core::w!("DedicatedDeliveryThread");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDeinterlaceMode: ::windows::core::PCWSTR = ::windows::w!("DeinterlaceMode");
+pub const g_wszDeinterlaceMode: ::windows::core::PCWSTR = ::windows::core::w!("DeinterlaceMode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDeliverOnReceive: ::windows::core::PCWSTR = ::windows::w!("DeliverOnReceive");
+pub const g_wszDeliverOnReceive: ::windows::core::PCWSTR = ::windows::core::w!("DeliverOnReceive");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDeviceConformanceTemplate: ::windows::core::PCWSTR = ::windows::w!("DeviceConformanceTemplate");
+pub const g_wszDeviceConformanceTemplate: ::windows::core::PCWSTR = ::windows::core::w!("DeviceConformanceTemplate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszDynamicRangeControl: ::windows::core::PCWSTR = ::windows::w!("DynamicRangeControl");
+pub const g_wszDynamicRangeControl: ::windows::core::PCWSTR = ::windows::core::w!("DynamicRangeControl");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszEDL: ::windows::core::PCWSTR = ::windows::w!("_EDL");
+pub const g_wszEDL: ::windows::core::PCWSTR = ::windows::core::w!("_EDL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszEarlyDataDelivery: ::windows::core::PCWSTR = ::windows::w!("EarlyDataDelivery");
+pub const g_wszEarlyDataDelivery: ::windows::core::PCWSTR = ::windows::core::w!("EarlyDataDelivery");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszEnableDiscreteOutput: ::windows::core::PCWSTR = ::windows::w!("EnableDiscreteOutput");
+pub const g_wszEnableDiscreteOutput: ::windows::core::PCWSTR = ::windows::core::w!("EnableDiscreteOutput");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszEnableFrameInterpolation: ::windows::core::PCWSTR = ::windows::w!("EnableFrameInterpolation");
+pub const g_wszEnableFrameInterpolation: ::windows::core::PCWSTR = ::windows::core::w!("EnableFrameInterpolation");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszEnableWMAProSPDIFOutput: ::windows::core::PCWSTR = ::windows::w!("EnableWMAProSPDIFOutput");
+pub const g_wszEnableWMAProSPDIFOutput: ::windows::core::PCWSTR = ::windows::core::w!("EnableWMAProSPDIFOutput");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszFailSeekOnError: ::windows::core::PCWSTR = ::windows::w!("FailSeekOnError");
+pub const g_wszFailSeekOnError: ::windows::core::PCWSTR = ::windows::core::w!("FailSeekOnError");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszFixedFrameRate: ::windows::core::PCWSTR = ::windows::w!("FixedFrameRate");
+pub const g_wszFixedFrameRate: ::windows::core::PCWSTR = ::windows::core::w!("FixedFrameRate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszFold6To2Channels3: ::windows::core::PCWSTR = ::windows::w!("Fold6To2Channels3");
+pub const g_wszFold6To2Channels3: ::windows::core::PCWSTR = ::windows::core::w!("Fold6To2Channels3");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszFoldToChannelsTemplate: ::windows::core::PCWSTR = ::windows::w!("Fold%luTo%luChannels%lu");
+pub const g_wszFoldToChannelsTemplate: ::windows::core::PCWSTR = ::windows::core::w!("Fold%luTo%luChannels%lu");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszInitialPatternForInverseTelecine: ::windows::core::PCWSTR = ::windows::w!("InitialPatternForInverseTelecine");
+pub const g_wszInitialPatternForInverseTelecine: ::windows::core::PCWSTR = ::windows::core::w!("InitialPatternForInverseTelecine");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszInterlacedCoding: ::windows::core::PCWSTR = ::windows::w!("InterlacedCoding");
+pub const g_wszInterlacedCoding: ::windows::core::PCWSTR = ::windows::core::w!("InterlacedCoding");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszIsVBRSupported: ::windows::core::PCWSTR = ::windows::w!("_ISVBRSUPPORTED");
+pub const g_wszIsVBRSupported: ::windows::core::PCWSTR = ::windows::core::w!("_ISVBRSUPPORTED");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszJPEGCompressionQuality: ::windows::core::PCWSTR = ::windows::w!("JPEGCompressionQuality");
+pub const g_wszJPEGCompressionQuality: ::windows::core::PCWSTR = ::windows::core::w!("JPEGCompressionQuality");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszJustInTimeDecode: ::windows::core::PCWSTR = ::windows::w!("JustInTimeDecode");
+pub const g_wszJustInTimeDecode: ::windows::core::PCWSTR = ::windows::core::w!("JustInTimeDecode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszMixedClassMode: ::windows::core::PCWSTR = ::windows::w!("MixedClassMode");
+pub const g_wszMixedClassMode: ::windows::core::PCWSTR = ::windows::core::w!("MixedClassMode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszMusicClassMode: ::windows::core::PCWSTR = ::windows::w!("MusicClassMode");
+pub const g_wszMusicClassMode: ::windows::core::PCWSTR = ::windows::core::w!("MusicClassMode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszMusicSpeechClassMode: ::windows::core::PCWSTR = ::windows::w!("MusicSpeechClassMode");
+pub const g_wszMusicSpeechClassMode: ::windows::core::PCWSTR = ::windows::core::w!("MusicSpeechClassMode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszNeedsPreviousSample: ::windows::core::PCWSTR = ::windows::w!("NeedsPreviousSample");
+pub const g_wszNeedsPreviousSample: ::windows::core::PCWSTR = ::windows::core::w!("NeedsPreviousSample");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszNumPasses: ::windows::core::PCWSTR = ::windows::w!("_PASSESUSED");
+pub const g_wszNumPasses: ::windows::core::PCWSTR = ::windows::core::w!("_PASSESUSED");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszOriginalSourceFormatTag: ::windows::core::PCWSTR = ::windows::w!("_SOURCEFORMATTAG");
+pub const g_wszOriginalSourceFormatTag: ::windows::core::PCWSTR = ::windows::core::w!("_SOURCEFORMATTAG");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszOriginalWaveFormat: ::windows::core::PCWSTR = ::windows::w!("_ORIGINALWAVEFORMAT");
+pub const g_wszOriginalWaveFormat: ::windows::core::PCWSTR = ::windows::core::w!("_ORIGINALWAVEFORMAT");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszPeakValue: ::windows::core::PCWSTR = ::windows::w!("PeakValue");
+pub const g_wszPeakValue: ::windows::core::PCWSTR = ::windows::core::w!("PeakValue");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszPermitSeeksBeyondEndOfStream: ::windows::core::PCWSTR = ::windows::w!("PermitSeeksBeyondEndOfStream");
+pub const g_wszPermitSeeksBeyondEndOfStream: ::windows::core::PCWSTR = ::windows::core::w!("PermitSeeksBeyondEndOfStream");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszReloadIndexOnSeek: ::windows::core::PCWSTR = ::windows::w!("ReloadIndexOnSeek");
+pub const g_wszReloadIndexOnSeek: ::windows::core::PCWSTR = ::windows::core::w!("ReloadIndexOnSeek");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszScrambledAudio: ::windows::core::PCWSTR = ::windows::w!("ScrambledAudio");
+pub const g_wszScrambledAudio: ::windows::core::PCWSTR = ::windows::core::w!("ScrambledAudio");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSingleOutputBuffer: ::windows::core::PCWSTR = ::windows::w!("SingleOutputBuffer");
+pub const g_wszSingleOutputBuffer: ::windows::core::PCWSTR = ::windows::core::w!("SingleOutputBuffer");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSoftwareScaling: ::windows::core::PCWSTR = ::windows::w!("SoftwareScaling");
+pub const g_wszSoftwareScaling: ::windows::core::PCWSTR = ::windows::core::w!("SoftwareScaling");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSourceBufferTime: ::windows::core::PCWSTR = ::windows::w!("SourceBufferTime");
+pub const g_wszSourceBufferTime: ::windows::core::PCWSTR = ::windows::core::w!("SourceBufferTime");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSourceMaxBytesAtOnce: ::windows::core::PCWSTR = ::windows::w!("SourceMaxBytesAtOnce");
+pub const g_wszSourceMaxBytesAtOnce: ::windows::core::PCWSTR = ::windows::core::w!("SourceMaxBytesAtOnce");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSpeakerConfig: ::windows::core::PCWSTR = ::windows::w!("SpeakerConfig");
+pub const g_wszSpeakerConfig: ::windows::core::PCWSTR = ::windows::core::w!("SpeakerConfig");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSpeechCaps: ::windows::core::PCWSTR = ::windows::w!("SpeechFormatCap");
+pub const g_wszSpeechCaps: ::windows::core::PCWSTR = ::windows::core::w!("SpeechFormatCap");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszSpeechClassMode: ::windows::core::PCWSTR = ::windows::w!("SpeechClassMode");
+pub const g_wszSpeechClassMode: ::windows::core::PCWSTR = ::windows::core::w!("SpeechClassMode");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszStreamLanguage: ::windows::core::PCWSTR = ::windows::w!("StreamLanguage");
+pub const g_wszStreamLanguage: ::windows::core::PCWSTR = ::windows::core::w!("StreamLanguage");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszStreamNumIndexObjects: ::windows::core::PCWSTR = ::windows::w!("StreamNumIndexObjects");
+pub const g_wszStreamNumIndexObjects: ::windows::core::PCWSTR = ::windows::core::w!("StreamNumIndexObjects");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszUsePacketAtSeekPoint: ::windows::core::PCWSTR = ::windows::w!("UsePacketAtSeekPoint");
+pub const g_wszUsePacketAtSeekPoint: ::windows::core::PCWSTR = ::windows::core::w!("UsePacketAtSeekPoint");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVBRBitrateMax: ::windows::core::PCWSTR = ::windows::w!("_RMAX");
+pub const g_wszVBRBitrateMax: ::windows::core::PCWSTR = ::windows::core::w!("_RMAX");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVBRBufferWindowMax: ::windows::core::PCWSTR = ::windows::w!("_BMAX");
+pub const g_wszVBRBufferWindowMax: ::windows::core::PCWSTR = ::windows::core::w!("_BMAX");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVBREnabled: ::windows::core::PCWSTR = ::windows::w!("_VBRENABLED");
+pub const g_wszVBREnabled: ::windows::core::PCWSTR = ::windows::core::w!("_VBRENABLED");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVBRPeak: ::windows::core::PCWSTR = ::windows::w!("VBR Peak");
+pub const g_wszVBRPeak: ::windows::core::PCWSTR = ::windows::core::w!("VBR Peak");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVBRQuality: ::windows::core::PCWSTR = ::windows::w!("_VBRQUALITY");
+pub const g_wszVBRQuality: ::windows::core::PCWSTR = ::windows::core::w!("_VBRQUALITY");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszVideoSampleDurations: ::windows::core::PCWSTR = ::windows::w!("VideoSampleDurations");
+pub const g_wszVideoSampleDurations: ::windows::core::PCWSTR = ::windows::core::w!("VideoSampleDurations");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMADID: ::windows::core::PCWSTR = ::windows::w!("WM/ADID");
+pub const g_wszWMADID: ::windows::core::PCWSTR = ::windows::core::w!("WM/ADID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMASFPacketCount: ::windows::core::PCWSTR = ::windows::w!("WM/ASFPacketCount");
+pub const g_wszWMASFPacketCount: ::windows::core::PCWSTR = ::windows::core::w!("WM/ASFPacketCount");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMASFSecurityObjectsSize: ::windows::core::PCWSTR = ::windows::w!("WM/ASFSecurityObjectsSize");
+pub const g_wszWMASFSecurityObjectsSize: ::windows::core::PCWSTR = ::windows::core::w!("WM/ASFSecurityObjectsSize");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAlbumArtist: ::windows::core::PCWSTR = ::windows::w!("WM/AlbumArtist");
+pub const g_wszWMAlbumArtist: ::windows::core::PCWSTR = ::windows::core::w!("WM/AlbumArtist");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAlbumArtistSort: ::windows::core::PCWSTR = ::windows::w!("WM/AlbumArtistSort");
+pub const g_wszWMAlbumArtistSort: ::windows::core::PCWSTR = ::windows::core::w!("WM/AlbumArtistSort");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAlbumCoverURL: ::windows::core::PCWSTR = ::windows::w!("WM/AlbumCoverURL");
+pub const g_wszWMAlbumCoverURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/AlbumCoverURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAlbumTitle: ::windows::core::PCWSTR = ::windows::w!("WM/AlbumTitle");
+pub const g_wszWMAlbumTitle: ::windows::core::PCWSTR = ::windows::core::w!("WM/AlbumTitle");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAlbumTitleSort: ::windows::core::PCWSTR = ::windows::w!("WM/AlbumTitleSort");
+pub const g_wszWMAlbumTitleSort: ::windows::core::PCWSTR = ::windows::core::w!("WM/AlbumTitleSort");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAspectRatioX: ::windows::core::PCWSTR = ::windows::w!("AspectRatioX");
+pub const g_wszWMAspectRatioX: ::windows::core::PCWSTR = ::windows::core::w!("AspectRatioX");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAspectRatioY: ::windows::core::PCWSTR = ::windows::w!("AspectRatioY");
+pub const g_wszWMAspectRatioY: ::windows::core::PCWSTR = ::windows::core::w!("AspectRatioY");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAudioFileURL: ::windows::core::PCWSTR = ::windows::w!("WM/AudioFileURL");
+pub const g_wszWMAudioFileURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/AudioFileURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAudioSourceURL: ::windows::core::PCWSTR = ::windows::w!("WM/AudioSourceURL");
+pub const g_wszWMAudioSourceURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/AudioSourceURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAuthor: ::windows::core::PCWSTR = ::windows::w!("Author");
+pub const g_wszWMAuthor: ::windows::core::PCWSTR = ::windows::core::w!("Author");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAuthorSort: ::windows::core::PCWSTR = ::windows::w!("AuthorSort");
+pub const g_wszWMAuthorSort: ::windows::core::PCWSTR = ::windows::core::w!("AuthorSort");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMAuthorURL: ::windows::core::PCWSTR = ::windows::w!("WM/AuthorURL");
+pub const g_wszWMAuthorURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/AuthorURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBannerImageData: ::windows::core::PCWSTR = ::windows::w!("BannerImageData");
+pub const g_wszWMBannerImageData: ::windows::core::PCWSTR = ::windows::core::w!("BannerImageData");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBannerImageType: ::windows::core::PCWSTR = ::windows::w!("BannerImageType");
+pub const g_wszWMBannerImageType: ::windows::core::PCWSTR = ::windows::core::w!("BannerImageType");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBannerImageURL: ::windows::core::PCWSTR = ::windows::w!("BannerImageURL");
+pub const g_wszWMBannerImageURL: ::windows::core::PCWSTR = ::windows::core::w!("BannerImageURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBeatsPerMinute: ::windows::core::PCWSTR = ::windows::w!("WM/BeatsPerMinute");
+pub const g_wszWMBeatsPerMinute: ::windows::core::PCWSTR = ::windows::core::w!("WM/BeatsPerMinute");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBitrate: ::windows::core::PCWSTR = ::windows::w!("Bitrate");
+pub const g_wszWMBitrate: ::windows::core::PCWSTR = ::windows::core::w!("Bitrate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMBroadcast: ::windows::core::PCWSTR = ::windows::w!("Broadcast");
+pub const g_wszWMBroadcast: ::windows::core::PCWSTR = ::windows::core::w!("Broadcast");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMCategory: ::windows::core::PCWSTR = ::windows::w!("WM/Category");
+pub const g_wszWMCategory: ::windows::core::PCWSTR = ::windows::core::w!("WM/Category");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMCodec: ::windows::core::PCWSTR = ::windows::w!("WM/Codec");
+pub const g_wszWMCodec: ::windows::core::PCWSTR = ::windows::core::w!("WM/Codec");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMComposer: ::windows::core::PCWSTR = ::windows::w!("WM/Composer");
+pub const g_wszWMComposer: ::windows::core::PCWSTR = ::windows::core::w!("WM/Composer");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMComposerSort: ::windows::core::PCWSTR = ::windows::w!("WM/ComposerSort");
+pub const g_wszWMComposerSort: ::windows::core::PCWSTR = ::windows::core::w!("WM/ComposerSort");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMConductor: ::windows::core::PCWSTR = ::windows::w!("WM/Conductor");
+pub const g_wszWMConductor: ::windows::core::PCWSTR = ::windows::core::w!("WM/Conductor");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMContainerFormat: ::windows::core::PCWSTR = ::windows::w!("WM/ContainerFormat");
+pub const g_wszWMContainerFormat: ::windows::core::PCWSTR = ::windows::core::w!("WM/ContainerFormat");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMContentDistributor: ::windows::core::PCWSTR = ::windows::w!("WM/ContentDistributor");
+pub const g_wszWMContentDistributor: ::windows::core::PCWSTR = ::windows::core::w!("WM/ContentDistributor");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMContentGroupDescription: ::windows::core::PCWSTR = ::windows::w!("WM/ContentGroupDescription");
+pub const g_wszWMContentGroupDescription: ::windows::core::PCWSTR = ::windows::core::w!("WM/ContentGroupDescription");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMCopyright: ::windows::core::PCWSTR = ::windows::w!("Copyright");
+pub const g_wszWMCopyright: ::windows::core::PCWSTR = ::windows::core::w!("Copyright");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMCopyrightURL: ::windows::core::PCWSTR = ::windows::w!("CopyrightURL");
+pub const g_wszWMCopyrightURL: ::windows::core::PCWSTR = ::windows::core::w!("CopyrightURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMCurrentBitrate: ::windows::core::PCWSTR = ::windows::w!("CurrentBitrate");
+pub const g_wszWMCurrentBitrate: ::windows::core::PCWSTR = ::windows::core::w!("CurrentBitrate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM: ::windows::core::PCWSTR = ::windows::w!("WM/DRM");
+pub const g_wszWMDRM: ::windows::core::PCWSTR = ::windows::core::w!("WM/DRM");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_ContentID: ::windows::core::PCWSTR = ::windows::w!("DRM_ContentID");
+pub const g_wszWMDRM_ContentID: ::windows::core::PCWSTR = ::windows::core::w!("DRM_ContentID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_Flags: ::windows::core::PCWSTR = ::windows::w!("DRM_Flags");
+pub const g_wszWMDRM_Flags: ::windows::core::PCWSTR = ::windows::core::w!("DRM_Flags");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_HeaderSignPrivKey: ::windows::core::PCWSTR = ::windows::w!("DRM_HeaderSignPrivKey");
+pub const g_wszWMDRM_HeaderSignPrivKey: ::windows::core::PCWSTR = ::windows::core::w!("DRM_HeaderSignPrivKey");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_IndividualizedVersion: ::windows::core::PCWSTR = ::windows::w!("DRM_IndividualizedVersion");
+pub const g_wszWMDRM_IndividualizedVersion: ::windows::core::PCWSTR = ::windows::core::w!("DRM_IndividualizedVersion");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_KeyID: ::windows::core::PCWSTR = ::windows::w!("DRM_KeyID");
+pub const g_wszWMDRM_KeyID: ::windows::core::PCWSTR = ::windows::core::w!("DRM_KeyID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_KeySeed: ::windows::core::PCWSTR = ::windows::w!("DRM_KeySeed");
+pub const g_wszWMDRM_KeySeed: ::windows::core::PCWSTR = ::windows::core::w!("DRM_KeySeed");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_LASignatureCert: ::windows::core::PCWSTR = ::windows::w!("DRM_LASignatureCert");
+pub const g_wszWMDRM_LASignatureCert: ::windows::core::PCWSTR = ::windows::core::w!("DRM_LASignatureCert");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_LASignatureLicSrvCert: ::windows::core::PCWSTR = ::windows::w!("DRM_LASignatureLicSrvCert");
+pub const g_wszWMDRM_LASignatureLicSrvCert: ::windows::core::PCWSTR = ::windows::core::w!("DRM_LASignatureLicSrvCert");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_LASignaturePrivKey: ::windows::core::PCWSTR = ::windows::w!("DRM_LASignaturePrivKey");
+pub const g_wszWMDRM_LASignaturePrivKey: ::windows::core::PCWSTR = ::windows::core::w!("DRM_LASignaturePrivKey");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_LASignatureRootCert: ::windows::core::PCWSTR = ::windows::w!("DRM_LASignatureRootCert");
+pub const g_wszWMDRM_LASignatureRootCert: ::windows::core::PCWSTR = ::windows::core::w!("DRM_LASignatureRootCert");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_Level: ::windows::core::PCWSTR = ::windows::w!("DRM_Level");
+pub const g_wszWMDRM_Level: ::windows::core::PCWSTR = ::windows::core::w!("DRM_Level");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_LicenseAcqURL: ::windows::core::PCWSTR = ::windows::w!("DRM_LicenseAcqURL");
+pub const g_wszWMDRM_LicenseAcqURL: ::windows::core::PCWSTR = ::windows::core::w!("DRM_LicenseAcqURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_SourceID: ::windows::core::PCWSTR = ::windows::w!("DRM_SourceID");
+pub const g_wszWMDRM_SourceID: ::windows::core::PCWSTR = ::windows::core::w!("DRM_SourceID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDRM_V1LicenseAcqURL: ::windows::core::PCWSTR = ::windows::w!("DRM_V1LicenseAcqURL");
+pub const g_wszWMDRM_V1LicenseAcqURL: ::windows::core::PCWSTR = ::windows::core::w!("DRM_V1LicenseAcqURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDVDID: ::windows::core::PCWSTR = ::windows::w!("WM/DVDID");
+pub const g_wszWMDVDID: ::windows::core::PCWSTR = ::windows::core::w!("WM/DVDID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDescription: ::windows::core::PCWSTR = ::windows::w!("Description");
+pub const g_wszWMDescription: ::windows::core::PCWSTR = ::windows::core::w!("Description");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDirector: ::windows::core::PCWSTR = ::windows::w!("WM/Director");
+pub const g_wszWMDirector: ::windows::core::PCWSTR = ::windows::core::w!("WM/Director");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMDuration: ::windows::core::PCWSTR = ::windows::w!("Duration");
+pub const g_wszWMDuration: ::windows::core::PCWSTR = ::windows::core::w!("Duration");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMEncodedBy: ::windows::core::PCWSTR = ::windows::w!("WM/EncodedBy");
+pub const g_wszWMEncodedBy: ::windows::core::PCWSTR = ::windows::core::w!("WM/EncodedBy");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMEncodingSettings: ::windows::core::PCWSTR = ::windows::w!("WM/EncodingSettings");
+pub const g_wszWMEncodingSettings: ::windows::core::PCWSTR = ::windows::core::w!("WM/EncodingSettings");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMEncodingTime: ::windows::core::PCWSTR = ::windows::w!("WM/EncodingTime");
+pub const g_wszWMEncodingTime: ::windows::core::PCWSTR = ::windows::core::w!("WM/EncodingTime");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMEpisodeNumber: ::windows::core::PCWSTR = ::windows::w!("WM/EpisodeNumber");
+pub const g_wszWMEpisodeNumber: ::windows::core::PCWSTR = ::windows::core::w!("WM/EpisodeNumber");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMFileSize: ::windows::core::PCWSTR = ::windows::w!("FileSize");
+pub const g_wszWMFileSize: ::windows::core::PCWSTR = ::windows::core::w!("FileSize");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMGenre: ::windows::core::PCWSTR = ::windows::w!("WM/Genre");
+pub const g_wszWMGenre: ::windows::core::PCWSTR = ::windows::core::w!("WM/Genre");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMGenreID: ::windows::core::PCWSTR = ::windows::w!("WM/GenreID");
+pub const g_wszWMGenreID: ::windows::core::PCWSTR = ::windows::core::w!("WM/GenreID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasArbitraryDataStream: ::windows::core::PCWSTR = ::windows::w!("HasArbitraryDataStream");
+pub const g_wszWMHasArbitraryDataStream: ::windows::core::PCWSTR = ::windows::core::w!("HasArbitraryDataStream");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasAttachedImages: ::windows::core::PCWSTR = ::windows::w!("HasAttachedImages");
+pub const g_wszWMHasAttachedImages: ::windows::core::PCWSTR = ::windows::core::w!("HasAttachedImages");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasAudio: ::windows::core::PCWSTR = ::windows::w!("HasAudio");
+pub const g_wszWMHasAudio: ::windows::core::PCWSTR = ::windows::core::w!("HasAudio");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasFileTransferStream: ::windows::core::PCWSTR = ::windows::w!("HasFileTransferStream");
+pub const g_wszWMHasFileTransferStream: ::windows::core::PCWSTR = ::windows::core::w!("HasFileTransferStream");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasImage: ::windows::core::PCWSTR = ::windows::w!("HasImage");
+pub const g_wszWMHasImage: ::windows::core::PCWSTR = ::windows::core::w!("HasImage");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasScript: ::windows::core::PCWSTR = ::windows::w!("HasScript");
+pub const g_wszWMHasScript: ::windows::core::PCWSTR = ::windows::core::w!("HasScript");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMHasVideo: ::windows::core::PCWSTR = ::windows::w!("HasVideo");
+pub const g_wszWMHasVideo: ::windows::core::PCWSTR = ::windows::core::w!("HasVideo");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMISAN: ::windows::core::PCWSTR = ::windows::w!("WM/ISAN");
+pub const g_wszWMISAN: ::windows::core::PCWSTR = ::windows::core::w!("WM/ISAN");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMISRC: ::windows::core::PCWSTR = ::windows::w!("WM/ISRC");
+pub const g_wszWMISRC: ::windows::core::PCWSTR = ::windows::core::w!("WM/ISRC");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMInitialKey: ::windows::core::PCWSTR = ::windows::w!("WM/InitialKey");
+pub const g_wszWMInitialKey: ::windows::core::PCWSTR = ::windows::core::w!("WM/InitialKey");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMIsCompilation: ::windows::core::PCWSTR = ::windows::w!("WM/IsCompilation");
+pub const g_wszWMIsCompilation: ::windows::core::PCWSTR = ::windows::core::w!("WM/IsCompilation");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMIsVBR: ::windows::core::PCWSTR = ::windows::w!("IsVBR");
+pub const g_wszWMIsVBR: ::windows::core::PCWSTR = ::windows::core::w!("IsVBR");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMLanguage: ::windows::core::PCWSTR = ::windows::w!("WM/Language");
+pub const g_wszWMLanguage: ::windows::core::PCWSTR = ::windows::core::w!("WM/Language");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMLyrics: ::windows::core::PCWSTR = ::windows::w!("WM/Lyrics");
+pub const g_wszWMLyrics: ::windows::core::PCWSTR = ::windows::core::w!("WM/Lyrics");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMLyrics_Synchronised: ::windows::core::PCWSTR = ::windows::w!("WM/Lyrics_Synchronised");
+pub const g_wszWMLyrics_Synchronised: ::windows::core::PCWSTR = ::windows::core::w!("WM/Lyrics_Synchronised");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMCDI: ::windows::core::PCWSTR = ::windows::w!("WM/MCDI");
+pub const g_wszWMMCDI: ::windows::core::PCWSTR = ::windows::core::w!("WM/MCDI");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaClassPrimaryID: ::windows::core::PCWSTR = ::windows::w!("WM/MediaClassPrimaryID");
+pub const g_wszWMMediaClassPrimaryID: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaClassPrimaryID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaClassSecondaryID: ::windows::core::PCWSTR = ::windows::w!("WM/MediaClassSecondaryID");
+pub const g_wszWMMediaClassSecondaryID: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaClassSecondaryID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaCredits: ::windows::core::PCWSTR = ::windows::w!("WM/MediaCredits");
+pub const g_wszWMMediaCredits: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaCredits");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsDelay: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsDelay");
+pub const g_wszWMMediaIsDelay: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsDelay");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsFinale: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsFinale");
+pub const g_wszWMMediaIsFinale: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsFinale");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsLive: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsLive");
+pub const g_wszWMMediaIsLive: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsLive");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsPremiere: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsPremiere");
+pub const g_wszWMMediaIsPremiere: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsPremiere");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsRepeat: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsRepeat");
+pub const g_wszWMMediaIsRepeat: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsRepeat");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsSAP: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsSAP");
+pub const g_wszWMMediaIsSAP: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsSAP");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsStereo: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsStereo");
+pub const g_wszWMMediaIsStereo: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsStereo");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsSubtitled: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsSubtitled");
+pub const g_wszWMMediaIsSubtitled: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsSubtitled");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaIsTape: ::windows::core::PCWSTR = ::windows::w!("WM/MediaIsTape");
+pub const g_wszWMMediaIsTape: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaIsTape");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaNetworkAffiliation: ::windows::core::PCWSTR = ::windows::w!("WM/MediaNetworkAffiliation");
+pub const g_wszWMMediaNetworkAffiliation: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaNetworkAffiliation");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaOriginalBroadcastDateTime: ::windows::core::PCWSTR = ::windows::w!("WM/MediaOriginalBroadcastDateTime");
+pub const g_wszWMMediaOriginalBroadcastDateTime: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaOriginalBroadcastDateTime");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaOriginalChannel: ::windows::core::PCWSTR = ::windows::w!("WM/MediaOriginalChannel");
+pub const g_wszWMMediaOriginalChannel: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaOriginalChannel");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaStationCallSign: ::windows::core::PCWSTR = ::windows::w!("WM/MediaStationCallSign");
+pub const g_wszWMMediaStationCallSign: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaStationCallSign");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMediaStationName: ::windows::core::PCWSTR = ::windows::w!("WM/MediaStationName");
+pub const g_wszWMMediaStationName: ::windows::core::PCWSTR = ::windows::core::w!("WM/MediaStationName");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMModifiedBy: ::windows::core::PCWSTR = ::windows::w!("WM/ModifiedBy");
+pub const g_wszWMModifiedBy: ::windows::core::PCWSTR = ::windows::core::w!("WM/ModifiedBy");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMMood: ::windows::core::PCWSTR = ::windows::w!("WM/Mood");
+pub const g_wszWMMood: ::windows::core::PCWSTR = ::windows::core::w!("WM/Mood");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNSCAddress: ::windows::core::PCWSTR = ::windows::w!("NSC_Address");
+pub const g_wszWMNSCAddress: ::windows::core::PCWSTR = ::windows::core::w!("NSC_Address");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNSCDescription: ::windows::core::PCWSTR = ::windows::w!("NSC_Description");
+pub const g_wszWMNSCDescription: ::windows::core::PCWSTR = ::windows::core::w!("NSC_Description");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNSCEmail: ::windows::core::PCWSTR = ::windows::w!("NSC_Email");
+pub const g_wszWMNSCEmail: ::windows::core::PCWSTR = ::windows::core::w!("NSC_Email");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNSCName: ::windows::core::PCWSTR = ::windows::w!("NSC_Name");
+pub const g_wszWMNSCName: ::windows::core::PCWSTR = ::windows::core::w!("NSC_Name");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNSCPhone: ::windows::core::PCWSTR = ::windows::w!("NSC_Phone");
+pub const g_wszWMNSCPhone: ::windows::core::PCWSTR = ::windows::core::w!("NSC_Phone");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMNumberOfFrames: ::windows::core::PCWSTR = ::windows::w!("NumberOfFrames");
+pub const g_wszWMNumberOfFrames: ::windows::core::PCWSTR = ::windows::core::w!("NumberOfFrames");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOptimalBitrate: ::windows::core::PCWSTR = ::windows::w!("OptimalBitrate");
+pub const g_wszWMOptimalBitrate: ::windows::core::PCWSTR = ::windows::core::w!("OptimalBitrate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalAlbumTitle: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalAlbumTitle");
+pub const g_wszWMOriginalAlbumTitle: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalAlbumTitle");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalArtist: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalArtist");
+pub const g_wszWMOriginalArtist: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalArtist");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalFilename: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalFilename");
+pub const g_wszWMOriginalFilename: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalFilename");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalLyricist: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalLyricist");
+pub const g_wszWMOriginalLyricist: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalLyricist");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalReleaseTime: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalReleaseTime");
+pub const g_wszWMOriginalReleaseTime: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalReleaseTime");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMOriginalReleaseYear: ::windows::core::PCWSTR = ::windows::w!("WM/OriginalReleaseYear");
+pub const g_wszWMOriginalReleaseYear: ::windows::core::PCWSTR = ::windows::core::w!("WM/OriginalReleaseYear");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMParentalRating: ::windows::core::PCWSTR = ::windows::w!("WM/ParentalRating");
+pub const g_wszWMParentalRating: ::windows::core::PCWSTR = ::windows::core::w!("WM/ParentalRating");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMParentalRatingReason: ::windows::core::PCWSTR = ::windows::w!("WM/ParentalRatingReason");
+pub const g_wszWMParentalRatingReason: ::windows::core::PCWSTR = ::windows::core::w!("WM/ParentalRatingReason");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPartOfSet: ::windows::core::PCWSTR = ::windows::w!("WM/PartOfSet");
+pub const g_wszWMPartOfSet: ::windows::core::PCWSTR = ::windows::core::w!("WM/PartOfSet");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPeakBitrate: ::windows::core::PCWSTR = ::windows::w!("WM/PeakBitrate");
+pub const g_wszWMPeakBitrate: ::windows::core::PCWSTR = ::windows::core::w!("WM/PeakBitrate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPeriod: ::windows::core::PCWSTR = ::windows::w!("WM/Period");
+pub const g_wszWMPeriod: ::windows::core::PCWSTR = ::windows::core::w!("WM/Period");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPicture: ::windows::core::PCWSTR = ::windows::w!("WM/Picture");
+pub const g_wszWMPicture: ::windows::core::PCWSTR = ::windows::core::w!("WM/Picture");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPlaylistDelay: ::windows::core::PCWSTR = ::windows::w!("WM/PlaylistDelay");
+pub const g_wszWMPlaylistDelay: ::windows::core::PCWSTR = ::windows::core::w!("WM/PlaylistDelay");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProducer: ::windows::core::PCWSTR = ::windows::w!("WM/Producer");
+pub const g_wszWMProducer: ::windows::core::PCWSTR = ::windows::core::w!("WM/Producer");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPromotionURL: ::windows::core::PCWSTR = ::windows::w!("WM/PromotionURL");
+pub const g_wszWMPromotionURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/PromotionURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProtected: ::windows::core::PCWSTR = ::windows::w!("Is_Protected");
+pub const g_wszWMProtected: ::windows::core::PCWSTR = ::windows::core::w!("Is_Protected");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProtectionType: ::windows::core::PCWSTR = ::windows::w!("WM/ProtectionType");
+pub const g_wszWMProtectionType: ::windows::core::PCWSTR = ::windows::core::w!("WM/ProtectionType");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProvider: ::windows::core::PCWSTR = ::windows::w!("WM/Provider");
+pub const g_wszWMProvider: ::windows::core::PCWSTR = ::windows::core::w!("WM/Provider");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProviderCopyright: ::windows::core::PCWSTR = ::windows::w!("WM/ProviderCopyright");
+pub const g_wszWMProviderCopyright: ::windows::core::PCWSTR = ::windows::core::w!("WM/ProviderCopyright");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProviderRating: ::windows::core::PCWSTR = ::windows::w!("WM/ProviderRating");
+pub const g_wszWMProviderRating: ::windows::core::PCWSTR = ::windows::core::w!("WM/ProviderRating");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMProviderStyle: ::windows::core::PCWSTR = ::windows::w!("WM/ProviderStyle");
+pub const g_wszWMProviderStyle: ::windows::core::PCWSTR = ::windows::core::w!("WM/ProviderStyle");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMPublisher: ::windows::core::PCWSTR = ::windows::w!("WM/Publisher");
+pub const g_wszWMPublisher: ::windows::core::PCWSTR = ::windows::core::w!("WM/Publisher");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMRadioStationName: ::windows::core::PCWSTR = ::windows::w!("WM/RadioStationName");
+pub const g_wszWMRadioStationName: ::windows::core::PCWSTR = ::windows::core::w!("WM/RadioStationName");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMRadioStationOwner: ::windows::core::PCWSTR = ::windows::w!("WM/RadioStationOwner");
+pub const g_wszWMRadioStationOwner: ::windows::core::PCWSTR = ::windows::core::w!("WM/RadioStationOwner");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMRating: ::windows::core::PCWSTR = ::windows::w!("Rating");
+pub const g_wszWMRating: ::windows::core::PCWSTR = ::windows::core::w!("Rating");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSeasonNumber: ::windows::core::PCWSTR = ::windows::w!("WM/SeasonNumber");
+pub const g_wszWMSeasonNumber: ::windows::core::PCWSTR = ::windows::core::w!("WM/SeasonNumber");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSeekable: ::windows::core::PCWSTR = ::windows::w!("Seekable");
+pub const g_wszWMSeekable: ::windows::core::PCWSTR = ::windows::core::w!("Seekable");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSharedUserRating: ::windows::core::PCWSTR = ::windows::w!("WM/SharedUserRating");
+pub const g_wszWMSharedUserRating: ::windows::core::PCWSTR = ::windows::core::w!("WM/SharedUserRating");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSignature_Name: ::windows::core::PCWSTR = ::windows::w!("Signature_Name");
+pub const g_wszWMSignature_Name: ::windows::core::PCWSTR = ::windows::core::w!("Signature_Name");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSkipBackward: ::windows::core::PCWSTR = ::windows::w!("Can_Skip_Backward");
+pub const g_wszWMSkipBackward: ::windows::core::PCWSTR = ::windows::core::w!("Can_Skip_Backward");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSkipForward: ::windows::core::PCWSTR = ::windows::w!("Can_Skip_Forward");
+pub const g_wszWMSkipForward: ::windows::core::PCWSTR = ::windows::core::w!("Can_Skip_Forward");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMStreamTypeInfo: ::windows::core::PCWSTR = ::windows::w!("WM/StreamTypeInfo");
+pub const g_wszWMStreamTypeInfo: ::windows::core::PCWSTR = ::windows::core::w!("WM/StreamTypeInfo");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMStridable: ::windows::core::PCWSTR = ::windows::w!("Stridable");
+pub const g_wszWMStridable: ::windows::core::PCWSTR = ::windows::core::w!("Stridable");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSubTitle: ::windows::core::PCWSTR = ::windows::w!("WM/SubTitle");
+pub const g_wszWMSubTitle: ::windows::core::PCWSTR = ::windows::core::w!("WM/SubTitle");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSubTitleDescription: ::windows::core::PCWSTR = ::windows::w!("WM/SubTitleDescription");
+pub const g_wszWMSubTitleDescription: ::windows::core::PCWSTR = ::windows::core::w!("WM/SubTitleDescription");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMSubscriptionContentID: ::windows::core::PCWSTR = ::windows::w!("WM/SubscriptionContentID");
+pub const g_wszWMSubscriptionContentID: ::windows::core::PCWSTR = ::windows::core::w!("WM/SubscriptionContentID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMText: ::windows::core::PCWSTR = ::windows::w!("WM/Text");
+pub const g_wszWMText: ::windows::core::PCWSTR = ::windows::core::w!("WM/Text");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMTitle: ::windows::core::PCWSTR = ::windows::w!("Title");
+pub const g_wszWMTitle: ::windows::core::PCWSTR = ::windows::core::w!("Title");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMTitleSort: ::windows::core::PCWSTR = ::windows::w!("TitleSort");
+pub const g_wszWMTitleSort: ::windows::core::PCWSTR = ::windows::core::w!("TitleSort");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMToolName: ::windows::core::PCWSTR = ::windows::w!("WM/ToolName");
+pub const g_wszWMToolName: ::windows::core::PCWSTR = ::windows::core::w!("WM/ToolName");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMToolVersion: ::windows::core::PCWSTR = ::windows::w!("WM/ToolVersion");
+pub const g_wszWMToolVersion: ::windows::core::PCWSTR = ::windows::core::w!("WM/ToolVersion");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMTrack: ::windows::core::PCWSTR = ::windows::w!("WM/Track");
+pub const g_wszWMTrack: ::windows::core::PCWSTR = ::windows::core::w!("WM/Track");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMTrackNumber: ::windows::core::PCWSTR = ::windows::w!("WM/TrackNumber");
+pub const g_wszWMTrackNumber: ::windows::core::PCWSTR = ::windows::core::w!("WM/TrackNumber");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMTrusted: ::windows::core::PCWSTR = ::windows::w!("Is_Trusted");
+pub const g_wszWMTrusted: ::windows::core::PCWSTR = ::windows::core::w!("Is_Trusted");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMUniqueFileIdentifier: ::windows::core::PCWSTR = ::windows::w!("WM/UniqueFileIdentifier");
+pub const g_wszWMUniqueFileIdentifier: ::windows::core::PCWSTR = ::windows::core::w!("WM/UniqueFileIdentifier");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMUse_Advanced_DRM: ::windows::core::PCWSTR = ::windows::w!("Use_Advanced_DRM");
+pub const g_wszWMUse_Advanced_DRM: ::windows::core::PCWSTR = ::windows::core::w!("Use_Advanced_DRM");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMUse_DRM: ::windows::core::PCWSTR = ::windows::w!("Use_DRM");
+pub const g_wszWMUse_DRM: ::windows::core::PCWSTR = ::windows::core::w!("Use_DRM");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMUserWebURL: ::windows::core::PCWSTR = ::windows::w!("WM/UserWebURL");
+pub const g_wszWMUserWebURL: ::windows::core::PCWSTR = ::windows::core::w!("WM/UserWebURL");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMVideoClosedCaptioning: ::windows::core::PCWSTR = ::windows::w!("WM/VideoClosedCaptioning");
+pub const g_wszWMVideoClosedCaptioning: ::windows::core::PCWSTR = ::windows::core::w!("WM/VideoClosedCaptioning");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMVideoFrameRate: ::windows::core::PCWSTR = ::windows::w!("WM/VideoFrameRate");
+pub const g_wszWMVideoFrameRate: ::windows::core::PCWSTR = ::windows::core::w!("WM/VideoFrameRate");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMVideoHeight: ::windows::core::PCWSTR = ::windows::w!("WM/VideoHeight");
+pub const g_wszWMVideoHeight: ::windows::core::PCWSTR = ::windows::core::w!("WM/VideoHeight");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMVideoWidth: ::windows::core::PCWSTR = ::windows::w!("WM/VideoWidth");
+pub const g_wszWMVideoWidth: ::windows::core::PCWSTR = ::windows::core::w!("WM/VideoWidth");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMADRCAverageReference: ::windows::core::PCWSTR = ::windows::w!("WM/WMADRCAverageReference");
+pub const g_wszWMWMADRCAverageReference: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMADRCAverageReference");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMADRCAverageTarget: ::windows::core::PCWSTR = ::windows::w!("WM/WMADRCAverageTarget");
+pub const g_wszWMWMADRCAverageTarget: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMADRCAverageTarget");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMADRCPeakReference: ::windows::core::PCWSTR = ::windows::w!("WM/WMADRCPeakReference");
+pub const g_wszWMWMADRCPeakReference: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMADRCPeakReference");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMADRCPeakTarget: ::windows::core::PCWSTR = ::windows::w!("WM/WMADRCPeakTarget");
+pub const g_wszWMWMADRCPeakTarget: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMADRCPeakTarget");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMCPDistributor: ::windows::core::PCWSTR = ::windows::w!("WM/WMCPDistributor");
+pub const g_wszWMWMCPDistributor: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMCPDistributor");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMCPDistributorID: ::windows::core::PCWSTR = ::windows::w!("WM/WMCPDistributorID");
+pub const g_wszWMWMCPDistributorID: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMCPDistributorID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMCollectionGroupID: ::windows::core::PCWSTR = ::windows::w!("WM/WMCollectionGroupID");
+pub const g_wszWMWMCollectionGroupID: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMCollectionGroupID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMCollectionID: ::windows::core::PCWSTR = ::windows::w!("WM/WMCollectionID");
+pub const g_wszWMWMCollectionID: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMCollectionID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMContentID: ::windows::core::PCWSTR = ::windows::w!("WM/WMContentID");
+pub const g_wszWMWMContentID: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMContentID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMShadowFileSourceDRMType: ::windows::core::PCWSTR = ::windows::w!("WM/WMShadowFileSourceDRMType");
+pub const g_wszWMWMShadowFileSourceDRMType: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMShadowFileSourceDRMType");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWMShadowFileSourceFileType: ::windows::core::PCWSTR = ::windows::w!("WM/WMShadowFileSourceFileType");
+pub const g_wszWMWMShadowFileSourceFileType: ::windows::core::PCWSTR = ::windows::core::w!("WM/WMShadowFileSourceFileType");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMWriter: ::windows::core::PCWSTR = ::windows::w!("WM/Writer");
+pub const g_wszWMWriter: ::windows::core::PCWSTR = ::windows::core::w!("WM/Writer");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWMYear: ::windows::core::PCWSTR = ::windows::w!("WM/Year");
+pub const g_wszWMYear: ::windows::core::PCWSTR = ::windows::core::w!("WM/Year");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWatermarkCLSID: ::windows::core::PCWSTR = ::windows::w!("WatermarkCLSID");
+pub const g_wszWatermarkCLSID: ::windows::core::PCWSTR = ::windows::core::w!("WatermarkCLSID");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
-pub const g_wszWatermarkConfig: ::windows::core::PCWSTR = ::windows::w!("WatermarkConfig");
+pub const g_wszWatermarkConfig: ::windows::core::PCWSTR = ::windows::core::w!("WatermarkConfig");
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

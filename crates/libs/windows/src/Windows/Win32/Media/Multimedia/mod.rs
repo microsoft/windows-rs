@@ -5,7 +5,7 @@ pub unsafe fn AVIBuildFilterA<P0>(lpszfilter: &mut [u8], fsaving: P0) -> ::windo
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIBuildFilterA ( lpszfilter : :: windows::core::PSTR , cbfilter : i32 , fsaving : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIBuildFilterA ( lpszfilter : ::windows::core::PSTR , cbfilter : i32 , fsaving : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     AVIBuildFilterA(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -15,13 +15,13 @@ pub unsafe fn AVIBuildFilterW<P0>(lpszfilter: &mut [u16], fsaving: P0) -> ::wind
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIBuildFilterW ( lpszfilter : :: windows::core::PWSTR , cbfilter : i32 , fsaving : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIBuildFilterW ( lpszfilter : ::windows::core::PWSTR , cbfilter : i32 , fsaving : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     AVIBuildFilterW(::core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIClearClipboard ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIClearClipboard ( ) -> ::windows::core::HRESULT );
     AVIClearClipboard().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -40,7 +40,7 @@ pub unsafe fn AVIFileCreateStreamA<P0>(pfile: P0, ppavi: *mut ::core::option::Op
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileCreateStreamA ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , psi : *const AVISTREAMINFOA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileCreateStreamA ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , psi : *const AVISTREAMINFOA ) -> ::windows::core::HRESULT );
     AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), psi).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -50,7 +50,7 @@ pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut ::core::option::Op
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileCreateStreamW ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , psi : *const AVISTREAMINFOW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileCreateStreamW ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , psi : *const AVISTREAMINFOW ) -> ::windows::core::HRESULT );
     AVIFileCreateStreamW(pfile.into_param().abi(), ::core::mem::transmute(ppavi), psi).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileEndRecord ( pfile : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileEndRecord ( pfile : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     AVIFileEndRecord(pfile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -74,7 +74,7 @@ pub unsafe fn AVIFileGetStream<P0>(pfile: P0, ppavi: *mut ::core::option::Option
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileGetStream ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , fcctype : u32 , lparam : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileGetStream ( pfile : * mut::core::ffi::c_void , ppavi : *mut * mut::core::ffi::c_void , fcctype : u32 , lparam : i32 ) -> ::windows::core::HRESULT );
     AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), fcctype, lparam).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -83,7 +83,7 @@ pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) ->
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileInfoA ( pfile : * mut::core::ffi::c_void , pfi : *mut AVIFILEINFOA , lsize : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileInfoA ( pfile : * mut::core::ffi::c_void , pfi : *mut AVIFILEINFOA , lsize : i32 ) -> ::windows::core::HRESULT );
     AVIFileInfoA(pfile.into_param().abi(), pfi, lsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -92,7 +92,7 @@ pub unsafe fn AVIFileInfoW<P0>(pfile: P0, pfi: *mut AVIFILEINFOW, lsize: i32) ->
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileInfoW ( pfile : * mut::core::ffi::c_void , pfi : *mut AVIFILEINFOW , lsize : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileInfoW ( pfile : * mut::core::ffi::c_void , pfi : *mut AVIFILEINFOW , lsize : i32 ) -> ::windows::core::HRESULT );
     AVIFileInfoW(pfile.into_param().abi(), pfi, lsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -107,7 +107,7 @@ pub unsafe fn AVIFileOpenA<P0>(ppfile: *mut ::core::option::Option<IAVIFile>, sz
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileOpenA ( ppfile : *mut * mut::core::ffi::c_void , szfile : :: windows::core::PCSTR , umode : u32 , lphandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileOpenA ( ppfile : *mut * mut::core::ffi::c_void , szfile : ::windows::core::PCSTR , umode : u32 , lphandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), umode, ::core::mem::transmute(lphandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -116,7 +116,7 @@ pub unsafe fn AVIFileOpenW<P0>(ppfile: *mut ::core::option::Option<IAVIFile>, sz
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileOpenW ( ppfile : *mut * mut::core::ffi::c_void , szfile : :: windows::core::PCWSTR , umode : u32 , lphandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileOpenW ( ppfile : *mut * mut::core::ffi::c_void , szfile : ::windows::core::PCWSTR , umode : u32 , lphandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), umode, ::core::mem::transmute(lphandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -125,7 +125,7 @@ pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut ::core::ffi
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileReadData ( pfile : * mut::core::ffi::c_void , ckid : u32 , lpdata : *mut ::core::ffi::c_void , lpcbdata : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileReadData ( pfile : * mut::core::ffi::c_void , ckid : u32 , lpdata : *mut ::core::ffi::c_void , lpcbdata : *mut i32 ) -> ::windows::core::HRESULT );
     AVIFileReadData(pfile.into_param().abi(), ckid, lpdata, lpcbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -143,13 +143,13 @@ pub unsafe fn AVIFileWriteData<P0>(pfile: P0, ckid: u32, lpdata: *const ::core::
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileWriteData ( pfile : * mut::core::ffi::c_void , ckid : u32 , lpdata : *const ::core::ffi::c_void , cbdata : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIFileWriteData ( pfile : * mut::core::ffi::c_void , ckid : u32 , lpdata : *const ::core::ffi::c_void , cbdata : i32 ) -> ::windows::core::HRESULT );
     AVIFileWriteData(pfile.into_param().abi(), ckid, lpdata, cbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIGetFromClipboard ( lppf : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIGetFromClipboard ( lppf : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAVIFile>();
     AVIGetFromClipboard(&mut result__).from_abi(result__)
 }
@@ -159,13 +159,13 @@ pub unsafe fn AVIMakeCompressedStream<P0>(ppscompressed: *mut ::core::option::Op
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeCompressedStream ( ppscompressed : *mut * mut::core::ffi::c_void , ppssource : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS , pclsidhandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeCompressedStream ( ppscompressed : *mut * mut::core::ffi::c_void , ppssource : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS , pclsidhandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), lpoptions, ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, papstreams: &[::core::option::Option<IAVIStream>]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeFileFromStreams ( ppfile : *mut * mut::core::ffi::c_void , nstreams : i32 , papstreams : *const * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeFileFromStreams ( ppfile : *mut * mut::core::ffi::c_void , nstreams : i32 , papstreams : *const * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(papstreams.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -175,7 +175,7 @@ pub unsafe fn AVIMakeStreamFromClipboard<P0>(cfformat: u32, hglobal: P0) -> ::wi
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeStreamFromClipboard ( cfformat : u32 , hglobal : super::super::Foundation:: HANDLE , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIMakeStreamFromClipboard ( cfformat : u32 , hglobal : super::super::Foundation:: HANDLE , ppstream : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAVIStream>();
     AVIMakeStreamFromClipboard(cfformat, hglobal.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -185,7 +185,7 @@ pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IAVIFile>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIPutFileOnClipboard ( pf : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIPutFileOnClipboard ( pf : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     AVIPutFileOnClipboard(pf.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -196,7 +196,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""cdecl" fn AVISaveA ( szfile : :: windows::core::PCSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""cdecl" fn AVISaveA ( szfile : ::windows::core::PCSTR , pclsidhandler : *const ::windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> ::windows::core::HRESULT );
     AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, pfile.into_param().abi(), lpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -212,7 +212,7 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveOptionsFree ( nstreams : i32 , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveOptionsFree ( nstreams : i32 , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> ::windows::core::HRESULT );
     AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(plpoptions.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -222,7 +222,7 @@ pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: ::core::option::Option<*c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveVA ( szfile : :: windows::core::PCSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveVA ( szfile : ::windows::core::PCSTR , pclsidhandler : *const ::windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> ::windows::core::HRESULT );
     AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -232,7 +232,7 @@ pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: ::core::option::Option<*c
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveVW ( szfile : :: windows::core::PCWSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVISaveVW ( szfile : ::windows::core::PCWSTR , pclsidhandler : *const ::windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> ::windows::core::HRESULT );
     AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -243,7 +243,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""cdecl" fn AVISaveW ( szfile : :: windows::core::PCWSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""cdecl" fn AVISaveW ( szfile : ::windows::core::PCWSTR , pclsidhandler : *const ::windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> ::windows::core::HRESULT );
     AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, pfile.into_param().abi(), lpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -261,13 +261,13 @@ pub unsafe fn AVIStreamBeginStreaming<P0>(pavi: P0, lstart: i32, lend: i32, lrat
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamBeginStreaming ( pavi : * mut::core::ffi::c_void , lstart : i32 , lend : i32 , lrate : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamBeginStreaming ( pavi : * mut::core::ffi::c_void , lstart : i32 , lend : i32 , lrate : i32 ) -> ::windows::core::HRESULT );
     AVIStreamBeginStreaming(pavi.into_param().abi(), lstart, lend, lrate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamCreate ( ppavi : *mut * mut::core::ffi::c_void , lparam1 : i32 , lparam2 : i32 , pclsidhandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamCreate ( ppavi : *mut * mut::core::ffi::c_void , lparam1 : i32 , lparam2 : i32 , pclsidhandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIStreamCreate(::core::mem::transmute(ppavi), lparam1, lparam2, ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -276,7 +276,7 @@ pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamEndStreaming ( pavi : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamEndStreaming ( pavi : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     AVIStreamEndStreaming(pavi.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -303,7 +303,7 @@ pub unsafe fn AVIStreamGetFrameClose<P0>(pg: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<IGetFrame>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamGetFrameClose ( pg : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamGetFrameClose ( pg : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     AVIStreamGetFrameClose(pg.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -323,7 +323,7 @@ pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32)
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamInfoA ( pavi : * mut::core::ffi::c_void , psi : *mut AVISTREAMINFOA , lsize : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamInfoA ( pavi : * mut::core::ffi::c_void , psi : *mut AVISTREAMINFOA , lsize : i32 ) -> ::windows::core::HRESULT );
     AVIStreamInfoA(pavi.into_param().abi(), psi, lsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -333,7 +333,7 @@ pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32)
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamInfoW ( pavi : * mut::core::ffi::c_void , psi : *mut AVISTREAMINFOW , lsize : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamInfoW ( pavi : * mut::core::ffi::c_void , psi : *mut AVISTREAMINFOW , lsize : i32 ) -> ::windows::core::HRESULT );
     AVIStreamInfoW(pavi.into_param().abi(), psi, lsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -351,7 +351,7 @@ pub unsafe fn AVIStreamOpenFromFileA<P0>(ppavi: *mut ::core::option::Option<IAVI
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamOpenFromFileA ( ppavi : *mut * mut::core::ffi::c_void , szfile : :: windows::core::PCSTR , fcctype : u32 , lparam : i32 , mode : u32 , pclsidhandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamOpenFromFileA ( ppavi : *mut * mut::core::ffi::c_void , szfile : ::windows::core::PCSTR , fcctype : u32 , lparam : i32 , mode : u32 , pclsidhandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), fcctype, lparam, mode, ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -360,7 +360,7 @@ pub unsafe fn AVIStreamOpenFromFileW<P0>(ppavi: *mut ::core::option::Option<IAVI
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamOpenFromFileW ( ppavi : *mut * mut::core::ffi::c_void , szfile : :: windows::core::PCWSTR , fcctype : u32 , lparam : i32 , mode : u32 , pclsidhandler : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamOpenFromFileW ( ppavi : *mut * mut::core::ffi::c_void , szfile : ::windows::core::PCWSTR , fcctype : u32 , lparam : i32 , mode : u32 , pclsidhandler : *const ::windows::core::GUID ) -> ::windows::core::HRESULT );
     AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), fcctype, lparam, mode, ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -369,7 +369,7 @@ pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: 
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamRead ( pavi : * mut::core::ffi::c_void , lstart : i32 , lsamples : i32 , lpbuffer : *mut ::core::ffi::c_void , cbbuffer : i32 , plbytes : *mut i32 , plsamples : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamRead ( pavi : * mut::core::ffi::c_void , lstart : i32 , lsamples : i32 , lpbuffer : *mut ::core::ffi::c_void , cbbuffer : i32 , plbytes : *mut i32 , plsamples : *mut i32 ) -> ::windows::core::HRESULT );
     AVIStreamRead(pavi.into_param().abi(), lstart, lsamples, ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), cbbuffer, ::core::mem::transmute(plbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plsamples.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -378,7 +378,7 @@ pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: ::core::option::Opti
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamReadData ( pavi : * mut::core::ffi::c_void , fcc : u32 , lp : *mut ::core::ffi::c_void , lpcb : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamReadData ( pavi : * mut::core::ffi::c_void , fcc : u32 , lp : *mut ::core::ffi::c_void , lpcb : *mut i32 ) -> ::windows::core::HRESULT );
     AVIStreamReadData(pavi.into_param().abi(), fcc, ::core::mem::transmute(lp.unwrap_or(::std::ptr::null_mut())), lpcb).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -387,7 +387,7 @@ pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: ::core::opt
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamReadFormat ( pavi : * mut::core::ffi::c_void , lpos : i32 , lpformat : *mut ::core::ffi::c_void , lpcbformat : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamReadFormat ( pavi : * mut::core::ffi::c_void , lpos : i32 , lpformat : *mut ::core::ffi::c_void , lpcbformat : *mut i32 ) -> ::windows::core::HRESULT );
     AVIStreamReadFormat(pavi.into_param().abi(), lpos, ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null_mut())), lpcbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -414,7 +414,7 @@ pub unsafe fn AVIStreamSetFormat<P0>(pavi: P0, lpos: i32, lpformat: *const ::cor
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamSetFormat ( pavi : * mut::core::ffi::c_void , lpos : i32 , lpformat : *const ::core::ffi::c_void , cbformat : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamSetFormat ( pavi : * mut::core::ffi::c_void , lpos : i32 , lpformat : *const ::core::ffi::c_void , cbformat : i32 ) -> ::windows::core::HRESULT );
     AVIStreamSetFormat(pavi.into_param().abi(), lpos, lpformat, cbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -441,7 +441,7 @@ pub unsafe fn AVIStreamWrite<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer:
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamWrite ( pavi : * mut::core::ffi::c_void , lstart : i32 , lsamples : i32 , lpbuffer : *const ::core::ffi::c_void , cbbuffer : i32 , dwflags : u32 , plsampwritten : *mut i32 , plbyteswritten : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamWrite ( pavi : * mut::core::ffi::c_void , lstart : i32 , lsamples : i32 , lpbuffer : *const ::core::ffi::c_void , cbbuffer : i32 , dwflags : u32 , plsampwritten : *mut i32 , plbyteswritten : *mut i32 ) -> ::windows::core::HRESULT );
     AVIStreamWrite(pavi.into_param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, ::core::mem::transmute(plsampwritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plbyteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -450,7 +450,7 @@ pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const ::core::ffi:
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamWriteData ( pavi : * mut::core::ffi::c_void , fcc : u32 , lp : *const ::core::ffi::c_void , cb : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn AVIStreamWriteData ( pavi : * mut::core::ffi::c_void , fcc : u32 , lp : *const ::core::ffi::c_void , cb : i32 ) -> ::windows::core::HRESULT );
     AVIStreamWriteData(pavi.into_param().abi(), fcc, lp, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -471,7 +471,7 @@ pub unsafe fn CreateEditableStream<P0>(ppseditable: *mut ::core::option::Option<
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn CreateEditableStream ( ppseditable : *mut * mut::core::ffi::c_void , pssource : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn CreateEditableStream ( ppseditable : *mut * mut::core::ffi::c_void , pssource : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -622,7 +622,7 @@ pub unsafe fn EditStreamClone<P0>(pavi: P0) -> ::windows::core::Result<IAVIStrea
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamClone ( pavi : * mut::core::ffi::c_void , ppresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamClone ( pavi : * mut::core::ffi::c_void , ppresult : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAVIStream>();
     EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -632,7 +632,7 @@ pub unsafe fn EditStreamCopy<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamCopy ( pavi : * mut::core::ffi::c_void , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamCopy ( pavi : * mut::core::ffi::c_void , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     EditStreamCopy(pavi.into_param().abi(), plstart, pllength, ::core::mem::transmute(ppresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -641,7 +641,7 @@ pub unsafe fn EditStreamCut<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32,
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamCut ( pavi : * mut::core::ffi::c_void , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamCut ( pavi : * mut::core::ffi::c_void , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     EditStreamCut(pavi.into_param().abi(), plstart, pllength, ::core::mem::transmute(ppresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -651,7 +651,7 @@ where
     P0: ::windows::core::IntoParam<IAVIStream>,
     P1: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamPaste ( pavi : * mut::core::ffi::c_void , plpos : *mut i32 , pllength : *mut i32 , pstream : * mut::core::ffi::c_void , lstart : i32 , lend : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamPaste ( pavi : * mut::core::ffi::c_void , plpos : *mut i32 , pllength : *mut i32 , pstream : * mut::core::ffi::c_void , lstart : i32 , lend : i32 ) -> ::windows::core::HRESULT );
     EditStreamPaste(pavi.into_param().abi(), plpos, pllength, pstream.into_param().abi(), lstart, lend).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -661,7 +661,7 @@ pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cb
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetInfoA ( pavi : * mut::core::ffi::c_void , lpinfo : *const AVISTREAMINFOA , cbinfo : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetInfoA ( pavi : * mut::core::ffi::c_void , lpinfo : *const AVISTREAMINFOA , cbinfo : i32 ) -> ::windows::core::HRESULT );
     EditStreamSetInfoA(pavi.into_param().abi(), lpinfo, cbinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -671,7 +671,7 @@ pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cb
 where
     P0: ::windows::core::IntoParam<IAVIStream>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetInfoW ( pavi : * mut::core::ffi::c_void , lpinfo : *const AVISTREAMINFOW , cbinfo : i32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetInfoW ( pavi : * mut::core::ffi::c_void , lpinfo : *const AVISTREAMINFOW , cbinfo : i32 ) -> ::windows::core::HRESULT );
     EditStreamSetInfoW(pavi.into_param().abi(), lpinfo, cbinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -681,7 +681,7 @@ where
     P0: ::windows::core::IntoParam<IAVIStream>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetNameA ( pavi : * mut::core::ffi::c_void , lpszname : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetNameA ( pavi : * mut::core::ffi::c_void , lpszname : ::windows::core::PCSTR ) -> ::windows::core::HRESULT );
     EditStreamSetNameA(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -691,7 +691,7 @@ where
     P0: ::windows::core::IntoParam<IAVIStream>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetNameW ( pavi : * mut::core::ffi::c_void , lpszname : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "avifil32.dll""system" fn EditStreamSetNameW ( pavi : * mut::core::ffi::c_void , lpszname : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -760,7 +760,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""system" fn ICCompressorChoose ( hwnd : super::super::Foundation:: HWND , uiflags : u32 , pvin : *const ::core::ffi::c_void , lpdata : *const ::core::ffi::c_void , pc : *mut COMPVARS , lpsztitle : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "msvfw32.dll""system" fn ICCompressorChoose ( hwnd : super::super::Foundation:: HWND , uiflags : u32 , pvin : *const ::core::ffi::c_void , lpdata : *const ::core::ffi::c_void , pc : *mut COMPVARS , lpsztitle : ::windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     ICCompressorChoose(hwnd.into_param().abi(), uiflags, ::core::mem::transmute(pvin.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), pc, lpsztitle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -857,7 +857,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""system" fn ICInstall ( fcctype : u32 , fcchandler : u32 , lparam : super::super::Foundation:: LPARAM , szdesc : :: windows::core::PCSTR , wflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "msvfw32.dll""system" fn ICInstall ( fcctype : u32 , fcchandler : u32 , lparam : super::super::Foundation:: LPARAM , szdesc : ::windows::core::PCSTR , wflags : u32 ) -> super::super::Foundation:: BOOL );
     ICInstall(fcctype, fcchandler, lparam.into_param().abi(), szdesc.into_param().abi(), wflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -927,7 +927,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : :: windows::core::PCSTR ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows::core::PCSTR ) -> super::super::Foundation:: HWND );
     MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -939,7 +939,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : :: windows::core::PCWSTR ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows::core::PCWSTR ) -> super::super::Foundation:: HWND );
     MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -958,7 +958,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn OpenDriver ( szdrivername : :: windows::core::PCWSTR , szsectionname : :: windows::core::PCWSTR , lparam2 : super::super::Foundation:: LPARAM ) -> HDRVR );
+    ::windows::imp::link ! ( "winmm.dll""system" fn OpenDriver ( szdrivername : ::windows::core::PCWSTR , szsectionname : ::windows::core::PCWSTR , lparam2 : super::super::Foundation:: LPARAM ) -> HDRVR );
     OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -987,7 +987,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "avicap32.dll""system" fn capCreateCaptureWindowA ( lpszwindowname : :: windows::core::PCSTR , dwstyle : u32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 , hwndparent : super::super::Foundation:: HWND , nid : i32 ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "avicap32.dll""system" fn capCreateCaptureWindowA ( lpszwindowname : ::windows::core::PCSTR , dwstyle : u32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 , hwndparent : super::super::Foundation:: HWND , nid : i32 ) -> super::super::Foundation:: HWND );
     capCreateCaptureWindowA(lpszwindowname.into_param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.into_param().abi(), nid)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -998,21 +998,21 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "avicap32.dll""system" fn capCreateCaptureWindowW ( lpszwindowname : :: windows::core::PCWSTR , dwstyle : u32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 , hwndparent : super::super::Foundation:: HWND , nid : i32 ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "avicap32.dll""system" fn capCreateCaptureWindowW ( lpszwindowname : ::windows::core::PCWSTR , dwstyle : u32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 , hwndparent : super::super::Foundation:: HWND , nid : i32 ) -> super::super::Foundation:: HWND );
     capCreateCaptureWindowW(lpszwindowname.into_param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.into_param().abi(), nid)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "avicap32.dll""system" fn capGetDriverDescriptionA ( wdriverindex : u32 , lpszname : :: windows::core::PSTR , cbname : i32 , lpszver : :: windows::core::PSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "avicap32.dll""system" fn capGetDriverDescriptionA ( wdriverindex : u32 , lpszname : ::windows::core::PSTR , cbname : i32 , lpszver : ::windows::core::PSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
     capGetDriverDescriptionA(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "avicap32.dll""system" fn capGetDriverDescriptionW ( wdriverindex : u32 , lpszname : :: windows::core::PWSTR , cbname : i32 , lpszver : :: windows::core::PWSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "avicap32.dll""system" fn capGetDriverDescriptionW ( wdriverindex : u32 , lpszname : ::windows::core::PWSTR , cbname : i32 , lpszver : ::windows::core::PWSTR , cbver : i32 ) -> super::super::Foundation:: BOOL );
     capGetDriverDescriptionW(wdriverindex, ::core::mem::transmute(lpszname.as_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_ptr()), lpszver.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1109,7 +1109,7 @@ pub unsafe fn mciGetDeviceIDA<P0>(pszdevice: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDA ( pszdevice : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDA ( pszdevice : ::windows::core::PCSTR ) -> u32 );
     mciGetDeviceIDA(pszdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1118,7 +1118,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<P0>(dwelementid: u32, lpstrtype: P0) 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDFromElementIDA ( dwelementid : u32 , lpstrtype : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDFromElementIDA ( dwelementid : u32 , lpstrtype : ::windows::core::PCSTR ) -> u32 );
     mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1127,7 +1127,7 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<P0>(dwelementid: u32, lpstrtype: P0) 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDFromElementIDW ( dwelementid : u32 , lpstrtype : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDFromElementIDW ( dwelementid : u32 , lpstrtype : ::windows::core::PCWSTR ) -> u32 );
     mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1136,7 +1136,7 @@ pub unsafe fn mciGetDeviceIDW<P0>(pszdevice: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDW ( pszdevice : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetDeviceIDW ( pszdevice : ::windows::core::PCWSTR ) -> u32 );
     mciGetDeviceIDW(pszdevice.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1149,14 +1149,14 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetErrorStringA ( mcierr : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetErrorStringA ( mcierr : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> super::super::Foundation:: BOOL );
     mciGetErrorStringA(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetErrorStringW ( mcierr : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciGetErrorStringW ( mcierr : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> super::super::Foundation:: BOOL );
     mciGetErrorStringW(mcierr, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1173,7 +1173,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciLoadCommandResource ( hinstance : super::super::Foundation:: HANDLE , lpresname : :: windows::core::PCWSTR , wtype : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciLoadCommandResource ( hinstance : super::super::Foundation:: HANDLE , lpresname : ::windows::core::PCWSTR , wtype : u32 ) -> u32 );
     mciLoadCommandResource(hinstance.into_param().abi(), lpresname.into_param().abi(), wtype)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1196,7 +1196,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciSendStringA ( lpstrcommand : :: windows::core::PCSTR , lpstrreturnstring : :: windows::core::PSTR , ureturnlength : u32 , hwndcallback : super::super::Foundation:: HWND ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciSendStringA ( lpstrcommand : ::windows::core::PCSTR , lpstrreturnstring : ::windows::core::PSTR , ureturnlength : u32 , hwndcallback : super::super::Foundation:: HWND ) -> u32 );
     mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -1207,7 +1207,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mciSendStringW ( lpstrcommand : :: windows::core::PCWSTR , lpstrreturnstring : :: windows::core::PWSTR , ureturnlength : u32 , hwndcallback : super::super::Foundation:: HWND ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mciSendStringW ( lpstrcommand : ::windows::core::PCWSTR , lpstrreturnstring : ::windows::core::PWSTR , ureturnlength : u32 , hwndcallback : super::super::Foundation:: HWND ) -> u32 );
     mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len() as _), hwndcallback.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -1231,7 +1231,7 @@ where
     P0: ::windows::core::IntoParam<HDRVR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmDrvInstall ( hdriver : HDRVR , wszdrventry : :: windows::core::PCWSTR , drvmessage : DRIVERMSGPROC , wflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmDrvInstall ( hdriver : HDRVR , wszdrventry : ::windows::core::PCWSTR , drvmessage : DRIVERMSGPROC , wflags : u32 ) -> u32 );
     mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), drvmessage, wflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1349,14 +1349,14 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: ::core::option::Option<&mut [u8; 128]>, pmmioinfo: ::core::option::Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioOpenA ( pszfilename : :: windows::core::PSTR , pmmioinfo : *mut MMIOINFO , fdwopen : u32 ) -> HMMIO );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioOpenA ( pszfilename : ::windows::core::PSTR , pmmioinfo : *mut MMIOINFO , fdwopen : u32 ) -> HMMIO );
     mmioOpenA(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null_mut())), fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: ::core::option::Option<&mut [u16; 128]>, pmmioinfo: ::core::option::Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioOpenW ( pszfilename : :: windows::core::PWSTR , pmmioinfo : *mut MMIOINFO , fdwopen : u32 ) -> HMMIO );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioOpenW ( pszfilename : ::windows::core::PWSTR , pmmioinfo : *mut MMIOINFO , fdwopen : u32 ) -> HMMIO );
     mmioOpenW(::core::mem::transmute(pszfilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null_mut())), fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1376,7 +1376,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioRenameA ( pszfilename : :: windows::core::PCSTR , psznewfilename : :: windows::core::PCSTR , pmmioinfo : *const MMIOINFO , fdwrename : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioRenameA ( pszfilename : ::windows::core::PCSTR , psznewfilename : ::windows::core::PCSTR , pmmioinfo : *const MMIOINFO , fdwrename : u32 ) -> u32 );
     mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null())), fdwrename)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -1387,7 +1387,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioRenameW ( pszfilename : :: windows::core::PCWSTR , psznewfilename : :: windows::core::PCWSTR , pmmioinfo : *const MMIOINFO , fdwrename : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioRenameW ( pszfilename : ::windows::core::PCWSTR , psznewfilename : ::windows::core::PCWSTR , pmmioinfo : *const MMIOINFO , fdwrename : u32 ) -> u32 );
     mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo.unwrap_or(::std::ptr::null())), fdwrename)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1417,7 +1417,7 @@ pub unsafe fn mmioSetBuffer<P0>(hmmio: P0, pchbuffer: ::core::option::Option<&mu
 where
     P0: ::windows::core::IntoParam<HMMIO>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioSetBuffer ( hmmio : HMMIO , pchbuffer : :: windows::core::PSTR , cchbuffer : i32 , fubuffer : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioSetBuffer ( hmmio : HMMIO , pchbuffer : ::windows::core::PSTR , cchbuffer : i32 , fubuffer : u32 ) -> u32 );
     mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len() as _), fubuffer)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -1436,7 +1436,7 @@ pub unsafe fn mmioStringToFOURCCA<P0>(sz: P0, uflags: u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioStringToFOURCCA ( sz : :: windows::core::PCSTR , uflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioStringToFOURCCA ( sz : ::windows::core::PCSTR , uflags : u32 ) -> u32 );
     mmioStringToFOURCCA(sz.into_param().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1445,7 +1445,7 @@ pub unsafe fn mmioStringToFOURCCW<P0>(sz: P0, uflags: u32) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioStringToFOURCCW ( sz : :: windows::core::PCWSTR , uflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioStringToFOURCCW ( sz : ::windows::core::PCWSTR , uflags : u32 ) -> u32 );
     mmioStringToFOURCCW(sz.into_param().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1454,7 +1454,7 @@ pub unsafe fn mmioWrite<P0>(hmmio: P0, pch: &[u8]) -> i32
 where
     P0: ::windows::core::IntoParam<HMMIO>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn mmioWrite ( hmmio : HMMIO , pch : :: windows::core::PCSTR , cch : i32 ) -> i32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn mmioWrite ( hmmio : HMMIO , pch : ::windows::core::PCSTR , cch : i32 ) -> i32 );
     mmioWrite(hmmio.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -1465,7 +1465,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-mm-misc-l1-1-1.dll""system" fn sndOpenSound ( eventname : :: windows::core::PCWSTR , appname : :: windows::core::PCWSTR , flags : i32 , filehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+    ::windows::imp::link ! ( "api-ms-win-mm-misc-l1-1-1.dll""system" fn sndOpenSound ( eventname : ::windows::core::PCWSTR , appname : ::windows::core::PCWSTR , flags : i32 , filehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
     sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), flags, filehandle)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -2029,7 +2029,7 @@ pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const DRIVERS_SECTION: ::windows::core::PCWSTR = ::windows::w!("DRIVERS32");
+pub const DRIVERS_SECTION: ::windows::core::PCWSTR = ::windows::core::w!("DRIVERS32");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const DRVCNF_CANCEL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -2897,7 +2897,7 @@ pub const JOY_CAL_READYONLY: i32 = 2097152i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOY_CAL_READZONLY: i32 = 16777216i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const JOY_CONFIGCHANGED_MSGSTRING: ::windows::core::PCSTR = ::windows::s!("MSJSTICK_VJOYD_MSGSTR");
+pub const JOY_CONFIGCHANGED_MSGSTRING: ::windows::core::PCSTR = ::windows::core::s!("MSJSTICK_VJOYD_MSGSTR");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const JOY_POVBACKWARD: u32 = 18000u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -3327,7 +3327,7 @@ pub const MCIWND_END: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCIWND_START: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const MCIWND_WINDOW_CLASS: ::windows::core::PCWSTR = ::windows::w!("MCIWndClass");
+pub const MCIWND_WINDOW_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("MCIWndClass");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4247,7 +4247,7 @@ pub const MCI_SAVE: u32 = 2067u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SAVE_FILE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const MCI_SECTION: ::windows::core::PCWSTR = ::windows::w!("MCI32");
+pub const MCI_SECTION: ::windows::core::PCWSTR = ::windows::core::w!("MCI32");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_SEEK: u32 = 2055u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -10215,9 +10215,9 @@ pub const SEEK_END: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const SEEK_SET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const TARGET_DEVICE_FRIENDLY_NAME: ::windows::core::PCSTR = ::windows::s!("TargetDeviceFriendlyName");
+pub const TARGET_DEVICE_FRIENDLY_NAME: ::windows::core::PCSTR = ::windows::core::s!("TargetDeviceFriendlyName");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
-pub const TARGET_DEVICE_OPEN_EXCLUSIVELY: ::windows::core::PCSTR = ::windows::s!("TargetDeviceOpenExclusively");
+pub const TARGET_DEVICE_OPEN_EXCLUSIVELY: ::windows::core::PCSTR = ::windows::core::s!("TargetDeviceOpenExclusively");
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const TASKERR_NOTASKSUPPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]

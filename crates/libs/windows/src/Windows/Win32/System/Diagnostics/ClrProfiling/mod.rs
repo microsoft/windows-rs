@@ -5886,9 +5886,9 @@ pub struct IMethodMalloc_Vtbl {
     pub Alloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const CorDB_CONTROL_Profiling: ::windows::core::PCSTR = ::windows::s!("Cor_Enable_Profiling");
+pub const CorDB_CONTROL_Profiling: ::windows::core::PCSTR = ::windows::core::s!("Cor_Enable_Profiling");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const CorDB_CONTROL_ProfilingL: ::windows::core::PCWSTR = ::windows::w!("Cor_Enable_Profiling");
+pub const CorDB_CONTROL_ProfilingL: ::windows::core::PCWSTR = ::windows::core::w!("Cor_Enable_Profiling");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

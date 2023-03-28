@@ -52,7 +52,7 @@ pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: &mut [u8]) -> i16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleA ( param0 : :: windows::core::PCSTR , buf : :: windows::core::PSTR , cchsize : u16 ) -> i16 );
+    ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleA ( param0 : ::windows::core::PCSTR , buf : ::windows::core::PSTR , cchsize : u16 ) -> i16 );
     GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -61,7 +61,7 @@ pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleW ( param0 : :: windows::core::PCWSTR , buf : :: windows::core::PWSTR , cchsize : u16 ) -> i16 );
+    ::windows::imp::link ! ( "comdlg32.dll""system" fn GetFileTitleW ( param0 : ::windows::core::PCWSTR , buf : ::windows::core::PWSTR , cchsize : u16 ) -> i16 );
     GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -117,14 +117,14 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "comdlg32.dll""system" fn PrintDlgExA ( ppd : *mut PRINTDLGEXA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comdlg32.dll""system" fn PrintDlgExA ( ppd : *mut PRINTDLGEXA ) -> ::windows::core::HRESULT );
     PrintDlgExA(ppd).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "comdlg32.dll""system" fn PrintDlgExW ( ppd : *mut PRINTDLGEXW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "comdlg32.dll""system" fn PrintDlgExW ( ppd : *mut PRINTDLGEXW ) -> ::windows::core::HRESULT );
     PrintDlgExW(ppd).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -280,11 +280,11 @@ pub const CD_LBSELNOITEMS: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CD_LBSELSUB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_ColorOK");
+pub const COLOROKSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_ColorOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_ColorOK");
+pub const COLOROKSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_ColorOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_ColorOK");
+pub const COLOROKSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_ColorOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const COLOR_ADD: u32 = 712u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -350,17 +350,17 @@ pub const DLG_COLOR: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_FileNameOK");
+pub const FILEOKSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_FileNameOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_FileNameOK");
+pub const FILEOKSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_FileNameOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_FileNameOK");
+pub const FILEOKSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_FileNameOK");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_FindReplace");
+pub const FINDMSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_FindReplace");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_FindReplace");
+pub const FINDMSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_FindReplace");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_FindReplace");
+pub const FINDMSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_FindReplace");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const FRM_FIRST: u32 = 1124u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -378,17 +378,17 @@ pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const FR_WRAPAROUND: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_help");
+pub const HELPMSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_help");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_help");
+pub const HELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_help");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_help");
+pub const HELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_help");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_LBSelChangedNotify");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_LBSelChangedNotify");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_LBSelChangedNotify");
+pub const LBSELCHSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_LBSelChangedNotify");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -408,17 +408,17 @@ pub const PD_RESULT_PRINT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_SetRGBColor");
+pub const SETRGBSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_SetRGBColor");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_SetRGBColor");
+pub const SETRGBSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_SetRGBColor");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_SetRGBColor");
+pub const SETRGBSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_SetRGBColor");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRING: ::windows::core::PCWSTR = ::windows::w!("commdlg_ShareViolation");
+pub const SHAREVISTRING: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_ShareViolation");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRINGA: ::windows::core::PCSTR = ::windows::s!("commdlg_ShareViolation");
+pub const SHAREVISTRINGA: ::windows::core::PCSTR = ::windows::core::s!("commdlg_ShareViolation");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRINGW: ::windows::core::PCWSTR = ::windows::w!("commdlg_ShareViolation");
+pub const SHAREVISTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("commdlg_ShareViolation");
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const START_PAGE_GENERAL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]

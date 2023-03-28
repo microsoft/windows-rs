@@ -2173,7 +2173,7 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PCWSTR {
-    ::windows::imp::link ! ( "glu32.dll""system" fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> :: windows::core::PCWSTR );
+    ::windows::imp::link ! ( "glu32.dll""system" fn gluErrorUnicodeStringEXT ( errcode : u32 ) -> ::windows::core::PCWSTR );
     gluErrorUnicodeStringEXT(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
@@ -2469,7 +2469,7 @@ pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PRO
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "opengl32.dll""system" fn wglGetProcAddress ( param0 : :: windows::core::PCSTR ) -> super::super::Foundation:: PROC );
+    ::windows::imp::link ! ( "opengl32.dll""system" fn wglGetProcAddress ( param0 : ::windows::core::PCSTR ) -> super::super::Foundation:: PROC );
     wglGetProcAddress(param0.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]

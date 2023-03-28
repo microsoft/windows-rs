@@ -5,7 +5,7 @@ pub unsafe fn CallNamedPipeA<P0>(lpnamedpipename: P0, lpinbuffer: ::core::option
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CallNamedPipeA ( lpnamedpipename : :: windows::core::PCSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CallNamedPipeA ( lpnamedpipename : ::windows::core::PCSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
     CallNamedPipeA(lpnamedpipename.into_param().abi(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn CallNamedPipeW<P0>(lpnamedpipename: P0, lpinbuffer: ::core::option
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CallNamedPipeW ( lpnamedpipename : :: windows::core::PCWSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CallNamedPipeW ( lpnamedpipename : ::windows::core::PCWSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
     CallNamedPipeW(lpnamedpipename.into_param().abi(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn CreateNamedPipeA<P0>(lpname: P0, dwopenmode: super::super::Storage
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateNamedPipeA ( lpname : :: windows::core::PCSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateNamedPipeA ( lpname : ::windows::core::PCSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateNamedPipeA(lpname.into_param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -46,7 +46,7 @@ pub unsafe fn CreateNamedPipeW<P0>(lpname: P0, dwopenmode: super::super::Storage
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateNamedPipeW ( lpname : :: windows::core::PCWSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateNamedPipeW ( lpname : ::windows::core::PCWSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     CreateNamedPipeW(lpname.into_param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -73,7 +73,7 @@ pub unsafe fn GetNamedPipeClientComputerNameA<P0>(pipe: P0, clientcomputername: 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeClientComputerNameA ( pipe : super::super::Foundation:: HANDLE , clientcomputername : :: windows::core::PSTR , clientcomputernamelength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeClientComputerNameA ( pipe : super::super::Foundation:: HANDLE , clientcomputername : ::windows::core::PSTR , clientcomputernamelength : u32 ) -> super::super::Foundation:: BOOL );
     GetNamedPipeClientComputerNameA(pipe.into_param().abi(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
@@ -83,7 +83,7 @@ pub unsafe fn GetNamedPipeClientComputerNameW<P0>(pipe: P0, clientcomputername: 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeClientComputerNameW ( pipe : super::super::Foundation:: HANDLE , clientcomputername : :: windows::core::PWSTR , clientcomputernamelength : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeClientComputerNameW ( pipe : super::super::Foundation:: HANDLE , clientcomputername : ::windows::core::PWSTR , clientcomputernamelength : u32 ) -> super::super::Foundation:: BOOL );
     GetNamedPipeClientComputerNameW(pipe.into_param().abi(), ::core::mem::transmute(clientcomputername), clientcomputernamelength)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
@@ -113,7 +113,7 @@ pub unsafe fn GetNamedPipeHandleStateA<P0>(hnamedpipe: P0, lpstate: ::core::opti
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeHandleStateA ( hnamedpipe : super::super::Foundation:: HANDLE , lpstate : *mut NAMED_PIPE_MODE , lpcurinstances : *mut u32 , lpmaxcollectioncount : *mut u32 , lpcollectdatatimeout : *mut u32 , lpusername : :: windows::core::PSTR , nmaxusernamesize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeHandleStateA ( hnamedpipe : super::super::Foundation:: HANDLE , lpstate : *mut NAMED_PIPE_MODE , lpcurinstances : *mut u32 , lpmaxcollectioncount : *mut u32 , lpcollectdatatimeout : *mut u32 , lpusername : ::windows::core::PSTR , nmaxusernamesize : u32 ) -> super::super::Foundation:: BOOL );
     GetNamedPipeHandleStateA(
         hnamedpipe.into_param().abi(),
         ::core::mem::transmute(lpstate.unwrap_or(::std::ptr::null_mut())),
@@ -131,7 +131,7 @@ pub unsafe fn GetNamedPipeHandleStateW<P0>(hnamedpipe: P0, lpstate: ::core::opti
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeHandleStateW ( hnamedpipe : super::super::Foundation:: HANDLE , lpstate : *mut NAMED_PIPE_MODE , lpcurinstances : *mut u32 , lpmaxcollectioncount : *mut u32 , lpcollectdatatimeout : *mut u32 , lpusername : :: windows::core::PWSTR , nmaxusernamesize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetNamedPipeHandleStateW ( hnamedpipe : super::super::Foundation:: HANDLE , lpstate : *mut NAMED_PIPE_MODE , lpcurinstances : *mut u32 , lpmaxcollectioncount : *mut u32 , lpcollectdatatimeout : *mut u32 , lpusername : ::windows::core::PWSTR , nmaxusernamesize : u32 ) -> super::super::Foundation:: BOOL );
     GetNamedPipeHandleStateW(
         hnamedpipe.into_param().abi(),
         ::core::mem::transmute(lpstate.unwrap_or(::std::ptr::null_mut())),
@@ -219,7 +219,7 @@ pub unsafe fn WaitNamedPipeA<P0>(lpnamedpipename: P0, ntimeout: u32) -> super::s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitNamedPipeA ( lpnamedpipename : :: windows::core::PCSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitNamedPipeA ( lpnamedpipename : ::windows::core::PCSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
     WaitNamedPipeA(lpnamedpipename.into_param().abi(), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
@@ -229,7 +229,7 @@ pub unsafe fn WaitNamedPipeW<P0>(lpnamedpipename: P0, ntimeout: u32) -> super::s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitNamedPipeW ( lpnamedpipename : :: windows::core::PCWSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn WaitNamedPipeW ( lpnamedpipename : ::windows::core::PCWSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
     WaitNamedPipeW(lpnamedpipename.into_param().abi(), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`*"]

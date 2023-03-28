@@ -2,14 +2,14 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceID ( pbwindowsaik : *mut u8 , cbwindowsaik : u32 , pcbresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceID ( pbwindowsaik : *mut u8 , cbwindowsaik : u32 , pcbresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcbresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceIDString ( pszwindowsaik : :: windows::core::PWSTR , cchwindowsaik : u32 , pcchresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceIDString ( pszwindowsaik : ::windows::core::PWSTR , cchwindowsaik : u32 , pcchresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcchresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]

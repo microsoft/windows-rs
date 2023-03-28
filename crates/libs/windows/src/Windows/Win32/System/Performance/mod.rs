@@ -7,7 +7,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn BackupPerfRegistryToFileW ( szfilename : :: windows::core::PCWSTR , szcommentstring : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn BackupPerfRegistryToFileW ( szfilename : ::windows::core::PCWSTR , szcommentstring : ::windows::core::PCWSTR ) -> u32 );
     BackupPerfRegistryToFileW(szfilename.into_param().abi(), szcommentstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn InstallPerfDllA ( szcomputername : :: windows::core::PCSTR , lpinifile : :: windows::core::PCSTR , dwflags : usize ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn InstallPerfDllA ( szcomputername : ::windows::core::PCSTR , lpinifile : ::windows::core::PCSTR , dwflags : usize ) -> u32 );
     InstallPerfDllA(szcomputername.into_param().abi(), lpinifile.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -27,7 +27,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn InstallPerfDllW ( szcomputername : :: windows::core::PCWSTR , lpinifile : :: windows::core::PCWSTR , dwflags : usize ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn InstallPerfDllW ( szcomputername : ::windows::core::PCWSTR , lpinifile : ::windows::core::PCWSTR , dwflags : usize ) -> u32 );
     InstallPerfDllW(szcomputername.into_param().abi(), lpinifile.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -38,7 +38,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn LoadPerfCounterTextStringsA ( lpcommandline : :: windows::core::PCSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn LoadPerfCounterTextStringsA ( lpcommandline : ::windows::core::PCSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
     LoadPerfCounterTextStringsA(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -49,7 +49,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn LoadPerfCounterTextStringsW ( lpcommandline : :: windows::core::PCWSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn LoadPerfCounterTextStringsW ( lpcommandline : ::windows::core::PCWSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
     LoadPerfCounterTextStringsW(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -58,7 +58,7 @@ pub unsafe fn PdhAddCounterA<P0>(hquery: isize, szfullcounterpath: P0, dwuserdat
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddCounterA ( hquery : isize , szfullcounterpath : :: windows::core::PCSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddCounterA ( hquery : isize , szfullcounterpath : ::windows::core::PCSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
     PdhAddCounterA(hquery, szfullcounterpath.into_param().abi(), dwuserdata, phcounter)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -67,7 +67,7 @@ pub unsafe fn PdhAddCounterW<P0>(hquery: isize, szfullcounterpath: P0, dwuserdat
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddCounterW ( hquery : isize , szfullcounterpath : :: windows::core::PCWSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddCounterW ( hquery : isize , szfullcounterpath : ::windows::core::PCWSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
     PdhAddCounterW(hquery, szfullcounterpath.into_param().abi(), dwuserdata, phcounter)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -76,7 +76,7 @@ pub unsafe fn PdhAddEnglishCounterA<P0>(hquery: isize, szfullcounterpath: P0, dw
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddEnglishCounterA ( hquery : isize , szfullcounterpath : :: windows::core::PCSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddEnglishCounterA ( hquery : isize , szfullcounterpath : ::windows::core::PCSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
     PdhAddEnglishCounterA(hquery, szfullcounterpath.into_param().abi(), dwuserdata, phcounter)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -85,7 +85,7 @@ pub unsafe fn PdhAddEnglishCounterW<P0>(hquery: isize, szfullcounterpath: P0, dw
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddEnglishCounterW ( hquery : isize , szfullcounterpath : :: windows::core::PCWSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhAddEnglishCounterW ( hquery : isize , szfullcounterpath : ::windows::core::PCWSTR , dwuserdata : usize , phcounter : *mut isize ) -> u32 );
     PdhAddEnglishCounterW(hquery, szfullcounterpath.into_param().abi(), dwuserdata, phcounter)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -94,7 +94,7 @@ pub unsafe fn PdhBindInputDataSourceA<P0>(phdatasource: *mut isize, logfilenamel
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhBindInputDataSourceA ( phdatasource : *mut isize , logfilenamelist : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhBindInputDataSourceA ( phdatasource : *mut isize , logfilenamelist : ::windows::core::PCSTR ) -> u32 );
     PdhBindInputDataSourceA(phdatasource, logfilenamelist.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -103,7 +103,7 @@ pub unsafe fn PdhBindInputDataSourceW<P0>(phdatasource: *mut isize, logfilenamel
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhBindInputDataSourceW ( phdatasource : *mut isize , logfilenamelist : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhBindInputDataSourceW ( phdatasource : *mut isize , logfilenamelist : ::windows::core::PCWSTR ) -> u32 );
     PdhBindInputDataSourceW(phdatasource, logfilenamelist.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -188,7 +188,7 @@ pub unsafe fn PdhConnectMachineA<P0>(szmachinename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhConnectMachineA ( szmachinename : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhConnectMachineA ( szmachinename : ::windows::core::PCSTR ) -> u32 );
     PdhConnectMachineA(szmachinename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -197,7 +197,7 @@ pub unsafe fn PdhConnectMachineW<P0>(szmachinename: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhConnectMachineW ( szmachinename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhConnectMachineW ( szmachinename : ::windows::core::PCWSTR ) -> u32 );
     PdhConnectMachineW(szmachinename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -206,7 +206,7 @@ pub unsafe fn PdhCreateSQLTablesA<P0>(szdatasource: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhCreateSQLTablesA ( szdatasource : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhCreateSQLTablesA ( szdatasource : ::windows::core::PCSTR ) -> u32 );
     PdhCreateSQLTablesA(szdatasource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -215,7 +215,7 @@ pub unsafe fn PdhCreateSQLTablesW<P0>(szdatasource: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhCreateSQLTablesW ( szdatasource : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhCreateSQLTablesW ( szdatasource : ::windows::core::PCWSTR ) -> u32 );
     PdhCreateSQLTablesW(szdatasource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -224,7 +224,7 @@ pub unsafe fn PdhEnumLogSetNamesA<P0>(szdatasource: P0, mszdatasetnamelist: ::wi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumLogSetNamesA ( szdatasource : :: windows::core::PCSTR , mszdatasetnamelist : :: windows::core::PSTR , pcchbufferlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumLogSetNamesA ( szdatasource : ::windows::core::PCSTR , mszdatasetnamelist : ::windows::core::PSTR , pcchbufferlength : *mut u32 ) -> u32 );
     PdhEnumLogSetNamesA(szdatasource.into_param().abi(), ::core::mem::transmute(mszdatasetnamelist), pcchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -233,7 +233,7 @@ pub unsafe fn PdhEnumLogSetNamesW<P0>(szdatasource: P0, mszdatasetnamelist: ::wi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumLogSetNamesW ( szdatasource : :: windows::core::PCWSTR , mszdatasetnamelist : :: windows::core::PWSTR , pcchbufferlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumLogSetNamesW ( szdatasource : ::windows::core::PCWSTR , mszdatasetnamelist : ::windows::core::PWSTR , pcchbufferlength : *mut u32 ) -> u32 );
     PdhEnumLogSetNamesW(szdatasource.into_param().abi(), ::core::mem::transmute(mszdatasetnamelist), pcchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -242,19 +242,19 @@ pub unsafe fn PdhEnumMachinesA<P0>(szdatasource: P0, mszmachinelist: ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesA ( szdatasource : :: windows::core::PCSTR , mszmachinelist : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesA ( szdatasource : ::windows::core::PCSTR , mszmachinelist : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhEnumMachinesA(szdatasource.into_param().abi(), ::core::mem::transmute(mszmachinelist), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesHA ( hdatasource : isize , mszmachinelist : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesHA ( hdatasource : isize , mszmachinelist : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhEnumMachinesHA(hdatasource, ::core::mem::transmute(mszmachinelist), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesHW ( hdatasource : isize , mszmachinelist : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesHW ( hdatasource : isize , mszmachinelist : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhEnumMachinesHW(hdatasource, ::core::mem::transmute(mszmachinelist), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -263,7 +263,7 @@ pub unsafe fn PdhEnumMachinesW<P0>(szdatasource: P0, mszmachinelist: ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesW ( szdatasource : :: windows::core::PCWSTR , mszmachinelist : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumMachinesW ( szdatasource : ::windows::core::PCWSTR , mszmachinelist : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhEnumMachinesW(szdatasource.into_param().abi(), ::core::mem::transmute(mszmachinelist), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -274,7 +274,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsA ( szdatasource : :: windows::core::PCSTR , szmachinename : :: windows::core::PCSTR , szobjectname : :: windows::core::PCSTR , mszcounterlist : :: windows::core::PSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : :: windows::core::PSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsA ( szdatasource : ::windows::core::PCSTR , szmachinename : ::windows::core::PCSTR , szobjectname : ::windows::core::PCSTR , mszcounterlist : ::windows::core::PSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : ::windows::core::PSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
     PdhEnumObjectItemsA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), pcchcounterlistlength, ::core::mem::transmute(mszinstancelist), pcchinstancelistlength, dwdetaillevel, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -284,7 +284,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsHA ( hdatasource : isize , szmachinename : :: windows::core::PCSTR , szobjectname : :: windows::core::PCSTR , mszcounterlist : :: windows::core::PSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : :: windows::core::PSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsHA ( hdatasource : isize , szmachinename : ::windows::core::PCSTR , szobjectname : ::windows::core::PCSTR , mszcounterlist : ::windows::core::PSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : ::windows::core::PSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
     PdhEnumObjectItemsHA(hdatasource, szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), pcchcounterlistlength, ::core::mem::transmute(mszinstancelist), pcchinstancelistlength, dwdetaillevel, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -294,7 +294,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsHW ( hdatasource : isize , szmachinename : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , mszcounterlist : :: windows::core::PWSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : :: windows::core::PWSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsHW ( hdatasource : isize , szmachinename : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , mszcounterlist : ::windows::core::PWSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : ::windows::core::PWSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
     PdhEnumObjectItemsHW(hdatasource, szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), pcchcounterlistlength, ::core::mem::transmute(mszinstancelist), pcchinstancelistlength, dwdetaillevel, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -305,7 +305,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsW ( szdatasource : :: windows::core::PCWSTR , szmachinename : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , mszcounterlist : :: windows::core::PWSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : :: windows::core::PWSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectItemsW ( szdatasource : ::windows::core::PCWSTR , szmachinename : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , mszcounterlist : ::windows::core::PWSTR , pcchcounterlistlength : *mut u32 , mszinstancelist : ::windows::core::PWSTR , pcchinstancelistlength : *mut u32 , dwdetaillevel : PERF_DETAIL , dwflags : u32 ) -> u32 );
     PdhEnumObjectItemsW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), pcchcounterlistlength, ::core::mem::transmute(mszinstancelist), pcchinstancelistlength, dwdetaillevel, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -317,7 +317,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsA ( szdatasource : :: windows::core::PCSTR , szmachinename : :: windows::core::PCSTR , mszobjectlist : :: windows::core::PSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsA ( szdatasource : ::windows::core::PCSTR , szmachinename : ::windows::core::PCSTR , mszobjectlist : ::windows::core::PSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
     PdhEnumObjectsA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -328,7 +328,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsHA ( hdatasource : isize , szmachinename : :: windows::core::PCSTR , mszobjectlist : :: windows::core::PSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsHA ( hdatasource : isize , szmachinename : ::windows::core::PCSTR , mszobjectlist : ::windows::core::PSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
     PdhEnumObjectsHA(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -339,7 +339,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsHW ( hdatasource : isize , szmachinename : :: windows::core::PCWSTR , mszobjectlist : :: windows::core::PWSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsHW ( hdatasource : isize , szmachinename : ::windows::core::PCWSTR , mszobjectlist : ::windows::core::PWSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
     PdhEnumObjectsHW(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -351,7 +351,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsW ( szdatasource : :: windows::core::PCWSTR , szmachinename : :: windows::core::PCWSTR , mszobjectlist : :: windows::core::PWSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhEnumObjectsW ( szdatasource : ::windows::core::PCWSTR , szmachinename : ::windows::core::PCWSTR , mszobjectlist : ::windows::core::PWSTR , pcchbuffersize : *mut u32 , dwdetaillevel : PERF_DETAIL , brefresh : super::super::Foundation:: BOOL ) -> u32 );
     PdhEnumObjectsW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), ::core::mem::transmute(mszobjectlist), pcchbuffersize, dwdetaillevel, brefresh.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -360,7 +360,7 @@ pub unsafe fn PdhExpandCounterPathA<P0>(szwildcardpath: P0, mszexpandedpathlist:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandCounterPathA ( szwildcardpath : :: windows::core::PCSTR , mszexpandedpathlist : :: windows::core::PSTR , pcchpathlistlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandCounterPathA ( szwildcardpath : ::windows::core::PCSTR , mszexpandedpathlist : ::windows::core::PSTR , pcchpathlistlength : *mut u32 ) -> u32 );
     PdhExpandCounterPathA(szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -369,7 +369,7 @@ pub unsafe fn PdhExpandCounterPathW<P0>(szwildcardpath: P0, mszexpandedpathlist:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandCounterPathW ( szwildcardpath : :: windows::core::PCWSTR , mszexpandedpathlist : :: windows::core::PWSTR , pcchpathlistlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandCounterPathW ( szwildcardpath : ::windows::core::PCWSTR , mszexpandedpathlist : ::windows::core::PWSTR , pcchpathlistlength : *mut u32 ) -> u32 );
     PdhExpandCounterPathW(szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -379,7 +379,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathA ( szdatasource : :: windows::core::PCSTR , szwildcardpath : :: windows::core::PCSTR , mszexpandedpathlist : :: windows::core::PSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathA ( szdatasource : ::windows::core::PCSTR , szwildcardpath : ::windows::core::PCSTR , mszexpandedpathlist : ::windows::core::PSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
     PdhExpandWildCardPathA(szdatasource.into_param().abi(), szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -388,7 +388,7 @@ pub unsafe fn PdhExpandWildCardPathHA<P0>(hdatasource: isize, szwildcardpath: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathHA ( hdatasource : isize , szwildcardpath : :: windows::core::PCSTR , mszexpandedpathlist : :: windows::core::PSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathHA ( hdatasource : isize , szwildcardpath : ::windows::core::PCSTR , mszexpandedpathlist : ::windows::core::PSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
     PdhExpandWildCardPathHA(hdatasource, szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -397,7 +397,7 @@ pub unsafe fn PdhExpandWildCardPathHW<P0>(hdatasource: isize, szwildcardpath: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathHW ( hdatasource : isize , szwildcardpath : :: windows::core::PCWSTR , mszexpandedpathlist : :: windows::core::PWSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathHW ( hdatasource : isize , szwildcardpath : ::windows::core::PCWSTR , mszexpandedpathlist : ::windows::core::PWSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
     PdhExpandWildCardPathHW(hdatasource, szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -407,7 +407,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathW ( szdatasource : :: windows::core::PCWSTR , szwildcardpath : :: windows::core::PCWSTR , mszexpandedpathlist : :: windows::core::PWSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhExpandWildCardPathW ( szdatasource : ::windows::core::PCWSTR , szwildcardpath : ::windows::core::PCWSTR , mszexpandedpathlist : ::windows::core::PWSTR , pcchpathlistlength : *mut u32 , dwflags : u32 ) -> u32 );
     PdhExpandWildCardPathW(szdatasource.into_param().abi(), szwildcardpath.into_param().abi(), ::core::mem::transmute(mszexpandedpathlist), pcchpathlistlength, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -449,7 +449,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeA<P0>(szdatasource: P0, pdwnumentries: *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDataSourceTimeRangeA ( szdatasource : :: windows::core::PCSTR , pdwnumentries : *mut u32 , pinfo : *mut PDH_TIME_INFO , pdwbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDataSourceTimeRangeA ( szdatasource : ::windows::core::PCSTR , pdwnumentries : *mut u32 , pinfo : *mut PDH_TIME_INFO , pdwbuffersize : *mut u32 ) -> u32 );
     PdhGetDataSourceTimeRangeA(szdatasource.into_param().abi(), pdwnumentries, pinfo, pdwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -464,7 +464,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeW<P0>(szdatasource: P0, pdwnumentries: *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDataSourceTimeRangeW ( szdatasource : :: windows::core::PCWSTR , pdwnumentries : *mut u32 , pinfo : *mut PDH_TIME_INFO , pdwbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDataSourceTimeRangeW ( szdatasource : ::windows::core::PCWSTR , pdwnumentries : *mut u32 , pinfo : *mut PDH_TIME_INFO , pdwbuffersize : *mut u32 ) -> u32 );
     PdhGetDataSourceTimeRangeW(szdatasource.into_param().abi(), pdwnumentries, pinfo, pdwbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -475,7 +475,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterA ( szdatasource : :: windows::core::PCSTR , szmachinename : :: windows::core::PCSTR , szobjectname : :: windows::core::PCSTR , szdefaultcountername : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterA ( szdatasource : ::windows::core::PCSTR , szmachinename : ::windows::core::PCSTR , szobjectname : ::windows::core::PCSTR , szdefaultcountername : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfCounterA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(szdefaultcountername), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -485,7 +485,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterHA ( hdatasource : isize , szmachinename : :: windows::core::PCSTR , szobjectname : :: windows::core::PCSTR , szdefaultcountername : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterHA ( hdatasource : isize , szmachinename : ::windows::core::PCSTR , szobjectname : ::windows::core::PCSTR , szdefaultcountername : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfCounterHA(hdatasource, szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(szdefaultcountername), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -495,7 +495,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterHW ( hdatasource : isize , szmachinename : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , szdefaultcountername : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterHW ( hdatasource : isize , szmachinename : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , szdefaultcountername : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfCounterHW(hdatasource, szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(szdefaultcountername), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -506,7 +506,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterW ( szdatasource : :: windows::core::PCWSTR , szmachinename : :: windows::core::PCWSTR , szobjectname : :: windows::core::PCWSTR , szdefaultcountername : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfCounterW ( szdatasource : ::windows::core::PCWSTR , szmachinename : ::windows::core::PCWSTR , szobjectname : ::windows::core::PCWSTR , szdefaultcountername : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfCounterW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(szdefaultcountername), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -516,7 +516,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectA ( szdatasource : :: windows::core::PCSTR , szmachinename : :: windows::core::PCSTR , szdefaultobjectname : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectA ( szdatasource : ::windows::core::PCSTR , szmachinename : ::windows::core::PCSTR , szdefaultobjectname : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfObjectA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), ::core::mem::transmute(szdefaultobjectname), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -525,7 +525,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHA<P0>(hdatasource: isize, szmachinename: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectHA ( hdatasource : isize , szmachinename : :: windows::core::PCSTR , szdefaultobjectname : :: windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectHA ( hdatasource : isize , szmachinename : ::windows::core::PCSTR , szdefaultobjectname : ::windows::core::PSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfObjectHA(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(szdefaultobjectname), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -534,7 +534,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHW<P0>(hdatasource: isize, szmachinename: P
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectHW ( hdatasource : isize , szmachinename : :: windows::core::PCWSTR , szdefaultobjectname : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectHW ( hdatasource : isize , szmachinename : ::windows::core::PCWSTR , szdefaultobjectname : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfObjectHW(hdatasource, szmachinename.into_param().abi(), ::core::mem::transmute(szdefaultobjectname), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -544,7 +544,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectW ( szdatasource : :: windows::core::PCWSTR , szmachinename : :: windows::core::PCWSTR , szdefaultobjectname : :: windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetDefaultPerfObjectW ( szdatasource : ::windows::core::PCWSTR , szmachinename : ::windows::core::PCWSTR , szdefaultobjectname : ::windows::core::PWSTR , pcchbuffersize : *mut u32 ) -> u32 );
     PdhGetDefaultPerfObjectW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), ::core::mem::transmute(szdefaultobjectname), pcchbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -580,7 +580,7 @@ pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> u32 {
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: ::core::option::Option<*mut ::windows::core::GUID>, prunid: ::core::option::Option<*mut i32>) -> u32 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetLogSetGUID ( hlog : isize , pguid : *mut :: windows::core::GUID , prunid : *mut i32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhGetLogSetGUID ( hlog : isize , pguid : *mut ::windows::core::GUID , prunid : *mut i32 ) -> u32 );
     PdhGetLogSetGUID(hlog, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prunid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -618,7 +618,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfIndexByNameA ( szmachinename : :: windows::core::PCSTR , sznamebuffer : :: windows::core::PCSTR , pdwindex : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfIndexByNameA ( szmachinename : ::windows::core::PCSTR , sznamebuffer : ::windows::core::PCSTR , pdwindex : *mut u32 ) -> u32 );
     PdhLookupPerfIndexByNameA(szmachinename.into_param().abi(), sznamebuffer.into_param().abi(), pdwindex)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -628,7 +628,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfIndexByNameW ( szmachinename : :: windows::core::PCWSTR , sznamebuffer : :: windows::core::PCWSTR , pdwindex : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfIndexByNameW ( szmachinename : ::windows::core::PCWSTR , sznamebuffer : ::windows::core::PCWSTR , pdwindex : *mut u32 ) -> u32 );
     PdhLookupPerfIndexByNameW(szmachinename.into_param().abi(), sznamebuffer.into_param().abi(), pdwindex)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -637,7 +637,7 @@ pub unsafe fn PdhLookupPerfNameByIndexA<P0>(szmachinename: P0, dwnameindex: u32,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfNameByIndexA ( szmachinename : :: windows::core::PCSTR , dwnameindex : u32 , sznamebuffer : :: windows::core::PSTR , pcchnamebuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfNameByIndexA ( szmachinename : ::windows::core::PCSTR , dwnameindex : u32 , sznamebuffer : ::windows::core::PSTR , pcchnamebuffersize : *mut u32 ) -> u32 );
     PdhLookupPerfNameByIndexA(szmachinename.into_param().abi(), dwnameindex, ::core::mem::transmute(sznamebuffer), pcchnamebuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -646,19 +646,19 @@ pub unsafe fn PdhLookupPerfNameByIndexW<P0>(szmachinename: P0, dwnameindex: u32,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfNameByIndexW ( szmachinename : :: windows::core::PCWSTR , dwnameindex : u32 , sznamebuffer : :: windows::core::PWSTR , pcchnamebuffersize : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhLookupPerfNameByIndexW ( szmachinename : ::windows::core::PCWSTR , dwnameindex : u32 , sznamebuffer : ::windows::core::PWSTR , pcchnamebuffersize : *mut u32 ) -> u32 );
     PdhLookupPerfNameByIndexW(szmachinename.into_param().abi(), dwnameindex, ::core::mem::transmute(sznamebuffer), pcchnamebuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhMakeCounterPathA ( pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_A , szfullpathbuffer : :: windows::core::PSTR , pcchbuffersize : *mut u32 , dwflags : PDH_PATH_FLAGS ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhMakeCounterPathA ( pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_A , szfullpathbuffer : ::windows::core::PSTR , pcchbuffersize : *mut u32 , dwflags : PDH_PATH_FLAGS ) -> u32 );
     PdhMakeCounterPathA(pcounterpathelements, ::core::mem::transmute(szfullpathbuffer), pcchbuffersize, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhMakeCounterPathW ( pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_W , szfullpathbuffer : :: windows::core::PWSTR , pcchbuffersize : *mut u32 , dwflags : PDH_PATH_FLAGS ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhMakeCounterPathW ( pcounterpathelements : *const PDH_COUNTER_PATH_ELEMENTS_W , szfullpathbuffer : ::windows::core::PWSTR , pcchbuffersize : *mut u32 , dwflags : PDH_PATH_FLAGS ) -> u32 );
     PdhMakeCounterPathW(pcounterpathelements, ::core::mem::transmute(szfullpathbuffer), pcchbuffersize, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -668,7 +668,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenLogA ( szlogfilename : :: windows::core::PCSTR , dwaccessflags : PDH_LOG , lpdwlogtype : *mut PDH_LOG_TYPE , hquery : isize , dwmaxsize : u32 , szusercaption : :: windows::core::PCSTR , phlog : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenLogA ( szlogfilename : ::windows::core::PCSTR , dwaccessflags : PDH_LOG , lpdwlogtype : *mut PDH_LOG_TYPE , hquery : isize , dwmaxsize : u32 , szusercaption : ::windows::core::PCSTR , phlog : *mut isize ) -> u32 );
     PdhOpenLogA(szlogfilename.into_param().abi(), dwaccessflags, lpdwlogtype, hquery, dwmaxsize, szusercaption.into_param().abi(), phlog)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -678,7 +678,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenLogW ( szlogfilename : :: windows::core::PCWSTR , dwaccessflags : PDH_LOG , lpdwlogtype : *mut PDH_LOG_TYPE , hquery : isize , dwmaxsize : u32 , szusercaption : :: windows::core::PCWSTR , phlog : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenLogW ( szlogfilename : ::windows::core::PCWSTR , dwaccessflags : PDH_LOG , lpdwlogtype : *mut PDH_LOG_TYPE , hquery : isize , dwmaxsize : u32 , szusercaption : ::windows::core::PCWSTR , phlog : *mut isize ) -> u32 );
     PdhOpenLogW(szlogfilename.into_param().abi(), dwaccessflags, lpdwlogtype, hquery, dwmaxsize, szusercaption.into_param().abi(), phlog)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -687,7 +687,7 @@ pub unsafe fn PdhOpenQueryA<P0>(szdatasource: P0, dwuserdata: usize, phquery: *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenQueryA ( szdatasource : :: windows::core::PCSTR , dwuserdata : usize , phquery : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenQueryA ( szdatasource : ::windows::core::PCSTR , dwuserdata : usize , phquery : *mut isize ) -> u32 );
     PdhOpenQueryA(szdatasource.into_param().abi(), dwuserdata, phquery)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -702,7 +702,7 @@ pub unsafe fn PdhOpenQueryW<P0>(szdatasource: P0, dwuserdata: usize, phquery: *m
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenQueryW ( szdatasource : :: windows::core::PCWSTR , dwuserdata : usize , phquery : *mut isize ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhOpenQueryW ( szdatasource : ::windows::core::PCWSTR , dwuserdata : usize , phquery : *mut isize ) -> u32 );
     PdhOpenQueryW(szdatasource.into_param().abi(), dwuserdata, phquery)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -711,7 +711,7 @@ pub unsafe fn PdhParseCounterPathA<P0>(szfullpathbuffer: P0, pcounterpathelement
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseCounterPathA ( szfullpathbuffer : :: windows::core::PCSTR , pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_A , pdwbuffersize : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseCounterPathA ( szfullpathbuffer : ::windows::core::PCSTR , pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_A , pdwbuffersize : *mut u32 , dwflags : u32 ) -> u32 );
     PdhParseCounterPathA(szfullpathbuffer.into_param().abi(), ::core::mem::transmute(pcounterpathelements.unwrap_or(::std::ptr::null_mut())), pdwbuffersize, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -720,7 +720,7 @@ pub unsafe fn PdhParseCounterPathW<P0>(szfullpathbuffer: P0, pcounterpathelement
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseCounterPathW ( szfullpathbuffer : :: windows::core::PCWSTR , pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_W , pdwbuffersize : *mut u32 , dwflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseCounterPathW ( szfullpathbuffer : ::windows::core::PCWSTR , pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_W , pdwbuffersize : *mut u32 , dwflags : u32 ) -> u32 );
     PdhParseCounterPathW(szfullpathbuffer.into_param().abi(), ::core::mem::transmute(pcounterpathelements.unwrap_or(::std::ptr::null_mut())), pdwbuffersize, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -729,7 +729,7 @@ pub unsafe fn PdhParseInstanceNameA<P0>(szinstancestring: P0, szinstancename: ::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseInstanceNameA ( szinstancestring : :: windows::core::PCSTR , szinstancename : :: windows::core::PSTR , pcchinstancenamelength : *mut u32 , szparentname : :: windows::core::PSTR , pcchparentnamelength : *mut u32 , lpindex : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseInstanceNameA ( szinstancestring : ::windows::core::PCSTR , szinstancename : ::windows::core::PSTR , pcchinstancenamelength : *mut u32 , szparentname : ::windows::core::PSTR , pcchparentnamelength : *mut u32 , lpindex : *mut u32 ) -> u32 );
     PdhParseInstanceNameA(szinstancestring.into_param().abi(), ::core::mem::transmute(szinstancename), pcchinstancenamelength, ::core::mem::transmute(szparentname), pcchparentnamelength, lpindex)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -738,7 +738,7 @@ pub unsafe fn PdhParseInstanceNameW<P0>(szinstancestring: P0, szinstancename: ::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseInstanceNameW ( szinstancestring : :: windows::core::PCWSTR , szinstancename : :: windows::core::PWSTR , pcchinstancenamelength : *mut u32 , szparentname : :: windows::core::PWSTR , pcchparentnamelength : *mut u32 , lpindex : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhParseInstanceNameW ( szinstancestring : ::windows::core::PCWSTR , szinstancename : ::windows::core::PWSTR , pcchinstancenamelength : *mut u32 , szparentname : ::windows::core::PWSTR , pcchparentnamelength : *mut u32 , lpindex : *mut u32 ) -> u32 );
     PdhParseInstanceNameW(szinstancestring.into_param().abi(), ::core::mem::transmute(szinstancename), pcchinstancenamelength, ::core::mem::transmute(szparentname), pcchparentnamelength, lpindex)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -761,7 +761,7 @@ pub unsafe fn PdhSelectDataSourceA<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_S
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhSelectDataSourceA ( hwndowner : super::super::Foundation:: HWND , dwflags : PDH_SELECT_DATA_SOURCE_FLAGS , szdatasource : :: windows::core::PSTR , pcchbufferlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhSelectDataSourceA ( hwndowner : super::super::Foundation:: HWND , dwflags : PDH_SELECT_DATA_SOURCE_FLAGS , szdatasource : ::windows::core::PSTR , pcchbufferlength : *mut u32 ) -> u32 );
     PdhSelectDataSourceA(hwndowner.into_param().abi(), dwflags, ::core::mem::transmute(szdatasource), pcchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -771,7 +771,7 @@ pub unsafe fn PdhSelectDataSourceW<P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_S
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhSelectDataSourceW ( hwndowner : super::super::Foundation:: HWND , dwflags : PDH_SELECT_DATA_SOURCE_FLAGS , szdatasource : :: windows::core::PWSTR , pcchbufferlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhSelectDataSourceW ( hwndowner : super::super::Foundation:: HWND , dwflags : PDH_SELECT_DATA_SOURCE_FLAGS , szdatasource : ::windows::core::PWSTR , pcchbufferlength : *mut u32 ) -> u32 );
     PdhSelectDataSourceW(hwndowner.into_param().abi(), dwflags, ::core::mem::transmute(szdatasource), pcchbufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -804,7 +804,7 @@ pub unsafe fn PdhUpdateLogA<P0>(hlog: isize, szuserstring: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhUpdateLogA ( hlog : isize , szuserstring : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhUpdateLogA ( hlog : isize , szuserstring : ::windows::core::PCSTR ) -> u32 );
     PdhUpdateLogA(hlog, szuserstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -819,7 +819,7 @@ pub unsafe fn PdhUpdateLogW<P0>(hlog: isize, szuserstring: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhUpdateLogW ( hlog : isize , szuserstring : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhUpdateLogW ( hlog : isize , szuserstring : ::windows::core::PCWSTR ) -> u32 );
     PdhUpdateLogW(hlog, szuserstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -828,7 +828,7 @@ pub unsafe fn PdhValidatePathA<P0>(szfullpathbuffer: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathA ( szfullpathbuffer : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathA ( szfullpathbuffer : ::windows::core::PCSTR ) -> u32 );
     PdhValidatePathA(szfullpathbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -837,7 +837,7 @@ pub unsafe fn PdhValidatePathExA<P0>(hdatasource: isize, szfullpathbuffer: P0) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathExA ( hdatasource : isize , szfullpathbuffer : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathExA ( hdatasource : isize , szfullpathbuffer : ::windows::core::PCSTR ) -> u32 );
     PdhValidatePathExA(hdatasource, szfullpathbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -846,7 +846,7 @@ pub unsafe fn PdhValidatePathExW<P0>(hdatasource: isize, szfullpathbuffer: P0) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathExW ( hdatasource : isize , szfullpathbuffer : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathExW ( hdatasource : isize , szfullpathbuffer : ::windows::core::PCWSTR ) -> u32 );
     PdhValidatePathExW(hdatasource, szfullpathbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -855,7 +855,7 @@ pub unsafe fn PdhValidatePathW<P0>(szfullpathbuffer: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathW ( szfullpathbuffer : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhValidatePathW ( szfullpathbuffer : ::windows::core::PCWSTR ) -> u32 );
     PdhValidatePathW(szfullpathbuffer.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -864,7 +864,7 @@ pub unsafe fn PdhVerifySQLDBA<P0>(szdatasource: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhVerifySQLDBA ( szdatasource : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhVerifySQLDBA ( szdatasource : ::windows::core::PCSTR ) -> u32 );
     PdhVerifySQLDBA(szdatasource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -873,7 +873,7 @@ pub unsafe fn PdhVerifySQLDBW<P0>(szdatasource: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "pdh.dll""system" fn PdhVerifySQLDBW ( szdatasource : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "pdh.dll""system" fn PdhVerifySQLDBW ( szdatasource : ::windows::core::PCWSTR ) -> u32 );
     PdhVerifySQLDBW(szdatasource.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -902,7 +902,7 @@ where
     P0: ::windows::core::IntoParam<PerfProviderHandle>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfCreateInstance ( providerhandle : PerfProviderHandle , countersetguid : *const :: windows::core::GUID , name : :: windows::core::PCWSTR , id : u32 ) -> *mut PERF_COUNTERSET_INSTANCE );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfCreateInstance ( providerhandle : PerfProviderHandle , countersetguid : *const ::windows::core::GUID , name : ::windows::core::PCWSTR , id : u32 ) -> *mut PERF_COUNTERSET_INSTANCE );
     PerfCreateInstance(providerhandle.into_param().abi(), countersetguid, name.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -949,7 +949,7 @@ pub unsafe fn PerfEnumerateCounterSet<P0>(szmachine: P0, pcountersetids: ::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfEnumerateCounterSet ( szmachine : :: windows::core::PCWSTR , pcountersetids : *mut :: windows::core::GUID , ccountersetids : u32 , pccountersetidsactual : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfEnumerateCounterSet ( szmachine : ::windows::core::PCWSTR , pcountersetids : *mut ::windows::core::GUID , ccountersetids : u32 , pccountersetidsactual : *mut u32 ) -> u32 );
     PerfEnumerateCounterSet(szmachine.into_param().abi(), ::core::mem::transmute(pcountersetids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcountersetids.as_deref().map_or(0, |slice| slice.len() as _), pccountersetidsactual)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -958,7 +958,7 @@ pub unsafe fn PerfEnumerateCounterSetInstances<P0>(szmachine: P0, pcountersetid:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfEnumerateCounterSetInstances ( szmachine : :: windows::core::PCWSTR , pcountersetid : *const :: windows::core::GUID , pinstances : *mut PERF_INSTANCE_HEADER , cbinstances : u32 , pcbinstancesactual : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfEnumerateCounterSetInstances ( szmachine : ::windows::core::PCWSTR , pcountersetid : *const ::windows::core::GUID , pinstances : *mut PERF_INSTANCE_HEADER , cbinstances : u32 , pcbinstancesactual : *mut u32 ) -> u32 );
     PerfEnumerateCounterSetInstances(szmachine.into_param().abi(), pcountersetid, ::core::mem::transmute(pinstances.unwrap_or(::std::ptr::null_mut())), cbinstances, pcbinstancesactual)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -987,7 +987,7 @@ pub unsafe fn PerfOpenQueryHandle<P0>(szmachine: P0, phquery: *mut PerfQueryHand
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfOpenQueryHandle ( szmachine : :: windows::core::PCWSTR , phquery : *mut PerfQueryHandle ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfOpenQueryHandle ( szmachine : ::windows::core::PCWSTR , phquery : *mut PerfQueryHandle ) -> u32 );
     PerfOpenQueryHandle(szmachine.into_param().abi(), phquery)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -1015,7 +1015,7 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<P0>(szmachine: P0, pcounterset
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfQueryCounterSetRegistrationInfo ( szmachine : :: windows::core::PCWSTR , pcountersetid : *const :: windows::core::GUID , requestcode : PerfRegInfoType , requestlangid : u32 , pbreginfo : *mut u8 , cbreginfo : u32 , pcbreginfoactual : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfQueryCounterSetRegistrationInfo ( szmachine : ::windows::core::PCWSTR , pcountersetid : *const ::windows::core::GUID , requestcode : PerfRegInfoType , requestlangid : u32 , pbreginfo : *mut u8 , cbreginfo : u32 , pcbreginfoactual : *mut u32 ) -> u32 );
     PerfQueryCounterSetRegistrationInfo(szmachine.into_param().abi(), pcountersetid, requestcode, requestlangid, ::core::mem::transmute(pbreginfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbreginfo.as_deref().map_or(0, |slice| slice.len() as _), pcbreginfoactual)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -1026,7 +1026,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfQueryInstance ( providerhandle : super::super::Foundation:: HANDLE , countersetguid : *const :: windows::core::GUID , name : :: windows::core::PCWSTR , id : u32 ) -> *mut PERF_COUNTERSET_INSTANCE );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfQueryInstance ( providerhandle : super::super::Foundation:: HANDLE , countersetguid : *const ::windows::core::GUID , name : ::windows::core::PCWSTR , id : u32 ) -> *mut PERF_COUNTERSET_INSTANCE );
     PerfQueryInstance(providerhandle.into_param().abi(), countersetguid, name.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -1072,13 +1072,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfStartProvider ( providerguid : *const :: windows::core::GUID , controlcallback : PERFLIBREQUEST , phprovider : *mut PerfProviderHandle ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfStartProvider ( providerguid : *const ::windows::core::GUID , controlcallback : PERFLIBREQUEST , phprovider : *mut PerfProviderHandle ) -> u32 );
     PerfStartProvider(providerguid, controlcallback, phprovider)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: ::core::option::Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut PerfProviderHandle) -> u32 {
-    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfStartProviderEx ( providerguid : *const :: windows::core::GUID , providercontext : *const PERF_PROVIDER_CONTEXT , provider : *mut PerfProviderHandle ) -> u32 );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn PerfStartProviderEx ( providerguid : *const ::windows::core::GUID , providercontext : *const PERF_PROVIDER_CONTEXT , provider : *mut PerfProviderHandle ) -> u32 );
     PerfStartProviderEx(providerguid, ::core::mem::transmute(providercontext.unwrap_or(::std::ptr::null())), provider)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -1111,7 +1111,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn RestorePerfRegistryFromFileW ( szfilename : :: windows::core::PCWSTR , szlangid : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn RestorePerfRegistryFromFileW ( szfilename : ::windows::core::PCWSTR , szlangid : ::windows::core::PCWSTR ) -> u32 );
     RestorePerfRegistryFromFileW(szfilename.into_param().abi(), szlangid.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -1121,7 +1121,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn SetServiceAsTrustedA ( szreserved : :: windows::core::PCSTR , szservicename : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn SetServiceAsTrustedA ( szreserved : ::windows::core::PCSTR , szservicename : ::windows::core::PCSTR ) -> u32 );
     SetServiceAsTrustedA(szreserved.into_param().abi(), szservicename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -1131,7 +1131,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn SetServiceAsTrustedW ( szreserved : :: windows::core::PCWSTR , szservicename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn SetServiceAsTrustedW ( szreserved : ::windows::core::PCWSTR , szservicename : ::windows::core::PCWSTR ) -> u32 );
     SetServiceAsTrustedW(szreserved.into_param().abi(), szservicename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -1142,7 +1142,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn UnloadPerfCounterTextStringsA ( lpcommandline : :: windows::core::PCSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn UnloadPerfCounterTextStringsA ( lpcommandline : ::windows::core::PCSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
     UnloadPerfCounterTextStringsA(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -1153,7 +1153,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn UnloadPerfCounterTextStringsW ( lpcommandline : :: windows::core::PCWSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn UnloadPerfCounterTextStringsW ( lpcommandline : ::windows::core::PCWSTR , bquietmodearg : super::super::Foundation:: BOOL ) -> u32 );
     UnloadPerfCounterTextStringsW(lpcommandline.into_param().abi(), bquietmodearg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -1164,7 +1164,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn UpdatePerfNameFilesA ( sznewctrfilepath : :: windows::core::PCSTR , sznewhlpfilepath : :: windows::core::PCSTR , szlanguageid : :: windows::core::PCSTR , dwflags : usize ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn UpdatePerfNameFilesA ( sznewctrfilepath : ::windows::core::PCSTR , sznewhlpfilepath : ::windows::core::PCSTR , szlanguageid : ::windows::core::PCSTR , dwflags : usize ) -> u32 );
     UpdatePerfNameFilesA(sznewctrfilepath.into_param().abi(), sznewhlpfilepath.into_param().abi(), szlanguageid.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -1175,7 +1175,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "loadperf.dll""system" fn UpdatePerfNameFilesW ( sznewctrfilepath : :: windows::core::PCWSTR , sznewhlpfilepath : :: windows::core::PCWSTR , szlanguageid : :: windows::core::PCWSTR , dwflags : usize ) -> u32 );
+    ::windows::imp::link ! ( "loadperf.dll""system" fn UpdatePerfNameFilesW ( sznewctrfilepath : ::windows::core::PCWSTR , sznewhlpfilepath : ::windows::core::PCWSTR , szlanguageid : ::windows::core::PCWSTR , dwflags : usize ) -> u32 );
     UpdatePerfNameFilesW(sznewctrfilepath.into_param().abi(), sznewhlpfilepath.into_param().abi(), szlanguageid.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
@@ -7792,7 +7792,7 @@ pub const PDH_WBEM_ERROR: u32 = 3221228506u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_INSTANCE: ::windows::core::PCWSTR = ::windows::w!("_Total");
+pub const PERF_AGGREGATE_INSTANCE: ::windows::core::PCWSTR = ::windows::core::w!("_Total");
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7920,7 +7920,7 @@ pub const PERF_TYPE_ZERO: u32 = 3072u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_WILDCARD_INSTANCE: ::windows::core::PCWSTR = ::windows::w!("*");
+pub const PERF_WILDCARD_INSTANCE: ::windows::core::PCWSTR = ::windows::core::w!("*");
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PLAL_ALERT_CMD_LINE_A_NAME: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

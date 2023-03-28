@@ -373,7 +373,7 @@ where
     P0: ::windows::core::IntoParam<super::StructuredStorage::JET_SESID>,
     P1: ::windows::core::IntoParam<super::StructuredStorage::JET_TABLEID>,
 {
-    ::windows::imp::link ! ( "esent.dll""system" fn JetCreateIndexA ( sesid : super::StructuredStorage:: JET_SESID , tableid : super::StructuredStorage:: JET_TABLEID , szindexname : *const i8 , grbit : u32 , szkey : :: windows::core::PCSTR , cbkey : u32 , ldensity : u32 ) -> i32 );
+    ::windows::imp::link ! ( "esent.dll""system" fn JetCreateIndexA ( sesid : super::StructuredStorage:: JET_SESID , tableid : super::StructuredStorage:: JET_TABLEID , szindexname : *const i8 , grbit : u32 , szkey : ::windows::core::PCSTR , cbkey : u32 , ldensity : u32 ) -> i32 );
     JetCreateIndexA(sesid.into_param().abi(), tableid.into_param().abi(), szindexname, grbit, ::core::mem::transmute(szkey.as_ptr()), szkey.len() as _, ldensity)
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
@@ -385,7 +385,7 @@ where
     P1: ::windows::core::IntoParam<super::StructuredStorage::JET_TABLEID>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "esent.dll""system" fn JetCreateIndexW ( sesid : super::StructuredStorage:: JET_SESID , tableid : super::StructuredStorage:: JET_TABLEID , szindexname : *const u16 , grbit : u32 , szkey : :: windows::core::PCWSTR , cbkey : u32 , ldensity : u32 ) -> i32 );
+    ::windows::imp::link ! ( "esent.dll""system" fn JetCreateIndexW ( sesid : super::StructuredStorage:: JET_SESID , tableid : super::StructuredStorage:: JET_TABLEID , szindexname : *const u16 , grbit : u32 , szkey : ::windows::core::PCWSTR , cbkey : u32 , ldensity : u32 ) -> i32 );
     JetCreateIndexW(sesid.into_param().abi(), tableid.into_param().abi(), szindexname, grbit, szkey.into_param().abi(), cbkey, ldensity)
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
@@ -840,7 +840,7 @@ pub unsafe fn JetFreeBuffer<P0>(pbbuf: P0) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "esent.dll""system" fn JetFreeBuffer ( pbbuf : :: windows::core::PCSTR ) -> i32 );
+    ::windows::imp::link ! ( "esent.dll""system" fn JetFreeBuffer ( pbbuf : ::windows::core::PCSTR ) -> i32 );
     JetFreeBuffer(pbbuf.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
@@ -4112,11 +4112,11 @@ pub const JET_wrnTargetInstanceRunning: u32 = 578u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_wrnUniqueKey: u32 = 345u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreReadControl: ::windows::core::PCWSTR = ::windows::w!("CsReadControl");
+pub const JET_wszConfigStoreReadControl: ::windows::core::PCWSTR = ::windows::core::w!("CsReadControl");
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreRelPathSysParamDefault: ::windows::core::PCWSTR = ::windows::w!("SysParamDefault");
+pub const JET_wszConfigStoreRelPathSysParamDefault: ::windows::core::PCWSTR = ::windows::core::w!("SysParamDefault");
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreRelPathSysParamOverride: ::windows::core::PCWSTR = ::windows::w!("SysParamOverride");
+pub const JET_wszConfigStoreRelPathSysParamOverride: ::windows::core::PCWSTR = ::windows::core::w!("SysParamOverride");
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const cColumnInfoCols: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]

@@ -8,7 +8,7 @@ pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mapi32.dll""system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> ::windows::core::HRESULT );
     GetAttribIMsgOnIStg(lpobject, lpproptagarray, lpppropattrarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
@@ -42,7 +42,7 @@ where
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "mapi32.dll""system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> ::windows::core::HRESULT );
     SetAttribIMsgOnIStg(lpobject, lpproptags, lppropattrs, lpppropproblems).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
@@ -7238,9 +7238,9 @@ pub const GUID_SMTP_SOURCE_TYPE: ::windows::core::GUID = ::windows::core::GUID::
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_STR: ::windows::core::PCSTR = ::windows::s!("1.0");
+pub const IMAPI2FS_FullVersion_STR: ::windows::core::PCSTR = ::windows::core::s!("1.0");
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_WSTR: ::windows::core::PCWSTR = ::windows::w!("1.0");
+pub const IMAPI2FS_FullVersion_WSTR: ::windows::core::PCWSTR = ::windows::core::w!("1.0");
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
@@ -7464,7 +7464,7 @@ pub const RP_UNRESOLVED: u32 = 4144u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const SZ_PROGID_SMTPCAT: ::windows::core::PCSTR = ::windows::s!("Smtp.Cat");
+pub const SZ_PROGID_SMTPCAT: ::windows::core::PCSTR = ::windows::core::s!("Smtp.Cat");
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_CPV_STRUCT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]

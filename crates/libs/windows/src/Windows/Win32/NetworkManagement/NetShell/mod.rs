@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : ::windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
     MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), dwnumarg, penumtable, pdwvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netsh.dll""system" fn MatchToken ( pwszusertoken : :: windows::core::PCWSTR , pwszcmdtoken : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "netsh.dll""system" fn MatchToken ( pwszusertoken : ::windows::core::PCWSTR , pwszcmdtoken : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -27,7 +27,7 @@ pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "netsh.dll""system" fn PreprocessCommand ( hmodule : super::super::Foundation:: HANDLE , ppwcarguments : *mut :: windows::core::PWSTR , dwcurrentindex : u32 , dwargcount : u32 , ptttags : *mut TAG_TYPE , dwtagcount : u32 , dwminargs : u32 , dwmaxargs : u32 , pdwtagtype : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""system" fn PreprocessCommand ( hmodule : super::super::Foundation:: HANDLE , ppwcarguments : *mut ::windows::core::PWSTR , dwcurrentindex : u32 , dwargcount : u32 , ptttags : *mut TAG_TYPE , dwtagcount : u32 , dwminargs : u32 , dwmaxargs : u32 , pdwtagtype : *mut u32 ) -> u32 );
     PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len() as _), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -46,7 +46,7 @@ pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netsh.dll""cdecl" fn PrintMessage ( pwszformat : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""cdecl" fn PrintMessage ( pwszformat : ::windows::core::PCWSTR ) -> u32 );
     PrintMessage(pwszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    ::windows::imp::link ! ( "netsh.dll""system" fn RegisterHelper ( pguidparentcontext : *const :: windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""system" fn RegisterHelper ( pguidparentcontext : *const ::windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
     RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -117,13 +117,13 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const GET_RESOURCE_STRING_FN_NAME: ::windows::core::PCSTR = ::windows::s!("GetResourceString");
+pub const GET_RESOURCE_STRING_FN_NAME: ::windows::core::PCSTR = ::windows::core::s!("GetResourceString");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_ARG_DELIMITER: ::windows::core::PCWSTR = ::windows::w!("=");
+pub const NETSH_ARG_DELIMITER: ::windows::core::PCWSTR = ::windows::core::w!("=");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_CMD_DELIMITER: ::windows::core::PCWSTR = ::windows::w!(" ");
+pub const NETSH_CMD_DELIMITER: ::windows::core::PCWSTR = ::windows::core::w!(" ");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -135,7 +135,7 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_GET_EVENT_IDS_FN_NAME: ::windows::core::PCSTR = ::windows::s!("GetEventIds");
+pub const NS_GET_EVENT_IDS_FN_NAME: ::windows::core::PCSTR = ::windows::core::s!("GetEventIds");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -80,7 +80,7 @@ pub unsafe fn SysAddRefString<P0>(bstrstring: P0) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<::windows::core::BSTR>,
 {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ::windows::core::HRESULT );
     SysAddRefString(bstrstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -89,19 +89,19 @@ pub unsafe fn SysAllocString<P0>(psz: P0) -> ::windows::core::BSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocString ( psz : :: windows::core::PCWSTR ) -> :: windows::core::BSTR );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocString ( psz : ::windows::core::PCWSTR ) -> ::windows::core::BSTR );
     SysAllocString(psz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> ::windows::core::BSTR {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocStringByteLen ( psz : :: windows::core::PCSTR , len : u32 ) -> :: windows::core::BSTR );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocStringByteLen ( psz : ::windows::core::PCSTR , len : u32 ) -> ::windows::core::BSTR );
     SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::windows::core::BSTR {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocStringLen ( strin : :: windows::core::PCWSTR , ui : u32 ) -> :: windows::core::BSTR );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysAllocStringLen ( strin : ::windows::core::PCWSTR , ui : u32 ) -> ::windows::core::BSTR );
     SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn SysReAllocString<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR ) -> i32 );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : ::windows::core::PCWSTR ) -> i32 );
     SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -128,7 +128,7 @@ pub unsafe fn SysReAllocStringLen<P0>(pbstr: *mut ::windows::core::BSTR, psz: P0
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : :: windows::core::PCWSTR , len : u32 ) -> i32 );
+    ::windows::imp::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > , psz : ::windows::core::PCWSTR , len : u32 ) -> i32 );
     SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]

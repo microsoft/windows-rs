@@ -4,7 +4,7 @@ pub unsafe fn CoGetInterceptor<P0>(iidintercepted: *const ::windows::core::GUID,
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptor ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptor ( iidintercepted : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CoGetInterceptor(iidintercepted, punkouter.into_param().abi(), iid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
@@ -14,7 +14,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     P1: ::windows::core::IntoParam<super::ITypeInfo>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void , typeinfo : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void , typeinfo : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into_param().abi(), typeinfo.into_param().abi(), iid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]

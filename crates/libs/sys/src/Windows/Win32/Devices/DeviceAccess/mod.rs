@@ -1,4 +1,4 @@
-::windows_sys::core::link ! ( "deviceaccess.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"] fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows_sys::core::PCWSTR , desiredaccess : u32 , createasync : *mut ICreateDeviceAccessAsync ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "deviceaccess.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"] fn CreateDeviceAccessInstance ( deviceinterfacepath : ::windows_sys::core::PCWSTR , desiredaccess : u32 , createasync : *mut ICreateDeviceAccessAsync ) -> ::windows_sys::core::HRESULT );
 pub type ICreateDeviceAccessAsync = *mut ::core::ffi::c_void;
 pub type IDeviceIoControl = *mut ::core::ffi::c_void;
 pub type IDeviceRequestCompletionCallback = *mut ::core::ffi::c_void;

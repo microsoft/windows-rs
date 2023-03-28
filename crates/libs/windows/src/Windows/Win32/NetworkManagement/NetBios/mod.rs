@@ -6,7 +6,7 @@ pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     Netbios(pncb)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
-pub const ALL_TRANSPORTS: ::windows::core::PCSTR = ::windows::s!("M\u{0}\u{0}\u{0}");
+pub const ALL_TRANSPORTS: ::windows::core::PCSTR = ::windows::core::s!("M\u{0}\u{0}\u{0}");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const ASYNCH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
@@ -28,7 +28,7 @@ pub const LISTEN_OUTSTANDING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const MAX_LANA: u32 = 254u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
-pub const MS_NBF: ::windows::core::PCSTR = ::windows::s!("MNBF");
+pub const MS_NBF: ::windows::core::PCSTR = ::windows::core::s!("MNBF");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]

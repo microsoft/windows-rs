@@ -101,9 +101,9 @@ pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const CCF_SCESVC_ATTACHMENT: ::windows::core::PCWSTR = ::windows::w!("CCF_SCESVC_ATTACHMENT");
+pub const CCF_SCESVC_ATTACHMENT: ::windows::core::PCWSTR = ::windows::core::w!("CCF_SCESVC_ATTACHMENT");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const CCF_SCESVC_ATTACHMENT_DATA: ::windows::core::PCWSTR = ::windows::w!("CCF_SCESVC_ATTACHMENT_DATA");
+pub const CCF_SCESVC_ATTACHMENT_DATA: ::windows::core::PCWSTR = ::windows::core::w!("CCF_SCESVC_ATTACHMENT_DATA");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -147,7 +147,7 @@ pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_ROOT_PATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit");
+pub const SCE_ROOT_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -155,17 +155,17 @@ pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::f
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const lstruuidNodetypeSceAnalysisServices: ::windows::core::PCWSTR = ::windows::w!("{678050c7-1ff8-11d1-affb-00c04fb984f9}");
+pub const lstruuidNodetypeSceAnalysisServices: ::windows::core::PCWSTR = ::windows::core::w!("{678050c7-1ff8-11d1-affb-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const lstruuidNodetypeSceEventLog: ::windows::core::PCWSTR = ::windows::w!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
+pub const lstruuidNodetypeSceEventLog: ::windows::core::PCWSTR = ::windows::core::w!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const lstruuidNodetypeSceTemplateServices: ::windows::core::PCWSTR = ::windows::w!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
+pub const lstruuidNodetypeSceTemplateServices: ::windows::core::PCWSTR = ::windows::core::w!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const struuidNodetypeSceAnalysisServices: ::windows::core::PCSTR = ::windows::s!("{678050c7-1ff8-11d1-affb-00c04fb984f9}");
+pub const struuidNodetypeSceAnalysisServices: ::windows::core::PCSTR = ::windows::core::s!("{678050c7-1ff8-11d1-affb-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const struuidNodetypeSceEventLog: ::windows::core::PCSTR = ::windows::s!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
+pub const struuidNodetypeSceEventLog: ::windows::core::PCSTR = ::windows::core::s!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const struuidNodetypeSceTemplateServices: ::windows::core::PCSTR = ::windows::s!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
+pub const struuidNodetypeSceTemplateServices: ::windows::core::PCSTR = ::windows::core::s!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

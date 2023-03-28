@@ -28,7 +28,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImage ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImage ( imagename : ::windows::core::PCSTR , dllpath : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     BindImage(imagename.into_param().abi(), dllpath.into_param().abi(), symbolpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -40,7 +40,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImageEx ( flags : u32 , imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , statusroutine : PIMAGEHLP_STATUS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn BindImageEx ( flags : u32 , imagename : ::windows::core::PCSTR , dllpath : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , statusroutine : PIMAGEHLP_STATUS_ROUTINE ) -> super::super::super::Foundation:: BOOL );
     BindImageEx(flags, imagename.into_param().abi(), dllpath.into_param().abi(), symbolpath.into_param().abi(), statusroutine)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -98,7 +98,7 @@ pub unsafe fn CreateDataModelManager<P0>(debughost: P0) -> ::windows::core::Resu
 where
     P0: ::windows::core::IntoParam<IDebugHost>,
 {
-    ::windows::imp::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgmodel.dll""system" fn CreateDataModelManager ( debughost : * mut::core::ffi::c_void , manager : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IDataModelManager>();
     CreateDataModelManager(debughost.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -109,7 +109,7 @@ pub unsafe fn DbgHelpCreateUserDump<P0>(filename: P0, callback: PDBGHELP_CREATE_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDump ( filename : :: windows::core::PCSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDump ( filename : ::windows::core::PCSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     DbgHelpCreateUserDump(filename.into_param().abi(), callback, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn DbgHelpCreateUserDumpW<P0>(filename: P0, callback: PDBGHELP_CREATE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDumpW ( filename : :: windows::core::PCWSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn DbgHelpCreateUserDumpW ( filename : ::windows::core::PCWSTR , callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK , userdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     DbgHelpCreateUserDumpW(filename.into_param().abi(), callback, ::core::mem::transmute(userdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -158,7 +158,7 @@ pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const ::windows:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : :: windows::core::PCSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnect ( remoteoptions : ::windows::core::PCSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DebugConnect(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const ::wind
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : :: windows::core::PCWSTR , interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugConnectWide ( remoteoptions : ::windows::core::PCWSTR , interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DebugConnectWide(remoteoptions.into_param().abi(), interfaceid, interface).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -176,7 +176,7 @@ pub unsafe fn DebugCreate<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const :: windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreate ( interfaceid : *const ::windows::core::GUID , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreate(&<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -186,7 +186,7 @@ pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const :: windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dbgeng.dll""system" fn DebugCreateEx ( interfaceid : *const ::windows::core::GUID , dbgengoptions : u32 , interface : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DebugCreateEx(&<T as ::windows::core::ComInterface>::IID, dbgengoptions, &mut result__).from_abi(result__)
 }
@@ -213,7 +213,7 @@ pub unsafe fn DecodeRemotePointer<P0>(processhandle: P0, ptr: ::core::option::Op
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn DecodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , decodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn DecodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , decodedptr : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DecodeRemotePointer(processhandle.into_param().abi(), ::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())), decodedptr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -235,7 +235,7 @@ pub unsafe fn EncodeRemotePointer<P0>(processhandle: P0, ptr: ::core::option::Op
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn EncodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , encodedptr : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-util-l1-1-1.dll""system" fn EncodeRemotePointer ( processhandle : super::super::super::Foundation:: HANDLE , ptr : *const ::core::ffi::c_void , encodedptr : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     EncodeRemotePointer(processhandle.into_param().abi(), ::core::mem::transmute(ptr.unwrap_or(::std::ptr::null())), encodedptr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -253,7 +253,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTree ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR , cb : PENUMDIRTREE_CALLBACK , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTree ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : ::windows::core::PCSTR , inputpathname : ::windows::core::PCSTR , outputpathbuffer : ::windows::core::PSTR , cb : PENUMDIRTREE_CALLBACK , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumDirTree(hprocess.into_param().abi(), rootpath.into_param().abi(), inputpathname.into_param().abi(), ::core::mem::transmute(outputpathbuffer), cb, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -265,7 +265,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTreeW ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR , cb : PENUMDIRTREE_CALLBACKW , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn EnumDirTreeW ( hprocess : super::super::super::Foundation:: HANDLE , rootpath : ::windows::core::PCWSTR , inputpathname : ::windows::core::PCWSTR , outputpathbuffer : ::windows::core::PWSTR , cb : PENUMDIRTREE_CALLBACKW , data : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     EnumDirTreeW(hprocess.into_param().abi(), rootpath.into_param().abi(), inputpathname.into_param().abi(), ::core::mem::transmute(outputpathbuffer), cb, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -325,7 +325,7 @@ pub unsafe fn FatalAppExitA<P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitA ( uaction : u32 , lpmessagetext : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitA ( uaction : u32 , lpmessagetext : ::windows::core::PCSTR ) -> ( ) );
     FatalAppExitA(uaction, lpmessagetext.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -334,7 +334,7 @@ pub unsafe fn FatalAppExitW<P0>(uaction: u32, lpmessagetext: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitW ( uaction : u32 , lpmessagetext : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FatalAppExitW ( uaction : u32 , lpmessagetext : ::windows::core::PCWSTR ) -> ( ) );
     FatalAppExitW(uaction, lpmessagetext.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -351,7 +351,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFile ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFile ( filename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , debugfilepath : ::windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFile(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -363,7 +363,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileEx ( filename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , debugfilepath : ::windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFileEx(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -375,7 +375,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindDebugInfoFileExW ( filename : ::windows::core::PCWSTR , symbolpath : ::windows::core::PCWSTR , debugfilepath : ::windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindDebugInfoFileExW(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -387,7 +387,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImage ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImage ( filename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , imagefilepath : ::windows::core::PSTR ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImage(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -399,7 +399,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageEx ( filename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageEx ( filename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , imagefilepath : ::windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImageEx(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -411,7 +411,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageExW ( filename : :: windows::core::PCWSTR , symbolpath : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindExecutableImageExW ( filename : ::windows::core::PCWSTR , symbolpath : ::windows::core::PCWSTR , imagefilepath : ::windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = FindExecutableImageExW(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -424,7 +424,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : u32 , filepath : ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     FindFileInPath(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), id, two, three, flags, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -436,7 +436,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , one : u32 , two : u32 , three : u32 , filepath : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn FindFileInSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , one : u32 , two : u32 , three : u32 , filepath : ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     FindFileInSearchPath(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), one, two, three, ::core::mem::transmute(filepath))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -452,13 +452,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: ::core::option::Option<*const ::core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PSTR, nsize: u32, arguments: ::core::option::Option<*const *const i8>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageA ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageA ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : ::windows::core::PSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
     FormatMessageA(dwflags, ::core::mem::transmute(lpsource.unwrap_or(::std::ptr::null())), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: ::core::option::Option<*const ::core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: ::core::option::Option<*const *const i8>) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageW ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : :: windows::core::PWSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FormatMessageW ( dwflags : FORMAT_MESSAGE_OPTIONS , lpsource : *const ::core::ffi::c_void , dwmessageid : u32 , dwlanguageid : u32 , lpbuffer : ::windows::core::PWSTR , nsize : u32 , arguments : *const *const i8 ) -> u32 );
     FormatMessageW(dwflags, ::core::mem::transmute(lpsource.unwrap_or(::std::ptr::null())), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -632,7 +632,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageLoad ( dllname : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR ) -> *mut LOADED_IMAGE );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ImageLoad ( dllname : ::windows::core::PCSTR , dllpath : ::windows::core::PCSTR ) -> *mut LOADED_IMAGE );
     ImageLoad(dllname.into_param().abi(), dllpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -748,7 +748,7 @@ pub unsafe fn MakeSureDirectoryPathExists<P0>(dirpath: P0) -> super::super::supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn MakeSureDirectoryPathExists ( dirpath : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn MakeSureDirectoryPathExists ( dirpath : ::windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     MakeSureDirectoryPathExists(dirpath.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -761,7 +761,7 @@ where
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     P3: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapAndLoad ( imagename : :: windows::core::PCSTR , dllpath : :: windows::core::PCSTR , loadedimage : *mut LOADED_IMAGE , dotdll : super::super::super::Foundation:: BOOL , readonly : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapAndLoad ( imagename : ::windows::core::PCSTR , dllpath : ::windows::core::PCSTR , loadedimage : *mut LOADED_IMAGE , dotdll : super::super::super::Foundation:: BOOL , readonly : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     MapAndLoad(imagename.into_param().abi(), dllpath.into_param().abi(), loadedimage, dotdll.into_param().abi(), readonly.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -770,7 +770,7 @@ pub unsafe fn MapFileAndCheckSumA<P0>(filename: P0, headersum: *mut u32, checksu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumA ( filename : :: windows::core::PCSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumA ( filename : ::windows::core::PCSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
     MapFileAndCheckSumA(filename.into_param().abi(), headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -779,7 +779,7 @@ pub unsafe fn MapFileAndCheckSumW<P0>(filename: P0, headersum: *mut u32, checksu
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumW ( filename : :: windows::core::PCWSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn MapFileAndCheckSumW ( filename : ::windows::core::PCWSTR , headersum : *mut u32 , checksum : *mut u32 ) -> u32 );
     MapFileAndCheckSumW(filename.into_param().abi(), headersum, checksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -820,7 +820,7 @@ pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringA ( lpoutputstring : :: windows::core::PCSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringA ( lpoutputstring : ::windows::core::PCSTR ) -> ( ) );
     OutputDebugStringA(lpoutputstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -829,7 +829,7 @@ pub unsafe fn OutputDebugStringW<P0>(lpoutputstring: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringW ( lpoutputstring : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn OutputDebugStringW ( lpoutputstring : ::windows::core::PCWSTR ) -> ( ) );
     OutputDebugStringW(lpoutputstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -852,7 +852,7 @@ pub unsafe fn RangeMapAddPeImageSections<P0>(rmaphandle: *const ::core::ffi::c_v
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapAddPeImageSections ( rmaphandle : *const ::core::ffi::c_void , imagename : :: windows::core::PCWSTR , mappedimage : *const ::core::ffi::c_void , mappingbytes : u32 , imagebase : u64 , usertag : u64 , mappingflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn RangeMapAddPeImageSections ( rmaphandle : *const ::core::ffi::c_void , imagename : ::windows::core::PCWSTR , mappedimage : *const ::core::ffi::c_void , mappingbytes : u32 , imagebase : u64 , usertag : u64 , mappingflags : u32 ) -> super::super::super::Foundation:: BOOL );
     RangeMapAddPeImageSections(rmaphandle, imagename.into_param().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -899,7 +899,7 @@ where
     P3: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     P4: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut usize , newimagesize : *mut u32 , newimagebase : *mut usize , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage ( currentimagename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut usize , newimagesize : *mut u32 , newimagebase : *mut usize , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
     ReBaseImage(currentimagename.into_param().abi(), symbolpath.into_param().abi(), frebase.into_param().abi(), frebasesysfileok.into_param().abi(), fgoingdown.into_param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -913,7 +913,7 @@ where
     P3: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     P4: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage64 ( currentimagename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut u64 , newimagesize : *mut u32 , newimagebase : *mut u64 , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn ReBaseImage64 ( currentimagename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , frebase : super::super::super::Foundation:: BOOL , frebasesysfileok : super::super::super::Foundation:: BOOL , fgoingdown : super::super::super::Foundation:: BOOL , checkimagesize : u32 , oldimagesize : *mut u32 , oldimagebase : *mut u64 , newimagesize : *mut u32 , newimagebase : *mut u64 , timestamp : u32 ) -> super::super::super::Foundation:: BOOL );
     ReBaseImage64(currentimagename.into_param().abi(), symbolpath.into_param().abi(), frebase.into_param().abi(), frebasesysfileok.into_param().abi(), fgoingdown.into_param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -962,7 +962,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn ReportSymbolLoadSummary ( hprocess : super::super::super::Foundation:: HANDLE , ploadmodule : :: windows::core::PCWSTR , psymboldata : *const DBGHELP_DATA_REPORT_STRUCT ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn ReportSymbolLoadSummary ( hprocess : super::super::super::Foundation:: HANDLE , ploadmodule : ::windows::core::PCWSTR , psymboldata : *const DBGHELP_DATA_REPORT_STRUCT ) -> super::super::super::Foundation:: BOOL );
     ReportSymbolLoadSummary(hprocess.into_param().abi(), ploadmodule.into_param().abi(), psymboldata)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1054,7 +1054,7 @@ pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddr
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), outofprocesscallbackdll.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1065,7 +1065,7 @@ pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddr
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn RtlInstallFunctionTableCallback ( tableidentifier : u64 , baseaddress : u64 , length : u32 , callback : PGET_RUNTIME_FUNCTION_CALLBACK , context : *const ::core::ffi::c_void , outofprocesscallbackdll : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), outofprocesscallbackdll.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -1141,7 +1141,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFile ( rootpath : :: windows::core::PCSTR , inputpathname : :: windows::core::PCSTR , outputpathbuffer : :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFile ( rootpath : ::windows::core::PCSTR , inputpathname : ::windows::core::PCSTR , outputpathbuffer : ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     SearchTreeForFile(rootpath.into_param().abi(), inputpathname.into_param().abi(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1152,7 +1152,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFileW ( rootpath : :: windows::core::PCWSTR , inputpathname : :: windows::core::PCWSTR , outputpathbuffer : :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SearchTreeForFileW ( rootpath : ::windows::core::PCWSTR , inputpathname : ::windows::core::PCWSTR , outputpathbuffer : ::windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
     SearchTreeForFileW(rootpath.into_param().abi(), inputpathname.into_param().abi(), ::core::mem::transmute(outputpathbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -1263,7 +1263,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStream ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStream ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : ::windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStream(hprocess.into_param().abi(), base, streamfile.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1274,7 +1274,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamA ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : :: windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamA ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , streamfile : ::windows::core::PCSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStreamA(hprocess.into_param().abi(), base, streamfile.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1285,7 +1285,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSourceStreamW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCWSTR , buffer : *const u8 , size : usize ) -> super::super::super::Foundation:: BOOL );
     SymAddSourceStreamW(hprocess.into_param().abi(), base, filespec.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1296,7 +1296,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymAddSymbol(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1307,7 +1307,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymAddSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCWSTR , address : u64 , size : u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymAddSymbolW(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), address, size, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1348,7 +1348,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbol ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymDeleteSymbol(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1359,7 +1359,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymDeleteSymbolW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCWSTR , address : u64 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymDeleteSymbolW(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), address, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1371,7 +1371,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : ::windows::core::PCSTR , file : ::windows::core::PCSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumLines(hprocess.into_param().abi(), base, obj.into_param().abi(), file.into_param().abi(), enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1383,7 +1383,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumLinesW(hprocess.into_param().abi(), base, obj.into_param().abi(), file.into_param().abi(), enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1411,7 +1411,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFiles ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFiles ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : ::windows::core::PCSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceFiles(hprocess.into_param().abi(), modbase, mask.into_param().abi(), cbsrcfiles, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1422,7 +1422,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFilesW ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : :: windows::core::PCWSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceFilesW ( hprocess : super::super::super::Foundation:: HANDLE , modbase : u64 , mask : ::windows::core::PCWSTR , cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceFilesW(hprocess.into_param().abi(), modbase, mask.into_param().abi(), cbsrcfiles, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1434,7 +1434,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCSTR , file : :: windows::core::PCSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLines ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : ::windows::core::PCSTR , file : ::windows::core::PCSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceLines(hprocess.into_param().abi(), base, obj.into_param().abi(), file.into_param().abi(), line, flags, enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1446,7 +1446,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSourceLinesW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , obj : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR , line : u32 , flags : u32 , enumlinescallback : PSYM_ENUMLINES_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSourceLinesW(hprocess.into_param().abi(), base, obj.into_param().abi(), file.into_param().abi(), line, flags, enumlinescallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1467,7 +1467,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbols ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbols(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1478,7 +1478,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsEx ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsEx ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsEx(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1489,7 +1489,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsExW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsExW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsExW(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1520,7 +1520,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumSymbolsW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumSymbolsW(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1541,7 +1541,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypesByName(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1552,7 +1552,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : :: windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymEnumTypesByNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , mask : ::windows::core::PCWSTR , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymEnumTypesByNameW(hprocess.into_param().abi(), baseofdll, mask.into_param().abi(), enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1646,7 +1646,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFile ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFile ( hprocess : super::super::super::Foundation:: HANDLE , filename : ::windows::core::PCSTR , debugfilepath : ::windows::core::PSTR , callback : PFIND_DEBUG_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindDebugInfoFile(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -1658,7 +1658,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFileW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , debugfilepath : :: windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindDebugInfoFileW ( hprocess : super::super::super::Foundation:: HANDLE , filename : ::windows::core::PCWSTR , debugfilepath : ::windows::core::PWSTR , callback : PFIND_DEBUG_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindDebugInfoFileW(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -1670,7 +1670,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImage ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , imagefilepath : :: windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImage ( hprocess : super::super::super::Foundation:: HANDLE , filename : ::windows::core::PCSTR , imagefilepath : ::windows::core::PSTR , callback : PFIND_EXE_FILE_CALLBACK , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindExecutableImage(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -1682,7 +1682,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImageW ( hprocess : super::super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , imagefilepath : :: windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindExecutableImageW ( hprocess : super::super::super::Foundation:: HANDLE , filename : ::windows::core::PCWSTR , imagefilepath : ::windows::core::PWSTR , callback : PFIND_EXE_FILE_CALLBACKW , callerdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: HANDLE );
     let result__ = SymFindExecutableImageW(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
     ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -1695,7 +1695,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PSTR , callback : PFINDFILEINPATHCALLBACK , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : ::windows::core::PSTR , callback : PFINDFILEINPATHCALLBACK , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymFindFileInPath(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null())), two, three, flags, ::core::mem::transmute(foundfile), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1707,7 +1707,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : :: windows::core::PWSTR , callback : PFINDFILEINPATHCALLBACKW , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFindFileInPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCWSTR , filename : ::windows::core::PCWSTR , id : *const ::core::ffi::c_void , two : u32 , three : u32 , flags : SYM_FIND_ID_OPTION , foundfile : ::windows::core::PWSTR , callback : PFINDFILEINPATHCALLBACKW , context : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOL );
     SymFindFileInPathW(hprocess.into_param().abi(), searchpatha.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null())), two, three, flags, ::core::mem::transmute(foundfile), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1778,7 +1778,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : ::windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymFromName(hprocess.into_param().abi(), name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1789,7 +1789,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , name : ::windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymFromNameW(hprocess.into_param().abi(), name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1859,19 +1859,19 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetFileLineOffsets64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , buffer : *mut u64 , bufferlines : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetFileLineOffsets64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , buffer : *mut u64 , bufferlines : u32 ) -> u32 );
     SymGetFileLineOffsets64(hprocess.into_param().abi(), modulename.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> ::windows::core::PSTR {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectory ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PSTR , size : usize ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectory ( r#type : IMAGEHLP_HD_TYPE , dir : ::windows::core::PSTR , size : usize ) -> ::windows::core::PSTR );
     SymGetHomeDirectory(r#type, ::core::mem::transmute(dir.as_ptr()), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) -> ::windows::core::PWSTR {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectoryW ( r#type : IMAGEHLP_HD_TYPE , dir : :: windows::core::PWSTR , size : usize ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetHomeDirectoryW ( r#type : IMAGEHLP_HD_TYPE , dir : ::windows::core::PWSTR , size : usize ) -> ::windows::core::PWSTR );
     SymGetHomeDirectoryW(r#type, ::core::mem::transmute(dir.as_ptr()), dir.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1935,7 +1935,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName ( hprocess : super::super::super::Foundation:: HANDLE , modulename : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromName(hprocess.into_param().abi(), modulename.into_param().abi(), filename.into_param().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1947,7 +1947,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCSTR , filename : :: windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : ::windows::core::PCSTR , filename : ::windows::core::PCSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINE64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromName64(hprocess.into_param().abi(), modulename.into_param().abi(), filename.into_param().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1959,7 +1959,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromNameW64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : :: windows::core::PCWSTR , filename : :: windows::core::PCWSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetLineFromNameW64 ( hprocess : super::super::super::Foundation:: HANDLE , modulename : ::windows::core::PCWSTR , filename : ::windows::core::PCWSTR , dwlinenumber : u32 , pldisplacement : *mut i32 , line : *mut IMAGEHLP_LINEW64 ) -> super::super::super::Foundation:: BOOL );
     SymGetLineFromNameW64(hprocess.into_param().abi(), modulename.into_param().abi(), filename.into_param().abi(), dwlinenumber, pldisplacement, line)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2130,7 +2130,7 @@ pub unsafe fn SymGetSearchPath<P0>(hprocess: P0, searchpatha: &mut [u8]) -> supe
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSearchPath(hprocess.into_param().abi(), ::core::mem::transmute(searchpatha.as_ptr()), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2140,7 +2140,7 @@ pub unsafe fn SymGetSearchPathW<P0>(hprocess: P0, searchpatha: &mut [u16]) -> su
 where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PWSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PWSTR , searchpathlength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSearchPathW(hprocess.into_param().abi(), ::core::mem::transmute(searchpatha.as_ptr()), searchpatha.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2152,7 +2152,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFile ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCSTR , filespec : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFile ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : ::windows::core::PCSTR , filespec : ::windows::core::PCSTR , filepath : ::windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFile(hprocess.into_param().abi(), base, params.into_param().abi(), filespec.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2163,7 +2163,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksum ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksum ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileChecksum(hprocess.into_param().abi(), base, filespec.into_param().abi(), pchecksumtype, ::core::mem::transmute(pchecksum.as_ptr()), pchecksum.len() as _, pactualbyteswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2174,7 +2174,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksumW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileChecksumW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCWSTR , pchecksumtype : *mut u32 , pchecksum : *mut u8 , checksumsize : u32 , pactualbyteswritten : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileChecksumW(hprocess.into_param().abi(), base, filespec.into_param().abi(), pchecksumtype, ::core::mem::transmute(pchecksum.as_ptr()), pchecksum.len() as _, pactualbyteswritten)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2185,7 +2185,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : ::windows::core::PCSTR , filepath : ::windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromToken(hprocess.into_param().abi(), token, params.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2197,7 +2197,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCSTR , params : :: windows::core::PCSTR , filepath : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : ::windows::core::PCSTR , params : ::windows::core::PCSTR , filepath : ::windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenByTokenName(hprocess.into_param().abi(), token, tokenname.into_param().abi(), params.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2209,7 +2209,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : :: windows::core::PCWSTR , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , tokenname : ::windows::core::PCWSTR , params : ::windows::core::PCWSTR , filepath : ::windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenByTokenNameW(hprocess.into_param().abi(), token, tokenname.into_param().abi(), params.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2220,7 +2220,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : ::windows::core::PCWSTR , filepath : ::windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileFromTokenW(hprocess.into_param().abi(), token, params.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2231,7 +2231,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileToken ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileToken(hprocess.into_param().abi(), base, filespec.into_param().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2244,7 +2244,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCSTR , tokenname : :: windows::core::PCSTR , tokenparameters : :: windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenName ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCSTR , tokenname : ::windows::core::PCSTR , tokenparameters : ::windows::core::PCSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenByTokenName(hprocess.into_param().abi(), base, filespec.into_param().abi(), tokenname.into_param().abi(), tokenparameters.into_param().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2257,7 +2257,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , tokenname : :: windows::core::PCWSTR , tokenparameters : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenByTokenNameW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCWSTR , tokenname : ::windows::core::PCWSTR , tokenparameters : ::windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenByTokenNameW(hprocess.into_param().abi(), base, filespec.into_param().abi(), tokenname.into_param().abi(), tokenparameters.into_param().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2268,7 +2268,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : :: windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileTokenW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , filespec : ::windows::core::PCWSTR , token : *mut *mut ::core::ffi::c_void , size : *mut u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileTokenW(hprocess.into_param().abi(), base, filespec.into_param().abi(), token, size)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2280,7 +2280,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : :: windows::core::PCWSTR , filespec : :: windows::core::PCWSTR , filepath : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceFileW ( hprocess : super::super::super::Foundation:: HANDLE , base : u64 , params : ::windows::core::PCWSTR , filespec : ::windows::core::PCWSTR , filepath : ::windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceFileW(hprocess.into_param().abi(), base, params.into_param().abi(), filespec.into_param().abi(), ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2292,7 +2292,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCSTR , varname : :: windows::core::PCSTR , value : :: windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromToken ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : ::windows::core::PCSTR , varname : ::windows::core::PCSTR , value : ::windows::core::PSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceVarFromToken(hprocess.into_param().abi(), token, params.into_param().abi(), varname.into_param().abi(), ::core::mem::transmute(value.as_ptr()), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2304,7 +2304,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : :: windows::core::PCWSTR , varname : :: windows::core::PCWSTR , value : :: windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSourceVarFromTokenW ( hprocess : super::super::super::Foundation:: HANDLE , token : *const ::core::ffi::c_void , params : ::windows::core::PCWSTR , varname : ::windows::core::PCWSTR , value : ::windows::core::PWSTR , size : u32 ) -> super::super::super::Foundation:: BOOL );
     SymGetSourceVarFromTokenW(hprocess.into_param().abi(), token, params.into_param().abi(), varname.into_param().abi(), ::core::mem::transmute(value.as_ptr()), value.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2337,7 +2337,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName ( hprocess : super::super::super::Foundation:: HANDLE , name : ::windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromName(hprocess.into_param().abi(), name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2348,7 +2348,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , name : :: windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymFromName64 ( hprocess : super::super::super::Foundation:: HANDLE , name : ::windows::core::PCSTR , symbol : *mut IMAGEHLP_SYMBOL64 ) -> super::super::super::Foundation:: BOOL );
     SymGetSymFromName64(hprocess.into_param().abi(), name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2402,7 +2402,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFile ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , imagefile : :: windows::core::PCSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PSTR , csymbolfile : usize , dbgfile : :: windows::core::PSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFile ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCSTR , imagefile : ::windows::core::PCSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : ::windows::core::PSTR , csymbolfile : usize , dbgfile : ::windows::core::PSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
     SymGetSymbolFile(hprocess.into_param().abi(), sympath.into_param().abi(), imagefile.into_param().abi(), r#type, ::core::mem::transmute(symbolfile.as_ptr()), symbolfile.len() as _, ::core::mem::transmute(dbgfile.as_ptr()), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2414,7 +2414,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFileW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , imagefile : :: windows::core::PCWSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : :: windows::core::PWSTR , csymbolfile : usize , dbgfile : :: windows::core::PWSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetSymbolFileW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCWSTR , imagefile : ::windows::core::PCWSTR , r#type : IMAGEHLP_SF_TYPE , symbolfile : ::windows::core::PWSTR , csymbolfile : usize , dbgfile : ::windows::core::PWSTR , cdbgfile : usize ) -> super::super::super::Foundation:: BOOL );
     SymGetSymbolFileW(hprocess.into_param().abi(), sympath.into_param().abi(), imagefile.into_param().abi(), r#type, ::core::mem::transmute(symbolfile.as_ptr()), symbolfile.len() as _, ::core::mem::transmute(dbgfile.as_ptr()), dbgfile.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2425,7 +2425,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromName ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCSTR , symbol : *mut SYMBOL_INFO ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeFromName(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2436,7 +2436,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : :: windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymGetTypeFromNameW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , name : ::windows::core::PCWSTR , symbol : *mut SYMBOL_INFOW ) -> super::super::super::Foundation:: BOOL );
     SymGetTypeFromNameW(hprocess.into_param().abi(), baseofdll, name.into_param().abi(), symbol)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2478,7 +2478,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitialize ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitialize ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : ::windows::core::PCSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymInitialize(hprocess.into_param().abi(), usersearchpath.into_param().abi(), finvadeprocess.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2490,7 +2490,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitializeW ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : :: windows::core::PCWSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymInitializeW ( hprocess : super::super::super::Foundation:: HANDLE , usersearchpath : ::windows::core::PCWSTR , finvadeprocess : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymInitializeW(hprocess.into_param().abi(), usersearchpath.into_param().abi(), finvadeprocess.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2504,7 +2504,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u32 , sizeofdll : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : ::windows::core::PCSTR , modulename : ::windows::core::PCSTR , baseofdll : u32 , sizeofdll : u32 ) -> u32 );
     SymLoadModule(hprocess.into_param().abi(), hfile.into_param().abi(), imagename.into_param().abi(), modulename.into_param().abi(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2517,7 +2517,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , sizeofdll : u32 ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModule64 ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : ::windows::core::PCSTR , modulename : ::windows::core::PCSTR , baseofdll : u64 , sizeofdll : u32 ) -> u64 );
     SymLoadModule64(hprocess.into_param().abi(), hfile.into_param().abi(), imagename.into_param().abi(), modulename.into_param().abi(), baseofdll, sizeofdll)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2530,7 +2530,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleEx ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCSTR , modulename : :: windows::core::PCSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleEx ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : ::windows::core::PCSTR , modulename : ::windows::core::PCSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
     SymLoadModuleEx(hprocess.into_param().abi(), hfile.into_param().abi(), imagename.into_param().abi(), modulename.into_param().abi(), baseofdll, dllsize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2543,7 +2543,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleExW ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : :: windows::core::PCWSTR , modulename : :: windows::core::PCWSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymLoadModuleExW ( hprocess : super::super::super::Foundation:: HANDLE , hfile : super::super::super::Foundation:: HANDLE , imagename : ::windows::core::PCWSTR , modulename : ::windows::core::PCWSTR , baseofdll : u64 , dllsize : u32 , data : *const MODLOAD_DATA , flags : SYM_LOAD_FLAGS ) -> u64 );
     SymLoadModuleExW(hprocess.into_param().abi(), hfile.into_param().abi(), imagename.into_param().abi(), modulename.into_param().abi(), baseofdll, dllsize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2554,7 +2554,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileName ( filename : :: windows::core::PCSTR , r#match : :: windows::core::PCSTR , filenamestop : *mut :: windows::core::PSTR , matchstop : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileName ( filename : ::windows::core::PCSTR , r#match : ::windows::core::PCSTR , filenamestop : *mut ::windows::core::PSTR , matchstop : *mut ::windows::core::PSTR ) -> super::super::super::Foundation:: BOOL );
     SymMatchFileName(filename.into_param().abi(), r#match.into_param().abi(), ::core::mem::transmute(filenamestop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(matchstop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2565,7 +2565,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileNameW ( filename : :: windows::core::PCWSTR , r#match : :: windows::core::PCWSTR , filenamestop : *mut :: windows::core::PWSTR , matchstop : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchFileNameW ( filename : ::windows::core::PCWSTR , r#match : ::windows::core::PCWSTR , filenamestop : *mut ::windows::core::PWSTR , matchstop : *mut ::windows::core::PWSTR ) -> super::super::super::Foundation:: BOOL );
     SymMatchFileNameW(filename.into_param().abi(), r#match.into_param().abi(), ::core::mem::transmute(filenamestop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(matchstop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2577,7 +2577,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchString ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchString ( string : ::windows::core::PCSTR , expression : ::windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchString(string.into_param().abi(), expression.into_param().abi(), fcase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2589,7 +2589,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringA ( string : :: windows::core::PCSTR , expression : :: windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringA ( string : ::windows::core::PCSTR , expression : ::windows::core::PCSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchStringA(string.into_param().abi(), expression.into_param().abi(), fcase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2601,7 +2601,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringW ( string : :: windows::core::PCWSTR , expression : :: windows::core::PCWSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymMatchStringW ( string : ::windows::core::PCWSTR , expression : ::windows::core::PCWSTR , fcase : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
     SymMatchStringW(string.into_param().abi(), expression.into_param().abi(), fcase.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2724,7 +2724,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearch ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearch ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : ::windows::core::PCSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSearch(hprocess.into_param().abi(), baseofdll, index, symtag, mask.into_param().abi(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2735,7 +2735,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearchW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : :: windows::core::PCWSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSearchW ( hprocess : super::super::super::Foundation:: HANDLE , baseofdll : u64 , index : u32 , symtag : u32 , mask : ::windows::core::PCWSTR , address : u64 , enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW , usercontext : *const ::core::ffi::c_void , options : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSearchW(hprocess.into_param().abi(), baseofdll, index, symtag, mask.into_param().abi(), address, enumsymbolscallback, ::core::mem::transmute(usercontext.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2766,7 +2766,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectory ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCSTR ) -> :: windows::core::PSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectory ( hprocess : super::super::super::Foundation:: HANDLE , dir : ::windows::core::PCSTR ) -> ::windows::core::PSTR );
     SymSetHomeDirectory(hprocess.into_param().abi(), dir.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2777,7 +2777,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectoryW ( hprocess : super::super::super::Foundation:: HANDLE , dir : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetHomeDirectoryW ( hprocess : super::super::super::Foundation:: HANDLE , dir : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     SymSetHomeDirectoryW(hprocess.into_param().abi(), dir.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -2834,7 +2834,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPath ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     SymSetSearchPath(hprocess.into_param().abi(), searchpatha.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2845,7 +2845,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSetSearchPathW ( hprocess : super::super::super::Foundation:: HANDLE , searchpatha : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
     SymSetSearchPathW(hprocess.into_param().abi(), searchpatha.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2859,7 +2859,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaName ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , r#type : :: windows::core::PCSTR , file1 : :: windows::core::PCSTR , file2 : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaName ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCSTR , r#type : ::windows::core::PCSTR , file1 : ::windows::core::PCSTR , file2 : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     SymSrvDeltaName(hprocess.into_param().abi(), sympath.into_param().abi(), r#type.into_param().abi(), file1.into_param().abi(), file2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2873,7 +2873,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaNameW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , r#type : :: windows::core::PCWSTR , file1 : :: windows::core::PCWSTR , file2 : :: windows::core::PCWSTR ) -> :: windows::core::PCWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvDeltaNameW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCWSTR , r#type : ::windows::core::PCWSTR , file1 : ::windows::core::PCWSTR , file2 : ::windows::core::PCWSTR ) -> ::windows::core::PCWSTR );
     SymSrvDeltaNameW(hprocess.into_param().abi(), sympath.into_param().abi(), r#type.into_param().abi(), file1.into_param().abi(), file2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2883,7 +2883,7 @@ pub unsafe fn SymSrvGetFileIndexInfo<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfo ( file : :: windows::core::PCSTR , info : *mut SYMSRV_INDEX_INFO , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfo ( file : ::windows::core::PCSTR , info : *mut SYMSRV_INDEX_INFO , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexInfo(file.into_param().abi(), info, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2893,7 +2893,7 @@ pub unsafe fn SymSrvGetFileIndexInfoW<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfoW ( file : :: windows::core::PCWSTR , info : *mut SYMSRV_INDEX_INFOW , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexInfoW ( file : ::windows::core::PCWSTR , info : *mut SYMSRV_INDEX_INFOW , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexInfoW(file.into_param().abi(), info, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2905,7 +2905,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexString ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , index : :: windows::core::PSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexString ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : ::windows::core::PCSTR , file : ::windows::core::PCSTR , index : ::windows::core::PSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexString(hprocess.into_param().abi(), srvpath.into_param().abi(), file.into_param().abi(), ::core::mem::transmute(index.as_ptr()), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2917,7 +2917,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexStringW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , index : :: windows::core::PWSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexStringW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR , index : ::windows::core::PWSTR , size : usize , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexStringW(hprocess.into_param().abi(), srvpath.into_param().abi(), file.into_param().abi(), ::core::mem::transmute(index.as_ptr()), index.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2927,7 +2927,7 @@ pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut ::windows::core::GUID,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexes ( file : :: windows::core::PCSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexes ( file : ::windows::core::PCSTR , id : *mut ::windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexes(file.into_param().abi(), id, val1, ::core::mem::transmute(val2.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2937,7 +2937,7 @@ pub unsafe fn SymSrvGetFileIndexesW<P0>(file: P0, id: *mut ::windows::core::GUID
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexesW ( file : :: windows::core::PCWSTR , id : *mut :: windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetFileIndexesW ( file : ::windows::core::PCWSTR , id : *mut ::windows::core::GUID , val1 : *mut u32 , val2 : *mut u32 , flags : u32 ) -> super::super::super::Foundation:: BOOL );
     SymSrvGetFileIndexesW(file.into_param().abi(), id, val1, ::core::mem::transmute(val2.unwrap_or(::std::ptr::null_mut())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2950,7 +2950,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplement ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplement ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCSTR , node : ::windows::core::PCSTR , file : ::windows::core::PCSTR ) -> ::windows::core::PCSTR );
     SymSrvGetSupplement(hprocess.into_param().abi(), sympath.into_param().abi(), node.into_param().abi(), file.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2963,7 +2963,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR ) -> :: windows::core::PCWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvGetSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCWSTR , node : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR ) -> ::windows::core::PCWSTR );
     SymSrvGetSupplementW(hprocess.into_param().abi(), sympath.into_param().abi(), node.into_param().abi(), file.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2974,7 +2974,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStore ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStore ( hprocess : super::super::super::Foundation:: HANDLE , path : ::windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
     SymSrvIsStore(hprocess.into_param().abi(), path.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2985,7 +2985,7 @@ where
     P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStoreW ( hprocess : super::super::super::Foundation:: HANDLE , path : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvIsStoreW ( hprocess : super::super::super::Foundation:: HANDLE , path : ::windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
     SymSrvIsStoreW(hprocess.into_param().abi(), path.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -2997,7 +2997,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFile ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFile ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : ::windows::core::PCSTR , file : ::windows::core::PCSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> ::windows::core::PCSTR );
     SymSrvStoreFile(hprocess.into_param().abi(), srvpath.into_param().abi(), file.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3009,7 +3009,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFileW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> :: windows::core::PCWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreFileW ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR , flags : SYM_SRV_STORE_FILE_FLAGS ) -> ::windows::core::PCWSTR );
     SymSrvStoreFileW(hprocess.into_param().abi(), srvpath.into_param().abi(), file.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3022,7 +3022,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplement ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : :: windows::core::PCSTR , node : :: windows::core::PCSTR , file : :: windows::core::PCSTR , flags : u32 ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplement ( hprocess : super::super::super::Foundation:: HANDLE , srvpath : ::windows::core::PCSTR , node : ::windows::core::PCSTR , file : ::windows::core::PCSTR , flags : u32 ) -> ::windows::core::PCSTR );
     SymSrvStoreSupplement(hprocess.into_param().abi(), srvpath.into_param().abi(), node.into_param().abi(), file.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3035,7 +3035,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : :: windows::core::PCWSTR , node : :: windows::core::PCWSTR , file : :: windows::core::PCWSTR , flags : u32 ) -> :: windows::core::PCWSTR );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymSrvStoreSupplementW ( hprocess : super::super::super::Foundation:: HANDLE , sympath : ::windows::core::PCWSTR , node : ::windows::core::PCWSTR , file : ::windows::core::PCWSTR , flags : u32 ) -> ::windows::core::PCWSTR );
     SymSrvStoreSupplementW(hprocess.into_param().abi(), sympath.into_param().abi(), node.into_param().abi(), file.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3043,14 +3043,14 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName ( sym : *const IMAGEHLP_SYMBOL , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName ( sym : *const IMAGEHLP_SYMBOL , undecname : ::windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymUnDName(sym, ::core::mem::transmute(undecname.as_ptr()), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName64 ( sym : *const IMAGEHLP_SYMBOL64 , undecname : :: windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn SymUnDName64 ( sym : *const IMAGEHLP_SYMBOL64 , undecname : ::windows::core::PSTR , undecnamelength : u32 ) -> super::super::super::Foundation:: BOOL );
     SymUnDName64(sym, ::core::mem::transmute(undecname.as_ptr()), undecname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -3096,7 +3096,7 @@ pub unsafe fn UnDecorateSymbolName<P0>(name: P0, outputstring: &mut [u8], flags:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolName ( name : :: windows::core::PCSTR , outputstring : :: windows::core::PSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolName ( name : ::windows::core::PCSTR , outputstring : ::windows::core::PSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
     UnDecorateSymbolName(name.into_param().abi(), ::core::mem::transmute(outputstring.as_ptr()), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -3105,7 +3105,7 @@ pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flag
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolNameW ( name : :: windows::core::PCWSTR , outputstring : :: windows::core::PWSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "dbghelp.dll""system" fn UnDecorateSymbolNameW ( name : ::windows::core::PCWSTR , outputstring : ::windows::core::PWSTR , maxstringlength : u32 , flags : u32 ) -> u32 );
     UnDecorateSymbolNameW(name.into_param().abi(), ::core::mem::transmute(outputstring.as_ptr()), outputstring.len() as _, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -3130,7 +3130,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFile ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFile ( imagefilename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , debugfilepath : ::windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 ) -> super::super::super::Foundation:: BOOL );
     UpdateDebugInfoFile(imagefilename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), ntheaders)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -3141,7 +3141,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFileEx ( imagefilename : :: windows::core::PCSTR , symbolpath : :: windows::core::PCSTR , debugfilepath : :: windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 , oldchecksum : u32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "imagehlp.dll""system" fn UpdateDebugInfoFileEx ( imagefilename : ::windows::core::PCSTR , symbolpath : ::windows::core::PCSTR , debugfilepath : ::windows::core::PSTR , ntheaders : *const IMAGE_NT_HEADERS32 , oldchecksum : u32 ) -> super::super::super::Foundation:: BOOL );
     UpdateDebugInfoFileEx(imagefilename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
@@ -34251,19 +34251,19 @@ pub const DEBUG_OUTPUT_EXTENSION_WARNING: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_OUTPUT_IDENTITY_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_NAME_END: ::windows::core::PCSTR = ::windows::s!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END: ::windows::core::PCSTR = ::windows::core::s!("**NAME**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_NAME_END_T: ::windows::core::PCWSTR = ::windows::w!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END_T: ::windows::core::PCWSTR = ::windows::core::w!("**NAME**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_NAME_END_WIDE: ::windows::core::PCWSTR = ::windows::w!("**NAME**");
+pub const DEBUG_OUTPUT_NAME_END_WIDE: ::windows::core::PCWSTR = ::windows::core::w!("**NAME**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_OUTPUT_NORMAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_OFFSET_END: ::windows::core::PCSTR = ::windows::s!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END: ::windows::core::PCSTR = ::windows::core::s!("**OFF**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_OFFSET_END_T: ::windows::core::PCWSTR = ::windows::w!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END_T: ::windows::core::PCWSTR = ::windows::core::w!("**OFF**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_OFFSET_END_WIDE: ::windows::core::PCWSTR = ::windows::w!("**OFF**");
+pub const DEBUG_OUTPUT_OFFSET_END_WIDE: ::windows::core::PCWSTR = ::windows::core::w!("**OFF**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_OUTPUT_PROMPT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34283,17 +34283,17 @@ pub const DEBUG_OUTPUT_SYMBOLS_NO_TYPES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_OUTPUT_SYMBOLS_NO_VALUES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_TYPE_END: ::windows::core::PCSTR = ::windows::s!("**TYPE**");
+pub const DEBUG_OUTPUT_TYPE_END: ::windows::core::PCSTR = ::windows::core::s!("**TYPE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_TYPE_END_T: ::windows::core::PCWSTR = ::windows::w!("**TYPE**");
+pub const DEBUG_OUTPUT_TYPE_END_T: ::windows::core::PCWSTR = ::windows::core::w!("**TYPE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_TYPE_END_WIDE: ::windows::core::PCWSTR = ::windows::w!("**TYPE**");
+pub const DEBUG_OUTPUT_TYPE_END_WIDE: ::windows::core::PCWSTR = ::windows::core::w!("**TYPE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_VALUE_END: ::windows::core::PCSTR = ::windows::s!("**VALUE**");
+pub const DEBUG_OUTPUT_VALUE_END: ::windows::core::PCSTR = ::windows::core::s!("**VALUE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_VALUE_END_T: ::windows::core::PCWSTR = ::windows::w!("**VALUE**");
+pub const DEBUG_OUTPUT_VALUE_END_T: ::windows::core::PCWSTR = ::windows::core::w!("**VALUE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DEBUG_OUTPUT_VALUE_END_WIDE: ::windows::core::PCWSTR = ::windows::w!("**VALUE**");
+pub const DEBUG_OUTPUT_VALUE_END_WIDE: ::windows::core::PCWSTR = ::windows::core::w!("**VALUE**");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const DEBUG_OUTPUT_VERBOSE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -35185,11 +35185,11 @@ pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const ProcessDebugManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const RESTORE_LAST_ERROR_NAME: ::windows::core::PCWSTR = ::windows::w!("RestoreLastError");
+pub const RESTORE_LAST_ERROR_NAME: ::windows::core::PCWSTR = ::windows::core::w!("RestoreLastError");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const RESTORE_LAST_ERROR_NAME_A: ::windows::core::PCSTR = ::windows::s!("RestoreLastError");
+pub const RESTORE_LAST_ERROR_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("RestoreLastError");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const RESTORE_LAST_ERROR_NAME_W: ::windows::core::PCWSTR = ::windows::w!("RestoreLastError");
+pub const RESTORE_LAST_ERROR_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("RestoreLastError");
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]

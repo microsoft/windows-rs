@@ -1,6 +1,6 @@
 ::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"] fn RtlExtendCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
 ::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"] fn RtlIncrementCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
-::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"] fn RtlInitializeCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR , version : i32 , guid : *const :: windows_sys::core::GUID ) -> u32 );
+::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"] fn RtlInitializeCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR , version : i32 , guid : *const ::windows_sys::core::GUID ) -> u32 );
 ::windows_sys::core::link ! ( "ntdll.dll""system" #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"] fn RtlValidateCorrelationVector ( vector : *const CORRELATION_VECTOR ) -> u32 );
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;

@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost ( pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdevicehost : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHost(pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -28,7 +28,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost2 ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHost2 ( pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHost2(pszlocalid.into_param().abi(), pcontext.into_param().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -39,7 +39,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHostAdvanced ( pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pphostaddresses : *const * mut::core::ffi::c_void , dwhostaddresscount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceHostAdvanced ( pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pphostaddresses : *const * mut::core::ffi::c_void , dwhostaddresscount : u32 , ppdevicehost : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceHost>();
     WSDCreateDeviceHostAdvanced(pszlocalid.into_param().abi(), pcontext.into_param().abi(), ::core::mem::transmute(pphostaddresses.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy ( pszdeviceid : ::windows::core::PCWSTR , pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxy(pszdeviceid.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -63,7 +63,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy2 ( pszdeviceid : :: windows::core::PCWSTR , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxy2 ( pszdeviceid : ::windows::core::PCWSTR , pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxy2(pszdeviceid.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -76,7 +76,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxyAdvanced ( pszdeviceid : :: windows::core::PCWSTR , pdeviceaddress : * mut::core::ffi::c_void , pszlocalid : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDeviceProxyAdvanced ( pszdeviceid : ::windows::core::PCWSTR , pdeviceaddress : * mut::core::ffi::c_void , pszlocalid : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppdeviceproxy : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDDeviceProxy>();
     WSDCreateDeviceProxyAdvanced(pszdeviceid.into_param().abi(), pdeviceaddress.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -86,7 +86,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<P0>(pcontext: P0) -> ::windows::core::R
 where
     P0: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider ( pcontext : * mut::core::ffi::c_void , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider ( pcontext : * mut::core::ffi::c_void , ppprovider : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryProvider>();
     WSDCreateDiscoveryProvider(pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -96,7 +96,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: ::cor
 where
     P0: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryProvider2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryProvider>();
     WSDCreateDiscoveryProvider2(pcontext.into_param().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
@@ -106,7 +106,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<P0>(pcontext: P0) -> ::windows::core::
 where
     P0: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher ( pcontext : * mut::core::ffi::c_void , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher ( pcontext : * mut::core::ffi::c_void , pppublisher : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryPublisher>();
     WSDCreateDiscoveryPublisher(pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -116,42 +116,42 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: ::co
 where
     P0: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , pppublisher : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateDiscoveryPublisher2 ( pcontext : * mut::core::ffi::c_void , pconfigparams : *const WSD_CONFIG_PARAM , dwconfigparamcount : u32 , pppublisher : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDiscoveryPublisher>();
     WSDCreateDiscoveryPublisher2(pcontext.into_param().abi(), ::core::mem::transmute(pconfigparams.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::core::Result<IWSDHttpAddress> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDHttpAddress>();
     WSDCreateHttpAddress(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateHttpMessageParameters() -> ::windows::core::Result<IWSDHttpMessageParameters> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateHttpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDHttpMessageParameters>();
     WSDCreateHttpMessageParameters(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::core::Result<IWSDOutboundAttachment> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateOutboundAttachment ( ppattachment : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateOutboundAttachment ( ppattachment : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDOutboundAttachment>();
     WSDCreateOutboundAttachment(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::core::Result<IWSDUdpAddress> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpAddress ( ppaddress : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDUdpAddress>();
     WSDCreateUdpAddress(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::core::Result<IWSDUdpMessageParameters> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDCreateUdpMessageParameters ( pptxparams : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDUdpMessageParameters>();
     WSDCreateUdpMessageParameters(&mut result__).from_abi(result__)
 }
@@ -177,7 +177,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<IWSDXMLContext>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFault ( pszcode : :: windows::core::PCWSTR , pszsubcode : :: windows::core::PCWSTR , pszreason : :: windows::core::PCWSTR , pszdetail : :: windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFault ( pszcode : ::windows::core::PCWSTR , pszsubcode : ::windows::core::PCWSTR , pszreason : ::windows::core::PCWSTR , pszdetail : ::windows::core::PCWSTR , pcontext : * mut::core::ffi::c_void , ppfault : *mut *mut WSD_SOAP_FAULT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSD_SOAP_FAULT>();
     WSDGenerateFault(pszcode.into_param().abi(), pszsubcode.into_param().abi(), pszreason.into_param().abi(), pszdetail.into_param().abi(), pcontext.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -187,44 +187,44 @@ pub unsafe fn WSDGenerateFaultEx<P0>(pcode: *const WSDXML_NAME, psubcode: ::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFaultEx ( pcode : *const WSDXML_NAME , psubcode : *const WSDXML_NAME , preasons : *const WSD_LOCALIZED_STRING_LIST , pszdetail : :: windows::core::PCWSTR , ppfault : *mut *mut WSD_SOAP_FAULT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGenerateFaultEx ( pcode : *const WSDXML_NAME , psubcode : *const WSDXML_NAME , preasons : *const WSD_LOCALIZED_STRING_LIST , pszdetail : ::windows::core::PCWSTR , ppfault : *mut *mut WSD_SOAP_FAULT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSD_SOAP_FAULT>();
     WSDGenerateFaultEx(pcode, ::core::mem::transmute(psubcode.unwrap_or(::std::ptr::null())), preasons, pszdetail.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGetConfigurationOption ( dwoption : u32 , pvoid : *mut ::core::ffi::c_void , cboutbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDGetConfigurationOption ( dwoption : u32 , pvoid : *mut ::core::ffi::c_void , cboutbuffer : u32 ) -> ::windows::core::HRESULT );
     WSDGetConfigurationOption(dwoption, pvoid, cboutbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDSetConfigurationOption ( dwoption : u32 , pvoid : *const ::core::ffi::c_void , cbinbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDSetConfigurationOption ( dwoption : u32 , pvoid : *const ::core::ffi::c_void , cbinbuffer : u32 ) -> ::windows::core::HRESULT );
     WSDSetConfigurationOption(dwoption, pvoid, cbinbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDUriDecode(source: &[u16], destout: *mut ::windows::core::PWSTR, cchdestout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriDecode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriDecode ( source : ::windows::core::PCWSTR , cchsource : u32 , destout : *mut ::windows::core::PWSTR , cchdestout : *mut u32 ) -> ::windows::core::HRESULT );
     WSDUriDecode(::core::mem::transmute(source.as_ptr()), source.len() as _, destout, ::core::mem::transmute(cchdestout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDUriEncode(source: &[u16], destout: *mut ::windows::core::PWSTR, cchdestout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriEncode ( source : :: windows::core::PCWSTR , cchsource : u32 , destout : *mut :: windows::core::PWSTR , cchdestout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDUriEncode ( source : ::windows::core::PCWSTR , cchsource : u32 , destout : *mut ::windows::core::PWSTR , cchdestout : *mut u32 ) -> ::windows::core::HRESULT );
     WSDUriEncode(::core::mem::transmute(source.as_ptr()), source.len() as _, destout, ::core::mem::transmute(cchdestout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddChild ( pparent : *mut WSDXML_ELEMENT , pchild : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddChild ( pparent : *mut WSDXML_ELEMENT , pchild : *mut WSDXML_ELEMENT ) -> ::windows::core::HRESULT );
     WSDXMLAddChild(pparent, pchild).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddSibling ( pfirst : *mut WSDXML_ELEMENT , psecond : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLAddSibling ( pfirst : *mut WSDXML_ELEMENT , psecond : *mut WSDXML_ELEMENT ) -> ::windows::core::HRESULT );
     WSDXMLAddSibling(pfirst, psecond).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -233,19 +233,19 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<P0>(pelementname: *mut WSDXML_NAME,
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLBuildAnyForSingleElement ( pelementname : *mut WSDXML_NAME , psztext : :: windows::core::PCWSTR , ppany : *mut *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLBuildAnyForSingleElement ( pelementname : *mut WSDXML_NAME , psztext : ::windows::core::PCWSTR , ppany : *mut *mut WSDXML_ELEMENT ) -> ::windows::core::HRESULT );
     WSDXMLBuildAnyForSingleElement(pelementname, psztext.into_param().abi(), ppany).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCleanupElement ( pany : *mut WSDXML_ELEMENT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCleanupElement ( pany : *mut WSDXML_ELEMENT ) -> ::windows::core::HRESULT );
     WSDXMLCleanupElement(pany).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
 pub unsafe fn WSDXMLCreateContext() -> ::windows::core::Result<IWSDXMLContext> {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCreateContext ( ppcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLCreateContext ( ppcontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IWSDXMLContext>();
     WSDXMLCreateContext(&mut result__).from_abi(result__)
 }
@@ -256,7 +256,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetNameFromBuiltinNamespace ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , ppname : *mut *mut WSDXML_NAME ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetNameFromBuiltinNamespace ( psznamespace : ::windows::core::PCWSTR , pszname : ::windows::core::PCWSTR , ppname : *mut *mut WSDXML_NAME ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<*mut WSDXML_NAME>();
     WSDXMLGetNameFromBuiltinNamespace(psznamespace.into_param().abi(), pszname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -267,7 +267,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetValueFromAny ( psznamespace : :: windows::core::PCWSTR , pszname : :: windows::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "wsdapi.dll""system" fn WSDXMLGetValueFromAny ( psznamespace : ::windows::core::PCWSTR , pszname : ::windows::core::PCWSTR , pany : *mut WSDXML_ELEMENT , ppszvalue : *mut ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     WSDXMLGetValueFromAny(psznamespace.into_param().abi(), pszname.into_param().abi(), pany, ppszvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -2601,11 +2601,11 @@ pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_EVENTING_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("http://*:5357/");
+pub const WSD_DEFAULT_EVENTING_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("http://*:5357/");
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_HOSTING_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("http://*:5357/");
+pub const WSD_DEFAULT_HOSTING_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("http://*:5357/");
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: ::windows::core::PCWSTR = ::windows::w!("https://*:5358/");
+pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("https://*:5358/");
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]

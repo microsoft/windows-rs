@@ -27,9 +27,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmEnumInputContext ( idthread : u32 , lpfn : IMCENUMPROC , lparam : super::super::super::Foundation:: LPARAM ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmEnumRegisterWordA ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCA , lpszreading : :: windows_sys::core::PCSTR , param3 : u32 , lpszregister : :: windows_sys::core::PCSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmEnumRegisterWordA ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCA , lpszreading : ::windows_sys::core::PCSTR , param3 : u32 , lpszregister : ::windows_sys::core::PCSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmEnumRegisterWordW ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCW , lpszreading : :: windows_sys::core::PCWSTR , param3 : u32 , lpszregister : :: windows_sys::core::PCWSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmEnumRegisterWordW ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCW , lpszreading : ::windows_sys::core::PCWSTR , param3 : u32 , lpszregister : ::windows_sys::core::PCWSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"] fn ImmEscapeA ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , param2 : IME_ESCAPE , param3 : *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: LRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -59,21 +59,21 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmGetContext ( param0 : super::super::super::Foundation:: HWND ) -> super::super::super::Globalization:: HIMC );
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetConversionListA ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : :: windows_sys::core::PCSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetConversionListA ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : ::windows_sys::core::PCSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetConversionListW ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : :: windows_sys::core::PCWSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetConversionListW ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : ::windows_sys::core::PCWSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmGetConversionStatus ( param0 : super::super::super::Globalization:: HIMC , lpfdwconversion : *mut IME_CONVERSION_MODE , lpfdwsentence : *mut IME_SENTENCE_MODE ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"] fn ImmGetDefaultIMEWnd ( param0 : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetDescriptionA ( param0 : super::super::TextServices:: HKL , lpszdescription : :: windows_sys::core::PSTR , ubuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetDescriptionA ( param0 : super::super::TextServices:: HKL , lpszdescription : ::windows_sys::core::PSTR , ubuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetDescriptionW ( param0 : super::super::TextServices:: HKL , lpszdescription : :: windows_sys::core::PWSTR , ubuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetDescriptionW ( param0 : super::super::TextServices:: HKL , lpszdescription : ::windows_sys::core::PWSTR , ubuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_Globalization")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineA ( param0 : super::super::super::Globalization:: HIMC , dwindex : GET_GUIDE_LINE_TYPE , lpbuf : :: windows_sys::core::PSTR , dwbuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineA ( param0 : super::super::super::Globalization:: HIMC , dwindex : GET_GUIDE_LINE_TYPE , lpbuf : ::windows_sys::core::PSTR , dwbuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_Globalization")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineW ( param0 : super::super::super::Globalization:: HIMC , dwindex : GET_GUIDE_LINE_TYPE , lpbuf : :: windows_sys::core::PWSTR , dwbuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineW ( param0 : super::super::super::Globalization:: HIMC , dwindex : GET_GUIDE_LINE_TYPE , lpbuf : ::windows_sys::core::PWSTR , dwbuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"] fn ImmGetHotKey ( param0 : u32 , lpumodifiers : *mut u32 , lpuvkey : *mut u32 , phkl : *mut isize ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Globalization")]
@@ -83,9 +83,9 @@
 #[cfg(feature = "Win32_Globalization")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetIMCLockCount ( param0 : super::super::super::Globalization:: HIMC ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameA ( param0 : super::super::TextServices:: HKL , lpszfilename : :: windows_sys::core::PSTR , ubuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameA ( param0 : super::super::TextServices:: HKL , lpszfilename : ::windows_sys::core::PSTR , ubuflen : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameW ( param0 : super::super::TextServices:: HKL , lpszfilename : :: windows_sys::core::PWSTR , ubuflen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetIMEFileNameW ( param0 : super::super::TextServices:: HKL , lpszfilename : ::windows_sys::core::PWSTR , ubuflen : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"] fn ImmGetImeMenuItemsA ( param0 : super::super::super::Globalization:: HIMC , param1 : u32 , param2 : u32 , lpimeparentmenu : *mut IMEMENUITEMINFOA , lpimemenu : *mut IMEMENUITEMINFOA , dwsize : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -103,9 +103,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"] fn ImmGetVirtualKey ( param0 : super::super::super::Foundation:: HWND ) -> u32 );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmInstallIMEA ( lpszimefilename : :: windows_sys::core::PCSTR , lpszlayouttext : :: windows_sys::core::PCSTR ) -> super::super::TextServices:: HKL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmInstallIMEA ( lpszimefilename : ::windows_sys::core::PCSTR , lpszlayouttext : ::windows_sys::core::PCSTR ) -> super::super::TextServices:: HKL );
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmInstallIMEW ( lpszimefilename : :: windows_sys::core::PCWSTR , lpszlayouttext : :: windows_sys::core::PCWSTR ) -> super::super::TextServices:: HKL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"] fn ImmInstallIMEW ( lpszimefilename : ::windows_sys::core::PCWSTR , lpszlayouttext : ::windows_sys::core::PCWSTR ) -> super::super::TextServices:: HKL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmIsIME ( param0 : super::super::TextServices:: HKL ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -121,9 +121,9 @@
 #[cfg(feature = "Win32_Globalization")]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmReSizeIMCC ( param0 : super::super::super::Globalization:: HIMCC , param1 : u32 ) -> super::super::super::Globalization:: HIMCC );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmRegisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows_sys::core::PCSTR , param2 : u32 , lpszregister : :: windows_sys::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmRegisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : ::windows_sys::core::PCSTR , param2 : u32 , lpszregister : ::windows_sys::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmRegisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows_sys::core::PCWSTR , param2 : u32 , lpszregister : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmRegisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : ::windows_sys::core::PCWSTR , param2 : u32 , lpszregister : ::windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmReleaseContext ( param0 : super::super::super::Foundation:: HWND , param1 : super::super::super::Globalization:: HIMC ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -159,9 +159,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 ::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"] fn ImmUnlockIMCC ( param0 : super::super::super::Globalization:: HIMCC ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmUnregisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows_sys::core::PCSTR , param2 : u32 , lpszunregister : :: windows_sys::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmUnregisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : ::windows_sys::core::PCSTR , param2 : u32 , lpszunregister : ::windows_sys::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmUnregisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows_sys::core::PCWSTR , param2 : u32 , lpszunregister : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "imm32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmUnregisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : ::windows_sys::core::PCWSTR , param2 : u32 , lpszunregister : ::windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
 pub type IActiveIME = *mut ::core::ffi::c_void;
 pub type IActiveIME2 = *mut ::core::ffi::c_void;
 pub type IActiveIMMApp = *mut ::core::ffi::c_void;
@@ -1294,31 +1294,31 @@ pub const RECONVOPT_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_CHGKEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEChangeKeyMap");
+pub const RWM_CHGKEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEChangeKeyMap");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_DOCUMENTFEED: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEDocumentFeed");
+pub const RWM_DOCUMENTFEED: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEDocumentFeed");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_KEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEKeyMap");
+pub const RWM_KEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEKeyMap");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_MODEBIAS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEModeBias");
+pub const RWM_MODEBIAS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEModeBias");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_MOUSE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEMouseOperation");
+pub const RWM_MOUSE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEMouseOperation");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_NTFYKEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMENotifyKeyMap");
+pub const RWM_NTFYKEYMAP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMENotifyKeyMap");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_QUERYPOSITION: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEQueryPosition");
+pub const RWM_QUERYPOSITION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEQueryPosition");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEReconvert");
+pub const RWM_RECONVERT: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEReconvert");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERTOPTIONS: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEReconvertOptions");
+pub const RWM_RECONVERTOPTIONS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEReconvertOptions");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERTREQUEST: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEReconvertRequest");
+pub const RWM_RECONVERTREQUEST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEReconvertRequest");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_SERVICE: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEService");
+pub const RWM_SERVICE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEService");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_SHOWIMEPAD: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEShowImePad");
+pub const RWM_SHOWIMEPAD: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEShowImePad");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_UIREADY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIMEUIReady");
+pub const RWM_UIREADY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIMEUIReady");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
@@ -1370,13 +1370,13 @@ pub const VERSION_RECONVERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const cbCommentMax: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeChina: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIME.China");
+pub const szImeChina: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIME.China");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeJapan: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIME.Japan");
+pub const szImeJapan: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIME.Japan");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeKorea: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIME.Korea");
+pub const szImeKorea: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIME.Korea");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeTaiwan: ::windows_sys::core::PCWSTR = ::windows_sys::w!("MSIME.Taiwan");
+pub const szImeTaiwan: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MSIME.Taiwan");
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const wchPrivate1: u32 = 57344u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]

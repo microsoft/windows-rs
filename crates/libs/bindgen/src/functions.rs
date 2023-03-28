@@ -29,9 +29,18 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    quote! {
-        #features
-        ::windows_sys::core::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
+    if gen.standalone {
+        quote! {
+            #[link(name = "windows")]
+            extern #abi {
+                pub fn #name(#(#params),*) #return_type;
+            }
+        }
+    } else {
+        quote! {
+            #features
+            ::windows_sys::core::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
+        }
     }
 }
 

@@ -12,14 +12,14 @@ pub unsafe fn EcDeleteSubscription<P0>(subscriptionname: P0, flags: u32) -> supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wecapi.dll""system" fn EcDeleteSubscription ( subscriptionname : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wecapi.dll""system" fn EcDeleteSubscription ( subscriptionname : ::windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
     EcDeleteSubscription(subscriptionname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: ::core::option::Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "wecapi.dll""system" fn EcEnumNextSubscription ( subscriptionenum : isize , subscriptionnamebuffersize : u32 , subscriptionnamebuffer : :: windows::core::PWSTR , subscriptionnamebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wecapi.dll""system" fn EcEnumNextSubscription ( subscriptionenum : isize , subscriptionnamebuffersize : u32 , subscriptionnamebuffer : ::windows::core::PWSTR , subscriptionnamebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
     EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subscriptionnamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), subscriptionnamebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
@@ -51,7 +51,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wecapi.dll""system" fn EcGetSubscriptionRunTimeStatus ( subscriptionname : :: windows::core::PCWSTR , statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID , eventsourcename : :: windows::core::PCWSTR , flags : u32 , statusvaluebuffersize : u32 , statusvaluebuffer : *mut EC_VARIANT , statusvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wecapi.dll""system" fn EcGetSubscriptionRunTimeStatus ( subscriptionname : ::windows::core::PCWSTR , statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID , eventsourcename : ::windows::core::PCWSTR , flags : u32 , statusvaluebuffersize : u32 , statusvaluebuffer : *mut EC_VARIANT , statusvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
     EcGetSubscriptionRunTimeStatus(subscriptionname.into_param().abi(), statusinfoid, eventsourcename.into_param().abi(), flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
@@ -67,7 +67,7 @@ pub unsafe fn EcOpenSubscription<P0>(subscriptionname: P0, accessmask: u32, flag
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wecapi.dll""system" fn EcOpenSubscription ( subscriptionname : :: windows::core::PCWSTR , accessmask : u32 , flags : u32 ) -> isize );
+    ::windows::imp::link ! ( "wecapi.dll""system" fn EcOpenSubscription ( subscriptionname : ::windows::core::PCWSTR , accessmask : u32 , flags : u32 ) -> isize );
     EcOpenSubscription(subscriptionname.into_param().abi(), accessmask, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
@@ -91,7 +91,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "wecapi.dll""system" fn EcRetrySubscription ( subscriptionname : :: windows::core::PCWSTR , eventsourcename : :: windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "wecapi.dll""system" fn EcRetrySubscription ( subscriptionname : ::windows::core::PCWSTR , eventsourcename : ::windows::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
     EcRetrySubscription(subscriptionname.into_param().abi(), eventsourcename.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]

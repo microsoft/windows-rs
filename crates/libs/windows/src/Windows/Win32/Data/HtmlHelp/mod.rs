@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : ::windows::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpA(hwndcaller.into_param().abi(), pszfile.into_param().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "htmlhelp.dll""system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : ::windows::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpW(hwndcaller.into_param().abi(), pszfile.into_param().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
@@ -1237,11 +1237,11 @@ pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_GLOBAL: ::windows::core::PCWSTR = ::windows::w!("GLOBAL");
+pub const SZ_WWDEST_GLOBAL: ::windows::core::PCWSTR = ::windows::core::w!("GLOBAL");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_KEY: ::windows::core::PCWSTR = ::windows::w!("KEY");
+pub const SZ_WWDEST_KEY: ::windows::core::PCWSTR = ::windows::core::w!("KEY");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_OCC: ::windows::core::PCWSTR = ::windows::w!("OCC");
+pub const SZ_WWDEST_OCC: ::windows::core::PCWSTR = ::windows::core::w!("OCC");
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const TYPE_POINTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]

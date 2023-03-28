@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddFragmentToCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , datachunk : *const HTTP_DATA_CHUNK , cachepolicy : *const HTTP_CACHE_POLICY , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddFragmentToCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : ::windows::core::PCWSTR , datachunk : *const HTTP_DATA_CHUNK , cachepolicy : *const HTTP_CACHE_POLICY , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
     HttpAddFragmentToCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), datachunk, cachepolicy, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : ::windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> u32 );
     HttpAddUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -26,7 +26,7 @@ pub unsafe fn HttpAddUrlToUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrlToUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , urlcontext : u64 , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrlToUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : ::windows::core::PCWSTR , urlcontext : u64 , reserved : u32 ) -> u32 );
     HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.into_param().abi(), urlcontext, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -75,7 +75,7 @@ pub unsafe fn HttpCreateRequestQueue<P0>(version: HTTPAPI_VERSION, name: P0, sec
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateRequestQueue ( version : HTTPAPI_VERSION , name : :: windows::core::PCWSTR , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : u32 , requestqueuehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateRequestQueue ( version : HTTPAPI_VERSION , name : ::windows::core::PCWSTR , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : u32 , requestqueuehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     HttpCreateRequestQueue(::core::mem::transmute(version), name.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), flags, requestqueuehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -99,7 +99,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpDeclarePush ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , verb : HTTP_VERB , path : :: windows::core::PCWSTR , query : :: windows::core::PCSTR , headers : *const HTTP_REQUEST_HEADERS ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpDeclarePush ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , verb : HTTP_VERB , path : ::windows::core::PCWSTR , query : ::windows::core::PCSTR , headers : *const HTTP_REQUEST_HEADERS ) -> u32 );
     HttpDeclarePush(requestqueuehandle.into_param().abi(), requestid, verb, path.into_param().abi(), query.into_param().abi(), ::core::mem::transmute(headers.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
@@ -131,7 +131,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFindUrlGroupId ( fullyqualifiedurl : :: windows::core::PCWSTR , requestqueuehandle : super::super::Foundation:: HANDLE , urlgroupid : *mut u64 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFindUrlGroupId ( fullyqualifiedurl : ::windows::core::PCWSTR , requestqueuehandle : super::super::Foundation:: HANDLE , urlgroupid : *mut u64 ) -> u32 );
     HttpFindUrlGroupId(fullyqualifiedurl.into_param().abi(), requestqueuehandle.into_param().abi(), urlgroupid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -142,7 +142,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFlushResponseCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , flags : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFlushResponseCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : ::windows::core::PCWSTR , flags : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
     HttpFlushResponseCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -170,7 +170,7 @@ pub unsafe fn HttpPrepareUrl<P0>(reserved: ::core::option::Option<*const ::core:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpPrepareUrl ( reserved : *const ::core::ffi::c_void , flags : u32 , url : :: windows::core::PCWSTR , preparedurl : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpPrepareUrl ( reserved : *const ::core::ffi::c_void , flags : u32 , url : ::windows::core::PCWSTR , preparedurl : *mut ::windows::core::PWSTR ) -> u32 );
     HttpPrepareUrl(::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), flags, url.into_param().abi(), preparedurl)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
@@ -213,7 +213,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReadFragmentFromCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , byterange : *const HTTP_BYTE_RANGE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 , bytesread : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReadFragmentFromCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : ::windows::core::PCWSTR , byterange : *const HTTP_BYTE_RANGE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 , bytesread : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
     HttpReadFragmentFromCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::core::mem::transmute(byterange.unwrap_or(::std::ptr::null())), buffer, bufferlength, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -254,7 +254,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : ::windows::core::PCWSTR ) -> u32 );
     HttpRemoveUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -263,7 +263,7 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrlFromUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , flags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrlFromUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : ::windows::core::PCWSTR , flags : u32 ) -> u32 );
     HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -590,7 +590,7 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_VERSION: ::windows::core::PCWSTR = ::windows::w!("HTTP/1.0");
+pub const HTTP_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("HTTP/1.0");
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

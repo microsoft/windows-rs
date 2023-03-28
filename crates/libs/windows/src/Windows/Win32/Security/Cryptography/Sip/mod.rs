@@ -37,7 +37,7 @@ pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwen
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
 pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPLoad ( pgsubject : *const :: windows::core::GUID , dwflags : u32 , psipdispatch : *mut SIP_DISPATCH_INFO ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPLoad ( pgsubject : *const ::windows::core::GUID , dwflags : u32 , psipdispatch : *mut SIP_DISPATCH_INFO ) -> super::super::super::Foundation:: BOOL );
     CryptSIPLoad(pgsubject, dwflags, psipdispatch)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
@@ -51,7 +51,7 @@ pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwenc
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRemoveProvider ( pgprov : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRemoveProvider ( pgprov : *mut ::windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
     CryptSIPRemoveProvider(pgprov)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
@@ -69,7 +69,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuid ( filename : :: windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuid ( filename : ::windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut ::windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
     CryptSIPRetrieveSubjectGuid(filename.into_param().abi(), hfilein.into_param().abi(), pgsubject)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
@@ -80,7 +80,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuidForCatalogFile ( filename : :: windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "crypt32.dll""system" fn CryptSIPRetrieveSubjectGuidForCatalogFile ( filename : ::windows::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut ::windows::core::GUID ) -> super::super::super::Foundation:: BOOL );
     CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into_param().abi(), hfilein.into_param().abi(), pgsubject)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
