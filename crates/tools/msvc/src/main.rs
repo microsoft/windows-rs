@@ -67,7 +67,7 @@ fn main() {
             break;
         }
     }
-    archive.flush();
+    archive.flush().unwrap();
     drop(archive);
 
     std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.lib")).unwrap();
