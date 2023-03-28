@@ -117,6 +117,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
           cargo test --target ${{ matrix.target }} -p test_simple_component &&
+          cargo test --target ${{ matrix.target }} -p test_standalone &&
           cargo test --target ${{ matrix.target }} -p test_string_param &&
           cargo test --target ${{ matrix.target }} -p test_structs &&
           cargo test --target ${{ matrix.target }} -p test_sys &&
