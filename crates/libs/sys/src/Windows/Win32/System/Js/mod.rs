@@ -10,11 +10,11 @@
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsConvertValueToString ( value : *const ::core::ffi::c_void , stringvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsCreateArray ( length : u32 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : super::Diagnostics::Debug:: IDebugApplication64 , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64 , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : super::Diagnostics::Debug:: IDebugApplication32 , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32 , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsCreateError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsCreateExternalObject ( data : *const ::core::ffi::c_void , finalizecallback : JsFinalizeCallback , object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsCreateFunction ( nativefunction : JsNativeFunction , callbackstate : *const ::core::ffi::c_void , function : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
@@ -32,8 +32,8 @@
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsDisposeRuntime ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsDoubleToNumber ( doublevalue : f64 , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsEnableRuntimeExecution ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsEnumerateHeap ( enumerator : *mut super::Diagnostics::Debug:: IActiveScriptProfilerHeapEnum ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsEnumerateHeap ( enumerator : *mut super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerHeapEnum ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsEquals ( object1 : *const ::core::ffi::c_void , object2 : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsGetAndClearException ( exception : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsGetCurrentContext ( currentcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
@@ -83,13 +83,13 @@
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsSetRuntimeMemoryAllocationCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , allocationcallback : JsMemoryAllocationCallback ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsSetRuntimeMemoryLimit ( runtime : *const ::core::ffi::c_void , memorylimit : usize ) -> JsErrorCode );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsStartDebugging ( debugapplication : super::Diagnostics::Debug:: IDebugApplication64 ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsStartDebugging ( debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64 ) -> JsErrorCode );
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsStartDebugging ( debugapplication : super::Diagnostics::Debug:: IDebugApplication32 ) -> JsErrorCode );
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn JsStartProfiling ( callback : super::Diagnostics::Debug:: IActiveScriptProfilerCallback , eventmask : super::Diagnostics::Debug:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsStartDebugging ( debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32 ) -> JsErrorCode );
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
+::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"] fn JsStartProfiling ( callback : super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerCallback , eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStopProfiling ( reason : ::windows_sys::core::HRESULT ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStrictEquals ( object1 : *const ::core::ffi::c_void , object2 : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
 ::windows_sys::core::link ! ( "chakra.dll""system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStringToPointer ( value : *const ::core::ffi::c_void , stringvalue : *mut *mut u16 , stringlength : *mut usize ) -> JsErrorCode );

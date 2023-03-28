@@ -40,7 +40,7 @@ pub mod Urlmon;
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoFileTimeToDosDateTime ( lpfiletime : *const super::super::Foundation:: FILETIME , lpdosdate : *mut u16 , lpdostime : *mut u16 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`*"] fn CoFreeAllLibraries ( ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoFreeLibrary ( hinst : super::super::Foundation:: HINSTANCE ) -> ( ) );
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoFreeLibrary ( hinst : super::super::Foundation:: HMODULE ) -> ( ) );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`*"] fn CoFreeUnusedLibraries ( ) -> ( ) );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`*"] fn CoFreeUnusedLibrariesEx ( dwunloaddelay : u32 , dwreserved : u32 ) -> ( ) );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`*"] fn CoGetApartmentType ( papttype : *mut APTTYPE , paptqualifier : *mut APTTYPEQUALIFIER ) -> ::windows_sys::core::HRESULT );
@@ -71,7 +71,7 @@ pub mod Urlmon;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoIsOle1Class ( rclsid : *const ::windows_sys::core::GUID ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoLoadLibrary ( lpszlibname : ::windows_sys::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoLoadLibrary ( lpszlibname : ::windows_sys::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HMODULE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"] fn CoLockObjectExternal ( punk : ::windows_sys::core::IUnknown , flock : super::super::Foundation:: BOOL , flastunlockreleases : super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com\"`*"] fn CoQueryAuthenticationServices ( pcauthsvc : *mut u32 , asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE ) -> ::windows_sys::core::HRESULT );

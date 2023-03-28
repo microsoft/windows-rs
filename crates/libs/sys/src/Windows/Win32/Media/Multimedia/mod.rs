@@ -97,7 +97,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn DriverCallback ( dwcallback : usize , dwflags : u32 , hdevice : HDRVR , dwmsg : u32 , dwuser : usize , dwparam1 : usize , dwparam2 : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn DrvGetModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn DrvGetModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HMODULE );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn EditStreamClone ( pavi : IAVIStream , ppresult : *mut IAVIStream ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn EditStreamCopy ( pavi : IAVIStream , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut IAVIStream ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn EditStreamCut ( pavi : IAVIStream , plstart : *mut i32 , pllength : *mut i32 , ppresult : *mut IAVIStream ) -> ::windows_sys::core::HRESULT );
@@ -109,7 +109,7 @@
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn EditStreamSetNameA ( pavi : IAVIStream , lpszname : ::windows_sys::core::PCSTR ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "avifil32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"] fn EditStreamSetNameW ( pavi : IAVIStream , lpszname : ::windows_sys::core::PCWSTR ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn GetDriverModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn GetDriverModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HMODULE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 ::windows_sys::core::link ! ( "msvfw32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"] fn GetOpenFileNamePreviewA ( lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
@@ -159,9 +159,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "msvfw32.dll""system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ICSeqCompressFrameStart ( pc : *const COMPVARS , lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msvfw32.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "msvfw32.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HMODULE , dwstyle : u32 , szfile : ::windows_sys::core::PCSTR ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msvfw32.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HWND );
+::windows_sys::core::link ! ( "msvfw32.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HMODULE , dwstyle : u32 , szfile : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HWND );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "msvfw32.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndRegisterClass ( ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]

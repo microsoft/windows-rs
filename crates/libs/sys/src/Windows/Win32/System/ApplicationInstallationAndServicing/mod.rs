@@ -1431,6 +1431,18 @@ pub const MAX_FEATURE_CHARS: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MAX_GUID_CHARS: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_CREATE: ::windows_sys::core::PCWSTR = 3i32 as _;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_CREATEDIRECT: ::windows_sys::core::PCWSTR = 4i32 as _;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_DIRECT: ::windows_sys::core::PCWSTR = 2i32 as _;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_PATCHFILE: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_READONLY: ::windows_sys::core::PCWSTR = 0i32 as _;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_TRANSACT: ::windows_sys::core::PCWSTR = 1i32 as _;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
@@ -3200,7 +3212,7 @@ pub struct ACTCTXA {
     pub lpAssemblyDirectory: ::windows_sys::core::PCSTR,
     pub lpResourceName: ::windows_sys::core::PCSTR,
     pub lpApplicationName: ::windows_sys::core::PCSTR,
-    pub hModule: super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::Foundation::HMODULE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTCTXA {}
@@ -3222,7 +3234,7 @@ pub struct ACTCTXW {
     pub lpAssemblyDirectory: ::windows_sys::core::PCWSTR,
     pub lpResourceName: ::windows_sys::core::PCWSTR,
     pub lpApplicationName: ::windows_sys::core::PCWSTR,
-    pub hModule: super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::Foundation::HMODULE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTCTXW {}
@@ -3290,7 +3302,7 @@ impl ::core::clone::Clone for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
-    pub Elements: *mut COMPATIBILITY_CONTEXT_ELEMENT,
+    pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
 }
 impl ::core::marker::Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {

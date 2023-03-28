@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dinput8.dll""system" #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"] fn DirectInput8Create ( hinst : super::super::Foundation:: HINSTANCE , dwversion : u32 , riidltf : *const ::windows_sys::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : ::windows_sys::core::IUnknown ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dinput8.dll""system" #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"] fn DirectInput8Create ( hinst : super::super::Foundation:: HMODULE , dwversion : u32 , riidltf : *const ::windows_sys::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : ::windows_sys::core::IUnknown ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "hid.dll""system" #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"] fn HidD_FlushQueue ( hiddeviceobject : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOLEAN );
 #[cfg(feature = "Win32_Foundation")]
@@ -3147,6 +3147,56 @@ pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_APPDATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AUTOCENTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AXISMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000002);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000001);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000b);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATIONMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CPOINTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000015);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_DEADZONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000005);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFGAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000007);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000008);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GETPORTDISPLAYNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000010);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GRANULARITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000003);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GUIDANDPATH: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000c);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_INSTANCENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000d);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_JOYSTICKID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000f);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_KEYNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000014);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_LOGICALRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000013);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PHYSICALRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000012);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PRODUCTNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000e);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000004);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SATURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000006);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SCANCODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000017);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_TYPENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000001a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000019);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_VIDPID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000018);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
@@ -5166,7 +5216,7 @@ pub struct DIACTIONFORMATA {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
     pub tszActionMap: [u8; 260],
@@ -5193,7 +5243,7 @@ pub struct DIACTIONFORMATW {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],

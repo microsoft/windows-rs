@@ -107,7 +107,7 @@ pub struct MODULEENTRY32 {
     pub ProccntUsage: u32,
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
-    pub hModule: super::super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::super::Foundation::HMODULE,
     pub szModule: [u8; 256],
     pub szExePath: [u8; 260],
 }
@@ -130,7 +130,7 @@ pub struct MODULEENTRY32W {
     pub ProccntUsage: u32,
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
-    pub hModule: super::super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::super::Foundation::HMODULE,
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
