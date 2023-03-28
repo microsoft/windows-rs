@@ -109,6 +109,8 @@ EXPORTS
         // Ensure consistency in the prefixes used by dlltool.
         cmd.arg("-t");
         cmd.arg(format!("{library}_").replace('.', "_").replace('-', "_"));
+        // Ensure deterministic output. (dlltool might be built with DEFAULT_AR_DETERMINISTIC=0)
+        cmd.arg("--deterministic-libraries");
     }
     cmd.output().unwrap();
 
