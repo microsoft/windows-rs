@@ -12,6 +12,7 @@ features = [
     "Win32_Graphics_Direct3D11",
     "Win32_Graphics_Gdi",
     "Win32_System_Threading",
+    "Win32_System_ClrHosting",
 ]
 
 [dependencies.windows-sys]
