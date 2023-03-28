@@ -2512,8 +2512,6 @@ pub const DEPENDENCY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DEPENDENCY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEPRECATED_CLR_API_MESG: ::windows::core::PCSTR = ::windows::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DESCR_GROUP_METHODDEF: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DESCR_GROUP_METHODIMPL: i32 = 1i32;

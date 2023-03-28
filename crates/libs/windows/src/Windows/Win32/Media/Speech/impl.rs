@@ -1602,7 +1602,7 @@ pub trait ISpRecoGrammar_Impl: Sized + ISpGrammarBuilder_Impl {
     fn GetRecoContext(&self) -> ::windows::core::Result<ISpRecoContext>;
     fn LoadCmdFromFile(&self, pszfilename: &::windows::core::PCWSTR, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
     fn LoadCmdFromObject(&self, rcid: *const ::windows::core::GUID, pszgrammarname: &::windows::core::PCWSTR, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
-    fn LoadCmdFromResource(&self, hmodule: super::super::Foundation::HINSTANCE, pszresourcename: &::windows::core::PCWSTR, pszresourcetype: &::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
+    fn LoadCmdFromResource(&self, hmodule: super::super::Foundation::HMODULE, pszresourcename: &::windows::core::PCWSTR, pszresourcetype: &::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
     fn LoadCmdFromMemory(&self, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
     fn LoadCmdFromProprietaryGrammar(&self, rguidparam: *const ::windows::core::GUID, pszstringparam: &::windows::core::PCWSTR, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::Result<()>;
     fn SetRuleState(&self, pszname: &::windows::core::PCWSTR, preserved: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::Result<()>;
@@ -1648,7 +1648,7 @@ impl ISpRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             this.LoadCmdFromObject(::core::mem::transmute_copy(&rcid), ::core::mem::transmute(&pszgrammarname), ::core::mem::transmute_copy(&options)).into()
         }
-        unsafe extern "system" fn LoadCmdFromResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmodule: super::super::Foundation::HINSTANCE, pszresourcename: ::windows::core::PCWSTR, pszresourcetype: ::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadCmdFromResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpRecoGrammar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmodule: super::super::Foundation::HMODULE, pszresourcename: ::windows::core::PCWSTR, pszresourcetype: ::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LoadCmdFromResource(::core::mem::transmute_copy(&hmodule), ::core::mem::transmute(&pszresourcename), ::core::mem::transmute(&pszresourcetype), ::core::mem::transmute_copy(&wlanguage), ::core::mem::transmute_copy(&options)).into()

@@ -971,6 +971,16 @@ pub const HHACT_TOC_PREV: i32 = 21i32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HHACT_ZOOM: i32 = 19i32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_FIRST: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_LAST: u32 = 4294966417u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_NAVCOMPLETE: u32 = 4294966436u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_TRACK: u32 = 4294966435u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
+pub const HHN_WINDOW_CREATE: u32 = 4294966434u32;
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
@@ -1812,7 +1822,7 @@ impl ::core::default::Default for HH_GLOBAL_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_POPUP {
     pub cbStruct: i32,
-    pub hinst: super::super::Foundation::HINSTANCE,
+    pub hinst: super::super::Foundation::HMODULE,
     pub idString: u32,
     pub pszText: *mut i8,
     pub pt: super::super::Foundation::POINT,
