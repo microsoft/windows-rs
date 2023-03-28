@@ -1,3 +1,7 @@
+/*!
+Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
+*/
+
 mod classes;
 mod com_methods;
 mod constants;
@@ -13,13 +17,16 @@ mod iterators;
 mod method_names;
 mod structs;
 mod winrt_methods;
-pub use gen::*;
 use metadata::reader::*;
 use method_names::*;
 use std::collections::*;
 use std::fmt::Write;
 use tokens::*;
 
+#[doc(hidden)]
+pub use gen::*;
+
+#[doc(hidden)]
 pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     let mut tokens = TokenStream::new();
 
@@ -143,6 +150,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     tokens.into_string()
 }
 
+#[doc(hidden)]
 pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
@@ -174,6 +182,7 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     tokens.into_string()
 }
 
+/// Generates bindings for a specific component namespace.
 pub fn component(namespace: &str, files: &[File]) -> String {
     let reader = &Reader::new(files);
     let tree = reader.tree(namespace, &Default::default());
@@ -185,6 +194,7 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     bindings
 }
 
+/// Generates standalone bindings for Windows APIs.
 pub fn standalone(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
