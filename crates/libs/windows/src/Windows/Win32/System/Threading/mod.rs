@@ -915,13 +915,6 @@ pub unsafe fn GetCurrentProcessId() -> u32 {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentProcessId ( ) -> u32 );
     GetCurrentProcessId()
 }
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetCurrentProcessToken() -> super::super::Foundation::HANDLE {
-    ::windows::imp::link ! ( "forceinline""system" fn GetCurrentProcessToken ( ) -> super::super::Foundation:: HANDLE );
-    GetCurrentProcessToken()
-}
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
@@ -944,13 +937,6 @@ pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentThread ( ) -> super::super::Foundation:: HANDLE );
     GetCurrentThread()
 }
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetCurrentThreadEffectiveToken() -> super::super::Foundation::HANDLE {
-    ::windows::imp::link ! ( "forceinline""system" fn GetCurrentThreadEffectiveToken ( ) -> super::super::Foundation:: HANDLE );
-    GetCurrentThreadEffectiveToken()
-}
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadId() -> u32 {
@@ -962,13 +948,6 @@ pub unsafe fn GetCurrentThreadId() -> u32 {
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
     ::windows::imp::link ! ( "kernel32.dll""system" fn GetCurrentThreadStackLimits ( lowlimit : *mut usize , highlimit : *mut usize ) -> ( ) );
     GetCurrentThreadStackLimits(lowlimit, highlimit)
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetCurrentThreadToken() -> super::super::Foundation::HANDLE {
-    ::windows::imp::link ! ( "forceinline""system" fn GetCurrentThreadToken ( ) -> super::super::Foundation:: HANDLE );
-    GetCurrentThreadToken()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]

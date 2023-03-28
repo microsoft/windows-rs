@@ -23,6 +23,11 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let scope = gen.reader.impl_map_scope(impl_map);
     let link = gen.reader.module_ref_name(scope).to_lowercase();
 
+    // TODO: skip inline functions for now.
+    if link == "forceinline" {
+        return TokenStream::new();
+    }
+
     let params = signature.params.iter().map(|p| {
         let name = gen.param_name(p.def);
         let tokens = gen.type_default_name(&p.ty);
@@ -81,6 +86,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             .expect("ImplMap not found");
         let scope = gen.reader.impl_map_scope(impl_map);
         let link = gen.reader.module_ref_name(scope).to_lowercase();
+
+        // TODO: skip inline functions for now.
+        if link == "forceinline" {
+            return TokenStream::new();
+        }
 
         if gen.namespace.starts_with("Windows.") {
             quote! {
