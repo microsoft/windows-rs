@@ -1,14 +1,14 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "rometadata.dll""system" fn MetaDataGetDispenser ( rclsid : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "rometadata.dll""system" fn MetaDataGetDispenser ( rclsid : *const ::windows::core::GUID , riid : *const ::windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     MetaDataGetDispenser(rclsid, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreateNonAgilePropertySet ( pppropertyset : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreateNonAgilePropertySet ( pppropertyset : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::super::Foundation::Collections::IPropertySet>();
     RoCreateNonAgilePropertySet(&mut result__).from_abi(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows::core::Result<super::su
 #[cfg(feature = "Storage_Streams")]
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> ::windows::core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreatePropertySetSerializer ( pppropertysetserializer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoCreatePropertySetSerializer ( pppropertysetserializer : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::super::Storage::Streams::IPropertySetSerializer>();
     RoCreatePropertySetSerializer(&mut result__).from_abi(result__)
 }
@@ -35,7 +35,7 @@ pub unsafe fn RoGetMetaDataFile<P0>(name: &::windows::core::HSTRING, metadatadis
 where
     P0: ::windows::core::IntoParam<IMetaDataDispenserEx>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoGetMetaDataFile ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatadispenser : * mut::core::ffi::c_void , metadatafilepath : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadataimport : *mut * mut::core::ffi::c_void , typedeftoken : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoGetMetaDataFile ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatadispenser : * mut::core::ffi::c_void , metadatafilepath : *mut ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadataimport : *mut * mut::core::ffi::c_void , typedeftoken : *mut u32 ) -> ::windows::core::HRESULT );
     RoGetMetaDataFile(::core::mem::transmute_copy(name), metadatadispenser.into_param().abi(), ::core::mem::transmute(metadatafilepath.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(metadataimport.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(typedeftoken.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -44,7 +44,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<P0>(nameelements: &[::windows::c
 where
     P0: ::windows::core::IntoParam<IRoMetaDataLocator>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoGetParameterizedTypeInstanceIID ( nameelementcount : u32 , nameelements : *const :: windows::core::PCWSTR , metadatalocator : * mut::core::ffi::c_void , iid : *mut :: windows::core::GUID , pextra : *mut super:: ROPARAMIIDHANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoGetParameterizedTypeInstanceIID ( nameelementcount : u32 , nameelements : *const ::windows::core::PCWSTR , metadatalocator : * mut::core::ffi::c_void , iid : *mut ::windows::core::GUID , pextra : *mut super:: ROPARAMIIDHANDLE ) -> ::windows::core::HRESULT );
     RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), iid, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`*"]
@@ -54,7 +54,7 @@ pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractMajorVersionPresent ( name : :: windows::core::PCWSTR , majorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractMajorVersionPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     RoIsApiContractMajorVersionPresent(name.into_param().abi(), majorversion, &mut result__).from_abi(result__)
 }
@@ -65,7 +65,7 @@ pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversi
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractPresent ( name : :: windows::core::PCWSTR , majorversion : u16 , minorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-1.dll""system" fn RoIsApiContractPresent ( name : ::windows::core::PCWSTR , majorversion : u16 , minorversion : u16 , present : *mut super::super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
     RoIsApiContractPresent(name.into_param().abi(), majorversion, minorversion, &mut result__).from_abi(result__)
 }
@@ -75,19 +75,19 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> ::windo
 where
     P0: ::windows::core::IntoParam<super::ROPARAMIIDHANDLE>,
 {
-    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : super:: ROPARAMIIDHANDLE ) -> :: windows::core::PCSTR );
+    ::windows::imp::link ! ( "api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll""system" fn RoParameterizedTypeExtraGetTypeSignature ( extra : super:: ROPARAMIIDHANDLE ) -> ::windows::core::PCSTR );
     RoParameterizedTypeExtraGetTypeSignature(extra.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn RoParseTypeName(typename: &::windows::core::HSTRING, partscount: *mut u32, typenameparts: *mut *mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoParseTypeName ( typename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , partscount : *mut u32 , typenameparts : *mut *mut :: windows::core::HSTRING ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoParseTypeName ( typename : ::std::mem::MaybeUninit <::windows::core::HSTRING > , partscount : *mut u32 , typenameparts : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
     RoParseTypeName(::core::mem::transmute_copy(typename), partscount, typenameparts).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[inline]
 pub unsafe fn RoResolveNamespace(name: &::windows::core::HSTRING, windowsmetadatadir: &::windows::core::HSTRING, packagegraphdirs: ::core::option::Option<&[::windows::core::HSTRING]>, metadatafilepathscount: ::core::option::Option<*mut u32>, metadatafilepaths: ::core::option::Option<*mut *mut ::windows::core::HSTRING>, subnamespacescount: ::core::option::Option<*mut u32>, subnamespaces: ::core::option::Option<*mut *mut ::windows::core::HSTRING>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoResolveNamespace ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , windowsmetadatadir : ::std::mem::MaybeUninit <::windows::core::HSTRING > , packagegraphdirscount : u32 , packagegraphdirs : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatafilepathscount : *mut u32 , metadatafilepaths : *mut *mut :: windows::core::HSTRING , subnamespacescount : *mut u32 , subnamespaces : *mut *mut :: windows::core::HSTRING ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-ro-typeresolution-l1-1-0.dll""system" fn RoResolveNamespace ( name : ::std::mem::MaybeUninit <::windows::core::HSTRING > , windowsmetadatadir : ::std::mem::MaybeUninit <::windows::core::HSTRING > , packagegraphdirscount : u32 , packagegraphdirs : *const ::std::mem::MaybeUninit <::windows::core::HSTRING > , metadatafilepathscount : *mut u32 , metadatafilepaths : *mut *mut ::windows::core::HSTRING , subnamespacescount : *mut u32 , subnamespaces : *mut *mut ::windows::core::HSTRING ) -> ::windows::core::HRESULT );
     RoResolveNamespace(
         ::core::mem::transmute_copy(name),
         ::core::mem::transmute_copy(windowsmetadatadir),
@@ -2394,9 +2394,9 @@ pub struct IRoSimpleMetaDataBuilder_Vtbl {
     pub SetParameterizedDelegate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ASSEMBLY_METADATA_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Reflection.AssemblyMetadataAttribute");
+pub const ASSEMBLY_METADATA_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Reflection.AssemblyMetadataAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ASSEMBLY_METADATA_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Reflection.AssemblyMetadataAttribute");
+pub const ASSEMBLY_METADATA_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Reflection.AssemblyMetadataAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const CLSID_CLR_v1_MetaData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005023ca_72b1_11d3_9fc4_00c04f79a0a3);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2412,45 +2412,45 @@ pub const CLSID_CorMetaDataDispenserRuntime: ::windows::core::GUID = ::windows::
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const CLSID_CorMetaDataReg: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87f3a1f5_7397_11d2_9771_00a0c9b4d50c);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAMESPACE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices");
+pub const CMOD_CALLCONV_NAMESPACE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAMESPACE_OLD: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices");
+pub const CMOD_CALLCONV_NAMESPACE_OLD: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAME_CDECL: ::windows::core::PCSTR = ::windows::s!("CallConvCdecl");
+pub const CMOD_CALLCONV_NAME_CDECL: ::windows::core::PCSTR = ::windows::core::s!("CallConvCdecl");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAME_FASTCALL: ::windows::core::PCSTR = ::windows::s!("CallConvFastcall");
+pub const CMOD_CALLCONV_NAME_FASTCALL: ::windows::core::PCSTR = ::windows::core::s!("CallConvFastcall");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAME_STDCALL: ::windows::core::PCSTR = ::windows::s!("CallConvStdcall");
+pub const CMOD_CALLCONV_NAME_STDCALL: ::windows::core::PCSTR = ::windows::core::s!("CallConvStdcall");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CMOD_CALLCONV_NAME_THISCALL: ::windows::core::PCSTR = ::windows::s!("CallConvThiscall");
+pub const CMOD_CALLCONV_NAME_THISCALL: ::windows::core::PCSTR = ::windows::core::s!("CallConvThiscall");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COMPILATIONRELAXATIONS_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
+pub const COMPILATIONRELAXATIONS_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COMPILATIONRELAXATIONS_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
+pub const COMPILATIONRELAXATIONS_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS: ::windows::core::PCWSTR = ::windows::w!("System.Security.Permissions.SecurityAttribute");
+pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("System.Security.Permissions.SecurityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS_ANSI: ::windows::core::PCSTR = ::windows::s!("System.Security.Permissions.SecurityAttribute");
+pub const COR_BASE_SECURITY_ATTRIBUTE_CLASS_ANSI: ::windows::core::PCSTR = ::windows::core::s!("System.Security.Permissions.SecurityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_CCTOR_METHOD_NAME: ::windows::core::PCSTR = ::windows::s!(".cctor");
+pub const COR_CCTOR_METHOD_NAME: ::windows::core::PCSTR = ::windows::core::s!(".cctor");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_CCTOR_METHOD_NAME_W: ::windows::core::PCWSTR = ::windows::w!(".cctor");
+pub const COR_CCTOR_METHOD_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!(".cctor");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DiscardableAttribute");
+pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DiscardableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE_ASNI: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DiscardableAttribute");
+pub const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE_ASNI: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DiscardableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_CTOR_METHOD_NAME: ::windows::core::PCSTR = ::windows::s!(".ctor");
+pub const COR_CTOR_METHOD_NAME: ::windows::core::PCSTR = ::windows::core::s!(".ctor");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_CTOR_METHOD_NAME_W: ::windows::core::PCWSTR = ::windows::w!(".ctor");
+pub const COR_CTOR_METHOD_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!(".ctor");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_DELETED_NAME_A: ::windows::core::PCSTR = ::windows::s!("_Deleted");
+pub const COR_DELETED_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("_Deleted");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_DELETED_NAME_W: ::windows::core::PCWSTR = ::windows::w!("_Deleted");
+pub const COR_DELETED_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("_Deleted");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ENUM_FIELD_NAME: ::windows::core::PCSTR = ::windows::s!("value__");
+pub const COR_ENUM_FIELD_NAME: ::windows::core::PCSTR = ::windows::core::s!("value__");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ENUM_FIELD_NAME_W: ::windows::core::PCWSTR = ::windows::w!("value__");
+pub const COR_ENUM_FIELD_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("value__");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_E_AMBIGUOUSMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147475171i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2470,73 +2470,73 @@ pub const COR_E_TARGETPARAMCOUNT: ::windows::core::HRESULT = ::windows::core::HR
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_NATIVE_LINK_CUSTOM_VALUE: ::windows::core::PCWSTR = ::windows::w!("COMPLUS_NativeLink");
+pub const COR_NATIVE_LINK_CUSTOM_VALUE: ::windows::core::PCWSTR = ::windows::core::w!("COMPLUS_NativeLink");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: ::windows::core::PCSTR = ::windows::s!("COMPLUS_NativeLink");
+pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: ::windows::core::PCSTR = ::windows::core::s!("COMPLUS_NativeLink");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_CC: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_REQUIRES_SECOBJ_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::w!("System.Security.DynamicSecurityMethodAttribute");
+pub const COR_REQUIRES_SECOBJ_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::core::w!("System.Security.DynamicSecurityMethodAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_REQUIRES_SECOBJ_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::s!("System.Security.DynamicSecurityMethodAttribute");
+pub const COR_REQUIRES_SECOBJ_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::core::s!("System.Security.DynamicSecurityMethodAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::w!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
+pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::core::w!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::s!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
+pub const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::core::s!("System.Security.SuppressUnmanagedCodeSecurityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_UNVER_CODE_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::w!("System.Security.UnverifiableCodeAttribute");
+pub const COR_UNVER_CODE_ATTRIBUTE: ::windows::core::PCWSTR = ::windows::core::w!("System.Security.UnverifiableCodeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_UNVER_CODE_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::s!("System.Security.UnverifiableCodeAttribute");
+pub const COR_UNVER_CODE_ATTRIBUTE_ANSI: ::windows::core::PCSTR = ::windows::core::s!("System.Security.UnverifiableCodeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_VTABLEGAP_NAME_A: ::windows::core::PCSTR = ::windows::s!("_VtblGap");
+pub const COR_VTABLEGAP_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("_VtblGap");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_VTABLEGAP_NAME_W: ::windows::core::PCWSTR = ::windows::w!("_VtblGap");
+pub const COR_VTABLEGAP_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("_VtblGap");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDEPENDENCY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
+pub const DEFAULTDEPENDENCY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDEPENDENCY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
+pub const DEFAULTDEPENDENCY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.LoaderOptimizationAttribute");
+pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.LoaderOptimizationAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.LoaderOptimizationAttribute");
+pub const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.LoaderOptimizationAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_MTA_TYPE: ::windows::core::PCSTR = ::windows::s!("System.MTAThreadAttribute");
+pub const DEFAULTDOMAIN_MTA_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.MTAThreadAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_MTA_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.MTAThreadAttribute");
+pub const DEFAULTDOMAIN_MTA_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.MTAThreadAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_STA_TYPE: ::windows::core::PCSTR = ::windows::s!("System.STAThreadAttribute");
+pub const DEFAULTDOMAIN_STA_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.STAThreadAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEFAULTDOMAIN_STA_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.STAThreadAttribute");
+pub const DEFAULTDOMAIN_STA_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.STAThreadAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEPENDENCY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DependencyAttribute");
+pub const DEPENDENCY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEPENDENCY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DependencyAttribute");
+pub const DEPENDENCY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DEPRECATED_CLR_API_MESG: ::windows::core::PCSTR = ::windows::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
+pub const DEPRECATED_CLR_API_MESG: ::windows::core::PCSTR = ::windows::core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DESCR_GROUP_METHODDEF: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DESCR_GROUP_METHODIMPL: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DISABLED_PRIVATE_REFLECTION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
+pub const DISABLED_PRIVATE_REFLECTION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DISABLED_PRIVATE_REFLECTION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
+pub const DISABLED_PRIVATE_REFLECTION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FORWARD_INTEROP_STUB_METHOD_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
+pub const FORWARD_INTEROP_STUB_METHOD_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FORWARD_INTEROP_STUB_METHOD_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
+pub const FORWARD_INTEROP_STUB_METHOD_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRAMEWORK_REGISTRY_KEY: ::windows::core::PCSTR = ::windows::s!("Software\\Microsoft\\.NETFramework");
+pub const FRAMEWORK_REGISTRY_KEY: ::windows::core::PCSTR = ::windows::core::s!("Software\\Microsoft\\.NETFramework");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRAMEWORK_REGISTRY_KEY_W: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\.NETFramework");
+pub const FRAMEWORK_REGISTRY_KEY_W: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\.NETFramework");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
+pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
+pub const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.FriendAccessAllowedAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRIEND_ASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
+pub const FRIEND_ASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const FRIEND_ASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
+pub const FRIEND_ASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.InternalsVisibleToAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const GUID_DispIdOverride: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd2bc5c9_f452_4326_b714_f9c539d4da58);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2552,165 +2552,165 @@ pub const GUID_PropGetCA: ::windows::core::GUID = ::windows::core::GUID::from_u1
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const GUID_PropPutCA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29533527_3683_4364_abc0_db1add822fa2);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_AUTOPROXY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.AutomationProxyAttribute");
+pub const INTEROP_AUTOPROXY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.AutomationProxyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_AUTOPROXY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.AutomationProxyAttribute");
+pub const INTEROP_AUTOPROXY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.AutomationProxyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_BESTFITMAPPING_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.BestFitMappingAttribute");
+pub const INTEROP_BESTFITMAPPING_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.BestFitMappingAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_BESTFITMAPPING_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.BestFitMappingAttribute");
+pub const INTEROP_BESTFITMAPPING_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.BestFitMappingAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_CLASSINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ClassInterfaceAttribute");
+pub const INTEROP_CLASSINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ClassInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_CLASSINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ClassInterfaceAttribute");
+pub const INTEROP_CLASSINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ClassInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COCLASS_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.CoClassAttribute");
+pub const INTEROP_COCLASS_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.CoClassAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COCLASS_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.CoClassAttribute");
+pub const INTEROP_COCLASS_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.CoClassAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMALIASNAME_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComAliasNameAttribute");
+pub const INTEROP_COMALIASNAME_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComAliasNameAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMALIASNAME_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComAliasNameAttribute");
+pub const INTEROP_COMALIASNAME_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComAliasNameAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMCOMPATIBLEVERSION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
+pub const INTEROP_COMCOMPATIBLEVERSION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMCOMPATIBLEVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
+pub const INTEROP_COMCOMPATIBLEVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComCompatibleVersionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMCONVERSIONLOSS_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComConversionLossAttribute");
+pub const INTEROP_COMCONVERSIONLOSS_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComConversionLossAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMCONVERSIONLOSS_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComConversionLossAttribute");
+pub const INTEROP_COMCONVERSIONLOSS_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComConversionLossAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMDEFAULTINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
+pub const INTEROP_COMDEFAULTINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMDEFAULTINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
+pub const INTEROP_COMDEFAULTINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComDefaultInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMEMULATE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComEmulateAttribute");
+pub const INTEROP_COMEMULATE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComEmulateAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMEMULATE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComEmulateAttribute");
+pub const INTEROP_COMEMULATE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComEmulateAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMEVENTINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
+pub const INTEROP_COMEVENTINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMEVENTINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
+pub const INTEROP_COMEVENTINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComEventInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMIMPORT_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComImportAttribute");
+pub const INTEROP_COMIMPORT_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComImportAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMIMPORT_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComImportAttribute");
+pub const INTEROP_COMIMPORT_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComImportAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMREGISTERFUNCTION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
+pub const INTEROP_COMREGISTERFUNCTION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMREGISTERFUNCTION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
+pub const INTEROP_COMREGISTERFUNCTION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComRegisterFunctionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMSOURCEINTERFACES_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
+pub const INTEROP_COMSOURCEINTERFACES_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMSOURCEINTERFACES_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
+pub const INTEROP_COMSOURCEINTERFACES_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComSourceInterfacesAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
+pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
+pub const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMUNREGISTERFUNCTION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
+pub const INTEROP_COMUNREGISTERFUNCTION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMUNREGISTERFUNCTION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
+pub const INTEROP_COMUNREGISTERFUNCTION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComUnregisterFunctionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMVISIBLE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ComVisibleAttribute");
+pub const INTEROP_COMVISIBLE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ComVisibleAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_COMVISIBLE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ComVisibleAttribute");
+pub const INTEROP_COMVISIBLE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ComVisibleAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DATETIMEVALUE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
+pub const INTEROP_DATETIMEVALUE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DATETIMEVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
+pub const INTEROP_DATETIMEVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DateTimeConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DECIMALVALUE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.DecimalConstantAttribute");
+pub const INTEROP_DECIMALVALUE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.DecimalConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DECIMALVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.DecimalConstantAttribute");
+pub const INTEROP_DECIMALVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.DecimalConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DEFAULTMEMBER_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Reflection.DefaultMemberAttribute");
+pub const INTEROP_DEFAULTMEMBER_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Reflection.DefaultMemberAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DEFAULTMEMBER_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Reflection.DefaultMemberAttribute");
+pub const INTEROP_DEFAULTMEMBER_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Reflection.DefaultMemberAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DISPID_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.DispIdAttribute");
+pub const INTEROP_DISPID_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.DispIdAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_DISPID_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.DispIdAttribute");
+pub const INTEROP_DISPID_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.DispIdAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_GUID_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.GuidAttribute");
+pub const INTEROP_GUID_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.GuidAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_GUID_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.GuidAttribute");
+pub const INTEROP_GUID_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.GuidAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IDISPATCHIMPL_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.IDispatchImplAttribute");
+pub const INTEROP_IDISPATCHIMPL_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.IDispatchImplAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IDISPATCHIMPL_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.IDispatchImplAttribute");
+pub const INTEROP_IDISPATCHIMPL_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.IDispatchImplAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IDISPATCHVALUE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
+pub const INTEROP_IDISPATCHVALUE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IDISPATCHVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
+pub const INTEROP_IDISPATCHVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.IDispatchConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
+pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
+pub const INTEROP_IMPORTEDFROMTYPELIB_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.ImportedFromTypeLibAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_INTERFACETYPE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.InterfaceTypeAttribute");
+pub const INTEROP_INTERFACETYPE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.InterfaceTypeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_INTERFACETYPE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.InterfaceTypeAttribute");
+pub const INTEROP_INTERFACETYPE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.InterfaceTypeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IN_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.InAttribute");
+pub const INTEROP_IN_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.InAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IN_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.InAttribute");
+pub const INTEROP_IN_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.InAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IUNKNOWNVALUE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
+pub const INTEROP_IUNKNOWNVALUE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_IUNKNOWNVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
+pub const INTEROP_IUNKNOWNVALUE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.IUnknownConstantAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_LCIDCONVERSION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.LCIDConversionAttribute");
+pub const INTEROP_LCIDCONVERSION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.LCIDConversionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_LCIDCONVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.LCIDConversionAttribute");
+pub const INTEROP_LCIDCONVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.LCIDConversionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_MARSHALAS_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.MarshalAsAttribute");
+pub const INTEROP_MARSHALAS_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.MarshalAsAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_MARSHALAS_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.MarshalAsAttribute");
+pub const INTEROP_MARSHALAS_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.MarshalAsAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_OUT_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.OutAttribute");
+pub const INTEROP_OUT_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.OutAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_OUT_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.OutAttribute");
+pub const INTEROP_OUT_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.OutAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PARAMARRAY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.ParamArrayAttribute");
+pub const INTEROP_PARAMARRAY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.ParamArrayAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PARAMARRAY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.ParamArrayAttribute");
+pub const INTEROP_PARAMARRAY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.ParamArrayAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PRESERVESIG_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.PreserveSigAttribure");
+pub const INTEROP_PRESERVESIG_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.PreserveSigAttribure");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PRESERVESIG_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.PreserveSigAttribure");
+pub const INTEROP_PRESERVESIG_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.PreserveSigAttribure");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
+pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
+pub const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_SERIALIZABLE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.SerializableAttribute");
+pub const INTEROP_SERIALIZABLE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.SerializableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_SERIALIZABLE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.SerializableAttribute");
+pub const INTEROP_SERIALIZABLE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.SerializableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
+pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
+pub const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBFUNC_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.TypeLibFuncAttribute");
+pub const INTEROP_TYPELIBFUNC_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.TypeLibFuncAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBFUNC_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.TypeLibFuncAttribute");
+pub const INTEROP_TYPELIBFUNC_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.TypeLibFuncAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBIMPORTCLASS_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
+pub const INTEROP_TYPELIBIMPORTCLASS_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBIMPORTCLASS_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
+pub const INTEROP_TYPELIBIMPORTCLASS_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.TypeLibImportClassAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBTYPE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.TypeLibTypeAttribute");
+pub const INTEROP_TYPELIBTYPE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.TypeLibTypeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBTYPE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.TypeLibTypeAttribute");
+pub const INTEROP_TYPELIBTYPE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.TypeLibTypeAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBVAR_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.TypeLibVarAttribute");
+pub const INTEROP_TYPELIBVAR_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.TypeLibVarAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBVAR_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.TypeLibVarAttribute");
+pub const INTEROP_TYPELIBVAR_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.TypeLibVarAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBVERSION_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.InteropServices.TypeLibVersionAttribute");
+pub const INTEROP_TYPELIBVERSION_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.InteropServices.TypeLibVersionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const INTEROP_TYPELIBVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.InteropServices.TypeLibVersionAttribute");
+pub const INTEROP_TYPELIBVERSION_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.InteropServices.TypeLibVersionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const INVALID_CONNECTION_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2718,15 +2718,15 @@ pub const INVALID_TASK_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const LIBID_ComPlusRuntime: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed7f4ea_1a96_11d2_8f08_00a0c9a6186d);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MAIN_CLR_MODULE_NAME_A: ::windows::core::PCSTR = ::windows::s!("coreclr");
+pub const MAIN_CLR_MODULE_NAME_A: ::windows::core::PCSTR = ::windows::core::s!("coreclr");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MAIN_CLR_MODULE_NAME_W: ::windows::core::PCWSTR = ::windows::w!("coreclr");
+pub const MAIN_CLR_MODULE_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("coreclr");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MAX_CONNECTION_NAME: u32 = 260u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MSCOREE_SHIM_A: ::windows::core::PCSTR = ::windows::s!("mscoree.dll");
+pub const MSCOREE_SHIM_A: ::windows::core::PCSTR = ::windows::core::s!("mscoree.dll");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MSCOREE_SHIM_W: ::windows::core::PCWSTR = ::windows::w!("mscoree.dll");
+pub const MSCOREE_SHIM_W: ::windows::core::PCWSTR = ::windows::core::w!("mscoree.dll");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MetaDataCheckDuplicatesFor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30fe7be8_d7d9_11d2_9f80_00c04f79a0a3);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2754,13 +2754,13 @@ pub const MetaDataThreadSafetyOptions: ::windows::core::GUID = ::windows::core::
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MetaDataTypeLibImportNamespace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf17ff889_5a63_11d3_9ff2_00c04ff7431a);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NONVERSIONABLE_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.Versioning.NonVersionableAttribute");
+pub const NONVERSIONABLE_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.Versioning.NonVersionableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NONVERSIONABLE_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.Versioning.NonVersionableAttribute");
+pub const NONVERSIONABLE_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.Versioning.NonVersionableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const RUNTIMECOMPATIBILITY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
+pub const RUNTIMECOMPATIBILITY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const RUNTIMECOMPATIBILITY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
+pub const RUNTIMECOMPATIBILITY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const SIGN_MASK_FOURBYTE: i32 = -268435456i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2768,17 +2768,17 @@ pub const SIGN_MASK_ONEBYTE: i32 = -64i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const SIGN_MASK_TWOBYTE: i32 = -8192i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SUBJECT_ASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute");
+pub const SUBJECT_ASSEMBLY_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SUBJECT_ASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute");
+pub const SUBJECT_ASSEMBLY_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const TARGET_FRAMEWORK_TYPE: ::windows::core::PCSTR = ::windows::s!("System.Runtime.Versioning.TargetFrameworkAttribute");
+pub const TARGET_FRAMEWORK_TYPE: ::windows::core::PCSTR = ::windows::core::s!("System.Runtime.Versioning.TargetFrameworkAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const TARGET_FRAMEWORK_TYPE_W: ::windows::core::PCWSTR = ::windows::w!("System.Runtime.Versioning.TargetFrameworkAttribute");
+pub const TARGET_FRAMEWORK_TYPE_W: ::windows::core::PCWSTR = ::windows::core::w!("System.Runtime.Versioning.TargetFrameworkAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const USER_FRAMEWORK_REGISTRY_KEY: ::windows::core::PCSTR = ::windows::s!("Software\\Microsoft\\.NETFramework64");
+pub const USER_FRAMEWORK_REGISTRY_KEY: ::windows::core::PCSTR = ::windows::core::s!("Software\\Microsoft\\.NETFramework64");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const USER_FRAMEWORK_REGISTRY_KEY_W: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\.NETFramework64");
+pub const USER_FRAMEWORK_REGISTRY_KEY_W: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\.NETFramework64");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDevice ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D11CreateDevice(padapter.into_param().abi(), drivertype, software.into_param().abi(), flags, ::core::mem::transmute(pfeaturelevels.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len() as _), sdkversion, ::core::mem::transmute(ppdevice.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfeaturelevel.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppimmediatecontext.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIAdapter>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3d11.dll""system" fn D3D11CreateDeviceAndSwapChain ( padapter : * mut::core::ffi::c_void , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3D11CreateDeviceAndSwapChain(
         padapter.into_param().abi(),
         drivertype,
@@ -41,7 +41,7 @@ pub unsafe fn D3DDisassemble11Trace<P0>(psrcdata: *const ::core::ffi::c_void, sr
 where
     P0: ::windows::core::IntoParam<ID3D11ShaderTrace>,
 {
-    ::windows::imp::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : * mut::core::ffi::c_void , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::Direct3D::ID3DBlob>();
     D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.into_param().abi(), startstep, numsteps, flags, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ pub unsafe fn D3DX11CreateFFT<P0>(pdevicecontext: P0, pdesc: *const D3DX11_FFT_D
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT ( pdevicecontext : * mut::core::ffi::c_void , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT(pdevicecontext.into_param().abi(), pdesc, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -60,7 +60,7 @@ pub unsafe fn D3DX11CreateFFT1DComplex<P0>(pdevicecontext: P0, x: u32, flags: u3
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT1DComplex(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn D3DX11CreateFFT1DReal<P0>(pdevicecontext: P0, x: u32, flags: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT1DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT1DReal(pdevicecontext.into_param().abi(), x, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn D3DX11CreateFFT2DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, f
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT2DComplex(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn D3DX11CreateFFT2DReal<P0>(pdevicecontext: P0, x: u32, y: u32, flag
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT2DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT2DReal(pdevicecontext.into_param().abi(), x, y, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -96,7 +96,7 @@ pub unsafe fn D3DX11CreateFFT3DComplex<P0>(pdevicecontext: P0, x: u32, y: u32, z
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT3DComplex(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -105,7 +105,7 @@ pub unsafe fn D3DX11CreateFFT3DReal<P0>(pdevicecontext: P0, x: u32, y: u32, z: u
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateFFT3DReal ( pdevicecontext : * mut::core::ffi::c_void , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     D3DX11CreateFFT3DReal(pdevicecontext.into_param().abi(), x, y, z, flags, pbufferinfo, ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -114,7 +114,7 @@ pub unsafe fn D3DX11CreateScan<P0>(pdevicecontext: P0, maxelementscansize: u32, 
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11Scan>();
     D3DX11CreateScan(pdevicecontext.into_param().abi(), maxelementscansize, maxscancount, &mut result__).from_abi(result__)
 }
@@ -124,7 +124,7 @@ pub unsafe fn D3DX11CreateSegmentedScan<P0>(pdevicecontext: P0, maxelementscansi
 where
     P0: ::windows::core::IntoParam<ID3D11DeviceContext>,
 {
-    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "d3dcsx.dll""system" fn D3DX11CreateSegmentedScan ( pdevicecontext : * mut::core::ffi::c_void , maxelementscansize : u32 , ppscan : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ID3DX11SegmentedScan>();
     D3DX11CreateSegmentedScan(pdevicecontext.into_param().abi(), maxelementscansize, &mut result__).from_abi(result__)
 }
@@ -13801,9 +13801,9 @@ pub const D3D11_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const D3D11_APPNAME_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::w!("Size");
+pub const D3D11_APPSIZE_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Size");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -13843,13 +13843,13 @@ pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_CATEGORY_%s");
+pub const D3D11_BREAKON_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%d");
+pub const D3D11_BREAKON_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("BreakOn_ID_%s");
+pub const D3D11_BREAKON_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("BreakOn_SEVERITY_%s");
+pub const D3D11_BREAKON_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("BreakOn_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14243,7 +14243,7 @@ pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::w!("EnableBreakOnMessage");
+pub const D3D11_ENABLE_BREAK_ON_MESSAGE: ::windows::core::PCWSTR = ::windows::core::w!("EnableBreakOnMessage");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14269,9 +14269,9 @@ pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_FORCE_DEBUGGABLE: ::windows::core::PCWSTR = ::windows::w!("ForceDebuggable");
+pub const D3D11_FORCE_DEBUGGABLE: ::windows::core::PCWSTR = ::windows::core::w!("ForceDebuggable");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: ::windows::core::PCWSTR = ::windows::w!("ForceShaderSkipOptimization");
+pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: ::windows::core::PCWSTR = ::windows::core::w!("ForceShaderSkipOptimization");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14423,7 +14423,7 @@ pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::w!("InfoQueueStorageFilterOverride");
+pub const D3D11_INFOQUEUE_STORAGE_FILTER_OVERRIDE: ::windows::core::PCWSTR = ::windows::core::w!("InfoQueueStorageFilterOverride");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14479,15 +14479,15 @@ pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::w!("Mute_CATEGORY_%s");
+pub const D3D11_MUTE_CATEGORY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_CATEGORY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::w!("MuteDebugOutput");
+pub const D3D11_MUTE_DEBUG_OUTPUT: ::windows::core::PCWSTR = ::windows::core::w!("MuteDebugOutput");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%d");
+pub const D3D11_MUTE_ID_DECIMAL: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%d");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::w!("Mute_ID_%s");
+pub const D3D11_MUTE_ID_STRING: ::windows::core::PCWSTR = ::windows::core::w!("Mute_ID_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::w!("Mute_SEVERITY_%s");
+pub const D3D11_MUTE_SEVERITY: ::windows::core::PCWSTR = ::windows::core::w!("Mute_SEVERITY_%s");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14545,7 +14545,7 @@ pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::w!("Software\\Microsoft\\Direct3D");
+pub const D3D11_REGKEY_PATH: ::windows::core::PCWSTR = ::windows::core::w!("Software\\Microsoft\\Direct3D");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14723,7 +14723,7 @@ pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::w!("Unmute_SEVERITY_INFO");
+pub const D3D11_UNMUTE_SEVERITY_INFO: ::windows::core::PCWSTR = ::windows::core::w!("Unmute_SEVERITY_INFO");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
@@ -14755,11 +14755,11 @@ pub const D3D11_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL: ::windows::core::PCWSTR = ::windows::w!("d3dcsx_47.dll");
+pub const D3DCSX_DLL: ::windows::core::PCWSTR = ::windows::core::w!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL_A: ::windows::core::PCSTR = ::windows::s!("d3dcsx_47.dll");
+pub const D3DCSX_DLL_A: ::windows::core::PCSTR = ::windows::core::s!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3DCSX_DLL_W: ::windows::core::PCWSTR = ::windows::w!("d3dcsx_47.dll");
+pub const D3DCSX_DLL_W: ::windows::core::PCWSTR = ::windows::core::w!("d3dcsx_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_FFT_MAX_DIMENSIONS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]

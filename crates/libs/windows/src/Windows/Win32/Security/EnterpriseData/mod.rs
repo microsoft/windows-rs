@@ -5,14 +5,14 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "efswrt.dll""system" fn ProtectFileToEnterpriseIdentity ( fileorfolderpath : :: windows::core::PCWSTR , identity : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "efswrt.dll""system" fn ProtectFileToEnterpriseIdentity ( fileorfolderpath : ::windows::core::PCWSTR , identity : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     ProtectFileToEnterpriseIdentity(fileorfolderpath.into_param().abi(), identity.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpCloseThreadNetworkContext ( threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpCloseThreadNetworkContext ( threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> ::windows::core::HRESULT );
     SrpCloseThreadNetworkContext(threadnetworkcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
@@ -22,21 +22,21 @@ pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> ::windows::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpCreateThreadNetworkContext ( enterpriseid : :: windows::core::PCWSTR , threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpCreateThreadNetworkContext ( enterpriseid : ::windows::core::PCWSTR , threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<HTHREAD_NETWORK_CONTEXT>();
     SrpCreateThreadNetworkContext(enterpriseid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
 pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpDisablePermissiveModeFileEncryption ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpDisablePermissiveModeFileEncryption ( ) -> ::windows::core::HRESULT );
     SrpDisablePermissiveModeFileEncryption().ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Appx\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
 #[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpDoesPolicyAllowAppExecution ( packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID , isallowed : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpDoesPolicyAllowAppExecution ( packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID , isallowed : *mut super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
     SrpDoesPolicyAllowAppExecution(packageid, &mut result__).from_abi(result__)
 }
@@ -46,7 +46,7 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<P0>(enterpriseid: P0) -> ::w
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpEnablePermissiveModeFileEncryption ( enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpEnablePermissiveModeFileEncryption ( enterpriseid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SrpEnablePermissiveModeFileEncryption(enterpriseid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
@@ -56,7 +56,7 @@ pub unsafe fn SrpGetEnterpriseIds<P0>(tokenhandle: P0, numberofbytes: ::core::op
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterpriseIds ( tokenhandle : super::super::Foundation:: HANDLE , numberofbytes : *mut u32 , enterpriseids : *mut :: windows::core::PCWSTR , enterpriseidcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterpriseIds ( tokenhandle : super::super::Foundation:: HANDLE , numberofbytes : *mut u32 , enterpriseids : *mut ::windows::core::PCWSTR , enterpriseidcount : *mut u32 ) -> ::windows::core::HRESULT );
     SrpGetEnterpriseIds(tokenhandle.into_param().abi(), ::core::mem::transmute(numberofbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(enterpriseids.unwrap_or(::std::ptr::null_mut())), enterpriseidcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
@@ -66,14 +66,14 @@ pub unsafe fn SrpGetEnterprisePolicy<P0>(tokenhandle: P0) -> ::windows::core::Re
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterprisePolicy ( tokenhandle : super::super::Foundation:: HANDLE , policyflags : *mut ENTERPRISE_DATA_POLICIES ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpGetEnterprisePolicy ( tokenhandle : super::super::Foundation:: HANDLE , policyflags : *mut ENTERPRISE_DATA_POLICIES ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<ENTERPRISE_DATA_POLICIES>();
     SrpGetEnterprisePolicy(tokenhandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
 pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpHostingInitialize ( version : SRPHOSTING_VERSION , r#type : SRPHOSTING_TYPE , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpHostingInitialize ( version : SRPHOSTING_VERSION , r#type : SRPHOSTING_TYPE , pvdata : *const ::core::ffi::c_void , cbdata : u32 ) -> ::windows::core::HRESULT );
     SrpHostingInitialize(version, r#type, pvdata, cbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
@@ -100,7 +100,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpSetTokenEnterpriseId ( tokenhandle : super::super::Foundation:: HANDLE , enterpriseid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "srpapi.dll""system" fn SrpSetTokenEnterpriseId ( tokenhandle : super::super::Foundation:: HANDLE , enterpriseid : ::windows::core::PCWSTR ) -> ::windows::core::HRESULT );
     SrpSetTokenEnterpriseId(tokenhandle.into_param().abi(), enterpriseid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
@@ -109,7 +109,7 @@ pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: ::core::option::O
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "efswrt.dll""system" fn UnprotectFile ( fileorfolderpath : :: windows::core::PCWSTR , options : *const FILE_UNPROTECT_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "efswrt.dll""system" fn UnprotectFile ( fileorfolderpath : ::windows::core::PCWSTR , options : *const FILE_UNPROTECT_OPTIONS ) -> ::windows::core::HRESULT );
     UnprotectFile(fileorfolderpath.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]

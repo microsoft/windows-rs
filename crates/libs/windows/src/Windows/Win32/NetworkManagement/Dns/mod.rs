@@ -28,7 +28,7 @@ pub unsafe fn DnsConnectionDeleteProxyInfo<P0>(pwszconnectionname: P0, r#type: D
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionDeleteProxyInfo ( pwszconnectionname : :: windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionDeleteProxyInfo ( pwszconnectionname : ::windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE ) -> u32 );
     DnsConnectionDeleteProxyInfo(pwszconnectionname.into_param().abi(), r#type)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -68,7 +68,7 @@ pub unsafe fn DnsConnectionGetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyInfo ( pwszconnectionname : :: windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE , pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyInfo ( pwszconnectionname : ::windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE , pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO ) -> u32 );
     DnsConnectionGetProxyInfo(pwszconnectionname.into_param().abi(), r#type, pproxyinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -78,7 +78,7 @@ pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectio
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyInfoForHostUrl ( pwszhosturl : :: windows::core::PCWSTR , pselectioncontext : *const u8 , dwselectioncontextlength : u32 , dwexplicitinterfaceindex : u32 , pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyInfoForHostUrl ( pwszhosturl : ::windows::core::PCWSTR , pselectioncontext : *const u8 , dwselectioncontextlength : u32 , dwexplicitinterfaceindex : u32 , pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX ) -> u32 );
     DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into_param().abi(), ::core::mem::transmute(pselectioncontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.as_deref().map_or(0, |slice| slice.len() as _), dwexplicitinterfaceindex, pproxyinfoex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -87,7 +87,7 @@ pub unsafe fn DnsConnectionGetProxyList<P0>(pwszconnectionname: P0, pproxylist: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyList ( pwszconnectionname : :: windows::core::PCWSTR , pproxylist : *mut DNS_CONNECTION_PROXY_LIST ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionGetProxyList ( pwszconnectionname : ::windows::core::PCWSTR , pproxylist : *mut DNS_CONNECTION_PROXY_LIST ) -> u32 );
     DnsConnectionGetProxyList(pwszconnectionname.into_param().abi(), pproxylist)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -102,7 +102,7 @@ pub unsafe fn DnsConnectionSetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionSetProxyInfo ( pwszconnectionname : :: windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE , pproxyinfo : *const DNS_CONNECTION_PROXY_INFO ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsConnectionSetProxyInfo ( pwszconnectionname : ::windows::core::PCWSTR , r#type : DNS_CONNECTION_PROXY_TYPE , pproxyinfo : *const DNS_CONNECTION_PROXY_INFO ) -> u32 );
     DnsConnectionSetProxyInfo(pwszconnectionname.into_param().abi(), r#type, pproxyinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -143,7 +143,7 @@ pub unsafe fn DnsFreeProxyName<P0>(proxyname: P0)
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsFreeProxyName ( proxyname : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsFreeProxyName ( proxyname : ::windows::core::PCWSTR ) -> ( ) );
     DnsFreeProxyName(proxyname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -158,7 +158,7 @@ pub unsafe fn DnsGetProxyInformation<P0>(hostname: P0, proxyinformation: *mut DN
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsGetProxyInformation ( hostname : :: windows::core::PCWSTR , proxyinformation : *mut DNS_PROXY_INFORMATION , defaultproxyinformation : *mut DNS_PROXY_INFORMATION , completionroutine : DNS_PROXY_COMPLETION_ROUTINE , completioncontext : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsGetProxyInformation ( hostname : ::windows::core::PCWSTR , proxyinformation : *mut DNS_PROXY_INFORMATION , defaultproxyinformation : *mut DNS_PROXY_INFORMATION , completionroutine : DNS_PROXY_COMPLETION_ROUTINE , completioncontext : *const ::core::ffi::c_void ) -> u32 );
     DnsGetProxyInformation(hostname.into_param().abi(), proxyinformation, ::core::mem::transmute(defaultproxyinformation.unwrap_or(::std::ptr::null_mut())), completionroutine, ::core::mem::transmute(completioncontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -199,7 +199,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsNameCompare_A ( pname1 : :: windows::core::PCSTR , pname2 : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsNameCompare_A ( pname1 : ::windows::core::PCSTR , pname2 : ::windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     DnsNameCompare_A(pname1.into_param().abi(), pname2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -210,7 +210,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsNameCompare_W ( pname1 : :: windows::core::PCWSTR , pname2 : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsNameCompare_W ( pname1 : ::windows::core::PCWSTR , pname2 : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     DnsNameCompare_W(pname1.into_param().abi(), pname2.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn DnsQueryConfig<P0>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptern
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQueryConfig ( config : DNS_CONFIG_TYPE , flag : u32 , pwsadaptername : :: windows::core::PCWSTR , preserved : *const ::core::ffi::c_void , pbuffer : *mut ::core::ffi::c_void , pbuflen : *mut u32 ) -> i32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQueryConfig ( config : DNS_CONFIG_TYPE , flag : u32 , pwsadaptername : ::windows::core::PCWSTR , preserved : *const ::core::ffi::c_void , pbuffer : *mut ::core::ffi::c_void , pbuflen : *mut u32 ) -> i32 );
     DnsQueryConfig(config, flag, pwsadaptername.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), pbuflen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -236,7 +236,7 @@ pub unsafe fn DnsQuery_A<P0>(pszname: P0, wtype: DNS_TYPE, options: DNS_QUERY_OP
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_A ( pszname : :: windows::core::PCSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_A ( pszname : ::windows::core::PCSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     DnsQuery_A(pszname.into_param().abi(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ppqueryresults, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -246,7 +246,7 @@ pub unsafe fn DnsQuery_UTF8<P0>(pszname: P0, wtype: DNS_TYPE, options: DNS_QUERY
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_UTF8 ( pszname : :: windows::core::PCSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_UTF8 ( pszname : ::windows::core::PCSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     DnsQuery_UTF8(pszname.into_param().abi(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ppqueryresults, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -256,7 +256,7 @@ pub unsafe fn DnsQuery_W<P0>(pszname: P0, wtype: DNS_TYPE, options: DNS_QUERY_OP
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_W ( pszname : :: windows::core::PCWSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsQuery_W ( pszname : ::windows::core::PCWSTR , wtype : DNS_TYPE , options : DNS_QUERY_OPTIONS , pextra : *mut ::core::ffi::c_void , ppqueryresults : *mut *mut DNS_RECORDA , preserved : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: WIN32_ERROR );
     DnsQuery_W(pszname.into_param().abi(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ppqueryresults, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -354,7 +354,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsServiceConstructInstance ( pservicename : :: windows::core::PCWSTR , phostname : :: windows::core::PCWSTR , pip4 : *const u32 , pip6 : *const IP6_ADDRESS , wport : u16 , wpriority : u16 , wweight : u16 , dwpropertiescount : u32 , keys : *const :: windows::core::PCWSTR , values : *const :: windows::core::PCWSTR ) -> *mut DNS_SERVICE_INSTANCE );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsServiceConstructInstance ( pservicename : ::windows::core::PCWSTR , phostname : ::windows::core::PCWSTR , pip4 : *const u32 , pip6 : *const IP6_ADDRESS , wport : u16 , wpriority : u16 , wweight : u16 , dwpropertiescount : u32 , keys : *const ::windows::core::PCWSTR , values : *const ::windows::core::PCWSTR ) -> *mut DNS_SERVICE_INSTANCE );
     DnsServiceConstructInstance(pservicename.into_param().abi(), phostname.into_param().abi(), ::core::mem::transmute(pip4.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pip6.unwrap_or(::std::ptr::null())), wport, wpriority, wweight, dwpropertiescount, keys, values)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -426,7 +426,7 @@ pub unsafe fn DnsValidateName_A<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_A ( pszname : :: windows::core::PCSTR , format : DNS_NAME_FORMAT ) -> i32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_A ( pszname : ::windows::core::PCSTR , format : DNS_NAME_FORMAT ) -> i32 );
     DnsValidateName_A(pszname.into_param().abi(), format)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -435,7 +435,7 @@ pub unsafe fn DnsValidateName_UTF8<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_UTF8 ( pszname : :: windows::core::PCSTR , format : DNS_NAME_FORMAT ) -> i32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_UTF8 ( pszname : ::windows::core::PCSTR , format : DNS_NAME_FORMAT ) -> i32 );
     DnsValidateName_UTF8(pszname.into_param().abi(), format)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -444,7 +444,7 @@ pub unsafe fn DnsValidateName_W<P0>(pszname: P0, format: DNS_NAME_FORMAT) -> i32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_W ( pszname : :: windows::core::PCWSTR , format : DNS_NAME_FORMAT ) -> i32 );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsValidateName_W ( pszname : ::windows::core::PCWSTR , format : DNS_NAME_FORMAT ) -> i32 );
     DnsValidateName_W(pszname.into_param().abi(), format)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -455,7 +455,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsWriteQuestionToBuffer_UTF8 ( pdnsbuffer : *mut DNS_MESSAGE_BUFFER , pdwbuffersize : *mut u32 , pszname : :: windows::core::PCSTR , wtype : u16 , xid : u16 , frecursiondesired : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsWriteQuestionToBuffer_UTF8 ( pdnsbuffer : *mut DNS_MESSAGE_BUFFER , pdwbuffersize : *mut u32 , pszname : ::windows::core::PCSTR , wtype : u16 , xid : u16 , frecursiondesired : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     DnsWriteQuestionToBuffer_UTF8(pdnsbuffer, pdwbuffersize, pszname.into_param().abi(), wtype, xid, frecursiondesired.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
@@ -466,7 +466,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsWriteQuestionToBuffer_W ( pdnsbuffer : *mut DNS_MESSAGE_BUFFER , pdwbuffersize : *mut u32 , pszname : :: windows::core::PCWSTR , wtype : u16 , xid : u16 , frecursiondesired : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dnsapi.dll""system" fn DnsWriteQuestionToBuffer_W ( pdnsbuffer : *mut DNS_MESSAGE_BUFFER , pdwbuffersize : *mut u32 , pszname : ::windows::core::PCWSTR , wtype : u16 , xid : u16 , frecursiondesired : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     DnsWriteQuestionToBuffer_W(pdnsbuffer, pdwbuffersize, pszname.into_param().abi(), wtype, xid, frecursiondesired.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]

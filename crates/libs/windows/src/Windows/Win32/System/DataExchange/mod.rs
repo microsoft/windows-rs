@@ -4,7 +4,7 @@ pub unsafe fn AddAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn AddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AddAtomA ( lpstring : ::windows::core::PCSTR ) -> u16 );
     AddAtomA(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -13,7 +13,7 @@ pub unsafe fn AddAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn AddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn AddAtomW ( lpstring : ::windows::core::PCWSTR ) -> u16 );
     AddAtomW(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -136,7 +136,7 @@ pub unsafe fn DdeCreateStringHandleA<P0>(idinst: u32, psz: P0, icodepage: i32) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DdeCreateStringHandleA ( idinst : u32 , psz : :: windows::core::PCSTR , icodepage : i32 ) -> HSZ );
+    ::windows::imp::link ! ( "user32.dll""system" fn DdeCreateStringHandleA ( idinst : u32 , psz : ::windows::core::PCSTR , icodepage : i32 ) -> HSZ );
     DdeCreateStringHandleA(idinst, psz.into_param().abi(), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -145,7 +145,7 @@ pub unsafe fn DdeCreateStringHandleW<P0>(idinst: u32, psz: P0, icodepage: i32) -
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DdeCreateStringHandleW ( idinst : u32 , psz : :: windows::core::PCWSTR , icodepage : i32 ) -> HSZ );
+    ::windows::imp::link ! ( "user32.dll""system" fn DdeCreateStringHandleW ( idinst : u32 , psz : ::windows::core::PCWSTR , icodepage : i32 ) -> HSZ );
     DdeCreateStringHandleW(idinst, psz.into_param().abi(), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -292,7 +292,7 @@ pub unsafe fn DdeQueryStringA<P0>(idinst: u32, hsz: P0, psz: ::core::option::Opt
 where
     P0: ::windows::core::IntoParam<HSZ>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DdeQueryStringA ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DdeQueryStringA ( idinst : u32 , hsz : HSZ , psz : ::windows::core::PSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
     DdeQueryStringA(idinst, hsz.into_param().abi(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -301,7 +301,7 @@ pub unsafe fn DdeQueryStringW<P0>(idinst: u32, hsz: P0, psz: ::core::option::Opt
 where
     P0: ::windows::core::IntoParam<HSZ>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn DdeQueryStringW ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PWSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn DdeQueryStringW ( idinst : u32 , hsz : HSZ , psz : ::windows::core::PWSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
     DdeQueryStringW(idinst, hsz.into_param().abi(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -375,7 +375,7 @@ pub unsafe fn FindAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindAtomA ( lpstring : ::windows::core::PCSTR ) -> u16 );
     FindAtomA(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -384,7 +384,7 @@ pub unsafe fn FindAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FindAtomW ( lpstring : ::windows::core::PCWSTR ) -> u16 );
     FindAtomW(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -400,13 +400,13 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetAtomNameA ( natom : u16 , lpbuffer : ::windows::core::PSTR , nsize : i32 ) -> u32 );
     GetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GetAtomNameW ( natom : u16 , lpbuffer : ::windows::core::PWSTR , nsize : i32 ) -> u32 );
     GetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -420,13 +420,13 @@ pub unsafe fn GetClipboardData(uformat: u32) -> ::windows::core::Result<super::s
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) -> i32 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetClipboardFormatNameA ( format : u32 , lpszformatname : :: windows::core::PSTR , cchmaxcount : i32 ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetClipboardFormatNameA ( format : u32 , lpszformatname : ::windows::core::PSTR , cchmaxcount : i32 ) -> i32 );
     GetClipboardFormatNameA(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -> i32 {
-    ::windows::imp::link ! ( "user32.dll""system" fn GetClipboardFormatNameW ( format : u32 , lpszformatname : :: windows::core::PWSTR , cchmaxcount : i32 ) -> i32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn GetClipboardFormatNameW ( format : u32 , lpszformatname : ::windows::core::PWSTR , cchmaxcount : i32 ) -> i32 );
     GetClipboardFormatNameW(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -475,7 +475,7 @@ pub unsafe fn GlobalAddAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomA ( lpstring : ::windows::core::PCSTR ) -> u16 );
     GlobalAddAtomA(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -484,7 +484,7 @@ pub unsafe fn GlobalAddAtomExA<P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomExA ( lpstring : :: windows::core::PCSTR , flags : u32 ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomExA ( lpstring : ::windows::core::PCSTR , flags : u32 ) -> u16 );
     GlobalAddAtomExA(lpstring.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -493,7 +493,7 @@ pub unsafe fn GlobalAddAtomExW<P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomExW ( lpstring : :: windows::core::PCWSTR , flags : u32 ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomExW ( lpstring : ::windows::core::PCWSTR , flags : u32 ) -> u16 );
     GlobalAddAtomExW(lpstring.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -502,7 +502,7 @@ pub unsafe fn GlobalAddAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalAddAtomW ( lpstring : ::windows::core::PCWSTR ) -> u16 );
     GlobalAddAtomW(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -517,7 +517,7 @@ pub unsafe fn GlobalFindAtomA<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFindAtomA ( lpstring : ::windows::core::PCSTR ) -> u16 );
     GlobalFindAtomA(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -526,19 +526,19 @@ pub unsafe fn GlobalFindAtomW<P0>(lpstring: P0) -> u16
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalFindAtomW ( lpstring : ::windows::core::PCWSTR ) -> u16 );
     GlobalFindAtomW(lpstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalGetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalGetAtomNameA ( natom : u16 , lpbuffer : ::windows::core::PSTR , nsize : i32 ) -> u32 );
     GlobalGetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalGetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn GlobalGetAtomNameW ( natom : u16 , lpbuffer : ::windows::core::PWSTR , nsize : i32 ) -> u32 );
     GlobalGetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -589,7 +589,7 @@ pub unsafe fn RegisterClipboardFormatA<P0>(lpszformat: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn RegisterClipboardFormatA ( lpszformat : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterClipboardFormatA ( lpszformat : ::windows::core::PCSTR ) -> u32 );
     RegisterClipboardFormatA(lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -598,7 +598,7 @@ pub unsafe fn RegisterClipboardFormatW<P0>(lpszformat: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn RegisterClipboardFormatW ( lpszformat : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "user32.dll""system" fn RegisterClipboardFormatW ( lpszformat : ::windows::core::PCWSTR ) -> u32 );
     RegisterClipboardFormatW(lpszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -751,21 +751,21 @@ pub const MSGF_DDEMGR: u32 = 32769u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const QID_SYNC: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_FORMATS: ::windows::core::PCWSTR = ::windows::w!("Formats");
+pub const SZDDESYS_ITEM_FORMATS: ::windows::core::PCWSTR = ::windows::core::w!("Formats");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_HELP: ::windows::core::PCWSTR = ::windows::w!("Help");
+pub const SZDDESYS_ITEM_HELP: ::windows::core::PCWSTR = ::windows::core::w!("Help");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_RTNMSG: ::windows::core::PCWSTR = ::windows::w!("ReturnMessage");
+pub const SZDDESYS_ITEM_RTNMSG: ::windows::core::PCWSTR = ::windows::core::w!("ReturnMessage");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_STATUS: ::windows::core::PCWSTR = ::windows::w!("Status");
+pub const SZDDESYS_ITEM_STATUS: ::windows::core::PCWSTR = ::windows::core::w!("Status");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_SYSITEMS: ::windows::core::PCWSTR = ::windows::w!("SysItems");
+pub const SZDDESYS_ITEM_SYSITEMS: ::windows::core::PCWSTR = ::windows::core::w!("SysItems");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_TOPICS: ::windows::core::PCWSTR = ::windows::w!("Topics");
+pub const SZDDESYS_ITEM_TOPICS: ::windows::core::PCWSTR = ::windows::core::w!("Topics");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_TOPIC: ::windows::core::PCWSTR = ::windows::w!("System");
+pub const SZDDESYS_TOPIC: ::windows::core::PCWSTR = ::windows::core::w!("System");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDE_ITEM_ITEMLIST: ::windows::core::PCWSTR = ::windows::w!("TopicItemList");
+pub const SZDDE_ITEM_ITEMLIST: ::windows::core::PCWSTR = ::windows::core::w!("TopicItemList");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]

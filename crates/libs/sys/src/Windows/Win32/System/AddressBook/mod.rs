@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : super::Com:: IMalloc , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut IMAPITable , lpptbldata : *mut ITableData ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : super::Com:: IMalloc , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut IMAPITable , lpptbldata : *mut ITableData ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"] fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn CreateIProp ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut IPropData ) -> i32 );
-::windows_sys::core::link ! ( "rtm.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn CreateTable ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut ITableData ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn CreateIProp ( lpinterface : *mut ::windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut IPropData ) -> i32 );
+::windows_sys::core::link ! ( "rtm.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn CreateTable ( lpinterface : *mut ::windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut ITableData ) -> i32 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn DeinitMapiUtil ( ) -> ( ) );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
@@ -32,20 +32,20 @@
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"] fn FtSubFt ( ftminuend : super::super::Foundation:: FILETIME , ftsubtrahend : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"] fn FtgRegisterIdleRoutine ( lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrAddColumns ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrAddColumnsEx ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , lpfnfiltercolumns : isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrAddColumns ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrAddColumnsEx ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , lpfnfiltercolumns : isize ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrAllocAdviseSink ( lpfncallback : LPNOTIFCALLBACK , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrDispatchNotifications ( ulflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrAllocAdviseSink ( lpfncallback : LPNOTIFCALLBACK , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut IMAPIAdviseSink ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrDispatchNotifications ( ulflags : u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrGetOneProp ( lpmapiprop : IMAPIProp , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrGetOneProp ( lpmapiprop : IMAPIProp , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn HrIStorageFromStream ( lpunkin : :: windows_sys::core::IUnknown , lpinterface : *mut :: windows_sys::core::GUID , ulflags : u32 , lppstorageout : *mut super::Com::StructuredStorage:: IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn HrIStorageFromStream ( lpunkin : ::windows_sys::core::IUnknown , lpinterface : *mut ::windows_sys::core::GUID , ulflags : u32 , lppstorageout : *mut super::Com::StructuredStorage:: IStorage ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrQueryAllRows ( lptable : IMAPITable , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrQueryAllRows ( lptable : IMAPITable , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrSetOneProp ( lpmapiprop : IMAPIProp , lpprop : *mut SPropValue ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrThisThreadAdviseSink ( lpadvisesink : IMAPIAdviseSink , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn HrSetOneProp ( lpmapiprop : IMAPIProp , lpprop : *mut SPropValue ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn HrThisThreadAdviseSink ( lpadvisesink : IMAPIAdviseSink , lppadvisesink : *mut IMAPIAdviseSink ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -55,13 +55,13 @@
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"] fn MAPIGetDefaultMalloc ( ) -> super::Com:: IMalloc );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"] fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"] fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut super::Com:: IStream ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : LPALLOCATEMORE , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"] fn RTFSync ( lpmessage : IMessage , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"] fn RTFSync ( lpmessage : IMessage , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -74,12 +74,12 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : LPALLOCATEBUFFER , lppproparray : *mut *mut SPropValue ) -> i32 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn ScInitMapiUtil ( ulflags : u32 ) -> i32 );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn ScLocalPathFromUNC ( lpszunc : :: windows_sys::core::PCSTR , lpszlocal : :: windows_sys::core::PCSTR , cchlocal : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn ScLocalPathFromUNC ( lpszunc : ::windows_sys::core::PCSTR , lpszlocal : ::windows_sys::core::PCSTR , cchlocal : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn ScUNCFromLocalPath ( lpszlocal : :: windows_sys::core::PCSTR , lpszunc : :: windows_sys::core::PCSTR , cchunc : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn ScUNCFromLocalPath ( lpszlocal : ::windows_sys::core::PCSTR , lpszunc : ::windows_sys::core::PCSTR , cchunc : u32 ) -> i32 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
@@ -89,8 +89,8 @@
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
 ::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"] fn WrapCompressedRTFStream ( lpcompressedrtfstream : super::Com:: IStream , ulflags : u32 , lpuncompressedrtfstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"] fn WrapCompressedRTFStream ( lpcompressedrtfstream : super::Com:: IStream , ulflags : u32 , lpuncompressedrtfstream : *mut super::Com:: IStream ) -> ::windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"] fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> ::windows_sys::core::HRESULT );
 pub type IABContainer = *mut ::core::ffi::c_void;
 pub type IAddrBook = *mut ::core::ffi::c_void;
 pub type IAttach = *mut ::core::ffi::c_void;
@@ -449,7 +449,7 @@ pub const MV_FLAG: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const MV_INSTANCE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const OPENSTREAMONFILE: ::windows_sys::core::PCSTR = ::windows_sys::s!("OpenStreamOnFile");
+pub const OPENSTREAMONFILE: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("OpenStreamOnFile");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const PRIHIGHEST: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -517,9 +517,9 @@ pub const WAB_DISPLAY_ISNTDS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const WAB_DLL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("WAB32.DLL");
+pub const WAB_DLL_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("WAB32.DLL");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const WAB_DLL_PATH_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::w!("Software\\Microsoft\\WAB\\DLLPath");
+pub const WAB_DLL_PATH_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Software\\Microsoft\\WAB\\DLLPath");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -543,11 +543,11 @@ pub const fMapiUnicode: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const hrSuccess: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szHrDispatchNotifications: ::windows_sys::core::PCSTR = ::windows_sys::s!("HrDispatchNotifications");
+pub const szHrDispatchNotifications: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("HrDispatchNotifications");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szMAPINotificationMsg: ::windows_sys::core::PCSTR = ::windows_sys::s!("MAPI Notify window message");
+pub const szMAPINotificationMsg: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MAPI Notify window message");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szScCreateConversationIndex: ::windows_sys::core::PCSTR = ::windows_sys::s!("ScCreateConversationIndex");
+pub const szScCreateConversationIndex: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ScCreateConversationIndex");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub type Gender = i32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]

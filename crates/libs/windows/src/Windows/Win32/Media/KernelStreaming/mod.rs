@@ -15,7 +15,7 @@ pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *co
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateAllocator2(connectionhandle.into_param().abi(), allocatorframing, &mut result__).from_abi(result__)
 }
@@ -36,7 +36,7 @@ pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLO
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateClock2(connectionhandle.into_param().abi(), clockcreate, &mut result__).from_abi(result__)
 }
@@ -57,7 +57,7 @@ pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreatePin2(filterhandle.into_param().abi(), connect, desiredaccess, &mut result__).from_abi(result__)
 }
@@ -78,7 +78,7 @@ pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSN
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
@@ -2307,17 +2307,17 @@ pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSSTREAM_WRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Allocator: ::windows::core::PCWSTR = ::windows::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Allocator: ::windows::core::PCWSTR = ::windows::core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_AllocatorEx: ::windows::core::PCWSTR = ::windows::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
+pub const KSSTRING_AllocatorEx: ::windows::core::PCWSTR = ::windows::core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Clock: ::windows::core::PCWSTR = ::windows::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Clock: ::windows::core::PCWSTR = ::windows::core::w!("{53172480-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Filter: ::windows::core::PCWSTR = ::windows::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
+pub const KSSTRING_Filter: ::windows::core::PCWSTR = ::windows::core::w!("{9B365890-165F-11D0-A195-0020AFD156E4}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Pin: ::windows::core::PCWSTR = ::windows::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
+pub const KSSTRING_Pin: ::windows::core::PCWSTR = ::windows::core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_TopologyNode: ::windows::core::PCWSTR = ::windows::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
+pub const KSSTRING_TopologyNode: ::windows::core::PCWSTR = ::windows::core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSTIME_FORMAT_BYTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]

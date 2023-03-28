@@ -16,7 +16,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<IActivateAudioInterfaceCompletionHandler>,
 {
-    ::windows::imp::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "mmdevapi.dll""system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : ::windows::core::PCWSTR , riid : *const ::windows::core::GUID , activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IActivateAudioInterfaceAsyncOperation>();
     ActivateAudioInterfaceAsync(deviceinterfacepath.into_param().abi(), riid, ::core::mem::transmute(activationparams.unwrap_or(::std::ptr::null())), completionhandler.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -26,20 +26,20 @@ pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter
 where
     P0: ::windows::core::IntoParam<IMessageFilter>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     CoRegisterMessageFilter(lpmessagefilter.into_param().abi(), ::core::mem::transmute(lplpmessagefilter.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategory(category, &mut result__).from_abi(result__)
 }
@@ -49,28 +49,28 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<P0>(category:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : ::windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitor(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategory(category, &mut result__).from_abi(result__)
 }
@@ -80,14 +80,14 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<P0>(category: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : ::windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windows.media.mediacontrol.dll""system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<IAudioStateMonitor>();
     CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).from_abi(result__)
 }
@@ -99,7 +99,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : :: windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : ::windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -110,7 +110,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : :: windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : ::windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -587,13 +587,13 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -713,13 +713,13 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1008,7 +1008,7 @@ pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundA ( pszsound : :: windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundA ( pszsound : ::windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundA(pszsound.into_param().abi(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -1018,7 +1018,7 @@ pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> super::super::Fou
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundW ( pszsound : :: windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn sndPlaySoundW ( pszsound : ::windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundW(pszsound.into_param().abi(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1054,13 +1054,13 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1180,13 +1180,13 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : ::windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::imp::link ! ( "winmm.dll""system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : ::windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -5833,23 +5833,23 @@ pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELP: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELP: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPA: ::windows::core::PCSTR = ::windows::s!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contexthelp");
+pub const ACMHELPMSGCONTEXTHELPW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contexthelp");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENU: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENU: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUA: ::windows::core::PCSTR = ::windows::s!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_contextmenu");
+pub const ACMHELPMSGCONTEXTMENUW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_contextmenu");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRING: ::windows::core::PCWSTR = ::windows::w!("acmchoose_help");
+pub const ACMHELPMSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("acmchoose_help");
+pub const ACMHELPMSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("acmchoose_help");
+pub const ACMHELPMSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("acmchoose_help");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6581,7 +6581,7 @@ pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows::core::HRESULT = :
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004286972i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows::core::PCWSTR = ::windows::w!("VAD\\Process_Loopback");
+pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows::core::PCWSTR = ::windows::core::w!("VAD\\Process_Loopback");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]

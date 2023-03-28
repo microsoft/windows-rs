@@ -10,7 +10,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn CLIPOBJ_ppoGetPath ( pco : *mut CLIPOBJ ) -> *mut PATHOBJ );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : :: windows_sys::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
+::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn CapabilitiesRequestAndCapabilitiesReply ( hmonitor : super::super::Foundation:: HANDLE , pszasciicapabilitiesstring : ::windows_sys::core::PSTR , dwcapabilitiesstringlengthincharacters : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn DegaussMonitor ( hmonitor : super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -61,20 +61,20 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngFreeModule ( h : super::super::Foundation:: HANDLE ) -> ( ) );
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngGetCurrentCodePage ( oemcodepage : *mut u16 , ansicodepage : *mut u16 ) -> ( ) );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngGetDriverName ( hdev : HDEV ) -> :: windows_sys::core::PWSTR );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngGetPrinterDataFileName ( hdev : HDEV ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngGetDriverName ( hdev : HDEV ) -> ::windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngGetPrinterDataFileName ( hdev : HDEV ) -> ::windows_sys::core::PWSTR );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn EngGradientFill ( psodest : *mut SURFOBJ , pco : *mut CLIPOBJ , pxlo : *mut XLATEOBJ , pvertex : *mut super::super::Graphics::Gdi:: TRIVERTEX , nvertex : u32 , pmesh : *mut ::core::ffi::c_void , nmesh : u32 , prclextents : *mut super::super::Foundation:: RECTL , pptlditherorg : *mut super::super::Foundation:: POINTL , ulmode : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngLineTo ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , x1 : i32 , y1 : i32 , x2 : i32 , y2 : i32 , prclbounds : *mut super::super::Foundation:: RECTL , mix : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngLoadModule ( pwsz : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngLoadModule ( pwsz : ::windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngLockSurface ( hsurf : HSURF ) -> *mut SURFOBJ );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngMarkBandingSurface ( hsurf : HSURF ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngMultiByteToUnicodeN ( unicodestring : :: windows_sys::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : :: windows_sys::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : :: windows_sys::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows_sys::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngMultiByteToUnicodeN ( unicodestring : ::windows_sys::core::PWSTR , maxbytesinunicodestring : u32 , bytesinunicodestring : *mut u32 , multibytestring : ::windows_sys::core::PCSTR , bytesinmultibytestring : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngMultiByteToWideChar ( codepage : u32 , widecharstring : ::windows_sys::core::PWSTR , bytesinwidecharstring : i32 , multibytestring : ::windows_sys::core::PCSTR , bytesinmultibytestring : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngPaint ( pso : *mut SURFOBJ , pco : *mut CLIPOBJ , pbo : *mut BRUSHOBJ , pptlbrushorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -95,10 +95,10 @@
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngTextOut ( pso : *mut SURFOBJ , pstro : *mut STROBJ , pfo : *mut FONTOBJ , pco : *mut CLIPOBJ , prclextra : *mut super::super::Foundation:: RECTL , prclopaque : *mut super::super::Foundation:: RECTL , pbofore : *mut BRUSHOBJ , pboopaque : *mut BRUSHOBJ , pptlorg : *mut super::super::Foundation:: POINTL , mix : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngTransparentBlt ( psodst : *const SURFOBJ , psosrc : *const SURFOBJ , pco : *const CLIPOBJ , pxlo : *const XLATEOBJ , prcldst : *const super::super::Foundation:: RECTL , prclsrc : *const super::super::Foundation:: RECTL , transcolor : u32 , bcalledfrombitblt : u32 ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngUnicodeToMultiByteN ( multibytestring : :: windows_sys::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : :: windows_sys::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngUnicodeToMultiByteN ( multibytestring : ::windows_sys::core::PSTR , maxbytesinmultibytestring : u32 , bytesinmultibytestring : *mut u32 , unicodestring : ::windows_sys::core::PCWSTR , bytesinunicodestring : u32 ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn EngUnlockSurface ( pso : *mut SURFOBJ ) -> ( ) );
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : :: windows_sys::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : :: windows_sys::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`*"] fn EngWideCharToMultiByte ( codepage : u32 , widecharstring : ::windows_sys::core::PCWSTR , bytesinwidecharstring : i32 , multibytestring : ::windows_sys::core::PSTR , bytesinmultibytestring : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn FONTOBJ_cGetAllGlyphHandles ( pfo : *mut FONTOBJ , phg : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -144,11 +144,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetNumberOfPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , pdwnumberofphysicalmonitors : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Direct3D9\"`*"] fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9 , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Graphics_Direct3D9\"`*"] fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9 , pdwnumberofphysicalmonitors : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetPhysicalMonitorsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"] fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9 , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"] fn GetPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9 , dwphysicalmonitorarraysize : u32 , pphysicalmonitorarray : *mut PHYSICAL_MONITOR ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "dxva2.dll""system" #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"] fn GetTimingReport ( hmonitor : super::super::Foundation:: HANDLE , pmtrmonitortimingreport : *mut MC_TIMING_REPORT ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
@@ -338,7 +338,7 @@ pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DDI_ERROR: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("\\Device\\FSVideo");
+pub const DD_FULLSCREEN_VIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\Device\\FSVideo");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -1550,7 +1550,7 @@ pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VIDEO_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::s!("DISPLAY%d");
+pub const VIDEO_DEVICE_NAME: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("DISPLAY%d");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -1670,7 +1670,7 @@ pub const WO_RGN_WINDOW: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const WVIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::w!("DISPLAY%d");
+pub const WVIDEO_DEVICE_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DISPLAY%d");
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const XF_INV_FXTOL: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]

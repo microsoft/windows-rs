@@ -18,7 +18,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : :: windows::core::PCSTR , pport : :: windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
+    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesA ( pdevice : ::windows::core::PCSTR , pport : ::windows::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
     DeviceCapabilitiesA(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -29,7 +29,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : :: windows::core::PCWSTR , pport : :: windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
+    ::windows::imp::link ! ( "winspool.drv""system" fn DeviceCapabilitiesW ( pdevice : ::windows::core::PCWSTR , pport : ::windows::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
     DeviceCapabilitiesW(pdevice.into_param().abi(), pport.into_param().abi(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -59,7 +59,7 @@ pub unsafe fn Escape<P0>(hdc: P0, iescape: i32, pvin: ::core::option::Option<&[u
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : :: windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : ::windows::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
     Escape(hdc.into_param().abi(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn ExtEscape<P0>(hdc: P0, iescape: i32, lpindata: ::core::option::Opt
 where
     P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::imp::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : :: windows::core::PCSTR , cjoutput : i32 , lpoutdata : :: windows::core::PSTR ) -> i32 );
+    ::windows::imp::link ! ( "gdi32.dll""system" fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : ::windows::core::PCSTR , cjoutput : i32 , lpoutdata : ::windows::core::PSTR ) -> i32 );
     ExtEscape(hdc.into_param().abi(), iescape, lpindata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpindata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]

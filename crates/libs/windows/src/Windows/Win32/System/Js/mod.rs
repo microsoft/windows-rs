@@ -273,7 +273,7 @@ pub unsafe fn JsGetPropertyIdFromName<P0>(name: P0, propertyid: *mut *mut ::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsGetPropertyIdFromName ( name : :: windows::core::PCWSTR , propertyid : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsGetPropertyIdFromName ( name : ::windows::core::PCWSTR , propertyid : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsGetPropertyIdFromName(name.into_param().abi(), propertyid)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -391,7 +391,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsParseScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsParseScript ( script : ::windows::core::PCWSTR , sourcecontext : usize , sourceurl : ::windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsParseScript(script.into_param().abi(), sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -401,13 +401,13 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsParseSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsParseSerializedScript ( script : ::windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : ::windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsParseSerializedScript(script.into_param().abi(), buffer, sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsPointerToString ( stringvalue : :: windows::core::PCWSTR , stringlength : usize , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsPointerToString ( stringvalue : ::windows::core::PCWSTR , stringlength : usize , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len() as _, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -429,7 +429,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsRunScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsRunScript ( script : ::windows::core::PCWSTR , sourcecontext : usize , sourceurl : ::windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsRunScript(script.into_param().abi(), sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -439,7 +439,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsRunSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsRunSerializedScript ( script : ::windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : ::windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsRunSerializedScript(script.into_param().abi(), buffer, sourcecontext, sourceurl.into_param().abi(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -448,7 +448,7 @@ pub unsafe fn JsSerializeScript<P0>(script: P0, buffer: ::core::option::Option<*
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsSerializeScript ( script : :: windows::core::PCWSTR , buffer : *mut u8 , buffersize : *mut u32 ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsSerializeScript ( script : ::windows::core::PCWSTR , buffer : *mut u8 , buffersize : *mut u32 ) -> JsErrorCode );
     JsSerializeScript(script.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
@@ -540,7 +540,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsStopProfiling ( reason : :: windows::core::HRESULT ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsStopProfiling ( reason : ::windows::core::HRESULT ) -> JsErrorCode );
     JsStopProfiling(reason)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]

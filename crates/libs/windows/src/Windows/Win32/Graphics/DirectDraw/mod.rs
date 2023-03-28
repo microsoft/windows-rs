@@ -4,7 +4,7 @@ pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut ::windows::core::GUID, lplpdd: *
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreate ( lpguid : *mut ::windows::core::GUID , lplpdd : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreate(lpguid, ::core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -13,7 +13,7 @@ pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut ::co
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreateClipper(dwflags, ::core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -22,35 +22,35 @@ pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut ::windows::core::GUID, lplpdd:
 where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut :: windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawCreateEx ( lpguid : *mut ::windows::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const ::windows::core::GUID , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -3133,7 +3133,7 @@ pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_APP_DLLNAME: ::windows::core::PCSTR = ::windows::s!("DDRAW.DLL");
+pub const DDHAL_APP_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -3171,7 +3171,7 @@ pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_DRIVER_DLLNAME: ::windows::core::PCSTR = ::windows::s!("DDRAW16.DLL");
+pub const DDHAL_DRIVER_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW16.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4445,11 +4445,11 @@ pub const OBJECT_ISROOT: i32 = -2147483648i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows::core::PCSTR = ::windows::s!("Description");
+pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows::core::PCSTR = ::windows::core::s!("Description");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows::core::PCSTR = ::windows::s!("DriverName");
+pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows::core::PCSTR = ::windows::core::s!("DriverName");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_PATH_DDHW: ::windows::core::PCSTR = ::windows::s!("Hardware\\DirectDrawDrivers");
+pub const REGSTR_PATH_DDHW: ::windows::core::PCSTR = ::windows::core::s!("Hardware\\DirectDrawDrivers");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]

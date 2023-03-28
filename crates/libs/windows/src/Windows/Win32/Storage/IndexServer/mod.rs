@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -27,7 +27,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : ::windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const ::windo
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : ::windows::core::PCWSTR , dwflags : u32 , riid : *const ::windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     LoadIFilterEx(pwcspath.into_param().abi(), dwflags, riid, ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -156,7 +156,7 @@ pub struct IPhraseSink_Vtbl {
     pub PutPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcphrase: ::windows::core::PCWSTR, cwcphrase: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CIADMIN: ::windows::core::PCWSTR = ::windows::w!("::_nodocstore_::");
+pub const CIADMIN: ::windows::core::PCWSTR = ::windows::core::w!("::_nodocstore_::");
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -170,7 +170,7 @@ pub const CICAT_STOPPED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_WRITABLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CINULLCATALOG: ::windows::core::PCWSTR = ::windows::w!("::_noindex_::");
+pub const CINULLCATALOG: ::windows::core::PCWSTR = ::windows::core::w!("::_noindex_::");
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]

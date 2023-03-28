@@ -5,7 +5,7 @@ pub unsafe fn ADsBuildEnumerator<P0>(padscontainer: P0) -> ::windows::core::Resu
 where
     P0: ::windows::core::IntoParam<IADsContainer>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildEnumerator ( padscontainer : * mut::core::ffi::c_void , ppenumvariant : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildEnumerator ( padscontainer : * mut::core::ffi::c_void , ppenumvariant : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::System::Ole::IEnumVARIANT>();
     ADsBuildEnumerator(padscontainer.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -13,14 +13,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildVarArrayInt ( lpdwobjecttypes : *mut u32 , dwobjecttypes : u32 , pvar : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildVarArrayInt ( lpdwobjecttypes : *mut u32 , dwobjecttypes : u32 , pvar : *mut super::super::System::Com:: VARIANT ) -> ::windows::core::HRESULT );
     ADsBuildVarArrayInt(lpdwobjecttypes, dwobjecttypes, pvar).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[::windows::core::PCWSTR], pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildVarArrayStr ( lpppathnames : *const :: windows::core::PCWSTR , dwpathnames : u32 , pvar : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsBuildVarArrayStr ( lpppathnames : *const ::windows::core::PCWSTR , dwpathnames : u32 , pvar : *mut super::super::System::Com:: VARIANT ) -> ::windows::core::HRESULT );
     ADsBuildVarArrayStr(::core::mem::transmute(lpppathnames.as_ptr()), lpppathnames.len() as _, pvar).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -29,13 +29,13 @@ pub unsafe fn ADsDecodeBinaryData<P0>(szsrcdata: P0, ppbdestdata: *mut *mut u8, 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsDecodeBinaryData ( szsrcdata : :: windows::core::PCWSTR , ppbdestdata : *mut *mut u8 , pdwdestlen : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsDecodeBinaryData ( szsrcdata : ::windows::core::PCWSTR , ppbdestdata : *mut *mut u8 , pdwdestlen : *mut u32 ) -> ::windows::core::HRESULT );
     ADsDecodeBinaryData(szsrcdata.into_param().abi(), ppbdestdata, pdwdestlen).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsEncodeBinaryData ( pbsrcdata : *mut u8 , dwsrclen : u32 , ppszdestdata : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsEncodeBinaryData ( pbsrcdata : *mut u8 , dwsrclen : u32 , ppszdestdata : *mut ::windows::core::PWSTR ) -> ::windows::core::HRESULT );
     ADsEncodeBinaryData(pbsrcdata, dwsrclen, ppszdestdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -45,7 +45,7 @@ pub unsafe fn ADsEnumerateNext<P0>(penumvariant: P0, celements: u32, pvar: *mut 
 where
     P0: ::windows::core::IntoParam<super::super::System::Ole::IEnumVARIANT>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsEnumerateNext ( penumvariant : * mut::core::ffi::c_void , celements : u32 , pvar : *mut super::super::System::Com:: VARIANT , pcelementsfetched : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsEnumerateNext ( penumvariant : * mut::core::ffi::c_void , celements : u32 , pvar : *mut super::super::System::Com:: VARIANT , pcelementsfetched : *mut u32 ) -> ::windows::core::HRESULT );
     ADsEnumerateNext(penumvariant.into_param().abi(), celements, pvar, pcelementsfetched).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Ole\"`*"]
@@ -55,13 +55,13 @@ pub unsafe fn ADsFreeEnumerator<P0>(penumvariant: P0) -> ::windows::core::Result
 where
     P0: ::windows::core::IntoParam<super::super::System::Ole::IEnumVARIANT>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsFreeEnumerator ( penumvariant : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsFreeEnumerator ( penumvariant : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ADsFreeEnumerator(penumvariant.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsGetLastError ( lperror : *mut u32 , lperrorbuf : :: windows::core::PWSTR , dwerrorbuflen : u32 , lpnamebuf : :: windows::core::PWSTR , dwnamebuflen : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsGetLastError ( lperror : *mut u32 , lperrorbuf : ::windows::core::PWSTR , dwerrorbuflen : u32 , lpnamebuf : ::windows::core::PWSTR , dwnamebuflen : u32 ) -> ::windows::core::HRESULT );
     ADsGetLastError(lperror, ::core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len() as _, ::core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -70,7 +70,7 @@ pub unsafe fn ADsGetObject<P0>(lpszpathname: P0, riid: *const ::windows::core::G
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsGetObject ( lpszpathname : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , ppobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsGetObject ( lpszpathname : ::windows::core::PCWSTR , riid : *const ::windows::core::GUID , ppobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ADsGetObject(lpszpathname.into_param().abi(), riid, ppobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -81,7 +81,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsOpenObject ( lpszpathname : :: windows::core::PCWSTR , lpszusername : :: windows::core::PCWSTR , lpszpassword : :: windows::core::PCWSTR , dwreserved : ADS_AUTHENTICATION_ENUM , riid : *const :: windows::core::GUID , ppobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsOpenObject ( lpszpathname : ::windows::core::PCWSTR , lpszusername : ::windows::core::PCWSTR , lpszpassword : ::windows::core::PCWSTR , dwreserved : ADS_AUTHENTICATION_ENUM , riid : *const ::windows::core::GUID , ppobject : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     ADsOpenObject(lpszpathname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), dwreserved, riid, ppobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -91,7 +91,7 @@ pub unsafe fn ADsPropCheckIfWritable<P0>(pwzattr: P0, pwritableattrs: *const ADS
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsprop.dll""system" fn ADsPropCheckIfWritable ( pwzattr : :: windows::core::PCWSTR , pwritableattrs : *const ADS_ATTR_INFO ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsprop.dll""system" fn ADsPropCheckIfWritable ( pwzattr : ::windows::core::PCWSTR , pwritableattrs : *const ADS_ATTR_INFO ) -> super::super::Foundation:: BOOL );
     ADsPropCheckIfWritable(pwzattr.into_param().abi(), pwritableattrs)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -102,7 +102,7 @@ where
     P0: ::windows::core::IntoParam<super::super::System::Com::IDataObject>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsprop.dll""system" fn ADsPropCreateNotifyObj ( pappthddataobj : * mut::core::ffi::c_void , pwzadsobjname : :: windows::core::PCWSTR , phnotifyobj : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsprop.dll""system" fn ADsPropCreateNotifyObj ( pappthddataobj : * mut::core::ffi::c_void , pwzadsobjname : ::windows::core::PCWSTR , phnotifyobj : *mut super::super::Foundation:: HWND ) -> ::windows::core::HRESULT );
     ADsPropCreateNotifyObj(pappthddataobj.into_param().abi(), pwzadsobjname.into_param().abi(), phnotifyobj).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -165,7 +165,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ADsSetLastError ( dwerr : u32 , pszerror : :: windows::core::PCWSTR , pszprovider : :: windows::core::PCWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ADsSetLastError ( dwerr : u32 , pszerror : ::windows::core::PCWSTR , pszprovider : ::windows::core::PCWSTR ) -> ( ) );
     ADsSetLastError(dwerr, pszerror.into_param().abi(), pszprovider.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -179,7 +179,7 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn AdsTypeToPropVariant ( padsvalues : *mut ADSVALUE , dwnumvalues : u32 , pvariant : *mut super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn AdsTypeToPropVariant ( padsvalues : *mut ADSVALUE , dwnumvalues : u32 , pvariant : *mut super::super::System::Com:: VARIANT ) -> ::windows::core::HRESULT );
     AdsTypeToPropVariant(padsvalues, dwnumvalues, pvariant).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -194,7 +194,7 @@ pub unsafe fn AllocADsStr<P0>(pstr: P0) -> ::windows::core::PWSTR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn AllocADsStr ( pstr : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    ::windows::imp::link ! ( "activeds.dll""system" fn AllocADsStr ( pstr : ::windows::core::PCWSTR ) -> ::windows::core::PWSTR );
     AllocADsStr(pstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -207,7 +207,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn BinarySDToSecurityDescriptor ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pvarsec : *mut super::super::System::Com:: VARIANT , pszservername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , password : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn BinarySDToSecurityDescriptor ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pvarsec : *mut super::super::System::Com:: VARIANT , pszservername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , password : ::windows::core::PCWSTR , dwflags : u32 ) -> ::windows::core::HRESULT );
     BinarySDToSecurityDescriptor(psecuritydescriptor.into_param().abi(), pvarsec, pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -222,7 +222,7 @@ where
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P5: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsAddSidHistoryA ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : :: windows::core::PCSTR , srcprincipal : :: windows::core::PCSTR , srcdomaincontroller : :: windows::core::PCSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : :: windows::core::PCSTR , dstprincipal : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsAddSidHistoryA ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : ::windows::core::PCSTR , srcprincipal : ::windows::core::PCSTR , srcdomaincontroller : ::windows::core::PCSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : ::windows::core::PCSTR , dstprincipal : ::windows::core::PCSTR ) -> u32 );
     DsAddSidHistoryA(hds.into_param().abi(), flags, srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds.unwrap_or(::std::ptr::null())), dstdomain.into_param().abi(), dstprincipal.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -237,7 +237,7 @@ where
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsAddSidHistoryW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : :: windows::core::PCWSTR , srcprincipal : :: windows::core::PCWSTR , srcdomaincontroller : :: windows::core::PCWSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : :: windows::core::PCWSTR , dstprincipal : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsAddSidHistoryW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcdomain : ::windows::core::PCWSTR , srcprincipal : ::windows::core::PCWSTR , srcdomaincontroller : ::windows::core::PCWSTR , srcdomaincreds : *const ::core::ffi::c_void , dstdomain : ::windows::core::PCWSTR , dstprincipal : ::windows::core::PCWSTR ) -> u32 );
     DsAddSidHistoryW(hds.into_param().abi(), flags, srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds.unwrap_or(::std::ptr::null())), dstdomain.into_param().abi(), dstprincipal.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -247,7 +247,7 @@ pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[sup
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesA ( computername : :: windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesA ( computername : ::windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut ::windows::core::PSTR ) -> u32 );
     DsAddressToSiteNamesA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -257,7 +257,7 @@ pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExA ( computername : :: windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PSTR , subnetnames : *mut *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExA ( computername : ::windows::core::PCSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut ::windows::core::PSTR , subnetnames : *mut *mut ::windows::core::PSTR ) -> u32 );
     DsAddressToSiteNamesExA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -267,7 +267,7 @@ pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[s
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExW ( computername : :: windows::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PWSTR , subnetnames : *mut *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesExW ( computername : ::windows::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut ::windows::core::PWSTR , subnetnames : *mut *mut ::windows::core::PWSTR ) -> u32 );
     DsAddressToSiteNamesExW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames, subnetnames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -277,7 +277,7 @@ pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[sup
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesW ( computername : :: windows::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsAddressToSiteNamesW ( computername : ::windows::core::PCWSTR , entrycount : u32 , socketaddresses : *const super::WinSock:: SOCKET_ADDRESS , sitenames : *mut *mut ::windows::core::PWSTR ) -> u32 );
     DsAddressToSiteNamesW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(socketaddresses.as_ptr()), sitenames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -288,7 +288,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindA ( domaincontrollername : :: windows::core::PCSTR , dnsdomainname : :: windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindA ( domaincontrollername : ::windows::core::PCSTR , dnsdomainname : ::windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -301,7 +301,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindByInstanceA ( servername : :: windows::core::PCSTR , annotation : :: windows::core::PCSTR , instanceguid : *const :: windows::core::GUID , dnsdomainname : :: windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindByInstanceA ( servername : ::windows::core::PCSTR , annotation : ::windows::core::PCSTR , instanceguid : *const ::windows::core::GUID , dnsdomainname : ::windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindByInstanceA(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid.unwrap_or(::std::ptr::null())), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -314,7 +314,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindByInstanceW ( servername : :: windows::core::PCWSTR , annotation : :: windows::core::PCWSTR , instanceguid : *const :: windows::core::GUID , dnsdomainname : :: windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCWSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindByInstanceW ( servername : ::windows::core::PCWSTR , annotation : ::windows::core::PCWSTR , instanceguid : *const ::windows::core::GUID , dnsdomainname : ::windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCWSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindByInstanceW(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid.unwrap_or(::std::ptr::null())), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -324,7 +324,7 @@ pub unsafe fn DsBindToISTGA<P0>(sitename: P0, phds: *mut super::super::Foundatio
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindToISTGA ( sitename : :: windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindToISTGA ( sitename : ::windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindToISTGA(sitename.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -334,7 +334,7 @@ pub unsafe fn DsBindToISTGW<P0>(sitename: P0, phds: *mut super::super::Foundatio
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindToISTGW ( sitename : :: windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindToISTGW ( sitename : ::windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindToISTGW(sitename.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -345,7 +345,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindW ( domaincontrollername : :: windows::core::PCWSTR , dnsdomainname : :: windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindW ( domaincontrollername : ::windows::core::PCWSTR , dnsdomainname : ::windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -356,7 +356,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithCredA ( domaincontrollername : :: windows::core::PCSTR , dnsdomainname : :: windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithCredA ( domaincontrollername : ::windows::core::PCSTR , dnsdomainname : ::windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithCredA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -367,7 +367,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithCredW ( domaincontrollername : :: windows::core::PCWSTR , dnsdomainname : :: windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithCredW ( domaincontrollername : ::windows::core::PCWSTR , dnsdomainname : ::windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithCredW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -379,7 +379,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnA ( domaincontrollername : :: windows::core::PCSTR , dnsdomainname : :: windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnA ( domaincontrollername : ::windows::core::PCSTR , dnsdomainname : ::windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithSpnA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -391,7 +391,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnExA ( domaincontrollername : :: windows::core::PCSTR , dnsdomainname : :: windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnExA ( domaincontrollername : ::windows::core::PCSTR , dnsdomainname : ::windows::core::PCSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithSpnExA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -403,7 +403,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnExW ( domaincontrollername : :: windows::core::PCWSTR , dnsdomainname : :: windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCWSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnExW ( domaincontrollername : ::windows::core::PCWSTR , dnsdomainname : ::windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCWSTR , bindflags : u32 , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithSpnExW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), bindflags, phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -415,7 +415,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnW ( domaincontrollername : :: windows::core::PCWSTR , dnsdomainname : :: windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : :: windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsBindWithSpnW ( domaincontrollername : ::windows::core::PCWSTR , dnsdomainname : ::windows::core::PCWSTR , authidentity : *const ::core::ffi::c_void , serviceprincipalname : ::windows::core::PCWSTR , phds : *mut super::super::Foundation:: HANDLE ) -> u32 );
     DsBindWithSpnW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), serviceprincipalname.into_param().abi(), phds)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -449,7 +449,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsClientMakeSpnForTargetServerA ( serviceclass : :: windows::core::PCSTR , servicename : :: windows::core::PCSTR , pcspnlength : *mut u32 , pszspn : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsClientMakeSpnForTargetServerA ( serviceclass : ::windows::core::PCSTR , servicename : ::windows::core::PCSTR , pcspnlength : *mut u32 , pszspn : ::windows::core::PSTR ) -> u32 );
     DsClientMakeSpnForTargetServerA(serviceclass.into_param().abi(), servicename.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -459,7 +459,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsClientMakeSpnForTargetServerW ( serviceclass : :: windows::core::PCWSTR , servicename : :: windows::core::PCWSTR , pcspnlength : *mut u32 , pszspn : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsClientMakeSpnForTargetServerW ( serviceclass : ::windows::core::PCWSTR , servicename : ::windows::core::PCWSTR , pcspnlength : *mut u32 , pszspn : ::windows::core::PWSTR ) -> u32 );
     DsClientMakeSpnForTargetServerW(serviceclass.into_param().abi(), servicename.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -469,7 +469,7 @@ pub unsafe fn DsCrackNamesA<P0>(hds: P0, flags: DS_NAME_FLAGS, formatoffered: DS
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsCrackNamesA ( hds : super::super::Foundation:: HANDLE , flags : DS_NAME_FLAGS , formatoffered : DS_NAME_FORMAT , formatdesired : DS_NAME_FORMAT , cnames : u32 , rpnames : *const :: windows::core::PCSTR , ppresult : *mut *mut DS_NAME_RESULTA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsCrackNamesA ( hds : super::super::Foundation:: HANDLE , flags : DS_NAME_FLAGS , formatoffered : DS_NAME_FORMAT , formatdesired : DS_NAME_FORMAT , cnames : u32 , rpnames : *const ::windows::core::PCSTR , ppresult : *mut *mut DS_NAME_RESULTA ) -> u32 );
     DsCrackNamesA(hds.into_param().abi(), flags, formatoffered, formatdesired, rpnames.len() as _, ::core::mem::transmute(rpnames.as_ptr()), ppresult)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -479,19 +479,19 @@ pub unsafe fn DsCrackNamesW<P0>(hds: P0, flags: DS_NAME_FLAGS, formatoffered: DS
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsCrackNamesW ( hds : super::super::Foundation:: HANDLE , flags : DS_NAME_FLAGS , formatoffered : DS_NAME_FORMAT , formatdesired : DS_NAME_FORMAT , cnames : u32 , rpnames : *const :: windows::core::PCWSTR , ppresult : *mut *mut DS_NAME_RESULTW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsCrackNamesW ( hds : super::super::Foundation:: HANDLE , flags : DS_NAME_FLAGS , formatoffered : DS_NAME_FORMAT , formatdesired : DS_NAME_FORMAT , cnames : u32 , rpnames : *const ::windows::core::PCWSTR , ppresult : *mut *mut DS_NAME_RESULTW ) -> u32 );
     DsCrackNamesW(hds.into_param().abi(), flags, formatoffered, formatdesired, rpnames.len() as _, ::core::mem::transmute(rpnames.as_ptr()), ppresult)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsCrackSpn2A(pszspn: &[u8], pcserviceclass: ::core::option::Option<*mut u32>, serviceclass: ::windows::core::PSTR, pcservicename: ::core::option::Option<*mut u32>, servicename: ::windows::core::PSTR, pcinstancename: ::core::option::Option<*mut u32>, instancename: ::windows::core::PSTR, pinstanceport: ::core::option::Option<*mut u16>) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn2A ( pszspn : :: windows::core::PCSTR , cspn : u32 , pcserviceclass : *mut u32 , serviceclass : :: windows::core::PSTR , pcservicename : *mut u32 , servicename : :: windows::core::PSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PSTR , pinstanceport : *mut u16 ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn2A ( pszspn : ::windows::core::PCSTR , cspn : u32 , pcserviceclass : *mut u32 , serviceclass : ::windows::core::PSTR , pcservicename : *mut u32 , servicename : ::windows::core::PSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PSTR , pinstanceport : *mut u16 ) -> u32 );
     DsCrackSpn2A(::core::mem::transmute(pszspn.as_ptr()), pszspn.len() as _, ::core::mem::transmute(pcserviceclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsCrackSpn2W(pszspn: &[u16], pcserviceclass: ::core::option::Option<*mut u32>, serviceclass: ::windows::core::PWSTR, pcservicename: ::core::option::Option<*mut u32>, servicename: ::windows::core::PWSTR, pcinstancename: ::core::option::Option<*mut u32>, instancename: ::windows::core::PWSTR, pinstanceport: ::core::option::Option<*mut u16>) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn2W ( pszspn : :: windows::core::PCWSTR , cspn : u32 , pcserviceclass : *mut u32 , serviceclass : :: windows::core::PWSTR , pcservicename : *mut u32 , servicename : :: windows::core::PWSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PWSTR , pinstanceport : *mut u16 ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn2W ( pszspn : ::windows::core::PCWSTR , cspn : u32 , pcserviceclass : *mut u32 , serviceclass : ::windows::core::PWSTR , pcservicename : *mut u32 , servicename : ::windows::core::PWSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PWSTR , pinstanceport : *mut u16 ) -> u32 );
     DsCrackSpn2W(::core::mem::transmute(pszspn.as_ptr()), pszspn.len() as _, ::core::mem::transmute(pcserviceclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -500,7 +500,7 @@ pub unsafe fn DsCrackSpn3W<P0>(pszspn: P0, cspn: u32, pchostname: *mut u32, host
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn3W ( pszspn : :: windows::core::PCWSTR , cspn : u32 , pchostname : *mut u32 , hostname : :: windows::core::PWSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PWSTR , pportnumber : *mut u16 , pcdomainname : *mut u32 , domainname : :: windows::core::PWSTR , pcrealmname : *mut u32 , realmname : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn3W ( pszspn : ::windows::core::PCWSTR , cspn : u32 , pchostname : *mut u32 , hostname : ::windows::core::PWSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PWSTR , pportnumber : *mut u16 , pcdomainname : *mut u32 , domainname : ::windows::core::PWSTR , pcrealmname : *mut u32 , realmname : ::windows::core::PWSTR ) -> u32 );
     DsCrackSpn3W(pszspn.into_param().abi(), cspn, pchostname, ::core::mem::transmute(hostname), pcinstancename, ::core::mem::transmute(instancename), pportnumber, pcdomainname, ::core::mem::transmute(domainname), pcrealmname, ::core::mem::transmute(realmname))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -509,7 +509,7 @@ pub unsafe fn DsCrackSpn4W<P0>(pszspn: P0, cspn: u32, pchostname: *mut u32, host
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn4W ( pszspn : :: windows::core::PCWSTR , cspn : u32 , pchostname : *mut u32 , hostname : :: windows::core::PWSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PWSTR , pcportname : *mut u32 , portname : :: windows::core::PWSTR , pcdomainname : *mut u32 , domainname : :: windows::core::PWSTR , pcrealmname : *mut u32 , realmname : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpn4W ( pszspn : ::windows::core::PCWSTR , cspn : u32 , pchostname : *mut u32 , hostname : ::windows::core::PWSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PWSTR , pcportname : *mut u32 , portname : ::windows::core::PWSTR , pcdomainname : *mut u32 , domainname : ::windows::core::PWSTR , pcrealmname : *mut u32 , realmname : ::windows::core::PWSTR ) -> u32 );
     DsCrackSpn4W(pszspn.into_param().abi(), cspn, pchostname, ::core::mem::transmute(hostname), pcinstancename, ::core::mem::transmute(instancename), pcportname, ::core::mem::transmute(portname), pcdomainname, ::core::mem::transmute(domainname), pcrealmname, ::core::mem::transmute(realmname))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -518,7 +518,7 @@ pub unsafe fn DsCrackSpnA<P0>(pszspn: P0, pcserviceclass: ::core::option::Option
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpnA ( pszspn : :: windows::core::PCSTR , pcserviceclass : *mut u32 , serviceclass : :: windows::core::PSTR , pcservicename : *mut u32 , servicename : :: windows::core::PSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PSTR , pinstanceport : *mut u16 ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpnA ( pszspn : ::windows::core::PCSTR , pcserviceclass : *mut u32 , serviceclass : ::windows::core::PSTR , pcservicename : *mut u32 , servicename : ::windows::core::PSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PSTR , pinstanceport : *mut u16 ) -> u32 );
     DsCrackSpnA(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -527,21 +527,21 @@ pub unsafe fn DsCrackSpnW<P0>(pszspn: P0, pcserviceclass: ::core::option::Option
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpnW ( pszspn : :: windows::core::PCWSTR , pcserviceclass : *mut u32 , serviceclass : :: windows::core::PWSTR , pcservicename : *mut u32 , servicename : :: windows::core::PWSTR , pcinstancename : *mut u32 , instancename : :: windows::core::PWSTR , pinstanceport : *mut u16 ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackSpnW ( pszspn : ::windows::core::PCWSTR , pcserviceclass : *mut u32 , serviceclass : ::windows::core::PWSTR , pcservicename : *mut u32 , servicename : ::windows::core::PWSTR , pcinstancename : *mut u32 , instancename : ::windows::core::PWSTR , pinstanceport : *mut u16 ) -> u32 );
     DsCrackSpnW(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: ::core::option::Option<*mut ::windows::core::GUID>, pedsmanglefor: ::core::option::Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackUnquotedMangledRdnA ( pszrdn : :: windows::core::PCSTR , cchrdn : u32 , pguid : *mut :: windows::core::GUID , pedsmanglefor : *mut DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackUnquotedMangledRdnA ( pszrdn : ::windows::core::PCSTR , cchrdn : u32 , pguid : *mut ::windows::core::GUID , pedsmanglefor : *mut DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsCrackUnquotedMangledRdnA(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pedsmanglefor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: ::core::option::Option<*mut ::windows::core::GUID>, pedsmanglefor: ::core::option::Option<*mut DS_MANGLE_FOR>) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackUnquotedMangledRdnW ( pszrdn : :: windows::core::PCWSTR , cchrdn : u32 , pguid : *mut :: windows::core::GUID , pedsmanglefor : *mut DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsCrackUnquotedMangledRdnW ( pszrdn : ::windows::core::PCWSTR , cchrdn : u32 , pguid : *mut ::windows::core::GUID , pedsmanglefor : *mut DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsCrackUnquotedMangledRdnW(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pedsmanglefor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -552,7 +552,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsDeregisterDnsHostRecordsA ( servername : :: windows::core::PCSTR , dnsdomainname : :: windows::core::PCSTR , domainguid : *const :: windows::core::GUID , dsaguid : *const :: windows::core::GUID , dnshostname : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsDeregisterDnsHostRecordsA ( servername : ::windows::core::PCSTR , dnsdomainname : ::windows::core::PCSTR , domainguid : *const ::windows::core::GUID , dsaguid : *const ::windows::core::GUID , dnshostname : ::windows::core::PCSTR ) -> u32 );
     DsDeregisterDnsHostRecordsA(servername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dsaguid.unwrap_or(::std::ptr::null())), dnshostname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -563,7 +563,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsDeregisterDnsHostRecordsW ( servername : :: windows::core::PCWSTR , dnsdomainname : :: windows::core::PCWSTR , domainguid : *const :: windows::core::GUID , dsaguid : *const :: windows::core::GUID , dnshostname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsDeregisterDnsHostRecordsW ( servername : ::windows::core::PCWSTR , dnsdomainname : ::windows::core::PCWSTR , domainguid : *const ::windows::core::GUID , dsaguid : *const ::windows::core::GUID , dnshostname : ::windows::core::PCWSTR ) -> u32 );
     DsDeregisterDnsHostRecordsW(servername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dsaguid.unwrap_or(::std::ptr::null())), dnshostname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -573,7 +573,7 @@ pub unsafe fn DsEnumerateDomainTrustsA<P0>(servername: P0, flags: u32, domains: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsEnumerateDomainTrustsA ( servername : :: windows::core::PCSTR , flags : u32 , domains : *mut *mut DS_DOMAIN_TRUSTSA , domaincount : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsEnumerateDomainTrustsA ( servername : ::windows::core::PCSTR , flags : u32 , domains : *mut *mut DS_DOMAIN_TRUSTSA , domaincount : *mut u32 ) -> u32 );
     DsEnumerateDomainTrustsA(servername.into_param().abi(), flags, domains, domaincount)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -583,7 +583,7 @@ pub unsafe fn DsEnumerateDomainTrustsW<P0>(servername: P0, flags: u32, domains: 
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsEnumerateDomainTrustsW ( servername : :: windows::core::PCWSTR , flags : u32 , domains : *mut *mut DS_DOMAIN_TRUSTSW , domaincount : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsEnumerateDomainTrustsW ( servername : ::windows::core::PCWSTR , flags : u32 , domains : *mut *mut DS_DOMAIN_TRUSTSW , domaincount : *mut u32 ) -> u32 );
     DsEnumerateDomainTrustsW(servername.into_param().abi(), flags, domains, domaincount)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -631,13 +631,13 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsFreeSpnArrayA(rpszspn: &mut [::windows::core::PSTR]) {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsFreeSpnArrayA ( cspn : u32 , rpszspn : *mut :: windows::core::PSTR ) -> ( ) );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsFreeSpnArrayA ( cspn : u32 , rpszspn : *mut ::windows::core::PSTR ) -> ( ) );
     DsFreeSpnArrayA(rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [::windows::core::PWSTR]) {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsFreeSpnArrayW ( cspn : u32 , rpszspn : *mut :: windows::core::PWSTR ) -> ( ) );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsFreeSpnArrayW ( cspn : u32 , rpszspn : *mut ::windows::core::PWSTR ) -> ( ) );
     DsFreeSpnArrayW(rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -657,7 +657,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNameA ( computername : :: windows::core::PCSTR , domainname : :: windows::core::PCSTR , domainguid : *const :: windows::core::GUID , sitename : :: windows::core::PCSTR , flags : u32 , domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNameA ( computername : ::windows::core::PCSTR , domainname : ::windows::core::PCSTR , domainguid : *const ::windows::core::GUID , sitename : ::windows::core::PCSTR , flags : u32 , domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA ) -> u32 );
     DsGetDcNameA(computername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), sitename.into_param().abi(), flags, domaincontrollerinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -668,7 +668,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNameW ( computername : :: windows::core::PCWSTR , domainname : :: windows::core::PCWSTR , domainguid : *const :: windows::core::GUID , sitename : :: windows::core::PCWSTR , flags : u32 , domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNameW ( computername : ::windows::core::PCWSTR , domainname : ::windows::core::PCWSTR , domainguid : *const ::windows::core::GUID , sitename : ::windows::core::PCWSTR , flags : u32 , domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW ) -> u32 );
     DsGetDcNameW(computername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), sitename.into_param().abi(), flags, domaincontrollerinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -678,7 +678,7 @@ pub unsafe fn DsGetDcNextA<P0>(getdccontexthandle: P0, sockaddresscount: ::core:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNextA ( getdccontexthandle : super::super::Foundation:: HANDLE , sockaddresscount : *mut u32 , sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS , dnshostname : *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNextA ( getdccontexthandle : super::super::Foundation:: HANDLE , sockaddresscount : *mut u32 , sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS , dnshostname : *mut ::windows::core::PSTR ) -> u32 );
     DsGetDcNextA(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sockaddresses.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dnshostname.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -688,7 +688,7 @@ pub unsafe fn DsGetDcNextW<P0>(getdccontexthandle: P0, sockaddresscount: ::core:
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNextW ( getdccontexthandle : super::super::Foundation:: HANDLE , sockaddresscount : *mut u32 , sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS , dnshostname : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcNextW ( getdccontexthandle : super::super::Foundation:: HANDLE , sockaddresscount : *mut u32 , sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS , dnshostname : *mut ::windows::core::PWSTR ) -> u32 );
     DsGetDcNextW(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sockaddresses.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dnshostname.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -699,7 +699,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcOpenA ( dnsname : :: windows::core::PCSTR , optionflags : u32 , sitename : :: windows::core::PCSTR , domainguid : *const :: windows::core::GUID , dnsforestname : :: windows::core::PCSTR , dcflags : u32 , retgetdccontext : *mut GetDcContextHandle ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcOpenA ( dnsname : ::windows::core::PCSTR , optionflags : u32 , sitename : ::windows::core::PCSTR , domainguid : *const ::windows::core::GUID , dnsforestname : ::windows::core::PCSTR , dcflags : u32 , retgetdccontext : *mut GetDcContextHandle ) -> u32 );
     DsGetDcOpenA(dnsname.into_param().abi(), optionflags, sitename.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), dnsforestname.into_param().abi(), dcflags, retgetdccontext)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -710,7 +710,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcOpenW ( dnsname : :: windows::core::PCWSTR , optionflags : u32 , sitename : :: windows::core::PCWSTR , domainguid : *const :: windows::core::GUID , dnsforestname : :: windows::core::PCWSTR , dcflags : u32 , retgetdccontext : *mut GetDcContextHandle ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcOpenW ( dnsname : ::windows::core::PCWSTR , optionflags : u32 , sitename : ::windows::core::PCWSTR , domainguid : *const ::windows::core::GUID , dnsforestname : ::windows::core::PCWSTR , dcflags : u32 , retgetdccontext : *mut GetDcContextHandle ) -> u32 );
     DsGetDcOpenW(dnsname.into_param().abi(), optionflags, sitename.into_param().abi(), ::core::mem::transmute(domainguid.unwrap_or(::std::ptr::null())), dnsforestname.into_param().abi(), dcflags, retgetdccontext)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -719,7 +719,7 @@ pub unsafe fn DsGetDcSiteCoverageA<P0>(servername: P0, entrycount: *mut u32, sit
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcSiteCoverageA ( servername : :: windows::core::PCSTR , entrycount : *mut u32 , sitenames : *mut *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcSiteCoverageA ( servername : ::windows::core::PCSTR , entrycount : *mut u32 , sitenames : *mut *mut ::windows::core::PSTR ) -> u32 );
     DsGetDcSiteCoverageA(servername.into_param().abi(), entrycount, sitenames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -728,7 +728,7 @@ pub unsafe fn DsGetDcSiteCoverageW<P0>(servername: P0, entrycount: *mut u32, sit
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcSiteCoverageW ( servername : :: windows::core::PCWSTR , entrycount : *mut u32 , sitenames : *mut *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetDcSiteCoverageW ( servername : ::windows::core::PCWSTR , entrycount : *mut u32 , sitenames : *mut *mut ::windows::core::PWSTR ) -> u32 );
     DsGetDcSiteCoverageW(servername.into_param().abi(), entrycount, sitenames)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -739,7 +739,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetDomainControllerInfoA ( hds : super::super::Foundation:: HANDLE , domainname : :: windows::core::PCSTR , infolevel : u32 , pcout : *mut u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetDomainControllerInfoA ( hds : super::super::Foundation:: HANDLE , domainname : ::windows::core::PCSTR , infolevel : u32 , pcout : *mut u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsGetDomainControllerInfoA(hds.into_param().abi(), domainname.into_param().abi(), infolevel, pcout, ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -750,7 +750,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetDomainControllerInfoW ( hds : super::super::Foundation:: HANDLE , domainname : :: windows::core::PCWSTR , infolevel : u32 , pcout : *mut u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetDomainControllerInfoW ( hds : super::super::Foundation:: HANDLE , domainname : ::windows::core::PCWSTR , infolevel : u32 , pcout : *mut u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsGetDomainControllerInfoW(hds.into_param().abi(), domainname.into_param().abi(), infolevel, pcout, ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
@@ -761,7 +761,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetForestTrustInformationW ( servername : :: windows::core::PCWSTR , trusteddomainname : :: windows::core::PCWSTR , flags : u32 , foresttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetForestTrustInformationW ( servername : ::windows::core::PCWSTR , trusteddomainname : ::windows::core::PCWSTR , flags : u32 , foresttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION ) -> u32 );
     DsGetForestTrustInformationW(servername.into_param().abi(), trusteddomainname.into_param().abi(), flags, foresttrustinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -770,7 +770,7 @@ pub unsafe fn DsGetFriendlyClassName<P0>(pszobjectclass: P0, pszbuffer: &mut [u1
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsuiext.dll""system" fn DsGetFriendlyClassName ( pszobjectclass : :: windows::core::PCWSTR , pszbuffer : :: windows::core::PWSTR , cchbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dsuiext.dll""system" fn DsGetFriendlyClassName ( pszobjectclass : ::windows::core::PCWSTR , pszbuffer : ::windows::core::PWSTR , cchbuffer : u32 ) -> ::windows::core::HRESULT );
     DsGetFriendlyClassName(pszobjectclass.into_param().abi(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -780,13 +780,13 @@ pub unsafe fn DsGetIcon<P0>(dwflags: u32, pszobjectclass: P0, cximage: i32, cyim
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsuiext.dll""system" fn DsGetIcon ( dwflags : u32 , pszobjectclass : :: windows::core::PCWSTR , cximage : i32 , cyimage : i32 ) -> super::super::UI::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "dsuiext.dll""system" fn DsGetIcon ( dwflags : u32 , pszobjectclass : ::windows::core::PCWSTR , cximage : i32 , cyimage : i32 ) -> super::super::UI::WindowsAndMessaging:: HICON );
     DsGetIcon(dwflags, pszobjectclass.into_param().abi(), cximage, cyimage)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsGetRdnW(ppdn: *mut ::windows::core::PWSTR, pcdn: *mut u32, ppkey: *mut ::windows::core::PWSTR, pckey: *mut u32, ppval: *mut ::windows::core::PWSTR, pcval: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsGetRdnW ( ppdn : *mut :: windows::core::PWSTR , pcdn : *mut u32 , ppkey : *mut :: windows::core::PWSTR , pckey : *mut u32 , ppval : *mut :: windows::core::PWSTR , pcval : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsGetRdnW ( ppdn : *mut ::windows::core::PWSTR , pcdn : *mut u32 , ppkey : *mut ::windows::core::PWSTR , pckey : *mut u32 , ppval : *mut ::windows::core::PWSTR , pcval : *mut u32 ) -> u32 );
     DsGetRdnW(ppdn, pcdn, ppkey, pckey, ppval, pcval)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -795,7 +795,7 @@ pub unsafe fn DsGetSiteNameA<P0>(computername: P0, sitename: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetSiteNameA ( computername : :: windows::core::PCSTR , sitename : *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetSiteNameA ( computername : ::windows::core::PCSTR , sitename : *mut ::windows::core::PSTR ) -> u32 );
     DsGetSiteNameA(computername.into_param().abi(), sitename)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -804,7 +804,7 @@ pub unsafe fn DsGetSiteNameW<P0>(computername: P0, sitename: *mut ::windows::cor
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetSiteNameW ( computername : :: windows::core::PCWSTR , sitename : *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsGetSiteNameW ( computername : ::windows::core::PCWSTR , sitename : *mut ::windows::core::PWSTR ) -> u32 );
     DsGetSiteNameW(computername.into_param().abi(), sitename)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -814,7 +814,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetSpnA ( servicetype : DS_SPN_NAME_TYPE , serviceclass : :: windows::core::PCSTR , servicename : :: windows::core::PCSTR , instanceport : u16 , cinstancenames : u16 , pinstancenames : *const :: windows::core::PCSTR , pinstanceports : *const u16 , pcspn : *mut u32 , prpszspn : *mut *mut :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetSpnA ( servicetype : DS_SPN_NAME_TYPE , serviceclass : ::windows::core::PCSTR , servicename : ::windows::core::PCSTR , instanceport : u16 , cinstancenames : u16 , pinstancenames : *const ::windows::core::PCSTR , pinstanceports : *const u16 , pcspn : *mut u32 , prpszspn : *mut *mut ::windows::core::PSTR ) -> u32 );
     DsGetSpnA(servicetype, serviceclass.into_param().abi(), servicename.into_param().abi(), instanceport, cinstancenames, ::core::mem::transmute(pinstancenames.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinstanceports.unwrap_or(::std::ptr::null())), pcspn, prpszspn)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -824,7 +824,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetSpnW ( servicetype : DS_SPN_NAME_TYPE , serviceclass : :: windows::core::PCWSTR , servicename : :: windows::core::PCWSTR , instanceport : u16 , cinstancenames : u16 , pinstancenames : *const :: windows::core::PCWSTR , pinstanceports : *const u16 , pcspn : *mut u32 , prpszspn : *mut *mut :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsGetSpnW ( servicetype : DS_SPN_NAME_TYPE , serviceclass : ::windows::core::PCWSTR , servicename : ::windows::core::PCWSTR , instanceport : u16 , cinstancenames : u16 , pinstancenames : *const ::windows::core::PCWSTR , pinstanceports : *const u16 , pcspn : *mut u32 , prpszspn : *mut *mut ::windows::core::PWSTR ) -> u32 );
     DsGetSpnW(servicetype, serviceclass.into_param().abi(), servicename.into_param().abi(), instanceport, cinstancenames, ::core::mem::transmute(pinstancenames.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinstanceports.unwrap_or(::std::ptr::null())), pcspn, prpszspn)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -836,7 +836,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsInheritSecurityIdentityA ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcprincipal : :: windows::core::PCSTR , dstprincipal : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsInheritSecurityIdentityA ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcprincipal : ::windows::core::PCSTR , dstprincipal : ::windows::core::PCSTR ) -> u32 );
     DsInheritSecurityIdentityA(hds.into_param().abi(), flags, srcprincipal.into_param().abi(), dstprincipal.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -848,7 +848,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsInheritSecurityIdentityW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcprincipal : :: windows::core::PCWSTR , dstprincipal : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsInheritSecurityIdentityW ( hds : super::super::Foundation:: HANDLE , flags : u32 , srcprincipal : ::windows::core::PCWSTR , dstprincipal : ::windows::core::PCWSTR ) -> u32 );
     DsInheritSecurityIdentityW(hds.into_param().abi(), flags, srcprincipal.into_param().abi(), dstprincipal.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -858,7 +858,7 @@ pub unsafe fn DsIsMangledDnA<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledDnA ( pszdn : :: windows::core::PCSTR , edsmanglefor : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledDnA ( pszdn : ::windows::core::PCSTR , edsmanglefor : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsIsMangledDnA(pszdn.into_param().abi(), edsmanglefor)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -868,21 +868,21 @@ pub unsafe fn DsIsMangledDnW<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> supe
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledDnW ( pszdn : :: windows::core::PCWSTR , edsmanglefor : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledDnW ( pszdn : ::windows::core::PCWSTR , edsmanglefor : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsIsMangledDnW(pszdn.into_param().abi(), edsmanglefor)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledRdnValueA ( pszrdn : :: windows::core::PCSTR , crdn : u32 , edsmanglefordesired : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledRdnValueA ( pszrdn : ::windows::core::PCSTR , crdn : u32 , edsmanglefordesired : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsIsMangledRdnValueA(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, edsmanglefordesired)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledRdnValueW ( pszrdn : :: windows::core::PCWSTR , crdn : u32 , edsmanglefordesired : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsIsMangledRdnValueW ( pszrdn : ::windows::core::PCWSTR , crdn : u32 , edsmanglefordesired : DS_MANGLE_FOR ) -> super::super::Foundation:: BOOL );
     DsIsMangledRdnValueW(::core::mem::transmute(pszrdn.as_ptr()), pszrdn.len() as _, edsmanglefordesired)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -893,7 +893,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListDomainsInSiteA ( hds : super::super::Foundation:: HANDLE , site : :: windows::core::PCSTR , ppdomains : *mut *mut DS_NAME_RESULTA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListDomainsInSiteA ( hds : super::super::Foundation:: HANDLE , site : ::windows::core::PCSTR , ppdomains : *mut *mut DS_NAME_RESULTA ) -> u32 );
     DsListDomainsInSiteA(hds.into_param().abi(), site.into_param().abi(), ppdomains)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -904,7 +904,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListDomainsInSiteW ( hds : super::super::Foundation:: HANDLE , site : :: windows::core::PCWSTR , ppdomains : *mut *mut DS_NAME_RESULTW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListDomainsInSiteW ( hds : super::super::Foundation:: HANDLE , site : ::windows::core::PCWSTR , ppdomains : *mut *mut DS_NAME_RESULTW ) -> u32 );
     DsListDomainsInSiteW(hds.into_param().abi(), site.into_param().abi(), ppdomains)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -915,7 +915,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListInfoForServerA ( hds : super::super::Foundation:: HANDLE , server : :: windows::core::PCSTR , ppinfo : *mut *mut DS_NAME_RESULTA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListInfoForServerA ( hds : super::super::Foundation:: HANDLE , server : ::windows::core::PCSTR , ppinfo : *mut *mut DS_NAME_RESULTA ) -> u32 );
     DsListInfoForServerA(hds.into_param().abi(), server.into_param().abi(), ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -926,7 +926,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListInfoForServerW ( hds : super::super::Foundation:: HANDLE , server : :: windows::core::PCWSTR , ppinfo : *mut *mut DS_NAME_RESULTW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListInfoForServerW ( hds : super::super::Foundation:: HANDLE , server : ::windows::core::PCWSTR , ppinfo : *mut *mut DS_NAME_RESULTW ) -> u32 );
     DsListInfoForServerW(hds.into_param().abi(), server.into_param().abi(), ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -958,7 +958,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersForDomainInSiteA ( hds : super::super::Foundation:: HANDLE , domain : :: windows::core::PCSTR , site : :: windows::core::PCSTR , ppservers : *mut *mut DS_NAME_RESULTA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersForDomainInSiteA ( hds : super::super::Foundation:: HANDLE , domain : ::windows::core::PCSTR , site : ::windows::core::PCSTR , ppservers : *mut *mut DS_NAME_RESULTA ) -> u32 );
     DsListServersForDomainInSiteA(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ppservers)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -970,7 +970,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersForDomainInSiteW ( hds : super::super::Foundation:: HANDLE , domain : :: windows::core::PCWSTR , site : :: windows::core::PCWSTR , ppservers : *mut *mut DS_NAME_RESULTW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersForDomainInSiteW ( hds : super::super::Foundation:: HANDLE , domain : ::windows::core::PCWSTR , site : ::windows::core::PCWSTR , ppservers : *mut *mut DS_NAME_RESULTW ) -> u32 );
     DsListServersForDomainInSiteW(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ppservers)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -981,7 +981,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersInSiteA ( hds : super::super::Foundation:: HANDLE , site : :: windows::core::PCSTR , ppservers : *mut *mut DS_NAME_RESULTA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersInSiteA ( hds : super::super::Foundation:: HANDLE , site : ::windows::core::PCSTR , ppservers : *mut *mut DS_NAME_RESULTA ) -> u32 );
     DsListServersInSiteA(hds.into_param().abi(), site.into_param().abi(), ppservers)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -992,7 +992,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersInSiteW ( hds : super::super::Foundation:: HANDLE , site : :: windows::core::PCWSTR , ppservers : *mut *mut DS_NAME_RESULTW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsListServersInSiteW ( hds : super::super::Foundation:: HANDLE , site : ::windows::core::PCWSTR , ppservers : *mut *mut DS_NAME_RESULTW ) -> u32 );
     DsListServersInSiteW(hds.into_param().abi(), site.into_param().abi(), ppservers)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1023,7 +1023,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMakePasswordCredentialsA ( user : :: windows::core::PCSTR , domain : :: windows::core::PCSTR , password : :: windows::core::PCSTR , pauthidentity : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMakePasswordCredentialsA ( user : ::windows::core::PCSTR , domain : ::windows::core::PCSTR , password : ::windows::core::PCSTR , pauthidentity : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsMakePasswordCredentialsA(user.into_param().abi(), domain.into_param().abi(), password.into_param().abi(), pauthidentity)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1034,7 +1034,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMakePasswordCredentialsW ( user : :: windows::core::PCWSTR , domain : :: windows::core::PCWSTR , password : :: windows::core::PCWSTR , pauthidentity : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMakePasswordCredentialsW ( user : ::windows::core::PCWSTR , domain : ::windows::core::PCWSTR , password : ::windows::core::PCWSTR , pauthidentity : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsMakePasswordCredentialsW(user.into_param().abi(), domain.into_param().abi(), password.into_param().abi(), pauthidentity)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1046,7 +1046,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsMakeSpnA ( serviceclass : :: windows::core::PCSTR , servicename : :: windows::core::PCSTR , instancename : :: windows::core::PCSTR , instanceport : u16 , referrer : :: windows::core::PCSTR , pcspnlength : *mut u32 , pszspn : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsMakeSpnA ( serviceclass : ::windows::core::PCSTR , servicename : ::windows::core::PCSTR , instancename : ::windows::core::PCSTR , instanceport : u16 , referrer : ::windows::core::PCSTR , pcspnlength : *mut u32 , pszspn : ::windows::core::PSTR ) -> u32 );
     DsMakeSpnA(serviceclass.into_param().abi(), servicename.into_param().abi(), instancename.into_param().abi(), instanceport, referrer.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1058,7 +1058,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsMakeSpnW ( serviceclass : :: windows::core::PCWSTR , servicename : :: windows::core::PCWSTR , instancename : :: windows::core::PCWSTR , instanceport : u16 , referrer : :: windows::core::PCWSTR , pcspnlength : *mut u32 , pszspn : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsMakeSpnW ( serviceclass : ::windows::core::PCWSTR , servicename : ::windows::core::PCWSTR , instancename : ::windows::core::PCWSTR , instanceport : u16 , referrer : ::windows::core::PCWSTR , pcspnlength : *mut u32 , pszspn : ::windows::core::PWSTR ) -> u32 );
     DsMakeSpnW(serviceclass.into_param().abi(), servicename.into_param().abi(), instancename.into_param().abi(), instanceport, referrer.into_param().abi(), pcspnlength, ::core::mem::transmute(pszspn))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1068,7 +1068,7 @@ pub unsafe fn DsMapSchemaGuidsA<P0>(hds: P0, rguids: &[::windows::core::GUID], p
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMapSchemaGuidsA ( hds : super::super::Foundation:: HANDLE , cguids : u32 , rguids : *const :: windows::core::GUID , ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMapSchemaGuidsA ( hds : super::super::Foundation:: HANDLE , cguids : u32 , rguids : *const ::windows::core::GUID , ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA ) -> u32 );
     DsMapSchemaGuidsA(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(rguids.as_ptr()), ppguidmap)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1078,7 +1078,7 @@ pub unsafe fn DsMapSchemaGuidsW<P0>(hds: P0, rguids: &[::windows::core::GUID], p
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMapSchemaGuidsW ( hds : super::super::Foundation:: HANDLE , cguids : u32 , rguids : *const :: windows::core::GUID , ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsMapSchemaGuidsW ( hds : super::super::Foundation:: HANDLE , cguids : u32 , rguids : *const ::windows::core::GUID , ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW ) -> u32 );
     DsMapSchemaGuidsW(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(rguids.as_ptr()), ppguidmap)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1088,7 +1088,7 @@ pub unsafe fn DsMergeForestTrustInformationW<P0>(domainname: P0, newforesttrusti
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsMergeForestTrustInformationW ( domainname : :: windows::core::PCWSTR , newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION , oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION , mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsMergeForestTrustInformationW ( domainname : ::windows::core::PCWSTR , newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION , oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION , mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION ) -> u32 );
     DsMergeForestTrustInformationW(domainname.into_param().abi(), newforesttrustinfo, ::core::mem::transmute(oldforesttrustinfo.unwrap_or(::std::ptr::null())), mergedforesttrustinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1099,7 +1099,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsQuerySitesByCostA ( hds : super::super::Foundation:: HANDLE , pszfromsite : :: windows::core::PCSTR , rgsztosites : *const :: windows::core::PCSTR , ctosites : u32 , dwflags : u32 , prgsiteinfo : *mut *mut DS_SITE_COST_INFO ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsQuerySitesByCostA ( hds : super::super::Foundation:: HANDLE , pszfromsite : ::windows::core::PCSTR , rgsztosites : *const ::windows::core::PCSTR , ctosites : u32 , dwflags : u32 , prgsiteinfo : *mut *mut DS_SITE_COST_INFO ) -> u32 );
     DsQuerySitesByCostA(hds.into_param().abi(), pszfromsite.into_param().abi(), ::core::mem::transmute(rgsztosites.as_ptr()), rgsztosites.len() as _, dwflags, prgsiteinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1110,7 +1110,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsQuerySitesByCostW ( hds : super::super::Foundation:: HANDLE , pwszfromsite : :: windows::core::PCWSTR , rgwsztosites : *const :: windows::core::PCWSTR , ctosites : u32 , dwflags : u32 , prgsiteinfo : *mut *mut DS_SITE_COST_INFO ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsQuerySitesByCostW ( hds : super::super::Foundation:: HANDLE , pwszfromsite : ::windows::core::PCWSTR , rgwsztosites : *const ::windows::core::PCWSTR , ctosites : u32 , dwflags : u32 , prgsiteinfo : *mut *mut DS_SITE_COST_INFO ) -> u32 );
     DsQuerySitesByCostW(hds.into_param().abi(), pwszfromsite.into_param().abi(), ::core::mem::transmute(rgwsztosites.as_ptr()), rgwsztosites.len() as _, dwflags, prgsiteinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1122,13 +1122,13 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsQuoteRdnValueA(psunquotedrdnvalue: &[u8], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: ::windows::core::PSTR) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsQuoteRdnValueA ( cunquotedrdnvaluelength : u32 , psunquotedrdnvalue : :: windows::core::PCSTR , pcquotedrdnvaluelength : *mut u32 , psquotedrdnvalue : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsQuoteRdnValueA ( cunquotedrdnvaluelength : u32 , psunquotedrdnvalue : ::windows::core::PCSTR , pcquotedrdnvaluelength : *mut u32 , psquotedrdnvalue : ::windows::core::PSTR ) -> u32 );
     DsQuoteRdnValueA(psunquotedrdnvalue.len() as _, ::core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength, ::core::mem::transmute(psquotedrdnvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: ::windows::core::PWSTR) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsQuoteRdnValueW ( cunquotedrdnvaluelength : u32 , psunquotedrdnvalue : :: windows::core::PCWSTR , pcquotedrdnvaluelength : *mut u32 , psquotedrdnvalue : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsQuoteRdnValueW ( cunquotedrdnvaluelength : u32 , psunquotedrdnvalue : ::windows::core::PCWSTR , pcquotedrdnvaluelength : *mut u32 , psquotedrdnvalue : ::windows::core::PWSTR ) -> u32 );
     DsQuoteRdnValueW(psunquotedrdnvalue.len() as _, ::core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength, ::core::mem::transmute(psquotedrdnvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1139,7 +1139,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsDomainA ( hds : super::super::Foundation:: HANDLE , domaindn : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsDomainA ( hds : super::super::Foundation:: HANDLE , domaindn : ::windows::core::PCSTR ) -> u32 );
     DsRemoveDsDomainA(hds.into_param().abi(), domaindn.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1150,7 +1150,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsDomainW ( hds : super::super::Foundation:: HANDLE , domaindn : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsDomainW ( hds : super::super::Foundation:: HANDLE , domaindn : ::windows::core::PCWSTR ) -> u32 );
     DsRemoveDsDomainW(hds.into_param().abi(), domaindn.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1163,7 +1163,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsServerA ( hds : super::super::Foundation:: HANDLE , serverdn : :: windows::core::PCSTR , domaindn : :: windows::core::PCSTR , flastdcindomain : *mut super::super::Foundation:: BOOL , fcommit : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsServerA ( hds : super::super::Foundation:: HANDLE , serverdn : ::windows::core::PCSTR , domaindn : ::windows::core::PCSTR , flastdcindomain : *mut super::super::Foundation:: BOOL , fcommit : super::super::Foundation:: BOOL ) -> u32 );
     DsRemoveDsServerA(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain.unwrap_or(::std::ptr::null_mut())), fcommit.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1176,7 +1176,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsServerW ( hds : super::super::Foundation:: HANDLE , serverdn : :: windows::core::PCWSTR , domaindn : :: windows::core::PCWSTR , flastdcindomain : *mut super::super::Foundation:: BOOL , fcommit : super::super::Foundation:: BOOL ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsRemoveDsServerW ( hds : super::super::Foundation:: HANDLE , serverdn : ::windows::core::PCWSTR , domaindn : ::windows::core::PCWSTR , flastdcindomain : *mut super::super::Foundation:: BOOL , fcommit : super::super::Foundation:: BOOL ) -> u32 );
     DsRemoveDsServerW(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain.unwrap_or(::std::ptr::null_mut())), fcommit.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1190,7 +1190,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaAddA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , sourcedsadn : :: windows::core::PCSTR , transportdn : :: windows::core::PCSTR , sourcedsaaddress : :: windows::core::PCSTR , pschedule : *const SCHEDULE , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaAddA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , sourcedsadn : ::windows::core::PCSTR , transportdn : ::windows::core::PCSTR , sourcedsaaddress : ::windows::core::PCSTR , pschedule : *const SCHEDULE , options : u32 ) -> u32 );
     DsReplicaAddA(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1204,7 +1204,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaAddW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , sourcedsadn : :: windows::core::PCWSTR , transportdn : :: windows::core::PCWSTR , sourcedsaaddress : :: windows::core::PCWSTR , pschedule : *const SCHEDULE , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaAddW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , sourcedsadn : ::windows::core::PCWSTR , transportdn : ::windows::core::PCWSTR , sourcedsaaddress : ::windows::core::PCWSTR , pschedule : *const SCHEDULE , options : u32 ) -> u32 );
     DsReplicaAddW(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1226,7 +1226,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaDelA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , dsasrc : :: windows::core::PCSTR , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaDelA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , dsasrc : ::windows::core::PCSTR , options : u32 ) -> u32 );
     DsReplicaDelA(hds.into_param().abi(), namecontext.into_param().abi(), dsasrc.into_param().abi(), options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1238,7 +1238,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaDelW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , dsasrc : :: windows::core::PCWSTR , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaDelW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , dsasrc : ::windows::core::PCWSTR , options : u32 ) -> u32 );
     DsReplicaDelW(hds.into_param().abi(), namecontext.into_param().abi(), dsasrc.into_param().abi(), options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1257,7 +1257,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaGetInfo2W ( hds : super::super::Foundation:: HANDLE , infotype : DS_REPL_INFO_TYPE , pszobject : :: windows::core::PCWSTR , puuidforsourcedsaobjguid : *const :: windows::core::GUID , pszattributename : :: windows::core::PCWSTR , pszvalue : :: windows::core::PCWSTR , dwflags : u32 , dwenumerationcontext : u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaGetInfo2W ( hds : super::super::Foundation:: HANDLE , infotype : DS_REPL_INFO_TYPE , pszobject : ::windows::core::PCWSTR , puuidforsourcedsaobjguid : *const ::windows::core::GUID , pszattributename : ::windows::core::PCWSTR , pszvalue : ::windows::core::PCWSTR , dwflags : u32 , dwenumerationcontext : u32 , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsReplicaGetInfo2W(hds.into_param().abi(), infotype, pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid.unwrap_or(::std::ptr::null())), pszattributename.into_param().abi(), pszvalue.into_param().abi(), dwflags, dwenumerationcontext, ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1268,7 +1268,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaGetInfoW ( hds : super::super::Foundation:: HANDLE , infotype : DS_REPL_INFO_TYPE , pszobject : :: windows::core::PCWSTR , puuidforsourcedsaobjguid : *const :: windows::core::GUID , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaGetInfoW ( hds : super::super::Foundation:: HANDLE , infotype : DS_REPL_INFO_TYPE , pszobject : ::windows::core::PCWSTR , puuidforsourcedsaobjguid : *const ::windows::core::GUID , ppinfo : *mut *mut ::core::ffi::c_void ) -> u32 );
     DsReplicaGetInfoW(hds.into_param().abi(), infotype, pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid.unwrap_or(::std::ptr::null())), ppinfo)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1281,7 +1281,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaModifyA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , puuidsourcedsa : *const :: windows::core::GUID , transportdn : :: windows::core::PCSTR , sourcedsaaddress : :: windows::core::PCSTR , pschedule : *const SCHEDULE , replicaflags : u32 , modifyfields : u32 , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaModifyA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , puuidsourcedsa : *const ::windows::core::GUID , transportdn : ::windows::core::PCSTR , sourcedsaaddress : ::windows::core::PCSTR , pschedule : *const SCHEDULE , replicaflags : u32 , modifyfields : u32 , options : u32 ) -> u32 );
     DsReplicaModifyA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa.unwrap_or(::std::ptr::null())), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), replicaflags, modifyfields, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1294,7 +1294,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaModifyW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , puuidsourcedsa : *const :: windows::core::GUID , transportdn : :: windows::core::PCWSTR , sourcedsaaddress : :: windows::core::PCWSTR , pschedule : *const SCHEDULE , replicaflags : u32 , modifyfields : u32 , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaModifyW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , puuidsourcedsa : *const ::windows::core::GUID , transportdn : ::windows::core::PCWSTR , sourcedsaaddress : ::windows::core::PCWSTR , pschedule : *const SCHEDULE , replicaflags : u32 , modifyfields : u32 , options : u32 ) -> u32 );
     DsReplicaModifyW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa.unwrap_or(::std::ptr::null())), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule.unwrap_or(::std::ptr::null())), replicaflags, modifyfields, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1305,7 +1305,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , puuiddsasrc : *const :: windows::core::GUID , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , puuiddsasrc : *const ::windows::core::GUID , options : u32 ) -> u32 );
     DsReplicaSyncA(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1316,7 +1316,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncAllA ( hds : super::super::Foundation:: HANDLE , psznamecontext : :: windows::core::PCSTR , ulflags : u32 , pfncallback : isize , pcallbackdata : *const ::core::ffi::c_void , perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncAllA ( hds : super::super::Foundation:: HANDLE , psznamecontext : ::windows::core::PCSTR , ulflags : u32 , pfncallback : isize , pcallbackdata : *const ::core::ffi::c_void , perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA ) -> u32 );
     DsReplicaSyncAllA(hds.into_param().abi(), psznamecontext.into_param().abi(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(perrors.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1327,7 +1327,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncAllW ( hds : super::super::Foundation:: HANDLE , psznamecontext : :: windows::core::PCWSTR , ulflags : u32 , pfncallback : isize , pcallbackdata : *const ::core::ffi::c_void , perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncAllW ( hds : super::super::Foundation:: HANDLE , psznamecontext : ::windows::core::PCWSTR , ulflags : u32 , pfncallback : isize , pcallbackdata : *const ::core::ffi::c_void , perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW ) -> u32 );
     DsReplicaSyncAllW(hds.into_param().abi(), psznamecontext.into_param().abi(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(perrors.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1338,7 +1338,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , puuiddsasrc : *const :: windows::core::GUID , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaSyncW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , puuiddsasrc : *const ::windows::core::GUID , options : u32 ) -> u32 );
     DsReplicaSyncW(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1350,7 +1350,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaUpdateRefsA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , dsadest : :: windows::core::PCSTR , puuiddsadest : *const :: windows::core::GUID , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaUpdateRefsA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , dsadest : ::windows::core::PCSTR , puuiddsadest : *const ::windows::core::GUID , options : u32 ) -> u32 );
     DsReplicaUpdateRefsA(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), puuiddsadest, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1362,7 +1362,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaUpdateRefsW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , dsadest : :: windows::core::PCWSTR , puuiddsadest : *const :: windows::core::GUID , options : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaUpdateRefsW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , dsadest : ::windows::core::PCWSTR , puuiddsadest : *const ::windows::core::GUID , options : u32 ) -> u32 );
     DsReplicaUpdateRefsW(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), puuiddsadest, options)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1373,7 +1373,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaVerifyObjectsA ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCSTR , puuiddsasrc : *const :: windows::core::GUID , uloptions : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaVerifyObjectsA ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCSTR , puuiddsasrc : *const ::windows::core::GUID , uloptions : u32 ) -> u32 );
     DsReplicaVerifyObjectsA(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, uloptions)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1384,7 +1384,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaVerifyObjectsW ( hds : super::super::Foundation:: HANDLE , namecontext : :: windows::core::PCWSTR , puuiddsasrc : *const :: windows::core::GUID , uloptions : u32 ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsReplicaVerifyObjectsW ( hds : super::super::Foundation:: HANDLE , namecontext : ::windows::core::PCWSTR , puuiddsasrc : *const ::windows::core::GUID , uloptions : u32 ) -> u32 );
     DsReplicaVerifyObjectsW(hds.into_param().abi(), namecontext.into_param().abi(), puuiddsasrc, uloptions)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1399,7 +1399,7 @@ pub unsafe fn DsRoleGetPrimaryDomainInformation<P0>(lpserver: P0, infolevel: DSR
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsRoleGetPrimaryDomainInformation ( lpserver : :: windows::core::PCWSTR , infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL , buffer : *mut *mut u8 ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsRoleGetPrimaryDomainInformation ( lpserver : ::windows::core::PCWSTR , infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL , buffer : *mut *mut u8 ) -> u32 );
     DsRoleGetPrimaryDomainInformation(lpserver.into_param().abi(), infolevel, buffer)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1409,7 +1409,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsServerRegisterSpnA ( operation : DS_SPN_WRITE_OP , serviceclass : :: windows::core::PCSTR , userobjectdn : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsServerRegisterSpnA ( operation : DS_SPN_WRITE_OP , serviceclass : ::windows::core::PCSTR , userobjectdn : ::windows::core::PCSTR ) -> u32 );
     DsServerRegisterSpnA(operation, serviceclass.into_param().abi(), userobjectdn.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1419,7 +1419,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsServerRegisterSpnW ( operation : DS_SPN_WRITE_OP , serviceclass : :: windows::core::PCWSTR , userobjectdn : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsServerRegisterSpnW ( operation : DS_SPN_WRITE_OP , serviceclass : ::windows::core::PCWSTR , userobjectdn : ::windows::core::PCWSTR ) -> u32 );
     DsServerRegisterSpnW(operation, serviceclass.into_param().abi(), userobjectdn.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1439,13 +1439,13 @@ pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsUnquoteRdnValueA(psquotedrdnvalue: &[u8], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: ::windows::core::PSTR) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsUnquoteRdnValueA ( cquotedrdnvaluelength : u32 , psquotedrdnvalue : :: windows::core::PCSTR , pcunquotedrdnvaluelength : *mut u32 , psunquotedrdnvalue : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsUnquoteRdnValueA ( cquotedrdnvaluelength : u32 , psquotedrdnvalue : ::windows::core::PCSTR , pcunquotedrdnvaluelength : *mut u32 , psunquotedrdnvalue : ::windows::core::PSTR ) -> u32 );
     DsUnquoteRdnValueA(psquotedrdnvalue.len() as _, ::core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength, ::core::mem::transmute(psunquotedrdnvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: ::windows::core::PWSTR) -> u32 {
-    ::windows::imp::link ! ( "dsparse.dll""system" fn DsUnquoteRdnValueW ( cquotedrdnvaluelength : u32 , psquotedrdnvalue : :: windows::core::PCWSTR , pcunquotedrdnvaluelength : *mut u32 , psunquotedrdnvalue : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "dsparse.dll""system" fn DsUnquoteRdnValueW ( cquotedrdnvaluelength : u32 , psquotedrdnvalue : ::windows::core::PCWSTR , pcunquotedrdnvaluelength : *mut u32 , psunquotedrdnvalue : ::windows::core::PWSTR ) -> u32 );
     DsUnquoteRdnValueW(psquotedrdnvalue.len() as _, ::core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength, ::core::mem::transmute(psunquotedrdnvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1454,7 +1454,7 @@ pub unsafe fn DsValidateSubnetNameA<P0>(subnetname: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsValidateSubnetNameA ( subnetname : :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsValidateSubnetNameA ( subnetname : ::windows::core::PCSTR ) -> u32 );
     DsValidateSubnetNameA(subnetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1463,7 +1463,7 @@ pub unsafe fn DsValidateSubnetNameW<P0>(subnetname: P0) -> u32
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "netapi32.dll""system" fn DsValidateSubnetNameW ( subnetname : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "netapi32.dll""system" fn DsValidateSubnetNameW ( subnetname : ::windows::core::PCWSTR ) -> u32 );
     DsValidateSubnetNameW(subnetname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1474,7 +1474,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsWriteAccountSpnA ( hds : super::super::Foundation:: HANDLE , operation : DS_SPN_WRITE_OP , pszaccount : :: windows::core::PCSTR , cspn : u32 , rpszspn : *const :: windows::core::PCSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsWriteAccountSpnA ( hds : super::super::Foundation:: HANDLE , operation : DS_SPN_WRITE_OP , pszaccount : ::windows::core::PCSTR , cspn : u32 , rpszspn : *const ::windows::core::PCSTR ) -> u32 );
     DsWriteAccountSpnA(hds.into_param().abi(), operation, pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1485,7 +1485,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsWriteAccountSpnW ( hds : super::super::Foundation:: HANDLE , operation : DS_SPN_WRITE_OP , pszaccount : :: windows::core::PCWSTR , cspn : u32 , rpszspn : *const :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "ntdsapi.dll""system" fn DsWriteAccountSpnW ( hds : super::super::Foundation:: HANDLE , operation : DS_SPN_WRITE_OP , pszaccount : ::windows::core::PCWSTR , cspn : u32 , rpszspn : *const ::windows::core::PCWSTR ) -> u32 );
     DsWriteAccountSpnW(hds.into_param().abi(), operation, pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
@@ -1502,14 +1502,14 @@ pub unsafe fn FreeADsStr<P0>(pstr: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn FreeADsStr ( pstr : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "activeds.dll""system" fn FreeADsStr ( pstr : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     FreeADsStr(pstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "activeds.dll""system" fn PropVariantToAdsType ( pvariant : *mut super::super::System::Com:: VARIANT , dwnumvariant : u32 , ppadsvalues : *mut *mut ADSVALUE , pdwnumvalues : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn PropVariantToAdsType ( pvariant : *mut super::super::System::Com:: VARIANT , dwnumvariant : u32 , ppadsvalues : *mut *mut ADSVALUE , pdwnumvalues : *mut u32 ) -> ::windows::core::HRESULT );
     PropVariantToAdsType(pvariant, dwnumvariant, ppadsvalues, pdwnumvalues).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -1525,7 +1525,7 @@ pub unsafe fn ReallocADsStr<P0>(ppstr: *mut ::windows::core::PWSTR, pstr: P0) ->
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn ReallocADsStr ( ppstr : *mut :: windows::core::PWSTR , pstr : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "activeds.dll""system" fn ReallocADsStr ( ppstr : *mut ::windows::core::PWSTR , pstr : ::windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     ReallocADsStr(ppstr, pstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1537,7 +1537,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "activeds.dll""system" fn SecurityDescriptorToBinarySD ( vvarsecdes : super::super::System::Com:: VARIANT , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , pdwsdlength : *mut u32 , pszservername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , password : :: windows::core::PCWSTR , dwflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "activeds.dll""system" fn SecurityDescriptorToBinarySD ( vvarsecdes : super::super::System::Com:: VARIANT , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , pdwsdlength : *mut u32 , pszservername : ::windows::core::PCWSTR , username : ::windows::core::PCWSTR , password : ::windows::core::PCWSTR , dwflags : u32 ) -> ::windows::core::HRESULT );
     SecurityDescriptorToBinarySD(::core::mem::transmute(vvarsecdes), ppsecuritydescriptor, pdwsdlength, pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
@@ -11009,29 +11009,29 @@ pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING: ::windows::core::PCSTR = ::windows::s!("naming");
+pub const ADAM_SCP_FSMO_NAMING_STRING: ::windows::core::PCSTR = ::windows::core::s!("naming");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING_W: ::windows::core::PCWSTR = ::windows::w!("naming");
+pub const ADAM_SCP_FSMO_NAMING_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("naming");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING: ::windows::core::PCSTR = ::windows::s!("schema");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING: ::windows::core::PCSTR = ::windows::core::s!("schema");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: ::windows::core::PCWSTR = ::windows::w!("schema");
+pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("schema");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING: ::windows::core::PCSTR = ::windows::s!("fsmo:");
+pub const ADAM_SCP_FSMO_STRING: ::windows::core::PCSTR = ::windows::core::s!("fsmo:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING_W: ::windows::core::PCWSTR = ::windows::w!("fsmo:");
+pub const ADAM_SCP_FSMO_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("fsmo:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING: ::windows::core::PCSTR = ::windows::s!("instance:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING: ::windows::core::PCSTR = ::windows::core::s!("instance:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING_W: ::windows::core::PCWSTR = ::windows::w!("instance:");
+pub const ADAM_SCP_INSTANCE_NAME_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("instance:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING: ::windows::core::PCSTR = ::windows::s!("partition:");
+pub const ADAM_SCP_PARTITION_STRING: ::windows::core::PCSTR = ::windows::core::s!("partition:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING_W: ::windows::core::PCWSTR = ::windows::w!("partition:");
+pub const ADAM_SCP_PARTITION_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("partition:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING: ::windows::core::PCSTR = ::windows::s!("site:");
+pub const ADAM_SCP_SITE_NAME_STRING: ::windows::core::PCSTR = ::windows::core::s!("site:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING_W: ::windows::core::PCWSTR = ::windows::w!("site:");
+pub const ADAM_SCP_SITE_NAME_STRING_W: ::windows::core::PCWSTR = ::windows::core::w!("site:");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ADS_ATTR_APPEND: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -11059,19 +11059,19 @@ pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSDISPLAYSPECOPTIONS: ::windows::core::PCWSTR = ::windows::w!("DsDisplaySpecOptions");
+pub const CFSTR_DSDISPLAYSPECOPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("DsDisplaySpecOptions");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOBJECTNAMES: ::windows::core::PCWSTR = ::windows::w!("DsObjectNames");
+pub const CFSTR_DSOBJECTNAMES: ::windows::core::PCWSTR = ::windows::core::w!("DsObjectNames");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOP_DS_SELECTION_LIST: ::windows::core::PCWSTR = ::windows::w!("CFSTR_DSOP_DS_SELECTION_LIST");
+pub const CFSTR_DSOP_DS_SELECTION_LIST: ::windows::core::PCWSTR = ::windows::core::w!("CFSTR_DSOP_DS_SELECTION_LIST");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSPROPERTYPAGEINFO: ::windows::core::PCWSTR = ::windows::w!("DsPropPageInfo");
+pub const CFSTR_DSPROPERTYPAGEINFO: ::windows::core::PCWSTR = ::windows::core::w!("DsPropPageInfo");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYPARAMS: ::windows::core::PCWSTR = ::windows::w!("DsQueryParameters");
+pub const CFSTR_DSQUERYPARAMS: ::windows::core::PCWSTR = ::windows::core::w!("DsQueryParameters");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYSCOPE: ::windows::core::PCWSTR = ::windows::w!("DsQueryScope");
+pub const CFSTR_DSQUERYSCOPE: ::windows::core::PCWSTR = ::windows::core::w!("DsQueryScope");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: ::windows::core::PCWSTR = ::windows::w!("DsDisplaySpecOptions");
+pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: ::windows::core::PCWSTR = ::windows::core::w!("DsDisplaySpecOptions");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const CLSID_CommonQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -11393,7 +11393,7 @@ pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROP_ATTRCHANGED_MSG: ::windows::core::PCWSTR = ::windows::w!("DsPropAttrChanged");
+pub const DSPROP_ATTRCHANGED_MSG: ::windows::core::PCWSTR = ::windows::core::w!("DsPropAttrChanged");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -11577,9 +11577,9 @@ pub const DS_PDC_REQUIRED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_PING_FLAGS: u32 = 1048575u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_ADMIN_PREFIX: ::windows::core::PCWSTR = ::windows::w!("admin");
+pub const DS_PROP_ADMIN_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("admin");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_SHELL_PREFIX: ::windows::core::PCWSTR = ::windows::w!("shell");
+pub const DS_PROP_SHELL_PREFIX: ::windows::core::PCWSTR = ::windows::core::w!("shell");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -11779,9 +11779,9 @@ pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME: ::windows::core::PCSTR = ::windows::s!("NTDSInitialSyncsCompleted");
+pub const DS_SYNCED_EVENT_NAME: ::windows::core::PCSTR = ::windows::core::s!("NTDSInitialSyncsCompleted");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME_W: ::windows::core::PCWSTR = ::windows::w!("NTDSInitialSyncsCompleted");
+pub const DS_SYNCED_EVENT_NAME_W: ::windows::core::PCWSTR = ::windows::core::w!("NTDSInitialSyncsCompleted");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -11819,61 +11819,61 @@ pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const FaxNumber: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("aa312825768811d1aded00c04fd8d5cd");
+pub const GUID_COMPUTRS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("aa312825768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("aa312825768811d1aded00c04fd8d5cd");
+pub const GUID_COMPUTRS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("aa312825768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("18e2ea80684f11d2b9aa00c04f79f805");
+pub const GUID_DELETED_OBJECTS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("18e2ea80684f11d2b9aa00c04f79f805");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("18e2ea80684f11d2b9aa00c04f79f805");
+pub const GUID_DELETED_OBJECTS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("18e2ea80684f11d2b9aa00c04f79f805");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("a361b2ffffd211d1aa4b00c04fd7d83a");
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("a361b2ffffd211d1aa4b00c04fd7d83a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("a361b2ffffd211d1aa4b00c04fd7d83a");
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("a361b2ffffd211d1aa4b00c04fd7d83a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("22b70c67d56e4efb91e9300fca3dc1aa");
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("22b70c67d56e4efb91e9300fca3dc1aa");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("22b70c67d56e4efb91e9300fca3dc1aa");
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("22b70c67d56e4efb91e9300fca3dc1aa");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("2fbac1870ade11d297c400c04fd8d5cd");
+pub const GUID_INFRASTRUCTURE_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("2fbac1870ade11d297c400c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("2fbac1870ade11d297c400c04fd8d5cd");
+pub const GUID_INFRASTRUCTURE_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("2fbac1870ade11d297c400c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_KEYS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("683A24E2E8164BD3AF86AC3C2CF3F981");
+pub const GUID_KEYS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("683A24E2E8164BD3AF86AC3C2CF3F981");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("ab8153b7768811d1aded00c04fd8d5cd");
+pub const GUID_LOSTANDFOUND_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("ab8153b7768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("ab8153b7768811d1aded00c04fd8d5cd");
+pub const GUID_LOSTANDFOUND_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("ab8153b7768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("1EB93889E40C45DF9F0C64D23BBB6237");
+pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("1EB93889E40C45DF9F0C64D23BBB6237");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("f4be92a4c777485e878e9421d53087db");
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("f4be92a4c777485e878e9421d53087db");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("f4be92a4c777485e878e9421d53087db");
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("f4be92a4c777485e878e9421d53087db");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("6227f0af1fc2410d8e3bb10615bb5b0f");
+pub const GUID_NTDS_QUOTAS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("6227f0af1fc2410d8e3bb10615bb5b0f");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("6227f0af1fc2410d8e3bb10615bb5b0f");
+pub const GUID_NTDS_QUOTAS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("6227f0af1fc2410d8e3bb10615bb5b0f");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: ::windows::core::PCSTR = ::windows::s!("73e843ece8cc4046b4ab07ffe4ab5bcd");
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: ::windows::core::PCSTR = ::windows::core::s!("73e843ece8cc4046b4ab07ffe4ab5bcd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: ::windows::core::PCWSTR = ::windows::w!("73e843ece8cc4046b4ab07ffe4ab5bcd");
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: ::windows::core::PCWSTR = ::windows::core::w!("73e843ece8cc4046b4ab07ffe4ab5bcd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("09460c08ae1e4a4ea0f64aee7daa1e5a");
+pub const GUID_PROGRAM_DATA_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("09460c08ae1e4a4ea0f64aee7daa1e5a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("09460c08ae1e4a4ea0f64aee7daa1e5a");
+pub const GUID_PROGRAM_DATA_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("09460c08ae1e4a4ea0f64aee7daa1e5a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: ::windows::core::PCSTR = ::windows::s!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: ::windows::core::PCSTR = ::windows::core::s!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: ::windows::core::PCWSTR = ::windows::w!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: ::windows::core::PCWSTR = ::windows::core::w!("d8dc6d76d0ac5e44f3b9a7f9b6744f2a");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("ab1d30f3768811d1aded00c04fd8d5cd");
+pub const GUID_SYSTEMS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("ab1d30f3768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("ab1d30f3768811d1aded00c04fd8d5cd");
+pub const GUID_SYSTEMS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("ab1d30f3768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_A: ::windows::core::PCSTR = ::windows::s!("a9d1ca15768811d1aded00c04fd8d5cd");
+pub const GUID_USERS_CONTAINER_A: ::windows::core::PCSTR = ::windows::core::s!("a9d1ca15768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::w!("a9d1ca15768811d1aded00c04fd8d5cd");
+pub const GUID_USERS_CONTAINER_W: ::windows::core::PCWSTR = ::windows::core::w!("a9d1ca15768811d1aded00c04fd8d5cd");
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const Hold: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]

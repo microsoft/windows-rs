@@ -195,7 +195,7 @@ pub unsafe fn TcGetFlowNameA<P0>(flowhandle: P0, pflowname: &mut [u8]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcGetFlowNameA ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : :: windows::core::PSTR ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcGetFlowNameA ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : ::windows::core::PSTR ) -> u32 );
     TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -205,7 +205,7 @@ pub unsafe fn TcGetFlowNameW<P0>(flowhandle: P0, pflowname: &mut [u16]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcGetFlowNameW ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : :: windows::core::PWSTR ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcGetFlowNameW ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : ::windows::core::PWSTR ) -> u32 );
     TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -227,7 +227,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcOpenInterfaceA ( pinterfacename : :: windows::core::PCSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcOpenInterfaceA ( pinterfacename : ::windows::core::PCSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcOpenInterfaceA(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), pifchandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -239,7 +239,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P2: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcOpenInterfaceW ( pinterfacename : :: windows::core::PCWSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcOpenInterfaceW ( pinterfacename : ::windows::core::PCWSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcOpenInterfaceW(pinterfacename.into_param().abi(), clienthandle.into_param().abi(), clifcctx.into_param().abi(), pifchandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -248,7 +248,7 @@ pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const ::windows::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryFlowA ( pflowname : :: windows::core::PCSTR , pguidparam : *const :: windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryFlowA ( pflowname : ::windows::core::PCSTR , pguidparam : *const ::windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryFlowA(pflowname.into_param().abi(), pguidparam, pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -257,7 +257,7 @@ pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const ::windows::core
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryFlowW ( pflowname : :: windows::core::PCWSTR , pguidparam : *const :: windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryFlowW ( pflowname : ::windows::core::PCWSTR , pguidparam : *const ::windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryFlowW(pflowname.into_param().abi(), pguidparam, pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -268,7 +268,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const :: windows::core::GUID , notifychange : super::super::Foundation:: BOOLEAN , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcQueryInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const ::windows::core::GUID , notifychange : super::super::Foundation:: BOOLEAN , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryInterface(ifchandle.into_param().abi(), pguidparam, notifychange.into_param().abi(), pbuffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -287,7 +287,7 @@ pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetFlowA ( pflowname : :: windows::core::PCSTR , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetFlowA ( pflowname : ::windows::core::PCSTR , pguidparam : *const ::windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetFlowA(pflowname.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -296,7 +296,7 @@ pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const ::windows::core::
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetFlowW ( pflowname : :: windows::core::PCWSTR , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetFlowW ( pflowname : ::windows::core::PCWSTR , pguidparam : *const ::windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetFlowW(pflowname.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -306,7 +306,7 @@ pub unsafe fn TcSetInterface<P0>(ifchandle: P0, pguidparam: *const ::windows::co
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "traffic.dll""system" fn TcSetInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const ::windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetInterface(ifchandle.into_param().abi(), pguidparam, buffersize, buffer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -336,7 +336,7 @@ pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const DD_TCP_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::w!("\\Device\\Tcp");
+pub const DD_TCP_DEVICE_NAME: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\Tcp");
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]

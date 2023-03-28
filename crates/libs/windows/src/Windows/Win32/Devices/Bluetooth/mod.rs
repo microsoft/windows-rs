@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bthprops.cpl""system" fn BluetoothAuthenticateDevice ( hwndparent : super::super::Foundation:: HWND , hradio : super::super::Foundation:: HANDLE , pbtbi : *mut BLUETOOTH_DEVICE_INFO , pszpasskey : :: windows::core::PCWSTR , ulpasskeylength : u32 ) -> u32 );
+    ::windows::imp::link ! ( "bthprops.cpl""system" fn BluetoothAuthenticateDevice ( hwndparent : super::super::Foundation:: HWND , hradio : super::super::Foundation:: HANDLE , pbtbi : *mut BLUETOOTH_DEVICE_INFO , pszpasskey : ::windows::core::PCWSTR , ulpasskeylength : u32 ) -> u32 );
     BluetoothAuthenticateDevice(hwndparent.into_param().abi(), hradio.into_param().abi(), pbtbi, ::core::mem::transmute(pszpasskey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszpasskey.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -70,7 +70,7 @@ pub unsafe fn BluetoothEnumerateInstalledServices<P0>(hradio: P0, pbtdi: *const 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothEnumerateInstalledServices ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pcserviceinout : *mut u32 , pguidservices : *mut :: windows::core::GUID ) -> u32 );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothEnumerateInstalledServices ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pcserviceinout : *mut u32 , pguidservices : *mut ::windows::core::GUID ) -> u32 );
     BluetoothEnumerateInstalledServices(hradio.into_param().abi(), pbtdi, pcserviceinout, ::core::mem::transmute(pguidservices.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -122,7 +122,7 @@ pub unsafe fn BluetoothGATTAbortReliableWrite<P0>(hdevice: P0, reliablewritecont
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTAbortReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : u64 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTAbortReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : u64 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTAbortReliableWrite(hdevice.into_param().abi(), reliablewritecontext, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -132,7 +132,7 @@ pub unsafe fn BluetoothGATTBeginReliableWrite<P0>(hdevice: P0, reliablewritecont
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTBeginReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : *mut u64 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTBeginReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : *mut u64 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTBeginReliableWrite(hdevice.into_param().abi(), reliablewritecontext, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -142,7 +142,7 @@ pub unsafe fn BluetoothGATTEndReliableWrite<P0>(hdevice: P0, reliablewritecontex
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTEndReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : u64 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTEndReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : u64 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTEndReliableWrite(hdevice.into_param().abi(), reliablewritecontext, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -152,7 +152,7 @@ pub unsafe fn BluetoothGATTGetCharacteristicValue<P0>(hdevice: P0, characteristi
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetCharacteristicValue ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , characteristicvaluedatasize : u32 , characteristicvalue : *mut BTH_LE_GATT_CHARACTERISTIC_VALUE , characteristicvaluesizerequired : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetCharacteristicValue ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , characteristicvaluedatasize : u32 , characteristicvalue : *mut BTH_LE_GATT_CHARACTERISTIC_VALUE , characteristicvaluesizerequired : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetCharacteristicValue(hdevice.into_param().abi(), characteristic, characteristicvaluedatasize, ::core::mem::transmute(characteristicvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(characteristicvaluesizerequired.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ pub unsafe fn BluetoothGATTGetCharacteristics<P0>(hdevice: P0, service: ::core::
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetCharacteristics ( hdevice : super::super::Foundation:: HANDLE , service : *const BTH_LE_GATT_SERVICE , characteristicsbuffercount : u16 , characteristicsbuffer : *mut BTH_LE_GATT_CHARACTERISTIC , characteristicsbufferactual : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetCharacteristics ( hdevice : super::super::Foundation:: HANDLE , service : *const BTH_LE_GATT_SERVICE , characteristicsbuffercount : u16 , characteristicsbuffer : *mut BTH_LE_GATT_CHARACTERISTIC , characteristicsbufferactual : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetCharacteristics(hdevice.into_param().abi(), ::core::mem::transmute(service.unwrap_or(::std::ptr::null())), characteristicsbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(characteristicsbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), characteristicsbufferactual, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn BluetoothGATTGetDescriptorValue<P0>(hdevice: P0, descriptor: *cons
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetDescriptorValue ( hdevice : super::super::Foundation:: HANDLE , descriptor : *const BTH_LE_GATT_DESCRIPTOR , descriptorvaluedatasize : u32 , descriptorvalue : *mut BTH_LE_GATT_DESCRIPTOR_VALUE , descriptorvaluesizerequired : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetDescriptorValue ( hdevice : super::super::Foundation:: HANDLE , descriptor : *const BTH_LE_GATT_DESCRIPTOR , descriptorvaluedatasize : u32 , descriptorvalue : *mut BTH_LE_GATT_DESCRIPTOR_VALUE , descriptorvaluesizerequired : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetDescriptorValue(hdevice.into_param().abi(), descriptor, descriptorvaluedatasize, ::core::mem::transmute(descriptorvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(descriptorvaluesizerequired.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn BluetoothGATTGetDescriptors<P0>(hdevice: P0, characteristic: *cons
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetDescriptors ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , descriptorsbuffercount : u16 , descriptorsbuffer : *mut BTH_LE_GATT_DESCRIPTOR , descriptorsbufferactual : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetDescriptors ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , descriptorsbuffercount : u16 , descriptorsbuffer : *mut BTH_LE_GATT_DESCRIPTOR , descriptorsbufferactual : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetDescriptors(hdevice.into_param().abi(), characteristic, descriptorsbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(descriptorsbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), descriptorsbufferactual, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -192,7 +192,7 @@ pub unsafe fn BluetoothGATTGetIncludedServices<P0>(hdevice: P0, parentservice: :
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetIncludedServices ( hdevice : super::super::Foundation:: HANDLE , parentservice : *const BTH_LE_GATT_SERVICE , includedservicesbuffercount : u16 , includedservicesbuffer : *mut BTH_LE_GATT_SERVICE , includedservicesbufferactual : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetIncludedServices ( hdevice : super::super::Foundation:: HANDLE , parentservice : *const BTH_LE_GATT_SERVICE , includedservicesbuffercount : u16 , includedservicesbuffer : *mut BTH_LE_GATT_SERVICE , includedservicesbufferactual : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetIncludedServices(hdevice.into_param().abi(), ::core::mem::transmute(parentservice.unwrap_or(::std::ptr::null())), includedservicesbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(includedservicesbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), includedservicesbufferactual, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -202,7 +202,7 @@ pub unsafe fn BluetoothGATTGetServices<P0>(hdevice: P0, servicesbuffer: ::core::
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetServices ( hdevice : super::super::Foundation:: HANDLE , servicesbuffercount : u16 , servicesbuffer : *mut BTH_LE_GATT_SERVICE , servicesbufferactual : *mut u16 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTGetServices ( hdevice : super::super::Foundation:: HANDLE , servicesbuffercount : u16 , servicesbuffer : *mut BTH_LE_GATT_SERVICE , servicesbufferactual : *mut u16 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTGetServices(hdevice.into_param().abi(), servicesbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(servicesbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), servicesbufferactual, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -212,7 +212,7 @@ pub unsafe fn BluetoothGATTRegisterEvent<P0>(hservice: P0, eventtype: BTH_LE_GAT
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTRegisterEvent ( hservice : super::super::Foundation:: HANDLE , eventtype : BTH_LE_GATT_EVENT_TYPE , eventparameterin : *const ::core::ffi::c_void , callback : PFNBLUETOOTH_GATT_EVENT_CALLBACK , callbackcontext : *const ::core::ffi::c_void , peventhandle : *mut isize , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTRegisterEvent ( hservice : super::super::Foundation:: HANDLE , eventtype : BTH_LE_GATT_EVENT_TYPE , eventparameterin : *const ::core::ffi::c_void , callback : PFNBLUETOOTH_GATT_EVENT_CALLBACK , callbackcontext : *const ::core::ffi::c_void , peventhandle : *mut isize , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTRegisterEvent(hservice.into_param().abi(), eventtype, eventparameterin, callback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), peventhandle, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -222,7 +222,7 @@ pub unsafe fn BluetoothGATTSetCharacteristicValue<P0>(hdevice: P0, characteristi
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTSetCharacteristicValue ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , characteristicvalue : *const BTH_LE_GATT_CHARACTERISTIC_VALUE , reliablewritecontext : u64 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTSetCharacteristicValue ( hdevice : super::super::Foundation:: HANDLE , characteristic : *const BTH_LE_GATT_CHARACTERISTIC , characteristicvalue : *const BTH_LE_GATT_CHARACTERISTIC_VALUE , reliablewritecontext : u64 , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTSetCharacteristicValue(hdevice.into_param().abi(), characteristic, characteristicvalue, reliablewritecontext, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -232,13 +232,13 @@ pub unsafe fn BluetoothGATTSetDescriptorValue<P0>(hdevice: P0, descriptor: *cons
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTSetDescriptorValue ( hdevice : super::super::Foundation:: HANDLE , descriptor : *const BTH_LE_GATT_DESCRIPTOR , descriptorvalue : *const BTH_LE_GATT_DESCRIPTOR_VALUE , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTSetDescriptorValue ( hdevice : super::super::Foundation:: HANDLE , descriptor : *const BTH_LE_GATT_DESCRIPTOR , descriptorvalue : *const BTH_LE_GATT_DESCRIPTOR_VALUE , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTSetDescriptorValue(hdevice.into_param().abi(), descriptor, descriptorvalue, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
 pub unsafe fn BluetoothGATTUnregisterEvent(eventhandle: isize, flags: u32) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTUnregisterEvent ( eventhandle : isize , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTUnregisterEvent ( eventhandle : isize , flags : u32 ) -> ::windows::core::HRESULT );
     BluetoothGATTUnregisterEvent(eventhandle, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -336,7 +336,7 @@ pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: *mut SDP_ELEM
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
 pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: ::core::option::Option<*const SDP_STRING_TYPE_DATA>, usstringoffset: u16, pszstring: ::windows::core::PWSTR, pcchstringlength: *mut u32) -> u32 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpGetString ( precordstream : *const u8 , cbrecordlength : u32 , pstringdata : *const SDP_STRING_TYPE_DATA , usstringoffset : u16 , pszstring : :: windows::core::PWSTR , pcchstringlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpGetString ( precordstream : *const u8 , cbrecordlength : u32 , pstringdata : *const SDP_STRING_TYPE_DATA , usstringoffset : u16 , pszstring : ::windows::core::PWSTR , pcchstringlength : *mut u32 ) -> u32 );
     BluetoothSdpGetString(::core::mem::transmute(precordstream.as_ptr()), precordstream.len() as _, ::core::mem::transmute(pstringdata.unwrap_or(::std::ptr::null())), usstringoffset, ::core::mem::transmute(pszstring), pcchstringlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -361,7 +361,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSendAuthenticationResponse ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pszpasskey : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSendAuthenticationResponse ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pszpasskey : ::windows::core::PCWSTR ) -> u32 );
     BluetoothSendAuthenticationResponse(hradio.into_param().abi(), pbtdi, pszpasskey.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -381,7 +381,7 @@ pub unsafe fn BluetoothSetLocalServiceInfo<P0>(hradioin: P0, pclassguid: *const 
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSetLocalServiceInfo ( hradioin : super::super::Foundation:: HANDLE , pclassguid : *const :: windows::core::GUID , ulinstance : u32 , pserviceinfoin : *const BLUETOOTH_LOCAL_SERVICE_INFO ) -> u32 );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSetLocalServiceInfo ( hradioin : super::super::Foundation:: HANDLE , pclassguid : *const ::windows::core::GUID , ulinstance : u32 , pserviceinfoin : *const BLUETOOTH_LOCAL_SERVICE_INFO ) -> u32 );
     BluetoothSetLocalServiceInfo(hradioin.into_param().abi(), pclassguid, ulinstance, pserviceinfoin)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -391,7 +391,7 @@ pub unsafe fn BluetoothSetServiceState<P0>(hradio: P0, pbtdi: *const BLUETOOTH_D
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSetServiceState ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pguidservice : *const :: windows::core::GUID , dwserviceflags : u32 ) -> u32 );
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothSetServiceState ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pguidservice : *const ::windows::core::GUID , dwserviceflags : u32 ) -> u32 );
     BluetoothSetServiceState(hradio.into_param().abi(), pbtdi, pguidservice, dwserviceflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -1987,23 +1987,23 @@ pub const STRING_NAME_OFFSET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMT: ::windows::core::PCWSTR = ::windows::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_FMT: ::windows::core::PCWSTR = ::windows::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMTA: ::windows::core::PCSTR = ::windows::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_FMTA: ::windows::core::PCSTR = ::windows::core::s!("(%02x:%02x:%02x:%02x:%02x:%02x)");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMTW: ::windows::core::PCWSTR = ::windows::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
+pub const STR_ADDR_FMTW: ::windows::core::PCWSTR = ::windows::core::w!("(%02x:%02x:%02x:%02x:%02x:%02x)");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMT: ::windows::core::PCWSTR = ::windows::w!("%04x%08x");
+pub const STR_ADDR_SHORT_FMT: ::windows::core::PCWSTR = ::windows::core::w!("%04x%08x");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMTA: ::windows::core::PCSTR = ::windows::s!("%04x%08x");
+pub const STR_ADDR_SHORT_FMTA: ::windows::core::PCSTR = ::windows::core::s!("%04x%08x");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMTW: ::windows::core::PCWSTR = ::windows::w!("%04x%08x");
+pub const STR_ADDR_SHORT_FMTW: ::windows::core::PCWSTR = ::windows::core::w!("%04x%08x");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREID: ::windows::core::PCWSTR = ::windows::w!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const STR_USBHCI_CLASS_HARDWAREID: ::windows::core::PCWSTR = ::windows::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREIDA: ::windows::core::PCSTR = ::windows::s!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const STR_USBHCI_CLASS_HARDWAREIDA: ::windows::core::PCSTR = ::windows::core::s!("USB\\Class_E0&SubClass_01&Prot_01");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREIDW: ::windows::core::PCWSTR = ::windows::w!("USB\\Class_E0&SubClass_01&Prot_01");
+pub const STR_USBHCI_CLASS_HARDWAREIDW: ::windows::core::PCWSTR = ::windows::core::w!("USB\\Class_E0&SubClass_01&Prot_01");
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SVCID_BTH_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06aa63e0_7d60_41ff_afb2_3ee6d2d9392d);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]

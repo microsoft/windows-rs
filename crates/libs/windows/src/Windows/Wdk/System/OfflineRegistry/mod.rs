@@ -35,7 +35,7 @@ where
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORCreateKey ( keyhandle : ORHKEY , lpsubkey : :: windows::core::PCWSTR , lpclass : :: windows::core::PCWSTR , dwoptions : u32 , psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR , phkresult : *mut ORHKEY , pdwdisposition : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORCreateKey ( keyhandle : ORHKEY , lpsubkey : ::windows::core::PCWSTR , lpclass : ::windows::core::PCWSTR , dwoptions : u32 , psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR , phkresult : *mut ORHKEY , pdwdisposition : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORCreateKey(keyhandle.into_param().abi(), lpsubkey.into_param().abi(), lpclass.into_param().abi(), dwoptions, psecuritydescriptor.into_param().abi(), phkresult, ::core::mem::transmute(pdwdisposition.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -46,7 +46,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORDeleteKey ( handle : ORHKEY , lpsubkey : :: windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORDeleteKey ( handle : ORHKEY , lpsubkey : ::windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORDeleteKey(handle.into_param().abi(), lpsubkey.into_param().abi())
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -57,7 +57,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORDeleteValue ( handle : ORHKEY , lpvaluename : :: windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORDeleteValue ( handle : ORHKEY , lpvaluename : ::windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORDeleteValue(handle.into_param().abi(), lpvaluename.into_param().abi())
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -67,7 +67,7 @@ pub unsafe fn OREnumKey<P0>(handle: P0, dwindex: u32, lpname: ::windows::core::P
 where
     P0: ::windows::core::IntoParam<ORHKEY>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn OREnumKey ( handle : ORHKEY , dwindex : u32 , lpname : :: windows::core::PWSTR , lpcname : *mut u32 , lpclass : :: windows::core::PWSTR , lpcclass : *mut u32 , lpftlastwritetime : *mut super::super::super::Win32::Foundation:: FILETIME ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn OREnumKey ( handle : ORHKEY , dwindex : u32 , lpname : ::windows::core::PWSTR , lpcname : *mut u32 , lpclass : ::windows::core::PWSTR , lpcclass : *mut u32 , lpftlastwritetime : *mut super::super::super::Win32::Foundation:: FILETIME ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     OREnumKey(handle.into_param().abi(), dwindex, ::core::mem::transmute(lpname), lpcname, ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -77,7 +77,7 @@ pub unsafe fn OREnumValue<P0>(handle: P0, dwindex: u32, lpvaluename: ::windows::
 where
     P0: ::windows::core::IntoParam<ORHKEY>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn OREnumValue ( handle : ORHKEY , dwindex : u32 , lpvaluename : :: windows::core::PWSTR , lpcvaluename : *mut u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn OREnumValue ( handle : ORHKEY , dwindex : u32 , lpvaluename : ::windows::core::PWSTR , lpcvaluename : *mut u32 , lptype : *mut u32 , lpdata : *mut u8 , lpcbdata : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     OREnumValue(handle.into_param().abi(), dwindex, ::core::mem::transmute(lpvaluename), lpcvaluename, ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -99,7 +99,7 @@ where
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORGetValue ( handle : ORHKEY , lpsubkey : :: windows::core::PCWSTR , lpvalue : :: windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORGetValue ( handle : ORHKEY , lpsubkey : ::windows::core::PCWSTR , lpvalue : ::windows::core::PCWSTR , pdwtype : *mut u32 , pvdata : *mut ::core::ffi::c_void , pcbdata : *mut u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORGetValue(handle.into_param().abi(), lpsubkey.into_param().abi(), lpvalue.into_param().abi(), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -133,7 +133,7 @@ pub unsafe fn OROpenHive<P0>(filepath: P0, horkey: *mut ORHKEY) -> super::super:
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn OROpenHive ( filepath : :: windows::core::PCWSTR , horkey : *mut ORHKEY ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn OROpenHive ( filepath : ::windows::core::PCWSTR , horkey : *mut ORHKEY ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     OROpenHive(filepath.into_param().abi(), horkey)
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -154,7 +154,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn OROpenKey ( handle : ORHKEY , lpsubkey : :: windows::core::PCWSTR , phkresult : *mut ORHKEY ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn OROpenKey ( handle : ORHKEY , lpsubkey : ::windows::core::PCWSTR , phkresult : *mut ORHKEY ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     OROpenKey(handle.into_param().abi(), lpsubkey.into_param().abi(), phkresult)
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -164,7 +164,7 @@ pub unsafe fn ORQueryInfoKey<P0>(handle: P0, lpclass: ::windows::core::PWSTR, lp
 where
     P0: ::windows::core::IntoParam<ORHKEY>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORQueryInfoKey ( handle : ORHKEY , lpclass : :: windows::core::PWSTR , lpcclass : *mut u32 , lpcsubkeys : *mut u32 , lpcmaxsubkeylen : *mut u32 , lpcmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcmaxvaluenamelen : *mut u32 , lpcmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::super::Win32::Foundation:: FILETIME ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORQueryInfoKey ( handle : ORHKEY , lpclass : ::windows::core::PWSTR , lpcclass : *mut u32 , lpcsubkeys : *mut u32 , lpcmaxsubkeylen : *mut u32 , lpcmaxclasslen : *mut u32 , lpcvalues : *mut u32 , lpcmaxvaluenamelen : *mut u32 , lpcmaxvaluelen : *mut u32 , lpcbsecuritydescriptor : *mut u32 , lpftlastwritetime : *mut super::super::super::Win32::Foundation:: FILETIME ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORQueryInfoKey(
         handle.into_param().abi(),
         ::core::mem::transmute(lpclass),
@@ -187,7 +187,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORRenameKey ( handle : ORHKEY , lpnewname : :: windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORRenameKey ( handle : ORHKEY , lpnewname : ::windows::core::PCWSTR ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORRenameKey(handle.into_param().abi(), lpnewname.into_param().abi())
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]
@@ -198,7 +198,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORSaveHive ( horkey : ORHKEY , hivepath : :: windows::core::PCWSTR , osmajorversion : u32 , osminorversion : u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORSaveHive ( horkey : ORHKEY , hivepath : ::windows::core::PCWSTR , osmajorversion : u32 , osminorversion : u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORSaveHive(horkey.into_param().abi(), hivepath.into_param().abi(), osmajorversion, osminorversion)
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -220,7 +220,7 @@ where
     P0: ::windows::core::IntoParam<ORHKEY>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "offreg.dll""system" fn ORSetValue ( handle : ORHKEY , lpvaluename : :: windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
+    ::windows::imp::link ! ( "offreg.dll""system" fn ORSetValue ( handle : ORHKEY , lpvaluename : ::windows::core::PCWSTR , dwtype : u32 , lpdata : *const u8 , cbdata : u32 ) -> super::super::super::Win32::Foundation:: WIN32_ERROR );
     ORSetValue(handle.into_param().abi(), lpvaluename.into_param().abi(), dwtype, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Wdk_System_OfflineRegistry\"`, `\"Win32_Foundation\"`*"]

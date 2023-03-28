@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "netapi32.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`, `\"Win32_Foundation\"`*"] fn Netbios ( pncb : *mut NCB ) -> u8 );
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
-pub const ALL_TRANSPORTS: ::windows_sys::core::PCSTR = ::windows_sys::s!("M\u{0}\u{0}\u{0}");
+pub const ALL_TRANSPORTS: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("M\u{0}\u{0}\u{0}");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const ASYNCH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
@@ -23,7 +23,7 @@ pub const LISTEN_OUTSTANDING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const MAX_LANA: u32 = 254u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
-pub const MS_NBF: ::windows_sys::core::PCSTR = ::windows_sys::s!("MNBF");
+pub const MS_NBF: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("MNBF");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]

@@ -3,17 +3,17 @@ pub mod Printing;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn AbortDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DeviceCapabilitiesA ( pdevice : :: windows_sys::core::PCSTR , pport : :: windows_sys::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows_sys::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DeviceCapabilitiesA ( pdevice : ::windows_sys::core::PCSTR , pport : ::windows_sys::core::PCSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows_sys::core::PSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DeviceCapabilitiesW ( pdevice : :: windows_sys::core::PCWSTR , pport : :: windows_sys::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : :: windows_sys::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
+::windows_sys::core::link ! ( "winspool.drv""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn DeviceCapabilitiesW ( pdevice : ::windows_sys::core::PCWSTR , pport : ::windows_sys::core::PCWSTR , fwcapability : DEVICE_CAPABILITIES , poutput : ::windows_sys::core::PWSTR , pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn EndDoc ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn EndPage ( hdc : super::super::Graphics::Gdi:: HDC ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : :: windows_sys::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn Escape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjin : i32 , pvin : ::windows_sys::core::PCSTR , pvout : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : :: windows_sys::core::PCSTR , cjoutput : i32 , lpoutdata : :: windows_sys::core::PSTR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"] fn ExtEscape ( hdc : super::super::Graphics::Gdi:: HDC , iescape : i32 , cjinput : i32 , lpindata : ::windows_sys::core::PCSTR , cjoutput : i32 , lpoutdata : ::windows_sys::core::PSTR ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn PrintWindow ( hwnd : super::super::Foundation:: HWND , hdcblt : super::super::Graphics::Gdi:: HDC , nflags : PRINT_WINDOW_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

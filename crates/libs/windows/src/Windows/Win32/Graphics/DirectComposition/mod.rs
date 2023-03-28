@@ -7,7 +7,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseDragToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseDragToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     DCompositionAttachMouseDragToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
@@ -19,7 +19,7 @@ where
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseWheelToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionAttachMouseWheelToHwnd ( visual : * mut::core::ffi::c_void , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     DCompositionAttachMouseWheelToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
@@ -29,7 +29,7 @@ pub unsafe fn DCompositionBoostCompositorClock<P0>(enable: P0) -> ::windows::cor
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> ::windows::core::HRESULT );
     DCompositionBoostCompositorClock(enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -40,7 +40,7 @@ where
     P0: ::windows::core::IntoParam<super::Dxgi::IDXGIDevice>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice(dxgidevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -51,7 +51,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice2(renderingdevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -62,7 +62,7 @@ where
     P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     T: ::windows::core::ComInterface,
 {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const ::windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> ::windows::core::HRESULT );
     let mut result__ = ::std::ptr::null_mut();
     DCompositionCreateDevice3(renderingdevice.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
@@ -70,14 +70,14 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
     DCompositionCreateSurfaceHandle(desiredaccess, ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<u64>();
     DCompositionGetFrameId(frameidtype, &mut result__).from_abi(result__)
 }
@@ -85,14 +85,14 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: ::core::option::Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> ::windows::core::HRESULT );
     DCompositionGetStatistics(frameid, framestats, targetidcount, ::core::mem::transmute(targetids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(actualtargetidcount.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> ::windows::core::HRESULT );
     DCompositionGetTargetStatistics(frameid, targetid, targetstats).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]

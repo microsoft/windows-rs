@@ -174,11 +174,11 @@ pub const MS_INVERTCOLORS: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIER: ::windows::core::PCWSTR = ::windows::w!("Magnifier");
+pub const WC_MAGNIFIER: ::windows::core::PCWSTR = ::windows::core::w!("Magnifier");
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERA: ::windows::core::PCSTR = ::windows::s!("Magnifier");
+pub const WC_MAGNIFIERA: ::windows::core::PCSTR = ::windows::core::s!("Magnifier");
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERW: ::windows::core::PCWSTR = ::windows::w!("Magnifier");
+pub const WC_MAGNIFIERW: ::windows::core::PCWSTR = ::windows::core::w!("Magnifier");
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

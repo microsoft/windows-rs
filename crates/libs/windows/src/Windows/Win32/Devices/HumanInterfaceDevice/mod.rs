@@ -6,7 +6,7 @@ where
     P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HINSTANCE , dwversion : u32 , riidltf : *const :: windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HINSTANCE , dwversion : u32 , riidltf : *const ::windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectInput8Create(hinst.into_param().abi(), dwversion, riidltf, ppvout, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -59,7 +59,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> ::windows::core::GUID {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut :: windows::core::GUID ) -> ( ) );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidD_GetHidGuid ( hidguid : *mut ::windows::core::GUID ) -> ( ) );
     let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
     HidD_GetHidGuid(&mut result__);
     ::std::mem::transmute(result__)
@@ -198,7 +198,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *mut HIDP_BUTTON_ARRAY_DATA , buttondatalength : *mut u16 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *mut HIDP_BUTTON_ARRAY_DATA , buttondatalength : *mut u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -219,7 +219,7 @@ pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -240,7 +240,7 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_CO
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut i32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut i32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -261,28 +261,28 @@ pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage:
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &mut [u8], preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : :: windows::core::PSTR , usagevaluebytelength : u16 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsagesEx ( reporttype : HIDP_REPORT_TYPE , linkcollection : u16 , buttonlist : *mut USAGE_AND_PAGE , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_GetUsagesEx ( reporttype : HIDP_REPORT_TYPE , linkcollection : u16 , buttonlist : *mut USAGE_AND_PAGE , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_GetUsagesEx(reporttype, linkcollection, buttonlist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -296,7 +296,7 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_InitializeReportForID ( reporttype : HIDP_REPORT_TYPE , reportid : u8 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_InitializeReportForID ( reporttype : HIDP_REPORT_TYPE , reportid : u8 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_InitializeReportForID(reporttype, reportid, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
@@ -315,42 +315,42 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *const HIDP_BUTTON_ARRAY_DATA , buttondatalength : u16 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetButtonArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , buttondata : *const HIDP_BUTTON_ARRAY_DATA , buttondatalength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetData ( reporttype : HIDP_REPORT_TYPE , datalist : *mut HIDP_DATA , datalength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetData(reporttype, datalist, datalength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : i32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetScaledUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : i32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : u32 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValue ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : u32 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: &[u8], preparseddata: isize, report: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : :: windows::core::PCSTR , usagevaluebytelength : u16 , preparseddata : isize , report : :: windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsageValueArray ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usage : u16 , usagevalue : ::windows::core::PCSTR , usagevaluebytelength : u16 , preparseddata : isize , report : ::windows::core::PSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, ::core::mem::transmute(usagevalue.as_ptr()), usagevalue.len() as _, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_SetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -364,7 +364,7 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], key
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: &[u8]) -> ::windows::core::Result<()> {
-    ::windows::imp::link ! ( "hid.dll""system" fn HidP_UnsetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : :: windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "hid.dll""system" fn HidP_UnsetUsages ( reporttype : HIDP_REPORT_TYPE , usagepage : u16 , linkcollection : u16 , usagelist : *mut u16 , usagelength : *mut u32 , preparseddata : isize , report : ::windows::core::PCSTR , reportlength : u32 ) -> super::super::Foundation:: NTSTATUS );
     HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -2848,13 +2848,13 @@ pub const CLSID_DirectInputDevice: ::windows::core::GUID = ::windows::core::GUID
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const CLSID_DirectInputDevice8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_KEYBOARD_DEVICE_NAME: ::windows::core::PCSTR = ::windows::s!("\\Device\\KeyboardClass");
+pub const DD_KEYBOARD_DEVICE_NAME: ::windows::core::PCSTR = ::windows::core::s!("\\Device\\KeyboardClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_KEYBOARD_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::w!("\\Device\\KeyboardClass");
+pub const DD_KEYBOARD_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\KeyboardClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_MOUSE_DEVICE_NAME: ::windows::core::PCSTR = ::windows::s!("\\Device\\PointerClass");
+pub const DD_MOUSE_DEVICE_NAME: ::windows::core::PCSTR = ::windows::core::s!("\\Device\\PointerClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DD_MOUSE_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::w!("\\Device\\PointerClass");
+pub const DD_MOUSE_DEVICE_NAME_U: ::windows::core::PCWSTR = ::windows::core::w!("\\Device\\PointerClass");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xcbf38310_4a17_4310_a1eb_247f0b67593b), pid: 8 };
@@ -5842,59 +5842,59 @@ pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows::core::PCWSTR = ::windows::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: ::windows::core::PCSTR = ::windows::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGA: ::windows::core::PCSTR = ::windows::core::s!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: ::windows::core::PCWSTR = ::windows::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
+pub const DIRECTINPUT_NOTIFICATION_MSGSTRINGW: ::windows::core::PCWSTR = ::windows::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: ::windows::core::PCWSTR = ::windows::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPP: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: ::windows::core::PCSTR = ::windows::s!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: ::windows::core::PCWSTR = ::windows::w!("MostRecentApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTAPPW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: ::windows::core::PCWSTR = ::windows::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPP: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: ::windows::core::PCSTR = ::windows::s!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: ::windows::core::PCWSTR = ::windows::w!("MostRecentMapperApplication");
+pub const DIRECTINPUT_REGSTR_KEY_LASTMAPAPPW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentMapperApplication");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: ::windows::core::PCWSTR = ::windows::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAG: ::windows::core::PCWSTR = ::windows::core::w!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: ::windows::core::PCSTR = ::windows::s!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGA: ::windows::core::PCSTR = ::windows::core::s!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: ::windows::core::PCWSTR = ::windows::w!("AppIdFlag");
+pub const DIRECTINPUT_REGSTR_VAL_APPIDFLAGW: ::windows::core::PCWSTR = ::windows::core::w!("AppIdFlag");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_ID: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_IDA: ::windows::core::PCSTR = ::windows::s!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDA: ::windows::core::PCSTR = ::windows::core::s!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_IDW: ::windows::core::PCWSTR = ::windows::w!("Id");
+pub const DIRECTINPUT_REGSTR_VAL_IDW: ::windows::core::PCWSTR = ::windows::core::w!("Id");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: ::windows::core::PCWSTR = ::windows::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTART: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: ::windows::core::PCSTR = ::windows::s!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTA: ::windows::core::PCSTR = ::windows::core::s!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: ::windows::core::PCWSTR = ::windows::w!("MostRecentStart");
+pub const DIRECTINPUT_REGSTR_VAL_LASTSTARTW: ::windows::core::PCWSTR = ::windows::core::w!("MostRecentStart");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPER: ::windows::core::PCWSTR = ::windows::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPER: ::windows::core::PCWSTR = ::windows::core::w!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: ::windows::core::PCSTR = ::windows::s!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERA: ::windows::core::PCSTR = ::windows::core::s!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: ::windows::core::PCWSTR = ::windows::w!("UsesMapper");
+pub const DIRECTINPUT_REGSTR_VAL_MAPPERW: ::windows::core::PCWSTR = ::windows::core::w!("UsesMapper");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAME: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAME: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAMEA: ::windows::core::PCSTR = ::windows::s!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEA: ::windows::core::PCSTR = ::windows::core::s!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_NAMEW: ::windows::core::PCWSTR = ::windows::w!("Name");
+pub const DIRECTINPUT_REGSTR_VAL_NAMEW: ::windows::core::PCWSTR = ::windows::core::w!("Name");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSION: ::windows::core::PCWSTR = ::windows::w!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSION: ::windows::core::PCWSTR = ::windows::core::w!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: ::windows::core::PCSTR = ::windows::s!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONA: ::windows::core::PCSTR = ::windows::core::s!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: ::windows::core::PCWSTR = ::windows::w!("Version");
+pub const DIRECTINPUT_REGSTR_VAL_VERSIONW: ::windows::core::PCWSTR = ::windows::core::w!("Version");
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]

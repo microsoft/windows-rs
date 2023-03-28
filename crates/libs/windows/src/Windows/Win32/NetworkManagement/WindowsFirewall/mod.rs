@@ -4,7 +4,7 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : :: windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : ::windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
     NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into_param().abi(), netisoerror)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -53,7 +53,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , packagefolder : :: windows::core::PCWSTR , displayname : :: windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const :: windows::core::PCWSTR , binariescount : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : ::windows::core::PCWSTR , packagefolder : ::windows::core::PCWSTR , displayname : ::windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const ::windows::core::PCWSTR , binariescount : u32 ) -> ::windows::core::HRESULT );
     NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into_param().abi(), packagefullname.into_param().abi(), packagefolder.into_param().abi(), displayname.into_param().abi(), bbinariesfullycomputed.into_param().abi(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
