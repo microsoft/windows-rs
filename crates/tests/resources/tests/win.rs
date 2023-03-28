@@ -6,10 +6,10 @@ use windows::{core::*, Win32::Foundation::*, Win32::UI::Controls::*, Win32::UI::
 fn win() -> Result<()> {
     unsafe {
         assert_eq!(IDI_APPLICATION.0 as u16, 32512);
-        LoadIconW(HINSTANCE::default(), IDI_APPLICATION)?;
+        LoadIconW(None, IDI_APPLICATION)?;
 
         assert_eq!(TD_ERROR_ICON.0 as i16, -2);
-        assert_eq!(LoadIconW(HINSTANCE::default(), TD_ERROR_ICON).unwrap_err().code(), ERROR_RESOURCE_TYPE_NOT_FOUND.into());
+        assert_eq!(LoadIconW(None, TD_ERROR_ICON).unwrap_err().code(), ERROR_RESOURCE_TYPE_NOT_FOUND.into());
 
         Ok(())
     }
