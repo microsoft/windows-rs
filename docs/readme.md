@@ -119,7 +119,7 @@ fn gen_bindings() {
 
 Make use of any Windows APIs as needed.
 
-```rust,no_run
+```rust,no_run,ignore
 mod bindings;
 use bindings::*;
 
