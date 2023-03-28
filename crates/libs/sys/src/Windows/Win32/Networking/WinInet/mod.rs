@@ -42,7 +42,7 @@
 ::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn CreateUrlCacheEntryW ( lpszurlname : ::windows_sys::core::PCWSTR , dwexpectedfilesize : u32 , lpszfileextension : ::windows_sys::core::PCWSTR , lpszfilename : ::windows_sys::core::PWSTR , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"] fn CreateUrlCacheGroup ( dwflags : u32 , lpreserved : *const ::core::ffi::c_void ) -> i64 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn DeleteIE3Cache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HINSTANCE , lpszcmd : ::windows_sys::core::PCSTR , ncmdshow : i32 ) -> u32 );
+::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn DeleteIE3Cache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HMODULE , lpszcmd : ::windows_sys::core::PCSTR , ncmdshow : i32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn DeleteUrlCacheContainerA ( name : ::windows_sys::core::PCSTR , dwoptions : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -469,7 +469,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn RetrieveUrlCacheEntryStreamW ( lpszurlname : ::windows_sys::core::PCWSTR , lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW , lpcbcacheentryinfo : *mut u32 , frandomread : super::super::Foundation:: BOOL , dwreserved : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn RunOnceUrlCache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HINSTANCE , lpszcmd : ::windows_sys::core::PCSTR , ncmdshow : i32 ) -> u32 );
+::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn RunOnceUrlCache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HMODULE , lpszcmd : ::windows_sys::core::PCSTR , ncmdshow : i32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wininet.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"] fn SetUrlCacheConfigInfoA ( lpcacheconfiginfo : *const INTERNET_CACHE_CONFIG_INFOA , dwfieldcontrol : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]

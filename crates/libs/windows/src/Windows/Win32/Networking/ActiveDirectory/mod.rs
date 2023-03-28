@@ -15197,7 +15197,7 @@ pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub pPageProc: LPCQPAGEPROC,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
     pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
@@ -16033,7 +16033,7 @@ impl ::core::default::Default for DSQUERYINITPARAMS {
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub offsetQuery: i32,
     pub iColumns: i32,
     pub dwReserved: u32,

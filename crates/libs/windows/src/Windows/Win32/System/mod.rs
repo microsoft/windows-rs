@@ -8,6 +8,8 @@ pub mod ApplicationInstallationAndServicing;
 pub mod ApplicationVerifier;
 #[cfg(feature = "Win32_System_AssessmentTool")]
 pub mod AssessmentTool;
+#[cfg(feature = "Win32_System_ClrHosting")]
+pub mod ClrHosting;
 #[cfg(feature = "Win32_System_Com")]
 pub mod Com;
 #[cfg(feature = "Win32_System_ComponentServices")]

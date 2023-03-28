@@ -64,24 +64,24 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     ::windows::imp::link ! ( "chakra.dll""system" fn JsCreateArray ( length : u32 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsCreateArray(length, result)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication64>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsCreateContext(runtime, debugapplication.into_param().abi(), newcontext)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsCreateContext<P0>(runtime: *const ::core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode
 where
-    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication32>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
     JsCreateContext(runtime, debugapplication.into_param().abi(), newcontext)
@@ -188,10 +188,10 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> J
     ::windows::imp::link ! ( "chakra.dll""system" fn JsEnableRuntimeExecution ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
     JsEnableRuntimeExecution(runtime)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
-pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
+pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsEnumerateHeap ( enumerator : *mut * mut::core::ffi::c_void ) -> JsErrorCode );
     JsEnumerateHeap(::core::mem::transmute(enumerator))
 }
@@ -505,36 +505,36 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     ::windows::imp::link ! ( "chakra.dll""system" fn JsSetRuntimeMemoryLimit ( runtime : *const ::core::ffi::c_void , memorylimit : usize ) -> JsErrorCode );
     JsSetRuntimeMemoryLimit(runtime, memorylimit)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication64>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
     JsStartDebugging(debugapplication.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
-    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IDebugApplication32>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
     ::windows::imp::link ! ( "chakra.dll""system" fn JsStartDebugging ( debugapplication : * mut::core::ffi::c_void ) -> JsErrorCode );
     JsStartDebugging(debugapplication.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
-pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
+pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::Debug::ActiveScript::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
 where
-    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::IActiveScriptProfilerCallback>,
+    P0: ::windows::core::IntoParam<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerCallback>,
 {
-    ::windows::imp::link ! ( "chakra.dll""system" fn JsStartProfiling ( callback : * mut::core::ffi::c_void , eventmask : super::Diagnostics::Debug:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
+    ::windows::imp::link ! ( "chakra.dll""system" fn JsStartProfiling ( callback : * mut::core::ffi::c_void , eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK , context : u32 ) -> JsErrorCode );
     JsStartProfiling(callback.into_param().abi(), eventmask, context)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]

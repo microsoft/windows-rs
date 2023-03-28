@@ -10771,7 +10771,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpPrimary: *mut DDRAWI_DDRAWSURFACE_INT,
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
-    pub hD3DInstance: super::super::Foundation::HINSTANCE,
+    pub hD3DInstance: super::super::Foundation::HMODULE,
     pub pD3DIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,

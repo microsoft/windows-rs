@@ -55,7 +55,7 @@
 ::windows_sys::core::link ! ( "uiautomationcore.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"] fn SelectionItemPattern_RemoveFromSelection ( hobj : HUIAPATTERNOBJECT ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "uiautomationcore.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"] fn SelectionItemPattern_Select ( hobj : HUIAPATTERNOBJECT ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"] fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"] fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HMODULE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
 ::windows_sys::core::link ! ( "uiautomationcore.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"] fn SynchronizedInputPattern_Cancel ( hobj : HUIAPATTERNOBJECT ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "uiautomationcore.dll""system" #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"] fn SynchronizedInputPattern_StartListening ( hobj : HUIAPATTERNOBJECT , inputtype : SynchronizedInputType ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com")]

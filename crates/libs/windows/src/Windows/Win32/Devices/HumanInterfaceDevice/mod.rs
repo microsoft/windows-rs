@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn DirectInput8Create<P0, P1>(hinst: P0, dwversion: u32, riidltf: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: P1) -> ::windows::core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HINSTANCE , dwversion : u32 , riidltf : *const ::windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "dinput8.dll""system" fn DirectInput8Create ( hinst : super::super::Foundation:: HMODULE , dwversion : u32 , riidltf : *const ::windows::core::GUID , ppvout : *mut *mut ::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     DirectInput8Create(hinst.into_param().abi(), dwversion, riidltf, ppvout, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
@@ -410,7 +410,7 @@ impl IDirectInput2A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -480,7 +480,7 @@ impl IDirectInput2W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -550,7 +550,7 @@ impl IDirectInput7A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -626,7 +626,7 @@ impl IDirectInput7W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -702,7 +702,7 @@ impl IDirectInput8A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -764,7 +764,7 @@ pub struct IDirectInput8A_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -807,7 +807,7 @@ impl IDirectInput8W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -869,7 +869,7 @@ pub struct IDirectInput8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -912,7 +912,7 @@ impl IDirectInputA {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -955,7 +955,7 @@ pub struct IDirectInputA_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -1026,7 +1026,7 @@ impl IDirectInputDevice2A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1175,7 +1175,7 @@ impl IDirectInputDevice2W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1324,7 +1324,7 @@ impl IDirectInputDevice7A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1477,7 +1477,7 @@ impl IDirectInputDevice7W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1630,7 +1630,7 @@ impl IDirectInputDevice8A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1758,7 +1758,7 @@ pub struct IDirectInputDevice8A_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1861,7 +1861,7 @@ impl IDirectInputDevice8W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -1989,7 +1989,7 @@ pub struct IDirectInputDevice8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2092,7 +2092,7 @@ impl IDirectInputDeviceA {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2151,7 +2151,7 @@ pub struct IDirectInputDeviceA_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -2222,7 +2222,7 @@ impl IDirectInputDeviceW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2281,7 +2281,7 @@ pub struct IDirectInputDeviceW_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -2293,7 +2293,7 @@ impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
@@ -2353,7 +2353,7 @@ unsafe impl ::windows::core::ComInterface for IDirectInputEffect {
 pub struct IDirectInputEffect_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetEffectGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2754,7 +2754,7 @@ impl IDirectInputW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
@@ -2797,7 +2797,7 @@ pub struct IDirectInputW_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RunControlPanel: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HMODULE, param1: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
 }
@@ -5840,6 +5840,56 @@ pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_APPDATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000016);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AUTOCENTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000009);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_AXISMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000002);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_BUFFERSIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000001);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000b);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CALIBRATIONMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_CPOINTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000015);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_DEADZONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000005);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFGAIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000007);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_FFLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000008);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GETPORTDISPLAYNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000010);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GRANULARITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000003);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_GUIDANDPATH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000c);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_INSTANCENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000d);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_JOYSTICKID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000f);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_KEYNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000014);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_LOGICALRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000013);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PHYSICALRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000012);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_PRODUCTNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000000e);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000004);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SATURATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000006);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_SCANCODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000017);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_TYPENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_00000000001a);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_USERNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000019);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const DIPROP_VIDPID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000018);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DIRECTINPUT_NOTIFICATION_MSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("DIRECTINPUT_NOTIFICATION_MSGSTRING");
@@ -7957,7 +8007,7 @@ pub struct DIACTIONFORMATA {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
     pub tszActionMap: [u8; 260],
@@ -8023,7 +8073,7 @@ pub struct DIACTIONFORMATW {
     pub dwBufferSize: u32,
     pub lAxisMin: i32,
     pub lAxisMax: i32,
-    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub hInstString: super::super::Foundation::HMODULE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
     pub tszActionMap: [u16; 260],

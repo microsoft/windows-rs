@@ -32,21 +32,21 @@ pub unsafe fn EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pconte
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumProcessModules<P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumProcessModules<P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn EnumProcessModules ( hprocess : super::super::Foundation:: HANDLE , lphmodule : *mut super::super::Foundation:: HINSTANCE , cb : u32 , lpcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "psapi.dll""system" fn EnumProcessModules ( hprocess : super::super::Foundation:: HANDLE , lphmodule : *mut super::super::Foundation:: HMODULE , cb : u32 , lpcbneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     EnumProcessModules(hprocess.into_param().abi(), lphmodule, cb, lpcbneeded)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumProcessModulesEx<P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn EnumProcessModulesEx<P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HMODULE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn EnumProcessModulesEx ( hprocess : super::super::Foundation:: HANDLE , lphmodule : *mut super::super::Foundation:: HINSTANCE , cb : u32 , lpcbneeded : *mut u32 , dwfilterflag : ENUM_PROCESS_MODULES_EX_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "psapi.dll""system" fn EnumProcessModulesEx ( hprocess : super::super::Foundation:: HANDLE , lphmodule : *mut super::super::Foundation:: HMODULE , cb : u32 , lpcbneeded : *mut u32 , dwfilterflag : ENUM_PROCESS_MODULES_EX_FLAGS ) -> super::super::Foundation:: BOOL );
     EnumProcessModulesEx(hprocess.into_param().abi(), lphmodule, cb, lpcbneeded, dwfilterflag)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
@@ -106,9 +106,9 @@ where
 pub unsafe fn GetModuleBaseNameA<P0, P1>(hprocess: P0, hmodule: P1, lpbasename: &mut [u8]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleBaseNameA ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HINSTANCE , lpbasename : ::windows::core::PSTR , nsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleBaseNameA ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HMODULE , lpbasename : ::windows::core::PSTR , nsize : u32 ) -> u32 );
     GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
@@ -117,9 +117,9 @@ where
 pub unsafe fn GetModuleBaseNameW<P0, P1>(hprocess: P0, hmodule: P1, lpbasename: &mut [u16]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleBaseNameW ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HINSTANCE , lpbasename : ::windows::core::PWSTR , nsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleBaseNameW ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HMODULE , lpbasename : ::windows::core::PWSTR , nsize : u32 ) -> u32 );
     GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
@@ -128,9 +128,9 @@ where
 pub unsafe fn GetModuleFileNameExA<P0, P1>(hprocess: P0, hmodule: P1, lpfilename: &mut [u8]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleFileNameExA ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HINSTANCE , lpfilename : ::windows::core::PSTR , nsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleFileNameExA ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HMODULE , lpfilename : ::windows::core::PSTR , nsize : u32 ) -> u32 );
     GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
@@ -139,9 +139,9 @@ where
 pub unsafe fn GetModuleFileNameExW<P0, P1>(hprocess: P0, hmodule: P1, lpfilename: &mut [u16]) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleFileNameExW ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HINSTANCE , lpfilename : ::windows::core::PWSTR , nsize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleFileNameExW ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HMODULE , lpfilename : ::windows::core::PWSTR , nsize : u32 ) -> u32 );
     GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
@@ -150,9 +150,9 @@ where
 pub unsafe fn GetModuleInformation<P0, P1>(hprocess: P0, hmodule: P1, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleInformation ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HINSTANCE , lpmodinfo : *mut MODULEINFO , cb : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "psapi.dll""system" fn GetModuleInformation ( hprocess : super::super::Foundation:: HANDLE , hmodule : super::super::Foundation:: HMODULE , lpmodinfo : *mut MODULEINFO , cb : u32 ) -> super::super::Foundation:: BOOL );
     GetModuleInformation(hprocess.into_param().abi(), hmodule.into_param().abi(), lpmodinfo, cb)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]

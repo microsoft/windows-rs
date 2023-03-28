@@ -76,44 +76,58 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindDeviceClose ( hfind : isize ) -> super::super::Foundation:: BOOL );
-    BluetoothFindDeviceClose(hfind)
+pub unsafe fn BluetoothFindDeviceClose<P0>(hfind: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<HBLUETOOTH_DEVICE_FIND>,
+{
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindDeviceClose ( hfind : HBLUETOOTH_DEVICE_FIND ) -> super::super::Foundation:: BOOL );
+    BluetoothFindDeviceClose(hfind.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> isize {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindFirstDevice ( pbtsp : *const BLUETOOTH_DEVICE_SEARCH_PARAMS , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> isize );
-    BluetoothFindFirstDevice(pbtsp, pbtdi)
+pub unsafe fn BluetoothFindFirstDevice(pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> ::windows::core::Result<HBLUETOOTH_DEVICE_FIND> {
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindFirstDevice ( pbtsp : *const BLUETOOTH_DEVICE_SEARCH_PARAMS , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> HBLUETOOTH_DEVICE_FIND );
+    let result__ = BluetoothFindFirstDevice(pbtsp, pbtdi);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> isize {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindFirstRadio ( pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS , phradio : *mut super::super::Foundation:: HANDLE ) -> isize );
-    BluetoothFindFirstRadio(pbtfrp, phradio)
+pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS, phradio: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<HBLUETOOTH_RADIO_FIND> {
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindFirstRadio ( pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS , phradio : *mut super::super::Foundation:: HANDLE ) -> HBLUETOOTH_RADIO_FIND );
+    let result__ = BluetoothFindFirstRadio(pbtfrp, phradio);
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindNextDevice(hfind: isize, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindNextDevice ( hfind : isize , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> super::super::Foundation:: BOOL );
-    BluetoothFindNextDevice(hfind, pbtdi)
+pub unsafe fn BluetoothFindNextDevice<P0>(hfind: P0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<HBLUETOOTH_DEVICE_FIND>,
+{
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindNextDevice ( hfind : HBLUETOOTH_DEVICE_FIND , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> super::super::Foundation:: BOOL );
+    BluetoothFindNextDevice(hfind.into_param().abi(), pbtdi)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindNextRadio(hfind: isize, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindNextRadio ( hfind : isize , phradio : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    BluetoothFindNextRadio(hfind, phradio)
+pub unsafe fn BluetoothFindNextRadio<P0>(hfind: P0, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<HBLUETOOTH_RADIO_FIND>,
+{
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindNextRadio ( hfind : HBLUETOOTH_RADIO_FIND , phradio : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    BluetoothFindNextRadio(hfind.into_param().abi(), phradio)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL {
-    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindRadioClose ( hfind : isize ) -> super::super::Foundation:: BOOL );
-    BluetoothFindRadioClose(hfind)
+pub unsafe fn BluetoothFindRadioClose<P0>(hfind: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows::core::IntoParam<HBLUETOOTH_RADIO_FIND>,
+{
+    ::windows::imp::link ! ( "bluetoothapis.dll""system" fn BluetoothFindRadioClose ( hfind : HBLUETOOTH_RADIO_FIND ) -> super::super::Foundation:: BOOL );
+    BluetoothFindRadioClose(hfind.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3694,6 +3708,60 @@ impl ::core::fmt::Debug for HANDLE_SDP_TYPE {
     }
 }
 impl ::windows::core::TypeKind for HANDLE_SDP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HBLUETOOTH_DEVICE_FIND(pub isize);
+impl HBLUETOOTH_DEVICE_FIND {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HBLUETOOTH_DEVICE_FIND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HBLUETOOTH_DEVICE_FIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HBLUETOOTH_DEVICE_FIND {}
+impl ::core::fmt::Debug for HBLUETOOTH_DEVICE_FIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HBLUETOOTH_DEVICE_FIND").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for HBLUETOOTH_DEVICE_FIND {
+    type TypeKind = ::windows::core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HBLUETOOTH_RADIO_FIND(pub isize);
+impl HBLUETOOTH_RADIO_FIND {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HBLUETOOTH_RADIO_FIND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HBLUETOOTH_RADIO_FIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HBLUETOOTH_RADIO_FIND {}
+impl ::core::fmt::Debug for HBLUETOOTH_RADIO_FIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HBLUETOOTH_RADIO_FIND").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for HBLUETOOTH_RADIO_FIND {
     type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C, packed(1))]

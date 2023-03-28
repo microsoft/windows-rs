@@ -4081,7 +4081,7 @@ impl ::core::clone::Clone for BranchOfficeLogOfflineFileFull {
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub hInstCaller: super::super::Foundation::HMODULE,
     pub pCallerName: *mut i8,
     pub UserData: usize,
     pub pHelpFile: *mut i8,
@@ -5353,72 +5353,81 @@ impl ::core::clone::Clone for MESSAGEBOX_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOR {
-    pub pfnEnumPorts: isize,
-    pub pfnOpenPort: isize,
-    pub pfnOpenPortEx: isize,
-    pub pfnStartDocPort: isize,
-    pub pfnWritePort: isize,
-    pub pfnReadPort: isize,
-    pub pfnEndDocPort: isize,
-    pub pfnClosePort: isize,
-    pub pfnAddPort: isize,
-    pub pfnAddPortEx: isize,
-    pub pfnConfigurePort: isize,
-    pub pfnDeletePort: isize,
-    pub pfnGetPrinterDataFromPort: isize,
-    pub pfnSetPortTimeOuts: isize,
-    pub pfnXcvOpenPort: isize,
-    pub pfnXcvDataPort: isize,
-    pub pfnXcvClosePort: isize,
+    pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
+    pub pfnOpenPort: PFN_PRINTING_OPENPORT,
+    pub pfnOpenPortEx: PFN_PRINTING_OPENPORTEX,
+    pub pfnStartDocPort: PFN_PRINTING_STARTDOCPORT,
+    pub pfnWritePort: PFN_PRINTING_WRITEPORT,
+    pub pfnReadPort: PFN_PRINTING_READPORT,
+    pub pfnEndDocPort: PFN_PRINTING_ENDDOCPORT,
+    pub pfnClosePort: PFN_PRINTING_CLOSEPORT,
+    pub pfnAddPort: PFN_PRINTING_ADDPORT,
+    pub pfnAddPortEx: PFN_PRINTING_ADDPORTEX,
+    pub pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT,
+    pub pfnDeletePort: PFN_PRINTING_DELETEPORT,
+    pub pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT,
+    pub pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS,
+    pub pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT,
+    pub pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT,
+    pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOR {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOR2 {
     pub cbSize: u32,
-    pub pfnEnumPorts: isize,
-    pub pfnOpenPort: isize,
-    pub pfnOpenPortEx: isize,
-    pub pfnStartDocPort: isize,
-    pub pfnWritePort: isize,
-    pub pfnReadPort: isize,
-    pub pfnEndDocPort: isize,
-    pub pfnClosePort: isize,
-    pub pfnAddPort: isize,
-    pub pfnAddPortEx: isize,
-    pub pfnConfigurePort: isize,
-    pub pfnDeletePort: isize,
-    pub pfnGetPrinterDataFromPort: isize,
-    pub pfnSetPortTimeOuts: isize,
-    pub pfnXcvOpenPort: isize,
-    pub pfnXcvDataPort: isize,
-    pub pfnXcvClosePort: isize,
-    pub pfnShutdown: isize,
-    pub pfnSendRecvBidiDataFromPort: isize,
-    pub pfnNotifyUsedPorts: isize,
-    pub pfnNotifyUnusedPorts: isize,
-    pub pfnPowerEvent: isize,
+    pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
+    pub pfnOpenPort: PFN_PRINTING_OPENPORT2,
+    pub pfnOpenPortEx: PFN_PRINTING_OPENPORTEX2,
+    pub pfnStartDocPort: PFN_PRINTING_STARTDOCPORT2,
+    pub pfnWritePort: PFN_PRINTING_WRITEPORT2,
+    pub pfnReadPort: PFN_PRINTING_READPORT2,
+    pub pfnEndDocPort: PFN_PRINTING_ENDDOCPORT2,
+    pub pfnClosePort: PFN_PRINTING_CLOSEPORT2,
+    pub pfnAddPort: PFN_PRINTING_ADDPORT2,
+    pub pfnAddPortEx: PFN_PRINTING_ADDPORTEX2,
+    pub pfnConfigurePort: PFN_PRINTING_CONFIGUREPORT2,
+    pub pfnDeletePort: PFN_PRINTING_DELETEPORT2,
+    pub pfnGetPrinterDataFromPort: PFN_PRINTING_GETPRINTERDATAFROMPORT2,
+    pub pfnSetPortTimeOuts: PFN_PRINTING_SETPORTTIMEOUTS2,
+    pub pfnXcvOpenPort: PFN_PRINTING_XCVOPENPORT2,
+    pub pfnXcvDataPort: PFN_PRINTING_XCVDATAPORT2,
+    pub pfnXcvClosePort: PFN_PRINTING_XCVCLOSEPORT2,
+    pub pfnShutdown: PFN_PRINTING_SHUTDOWN2,
+    pub pfnSendRecvBidiDataFromPort: PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2,
+    pub pfnNotifyUsedPorts: PFN_PRINTING_NOTIFYUSEDPORTS2,
+    pub pfnNotifyUnusedPorts: PFN_PRINTING_NOTIFYUNUSEDPORTS2,
+    pub pfnPowerEvent: PFN_PRINTING_POWEREVENT2,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOR2 {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOR2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
 }
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::marker::Copy for MONITOREX {}
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 impl ::core::clone::Clone for MONITOREX {
     fn clone(&self) -> Self {
         *self
@@ -5785,7 +5794,7 @@ impl ::core::clone::Clone for OEM_DMEXTRAHEADER {
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub hInstCaller: super::super::Foundation::HMODULE,
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
@@ -6868,7 +6877,7 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub Flags: u16,
     pub pTitle: *mut i8,
     pub hWndParent: super::super::Foundation::HWND,
-    pub hInst: super::super::Foundation::HINSTANCE,
+    pub hInst: super::super::Foundation::HMODULE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -7398,6 +7407,123 @@ pub type PFN_DrvUpdateUISetting = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpgradeRegistrySetting = ::core::option::Option<unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: ::windows_sys::core::PCSTR, poption: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORTEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *const u8, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ADDPORTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *const u8, param4: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CLOSEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CLOSEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CONFIGUREPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_CONFIGUREPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_DELETEPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::HWND, param2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_DELETEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HWND, param3: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENDDOCPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENDDOCPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENUMPORTS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut u8, param3: u32, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_ENUMPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *mut u8, param4: u32, param5: *mut u32, param6: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: u32, param5: ::windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_GETPRINTERDATAFROMPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: u32, param5: ::windows_sys::core::PCWSTR, param6: u32, param7: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_NOTIFYUNUSEDPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_NOTIFYUSEDPORTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_OPENPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_OPENPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PCWSTR, param3: *mut super::super::Foundation::HANDLE, param4: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_OPENPORTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: ::windows_sys::core::PCWSTR, param3: ::windows_sys::core::PCWSTR, param4: *mut super::super::Foundation::HANDLE, param5: *const MONITOR2) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Power\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+pub type PFN_PRINTING_POWEREVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *const super::super::System::Power::POWERBROADCAST_SETTING) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_READPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_READPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_SENDRECVBIDIDATAFROMPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: ::windows_sys::core::PCWSTR, param3: *const BIDI_REQUEST_CONTAINER, param4: *mut *mut BIDI_RESPONSE_CONTAINER) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation"))]
+pub type PFN_PRINTING_SETPORTTIMEOUTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_Foundation"))]
+pub type PFN_PRINTING_SETPORTTIMEOUTS2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const super::super::Devices::Communication::COMMTIMEOUTS, param2: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_SHUTDOWN2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> ()>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_STARTDOCPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_STARTDOCPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: u32, param4: *const u8) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_WRITEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_WRITEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *const u8, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVCLOSEPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVCLOSEPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVDATAPORT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVDATAPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: *const u8, param3: u32, param4: *mut u8, param5: u32, param6: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVOPENPORT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_PRINTING_XCVOPENPORT2 = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ROUTER_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcommand: u32, pcontext: *const ::core::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL>;

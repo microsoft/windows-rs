@@ -414,7 +414,7 @@ impl ::core::clone::Clone for CERT_SELECTUI_INPUT {
 pub struct CERT_SELECT_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub pTemplateName: ::windows_sys::core::PCSTR,
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
     pub szTitle: ::windows_sys::core::PCSTR,
@@ -444,7 +444,7 @@ impl ::core::clone::Clone for CERT_SELECT_STRUCT_A {
 pub struct CERT_SELECT_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub pTemplateName: ::windows_sys::core::PCWSTR,
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
     pub szTitle: ::windows_sys::core::PCWSTR,
@@ -506,7 +506,7 @@ impl ::core::clone::Clone for CERT_VERIFY_CERTIFICATE_TRUST {
 pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
     pub szTitle: ::windows_sys::core::PCSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
@@ -541,7 +541,7 @@ impl ::core::clone::Clone for CERT_VIEWPROPERTIES_STRUCT_A {
 pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
     pub szTitle: ::windows_sys::core::PCWSTR,
     pub pCertContext: *const super::CERT_CONTEXT,

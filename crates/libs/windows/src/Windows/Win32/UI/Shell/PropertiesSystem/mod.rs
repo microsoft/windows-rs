@@ -105,9 +105,9 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::
 #[inline]
 pub unsafe fn InitPropVariantFromResource<P0>(hinst: P0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "propsys.dll""system" fn InitPropVariantFromResource ( hinst : super::super::super::Foundation:: HINSTANCE , id : u32 , ppropvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "propsys.dll""system" fn InitPropVariantFromResource ( hinst : super::super::super::Foundation:: HMODULE , id : u32 , ppropvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>();
     InitPropVariantFromResource(hinst.into_param().abi(), id, &mut result__).from_abi(result__)
 }
@@ -246,9 +246,9 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result
 #[inline]
 pub unsafe fn InitVariantFromResource<P0>(hinst: P0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "propsys.dll""system" fn InitVariantFromResource ( hinst : super::super::super::Foundation:: HINSTANCE , id : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "propsys.dll""system" fn InitVariantFromResource ( hinst : super::super::super::Foundation:: HMODULE , id : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> ::windows::core::HRESULT );
     let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::VARIANT>();
     InitVariantFromResource(hinst.into_param().abi(), id, &mut result__).from_abi(result__)
 }

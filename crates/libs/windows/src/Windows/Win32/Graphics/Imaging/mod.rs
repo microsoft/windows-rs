@@ -1431,7 +1431,9 @@ pub struct IWICColorTransform_Vtbl {
 #[repr(transparent)]
 pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
-    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -2377,7 +2379,9 @@ pub struct IWICFormatConverterInfo_Vtbl {
 #[repr(transparent)]
 pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
-    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -2543,7 +2547,10 @@ unsafe impl ::windows::core::ComInterface for IWICImagingFactory {
 #[doc(hidden)]
 pub struct IWICImagingFactory_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateDecoderFromFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CreateDecoderFromFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CreateDecoderFromFilename: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateDecoderFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: *mut ::core::ffi::c_void, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

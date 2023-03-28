@@ -228,7 +228,7 @@ impl IUIEventingManager_Vtbl {
 pub trait IUIFramework_Impl: Sized {
     fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: ::core::option::Option<&IUIApplication>) -> ::windows::core::Result<()>;
     fn Destroy(&self) -> ::windows::core::Result<()>;
-    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn LoadUI(&self, instance: super::super::Foundation::HMODULE, resourcename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -251,7 +251,7 @@ impl IUIFramework_Vtbl {
             let this = (*this).get_impl();
             this.Destroy().into()
         }
-        unsafe extern "system" fn LoadUI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadUI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HMODULE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LoadUI(::core::mem::transmute_copy(&instance), ::core::mem::transmute(&resourcename)).into()

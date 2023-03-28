@@ -384,10 +384,10 @@ pub unsafe fn DriveType(idrive: i32) -> i32 {
 #[inline]
 pub unsafe fn DuplicateIcon<P0, P1>(hinst: P0, hicon: P1) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::WindowsAndMessaging::HICON>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn DuplicateIcon ( hinst : super::super::Foundation:: HINSTANCE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn DuplicateIcon ( hinst : super::super::Foundation:: HMODULE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
     DuplicateIcon(hinst.into_param().abi(), hicon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -395,9 +395,9 @@ where
 #[inline]
 pub unsafe fn ExtractAssociatedIconA<P0>(hinst: P0, psziconpath: &mut [u8; 128], piicon: *mut u16) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconA(hinst.into_param().abi(), ::core::mem::transmute(psziconpath.as_ptr()), piicon)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -405,9 +405,9 @@ where
 #[inline]
 pub unsafe fn ExtractAssociatedIconExA<P0>(hinst: P0, psziconpath: &mut [u8; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconExA(hinst.into_param().abi(), ::core::mem::transmute(psziconpath.as_ptr()), piiconindex, piiconid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -415,9 +415,9 @@ where
 #[inline]
 pub unsafe fn ExtractAssociatedIconExW<P0>(hinst: P0, psziconpath: &mut [u16; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconExW(hinst.into_param().abi(), ::core::mem::transmute(psziconpath.as_ptr()), piiconindex, piiconid)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -425,9 +425,9 @@ where
 #[inline]
 pub unsafe fn ExtractAssociatedIconW<P0>(hinst: P0, psziconpath: &mut [u16; 128], piicon: *mut u16) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
     ExtractAssociatedIconW(hinst.into_param().abi(), ::core::mem::transmute(psziconpath.as_ptr()), piicon)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -435,10 +435,10 @@ where
 #[inline]
 pub unsafe fn ExtractIconA<P0, P1>(hinst: P0, pszexefilename: P1, niconindex: u32) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconA ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : ::windows::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconA ( hinst : super::super::Foundation:: HMODULE , pszexefilename : ::windows::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
     ExtractIconA(hinst.into_param().abi(), pszexefilename.into_param().abi(), niconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -466,10 +466,10 @@ where
 #[inline]
 pub unsafe fn ExtractIconW<P0, P1>(hinst: P0, pszexefilename: P1, niconindex: u32) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconW ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : ::windows::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ExtractIconW ( hinst : super::super::Foundation:: HMODULE , pszexefilename : ::windows::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
     ExtractIconW(hinst.into_param().abi(), pszexefilename.into_param().abi(), niconindex)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -485,23 +485,23 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableA<P0, P1>(lpfile: P0, lpdirectory: P1, lpresult: &mut [u8; 260]) -> super::super::Foundation::HINSTANCE
+pub unsafe fn FindExecutableA<P0, P1>(lpfile: P0, lpdirectory: P1, lpresult: &mut [u8; 260]) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableA ( lpfile : ::windows::core::PCSTR , lpdirectory : ::windows::core::PCSTR , lpresult : ::windows::core::PSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableA ( lpfile : ::windows::core::PCSTR , lpdirectory : ::windows::core::PCSTR , lpresult : ::windows::core::PSTR ) -> super::super::Foundation:: HMODULE );
     FindExecutableA(lpfile.into_param().abi(), lpdirectory.into_param().abi(), ::core::mem::transmute(lpresult.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableW<P0, P1>(lpfile: P0, lpdirectory: P1, lpresult: &mut [u16; 260]) -> super::super::Foundation::HINSTANCE
+pub unsafe fn FindExecutableW<P0, P1>(lpfile: P0, lpdirectory: P1, lpresult: &mut [u16; 260]) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableW ( lpfile : ::windows::core::PCWSTR , lpdirectory : ::windows::core::PCWSTR , lpresult : ::windows::core::PWSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn FindExecutableW ( lpfile : ::windows::core::PCWSTR , lpdirectory : ::windows::core::PCWSTR , lpresult : ::windows::core::PWSTR ) -> super::super::Foundation:: HMODULE );
     FindExecutableW(lpfile.into_param().abi(), lpdirectory.into_param().abi(), ::core::mem::transmute(lpresult.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -5326,7 +5326,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellExecuteA<P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE
+pub unsafe fn ShellExecuteA<P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
@@ -5334,7 +5334,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows::core::PCSTR , lpfile : ::windows::core::PCSTR , lpparameters : ::windows::core::PCSTR , lpdirectory : ::windows::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows::core::PCSTR , lpfile : ::windows::core::PCSTR , lpparameters : ::windows::core::PCSTR , lpdirectory : ::windows::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HMODULE );
     ShellExecuteA(hwnd.into_param().abi(), lpoperation.into_param().abi(), lpfile.into_param().abi(), lpparameters.into_param().abi(), lpdirectory.into_param().abi(), nshowcmd)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -5354,7 +5354,7 @@ pub unsafe fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellExecuteW<P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE
+pub unsafe fn ShellExecuteW<P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
@@ -5362,7 +5362,7 @@ where
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows::core::PCWSTR , lpfile : ::windows::core::PCWSTR , lpparameters : ::windows::core::PCWSTR , lpdirectory : ::windows::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "shell32.dll""system" fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows::core::PCWSTR , lpfile : ::windows::core::PCWSTR , lpparameters : ::windows::core::PCWSTR , lpdirectory : ::windows::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HMODULE );
     ShellExecuteW(hwnd.into_param().abi(), lpoperation.into_param().abi(), lpfile.into_param().abi(), lpparameters.into_param().abi(), lpdirectory.into_param().abi(), nshowcmd)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5370,12 +5370,12 @@ where
 #[inline]
 pub unsafe fn ShellMessageBoxA<P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: super::WindowsAndMessaging::MESSAGEBOX_STYLE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows::core::PCSTR , lpctitle : ::windows::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HMODULE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows::core::PCSTR , lpctitle : ::windows::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxA(happinst.into_param().abi(), hwnd.into_param().abi(), lpctext.into_param().abi(), lpctitle.into_param().abi(), fustyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -5383,12 +5383,12 @@ where
 #[inline]
 pub unsafe fn ShellMessageBoxW<P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: super::WindowsAndMessaging::MESSAGEBOX_STYLE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows::core::PCWSTR , lpctitle : ::windows::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+    ::windows::imp::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HMODULE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows::core::PCWSTR , lpctitle : ::windows::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxW(happinst.into_param().abi(), hwnd.into_param().abi(), lpctext.into_param().abi(), lpctitle.into_param().abi(), fustyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -26024,7 +26024,7 @@ impl IProgressDialog {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAnimation<P0>(&self, hinstanimation: P0, idanimation: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).SetAnimation)(::windows::core::Interface::as_raw(self), hinstanimation.into_param().abi(), idanimation).ok()
     }
@@ -26092,7 +26092,7 @@ pub struct IProgressDialog_Vtbl {
     pub StopProgressDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstanimation: super::super::Foundation::HINSTANCE, idanimation: u32) -> ::windows::core::HRESULT,
+    pub SetAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstanimation: super::super::Foundation::HMODULE, idanimation: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetAnimation: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -46132,6 +46132,8 @@ pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const Identity_LocalUserProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const ImageProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
@@ -64337,7 +64339,7 @@ pub struct SHELLEXECUTEINFOA {
     pub lpParameters: ::windows::core::PCSTR,
     pub lpDirectory: ::windows::core::PCSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -64410,7 +64412,7 @@ pub struct SHELLEXECUTEINFOA {
     pub lpParameters: ::windows::core::PCSTR,
     pub lpDirectory: ::windows::core::PCSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -64483,7 +64485,7 @@ pub struct SHELLEXECUTEINFOW {
     pub lpParameters: ::windows::core::PCWSTR,
     pub lpDirectory: ::windows::core::PCWSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -64556,7 +64558,7 @@ pub struct SHELLEXECUTEINFOW {
     pub lpParameters: ::windows::core::PCWSTR,
     pub lpDirectory: ::windows::core::PCWSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,

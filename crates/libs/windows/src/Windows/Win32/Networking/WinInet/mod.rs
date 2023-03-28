@@ -250,10 +250,10 @@ pub unsafe fn CreateUrlCacheGroup(dwflags: u32, lpreserved: ::core::option::Opti
 pub unsafe fn DeleteIE3Cache<P0, P1, P2>(hwnd: P0, hinst: P1, lpszcmd: P2, ncmdshow: i32) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "wininet.dll""system" fn DeleteIE3Cache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HINSTANCE , lpszcmd : ::windows::core::PCSTR , ncmdshow : i32 ) -> u32 );
+    ::windows::imp::link ! ( "wininet.dll""system" fn DeleteIE3Cache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HMODULE , lpszcmd : ::windows::core::PCSTR , ncmdshow : i32 ) -> u32 );
     DeleteIE3Cache(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmd.into_param().abi(), ncmdshow)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
@@ -2339,10 +2339,10 @@ where
 pub unsafe fn RunOnceUrlCache<P0, P1, P2>(hwnd: P0, hinst: P1, lpszcmd: P2, ncmdshow: i32) -> u32
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "wininet.dll""system" fn RunOnceUrlCache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HINSTANCE , lpszcmd : ::windows::core::PCSTR , ncmdshow : i32 ) -> u32 );
+    ::windows::imp::link ! ( "wininet.dll""system" fn RunOnceUrlCache ( hwnd : super::super::Foundation:: HWND , hinst : super::super::Foundation:: HMODULE , lpszcmd : ::windows::core::PCSTR , ncmdshow : i32 ) -> u32 );
     RunOnceUrlCache(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmd.into_param().abi(), ncmdshow)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]

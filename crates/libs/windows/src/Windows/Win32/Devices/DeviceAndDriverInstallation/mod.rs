@@ -1739,10 +1739,10 @@ where
 pub unsafe fn InstallHinfSectionA<P0, P1, P2>(window: P0, modulehandle: P1, commandline: P2, showcommand: i32)
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn InstallHinfSectionA ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HINSTANCE , commandline : ::windows::core::PCSTR , showcommand : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn InstallHinfSectionA ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HMODULE , commandline : ::windows::core::PCSTR , showcommand : i32 ) -> ( ) );
     InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), showcommand)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -1751,10 +1751,10 @@ where
 pub unsafe fn InstallHinfSectionW<P0, P1, P2>(window: P0, modulehandle: P1, commandline: P2, showcommand: i32)
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "setupapi.dll""system" fn InstallHinfSectionW ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HINSTANCE , commandline : ::windows::core::PCWSTR , showcommand : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "setupapi.dll""system" fn InstallHinfSectionW ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HMODULE , commandline : ::windows::core::PCWSTR , showcommand : i32 ) -> ( ) );
     InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), showcommand)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
