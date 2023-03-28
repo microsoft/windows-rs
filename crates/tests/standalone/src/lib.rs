@@ -10,5 +10,6 @@ fn test() {
         SetEvent(event);
         WaitForSingleObject(event, 0);
         CloseHandle(event);
+        CoCreateInstance(std::ptr::null(), std::ptr::null_mut(), CLSCTX_ALL, std::ptr::null(), std::ptr::null_mut());
     }
 }
