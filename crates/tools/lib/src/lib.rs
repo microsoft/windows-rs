@@ -30,6 +30,9 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
                 let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
                 let scope = reader.impl_map_scope(impl_map);
                 let library = reader.module_ref_name(scope).to_lowercase();
+                if library == "forceinline" {
+                    continue;
+                }
                 let flags = reader.impl_map_flags(impl_map);
                 if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
                     let params = reader.method_def_size(method);

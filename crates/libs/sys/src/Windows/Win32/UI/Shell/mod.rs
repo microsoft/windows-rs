@@ -70,29 +70,29 @@ pub mod PropertiesSystem;
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn DragQueryPoint ( hdrop : HDROP , ppt : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn DriveType ( idrive : i32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn DuplicateIcon ( hinst : super::super::Foundation:: HINSTANCE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn DuplicateIcon ( hinst : super::super::Foundation:: HMODULE , hicon : super::WindowsAndMessaging:: HICON ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows_sys::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconA ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows_sys::core::PSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows_sys::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconExA ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows_sys::core::PSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows_sys::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconExW ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows_sys::core::PWSTR , piiconindex : *mut u16 , piiconid : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HINSTANCE , psziconpath : ::windows_sys::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractAssociatedIconW ( hinst : super::super::Foundation:: HMODULE , psziconpath : ::windows_sys::core::PWSTR , piicon : *mut u16 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconA ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : ::windows_sys::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconA ( hinst : super::super::Foundation:: HMODULE , pszexefilename : ::windows_sys::core::PCSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconExA ( lpszfile : ::windows_sys::core::PCSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconExW ( lpszfile : ::windows_sys::core::PCWSTR , niconindex : i32 , phiconlarge : *mut super::WindowsAndMessaging:: HICON , phiconsmall : *mut super::WindowsAndMessaging:: HICON , nicons : u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconW ( hinst : super::super::Foundation:: HINSTANCE , pszexefilename : ::windows_sys::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ExtractIconW ( hinst : super::super::Foundation:: HMODULE , pszexefilename : ::windows_sys::core::PCWSTR , niconindex : u32 ) -> super::WindowsAndMessaging:: HICON );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FileIconInit ( frestorecache : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableA ( lpfile : ::windows_sys::core::PCSTR , lpdirectory : ::windows_sys::core::PCSTR , lpresult : ::windows_sys::core::PSTR ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableA ( lpfile : ::windows_sys::core::PCSTR , lpdirectory : ::windows_sys::core::PCSTR , lpresult : ::windows_sys::core::PSTR ) -> super::super::Foundation:: HMODULE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableW ( lpfile : ::windows_sys::core::PCWSTR , lpdirectory : ::windows_sys::core::PCWSTR , lpresult : ::windows_sys::core::PWSTR ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn FindExecutableW ( lpfile : ::windows_sys::core::PCWSTR , lpdirectory : ::windows_sys::core::PCWSTR , lpresult : ::windows_sys::core::PWSTR ) -> super::super::Foundation:: HMODULE );
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn GetAcceptLanguagesA ( pszlanguages : ::windows_sys::core::PSTR , pcchlanguages : *mut u32 ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "shlwapi.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn GetAcceptLanguagesW ( pszlanguages : ::windows_sys::core::PWSTR , pcchlanguages : *mut u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
@@ -954,17 +954,17 @@ pub mod PropertiesSystem;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellAboutW ( hwnd : super::super::Foundation:: HWND , szapp : ::windows_sys::core::PCWSTR , szotherstuff : ::windows_sys::core::PCWSTR , hicon : super::WindowsAndMessaging:: HICON ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows_sys::core::PCSTR , lpfile : ::windows_sys::core::PCSTR , lpparameters : ::windows_sys::core::PCSTR , lpdirectory : ::windows_sys::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellExecuteA ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows_sys::core::PCSTR , lpfile : ::windows_sys::core::PCSTR , lpparameters : ::windows_sys::core::PCSTR , lpdirectory : ::windows_sys::core::PCSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HMODULE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn ShellExecuteExA ( pexecinfo : *mut SHELLEXECUTEINFOA ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn ShellExecuteExW ( pexecinfo : *mut SHELLEXECUTEINFOW ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows_sys::core::PCWSTR , lpfile : ::windows_sys::core::PCWSTR , lpparameters : ::windows_sys::core::PCWSTR , lpdirectory : ::windows_sys::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
+::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : ::windows_sys::core::PCWSTR , lpfile : ::windows_sys::core::PCWSTR , lpparameters : ::windows_sys::core::PCWSTR , lpdirectory : ::windows_sys::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HMODULE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shlwapi.dll""cdecl" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows_sys::core::PCSTR , lpctitle : ::windows_sys::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+::windows_sys::core::link ! ( "shlwapi.dll""cdecl" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellMessageBoxA ( happinst : super::super::Foundation:: HMODULE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows_sys::core::PCSTR , lpctitle : ::windows_sys::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_sys::core::link ! ( "shlwapi.dll""cdecl" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows_sys::core::PCWSTR , lpctitle : ::windows_sys::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
+::windows_sys::core::link ! ( "shlwapi.dll""cdecl" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ShellMessageBoxW ( happinst : super::super::Foundation:: HMODULE , hwnd : super::super::Foundation:: HWND , lpctext : ::windows_sys::core::PCWSTR , lpctitle : ::windows_sys::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn Shell_GetCachedImageIndex ( pwsziconpath : ::windows_sys::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn Shell_GetCachedImageIndexA ( psziconpath : ::windows_sys::core::PCSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
 ::windows_sys::core::link ! ( "shell32.dll""system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn Shell_GetCachedImageIndexW ( psziconpath : ::windows_sys::core::PCWSTR , iiconindex : i32 , uiconflags : u32 ) -> i32 );
@@ -3672,6 +3672,8 @@ pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0u32;
 pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ITSS_THREAD_TIMEOUT_NO_CHANGE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa198529b_730f_4089_b646_a12557f5665e);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -11846,7 +11848,7 @@ pub struct SHELLEXECUTEINFOA {
     pub lpParameters: ::windows_sys::core::PCSTR,
     pub lpDirectory: ::windows_sys::core::PCSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows_sys::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -11895,7 +11897,7 @@ pub struct SHELLEXECUTEINFOA {
     pub lpParameters: ::windows_sys::core::PCSTR,
     pub lpDirectory: ::windows_sys::core::PCSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows_sys::core::PCSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -11944,7 +11946,7 @@ pub struct SHELLEXECUTEINFOW {
     pub lpParameters: ::windows_sys::core::PCWSTR,
     pub lpDirectory: ::windows_sys::core::PCWSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows_sys::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,
@@ -11993,7 +11995,7 @@ pub struct SHELLEXECUTEINFOW {
     pub lpParameters: ::windows_sys::core::PCWSTR,
     pub lpDirectory: ::windows_sys::core::PCWSTR,
     pub nShow: i32,
-    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub hInstApp: super::super::Foundation::HMODULE,
     pub lpIDList: *mut ::core::ffi::c_void,
     pub lpClass: ::windows_sys::core::PCWSTR,
     pub hkeyClass: super::super::System::Registry::HKEY,

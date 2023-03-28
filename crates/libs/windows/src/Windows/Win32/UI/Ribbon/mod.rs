@@ -352,7 +352,7 @@ impl IUIFramework {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadUI<P0, P1>(&self, instance: P0, resourcename: P1) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into_param().abi(), resourcename.into_param().abi()).ok()
@@ -416,7 +416,7 @@ pub struct IUIFramework_Vtbl {
     Initialize: usize,
     pub Destroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub LoadUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub LoadUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HMODULE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LoadUI: usize,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

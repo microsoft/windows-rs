@@ -425,10 +425,10 @@ where
 pub unsafe fn RatingClickedOnPRFInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HINSTANCE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnPRFInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnPRFInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -437,10 +437,10 @@ where
 pub unsafe fn RatingClickedOnRATInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HINSTANCE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "msrating.dll""system" fn RatingClickedOnRATInternal ( hwndowner : super::super::Foundation:: HWND , param1 : super::super::Foundation:: HMODULE , lpszfilename : ::windows::core::PCSTR , nshow : i32 ) -> ::windows::core::HRESULT );
     RatingClickedOnRATInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]

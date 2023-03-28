@@ -775,11 +775,11 @@ impl ITargetInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadModule<P0>(&self, module: P0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
+    pub unsafe fn LoadModule<P0>(&self, module: P0) -> ::windows::core::Result<super::super::Foundation::HMODULE>
     where
         P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HINSTANCE>();
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HMODULE>();
         (::windows::core::Interface::vtable(self).LoadModule)(::windows::core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetWow64Context<P0>(&self, installermodule: P0, wow64context: *const u8) -> ::windows::core::Result<()>
@@ -871,7 +871,7 @@ pub struct ITargetInfo_Vtbl {
     ExpandTargetPath: usize,
     pub SetModulePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, path: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub LoadModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HINSTANCE) -> ::windows::core::HRESULT,
+    pub LoadModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HMODULE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LoadModule: usize,
     pub SetWow64Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, installermodule: ::windows::core::PCWSTR, wow64context: *const u8) -> ::windows::core::HRESULT,

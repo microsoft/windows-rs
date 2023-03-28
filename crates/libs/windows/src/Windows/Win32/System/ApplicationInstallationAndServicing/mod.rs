@@ -7486,6 +7486,18 @@ pub const MAX_FEATURE_CHARS: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MAX_GUID_CHARS: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_CREATE: ::windows::core::PCWSTR = ::windows::core::PCWSTR(3i32 as _);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_CREATEDIRECT: ::windows::core::PCWSTR = ::windows::core::PCWSTR(4i32 as _);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_DIRECT: ::windows::core::PCWSTR = ::windows::core::PCWSTR(2i32 as _);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_PATCHFILE: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_READONLY: ::windows::core::PCWSTR = ::windows::core::PCWSTR(0i32 as _);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
+pub const MSIDBOPEN_TRANSACT: ::windows::core::PCWSTR = ::windows::core::PCWSTR(1i32 as _);
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
@@ -11211,7 +11223,7 @@ pub struct ACTCTXA {
     pub lpAssemblyDirectory: ::windows::core::PCSTR,
     pub lpResourceName: ::windows::core::PCSTR,
     pub lpApplicationName: ::windows::core::PCSTR,
-    pub hModule: super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::Foundation::HMODULE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTCTXA {}
@@ -11257,7 +11269,7 @@ pub struct ACTCTXW {
     pub lpAssemblyDirectory: ::windows::core::PCWSTR,
     pub lpResourceName: ::windows::core::PCWSTR,
     pub lpApplicationName: ::windows::core::PCWSTR,
-    pub hModule: super::super::Foundation::HINSTANCE,
+    pub hModule: super::super::Foundation::HMODULE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTCTXW {}
@@ -11443,7 +11455,7 @@ impl ::core::default::Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATI
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
-    pub Elements: *mut COMPATIBILITY_CONTEXT_ELEMENT,
+    pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
 }
 impl ::core::marker::Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {

@@ -20176,7 +20176,6 @@ impl ::core::clone::Clone for FLOAT128 {
 pub type HANDLE = isize;
 pub type HANDLE_PTR = usize;
 pub type HGLOBAL = isize;
-pub type HINSTANCE = isize;
 pub type HLOCAL = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20189,6 +20188,7 @@ impl ::core::clone::Clone for HLSURF__ {
         *self
     }
 }
+pub type HMODULE = isize;
 pub type HRSRC = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]

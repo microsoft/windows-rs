@@ -847,7 +847,7 @@ pub trait ITargetInfo_Impl: Sized {
     fn ExpandTarget(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ExpandTargetPath(&self, offline: super::super::Foundation::BOOL, location: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetModulePath(&self, module: &::windows::core::PCWSTR, path: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn LoadModule(&self, module: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>;
+    fn LoadModule(&self, module: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HMODULE>;
     fn SetWow64Context(&self, installermodule: &::windows::core::PCWSTR, wow64context: *const u8) -> ::windows::core::Result<()>;
     fn TranslateWow64(&self, clientarchitecture: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSchemaHiveLocation(&self, pwzhivedir: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -978,7 +978,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             this.SetModulePath(::core::mem::transmute(&module), ::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn LoadModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HINSTANCE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: ::windows::core::PCWSTR, modulehandle: *mut super::super::Foundation::HMODULE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LoadModule(::core::mem::transmute(&module)) {

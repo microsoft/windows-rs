@@ -272,6 +272,22 @@ pub const CDM_SETCONTROLTEXT: u32 = 1128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CDM_SETDEFEXT: u32 = 1130u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_FILEOK: u32 = 4294966690u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_FOLDERCHANGE: u32 = 4294966693u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_HELP: u32 = 4294966691u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_INCLUDEITEM: u32 = 4294966688u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_INITDONE: u32 = 4294966695u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_SELCHANGE: u32 = 4294966694u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_SHAREVIOLATION: u32 = 4294966692u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_TYPECHANGE: u32 = 4294966689u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CD_LBSELADD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CD_LBSELCHANGE: u32 = 0u32;
@@ -699,49 +715,6 @@ impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMMON_DIALOG_NOTIFICATION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_FIRST: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-601i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_LAST: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-699i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_INITDONE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-601i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_SELCHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-602i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_FOLDERCHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-603i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_SHAREVIOLATION: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-604i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_HELP: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-605i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_FILEOK: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-606i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_TYPECHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-607i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const CDN_INCLUDEITEM: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-608i32);
-impl ::core::marker::Copy for COMMON_DIALOG_NOTIFICATION {}
-impl ::core::clone::Clone for COMMON_DIALOG_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMMON_DIALOG_NOTIFICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows::core::TypeKind for COMMON_DIALOG_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
-}
-impl ::core::fmt::Debug for COMMON_DIALOG_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMMON_DIALOG_NOTIFICATION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -1468,7 +1441,7 @@ pub struct CHOOSEFONTA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows::core::PCSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpszStyle: ::windows::core::PSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
@@ -1512,7 +1485,7 @@ pub struct CHOOSEFONTA {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows::core::PCSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpszStyle: ::windows::core::PSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
@@ -1556,7 +1529,7 @@ pub struct CHOOSEFONTW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows::core::PCWSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpszStyle: ::windows::core::PWSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
@@ -1600,7 +1573,7 @@ pub struct CHOOSEFONTW {
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows::core::PCWSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpszStyle: ::windows::core::PWSTR,
     pub nFontType: CHOOSEFONT_FONT_TYPE,
     pub ___MISSING_ALIGNMENT__: u16,
@@ -1690,7 +1663,7 @@ impl ::core::default::Default for DEVNAMES {
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub Flags: FINDREPLACE_FLAGS,
     pub lpstrFindWhat: ::windows::core::PSTR,
     pub lpstrReplaceWith: ::windows::core::PSTR,
@@ -1729,7 +1702,7 @@ impl ::core::default::Default for FINDREPLACEA {
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub Flags: FINDREPLACE_FLAGS,
     pub lpstrFindWhat: ::windows::core::PSTR,
     pub lpstrReplaceWith: ::windows::core::PSTR,
@@ -1768,7 +1741,7 @@ impl ::core::default::Default for FINDREPLACEA {
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub Flags: FINDREPLACE_FLAGS,
     pub lpstrFindWhat: ::windows::core::PWSTR,
     pub lpstrReplaceWith: ::windows::core::PWSTR,
@@ -1807,7 +1780,7 @@ impl ::core::default::Default for FINDREPLACEW {
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub Flags: FINDREPLACE_FLAGS,
     pub lpstrFindWhat: ::windows::core::PWSTR,
     pub lpstrReplaceWith: ::windows::core::PWSTR,
@@ -2098,7 +2071,7 @@ impl ::core::default::Default for OFNOTIFYW {
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCSTR,
     pub lpstrCustomFilter: ::windows::core::PSTR,
     pub nMaxCustFilter: u32,
@@ -2149,7 +2122,7 @@ impl ::core::default::Default for OPENFILENAMEA {
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCSTR,
     pub lpstrCustomFilter: ::windows::core::PSTR,
     pub nMaxCustFilter: u32,
@@ -2200,7 +2173,7 @@ impl ::core::default::Default for OPENFILENAMEA {
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCWSTR,
     pub lpstrCustomFilter: ::windows::core::PWSTR,
     pub nMaxCustFilter: u32,
@@ -2251,7 +2224,7 @@ impl ::core::default::Default for OPENFILENAMEW {
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCWSTR,
     pub lpstrCustomFilter: ::windows::core::PWSTR,
     pub nMaxCustFilter: u32,
@@ -2302,7 +2275,7 @@ impl ::core::default::Default for OPENFILENAMEW {
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCSTR,
     pub lpstrCustomFilter: ::windows::core::PSTR,
     pub nMaxCustFilter: u32,
@@ -2350,7 +2323,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCSTR,
     pub lpstrCustomFilter: ::windows::core::PSTR,
     pub nMaxCustFilter: u32,
@@ -2398,7 +2371,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCWSTR,
     pub lpstrCustomFilter: ::windows::core::PWSTR,
     pub nMaxCustFilter: u32,
@@ -2446,7 +2419,7 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpstrFilter: ::windows::core::PCWSTR,
     pub lpstrCustomFilter: ::windows::core::PWSTR,
     pub nMaxCustFilter: u32,
@@ -2500,7 +2473,7 @@ pub struct PAGESETUPDLGA {
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
     pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
@@ -2542,7 +2515,7 @@ pub struct PAGESETUPDLGA {
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
     pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
@@ -2584,7 +2557,7 @@ pub struct PAGESETUPDLGW {
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
     pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
@@ -2626,7 +2599,7 @@ pub struct PAGESETUPDLGW {
     pub ptPaperSize: super::super::super::Foundation::POINT,
     pub rtMinMargin: super::super::super::Foundation::RECT,
     pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPageSetupHook: LPPAGESETUPHOOK,
     pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
@@ -2671,7 +2644,7 @@ pub struct PRINTDLGA {
     pub nMinPage: u16,
     pub nMaxPage: u16,
     pub nCopies: u16,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
@@ -2718,7 +2691,7 @@ pub struct PRINTDLGA {
     pub nMinPage: u16,
     pub nMaxPage: u16,
     pub nCopies: u16,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
@@ -2768,7 +2741,7 @@ pub struct PRINTDLGEXA {
     pub nMinPage: u32,
     pub nMaxPage: u32,
     pub nCopies: u32,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
     pub lpCallback: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub nPropertyPages: u32,
@@ -2814,7 +2787,7 @@ pub struct PRINTDLGEXA {
     pub nMinPage: u32,
     pub nMaxPage: u32,
     pub nCopies: u32,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
     pub lpCallback: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub nPropertyPages: u32,
@@ -2853,7 +2826,7 @@ pub struct PRINTDLGEXW {
     pub nMinPage: u32,
     pub nMaxPage: u32,
     pub nCopies: u32,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
     pub lpCallback: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub nPropertyPages: u32,
@@ -2899,7 +2872,7 @@ pub struct PRINTDLGEXW {
     pub nMinPage: u32,
     pub nMaxPage: u32,
     pub nCopies: u32,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
     pub lpCallback: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub nPropertyPages: u32,
@@ -2935,7 +2908,7 @@ pub struct PRINTDLGW {
     pub nMinPage: u16,
     pub nMaxPage: u16,
     pub nCopies: u16,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,
@@ -2982,7 +2955,7 @@ pub struct PRINTDLGW {
     pub nMinPage: u16,
     pub nMaxPage: u16,
     pub nCopies: u16,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::super::Foundation::HMODULE,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnPrintHook: LPPRINTHOOKPROC,
     pub lpfnSetupHook: LPSETUPHOOKPROC,

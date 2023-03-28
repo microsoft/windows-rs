@@ -968,8 +968,8 @@ impl IWICColorTransform_Vtbl {
         iid == &<IWICColorTransform as ::windows::core::ComInterface>::IID || iid == &<IWICBitmapSource as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateMetadataReader(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
     fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
@@ -979,9 +979,9 @@ pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: ::core::option::Option<&IWICMetadataBlockWriter>) -> ::windows::core::Result<IWICMetadataQueryWriter>;
     fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IWICComponentFactory {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICComponentFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWICComponentFactory_Impl, const OFFSET: isize>() -> IWICComponentFactory_Vtbl {
         unsafe extern "system" fn CreateMetadataReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: *mut ::core::ffi::c_void, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1776,10 +1776,10 @@ impl IWICFormatConverterInfo_Vtbl {
         iid == &<IWICFormatConverterInfo as ::windows::core::ComInterface>::IID || iid == &<IWICComponentInfo as ::windows::core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory_Impl: Sized {
-    fn CreateDecoderFromFilename(&self, wzfilename: &::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
+    fn CreateDecoderFromFilename(&self, wzfilename: &::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromStream(&self, pistream: ::core::option::Option<&super::super::System::Com::IStream>, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo>;
@@ -1805,12 +1805,12 @@ pub trait IWICImagingFactory_Impl: Sized {
     fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>;
     fn CreateQueryWriterFromReader(&self, piqueryreader: ::core::option::Option<&IWICMetadataQueryReader>, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IWICImagingFactory {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWICImagingFactory_Impl, const OFFSET: isize>() -> IWICImagingFactory_Vtbl {
-        unsafe extern "system" fn CreateDecoderFromFilename<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoderFromFilename<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateDecoderFromFilename(::core::mem::transmute(&wzfilename), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwdesiredaccess), ::core::mem::transmute_copy(&metadataoptions)) {

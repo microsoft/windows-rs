@@ -12622,7 +12622,7 @@ pub trait IProgressDialog_Impl: Sized {
     fn StartProgressDialog(&self, hwndparent: super::super::Foundation::HWND, punkenablemodless: ::core::option::Option<&::windows::core::IUnknown>, dwflags: u32, pvresevered: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn StopProgressDialog(&self) -> ::windows::core::Result<()>;
     fn SetTitle(&self, pwztitle: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn SetAnimation(&self, hinstanimation: super::super::Foundation::HINSTANCE, idanimation: u32) -> ::windows::core::Result<()>;
+    fn SetAnimation(&self, hinstanimation: super::super::Foundation::HMODULE, idanimation: u32) -> ::windows::core::Result<()>;
     fn HasUserCancelled(&self) -> super::super::Foundation::BOOL;
     fn SetProgress(&self, dwcompleted: u32, dwtotal: u32) -> ::windows::core::Result<()>;
     fn SetProgress64(&self, ullcompleted: u64, ulltotal: u64) -> ::windows::core::Result<()>;
@@ -12650,7 +12650,7 @@ impl IProgressDialog_Vtbl {
             let this = (*this).get_impl();
             this.SetTitle(::core::mem::transmute(&pwztitle)).into()
         }
-        unsafe extern "system" fn SetAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinstanimation: super::super::Foundation::HINSTANCE, idanimation: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinstanimation: super::super::Foundation::HMODULE, idanimation: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAnimation(::core::mem::transmute_copy(&hinstanimation), ::core::mem::transmute_copy(&idanimation)).into()

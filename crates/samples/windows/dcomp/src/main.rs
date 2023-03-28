@@ -524,8 +524,7 @@ fn create_image() -> Result<IWICFormatConverter> {
         let decoder = factory.CreateDecoderFromFilename(
             path,
             None,
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1499
-            GENERIC_READ.0,
+            GENERIC_READ,
             WICDecodeMetadataCacheOnDemand,
         )?;
 

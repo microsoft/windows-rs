@@ -13,17 +13,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothEnumerateInstalledServices ( hradio : super::super::Foundation:: HANDLE , pbtdi : *const BLUETOOTH_DEVICE_INFO , pcserviceinout : *mut u32 , pguidservices : *mut ::windows_sys::core::GUID ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindDeviceClose ( hfind : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindDeviceClose ( hfind : HBLUETOOTH_DEVICE_FIND ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindFirstDevice ( pbtsp : *const BLUETOOTH_DEVICE_SEARCH_PARAMS , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> isize );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindFirstDevice ( pbtsp : *const BLUETOOTH_DEVICE_SEARCH_PARAMS , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> HBLUETOOTH_DEVICE_FIND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindFirstRadio ( pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS , phradio : *mut super::super::Foundation:: HANDLE ) -> isize );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindFirstRadio ( pbtfrp : *const BLUETOOTH_FIND_RADIO_PARAMS , phradio : *mut super::super::Foundation:: HANDLE ) -> HBLUETOOTH_RADIO_FIND );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindNextDevice ( hfind : isize , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindNextDevice ( hfind : HBLUETOOTH_DEVICE_FIND , pbtdi : *mut BLUETOOTH_DEVICE_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindNextRadio ( hfind : isize , phradio : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindNextRadio ( hfind : HBLUETOOTH_RADIO_FIND , phradio : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindRadioClose ( hfind : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothFindRadioClose ( hfind : HBLUETOOTH_RADIO_FIND ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "bluetoothapis.dll""system" #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"] fn BluetoothGATTAbortReliableWrite ( hdevice : super::super::Foundation:: HANDLE , reliablewritecontext : u64 , flags : u32 ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
@@ -2536,6 +2536,8 @@ impl ::core::clone::Clone for BTH_SET_SERVICE {
     }
 }
 pub type HANDLE_SDP_TYPE = u64;
+pub type HBLUETOOTH_DEVICE_FIND = isize;
+pub type HBLUETOOTH_RADIO_FIND = isize;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub struct RFCOMM_COMMAND {

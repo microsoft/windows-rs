@@ -577,7 +577,7 @@ pub trait IDXGIFactory_Impl: Sized + IDXGIObject_Impl {
     fn MakeWindowAssociation(&self, windowhandle: super::super::Foundation::HWND, flags: u32) -> ::windows::core::Result<()>;
     fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn CreateSwapChain(&self, pdevice: ::core::option::Option<&::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT;
-    fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HINSTANCE) -> ::windows::core::Result<IDXGIAdapter>;
+    fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HMODULE) -> ::windows::core::Result<IDXGIAdapter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for IDXGIFactory {}
@@ -616,7 +616,7 @@ impl IDXGIFactory_Vtbl {
             let this = (*this).get_impl();
             this.CreateSwapChain(::windows::core::from_raw_borrowed(&pdevice), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppswapchain))
         }
-        unsafe extern "system" fn CreateSoftwareAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: super::super::Foundation::HINSTANCE, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSoftwareAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: super::super::Foundation::HMODULE, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSoftwareAdapter(::core::mem::transmute_copy(&module)) {

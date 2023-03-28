@@ -359,9 +359,9 @@ where
 #[inline]
 pub unsafe fn SetWinEventHook<P0>(eventmin: u32, eventmax: u32, hmodwineventproc: P0, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
+    ::windows::imp::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HMODULE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
     SetWinEventHook(eventmin, eventmax, hmodwineventproc.into_param().abi(), pfnwineventproc, idprocess, idthread, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]

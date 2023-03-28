@@ -20799,33 +20799,6 @@ impl ::windows::core::TypeKind for HGLOBAL {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HINSTANCE(pub isize);
-impl HINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
-}
-impl ::core::default::Default for HINSTANCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HINSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HINSTANCE {}
-impl ::core::fmt::Debug for HINSTANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HINSTANCE").field(&self.0).finish()
-    }
-}
-impl ::windows::core::TypeKind for HINSTANCE {
-    type TypeKind = ::windows::core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HLOCAL(pub isize);
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
@@ -20880,6 +20853,33 @@ impl ::core::default::Default for HLSURF__ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HMODULE(pub isize);
+impl HMODULE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for HMODULE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMODULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMODULE {}
+impl ::core::fmt::Debug for HMODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMODULE").field(&self.0).finish()
+    }
+}
+impl ::windows::core::TypeKind for HMODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

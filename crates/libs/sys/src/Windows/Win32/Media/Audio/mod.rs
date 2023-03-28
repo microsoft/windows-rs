@@ -18,13 +18,13 @@ pub mod XAudio2;
 ::windows_sys::core::link ! ( "windows.media.mediacontrol.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : ::windows_sys::core::PCWSTR , audiostatemonitor : *mut IAudioStateMonitor ) -> ::windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "windows.media.mediacontrol.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut IAudioStateMonitor ) -> ::windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn PlaySoundA ( pszsound : ::windows_sys::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn PlaySoundA ( pszsound : ::windows_sys::core::PCSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn PlaySoundW ( pszsound : ::windows_sys::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "winmm.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn PlaySoundW ( pszsound : ::windows_sys::core::PCWSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverClose ( had : HACMDRIVER , fdwclose : u32 ) -> u32 );
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_sys::core::link ! ( "msacm32.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsA ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSA , fdwdetails : u32 ) -> u32 );
@@ -1822,7 +1822,7 @@ pub struct ACMFILTERCHOOSEA {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
@@ -1851,7 +1851,7 @@ pub struct ACMFILTERCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
@@ -1948,7 +1948,7 @@ pub struct ACMFORMATCHOOSEA {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
@@ -1977,7 +1977,7 @@ pub struct ACMFORMATCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,

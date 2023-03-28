@@ -4,9 +4,9 @@
 pub unsafe fn BuildDisplayTable<P0, P1>(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: P0, hinstance: P1, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut ::core::option::Option<IMAPITable>, lpptbldata: *mut ::core::option::Option<ITableData>) -> ::windows::core::Result<()>
 where
     P0: ::windows::core::IntoParam<super::Com::IMalloc>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "mapi32.dll""system" fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "mapi32.dll""system" fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HMODULE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     BuildDisplayTable(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), hinstance.into_param().abi(), cpages, lppage, ulflags, ::core::mem::transmute(lpptable), ::core::mem::transmute(lpptbldata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]

@@ -97,9 +97,9 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AU
 pub unsafe fn PlaySoundA<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : ::windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundA ( pszsound : ::windows::core::PCSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -108,9 +108,9 @@ where
 pub unsafe fn PlaySoundW<P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : ::windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "winmm.dll""system" fn PlaySoundW ( pszsound : ::windows::core::PCWSTR , hmod : super::super::Foundation:: HMODULE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -118,10 +118,10 @@ where
 #[inline]
 pub unsafe fn acmDriverAddA<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddA(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -129,10 +129,10 @@ where
 #[inline]
 pub unsafe fn acmDriverAddW<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::imp::link ! ( "msacm32.dll""system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HMODULE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddW(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -8188,7 +8188,7 @@ pub struct ACMFILTERCHOOSEA {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
@@ -8227,7 +8227,7 @@ pub struct ACMFILTERCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
@@ -8366,7 +8366,7 @@ pub struct ACMFORMATCHOOSEA {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
@@ -8405,7 +8405,7 @@ pub struct ACMFORMATCHOOSEW {
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
-    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub hInstance: super::super::Foundation::HMODULE,
     pub pszTemplateName: ::windows::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,

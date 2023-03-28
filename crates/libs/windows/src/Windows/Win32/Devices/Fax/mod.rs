@@ -583,10 +583,10 @@ where
 #[inline]
 pub unsafe fn StiCreateInstanceW<P0, P1>(hinst: P0, dwver: u32, ppsti: *mut ::core::option::Option<IStillImageW>, punkouter: P1) -> ::windows::core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::imp::link ! ( "sti.dll""system" fn StiCreateInstanceW ( hinst : super::super::Foundation:: HINSTANCE , dwver : u32 , ppsti : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
+    ::windows::imp::link ! ( "sti.dll""system" fn StiCreateInstanceW ( hinst : super::super::Foundation:: HMODULE , dwver : u32 , ppsti : *mut * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void ) -> ::windows::core::HRESULT );
     StiCreateInstanceW(hinst.into_param().abi(), dwver, ::core::mem::transmute(ppsti), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
@@ -7909,7 +7909,7 @@ impl IStiDevice {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, hinst: P0, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), pwszdevicename.into_param().abi(), dwversion, dwmode).ok()
@@ -8002,7 +8002,7 @@ unsafe impl ::windows::core::ComInterface for IStiDevice {
 pub struct IStiDevice_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::HRESULT,
@@ -8289,7 +8289,7 @@ impl IStillImageW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0>(&self, hinst: P0, dwversion: u32) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), dwversion).ok()
     }
@@ -8408,7 +8408,7 @@ unsafe impl ::windows::core::ComInterface for IStillImageW {
 pub struct IStillImageW_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HMODULE, dwversion: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Initialize: usize,
     pub GetDeviceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12327,10 +12327,10 @@ pub type PFAX_EXT_GET_DATA = ::core::option::Option<unsafe extern "system" fn(pa
 pub type PFAX_EXT_INITIALIZE_CONFIG = ::core::option::Option<unsafe extern "system" fn(param0: PFAX_EXT_GET_DATA, param1: PFAX_EXT_SET_DATA, param2: PFAX_EXT_REGISTER_FOR_EVENTS, param3: PFAX_EXT_UNREGISTER_FOR_EVENTS, param4: PFAX_EXT_FREE_BUFFER) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
+pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HMODULE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: *mut u8, param5: u32) -> u32>;
+pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HMODULE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows::core::PCWSTR, param4: *mut u8, param5: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_EXT_UNREGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;

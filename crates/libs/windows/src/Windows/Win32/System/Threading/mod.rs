@@ -885,9 +885,9 @@ pub unsafe fn FlushProcessWriteBuffers() {
 pub unsafe fn FreeLibraryWhenCallbackReturns<P0, P1>(pci: P0, r#mod: P1)
 where
     P0: ::windows::core::IntoParam<PTP_CALLBACK_INSTANCE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "kernel32.dll""system" fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HINSTANCE ) -> ( ) );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn FreeLibraryWhenCallbackReturns ( pci : PTP_CALLBACK_INSTANCE , r#mod : super::super::Foundation:: HMODULE ) -> ( ) );
     FreeLibraryWhenCallbackReturns(pci.into_param().abi(), r#mod.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -2671,6 +2671,8 @@ pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const FLS_OUT_OF_INDEXES: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const INFINITE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -5404,7 +5406,7 @@ impl ::core::default::Default for REASON_CONTEXT_0 {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT_0_0 {
-    pub LocalizedReasonModule: super::super::Foundation::HINSTANCE,
+    pub LocalizedReasonModule: super::super::Foundation::HMODULE,
     pub LocalizedReasonId: u32,
     pub ReasonStringCount: u32,
     pub ReasonStrings: *mut ::windows::core::PWSTR,

@@ -211,9 +211,9 @@ pub unsafe fn CoFreeAllLibraries() {
 #[inline]
 pub unsafe fn CoFreeLibrary<P0>(hinst: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeLibrary ( hinst : super::super::Foundation:: HINSTANCE ) -> ( ) );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoFreeLibrary ( hinst : super::super::Foundation:: HMODULE ) -> ( ) );
     CoFreeLibrary(hinst.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -414,12 +414,12 @@ pub unsafe fn CoIsOle1Class(rclsid: *const ::windows::core::GUID) -> super::supe
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoLoadLibrary<P0, P1>(lpszlibname: P0, bautofree: P1) -> super::super::Foundation::HINSTANCE
+pub unsafe fn CoLoadLibrary<P0, P1>(lpszlibname: P0, bautofree: P1) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows::imp::link ! ( "ole32.dll""system" fn CoLoadLibrary ( lpszlibname : ::windows::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "ole32.dll""system" fn CoLoadLibrary ( lpszlibname : ::windows::core::PCWSTR , bautofree : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HMODULE );
     CoLoadLibrary(lpszlibname.into_param().abi(), bautofree.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]

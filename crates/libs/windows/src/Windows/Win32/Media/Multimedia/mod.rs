@@ -609,11 +609,11 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HINSTANCE
+pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<HDRVR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn DrvGetModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "winmm.dll""system" fn DrvGetModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HMODULE );
     DrvGetModuleHandle(hdriver.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -697,11 +697,11 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDriverModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HINSTANCE
+pub unsafe fn GetDriverModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
 where
     P0: ::windows::core::IntoParam<HDRVR>,
 {
-    ::windows::imp::link ! ( "winmm.dll""system" fn GetDriverModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::imp::link ! ( "winmm.dll""system" fn GetDriverModuleHandle ( hdriver : HDRVR ) -> super::super::Foundation:: HMODULE );
     GetDriverModuleHandle(hdriver.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -924,10 +924,10 @@ pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super:
 pub unsafe fn MCIWndCreateA<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows::core::PCSTR ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateA ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HMODULE , dwstyle : u32 , szfile : ::windows::core::PCSTR ) -> super::super::Foundation:: HWND );
     MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -936,10 +936,10 @@ where
 pub unsafe fn MCIWndCreateW<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
     P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HINSTANCE , dwstyle : u32 , szfile : ::windows::core::PCWSTR ) -> super::super::Foundation:: HWND );
+    ::windows::imp::link ! ( "msvfw32.dll""cdecl" fn MCIWndCreateW ( hwndparent : super::super::Foundation:: HWND , hinstance : super::super::Foundation:: HMODULE , dwstyle : u32 , szfile : ::windows::core::PCWSTR ) -> super::super::Foundation:: HWND );
     MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]

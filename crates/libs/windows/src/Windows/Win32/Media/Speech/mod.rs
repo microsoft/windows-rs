@@ -2719,7 +2719,7 @@ impl ISpRecoGrammar {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadCmdFromResource<P0, P1, P2>(&self, hmodule: P0, pszresourcename: P1, pszresourcetype: P2, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
         P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
         P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
@@ -2814,7 +2814,7 @@ pub struct ISpRecoGrammar_Vtbl {
     pub LoadCmdFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT,
     pub LoadCmdFromObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rcid: *const ::windows::core::GUID, pszgrammarname: ::windows::core::PCWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub LoadCmdFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmodule: super::super::Foundation::HINSTANCE, pszresourcename: ::windows::core::PCWSTR, pszresourcetype: ::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::HRESULT,
+    pub LoadCmdFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmodule: super::super::Foundation::HMODULE, pszresourcename: ::windows::core::PCWSTR, pszresourcetype: ::windows::core::PCWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LoadCmdFromResource: usize,
     pub LoadCmdFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT,

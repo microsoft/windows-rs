@@ -2,7 +2,8 @@
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "rpcproxy.dll""system" #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"] fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
 pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
@@ -2020,11 +2021,12 @@ impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
-    pub ConnID: *mut ::core::ffi::c_void,
+    pub ConnID: HCONN,
     pub dwHttpStatusCode: u32,
     pub lpszLogData: [u8; 80],
     pub lpszMethod: ::windows_sys::core::PSTR,
@@ -2035,17 +2037,20 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub cbAvailable: u32,
     pub lpbData: *mut u8,
     pub lpszContentType: ::windows_sys::core::PSTR,
-    pub GetServerVariable: isize,
-    pub WriteClient: isize,
-    pub ReadClient: isize,
-    pub ServerSupportFunction: isize,
+    pub GetServerVariable: PFN_IIS_GETSERVERVARIABLE,
+    pub WriteClient: PFN_IIS_WRITECLIENT,
+    pub ReadClient: PFN_IIS_READCLIENT,
+    pub ServerSupportFunction: PFN_IIS_SERVERSUPPORTFUNCTION,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTENSION_CONTROL_BLOCK {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
     fn clone(&self) -> Self {
         *self
     }
 }
+pub type HCONN = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2692,10 +2697,24 @@ pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system"
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszurl: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: ::windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: ::windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32) -> ()>;
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_GETSERVERVARIABLE = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: ::windows_sys::core::PCSTR, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_READCLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_SERVERSUPPORTFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_IIS_WRITECLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_TERMINATEEXTENSION = ::core::option::Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
