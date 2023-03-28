@@ -185,7 +185,8 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     bindings
 }
 
-pub fn standalone(names: &[&str], files: &[File]) -> String {
+pub fn standalone(names: &[&str]) -> String {
+    let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
     let mut gen = &mut Gen::new(reader);
     gen.standalone = true;
