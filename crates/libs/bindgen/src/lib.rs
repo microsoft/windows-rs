@@ -24,9 +24,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     let mut tokens = TokenStream::new();
 
     if tree.namespace == "Windows" || !tree.namespace.starts_with("Windows.") {
-        tokens.combine(&quote! {
-            #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
-        });
+        tokens.combine(&allow());
     }
 
     for (name, tree) in &tree.nested {
@@ -185,6 +183,123 @@ pub fn component(namespace: &str, files: &[File]) -> String {
     let mut bindings = crate::namespace(&gen, &tree);
     bindings.push_str(&namespace_impl(&gen, &tree));
     bindings
+}
+
+pub fn standalone(names: &[&str], files: &[File]) -> String {
+    let reader = &Reader::new(files);
+    let mut gen = &mut Gen::new(reader);
+    gen.standalone = true;
+    gen.sys = true;
+    let mut tokens = allow();
+
+    tokens.combine(&quote! {
+        pub type PSTR = *mut u8;
+        pub type PWSTR = *mut u16;
+        pub type PCSTR = *const u8;
+        pub type PCWSTR = *const u16;
+    });
+
+    for name in names {
+        let type_name = TypeName::parse(name);
+        let mut found = false;
+
+        for def in reader.get(type_name) {
+            found = true;
+            let kind = gen.reader.type_def_kind(def);
+
+            match kind {
+                TypeKind::Class | TypeKind::Interface => unimplemented!(),
+                TypeKind::Enum => tokens.combine(&enums::gen(gen, def)),
+                TypeKind::Struct => {
+                    if gen.reader.type_def_fields(def).next().is_none() {
+                        if let Some(guid) = gen.reader.type_def_guid(def) {
+                            let ident = to_ident(type_name.name);
+                            let value = gen.guid(&guid);
+                            let guid = gen.type_name(&Type::GUID);
+                            let cfg = gen.reader.type_def_cfg(def, &[]);
+                            let doc = gen.cfg_doc(&cfg);
+                            let constant = quote! {
+                                #doc
+                                pub const #ident: #guid = #value;
+                            };
+                            tokens.combine(&constant);
+                            continue;
+                        }
+                    }
+                    tokens.combine(&structs::gen(gen, def));
+                }
+                TypeKind::Delegate => tokens.combine(&delegates::gen(gen, def)),
+            }
+        }
+
+        if !found {
+            if let Some(def) = reader
+                .get(TypeName::new(type_name.namespace, "Apis"))
+                .next()
+            {
+                for method in gen.reader.type_def_methods(def) {
+                    if found {
+                        break;
+                    }
+                    let name = gen.reader.method_def_name(method);
+                    if name == type_name.name {
+                        found = true;
+                        tokens.combine(&functions::gen(gen, method));
+                    }
+                }
+                for field in gen.reader.type_def_fields(def) {
+                    if found {
+                        break;
+                    }
+                    let name = gen.reader.field_name(field);
+                    if name == type_name.name {
+                        found = true;
+                        tokens.combine(&constants::gen(gen, field));
+                    }
+                }
+            }
+        }
+    }
+
+    try_format(tokens.into_string())
+}
+
+fn try_format(tokens: String) -> String {
+    use std::io::Write;
+
+    let Ok(mut child) = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn() else {
+        return tokens;
+    };
+
+    let Some(mut stdin) = child.stdin.take() else {
+        return tokens;
+    };
+
+    if stdin.write_all(tokens.as_bytes()).is_err() {
+        return tokens;
+    }
+
+    drop(stdin);
+
+    let Ok(output) = child.wait_with_output() else {
+        return tokens;
+    };
+
+    if !output.status.success() {
+        return tokens;
+    }
+
+    if let Ok(result) = String::from_utf8(output.stdout) {
+        result
+    } else {
+        tokens
+    }
+}
+
+fn allow() -> TokenStream {
+    quote! {
+        #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
+    }
 }
 
 /// Expand a possibly empty generics list with a new generic

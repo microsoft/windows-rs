@@ -18,14 +18,14 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                     quote! {
                         #doc
                         #features
-                        pub const #name: ::#crate_name::core::PCSTR = ::#crate_name::s!(#value);
+                        pub const #name: #crate_name PCSTR = #crate_name s!(#value);
                     }
                 } else {
                     let value = gen.value(&gen.reader.constant_value(constant));
                     quote! {
                         #doc
                         #features
-                        pub const #name: ::#crate_name::core::PCWSTR = ::#crate_name::w!(#value);
+                        pub const #name: #crate_name PCWSTR = #crate_name w!(#value);
                     }
                 }
             } else {
